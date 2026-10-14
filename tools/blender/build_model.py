@@ -382,7 +382,11 @@ def pose_for(clip, t, b, height, is_front, side):
         elif clip == "run":
             p = -0.35
     elif role == "wing":
-        if clip == "fly":
+        if clip == "fly" and BIRD["buzz"]:
+            # an insect's wings beat far faster than any frame rate: flip up and
+            # down every frame, which reads as a blur, like the real thing
+            r = side * 0.6 * sw * (1 if round(t * FLY_FRAMES) % 2 == 0 else -1)
+        elif clip == "fly":
             r = side * 0.9 * sw * s
     elif role == "fin":
         if clip in ("swim", "walk", "run", "idle"):
@@ -392,7 +396,8 @@ def pose_for(clip, t, b, height, is_front, side):
 
 
 # Birds (anything with "wing" bones): set per model in make_actions.
-BIRD = {"on": False, "pitch": 0.0}
+BIRD = {"on": False, "pitch": 0.0, "buzz": False, "legs": 1.3}
+FLY_FRAMES = 16
 
 
 def bird_pose(clip, t, b, p, y, r, side):
@@ -411,7 +416,7 @@ def bird_pose(clip, t, b, p, y, r, side):
         if role == "tail":   # trails level behind the tipped body, steering a little
             return p - BIRD["pitch"] * 0.8 + 0.06 * wave(t, 0.25), y, r
         if role == "leg":
-            return 1.3, 0.0, 0.0
+            return BIRD["legs"], 0.0, 0.0
     if role == "leg" and clip == "sleep":
         return 0.0, 0.0, 0.0
     return p, y, r
@@ -429,6 +434,8 @@ def root_offset(clip, t, height, gait):
         return -0.04 * height
     if clip == "idle":
         return 0.01 * height * wave(t)
+    if clip == "fly":
+        return 0.04 * height * wave(t, 0, 2)   # bobbing on the air
     return 0.0
 
 
@@ -438,8 +445,10 @@ def make_actions(spec, arm_obj, height):
     roles = {b["role"] for b in spec["bones"]}
     BIRD["on"] = "wing" in roles
     BIRD["pitch"] = math.radians(spec.get("fly_pitch", 50))   # how far the body tips forward to fly level
+    BIRD["buzz"] = spec.get("wingbeat") == "buzz"              # insects: a blur of wings
+    BIRD["legs"] = math.radians(spec.get("fly_legs", 75))      # legs swing back in flight (birds tuck them)
     if "wing" in roles:
-        clips["fly"] = 16
+        clips["fly"] = FLY_FRAMES
     if "fin" in roles:
         clips["swim"] = 24
     arm_obj.animation_data_create()
@@ -506,6 +515,8 @@ def render_sheet(spec, arm_obj, mesh_obj, actions, out_path, coats, mats):
     cam_data = bpy.data.cameras.new("cam")
     cam_data.type = "ORTHO"
     cam_data.ortho_scale = extent * 1.45
+    cam_data.clip_start = extent * 0.01   # tiny animals (a 2 cm bee) mustn't be cut by the camera
+    cam_data.clip_end = extent * 100
     cam = bpy.data.objects.new("cam", cam_data)
     scene.collection.objects.link(cam)
     scene.camera = cam
@@ -590,7 +601,8 @@ def main():
         skin = None
     else:
         pts = [Vector(p["at"]) for p in spec["parts"]]
-        length = max(max(v.z for v in pts) - min(v.z for v in pts), max(v.y for v in pts)) + 0.05
+        span = max(max(v.z for v in pts) - min(v.z for v in pts), max(v.y for v in pts))
+        length = span + min(0.05, span * 0.15)   # a little for the parts' own size; small animals stay small
         skin = skin_settings(spec, length)
         mesh_obj = build_skin(spec, mats, arm_obj, skin)
     zs = [v.co.z for v in mesh_obj.data.vertices]

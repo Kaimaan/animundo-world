@@ -1,0 +1,49 @@
+{
+  "id": "bee",
+  "name": "White-tailed bumblebee (Bombus lucorum), queen",
+  "author": "Animundo team",
+  "gait": "walk",
+  "wingbeat": "buzz",
+  "fly_pitch": 0,
+  "fly_legs": 25,
+  "colors": {
+    "fur": "#2b2622",
+    "yellow": "#ecc93a",
+    "white": "#efe9dc",
+    "wing": "#c4d2e0",
+    "leg": "#2a2420",
+    "eye": "#4a3a2e"
+  },
+  "skin": {
+    "triangles": 720
+  },
+  "bones": [
+    {"name": "body", "head": [0, 0.006, -0.008], "tail": [0, 0.0066, 0.004], "role": "body"},
+    {"name": "head", "head": [0, 0.0062, 0.0052], "tail": [0, 0.0052, 0.01], "parent": "body", "role": "head", "swing": 0.5},
+    {"name": "antenna_l", "head": [0.0011, 0.0072, 0.0092], "tail": [0.0018, 0.0098, 0.0112], "parent": "head", "role": "ear", "mirror": true},
+    {"name": "wing_l", "head": [0.0018, 0.0108, 0.0018], "tail": [0.0138, 0.0108, 0.0008], "parent": "body", "role": "wing", "mirror": true, "fold": [0, 84, 4], "fold_length": 1.0, "swing": 0.8},
+    {"name": "leg_f_l", "head": [0.0015, 0.0032, 0.0045], "tail": [0.0052, 0.0002, 0.0072], "parent": "body", "role": "leg", "phase": 0.0, "mirror": true},
+    {"name": "leg_m_l", "head": [0.0018, 0.003, 0.0012], "tail": [0.0062, 0.0002, 0.0004], "parent": "body", "role": "leg", "phase": 0.5, "mirror": true},
+    {"name": "leg_b_l", "head": [0.0018, 0.0031, -0.0008], "tail": [0.0056, 0.0002, -0.006], "parent": "body", "role": "leg", "phase": 0.0, "mirror": true}
+  ],
+  "parts": [
+    {"name": "head", "shape": "ball", "size": [0.0058, 0.0062, 0.005], "at": [0, 0.0056, 0.0076], "rot": [20, 0, 0], "color": "fur", "bone": "head"},
+    {"name": "thorax", "shape": "ball", "size": [0.0086, 0.0082, 0.0076], "at": [0, 0.0064, 0.0015], "color": "fur", "bone": "body"},
+    {"name": "collar", "shape": "ball", "size": [0.0088, 0.0084, 0.0034], "at": [0, 0.0067, 0.0046], "rot": [-15, 0, 0], "color": "yellow", "bone": "body"},
+    {"name": "waist", "shape": "ball", "size": [0.009, 0.0082, 0.0036], "at": [0, 0.0062, -0.0022], "color": "fur", "bone": "body"},
+    {"name": "band", "shape": "ball", "size": [0.011, 0.0088, 0.004], "at": [0, 0.0058, -0.004], "color": "yellow", "bone": "body"},
+    {"name": "abdomen", "shape": "ball", "size": [0.0112, 0.0088, 0.0042], "at": [0, 0.0056, -0.0062], "color": "fur", "bone": "body"},
+    {"name": "tail", "shape": "ball", "size": [0.0102, 0.0082, 0.0066], "at": [0, 0.0055, -0.0087], "color": "white", "bone": "body"},
+    {"name": "eye_l", "shape": "ball", "size": [0.0016, 0.004, 0.0026], "at": [0.0025, 0.0062, 0.0082], "rot": [20, 0, 0], "color": "eye", "bone": "head", "mirror": true, "separate": true, "detail": 0.4},
+    {"name": "forewing_l", "shape": "ball", "size": [0.0115, 0.0003, 0.0042], "at": [0.0074, 0.0108, 0.001], "rot": [0, 4, 0], "color": "wing", "bone": "wing_l", "mirror": true, "separate": true, "detail": 0.5},
+    {"name": "hindwing_l", "shape": "ball", "size": [0.0072, 0.0003, 0.0028], "at": [0.0052, 0.01075, -0.0014], "rot": [0, 8, 0], "color": "wing", "bone": "wing_l", "mirror": true, "separate": true, "detail": 0.4},
+    {"name": "scape_l", "shape": "cylinder", "size": [0.0006, 0.00313, 0.0006], "at": [0.00135, 0.0085, 0.0096], "rot": [17.0, 0, -10.5], "color": "leg", "bone": "antenna_l", "mirror": true, "separate": true, "detail": 0.4},
+    {"name": "flag_l", "shape": "cylinder", "size": [0.0006, 0.00409, 0.0006], "at": [0.0021, 0.0102, 0.01175], "rot": [77.0, 0, -15.5], "color": "leg", "bone": "antenna_l", "mirror": true, "separate": true, "detail": 0.4},
+    {"name": "femur_f_l", "shape": "cylinder", "size": [0.0008, 0.00358, 0.0008], "at": [0.00285, 0.0031, 0.00525], "rot": [97.5, 0, -60.5], "color": "leg", "bone": "leg_f_l", "mirror": true, "separate": true, "detail": 0.4},
+    {"name": "tibia_f_l", "shape": "cylinder", "size": [0.0008, 0.00369, 0.0008], "at": [0.0047, 0.0016, 0.0066], "rot": [157.0, 0, -18.0], "color": "leg", "bone": "leg_f_l", "mirror": true, "separate": true, "detail": 0.4},
+    {"name": "femur_m_l", "shape": "cylinder", "size": [0.0008, 0.00369, 0.0008], "at": [0.0034, 0.0029, 0.0011], "rot": [-135.0, 0, -85.0], "color": "leg", "bone": "leg_m_l", "mirror": true, "separate": true, "detail": 0.4},
+    {"name": "tibia_m_l", "shape": "cylinder", "size": [0.0008, 0.00341, 0.0008], "at": [0.0056, 0.0015, 0.0007], "rot": [-167.0, 0, -24.0], "color": "leg", "bone": "leg_m_l", "mirror": true, "separate": true, "detail": 0.4},
+    {"name": "femur_b_l", "shape": "cylinder", "size": [0.0009, 0.00411, 0.0009], "at": [0.0032, 0.003, -0.0019], "rot": [-95.0, 0, -51.5], "color": "leg", "bone": "leg_b_l", "mirror": true, "separate": true, "detail": 0.4},
+    {"name": "tibia_b_l", "shape": "cylinder", "size": [0.0012, 0.00488, 0.0008], "at": [0.0051, 0.00155, -0.0045], "rot": [-132.0, 0, -14.0], "color": "leg", "bone": "leg_b_l", "mirror": true, "separate": true, "detail": 0.4}
+  ]
+}
