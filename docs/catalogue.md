@@ -6,10 +6,10 @@ How to add each kind of thing: [CONTRIBUTING.md](../CONTRIBUTING.md). How it sho
 
 |  | Have | Wanted | In progress |
 |---|---|---|---|
-| Animals | 9 | 7 | 0 |
+| Animals | 10 | 6 | 0 |
 | Plants | 5 | 15 | 0 |
 | Trees | 5 | 0 | 0 |
-| Foods | 5 | 6 | 0 |
+| Foods | 6 | 5 | 0 |
 
 ## Animals
 
@@ -21,6 +21,7 @@ How to add each kind of thing: [CONTRIBUTING.md](../CONTRIBUTING.md). How it sho
 | **Bream** (*Abramis brama*) | fi_nuuksio | built from a spec [preview](../models/previews/bream.png) | yes | no | yes |
 | **Fox** (*Vulpes vulpes*) | fi_nuuksio | built from a spec [preview](../models/previews/fox.png) | yes | yes | yes |
 | **Kestrel** (*Falco tinnunculus*) | fi_nuuksio | built from a spec [preview](../models/previews/kestrel.png) | yes | no | yes |
+| **Moose** (*Alces alces*) | fi_nuuksio | built from a spec [preview](../models/previews/moose.png) | yes | no | yes |
 | **Perch** (*Perca fluviatilis*) | fi_nuuksio | built from a spec [preview](../models/previews/perch.png) | yes | no | yes |
 | **Pike** (*Esox lucius*) | fi_nuuksio | built from a spec [preview](../models/previews/pike.png) | yes | no | yes |
 | **Rabbit** (*Oryctolagus cuniculus*) | fi_nuuksio | built from a spec [preview](../models/previews/rabbit.png) | yes | no | yes |
@@ -38,7 +39,6 @@ How to add each kind of thing: [CONTRIBUTING.md](../CONTRIBUTING.md). How it sho
 | **Common lizard** (sisilisko, *Zootoca vivipara*) | fi_nuuksio | Kestrel (summer) | New model. Cold-blooded, basks on sunny rocks. | Wanted |
 | **Chaffinch, with eggs and nestlings** (peippo, *Fringilla coelebs*) | fi_nuuksio | Fox (spring: birds and eggs), later sparrowhawk | New model. Tag `small_bird`. Code: nests with eggs and young. | Wanted |
 | **Night animals: bats and owls** (lepakot ja pöllöt) | fi_nuuksio |  | Code first: how night works has to be tested before the first night animal (decision 0014, open). See docs/animals-wanted.md. | Later |
-| **Moose (bull)** (hirvi, *Alces alces*) | fi_nuuksio | Bear and wolf later | The model is done: models/moose.json (1,500 triangles, 11 bones, real size). The animal file waits for its food (food first): leaves and twigs of birch, willow, aspen and rowan in summer, water plants, and pine shoots and twigs in winter. It also needs the big-animal builder fixes (core): sleep, stride and eating reach. | Wanted |
 
 ## Plants
 
@@ -105,10 +105,11 @@ What animals find to eat. A food name marked "grows there" has a plant you can s
 | Food | Place | Real names | Eaten by |
 |---|---|---|---|
 | `clover` | fi_nuuksio | red clover, white clover | Rabbit |
-| `berries` | fi_nuuksio | bilberries (grows there), lingonberries (grows there), wild raspberries, crowberries | Fox, Red squirrel |
+| `berries` | fi_nuuksio | bilberries (grows there), lingonberries (grows there), wild raspberries, crowberries | Fox, Moose, Red squirrel |
 | `carrot` | fi_nuuksio | wild carrot | Rabbit |
 | `insects` | fi_nuuksio | ground beetle, dung beetle, click beetle | Kestrel |
 | `water_bugs` | fi_nuuksio | mayfly larvae, caddisfly larvae, water boatmen | Bream, Perch, Roach |
+| `browse` | fi_nuuksio | birch leaves and twigs, willow twigs, aspen shoots, rowan leaves | Moose |
 
 ### Wanted
 
@@ -118,7 +119,6 @@ What animals find to eat. A food name marked "grows there" has a plant you can s
 | **Mushrooms** (sienet) | Squirrel (summer and autumn; it dries them on branches) | Code: a new food kind that uses the mushroom plants. | Wanted |
 | **Bark, twigs and buds** (kuori, oksat, silmut) | Mountain hare (winter) | Code: a new food kind. | Wanted |
 | **Carrion** (raato) | Fox (winter) | Code: a new food kind. | Wanted |
-| **Leaves and twigs (browse)** (lehdet ja oksat) | Moose (its main food all year: leaves in summer, twigs and pine shoots in winter), hare (winter twigs) | Code: a new food kind, eaten from trees and shrubs at head height, not from the ground. | Wanted |
 | **Water plants** (vesikasvit) | Moose (summer: it wades in and eats pondweed and water lilies) | Code: the lake's pondweed and lilies become food. | Wanted |
 
 ## Core team work

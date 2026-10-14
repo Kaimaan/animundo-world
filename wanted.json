@@ -7,8 +7,7 @@
     {"id": "common_frog", "name": "Common frog", "local": "sammakko", "latin": "Rana temporaria", "place": "fi_nuuksio", "feeds": "Pike (spring), fox, later heron", "needs": "New model. Code: an animal that lives on land and in water (a new archetype).", "status": "wanted"},
     {"id": "common_lizard", "name": "Common lizard", "local": "sisilisko", "latin": "Zootoca vivipara", "place": "fi_nuuksio", "feeds": "Kestrel (summer)", "needs": "New model. Cold-blooded, basks on sunny rocks.", "status": "wanted"},
     {"id": "chaffinch", "name": "Chaffinch, with eggs and nestlings", "local": "peippo", "latin": "Fringilla coelebs", "place": "fi_nuuksio", "feeds": "Fox (spring: birds and eggs), later sparrowhawk", "needs": "New model. Tag `small_bird`. Code: nests with eggs and young.", "status": "wanted"},
-    {"id": "", "name": "Night animals: bats and owls", "local": "lepakot ja pöllöt", "latin": "", "place": "fi_nuuksio", "feeds": "", "needs": "Code first: how night works has to be tested before the first night animal (decision 0014, open). See docs/animals-wanted.md.", "status": "later"},
-    {"id": "moose", "name": "Moose (bull)", "local": "hirvi", "latin": "Alces alces", "place": "fi_nuuksio", "feeds": "Bear and wolf later", "needs": "The model is done: models/moose.json (1,500 triangles, 11 bones, real size). The animal file waits for its food (food first): leaves and twigs of birch, willow, aspen and rowan in summer, water plants, and pine shoots and twigs in winter. It also needs the big-animal builder fixes (core): sleep, stride and eating reach.", "status": "wanted"}
+    {"id": "", "name": "Night animals: bats and owls", "local": "lepakot ja pöllöt", "latin": "", "place": "fi_nuuksio", "feeds": "", "needs": "Code first: how night works has to be tested before the first night animal (decision 0014, open). See docs/animals-wanted.md.", "status": "later"}
   ],
   "plants": [
     {"id": "wild_raspberry", "name": "Wild raspberry", "local": "vadelma", "latin": "Rubus idaeus", "place": "fi_nuuksio", "feeds": "Fox, squirrel (`berries`: players are already told they ate wild raspberries)", "needs": "Data only. Clearings, forest edges, old fields. About 1–1.5 m of upright canes, `kind: \"bush\"`. White flowers in June, red berries July–August.", "status": "wanted"},
@@ -39,7 +38,6 @@
     {"id": "", "name": "Mushrooms", "local": "sienet", "feeds": "Squirrel (summer and autumn; it dries them on branches)", "needs": "Code: a new food kind that uses the mushroom plants.", "status": "wanted"},
     {"id": "", "name": "Bark, twigs and buds", "local": "kuori, oksat, silmut", "feeds": "Mountain hare (winter)", "needs": "Code: a new food kind.", "status": "wanted"},
     {"id": "", "name": "Carrion", "local": "raato", "feeds": "Fox (winter)", "needs": "Code: a new food kind.", "status": "wanted"},
-    {"id": "", "name": "Leaves and twigs (browse)", "local": "lehdet ja oksat", "feeds": "Moose (its main food all year: leaves in summer, twigs and pine shoots in winter), hare (winter twigs)", "needs": "Code: a new food kind, eaten from trees and shrubs at head height, not from the ground.", "status": "wanted"},
     {"id": "", "name": "Water plants", "local": "vesikasvit", "feeds": "Moose (summer: it wades in and eats pondweed and water lilies)", "needs": "Code: the lake's pondweed and lilies become food.", "status": "wanted"}
   ],
   "core": [

@@ -14,7 +14,7 @@ import re
 import sys
 
 TREE_SHAPES = {"spruce", "pine", "birch", "round", "rowan"}
-FOOD_KINDS = {"clover", "carrot", "berries", "insects", "water_bugs"}
+FOOD_KINDS = {"clover", "carrot", "berries", "insects", "water_bugs", "browse"}
 EDGES = {"lake", "none"}
 MIGRANT_KINDS = {"geese", "cranes"}  # flocks the game can draw (scripts/migrants.gd)
 PLANT_GROUND = {"grass", "rock", "sand"}

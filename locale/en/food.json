@@ -4,5 +4,6 @@
   "food.kind.berries": "berries",
   "food.kind.insects": "beetle",
   "food.kind.water_bugs": "water insects",
-  "flower.flower": "flower"
+  "flower.flower": "flower",
+  "food.kind.browse": "leaves and twigs"
 }
