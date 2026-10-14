@@ -11,10 +11,24 @@ Animundo teaches children about real nature, so **accuracy beats cuteness.**
 
 - **The real species.** Every animal, plant and place is a real one. Check proportions, colours and size against photos and a field guide, not other games or cartoons.
 - **Keep its field marks.** These are the few things that tell a species apart, and they must show from a few metres away: a red squirrel's ear tufts and white belly, a fox's white tail tip and dark legs, a perch's dark stripes. Leave out everything else.
-- **Real size in metres.** A squirrel is 0.36 m long and a fox about 1 m. Never scale an animal up to make it easier to see; the camera handles that (`cam_dist` in the animal file).
+- **Real size in metres.** A squirrel is 0.36 m long and a fox about 1 m. Never scale an animal up to make it easier to see; the camera handles that (`cam_dist` in the animal file). The one exception is the small world (see [Two scales](#two-scales-the-world-and-the-small-world)).
 - **No people things.** Animals don't wear clothes, stand on two legs (unless the real one does), smile or have cartoon eyes. They behave like real animals.
 
 **Allowed stylisation:** a head and eyes up to about 15% larger than real, smooth rounded bodies instead of fur and feathers, and simplified shapes. Proportions between body parts stay real.
+
+### Two scales: the world and the small world
+The game has two scales, so a moose and a bumblebee can share one forest and both be playable on a phone.
+
+| | What's in it | Size in the game |
+|---|---|---|
+| **The world** | Everything 10 cm or larger: mammals, birds, fish, trees, shrubs, rocks, the ground | **Real size** |
+| **The small world** | Insects, spiders and other creatures under 10 cm, and the small plant parts they live on: flowers and blossoms, berries, moss, needles | **5 times real size** |
+
+- **Why:** a real 2 cm bumblebee is a speck on a phone screen, and the world's ground isn't detailed enough to play at that size. We tested it: a real-size bee's camera ends up inside a flower. At 5 times, a bee is about 10 cm and easy to see and steer.
+- **Sizes stay true inside each scale.** A bee is the right size next to a flower, and a moose the right size next to a fox. Never mix them: no enlarged mammals, and no real-size insects.
+- **Big and small still meet.** An enlarged ant is about 3 cm, still tiny under a bear's paw, so stepping on ants and bears eating them still work.
+- **Build at real size, show at 5 times.** Specs are always in real metres. For a small-world animal, the animal file's `length` is 5 times the length the build prints (the bumblebee: printed 0.017, `length` 0.085).
+- **Field guides tell the real size.** Players learn the true size from the text, for example "a bumblebee queen is about 2 cm long", never from the model.
 
 ## 2. Shapes
 - **Built from simple solids:** balls, boxes, cylinders, cones and tapers, overlapping slightly so there are no gaps. Animals and plants are built from a spec in [`models/`](models/README.md). Trees, grass, flowers, stones and lake plants are still made in code in [`scripts/world.gd`](scripts/world.gd) and [`scripts/art.gd`](scripts/art.gd); new plants should be specs.
