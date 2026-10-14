@@ -365,6 +365,9 @@ def pose_for(clip, t, b, height, is_front, side):
             p = 0.06 * k * s
         elif clip == "eat":
             p = 0.55 * k + 0.08 * wave(t, ph, 4)
+        elif clip == "sleep" and LYING["curl"]:
+            # curled up: the head turns back along the flank, nose tucked down
+            p, y = 0.35 * k, (1.5 if role == "neck" else 1.1) if LYING["neck"] else 1.7
         elif clip == "sleep":
             p, y = 0.4 * k, 0.5 * k
     elif role == "jaw" and clip == "eat":
@@ -374,6 +377,10 @@ def pose_for(clip, t, b, height, is_front, side):
             y = 0.18 * sw * wave(t, -ph)
         elif clip in ("walk", "run", "eat"):
             p = 0.15 * sw * wave(t, -ph, 2 if clip == "eat" else 1)
+        elif clip == "sleep" and LYING["curl"] == "over":
+            p = 0.55 * sw   # an upright tail folds forward over the back, like a blanket
+        elif clip == "sleep" and LYING["curl"]:
+            y = -1.0 * sw   # the tail wraps around the same side, toward the nose
         elif clip == "sleep":
             y = 0.5 * sw
     elif role == "ear":
@@ -426,7 +433,7 @@ def bird_pose(clip, t, b, p, y, r, side):
 
 # Lying down (sleep), set per model in make_actions: how far the body drops
 # (to its belly, from the legs' real hip height) and how the legs fold.
-LYING = {"drop": None, "legs": (1.45, -1.45)}
+LYING = {"drop": None, "legs": (1.45, -1.45), "curl": "", "neck": False}
 
 
 def root_offset(clip, t, height, gait):
@@ -460,6 +467,9 @@ def make_actions(spec, arm_obj, height):
     else:
         LYING["drop"] = None
     LYING["legs"] = tuple(math.radians(a) for a in spec.get("sleep_legs", [83, -83]))
+    # "sleep_pose": "curl" curls up like a fox; "sleep_tail": "over" folds an upright tail (a squirrel's) over the back
+    LYING["curl"] = spec.get("sleep_tail", "around") if spec.get("sleep_pose") == "curl" else ""
+    LYING["neck"] = any(b["role"] == "neck" for b in spec["bones"])
     BIRD["pitch"] = math.radians(spec.get("fly_pitch", 50))   # how far the body tips forward to fly level
     BIRD["buzz"] = spec.get("wingbeat") == "buzz"              # insects: a blur of wings
     BIRD["legs"] = math.radians(spec.get("fly_legs", 75))      # legs swing back in flight (birds tuck them)
