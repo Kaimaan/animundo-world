@@ -33,5 +33,8 @@
   "food.water horsetail": "järvikorte",
   "food.kind.cones": "kävyt",
   "food.spruce cones": "kuusenkävyt",
-  "food.pine cones": "männynkävyt"
+  "food.pine cones": "männynkävyt",
+  "food.kind.bottom_bugs": "madot ja kotilot",
+  "food.bloodworms": "surviaissääsken toukat",
+  "food.pond snails": "limakotilot"
 }

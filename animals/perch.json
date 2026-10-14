@@ -4,7 +4,10 @@
   "playable": true,
   "color": "#4f6f3a",
   "tags": ["fish", "small_fish"],
-  "diet": ["water_bugs"],
+  "diet": [
+    "water_bugs",
+    "bottom_bugs"
+  ],
   "hunts": [
     "fry"
   ],
