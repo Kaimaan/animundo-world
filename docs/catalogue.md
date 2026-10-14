@@ -9,7 +9,7 @@ How to add each kind of thing: [CONTRIBUTING.md](../CONTRIBUTING.md). How it sho
 | Animals | 11 | 5 | 0 |
 | Plants | 5 | 15 | 0 |
 | Trees | 5 | 0 | 0 |
-| Foods | 7 | 6 | 0 |
+| Foods | 8 | 5 | 0 |
 
 ## Animals
 
@@ -111,12 +111,12 @@ What animals find to eat. A food name marked "grows there" has a plant you can s
 | `water_bugs` | fi_nuuksio | mayfly larvae, caddisfly larvae, water boatmen | Bream, Perch, Roach |
 | `browse` | fi_nuuksio | birch leaves and twigs, willow twigs, aspen shoots, rowan leaves | Moose, Rabbit |
 | `water_plants` | fi_nuuksio | pondweed, water lily leaves, water horsetail | Moose |
+| `cones` | fi_nuuksio | spruce cones, pine cones | Red squirrel |
 
 ### Wanted
 
 | Food | Feeds | Needs | Status |
 |---|---|---|---|
-| **Spruce cones and seeds** (kuusenkävyt) | Squirrel (its main food autumn to spring) | Code: a new food kind. | Wanted |
 | **Mushrooms** (sienet) | Squirrel (summer and autumn; it dries them on branches) | Code: a new food kind that uses the mushroom plants. | Wanted |
 | **Bark, twigs and buds** (kuori, oksat, silmut) | Mountain hare (winter) | Twigs and buds exist now (`browse`, young trees) and the rabbit eats them. Still missing: bark gnawed from trees in deep snow (code: a food kind on tree trunks). | Wanted |
 | **Carrion** (raato) | Fox (winter) | Code: a new food kind. | Wanted |

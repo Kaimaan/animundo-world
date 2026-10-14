@@ -4,7 +4,10 @@
   "playable": true,
   "color": "#b5562a",
   "tags": ["small_mammal"],
-  "diet": ["berries"],
+  "diet": [
+    "cones",
+    "berries"
+  ],
   "dark_vision": 0.2,
   "digs": false,
   "climbs": true,
@@ -31,8 +34,8 @@
     "night_hint": "It's night. Run at a spruce trunk to climb it, then sleep in its thick branches.",
     "too_exposed": "Too exposed to sleep! Climb a spruce and curl up in its thick branches.",
     "sheltered": "You're curled up safe and warm in the spruce branches.",
-    "hungry": "You're hungry. Look for berry bushes.",
-    "no_food": "Nothing to eat here. Look for berry bushes.",
+    "hungry": "You're hungry. Look for cones under the spruces, or berry bushes.",
+    "no_food": "Nothing to eat here. Look for cones under the spruces, or berry bushes.",
     "rain_start": "It's starting to rain. Climb into a spruce's thick branches to stay warm.",
     "chased": "A fox is chasing you! Run up a tree!",
     "about_looks": "Red-brown fur, a long bushy tail and tufts on its ears. In winter its coat turns greyer and the ear tufts grow longer.",

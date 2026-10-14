@@ -33,7 +33,6 @@
     {"id": "", "name": "Aspen, grey alder, goat willow as trees", "local": "haapa, harmaaleppä, raita", "latin": "", "place": "fi_nuuksio", "feeds": "Hare (bark and twigs), beaver later", "needs": "Code: trees are still made in code. Trees as data recipes are undecided (decision 0013): measure first.", "status": "later"}
   ],
   "foods": [
-    {"id": "", "name": "Spruce cones and seeds", "local": "kuusenkävyt", "feeds": "Squirrel (its main food autumn to spring)", "needs": "Code: a new food kind.", "status": "wanted"},
     {"id": "", "name": "Mushrooms", "local": "sienet", "feeds": "Squirrel (summer and autumn; it dries them on branches)", "needs": "Code: a new food kind that uses the mushroom plants.", "status": "wanted"},
     {"id": "", "name": "Bark, twigs and buds", "local": "kuori, oksat, silmut", "feeds": "Mountain hare (winter)", "needs": "Twigs and buds exist now (`browse`, young trees) and the rabbit eats them. Still missing: bark gnawed from trees in deep snow (code: a food kind on tree trunks).", "status": "wanted"},
     {"id": "", "name": "Carrion", "local": "raato", "feeds": "Fox (winter)", "needs": "Code: a new food kind.", "status": "wanted"},
