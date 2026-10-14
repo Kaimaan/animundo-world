@@ -35,6 +35,9 @@
       "run": "run",
       "eat": "eat",
       "sleep": "sleep"
+    },
+    "seasonal_parts": {
+      "antlers": {"winter": 0.0, "spring": 0.5, "summer": 1.0, "autumn": 1.0}
     }
   },
   "year": {
@@ -47,7 +50,7 @@
       "autumn": "Leaves while they last, bilberry shrubs, then twigs.",
       "winter": "Pine and birch twigs and shoots, and bark; it can eat over 10 kg a day."
     },
-    "notes": "Bulls grow new antlers every spring and drop them in midwinter (December–February): antlers could follow the season like a coat. The autumn rut (September–October), when bulls call and spar, would be a great thing to show. Moose swim well."
+    "notes": "Bulls grow new antlers every spring and drop them in midwinter (December–February); in the game they follow the season (seasonal_parts). The autumn rut (September–October), when bulls call and spar, would be a great thing to show. Moose swim well."
   },
   "text": {
     "title": "Moose",
