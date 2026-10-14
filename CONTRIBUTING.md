@@ -1,6 +1,6 @@
 # Add your favourite place to Animundo
 
-> **About this repository.** This is Animundo's content repository; the game's code is kept separately. Commands below that use `godot` or `tools/build_web.sh` only work in the game repository for now. Until then, the core team runs the animal checks and plays your change for you. Automatic checks and a *Play it* link on every pull request are coming ([decision 0013](https://github.com/Kaimaan/animundo/blob/main/docs/decisions/0013-public-world-repo.md)).
+> **About this repository.** This is where Animundo's content lives; the game's code is kept separately, and every change merged here is copied into the game automatically. Commands below that use `godot` or `tools/build_web.sh` need the game repository: to try a change there before sending it, run `tools/export_to_game.sh <path to the game>`. Otherwise the core team runs the animal checks and plays your change for you. A *Play it* link on every pull request is coming ([decision 0013](https://github.com/Kaimaan/animundo/blob/main/docs/decisions/0013-public-world-repo.md)). Menu text (`locale/*/ui.json`, `loading.json`, `seasons.json`) belongs to the game and can't be changed here.
 >
 > You need to be a verified player to open a pull request: see [README.md](README.md#how-to-add-something).
 

@@ -1,0 +1,108 @@
+name: Sync to the game
+# animundo-world is the source of the game's content (decision 0013). Every push
+# to main copies it into the game repo (Kaimaan/animundo) with
+# tools/export_to_game.sh and pushes, which deploys the game.
+# - Stops if someone changed content in the game repo instead of here
+#   (tools/check_game_drift.sh), so nobody's work is overwritten.
+# - Builds the models whose spec or animal file changed, in Blender. The preview
+#   sheets come from the pull request, as reviewed.
+# Writes with a deploy key that only works for the game repo (secret GAME_DEPLOY_KEY).
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      rebuild_all:
+        description: Rebuild every model, not only the changed ones
+        type: boolean
+        default: false
+
+concurrency:
+  group: sync-to-game
+  cancel-in-progress: false   # every sync lands, in order
+
+permissions:
+  contents: read
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: world
+          fetch-depth: 0
+
+      - uses: actions/checkout@v4
+        with:
+          repository: Kaimaan/animundo
+          ssh-key: ${{ secrets.GAME_DEPLOY_KEY }}
+          path: game
+
+      - name: Stop if content was changed in the game repo
+        run: world/tools/check_game_drift.sh game
+
+      - name: Find models to build
+        id: models
+        working-directory: world
+        run: |
+          base=$(cat ../game/.world-sync)
+          changed=$(git diff --name-only "$base" HEAD)
+          if [ "${{ inputs.rebuild_all }}" = "true" ] || echo "$changed" | grep -q '^tools/blender/'; then
+            specs=$(ls models/*.json models/plants/*.json)
+          else
+            specs=$(for f in $changed; do
+              case "$f" in
+                models/*.json) [ -f "$f" ] && echo "$f" ;;
+                animals/*.json) s="models/$(basename "$f")"; [ -f "$s" ] && echo "$s" ;;
+              esac
+            done | sort -u)
+          fi
+          echo "specs=$(echo $specs)" >> "$GITHUB_OUTPUT"
+          echo "To build: ${specs:-nothing}"
+
+      - name: Cache Blender
+        if: steps.models.outputs.specs != ''
+        uses: actions/cache@v4
+        with:
+          path: ~/blender
+          key: blender-5.2.2-linux-x64
+
+      - name: Build models
+        if: steps.models.outputs.specs != ''
+        working-directory: world
+        env:
+          BLENDER: /home/runner/blender/blender
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libxi6 libxkbcommon0 libxrender1 libxxf86vm1 libxfixes3 libsm6 libgl1 libegl1 > /dev/null
+          if [ ! -x ~/blender/blender ]; then
+            mkdir -p ~/blender
+            curl -sL https://download.blender.org/release/Blender5.2/blender-5.2.2-linux-x64.tar.xz | tar -xJ -C ~/blender --strip-components=1
+          fi
+          tools/build_model.sh ${{ steps.models.outputs.specs }}
+          git checkout -- models/previews   # keep the reviewed preview sheets
+
+      - name: Copy into the game repo
+        run: world/tools/export_to_game.sh "$GITHUB_WORKSPACE/game" --stamp
+
+      - name: Commit and push if anything changed
+        working-directory: game
+        run: |
+          git add -A
+          if git diff --cached --quiet -- . ':!.world-sync'; then
+            echo "The game repo is already up to date"
+            exit 0
+          fi
+          git config user.name "animundo-sync"
+          git config user.email "animundo-sync@users.noreply.github.com"
+          msg=$(git -C ../world log -1 --format=%s)
+          git commit -q -m "Content from animundo-world ${GITHUB_SHA::7}: $msg" -m "https://github.com/${GITHUB_REPOSITORY}/commit/${GITHUB_SHA}"
+          for i in 1 2 3 4 5; do
+            git push -q && { git log --oneline -1; exit 0; }
+            git pull -q --rebase
+          done
+          echo "::error::Could not push to the game repo"
+          exit 1
