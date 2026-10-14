@@ -201,5 +201,19 @@
   "ui.account.offline": "Couldn't reach Animundo. Check the internet connection and try again.",
   "ui.account.bad_link": "This sign-in link has already been used or is too old.",
   "ui.account.new_link": "Get a new link",
-  "ui.account.button_done": "Account"
+  "ui.account.button_done": "Account",
+  "ui.timer.button": "Play timer",
+  "ui.timer.title": "Play timer",
+  "ui.timer.intro": "Choose how long your child can play each day. When time is up, the animal falls asleep and the game saves. Only time spent playing counts, and it starts again at midnight. The timer is kept on this device.",
+  "ui.timer.off": "Off",
+  "ui.timer.minutes": "{minutes} min",
+  "ui.timer.today": "Played today: {used} min. Left: {left} min.",
+  "ui.timer.extra": "{minutes} more minutes today",
+  "ui.timer.five_left": "Five minutes of playtime left today. Find a safe place to rest!",
+  "ui.timer.one_left": "One minute of playtime left today.",
+  "ui.timer.time_up": "Playtime is over for today. {name} is getting sleepy…",
+  "ui.timer.rest_title": "Time to rest",
+  "ui.timer.rest_body": "{name} is fast asleep. Playtime is over for today. Come back tomorrow!",
+  "ui.timer.rest_body_any": "Playtime is over for today. Come back tomorrow!",
+  "ui.timer.grownups": "For grown-ups: play timer"
 }

@@ -201,5 +201,19 @@
   "ui.account.offline": "Animundoon ei saatu yhteyttä. Tarkista nettiyhteys ja yritä uudelleen.",
   "ui.account.bad_link": "Tämä kirjautumislinkki on jo käytetty tai liian vanha.",
   "ui.account.new_link": "Hae uusi linkki",
-  "ui.account.button_done": "Tili"
+  "ui.account.button_done": "Tili",
+  "ui.timer.button": "Peliaika",
+  "ui.timer.title": "Peliaika",
+  "ui.timer.intro": "Valitse, kuinka kauan lapsesi voi pelata päivässä. Kun aika loppuu, eläin nukahtaa ja peli tallentuu. Vain pelaamiseen käytetty aika lasketaan, ja laskenta alkaa alusta keskiyöllä. Ajastin on tallessa tällä laitteella.",
+  "ui.timer.off": "Pois",
+  "ui.timer.minutes": "{minutes} min",
+  "ui.timer.today": "Pelattu tänään: {used} min. Jäljellä: {left} min.",
+  "ui.timer.extra": "{minutes} minuuttia lisää tänään",
+  "ui.timer.five_left": "Peliaikaa on tänään viisi minuuttia jäljellä. Etsi turvallinen paikka levätä!",
+  "ui.timer.one_left": "Peliaikaa on tänään minuutti jäljellä.",
+  "ui.timer.time_up": "Tämän päivän peliaika on lopussa. {name} alkaa väsyä…",
+  "ui.timer.rest_title": "Lepoaika",
+  "ui.timer.rest_body": "{name} nukkuu sikeästi. Tämän päivän peliaika on lopussa. Tule huomenna takaisin!",
+  "ui.timer.rest_body_any": "Tämän päivän peliaika on lopussa. Tule huomenna takaisin!",
+  "ui.timer.grownups": "Aikuisille: peliaika"
 }
