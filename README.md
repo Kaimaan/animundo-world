@@ -29,5 +29,5 @@ Everything should follow the [art guide](ART.md), so the game looks like one wor
 
 - Real facts only, with sources.
 - Use a nickname, never a child's full name.
-- Pull requests change content only: `regions/`, `animals/`, `models/`, `locale/`, `plants/`. Changes elsewhere are closed automatically.
+- Pull requests change content only: `regions/`, `animals/`, `models/`, `locale/`. Changes elsewhere are closed automatically.
 - At most two open pull requests per person.
