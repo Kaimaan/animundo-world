@@ -6,7 +6,7 @@ How to add each kind of thing: [CONTRIBUTING.md](../CONTRIBUTING.md). How it sho
 
 |  | Have | Wanted | In progress |
 |---|---|---|---|
-| Animals | 10 | 6 | 0 |
+| Animals | 11 | 5 | 0 |
 | Plants | 5 | 15 | 0 |
 | Trees | 5 | 0 | 0 |
 | Foods | 7 | 7 | 0 |
@@ -27,12 +27,12 @@ How to add each kind of thing: [CONTRIBUTING.md](../CONTRIBUTING.md). How it sho
 | **Rabbit** (*Oryctolagus cuniculus*) | fi_nuuksio | built from a spec [preview](../models/previews/rabbit.png) | yes | no | yes |
 | **Roach** (*Rutilus rutilus*) | fi_nuuksio | built from a spec [preview](../models/previews/roach.png) | yes | no | yes |
 | **Red squirrel** (*Sciurus vulgaris*) | fi_nuuksio | built from a spec [preview](../models/previews/squirrel.png) | yes | no | yes |
+| **Bank vole** (*Myodes glareolus*) | fi_nuuksio | built from a spec [preview](../models/previews/vole.png) | yes | no | yes |
 
 ### Wanted
 
 | Animal | Place | Feeds | Needs | Status |
 |---|---|---|---|---|
-| **Bank vole** (metsämyyrä, *Myodes glareolus*) | fi_nuuksio | Fox (its main food all year), kestrel (its main food), owls later | New model. Tags `small_mammal`, `vole`; the kestrel then `hunts: ["vole"]`. Code: wild prey that isn't a rabbit (`prey.gd` only makes rabbits), and a kestrel that hovers and drops onto prey. | Wanted |
 | **Mountain hare** (metsäjänis, *Lepus timidus*) | fi_nuuksio | Fox, later lynx and eagle owl | New model from a spec, with a white `winter` coat. It replaces the "rabbit": European rabbits don't live wild in Nuuksio (ART.md: real species only). | Wanted |
 | **Young perch and young roach** (ahvenen ja särjen poikaset) | fi_nuuksio | Perch (its main food from summer on: perch eat small fish, even young perch), pike | No new model: the perch and roach models at baby size, from the baby stage (decision 0010). Tag `fry`; the perch then `hunts: ["fry"]`. Code: hunters only catch prey much smaller than themselves, and the player's fish can chase fish. | Wanted |
 | **Common frog** (sammakko, *Rana temporaria*) | fi_nuuksio | Pike (spring), fox, later heron | New model. Code: an animal that lives on land and in water (a new archetype). | Wanted |
@@ -104,8 +104,8 @@ What animals find to eat. A food name marked "grows there" has a plant you can s
 
 | Food | Place | Real names | Eaten by |
 |---|---|---|---|
-| `clover` | fi_nuuksio | red clover, white clover | Rabbit |
-| `berries` | fi_nuuksio | bilberries (grows there), lingonberries (grows there), wild raspberries, crowberries | Fox, Moose, Red squirrel |
+| `clover` | fi_nuuksio | red clover, white clover | Rabbit, Bank vole |
+| `berries` | fi_nuuksio | bilberries (grows there), lingonberries (grows there), wild raspberries, crowberries | Fox, Moose, Red squirrel, Bank vole |
 | `carrot` | fi_nuuksio | wild carrot | Rabbit |
 | `insects` | fi_nuuksio | ground beetle, dung beetle, click beetle | Kestrel |
 | `water_bugs` | fi_nuuksio | mayfly larvae, caddisfly larvae, water boatmen | Bream, Perch, Roach |
@@ -144,3 +144,4 @@ Code changes that more content depends on. These are for the core team; the data
 | animals | **Bird wings: fold and flap** | The default fold tips the wing out instead of down (roll is applied before yaw), folded wings stay as wide as spread ones, and the flap is a symmetric ±52° around the rest pose. Apply the tip-down tilt after the sweep, narrow folded wings, and make the downstroke shorter than the upstroke. | Wanted |
 | animals | **Insect wingbeat that sweeps** | The bee's buzz flips the wings up and down every frame. Real insect wings sweep forward and back; up and down reads as a jittery V. | Later |
 | animals | **Fish poses** | Fish use only idle and swim. The generated eat and sleep clips tip a fish over. A hovering idle, a slight head yaw against the tail while swimming, and resting near the bottom would suit fish better. | Later |
+| animals | **A body that bends** | Curled-up sleep turns the head and wraps the tail, but the body is one straight bone. A short round animal (the bank vole) curls into a loaf rather than a ball, and the fox's curl stays a C. A spine of two or three body bones that bend in the curl pose would let them sleep in a real ball. | Wanted |

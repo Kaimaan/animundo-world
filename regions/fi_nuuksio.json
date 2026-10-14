@@ -241,7 +241,8 @@
       "fox"
     ],
     "prey": [
-      "rabbit"
+      "rabbit",
+      "vole"
     ]
   }
 }
