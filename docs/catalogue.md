@@ -9,7 +9,7 @@ How to add each kind of thing: [CONTRIBUTING.md](../CONTRIBUTING.md). How it sho
 | Animals | 13 | 4 | 0 |
 | Plants | 5 | 15 | 0 |
 | Trees | 5 | 0 | 0 |
-| Foods | 9 | 4 | 0 |
+| Foods | 9 | 3 | 0 |
 
 ## Animals
 
@@ -119,7 +119,6 @@ What animals find to eat. A food name marked "grows there" has a plant you can s
 
 | Food | Feeds | Needs | Status |
 |---|---|---|---|
-| **Mushrooms** (sienet) | Squirrel (summer and autumn; it dries them on branches) | Code: a new food kind that uses the mushroom plants. | Wanted |
 | **Bark, twigs and buds** (kuori, oksat, silmut) | Mountain hare (winter) | Twigs and buds exist now (`browse`, young trees) and the rabbit eats them. Still missing: bark gnawed from trees in deep snow (code: a food kind on tree trunks). | Wanted |
 | **Carrion** (raato) | Fox (winter) | Code: a new food kind. | Wanted |
 | **Grass and herbs** (heinä ja ruohot) | Hare (its main food in summer) | Code: a new food kind, grazing the meadow's grass tufts. Today a hare only finds clover and wild carrot. | Wanted |
@@ -133,7 +132,6 @@ Code changes that more content depends on. These are for the core team; the data
 |---|---|---|---|
 | plants | **Remake the code-made ground cover as specs** | Grass tufts, stones, the four flowers (oxeye daisy, heather, harebell, tormentil), reeds, water lilies and pondweed then follow the same rules, art guide and seasons. The bee's flowers are tied to the bee's code, so they move last. | Wanted |
 | plants | **Bee flowers from plant specs** | A plant part (bilberry flowers, clover, willow catkins, heather spikes) counts as a flower a bee can drink from while it's shown. Bilberry flowers and willow catkins are the bumblebee's real spring food. | Wanted |
-| plants | **Food on real plants** | A berry food spot uses the plant model (a bilberry with berries) instead of a box, and only has berries while the plant does. | Wanted |
 | plants | **Bog ground in the terrain** | Nuuksio has small bogs; bog plants need somewhere to grow. | Later |
 | animals | **Swimming land animals** | A generated `swim` clip for every four-legged animal (dog paddle: short fast leg strokes, head up, tail trailing), played while it's in water, with a preview tile. Foxes, squirrels and hares really swim, but in the game they play their walk animation, so they look like they're walking on the lake bottom. | Wanted |
 | animals | **Body-plan templates** | A starting spec per body plan (four-legged, bird, fish), so agents and contributors copy the closest one instead of starting from scratch. | Wanted |

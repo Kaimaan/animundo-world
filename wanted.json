@@ -32,7 +32,6 @@
     {"id": "", "name": "Aspen, grey alder, goat willow as trees", "local": "haapa, harmaaleppä, raita", "latin": "", "place": "fi_nuuksio", "feeds": "Hare (bark and twigs), beaver later", "needs": "Code: trees are still made in code. Trees as data recipes are undecided (decision 0013): measure first.", "status": "later"}
   ],
   "foods": [
-    {"id": "", "name": "Mushrooms", "local": "sienet", "feeds": "Squirrel (summer and autumn; it dries them on branches)", "needs": "Code: a new food kind that uses the mushroom plants.", "status": "wanted"},
     {"id": "", "name": "Bark, twigs and buds", "local": "kuori, oksat, silmut", "feeds": "Mountain hare (winter)", "needs": "Twigs and buds exist now (`browse`, young trees) and the rabbit eats them. Still missing: bark gnawed from trees in deep snow (code: a food kind on tree trunks).", "status": "wanted"},
     {"id": "", "name": "Carrion", "local": "raato", "feeds": "Fox (winter)", "needs": "Code: a new food kind.", "status": "wanted"},
     {"id": "", "name": "Grass and herbs", "local": "heinä ja ruohot", "feeds": "Hare (its main food in summer)", "needs": "Code: a new food kind, grazing the meadow's grass tufts. Today a hare only finds clover and wild carrot.", "status": "wanted"},
@@ -41,7 +40,6 @@
   "core": [
     {"area": "plants", "name": "Remake the code-made ground cover as specs", "why": "Grass tufts, stones, the four flowers (oxeye daisy, heather, harebell, tormentil), reeds, water lilies and pondweed then follow the same rules, art guide and seasons. The bee's flowers are tied to the bee's code, so they move last.", "status": "wanted"},
     {"area": "plants", "name": "Bee flowers from plant specs", "why": "A plant part (bilberry flowers, clover, willow catkins, heather spikes) counts as a flower a bee can drink from while it's shown. Bilberry flowers and willow catkins are the bumblebee's real spring food.", "status": "wanted"},
-    {"area": "plants", "name": "Food on real plants", "why": "A berry food spot uses the plant model (a bilberry with berries) instead of a box, and only has berries while the plant does.", "status": "wanted"},
     {"area": "plants", "name": "Bog ground in the terrain", "why": "Nuuksio has small bogs; bog plants need somewhere to grow.", "status": "later"},
     {"area": "animals", "name": "Swimming land animals", "why": "A generated `swim` clip for every four-legged animal (dog paddle: short fast leg strokes, head up, tail trailing), played while it's in water, with a preview tile. Foxes, squirrels and hares really swim, but in the game they play their walk animation, so they look like they're walking on the lake bottom.", "status": "wanted"},
     {"area": "animals", "name": "Body-plan templates", "why": "A starting spec per body plan (four-legged, bird, fish), so agents and contributors copy the closest one instead of starting from scratch.", "status": "wanted"},
