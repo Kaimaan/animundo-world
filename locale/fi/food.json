@@ -23,8 +23,12 @@
   "flower.harebell": "kissankello",
   "flower.tormentil": "rätvänä",
   "food.kind.browse": "lehdet ja oksat",
-  "food.birch leaves and twigs": "koivun lehtiä ja oksia",
-  "food.willow twigs": "pajun oksia",
-  "food.aspen shoots": "haavan versoja",
-  "food.rowan leaves": "pihlajan lehtiä"
+  "food.birch leaves and twigs": "koivun lehdet ja oksat",
+  "food.willow twigs": "pajun oksat",
+  "food.aspen shoots": "haavan versot",
+  "food.rowan leaves": "pihlajan lehdet",
+  "food.kind.water_plants": "vesikasvit",
+  "food.pondweed": "vita",
+  "food.water lily leaves": "lumpeen lehdet",
+  "food.water horsetail": "järvikorte"
 }

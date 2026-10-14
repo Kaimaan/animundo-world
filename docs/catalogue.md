@@ -9,7 +9,7 @@ How to add each kind of thing: [CONTRIBUTING.md](../CONTRIBUTING.md). How it sho
 | Animals | 10 | 6 | 0 |
 | Plants | 5 | 15 | 0 |
 | Trees | 5 | 0 | 0 |
-| Foods | 6 | 8 | 0 |
+| Foods | 7 | 7 | 0 |
 
 ## Animals
 
@@ -110,6 +110,7 @@ What animals find to eat. A food name marked "grows there" has a plant you can s
 | `insects` | fi_nuuksio | ground beetle, dung beetle, click beetle | Kestrel |
 | `water_bugs` | fi_nuuksio | mayfly larvae, caddisfly larvae, water boatmen | Bream, Perch, Roach |
 | `browse` | fi_nuuksio | birch leaves and twigs, willow twigs, aspen shoots, rowan leaves | Moose |
+| `water_plants` | fi_nuuksio | pondweed, water lily leaves, water horsetail | Moose |
 
 ### Wanted
 
@@ -119,7 +120,6 @@ What animals find to eat. A food name marked "grows there" has a plant you can s
 | **Mushrooms** (sienet) | Squirrel (summer and autumn; it dries them on branches) | Code: a new food kind that uses the mushroom plants. | Wanted |
 | **Bark, twigs and buds** (kuori, oksat, silmut) | Mountain hare (winter) | Code: a new food kind. | Wanted |
 | **Carrion** (raato) | Fox (winter) | Code: a new food kind. | Wanted |
-| **Water plants** (vesikasvit) | Moose (summer: it wades in and eats pondweed and water lilies), roach | Code: the lake's pondweed and lilies become food. | Wanted |
 | **Grass and herbs** (heinä ja ruohot) | Hare (its main food in summer) | Code: a new food kind, grazing the meadow's grass tufts. Today a hare only finds clover and wild carrot. | Wanted |
 | **Worms, snails and larvae in the mud** (madot, kotilot ja toukat pohjamudassa) | Bream (its main food: it sucks them from the bottom), roach | Code: a new food kind on the lake bottom, found by digging in the mud. Today bottom feeders eat the water insects drifting in open water. | Wanted |
 | **Beetles for the fox** (kovakuoriaiset ketulle) | Fox (summer) | Data only: add `insects` to the fox's `diet`. Its field guide already says it eats insects. | Wanted |
