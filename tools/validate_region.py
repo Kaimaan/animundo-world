@@ -23,6 +23,8 @@ ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 # every animal is a file in animals/ (archetypes.json holds shared defaults)
 ANIMALS = {f[:-5] for f in os.listdir(os.path.join(ROOT, "animals"))
            if f.endswith(".json") and f != "archetypes.json"}
+# every plant is a spec in models/plants/, built by tools/build_model.sh
+PLANTS = {f[:-5] for f in os.listdir(os.path.join(ROOT, "models", "plants")) if f.endswith(".json")}
 
 
 def check(path):
@@ -99,8 +101,24 @@ def check(path):
     gc = d.get("ground_cover", {})
     for k in ("grass", "flowers", "stones"):
         num("ground_cover", k, 0, 1)
-    if sum(gc.get(k, 0) for k in ("grass", "flowers", "stones")) > 1:
-        err('"ground_cover" grass + flowers + stones must add up to 1 or less')
+    plants = gc.get("plants", [])
+    if not isinstance(plants, list):
+        err('"ground_cover.plants" must be a list')
+        plants = []
+    for i, pl in enumerate(plants):
+        if pl.get("model") not in PLANTS:
+            err(f'"ground_cover.plants[{i}].model" must be a plant in models/plants/ (known: {sorted(PLANTS)})')
+        elif not os.path.exists(os.path.join(ROOT, "assets", "plants", pl["model"] + ".glb")):
+            err(f'"ground_cover.plants[{i}]": build it first with tools/build_model.sh models/plants/{pl["model"]}.json')
+        if not isinstance(pl.get("density"), (int, float)) or not 0 < pl["density"] <= 1:
+            err(f'"ground_cover.plants[{i}].density" must be a number above 0, up to 1')
+        nt = pl.get("near_trees", 0)
+        if not isinstance(nt, (int, float)) or not 0 <= nt <= 16:
+            err(f'"ground_cover.plants[{i}].near_trees" must be a number of blocks from 0 to 16')
+    total = sum(gc.get(k, 0) for k in ("grass", "flowers", "stones"))
+    total += sum(pl.get("density", 0) for pl in plants if isinstance(pl.get("density"), (int, float)))
+    if total > 1:
+        err('"ground_cover" grass + flowers + stones + plant densities must add up to 1 or less')
     for i, col in enumerate(gc.get("flower_colors", [])):
         if not (isinstance(col, str) and HEX.match(col)):
             err(f'"ground_cover.flower_colors[{i}]" must be a colour')

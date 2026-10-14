@@ -1,4 +1,4 @@
-# Animal models
+# Animal and plant models
 
 Every animal model in Animundo is made from a **model spec**, one small data file `models/<id>.json`. It lists simple shapes, colours and bones. There's no code to write and no 3D modelling to do. [Blender](https://www.blender.org/download/), which is free, builds the spec into the animated model the game uses, plus a preview sheet for a person to review:
 
@@ -21,6 +21,8 @@ Follow the [art guide](../ART.md): real species, real size, flat natural colours
 > Build it with `tools/build_model.sh models/<id>.json`, look at the preview sheet, and fix whatever looks wrong
 > (floating parts, gaps, wrong proportions, odd poses). Repeat until it looks right.
 > Then run `godot --headless --import` and `godot --headless --script tools/check_models.gd`.
+
+For a plant, ask the same with `models/plants/bilberry.json` as the example, and ask for its real year too: when it flowers, fruits and drops its leaves (see [Plants](#plants)).
 
 A person reviews the preview sheet in the pull request before it's merged. To add the whole animal to the game (animal file, text, region), follow **Adding animals** in [CONTRIBUTING.md](../CONTRIBUTING.md).
 
@@ -127,3 +129,37 @@ To see a coat in the game, add a date to the URL, e.g. `&date=2027-01-20`.
 
 ## Using the model in the game
 After building, set the `model` entry in `animals/<id>.json`: `"file": "res://assets/animals/<id>.glb"`, `"yaw": 0.0`, the `length` the build printed (so the model keeps its real size), and the clips by name, e.g. `"anims": {"idle": "idle", "walk": "walk", "run": "run", "eat": "eat", "sleep": "sleep"}`.
+
+## Plants
+Plants are made the same way, from a spec in `models/plants/<id>.json`, and built with the same command:
+
+```bash
+tools/build_model.sh models/plants/bilberry.json
+```
+
+| Output | What it is |
+|---|---|
+| `assets/plants/<id>.glb` | One mesh with its colours in the vertices. The game draws thousands of copies at once, and they sway in the wind. |
+| `models/previews/plants/<id>.png` | The preview sheet: front, side, 3/4 and top views, the silhouette, a patch, a red squirrel next to it for size, how big it looks from the game camera, and a row showing it through the year in the starter region. |
+
+![bilberry preview](previews/plants/bilberry.png)
+
+A plant spec is like an animal spec without bones. It has `id`, `name`, `author`, `colors` and `parts`, plus `latin` (the scientific name), `year` (leaves, flowers and fruit) and `sources`. The rules for these, and what reviewers check, are in [CONTRIBUTING.md](../CONTRIBUTING.md#adding-plants). It also has:
+
+| Field | What it means |
+|---|---|
+| `kind` | `ground` for small ground cover drawn thousands of times (under 50 faces), or `bush` (under 300 faces). The build stops if the plant is over budget. |
+| `seasons` | Optional colour changes by season, like an animal's coat: `{"autumn": {"leaf": "#c4493a"}}`. They blend in over three weeks, by the region's own season dates. |
+
+Parts take the same fields as an animal's (no `bone`), plus:
+
+| Field | What it means |
+|---|---|
+| `shape` | Also `leaf`: a flat leaf, pointed at the front (+z), with one face. `size` is `[width, unused, length]`. |
+| `around` | Makes this many copies spaced evenly around the stem (the upright line through `pivot`, `[x, z]`, default `[0, 0]`). Put the first copy on the front (+z). `turn` (degrees) turns the whole ring. |
+| `jitter` | 0–1: copies in a ring differ a little in angle, tilt and size, so the plant looks grown, not machined. The same spec always builds the same plant. |
+| `show` | Optional: the part is there only part of the year, `{"from": "summer+50", "until": "autumn+20"}`: from 50 days after summer starts until 20 days after autumn starts. Use it for flowers, berries and leaves that fall. The dates are relative to each region's own `seasons`, so one bilberry is right in southern Finland and in Lapland. |
+
+**Look up the plant's year** (when it flowers, fruits, turns colour and drops its leaves) in the same sources as its looks, then check the season row of the preview sheet. The top two rows show every part at once, flowers and berries together, so you can check the shapes.
+
+To grow it in a region, add it to the region file's `ground_cover.plants` (see [CONTRIBUTING.md](../CONTRIBUTING.md)) and run `godot --headless --import` and `godot --headless --script tools/check_models.gd`. The game reads the spec (`scripts/plant_model.gd`) to recolour the plant and leave out parts for the season. It finds parts by their order in the spec, so rebuild after adding, removing or reordering parts.

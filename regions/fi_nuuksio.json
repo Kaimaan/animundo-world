@@ -29,7 +29,8 @@
     "water_deep": "#1f4654",
     "water_shallow": "#3d6f73",
     "ground_autumn": "#a59a5e",
-    "snow": "#eef2f6"
+    "snow": "#eef2f6",
+    "heath_autumn": "#b04a32"
   },
   "sky": {
     "day": "#8fc6ea",
@@ -91,7 +92,10 @@
       "harebell",
       "tormentil"
     ],
-    "stones": 0.04
+    "stones": 0.04,
+    "plants": [
+      {"model": "bilberry", "density": 0.3, "near_trees": 5}
+    ]
   },
   "lakes": [
     {
@@ -107,7 +111,10 @@
     }
   ],
   "places": [
-    {"name": "Haukankallio", "at": "highest"}
+    {
+      "name": "Haukankallio",
+      "at": "highest"
+    }
   ],
   "lake_life": {
     "reeds": 0.35,

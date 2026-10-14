@@ -22,7 +22,10 @@ import os
 import sys
 from mathutils import Matrix, Vector
 
-ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+sys.dont_write_bytecode = True
+sys.path.insert(0, os.path.dirname(__file__))
+from spec_shapes import AXIS, ROOT, add_shape, g2b, render_tile, rot_matrix, save_sheet, setup_render, srgb_to_linear  # noqa: E402
+
 FPS = 24
 SHAPES = ("box", "ball", "cone", "cylinder", "taper")
 ROLES = ("body", "head", "neck", "leg", "tail", "ear", "wing", "fin", "jaw", "none")
@@ -34,22 +37,7 @@ def fail(msg):
     errors.append(msg)
 
 
-# --- coordinates -------------------------------------------------------------
-
-def g2b(v):
-    """Game (x, y up, z forward) -> Blender (x, y back, z up)."""
-    return Vector((v[0], -v[2], v[1]))
-
-
-AXIS = {"pitch": Vector((1, 0, 0)), "yaw": Vector((0, 0, 1)), "roll": Vector((0, -1, 0))}
-
-
-def rot_matrix(rot):
-    """[pitch, yaw, roll] in degrees, game axes. Pitch + tips the front down."""
-    p, y, r = (math.radians(a) for a in rot)
-    return (Matrix.Rotation(y, 3, AXIS["yaw"]) @ Matrix.Rotation(p, 3, AXIS["pitch"])
-            @ Matrix.Rotation(r, 3, AXIS["roll"]))
-
+# --- spec ----------------------------------------------------------------------
 
 def mirror_name(name):
     if name.endswith("_l"):
@@ -57,8 +45,6 @@ def mirror_name(name):
     fail(f"'{name}': a mirrored name must end in _l (the right side gets _r)")
     return name + "_r"
 
-
-# --- spec ----------------------------------------------------------------------
 
 def load_spec(path):
     with open(path) as f:
@@ -139,25 +125,6 @@ def make_materials(spec):
             bsdf.inputs["Roughness"].default_value = 1.0
         mats[name] = mat
     return mats
-
-
-def add_shape(bm, p):
-    detail = p.get("detail", 1.0)
-    shape = p["shape"]
-    if shape == "box":
-        geom = bmesh.ops.create_cube(bm, size=1.0)["verts"]
-    elif shape == "ball":
-        geom = bmesh.ops.create_uvsphere(bm, u_segments=max(4, round(10 * detail)),
-                                         v_segments=max(3, round(7 * detail)), radius=0.5)["verts"]
-    else:
-        top = {"cone": 0.0, "cylinder": 1.0, "taper": p.get("top", 0.5)}[shape]
-        geom = bmesh.ops.create_cone(bm, cap_ends=True, cap_tris=False, segments=max(3, round(8 * detail)),
-                                     radius1=0.5, radius2=0.5 * top, depth=1.0)["verts"]
-    s = p["size"]
-    m = (Matrix.Translation(g2b(p["at"])) @ rot_matrix(p["rot"]).to_4x4()
-         @ Matrix.Diagonal((s[0], s[2], s[1], 1.0)))
-    bmesh.ops.transform(bm, matrix=m, verts=geom)
-    return geom
 
 
 def build_mesh(spec, mats, arm_obj):
@@ -444,31 +411,6 @@ def make_actions(spec, arm_obj, height):
 
 # --- preview sheet ---------------------------------------------------------------
 
-def setup_render(size):
-    scene = bpy.context.scene
-    scene.render.engine = "BLENDER_WORKBENCH"
-    scene.render.resolution_x = scene.render.resolution_y = size
-    scene.render.film_transparent = False
-    sh = scene.display.shading
-    sh.light = "STUDIO"
-    sh.color_type = "MATERIAL"
-    sh.show_shadows = True
-    sh.show_cavity = True
-    sh.cavity_type = "WORLD"
-    sh.show_object_outline = True
-    sh.background_type = "VIEWPORT"
-    sh.background_color = (0.86, 0.9, 0.84)
-    scene.world = scene.world or bpy.data.worlds.new("World")
-    scene.world.color = (0.86, 0.9, 0.84)
-    scene.view_settings.view_transform = "Standard"
-
-
-def srgb_to_linear(hex_color):
-    h = hex_color.lstrip("#")
-    srgb = [int(h[i:i + 2], 16) / 255 for i in (0, 2, 4)]
-    return [c / 12.92 if c <= 0.04045 else ((c + 0.055) / 1.055) ** 2.4 for c in srgb]
-
-
 def render_sheet(spec, arm_obj, mesh_obj, actions, out_path, coats, mats):
     size = 320
     setup_render(size)
@@ -516,9 +458,7 @@ def render_sheet(spec, arm_obj, mesh_obj, actions, out_path, coats, mats):
     while len(shots) % 4:
         shots.append(("idle", (0.9, 0.35, -0.5), "idle", 0.5, {}))
 
-    tmp = os.path.join(bpy.app.tempdir, "shot.png")
     tiles = []
-    import numpy as np
     base = {n: tuple(m.diffuse_color) for n, m in mats.items()}
     for name, d, clip, t, coat in shots:
         for n, m in mats.items():
@@ -530,22 +470,8 @@ def render_sheet(spec, arm_obj, mesh_obj, actions, out_path, coats, mats):
         cam.location = center + direction * extent * 4
         cam.rotation_euler = (-direction).to_track_quat("-Z", "Y").to_euler()
         label_data.body = name
-        scene.render.filepath = tmp
-        bpy.ops.render.render(write_still=True)
-        img = bpy.data.images.load(tmp)
-        px = np.array(img.pixels[:], dtype=np.float32).reshape(size, size, 4)
-        bpy.data.images.remove(img)
-        tiles.append(px)
-    rows = []
-    for r in range(0, len(tiles), 4):
-        rows.append(np.concatenate(tiles[r:r + 4], axis=1))
-    sheet = np.concatenate(rows[::-1], axis=0)  # Blender images start at the bottom
-    h, w = sheet.shape[:2]
-    out = bpy.data.images.new("sheet", w, h, alpha=True)
-    out.pixels = sheet.ravel()
-    out.filepath_raw = out_path
-    out.file_format = "PNG"
-    out.save()
+        tiles.append(render_tile(size))
+    save_sheet(tiles, out_path)
     arm_obj.animation_data.action = actions["idle"][0]
     for obj in (ground, cam, label):
         bpy.data.objects.remove(obj)
