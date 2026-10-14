@@ -101,6 +101,8 @@ The settings are tuned for the whole game (see [decision 0012](../docs/decisions
 
 **Colours are stored on the vertices,** and the whole animal is one material, so the phone draws it in one call ([decision 0013](../docs/decisions/0013-one-material-per-animal.md)). Where two colours meet, they blend softly across one row of triangles. The colour names and values go into the model file, and that's how the game finds a colour to swap for a seasonal coat.
 
+**Sleeping:** an animal lies down on its belly with its legs folded under it: the body drops to 80% of its hip height (the height of its leg bones' heads), front legs fold back under the chest and hind legs forward under the belly. Override it in the spec with `"sleep_drop"` (share of the hip height, default 0.8) and `"sleep_legs"` (degrees for the front and hind legs, default `[83, -83]`). Birds keep their feet under them instead.
+
 ### Rules for a good spec
 These came from building the squirrel. Each one fixes something that looked wrong in a preview.
 

@@ -348,7 +348,9 @@ def pose_for(clip, t, b, height, is_front, side):
         elif clip == "run":
             p = 0.85 * sw * s
         elif clip == "sleep":
-            p = -1.1 if is_front else -0.9
+            # lying down: front legs fold back under the chest, hind legs forward under the belly
+            fold = LYING["legs"]
+            p = fold[0] if is_front else fold[1]
     elif role == "body":
         if clip == "run":
             p = 0.12 * sw * wave(t, ph)
@@ -422,6 +424,11 @@ def bird_pose(clip, t, b, p, y, r, side):
     return p, y, r
 
 
+# Lying down (sleep), set per model in make_actions: how far the body drops
+# (to its belly, from the legs' real hip height) and how the legs fold.
+LYING = {"drop": None, "legs": (1.45, -1.45)}
+
+
 def root_offset(clip, t, height, gait):
     """Body bob in game metres (up)."""
     if clip == "walk":
@@ -429,7 +436,9 @@ def root_offset(clip, t, height, gait):
     if clip == "run":
         return (0.15 if gait == "bound" else 0.06) * height * max(0.0, wave(t))
     if clip == "sleep":
-        return -(0.08 if BIRD["on"] else 0.2) * height
+        if BIRD["on"]:
+            return -0.08 * height
+        return -LYING["drop"] if LYING["drop"] is not None else -0.2 * height
     if clip == "eat":
         return -0.04 * height
     if clip == "idle":
@@ -444,6 +453,13 @@ def make_actions(spec, arm_obj, height):
     clips = dict(CLIPS)
     roles = {b["role"] for b in spec["bones"]}
     BIRD["on"] = "wing" in roles
+    legs = [b for b in spec["bones"] if b["role"] == "leg"]
+    if legs:   # hip height: where the legs join the body
+        hip = sum(b["head"][1] for b in legs) / len(legs)
+        LYING["drop"] = hip * spec.get("sleep_drop", 0.8)
+    else:
+        LYING["drop"] = None
+    LYING["legs"] = tuple(math.radians(a) for a in spec.get("sleep_legs", [83, -83]))
     BIRD["pitch"] = math.radians(spec.get("fly_pitch", 50))   # how far the body tips forward to fly level
     BIRD["buzz"] = spec.get("wingbeat") == "buzz"              # insects: a blur of wings
     BIRD["legs"] = math.radians(spec.get("fly_legs", 75))      # legs swing back in flight (birds tuck them)
