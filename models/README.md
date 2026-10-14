@@ -134,7 +134,7 @@ The perch ([perch.json](perch.json)) is the example.
 ### Insects
 The bumblebee ([bee.json](bee.json)) is the example.
 
-- **Build it at real size,** in metres: a bumblebee queen is about 0.02 m. The builder scales its melting resolution and preview camera to the animal's size.
+- **Build it at real size,** in metres: a bumblebee queen is about 0.02 m. The builder scales its melting resolution and preview camera to the animal's size. In the game, insects live in the **small world** and are shown at 5 times real size: set the animal file's `length` to 5 times the printed length ([ART.md](../ART.md#two-scales-the-world-and-the-small-world)).
 - **`"wingbeat": "buzz"`** makes the wings flip every frame in flight, which reads as the blur of a real insect's wings. Model the wings spread out, one `wing` bone per side can carry both wings.
 - **Insects fly level:** `"fly_pitch": 0`. `"fly_legs"` (degrees) is how far the legs swing back in flight; a bee's dangle at about 25.
 - **Wings rest flat over the back:** a `fold` that only sweeps them back, such as `[0, 84, 4]`, with `"fold_length": 1.0` (insect wings don't fold).
