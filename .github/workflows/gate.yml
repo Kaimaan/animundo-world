@@ -37,7 +37,9 @@ jobs:
 
             const content = ['regions/', 'animals/', 'models/', 'locale/', 'wanted.json', 'docs/catalogue.md'];
             const files = await github.paginate(github.rest.pulls.listFiles, { owner, repo, pull_number: pr.number });
-            const outside = files.map(f => f.filename).filter(f => !content.some(c => f.startsWith(c)));
+            // menu text belongs to the game repo and is synced from there (decision 0013)
+            const gameOwned = f => /^locale\/([^/]+\/(ui|loading|seasons)\.json|languages\.json)$/.test(f);
+            const outside = files.map(f => f.filename).filter(f => gameOwned(f) || !content.some(c => f.startsWith(c)));
             if (outside.length) {
               return close(`Pull requests can only change content in ${content.map(c => '`' + c + '`').join(', ')}. This one also changes:\n\n${outside.map(f => '- `' + f + '`').join('\n')}\n\nIf something else needs changing, please open an issue instead.`);
             }
