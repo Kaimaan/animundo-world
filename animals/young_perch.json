@@ -1,0 +1,49 @@
+{
+  "archetype": "fish",
+  "latin": "Perca fluviatilis",
+  "dark_vision": 0.4,
+  "tags": [
+    "fish",
+    "fry"
+  ],
+  "diet": [
+    "water_bugs"
+  ],
+  "walk": 0.8,
+  "sprint": 2.2,
+  "school": true,
+  "food_value": 12,
+  "color": "#4f6f3a",
+  "model": {
+    "file": "res://assets/animals/perch.glb",
+    "length": 0.054,
+    "yaw": 0.0,
+    "anims": {
+      "idle": "idle",
+      "fly": "swim"
+    }
+  },
+  "year": {
+    "winter": "active",
+    "shelter": "Shoals in the warm shallows among the water plants, out of reach of bigger fish; deeper water in winter.",
+    "young": "Hatched in spring from eggs laid in the shallows; a few centimetres long by their first autumn.",
+    "food": {
+      "spring": "Tiny water animals (zooplankton).",
+      "summer": "Water fleas and small insect larvae.",
+      "autumn": "Small larvae and water fleas.",
+      "winter": "Eats very little under the ice."
+    },
+    "notes": "Young fish are the main food of perch from summer on, and of pike, grebes and terns. Shown at real size (about 7 cm): they are the young of world-scale fish, not part of the small world (ART.md)."
+  },
+  "text": {
+    "title": "Young perch",
+    "caught": "A tasty young perch! +{food} food",
+    "nearby": "A shoal of young perch.",
+    "about_looks": "A tiny greenish perch with faint dark stripes, a few centimetres long.",
+    "about_food": "Tiny water animals: water fleas and small larvae.",
+    "about_home": "Shoals in the shallows, hiding among the water plants.",
+    "about_winter": "Moves to deeper water, where it stays a little warmer under the ice.",
+    "about_young": "It hatched in spring from a long ribbon of eggs a perch laid over water plants.",
+    "about_fact": "Big perch eat young perch too: perch are cannibals!"
+  }
+}

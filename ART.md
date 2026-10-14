@@ -26,6 +26,7 @@ The game has two scales, so a moose and a bumblebee can share one forest and bot
 
 - **Why:** a real 2 cm bumblebee is a speck on a phone screen, and the world's ground isn't detailed enough to play at that size. We tested it: a real-size bee's camera ends up inside a flower. At 5 times, a bee is about 10 cm and easy to see and steer.
 - **Sizes stay true inside each scale.** A bee is the right size next to a flower, and a moose the right size next to a fox. Never mix them: no enlarged mammals, and no real-size insects.
+- **Young animals keep their family's scale.** A young perch or a baby fox is real size, however small: it belongs to the world, like its parents. The small world is for insects, spiders and their plants.
 - **Big and small still meet.** An enlarged ant is about 3 cm, still tiny under a bear's paw, so stepping on ants and bears eating them still work.
 - **Build at real size, show at 5 times.** Specs are always in real metres. For a small-world animal, the animal file's `length` is 5 times the length the build prints (the bumblebee: printed 0.017, `length` 0.085).
 - **Field guides tell the real size.** Players learn the true size from the text, for example "a bumblebee queen is about 2 cm long", never from the model.

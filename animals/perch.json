@@ -5,6 +5,9 @@
   "color": "#4f6f3a",
   "tags": ["fish", "small_fish"],
   "diet": ["water_bugs"],
+  "hunts": [
+    "fry"
+  ],
   "dark_vision": 0.5,
   "walk": 3.0,
   "sprint": 6.0,
@@ -18,12 +21,15 @@
   },
   "text": {
     "title": "Perch",
+    "safe_tag": "Tag, you got it! In Safe mode perch fill up on water insects.",
+    "bite": "A perch snapped at you! Swim for the reeds!",
+    "caught_you": "You were caught by a perch",
     "menu_sub": "Swim the dark lakes, eat water insects, rest in deep water.",
     "menu_wild": "Pike lurk in the lake.",
     "night_hint": "It's night. Swim down to deep water, or hide under the old boat wreck, to rest.",
     "intro": "Up and Down to swim deeper. Eat the drifting water insects.",
-    "hungry": "You're hungry. Look for water insects drifting in the lake.",
-    "no_food": "Nothing to eat here. Look for water insects drifting in the lake.",
+    "hungry": "You're hungry. Hunt the shoals of young fish, or look for water insects drifting in the lake.",
+    "no_food": "Nothing to eat here. Look for shoals of young fish, or water insects drifting in the lake.",
     "about_looks": "Green and gold with dark stripes, red-orange fins and a spiny fin on its back.",
     "about_food": "Insect larvae and small water animals. Big perch eat small fish.",
     "about_home": "Swims in schools among water plants and sunken wood in lakes.",
