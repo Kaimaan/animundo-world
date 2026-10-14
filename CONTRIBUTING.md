@@ -40,7 +40,7 @@ Name it `<country code>_<place>.json`, all lowercase, for example `ke_masai_mara
 | `trees.density` (0–0.05) | Trees per square metre. Nuuksio's dense forest is 0.02. |
 | `trees.mix` | A list of `{shape, weight, leaves, trunk, autumn}`. Give `autumn` (a colour) to trees that drop their leaves: they turn that colour in autumn and stand bare in winter. Shapes: `spruce` (dark cone), `pine` (tall bare trunk, crown on top), `birch` (white trunk, small round crown), `round` (broadleaf tree). |
 | `ground_cover.grass`, `flowers`, `stones` (0–1) | How much of the ground has grass tufts, flowers and loose stones. Together with the plants below, they must add up to 1 or less. |
-| `ground_cover.plants` | Optional plants built from specs in [`models/plants/`](models/README.md#plants): a list of `{model, density, near_trees}`. `density` (0–1) is how much of the open ground has it, and `near_trees` (blocks, optional) keeps it within that distance of a trunk, for forest plants like bilberry. Each plant changes through the year by itself, following this region's `seasons`. |
+| `ground_cover.plants` | Optional plants built from specs in [`models/plants/`](models/README.md#plants): a list of `{model, density, near_trees, on}`. `density` (0–1) is how much of the open ground has it. `near_trees` (blocks, optional) keeps it within that distance of a trunk, for forest plants like bilberry. `on` (optional) is the ground it grows on: any of `grass` (the default), `rock` and `sand`, e.g. `["grass", "rock"]` for heather on rocky hilltops. Each plant changes through the year by itself, following this region's `seasons`. |
 | `ground_cover.flower_colors` | A list of flower colours. |
 | `ground_cover.flower_names` | Optional: the real flower species, one per colour in the same order, e.g. `["harebell", "heather"]`. Bees are told which flower they drank from. |
 | `lakes` | Optional named lakes, carved into the land: a list of `{name, x, z, length, width, angle, depth, islands, wreck}`. `x`, `z` (0–1) place the middle on the map, `length` and `width` (0–1) are parts of the map size, `angle` (degrees) turns it, `depth` (2–7) is in metres, `islands` is how many little islands, `wreck: true` sinks an old rowing boat in it. The player is told the lake's name when they reach it. |
@@ -223,7 +223,7 @@ Then match the model to it: each part's `show` (`{"from": "summer+50", "until": 
    ```bash
    tools/build_model.sh models/plants/<id>.json
    ```
-4. **Place it** in a region's `ground_cover.plants`: `{"model": "<id>", "density": 0.1, "near_trees": 5}`.
+4. **Place it** in a region's `ground_cover.plants`: `{"model": "<id>", "density": 0.1, "near_trees": 5}`. Add `"on": ["grass", "rock"]` if it also grows on bare rock.
 5. **Check it.**
    ```bash
    python3 tools/validate_region.py

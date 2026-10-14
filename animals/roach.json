@@ -13,18 +13,8 @@
   "sprint": 3.0,
   "school": true,
   "model": {
-    "file": "res://assets/animals/fish.glb",
-    "length": 0.22,
-    "yaw": 0.0,
-    "anims": {
-      "idle": "Armature|Swim",
-      "fly": "Armature|Swim"
-    },
-    "recolor": {
-      "Top": "#56656a",
-      "Bottom": "#dfe4e2",
-      "Fins": "#c8452e"
-    }
+    "file": "res://assets/animals/roach.glb", "length": 0.180, "yaw": 0.0,
+    "anims": {"idle": "idle", "fly": "swim"}
   },
   "text": {
     "title": "Roach",

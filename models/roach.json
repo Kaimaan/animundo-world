@@ -1,0 +1,46 @@
+{
+  "id": "roach",
+  "name": "Roach (Rutilus rutilus)",
+  "author": "Animundo team",
+  "gait": "walk",
+  "skin": {"triangles": 600},
+  "colors": {
+    "back": "#4d6470",
+    "side": "#d3dade",
+    "belly": "#e8e6dc",
+    "fin": "#8f7f74",
+    "fin_red": "#d9643a",
+    "eye": "#c8352a",
+    "dark": "#2a1f1a"
+  },
+  "bones": [
+    {"name": "body", "head": [0, 0.045, 0.1], "tail": [0, 0.045, -0.01], "role": "body"},
+    {"name": "tail_1", "head": [0, 0.045, -0.01], "tail": [0, 0.045, -0.05], "parent": "body", "role": "fin", "phase": 0.0},
+    {"name": "tail_2", "head": [0, 0.045, -0.05], "tail": [0, 0.045, -0.08], "parent": "tail_1", "role": "fin", "phase": 0.12},
+    {"name": "tail_3", "head": [0, 0.045, -0.08], "tail": [0, 0.045, -0.112], "parent": "tail_2", "role": "fin", "phase": 0.24}
+  ],
+  "parts": [
+    {"name": "body", "shape": "ball", "size": [0.025, 0.06, 0.13], "at": [0, 0.046, 0.022], "color": "side", "bone": "body"},
+    {"name": "back", "shape": "ball", "size": [0.021, 0.03, 0.13], "at": [0, 0.064, 0.02], "color": "back", "bone": "body"},
+    {"name": "belly", "shape": "ball", "size": [0.02, 0.025, 0.11], "at": [0, 0.03, 0.03], "color": "belly", "bone": "body"},
+    {"name": "head", "shape": "ball", "size": [0.021, 0.038, 0.055], "at": [0, 0.046, 0.075], "color": "side", "bone": "body"},
+    {"name": "crown", "shape": "ball", "size": [0.014, 0.016, 0.05], "at": [0, 0.06, 0.07], "color": "back", "bone": "body"},
+    {"name": "snout", "shape": "ball", "size": [0.015, 0.02, 0.03], "at": [0, 0.047, 0.097], "color": "side", "bone": "body"},
+    {"name": "rear", "shape": "ball", "size": [0.019, 0.04, 0.08], "at": [0, 0.046, -0.03], "color": "side", "bone": "tail_1"},
+    {"name": "rear_back", "shape": "ball", "size": [0.016, 0.02, 0.08], "at": [0, 0.06, -0.03], "color": "back", "bone": "tail_1"},
+    {"name": "stalk", "shape": "ball", "size": [0.011, 0.022, 0.045], "at": [0, 0.046, -0.065], "color": "side", "bone": "tail_2"},
+    {"name": "stalk_end", "shape": "ball", "size": [0.008, 0.018, 0.025], "at": [0, 0.046, -0.083], "color": "side", "bone": "tail_3"},
+
+    {"name": "dorsal", "shape": "cylinder", "size": [0.05, 0.002, 0.04], "at": [0, 0.07, 0.02], "rot": [-20, 0, 90], "color": "fin", "bone": "body", "detail": 0.75},
+    {"name": "anal", "shape": "cylinder", "size": [0.024, 0.002, 0.035], "at": [0, 0.024, -0.032], "rot": [-15, 0, 90], "color": "fin_red", "bone": "tail_1", "detail": 0.75},
+    {"name": "tail_top", "shape": "cylinder", "size": [0.02, 0.002, 0.05], "at": [0, 0.059, -0.1], "rot": [38, 0, 90], "color": "fin", "bone": "tail_3", "detail": 0.75},
+    {"name": "tail_low", "shape": "cylinder", "size": [0.02, 0.002, 0.05], "at": [0, 0.033, -0.1], "rot": [-38, 0, 90], "color": "fin", "bone": "tail_3", "detail": 0.75},
+    {"name": "tail_mid", "shape": "cylinder", "size": [0.022, 0.002, 0.022], "at": [0, 0.046, -0.088], "rot": [0, 0, 90], "color": "fin", "bone": "tail_3", "detail": 0.75},
+    {"name": "pelvic_l", "shape": "cylinder", "size": [0.012, 0.002, 0.03], "at": [0.006, 0.02, 0.025], "rot": [-25, 0, 60], "color": "fin_red", "bone": "body", "mirror": true, "detail": 0.75},
+    {"name": "pectoral_l", "shape": "cylinder", "size": [0.012, 0.002, 0.03], "at": [0.011, 0.035, 0.058], "rot": [-15, -25, 90], "color": "fin_red", "bone": "body", "mirror": true, "detail": 0.75},
+
+    {"name": "mouth_l", "shape": "box", "size": [0.002, 0.002, 0.01], "at": [0.006, 0.043, 0.1], "rot": [10, -15, 0], "color": "dark", "bone": "body", "mirror": true, "separate": true},
+    {"name": "eye_l", "shape": "ball", "size": [0.006, 0.013, 0.013], "at": [0.008, 0.049, 0.087], "color": "eye", "bone": "body", "mirror": true, "separate": true, "detail": 0.6},
+    {"name": "pupil_l", "shape": "ball", "size": [0.004, 0.006, 0.006], "at": [0.0105, 0.049, 0.089], "color": "dark", "bone": "body", "mirror": true, "separate": true, "detail": 0.4}
+  ]
+}

@@ -16,6 +16,7 @@ import sys
 TREE_SHAPES = {"spruce", "pine", "birch", "round"}
 FOOD_KINDS = {"clover", "carrot", "berries", "insects", "water_bugs"}
 EDGES = {"lake", "none"}
+PLANT_GROUND = {"grass", "rock", "sand"}
 HEX = re.compile(r"^#[0-9a-fA-F]{6}$")
 ID = re.compile(r"^[a-z]{2}_[a-z0-9_]+$")
 
@@ -112,6 +113,9 @@ def check(path):
             err(f'"ground_cover.plants[{i}]": build it first with tools/build_model.sh models/plants/{pl["model"]}.json')
         if not isinstance(pl.get("density"), (int, float)) or not 0 < pl["density"] <= 1:
             err(f'"ground_cover.plants[{i}].density" must be a number above 0, up to 1')
+        on = pl.get("on", ["grass"])
+        if not (isinstance(on, list) and on and all(g in PLANT_GROUND for g in on)):
+            err(f'"ground_cover.plants[{i}].on" must be a list of {sorted(PLANT_GROUND)}')
         nt = pl.get("near_trees", 0)
         if not isinstance(nt, (int, float)) or not 0 <= nt <= 16:
             err(f'"ground_cover.plants[{i}].near_trees" must be a number of blocks from 0 to 16')

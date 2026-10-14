@@ -10,12 +10,11 @@
   "sprint": 7.5,
   "jump": 6.2,
   "box": [0.45, 0.55, 0.45],
-  "cam_height": 0.6,
-  "cam_dist": 3.2,
+  "cam_height": 0.4,
+  "cam_dist": 2.0,
   "model": {
-    "file": "res://assets/animals/rabbit.glb", "length": 0.5, "yaw": 0.0,
-    "anims": {"idle": "Bunny|Bunny_idle", "walk": "Bunny|Bunny_walk", "run": "Bunny|Bunny_walk"},
-    "walk_speed": 1.2, "run_speed": 2.4
+    "file": "res://assets/animals/rabbit.glb", "length": 0.277, "yaw": 0.0,
+    "anims": {"idle": "idle", "walk": "walk", "run": "run", "eat": "eat", "sleep": "sleep"}
   },
   "text": {
     "title": "Rabbit",

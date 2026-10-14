@@ -109,6 +109,26 @@ These came from building the squirrel. Each one fixes something that looked wron
 - **Mark the details.** Set `separate: true` on eyes, nose, ears and tufts so they stay crisp.
 - **Thin legs stay thick enough.** A leg thinner than about 1/30 of the body length melts away. Make it a little thicker than real if needed.
 
+- **Separate parts share the triangle budget.** Eyes, fins, spots and bars come out of `triangles` too, and the melted body never gets fewer than 200. Use `detail` 0.4–0.7 on separate parts, or the total goes over budget and the body turns coarse.
+- **Split melted parts at bone boundaries.** Each spot on the skin takes the bone of the nearest part, so a long back or belly part that spans two bones leaves its rear skin stuck to the front bone.
+
+### Birds
+The kestrel ([kestrel.json](kestrel.json)) is the example.
+
+- **Model the wings spread** straight out sideways, as in flight, with each `wing` bone's head at the shoulder and its tail toward the wing tip. Use the real wingspan.
+- **On the ground the builder folds them:** `fold` (degrees, per wing bone) turns the wing on its side and sweeps it back, and `fold_length` (default 0.6) shortens it, like a wing folding at the wrist. The default fold doesn't suit every bird; the kestrel uses `"fold": [-111, 18, -80.8]`. Check the folded wing from the front and top: it should lie flat on the flank, with the tips over the tail.
+- **Keep wings narrow:** folding shortens a wing but doesn't narrow it, so a broad wing folds into a block.
+- **Model the bird perched,** body tipped up as it really sits. `fly_pitch` (degrees, default 50) tips the body level in flight; the head and tail stay level and the legs tuck back.
+- **Thin legs, wings and tail feathers** stay separate rigid pieces automatically, which keeps them crisp.
+
+### Fish
+The perch ([perch.json](perch.json)) is the example.
+
+- **Spine chain:** a `body` bone from the snout backwards, then three `fin` bones with `phase` 0, 0.12 and 0.24. The tail fin rides the last one. This gives a travelling swim wave. Lower `swing` (0.6–0.8) for long fish like the pike.
+- **Fins are flat cylinders,** not balls: `"shape": "cylinder"`, `"rot": [pitch, 0, 90]`, size [height, thickness, length], part-buried in the body. Make dorsal fins stand well clear of the back, or they read as bumps.
+- **Bars and spots are separate parts:** thin rings a few millimetres wider than the body, or small flattened balls sunk a third into it. Melted into the body they come out as jagged shards.
+- **In the animal file,** map only `"idle": "idle"` and `"fly": "swim"`. A fish "flies" in water, and the generated sleep and eat clips tip a fish over.
+
 ### Checklist for a good model
 - **Real size.** Look the animal up. The build prints its length and height.
 - **No gaps.** Parts on the same body overlap a little. Legs reach the ground (`y = 0`), and nothing floats.
@@ -158,6 +178,7 @@ Parts take the same fields as an animal's (no `bone`), plus:
 | `shape` | Also `leaf`: a flat leaf, pointed at the front (+z), with one face. `size` is `[width, unused, length]`. |
 | `around` | Makes this many copies spaced evenly around the stem (the upright line through `pivot`, `[x, z]`, default `[0, 0]`). Put the first copy on the front (+z). `turn` (degrees) turns the whole ring. |
 | `jitter` | 0–1: copies in a ring differ a little in angle, tilt and size, so the plant looks grown, not machined. The same spec always builds the same plant. |
+| `seed` | Optional name: rings with the same `seed`, `around` and `jitter` get the same random turns, so one part can sit on another, like heather's flower spikes on its shoots. |
 | `show` | Optional: the part is there only part of the year, `{"from": "summer+50", "until": "autumn+20"}`: from 50 days after summer starts until 20 days after autumn starts. Use it for flowers, berries and leaves that fall. The dates are relative to each region's own `seasons`, so one bilberry is right in southern Finland and in Lapland. |
 
 **Look up the plant's year** (when it flowers, fruits, turns colour and drops its leaves) in the same sources as its looks, then check the season row of the preview sheet. The top two rows show every part at once, flowers and berries together, so you can check the shapes.

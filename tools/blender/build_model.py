@@ -183,13 +183,15 @@ def build_skin(spec, mats, arm_obj, opts):
     detail = [p for p in spec["parts"] if p not in body]
     # the parts, as they are, for colour and bone lookups
     src = bmesh.new()
-    src_info = []   # per face: (material index, bone name)
-    for p in body:
+    owner = src.faces.layers.int.new("part")   # 1 + index of the part each face came from
+    for i, p in enumerate(body):
         add_shape(src, p)
-        src.faces.index_update()   # new faces come last: they belong to this part
-        while len(src_info) < len(src.faces):
-            src_info.append((color_names.index(p["color"]), p["bone"]))
+        for f in src.faces:
+            if f[owner] == 0:   # tag by layer: Blender may reuse face slots, so order can't be trusted
+                f[owner] = i + 1
+    src.faces.index_update()
     src.faces.ensure_lookup_table()
+    src_info = [(color_names.index(body[f[owner] - 1]["color"]), body[f[owner] - 1]["bone"]) for f in src.faces]
     tree = BVHTree.FromBMesh(src)
     # melt, smooth, reduce
     src_mesh = bpy.data.meshes.new("_parts")
@@ -357,6 +359,32 @@ def pose_for(clip, t, b, height, is_front, side):
     return p, y, r
 
 
+# Birds (anything with "wing" bones): set per model in make_actions.
+BIRD = {"on": False, "pitch": 0.0}
+
+
+def bird_pose(clip, t, b, p, y, r, side):
+    """Bird posture on top of the general pose: wings folded on their side
+    along the body on the ground, the body tipped level in flight with the
+    head kept level and the legs tucked back, and feet kept under a sleeping bird."""
+    role = b["role"]
+    if role == "wing" and clip != "fly":
+        fp, fy, fr = (math.radians(a) for a in b.get("fold", [-75, 88, 12]))
+        return fp, side * fy, -side * fr
+    if clip == "fly":
+        if role == "body":
+            return p + BIRD["pitch"] + 0.04 * wave(t), y, r
+        if role == "head":
+            return p - BIRD["pitch"], y, r
+        if role == "tail":   # trails level behind the tipped body, steering a little
+            return p - BIRD["pitch"] * 0.8 + 0.06 * wave(t, 0.25), y, r
+        if role == "leg":
+            return 1.3, 0.0, 0.0
+    if role == "leg" and clip == "sleep":
+        return 0.0, 0.0, 0.0
+    return p, y, r
+
+
 def root_offset(clip, t, height, gait):
     """Body bob in game metres (up)."""
     if clip == "walk":
@@ -364,7 +392,7 @@ def root_offset(clip, t, height, gait):
     if clip == "run":
         return (0.15 if gait == "bound" else 0.06) * height * max(0.0, wave(t))
     if clip == "sleep":
-        return -0.2 * height
+        return -(0.08 if BIRD["on"] else 0.2) * height
     if clip == "eat":
         return -0.04 * height
     if clip == "idle":
@@ -376,6 +404,8 @@ def make_actions(spec, arm_obj, height):
     bones = {b["name"]: b for b in spec["bones"]}
     clips = dict(CLIPS)
     roles = {b["role"] for b in spec["bones"]}
+    BIRD["on"] = "wing" in roles
+    BIRD["pitch"] = math.radians(spec.get("fly_pitch", 50))   # how far the body tips forward to fly level
     if "wing" in roles:
         clips["fly"] = 16
     if "fin" in roles:
@@ -400,6 +430,13 @@ def make_actions(spec, arm_obj, height):
                 head = pb.bone.head_local
                 side = 1.0 if head.x >= 0 else -1.0
                 p, y, r = pose_for(clip, t, b, height, head.y < 0, side)
+                if BIRD["on"]:
+                    p, y, r = bird_pose(clip, t, b, p, y, r, side)
+                if b["role"] == "wing":
+                    # a wing folds at the wrist: shorter on the ground than spread in flight
+                    fold = 1.0 if clip == "fly" else b.get("fold_length", 0.6)
+                    pb.scale = (1.0, fold, 1.0)
+                    pb.keyframe_insert("scale", frame=f + 1)
                 world = (Matrix.Rotation(y, 3, AXIS["yaw"]) @ Matrix.Rotation(p, 3, AXIS["pitch"])
                          @ Matrix.Rotation(r, 3, AXIS["roll"]))
                 pb.rotation_quaternion = (rest.inverted() @ world @ rest).to_quaternion()

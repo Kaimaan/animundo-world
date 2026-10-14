@@ -32,7 +32,7 @@ These change the model builder or the game, so every animal gets them at once. S
 | Work | Why | Status |
 |---|---|---|
 | **Swimming land animals:** a generated `swim` clip for every four-legged animal (dog paddle: short fast leg strokes, head up, tail trailing), played while it's in water, with a preview tile | Foxes, squirrels and hares really swim, but in the game they play their walk animation, so they look like they're walking on the lake bottom | Wanted |
-| **One material per animal:** colours stored on the model (or a tiny colour strip) instead of one material per colour; coats swap the colours | Each material is a separate draw call: 4–6 per animal today. Cheap phones struggle with many animals on screen long before triangles matter | Wanted |
+| **One material per animal:** colours stored on the model (or a tiny colour strip) instead of one material per colour; coats swap the colours | Each material is a separate draw call: 4–6 per animal today. Cheap phones struggle with many animals on screen long before triangles matter. Colours per vertex would also fix the jagged colour edges (a perch's bars, a roach's back) left by reducing the triangles | Wanted |
 | **Body-plan templates:** a starting spec per body plan (four-legged, bird, fish) | Agents and contributors copy the closest one instead of starting from scratch | Wanted |
 | **Swimming birds:** ducks and grebes floating on the surface | No swimming birds yet | Later |
 

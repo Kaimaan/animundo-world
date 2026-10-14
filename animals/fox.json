@@ -12,8 +12,8 @@
   "sprint": 8.4,
   "jump": 6.8,
   "box": [0.55, 0.85, 0.55],
-  "cam_height": 0.8,
-  "cam_dist": 3.8,
+  "cam_height": 0.6,
+  "cam_dist": 2.8,
   "family": {
     "raised_by": ["mother", "father"],
     "siblings": [2, 3],
@@ -22,10 +22,8 @@
     "sources": ["https://en.wikipedia.org/wiki/Red_fox#Reproduction_and_development"]
   },
   "model": {
-    "file": "res://assets/animals/fox.glb", "length": 1.05, "yaw": 0.0,
-    "anims": {"idle": "Idle", "walk": "Walk", "run": "Gallop", "eat": "Eating",
-      "sleep": "Idle_2_HeadLow", "death": "Death", "attack": "Attack"},
-    "walk_speed": 1.6, "run_speed": 6.0
+    "file": "res://assets/animals/fox.glb", "length": 0.755, "yaw": 0.0,
+    "anims": {"idle": "idle", "walk": "walk", "run": "run", "eat": "eat", "sleep": "sleep"}
   },
   "text": {
     "title": "Fox",

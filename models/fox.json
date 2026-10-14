@@ -1,0 +1,51 @@
+{
+  "id": "fox",
+  "name": "Red fox (Vulpes vulpes)",
+  "author": "Animundo team",
+  "gait": "walk",
+  "colors": {
+    "fur": "#c4622b",
+    "belly": "#efe3cf",
+    "dark": "#2a1f1a"
+  },
+  "bones": [
+    {"name": "body", "head": [0, 0.32, -0.18], "tail": [0, 0.34, 0.15], "role": "body"},
+    {"name": "neck", "head": [0, 0.35, 0.15], "tail": [0, 0.42, 0.24], "parent": "body", "role": "neck"},
+    {"name": "head", "head": [0, 0.42, 0.24], "tail": [0, 0.42, 0.4], "parent": "neck", "role": "head"},
+    {"name": "ear_l", "head": [0.044, 0.46, 0.255], "tail": [0.05, 0.56, 0.25], "parent": "head", "role": "ear", "mirror": true},
+    {"name": "leg_f_l", "head": [0.066, 0.32, 0.14], "tail": [0.066, 0.0, 0.15], "parent": "body", "role": "leg", "phase": 0.0, "mirror": true},
+    {"name": "leg_b_l", "head": [0.068, 0.32, -0.15], "tail": [0.068, 0.0, -0.16], "parent": "body", "role": "leg", "phase": 0.5, "mirror": true},
+    {"name": "tail_1", "head": [0, 0.32, -0.22], "tail": [0, 0.26, -0.36], "parent": "body", "role": "tail", "phase": 0.0},
+    {"name": "tail_2", "head": [0, 0.26, -0.36], "tail": [0, 0.21, -0.5], "parent": "tail_1", "role": "tail", "phase": 0.12},
+    {"name": "tail_3", "head": [0, 0.21, -0.5], "tail": [0, 0.185, -0.63], "parent": "tail_2", "role": "tail", "phase": 0.24}
+  ],
+  "parts": [
+    {"name": "body", "shape": "ball", "size": [0.17, 0.19, 0.46], "at": [0, 0.32, -0.01], "color": "fur", "bone": "body"},
+    {"name": "chest", "shape": "ball", "size": [0.11, 0.15, 0.12], "at": [0, 0.31, 0.18], "color": "belly", "bone": "body"},
+    {"name": "neck", "shape": "ball", "size": [0.12, 0.15, 0.16], "at": [0, 0.37, 0.19], "rot": [-30, 0, 0], "color": "fur", "bone": "neck"},
+    {"name": "throat", "shape": "ball", "size": [0.08, 0.1, 0.1], "at": [0, 0.35, 0.225], "rot": [-30, 0, 0], "color": "belly", "bone": "neck"},
+    {"name": "head", "shape": "ball", "size": [0.14, 0.12, 0.14], "at": [0, 0.43, 0.27], "color": "fur", "bone": "head"},
+    {"name": "cheeks", "shape": "ball", "size": [0.12, 0.06, 0.08], "at": [0, 0.4, 0.3], "color": "belly", "bone": "head"},
+    {"name": "muzzle", "shape": "ball", "size": [0.065, 0.055, 0.13], "at": [0, 0.415, 0.35], "color": "fur", "bone": "head"},
+    {"name": "chin", "shape": "ball", "size": [0.055, 0.035, 0.1], "at": [0, 0.395, 0.34], "color": "belly", "bone": "head"},
+    {"name": "nose", "shape": "ball", "size": [0.026, 0.022, 0.02], "at": [0, 0.42, 0.413], "color": "dark", "bone": "head", "separate": true},
+    {"name": "eye_l", "shape": "ball", "size": [0.016, 0.016, 0.016], "at": [0.043, 0.443, 0.318], "color": "dark", "bone": "head", "mirror": true, "separate": true},
+    {"name": "ear_l", "shape": "taper", "top": 0.35, "size": [0.08, 0.115, 0.032], "at": [0.046, 0.505, 0.255], "rot": [0, 0, -15], "color": "dark", "bone": "ear_l", "mirror": true, "separate": true},
+    {"name": "ear_in_l", "shape": "taper", "top": 0.35, "size": [0.056, 0.085, 0.014], "at": [0.046, 0.5, 0.27], "rot": [0, 0, -15], "color": "fur", "bone": "ear_l", "mirror": true, "separate": true},
+    {"name": "arm_l", "shape": "ball", "size": [0.06, 0.18, 0.072], "at": [0.066, 0.24, 0.14], "rot": [0, 0, 0], "color": "fur", "bone": "leg_f_l", "mirror": true},
+    {"name": "fore_l", "shape": "ball", "size": [0.046, 0.2, 0.05], "at": [0.066, 0.1, 0.148], "color": "dark", "bone": "leg_f_l", "mirror": true},
+    {"name": "wrist_l", "shape": "ball", "size": [0.054, 0.06, 0.056], "at": [0.066, 0.055, 0.15], "color": "dark", "bone": "leg_f_l", "mirror": true},
+    {"name": "hand_l", "shape": "ball", "size": [0.052, 0.034, 0.075], "at": [0.066, 0.017, 0.162], "color": "dark", "bone": "leg_f_l", "mirror": true},
+    {"name": "thigh_l", "shape": "ball", "size": [0.065, 0.17, 0.13], "at": [0.068, 0.27, -0.15], "rot": [-20, 0, 0], "color": "fur", "bone": "leg_b_l", "mirror": true},
+    {"name": "shin_l", "shape": "ball", "size": [0.046, 0.2, 0.052], "at": [0.068, 0.11, -0.168], "color": "dark", "bone": "leg_b_l", "mirror": true},
+    {"name": "hock_l", "shape": "ball", "size": [0.054, 0.07, 0.06], "at": [0.068, 0.1, -0.17], "color": "dark", "bone": "leg_b_l", "mirror": true},
+    {"name": "foot_l", "shape": "ball", "size": [0.052, 0.034, 0.085], "at": [0.068, 0.017, -0.15], "color": "dark", "bone": "leg_b_l", "mirror": true},
+    {"name": "tail_1", "shape": "ball", "size": [0.09, 0.09, 0.1], "at": [0, 0.312, -0.24], "rot": [20, 0, 0], "color": "fur", "bone": "tail_1"},
+    {"name": "tail_2", "shape": "ball", "size": [0.115, 0.115, 0.12], "at": [0, 0.293, -0.29], "rot": [20, 0, 0], "color": "fur", "bone": "tail_1"},
+    {"name": "tail_3", "shape": "ball", "size": [0.14, 0.14, 0.13], "at": [0, 0.27, -0.345], "rot": [18, 0, 0], "color": "fur", "bone": "tail_1"},
+    {"name": "tail_4", "shape": "ball", "size": [0.155, 0.155, 0.14], "at": [0, 0.245, -0.405], "rot": [15, 0, 0], "color": "fur", "bone": "tail_2"},
+    {"name": "tail_5", "shape": "ball", "size": [0.16, 0.155, 0.14], "at": [0, 0.222, -0.465], "rot": [12, 0, 0], "color": "fur", "bone": "tail_2"},
+    {"name": "tail_6", "shape": "ball", "size": [0.145, 0.14, 0.13], "at": [0, 0.203, -0.525], "rot": [10, 0, 0], "color": "fur", "bone": "tail_3"},
+    {"name": "tail_7", "shape": "ball", "size": [0.125, 0.12, 0.13], "at": [0, 0.19, -0.595], "rot": [8, 0, 0], "color": "belly", "bone": "tail_3"}
+  ]
+}

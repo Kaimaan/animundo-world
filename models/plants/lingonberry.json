@@ -1,0 +1,34 @@
+{
+  "id": "lingonberry",
+  "name": "Lingonberry",
+  "latin": "Vaccinium vitis-idaea",
+  "author": "Animundo team",
+  "kind": "bush",
+  "year": {
+    "leaves": "evergreen",
+    "flowers": "Small white to pale pink bells in clusters at the shoot tips, June to early July.",
+    "fruit": "Bright red berries ripen from late August into September and stay on the plant over winter, under the snow.",
+    "notes": "Glossy, leathery dark green leaves all year, a little bronze in winter. Lower than bilberry and stiffer. Grows in dry pine forest and on heaths and rocky slopes."
+  },
+  "sources": ["https://en.wikipedia.org/wiki/Vaccinium_vitis-idaea"],
+  "colors": {
+    "stem": "#5e5a34",
+    "leaf": "#3f6e34",
+    "leaf_light": "#4f8040",
+    "flower": "#f1d9d6",
+    "berry": "#c42a2e"
+  },
+  "seasons": {
+    "spring": {"leaf_light": "#6a9a48"},
+    "winter": {"leaf": "#4a5c32", "leaf_light": "#5a6436"}
+  },
+  "parts": [
+    {"name": "stem", "shape": "cylinder", "size": [0.009, 0.15, 0.009], "at": [0, 0.07, 0.022], "rot": [10, 0, 0], "color": "stem", "detail": 0.4, "around": 3, "jitter": 0.6},
+    {"name": "leaf_low", "shape": "leaf", "size": [0.04, 0, 0.058], "at": [0, 0.045, 0.06], "rot": [-25, 0, 0], "color": "leaf", "around": 8, "jitter": 0.8},
+    {"name": "leaf_mid", "shape": "leaf", "size": [0.04, 0, 0.056], "at": [0, 0.085, 0.056], "rot": [-38, 0, 0], "color": "leaf", "around": 8, "turn": 22, "jitter": 0.8},
+    {"name": "leaf_high", "shape": "leaf", "size": [0.038, 0, 0.052], "at": [0, 0.12, 0.048], "rot": [-50, 0, 0], "color": "leaf", "around": 7, "turn": 10, "jitter": 0.8},
+    {"name": "leaf_top", "shape": "leaf", "size": [0.034, 0, 0.046], "at": [0, 0.15, 0.03], "rot": [-62, 0, 0], "color": "leaf_light", "around": 6, "turn": 35, "jitter": 0.8},
+    {"name": "flower", "shape": "cone", "size": [0.02, 0.022, 0.02], "at": [0, 0.165, 0.035], "rot": [160, 0, 0], "color": "flower", "detail": 0.5, "around": 5, "turn": 15, "jitter": 0.6, "show": {"from": "summer+10", "until": "summer+40"}},
+    {"name": "berry", "shape": "ball", "size": [0.022, 0.022, 0.022], "at": [0, 0.168, 0.035], "color": "berry", "detail": 0.5, "around": 5, "turn": 15, "jitter": 0.6, "show": {"from": "summer+90", "until": "spring+40"}}
+  ]
+}
