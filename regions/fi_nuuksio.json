@@ -185,6 +185,14 @@
       "count": 12
     },
     {
+      "kind": "young_roach",
+      "count": 10
+    },
+    {
+      "kind": "young_perch",
+      "count": 6
+    },
+    {
       "kind": "perch",
       "count": 5
     },

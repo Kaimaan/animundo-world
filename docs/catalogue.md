@@ -6,7 +6,7 @@ How to add each kind of thing: [CONTRIBUTING.md](../CONTRIBUTING.md). How it sho
 
 |  | Have | Wanted | In progress |
 |---|---|---|---|
-| Animals | 11 | 5 | 0 |
+| Animals | 13 | 4 | 0 |
 | Plants | 5 | 15 | 0 |
 | Trees | 5 | 0 | 0 |
 | Foods | 8 | 5 | 0 |
@@ -28,13 +28,14 @@ How to add each kind of thing: [CONTRIBUTING.md](../CONTRIBUTING.md). How it sho
 | **Roach** (*Rutilus rutilus*) | fi_nuuksio | built from a spec [preview](../models/previews/roach.png) | yes | no | yes |
 | **Red squirrel** (*Sciurus vulgaris*) | fi_nuuksio | built from a spec [preview](../models/previews/squirrel.png) | yes | no | yes |
 | **Bank vole** (*Myodes glareolus*) | fi_nuuksio | built from a spec [preview](../models/previews/vole.png) | yes | no | yes |
+| **Young perch** (*Perca fluviatilis*) | fi_nuuksio | downloaded: rebuild from a spec | yes | no | yes |
+| **Young roach** (*Rutilus rutilus*) | fi_nuuksio | downloaded: rebuild from a spec | yes | no | yes |
 
 ### Wanted
 
 | Animal | Place | Feeds | Needs | Status |
 |---|---|---|---|---|
 | **Mountain hare** (metsäjänis, *Lepus timidus*) | fi_nuuksio | Fox, later lynx and eagle owl | New model from a spec, with a white `winter` coat. It replaces the "rabbit": European rabbits don't live wild in Nuuksio (ART.md: real species only). | Wanted |
-| **Young perch and young roach** (ahvenen ja särjen poikaset) | fi_nuuksio | Perch (its main food from summer on: perch eat small fish, even young perch), pike | No new model: the perch and roach models at baby size, from the baby stage (decision 0010). Tag `fry`; the perch then `hunts: ["fry"]`. Code: hunters only catch prey much smaller than themselves, and the player's fish can chase fish. | Wanted |
 | **Common frog** (sammakko, *Rana temporaria*) | fi_nuuksio | Pike (spring), fox, later heron | New model. Code: an animal that lives on land and in water (a new archetype). | Wanted |
 | **Common lizard** (sisilisko, *Zootoca vivipara*) | fi_nuuksio | Kestrel (summer) | New model. Cold-blooded, basks on sunny rocks. | Wanted |
 | **Chaffinch, with eggs and nestlings** (peippo, *Fringilla coelebs*) | fi_nuuksio | Fox (spring: birds and eggs), later sparrowhawk | New model. Tag `small_bird`. Code: nests with eggs and young. | Wanted |
@@ -108,7 +109,7 @@ What animals find to eat. A food name marked "grows there" has a plant you can s
 | `berries` | fi_nuuksio | bilberries (grows there), lingonberries (grows there), wild raspberries, crowberries | Fox, Moose, Red squirrel, Bank vole |
 | `carrot` | fi_nuuksio | wild carrot | Rabbit |
 | `insects` | fi_nuuksio | ground beetle, dung beetle, click beetle | Fox, Kestrel |
-| `water_bugs` | fi_nuuksio | mayfly larvae, caddisfly larvae, water boatmen | Bream, Perch, Roach |
+| `water_bugs` | fi_nuuksio | mayfly larvae, caddisfly larvae, water boatmen | Bream, Perch, Roach, Young perch, Young roach |
 | `browse` | fi_nuuksio | birch leaves and twigs, willow twigs, aspen shoots, rowan leaves | Moose, Rabbit |
 | `water_plants` | fi_nuuksio | pondweed, water lily leaves, water horsetail | Moose |
 | `cones` | fi_nuuksio | spruce cones, pine cones | Red squirrel |

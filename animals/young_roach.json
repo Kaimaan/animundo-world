@@ -1,0 +1,49 @@
+{
+  "archetype": "fish",
+  "latin": "Rutilus rutilus",
+  "dark_vision": 0.4,
+  "tags": [
+    "fish",
+    "fry"
+  ],
+  "diet": [
+    "water_bugs"
+  ],
+  "walk": 0.8,
+  "sprint": 2.2,
+  "school": true,
+  "food_value": 12,
+  "color": "#56656a",
+  "model": {
+    "file": "res://assets/animals/roach.glb",
+    "length": 0.055,
+    "yaw": 0.0,
+    "anims": {
+      "idle": "idle",
+      "fly": "swim"
+    }
+  },
+  "year": {
+    "winter": "active",
+    "shelter": "Shoals in the warm shallows among the water plants, out of reach of bigger fish; deeper water in winter.",
+    "young": "Hatched in spring from eggs laid in the shallows; a few centimetres long by their first autumn.",
+    "food": {
+      "spring": "Tiny water animals (zooplankton).",
+      "summer": "Water fleas and small insect larvae.",
+      "autumn": "Small larvae and water fleas.",
+      "winter": "Eats very little under the ice."
+    },
+    "notes": "Young fish are the main food of perch from summer on, and of pike, grebes and terns. Shown at real size (about 7 cm): they are the young of world-scale fish, not part of the small world (ART.md)."
+  },
+  "text": {
+    "title": "Young roach",
+    "caught": "A tasty young roach! +{food} food",
+    "nearby": "A shoal of young roach.",
+    "about_looks": "A little silver fish, a few centimetres long, already with the roach's red eye.",
+    "about_food": "Tiny water animals: water fleas and small larvae.",
+    "about_home": "Shoals in the warm shallows among reeds and water plants.",
+    "about_winter": "Moves to deeper water, where it stays a little warmer under the ice.",
+    "about_young": "It hatched in spring from eggs stuck to water plants in the shallows.",
+    "about_fact": "Perch, pike and many water birds eat young fish, so only a few grow up."
+  }
+}
