@@ -215,5 +215,17 @@
   "ui.timer.rest_title": "Time to rest",
   "ui.timer.rest_body": "{name} is fast asleep. Playtime is over for today. Come back tomorrow!",
   "ui.timer.rest_body_any": "Playtime is over for today. Come back tomorrow!",
-  "ui.timer.grownups": "For grown-ups: play timer"
+  "ui.timer.grownups": "For grown-ups: play timer",
+  "ui.problem.button": "Something went wrong? (for grown-ups)",
+  "ui.problem.title": "Tell us what went wrong",
+  "ui.problem.reason.stuck": "The animal got stuck",
+  "ui.problem.reason.slow": "The game is slow",
+  "ui.problem.reason.looks_wrong": "Something looks wrong",
+  "ui.problem.reason.lost_progress": "Animals or progress lost",
+  "ui.problem.reason.other": "Something else",
+  "ui.problem.note_hint": "What happened? (optional)",
+  "ui.problem.privacy": "Please don't write names or contact details. We send this with anonymous details about the game and the device, never the player's ID.",
+  "ui.problem.send": "Send",
+  "ui.problem.thanks": "Thank you! We'll look into it.",
+  "ui.problem.reports": "Send anonymous health reports (errors, crashes) automatically"
 }
