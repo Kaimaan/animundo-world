@@ -1,5 +1,6 @@
 # Content is reviewed by the core team until stewards are named.
-# Later: one line per region or language, e.g.
+* @Kaimaan
+
+# Stewards go below: the last matching line wins, e.g.
 # /regions/fi_*.json  @steward-name
 # /models/plants/     @plant-steward
-* @Kaimaan
