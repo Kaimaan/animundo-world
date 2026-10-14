@@ -17,7 +17,7 @@ How to add each kind of thing: [CONTRIBUTING.md](../CONTRIBUTING.md). How it sho
 
 | Animal | Lives in | Model | Year | Baby start | Field guide |
 |---|---|---|---|---|---|
-| **Bumblebee** (*Bombus lucorum*) | fi_nuuksio | made in code: wants a spec | yes | no | yes |
+| **Bumblebee** (*Bombus lucorum*) | fi_nuuksio | built from a spec [preview](../models/previews/bee.png) | yes | no | yes |
 | **Bream** (*Abramis brama*) | fi_nuuksio | built from a spec [preview](../models/previews/bream.png) | yes | no | yes |
 | **Fox** (*Vulpes vulpes*) | fi_nuuksio | built from a spec [preview](../models/previews/fox.png) | yes | yes | yes |
 | **Kestrel** (*Falco tinnunculus*) | fi_nuuksio | built from a spec [preview](../models/previews/kestrel.png) | yes | no | yes |

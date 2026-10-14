@@ -131,6 +131,16 @@ The perch ([perch.json](perch.json)) is the example.
 - **Bars and spots are separate parts:** thin rings a few millimetres wider than the body, or small flattened balls sunk a third into it. Melted into the body they come out as jagged shards.
 - **In the animal file,** map only `"idle": "idle"` and `"fly": "swim"`. A fish "flies" in water, and the generated sleep and eat clips tip a fish over.
 
+### Insects
+The bumblebee ([bee.json](bee.json)) is the example.
+
+- **Build it at real size,** in metres: a bumblebee queen is about 0.02 m. The builder scales its melting resolution and preview camera to the animal's size.
+- **`"wingbeat": "buzz"`** makes the wings flip every frame in flight, which reads as the blur of a real insect's wings. Model the wings spread out, one `wing` bone per side can carry both wings.
+- **Insects fly level:** `"fly_pitch": 0`. `"fly_legs"` (degrees) is how far the legs swing back in flight; a bee's dangle at about 25.
+- **Wings rest flat over the back:** a `fold` that only sweeps them back, such as `[0, 84, 4]`, with `"fold_length": 1.0` (insect wings don't fold).
+- **Colour bands are their own overlapping balls** (a bee's yellow collar, yellow band and white tail); the skin blends their colours softly.
+- **Six legs** are three mirrored `leg` bones; phases 0, 0.5 and 0 (front, middle, back) give the insect's tripod walk.
+
 ### Checklist for a good model
 - **Real size.** Look the animal up. The build prints its length and height.
 - **No gaps.** Parts on the same body overlap a little. Legs reach the ground (`y = 0`), and nothing floats.
