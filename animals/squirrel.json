@@ -6,6 +6,7 @@
   "tags": ["small_mammal"],
   "diet": [
     "cones",
+    "mushrooms",
     "berries"
   ],
   "dark_vision": 0.2,

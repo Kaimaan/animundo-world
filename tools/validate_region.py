@@ -14,6 +14,7 @@ import re
 import sys
 
 TREE_SHAPES = {"spruce", "pine", "birch", "round", "rowan"}
+PLANT_FOOD_KINDS = {"berries", "mushrooms", "clover", "browse", "nectar"}  # food from ground-cover plants
 FOOD_KINDS = {"clover", "carrot", "berries", "insects", "water_bugs", "browse", "water_plants", "cones", "bottom_bugs"}
 EDGES = {"lake", "none"}
 MIGRANT_KINDS = {"geese", "cranes"}  # flocks the game can draw (scripts/migrants.gd)
@@ -130,6 +131,19 @@ def check(path):
         nt = pl.get("near_trees", 0)
         if not isinstance(nt, (int, float)) or not 0 <= nt <= 16:
             err(f'"ground_cover.plants[{i}].near_trees" must be a number of blocks from 0 to 16')
+        # a food plant: "food": "mushrooms" (the whole plant) or {"kind": "berries", "part": "berry"}
+        food = pl.get("food")
+        if food is not None:
+            kind = food if isinstance(food, str) else food.get("kind") if isinstance(food, dict) else None
+            part = food.get("part", "") if isinstance(food, dict) else ""
+            if kind not in PLANT_FOOD_KINDS:
+                err(f'"ground_cover.plants[{i}].food" kind must be one of {sorted(PLANT_FOOD_KINDS)}')
+            if part and pl.get("model") in PLANTS:
+                spec = json.load(open(os.path.join(ROOT, "models", "plants", pl["model"] + ".json")))
+                if part not in {p.get("name") for p in spec.get("parts", [])}:
+                    err(f'"ground_cover.plants[{i}].food.part" "{part}" is not a part of models/plants/{pl["model"]}.json')
+            if not isinstance(pl.get("names", []), list):
+                err(f'"ground_cover.plants[{i}].names" must be a list of the food names the player is told')
     total = sum(gc.get(k, 0) for k in ("grass", "flowers", "stones"))
     total += sum(pl.get("density", 0) for pl in plants if isinstance(pl.get("density"), (int, float)))
     if total > 1:

@@ -100,11 +100,11 @@
     ],
     "stones": 0.04,
     "plants": [
-      {"model": "bilberry", "density": 0.29, "near_trees": 5},
-      {"model": "lingonberry", "density": 0.1, "near_trees": 8},
+      {"model": "bilberry", "density": 0.29, "near_trees": 5, "food": {"kind": "berries", "part": "berry"}, "names": ["bilberries"], "amount": 15},
+      {"model": "lingonberry", "density": 0.1, "near_trees": 8, "food": {"kind": "berries", "part": "berry"}, "names": ["lingonberries"], "amount": 15},
       {"model": "heather", "density": 0.15, "on": ["grass", "rock"]},
       {"model": "fly_agaric", "density": 0.006, "near_trees": 4},
-      {"model": "porcini", "density": 0.005, "near_trees": 4}
+      {"model": "porcini", "density": 0.005, "near_trees": 4, "food": "mushrooms", "names": ["porcini"], "amount": 25}
     ]
   },
   "lakes": [
