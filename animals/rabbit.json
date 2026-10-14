@@ -1,0 +1,56 @@
+{
+  "archetype": "land_mammal",
+  "latin": "Oryctolagus cuniculus",
+  "playable": true,
+  "color": "#8a6a4c",
+  "tags": ["small_mammal"],
+  "diet": ["clover", "carrot"],
+  "dark_vision": 0.6,
+  "walk": 4.5,
+  "sprint": 7.5,
+  "jump": 6.2,
+  "box": [0.45, 0.55, 0.45],
+  "cam_height": 0.6,
+  "cam_dist": 3.2,
+  "model": {
+    "file": "res://assets/animals/rabbit.glb", "length": 0.5, "yaw": 0.0,
+    "anims": {"idle": "Bunny|Bunny_idle", "walk": "Bunny|Bunny_walk", "run": "Bunny|Bunny_walk"},
+    "walk_speed": 1.2, "run_speed": 2.4
+  },
+  "text": {
+    "title": "Rabbit",
+    "menu_sub": "Graze, dig burrows, escape foxes.",
+    "menu_wild": "Foxes hunt you.",
+    "intro_safe": "Safe mode: explore! Find clover, dig a burrow, meet the foxes.",
+    "intro_survival": "Keep your food and warmth up. Sleep in a burrow at night.",
+    "intro_wild": "Foxes hunt rabbits. Stay near cover and run!",
+    "night_hint": "It's night. Dig a burrow into a hillside and sleep in it.",
+    "too_exposed": "Too exposed to sleep! Dig a burrow into a hillside and sleep in it.",
+    "sheltered": "You're safe in your burrow.",
+    "hungry": "You're hungry. Look for clover (pink flowers) and wild carrots.",
+    "no_food": "Nothing to eat here. Look for clover (pink flowers) and wild carrots.",
+    "dig": "Digging... (a burrow keeps you safe and warm)",
+    "rain_start": "It's starting to rain. Shelter in a burrow to stay warm.",
+    "chased": "A fox is chasing you! Run, or hide in a burrow!",
+    "stalk_hint": "A rabbit! Creep up slowly (don't run), then tap Pounce.",
+    "caught": "Delicious rabbit! +{food} food",
+    "about_looks": "Grey-brown fur, long ears and a fluffy white tail that flashes when it runs.",
+    "about_food": "Grass, clover and herbs. In winter, bark, twigs and buds.",
+    "about_home": "Lives in a warren: a network of tunnels it digs together with other rabbits.",
+    "about_winter": "Stays active. In hard frost and storms it stays underground.",
+    "about_young": "Babies are born blind and without fur, in a nest the mother lines with her own fur. She can have several litters a year.",
+    "about_fact": "In Finland, wild rabbits live only in towns and parks. The forest's own hare is the mountain hare, which turns white in winter."
+  },
+  "year": {
+    "winter": "active",
+    "shelter": "Lives in a warren: a network of burrows it digs into a sandy bank. Stays underground in hard frost and storms.",
+    "young": "Several litters from March to September, born blind in a fur-lined nest chamber.",
+    "food": {
+      "spring": "Fresh grass shoots and clover.",
+      "summer": "Grasses, clover and herbs.",
+      "autumn": "Grasses, fallen fruit and roots.",
+      "winter": "Bark, twigs, buds and dry grass dug out from under the snow."
+    },
+    "notes": "In Finland, rabbits live wild only in towns; the native forest species is the mountain hare, which turns white in winter."
+  }
+}

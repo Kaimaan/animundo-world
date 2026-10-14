@@ -1,0 +1,58 @@
+{
+  "archetype": "fish",
+  "latin": "Esox lucius",
+  "dark_vision": 0.45,
+  "tags": [
+    "fish",
+    "big_fish"
+  ],
+  "hunts": [
+    "small_fish"
+  ],
+  "walk": 0.5,
+  "sprint": 6.5,
+  "model": {
+    "file": "res://assets/animals/fish.glb",
+    "length": 0.95,
+    "yaw": 0.0,
+    "squash": [
+      0.8,
+      0.7,
+      1.0
+    ],
+    "anims": {
+      "idle": "Armature|Swim",
+      "fly": "Armature|Swim"
+    },
+    "recolor": {
+      "Top": "#47592c",
+      "Bottom": "#dcd9a8",
+      "Fins": "#8a6a2c"
+    }
+  },
+  "text": {
+    "title": "Pike",
+    "nearby": "A pike lurks nearby, still as a log.",
+    "chasing": "A pike is after you! Hide under the old boat or in the pondweed!",
+    "bite": "A pike bit you! Swim for cover!",
+    "caught_you": "A pike ate you.",
+    "about_looks": "Long and green with pale spots, a flat snout like a duck's bill and lots of sharp teeth.",
+    "about_food": "Other fish, and sometimes frogs or even ducklings.",
+    "about_home": "Hides among reeds and water plants close to the shore.",
+    "about_winter": "Stays active under the ice and keeps hunting fish.",
+    "about_young": "Lays its eggs in flooded shallows right after the ice melts in spring.",
+    "about_fact": "A pike waits without moving, then strikes in a flash. Its green spots hide it among the plants."
+  },
+  "year": {
+    "winter": "active",
+    "shelter": "Waits in ambush among reeds and water plants; stays active under the ice.",
+    "young": "Spawns right after the ice melts, in April–May, in flooded shallows.",
+    "food": {
+      "spring": "Fish and frogs.",
+      "summer": "Fish.",
+      "autumn": "Fish.",
+      "winter": "Fish, hunted under the ice."
+    },
+    "notes": ""
+  }
+}

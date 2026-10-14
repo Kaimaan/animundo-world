@@ -1,0 +1,196 @@
+{
+  "id": "fi_nuuksio",
+  "name": "Nuuksio National Park",
+  "country": "Finland",
+  "center": {
+    "lat": 60.3007,
+    "lon": 24.5263
+  },
+  "description": "Boreal forest of spruce, Scots pine and birch on rolling granite bedrock, dotted with small dark lakes. Home of the Siberian flying squirrel.",
+  "author": "Animundo team",
+  "terrain": {
+    "size": 512,
+    "base_height": 9,
+    "relief": 12,
+    "frequency": 0.04,
+    "rock_ridges": 0.4,
+    "rock_above": 18,
+    "lakes": 0.35,
+    "edge": "lake",
+    "seed": 1811587497
+  },
+  "palette": {
+    "ground_lush": "#5f9445",
+    "ground_dry": "#93a65a",
+    "ground_high": "#8c9a78",
+    "dirt": "#6e5640",
+    "rock": "#a89c97",
+    "sand": "#cfc2a0",
+    "water_deep": "#1f4654",
+    "water_shallow": "#3d6f73",
+    "ground_autumn": "#a59a5e",
+    "snow": "#eef2f6"
+  },
+  "sky": {
+    "day": "#8fc6ea",
+    "horizon": "#eef2ec",
+    "dusk": "#f2a07a",
+    "night": "#141a3a",
+    "sun": "#ffe8c4"
+  },
+  "seasons": {
+    "spring": "04-05",
+    "summer": "05-25",
+    "autumn": "09-20",
+    "winter": "11-25",
+    "snow": true
+  },
+  "trees": {
+    "density": 0.02,
+    "mix": [
+      {
+        "shape": "spruce",
+        "weight": 45,
+        "leaves": "#2c5846",
+        "trunk": "#5b4433"
+      },
+      {
+        "shape": "pine",
+        "weight": 30,
+        "leaves": "#4f7d40",
+        "trunk": "#b0703f"
+      },
+      {
+        "shape": "birch",
+        "weight": 20,
+        "leaves": "#9cc35a",
+        "trunk": "#ece6da",
+        "autumn": "#e8c13a"
+      },
+      {
+        "shape": "round",
+        "weight": 5,
+        "leaves": "#5f8f3a",
+        "trunk": "#6b4a33",
+        "autumn": "#d9772f"
+      }
+    ]
+  },
+  "ground_cover": {
+    "grass": 0.35,
+    "flowers": 0.05,
+    "flower_colors": [
+      "#f5f3ea",
+      "#b48ac4",
+      "#4b5fa0",
+      "#f2d64a"
+    ],
+    "flower_names": [
+      "oxeye daisy",
+      "heather",
+      "harebell",
+      "tormentil"
+    ],
+    "stones": 0.04
+  },
+  "lakes": [
+    {
+      "name": "Pitkäjärvi",
+      "x": 0.4,
+      "z": 0.5,
+      "length": 0.5,
+      "width": 0.085,
+      "angle": 80,
+      "depth": 7,
+      "islands": 2,
+      "wreck": true
+    }
+  ],
+  "places": [
+    {"name": "Haukankallio", "at": "highest"}
+  ],
+  "lake_life": {
+    "reeds": 0.35,
+    "lilies": 0.15,
+    "pondweed": 0.1
+  },
+  "food": [
+    {
+      "kind": "clover",
+      "weight": 25,
+      "names": [
+        "red clover",
+        "white clover"
+      ]
+    },
+    {
+      "kind": "berries",
+      "weight": 30,
+      "names": [
+        "bilberries",
+        "lingonberries",
+        "wild raspberries",
+        "crowberries"
+      ]
+    },
+    {
+      "kind": "carrot",
+      "weight": 15,
+      "names": [
+        "wild carrot"
+      ]
+    },
+    {
+      "kind": "insects",
+      "weight": 15,
+      "names": [
+        "ground beetle",
+        "dung beetle",
+        "click beetle"
+      ]
+    },
+    {
+      "kind": "water_bugs",
+      "weight": 15,
+      "names": [
+        "mayfly larvae",
+        "caddisfly larvae",
+        "water boatmen"
+      ]
+    }
+  ],
+  "fish": [
+    {
+      "kind": "roach",
+      "count": 12
+    },
+    {
+      "kind": "perch",
+      "count": 5
+    },
+    {
+      "kind": "bream",
+      "count": 4
+    },
+    {
+      "kind": "pike",
+      "count": 2
+    }
+  ],
+  "animals": {
+    "playable": [
+      "rabbit",
+      "squirrel",
+      "fox",
+      "kestrel",
+      "perch",
+      "bee"
+    ],
+    "predators": [
+      "fox"
+    ],
+    "prey": [
+      "rabbit"
+    ]
+  }
+}
