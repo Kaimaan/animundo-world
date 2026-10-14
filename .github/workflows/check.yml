@@ -40,3 +40,5 @@ jobs:
         run: tools/build_model.sh models/*.json models/plants/*.json
       - name: Check places
         run: python3 tools/validate_region.py
+      - name: Catalogue is up to date
+        run: if [ -f tools/catalogue.py ]; then python3 tools/catalogue.py --check; fi
