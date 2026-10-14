@@ -1,0 +1,57 @@
+{
+  "archetype": "land_mammal",
+  "latin": "Sciurus vulgaris",
+  "playable": true,
+  "color": "#b5562a",
+  "tags": ["small_mammal"],
+  "diet": ["berries"],
+  "dark_vision": 0.2,
+  "digs": false,
+  "climbs": true,
+  "climb": 2.8,
+  "shelter": "leaves",
+  "walk": 3.6,
+  "sprint": 6.5,
+  "jump": 6.6,
+  "box": [0.3, 0.35, 0.3],
+  "cam_height": 0.35,
+  "cam_dist": 1.7,
+  "model": {
+    "file": "res://assets/animals/squirrel.glb", "length": 0.25, "yaw": 0.0,
+    "anims": {"idle": "idle", "walk": "walk", "run": "run", "eat": "eat", "sleep": "sleep"},
+    "coats": {"winter": {"fur": "#8a7266", "fur_dark": "#5e4a44"}}
+  },
+  "text": {
+    "title": "Red squirrel",
+    "menu_sub": "Bound through the forest, find berries, dodge foxes.",
+    "menu_wild": "Foxes hunt you.",
+    "intro_safe": "Safe mode: explore! Bound through the forest and find berries.",
+    "intro_survival": "Keep your food and warmth up. At night, sleep high in a spruce, like a squirrel in its drey.",
+    "intro_wild": "Foxes hunt squirrels, but they can't climb. Run up a tree!",
+    "night_hint": "It's night. Run at a spruce trunk to climb it, then sleep in its thick branches.",
+    "too_exposed": "Too exposed to sleep! Climb a spruce and curl up in its thick branches.",
+    "sheltered": "You're curled up safe and warm in the spruce branches.",
+    "hungry": "You're hungry. Look for berry bushes.",
+    "no_food": "Nothing to eat here. Look for berry bushes.",
+    "rain_start": "It's starting to rain. Climb into a spruce's thick branches to stay warm.",
+    "chased": "A fox is chasing you! Run up a tree!",
+    "about_looks": "Red-brown fur, a long bushy tail and tufts on its ears. In winter its coat turns greyer and the ear tufts grow longer.",
+    "about_food": "Spruce seeds from cones, buds, berries and mushrooms.",
+    "about_home": "Builds a drey, a ball of twigs lined with moss, high up in a spruce. Sometimes it lives in a hole in a tree.",
+    "about_winter": "Stays awake. It eats the seeds it hid in autumn, and on very cold days it stays in its drey.",
+    "about_young": "Babies are born in the drey in spring, and often a second litter in summer.",
+    "about_fact": "In autumn a squirrel dries mushrooms on branches, to eat later in winter."
+  },
+  "year": {
+    "winter": "active",
+    "shelter": "Builds a drey (a ball of twigs lined with moss and lichen) high in a spruce, or uses a tree hole. Stays in it for days in hard frost.",
+    "young": "Born in April–May, often a second litter in June–July.",
+    "food": {
+      "spring": "Buds, shoots and stored seeds.",
+      "summer": "Seeds, berries and mushrooms.",
+      "autumn": "Spruce seeds; hides seeds and dries mushrooms on branches for winter.",
+      "winter": "Spruce cone seeds and its hidden stores."
+    },
+    "notes": "Its coat turns greyer in winter and its ear tufts grow longer."
+  }
+}

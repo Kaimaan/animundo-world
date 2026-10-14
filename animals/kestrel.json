@@ -1,0 +1,52 @@
+{
+  "archetype": "bird",
+  "latin": "Falco tinnunculus",
+  "playable": true,
+  "color": "#9a6a3a",
+  "tags": ["small_bird"],
+  "diet": ["insects"],
+  "dark_vision": 0.25,
+  "walk": 1.5,
+  "fly": 7.0,
+  "sprint": 12.0,
+  "jump": 4.0,
+  "box": [0.3, 0.3, 0.3],
+  "cam_height": 0.4,
+  "cam_dist": 4.2,
+  "model": {
+    "file": "res://assets/animals/hawk.glb", "length": 0.7, "yaw": 3.14159,
+    "anims": {"idle": "metarig|Fly", "fly": "metarig|Fly"},
+    "ground_anim_speed": 0.04
+  },
+  "text": {
+    "title": "Kestrel",
+    "menu_sub": "Soar over the forest, catch beetles, roost in the trees.",
+    "menu_wild": "Foxes catch you on the ground.",
+    "intro": "Hold Fly to climb, Dive to drop. Roost in tree leaves at night.",
+    "hungry": "You're hungry. Look for beetles on the ground.",
+    "no_food": "Nothing to eat here. Look for beetles on the ground.",
+    "chased": "A fox is after you! Take to the air!",
+    "about_looks": "A small falcon with a long tail. The male has a grey head; the female is brown all over.",
+    "about_food": "Mostly voles. Also big insects and small lizards.",
+    "about_home": "It doesn't build a nest. It lays its eggs in an old crow's nest, a hole in a tree or a nest box.",
+    "about_winter": "Flies south in autumn, to southern Europe or Africa, and comes back in April.",
+    "about_young": "Eggs are laid in May. The chicks leave the nest in early summer.",
+    "about_fact": "A kestrel can hang still in the air, facing into the wind, while it looks for voles below."
+  },
+  "year": {
+    "winter": "migrates",
+    "migration": {
+      "leaves": "09-20",
+      "returns": "04-10"
+    },
+    "shelter": "Doesn't build: nests in an old crow's nest, a tree hole or a nest box, and roosts in trees.",
+    "young": "Eggs in May, chicks fledge in late June–July.",
+    "food": {
+      "spring": "Voles hunted by hovering.",
+      "summer": "Voles, large insects and lizards.",
+      "autumn": "Voles and insects before flying south.",
+      "winter": "Away: winters in southern Europe and Africa."
+    },
+    "notes": "Vole years decide how many chicks it raises. In winter it should be away from Nuuksio."
+  }
+}

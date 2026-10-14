@@ -1,0 +1,49 @@
+# Closes pull requests that aren't from verified players, change files outside
+# the content folders, or go over two open pull requests per person.
+# Runs on pull_request_target so it can comment on PRs from forks. It never
+# checks out or runs the PR's code: it only reads the PR's file list.
+name: Contributor gate
+on:
+  pull_request_target:
+    types: [opened, reopened, synchronize]
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            const author = pr.user.login;
+            const { owner, repo } = context.repo;
+            if (['OWNER', 'MEMBER', 'COLLABORATOR'].includes(pr.author_association)) return;
+
+            const close = async (why) => {
+              await github.rest.issues.createComment({ owner, repo, issue_number: pr.number, body: why });
+              await github.rest.pulls.update({ owner, repo, pull_number: pr.number, state: 'closed' });
+              core.notice(`Closed #${pr.number}: ${why}`);
+            };
+
+            const list = await github.rest.repos.getContent({ owner, repo, path: '.github/contributors.txt', ref: pr.base.ref });
+            const allowed = Buffer.from(list.data.content, 'base64').toString()
+              .split('\n').map(l => l.trim().toLowerCase()).filter(l => l && !l.startsWith('#'));
+            if (!allowed.includes(author.toLowerCase())) {
+              return close(`Thank you for wanting to add to Animundo! Only verified players can open pull requests. In the game, open the menu and choose **Become a contributor**, then post your code in a [Verify me](https://github.com/${owner}/${repo}/issues/new?template=verify-me.yml) issue. After that, open your pull request again.`);
+            }
+
+            const content = ['regions/', 'animals/', 'models/', 'locale/', 'plants/'];
+            const files = await github.paginate(github.rest.pulls.listFiles, { owner, repo, pull_number: pr.number });
+            const outside = files.map(f => f.filename).filter(f => !content.some(c => f.startsWith(c)));
+            if (outside.length) {
+              return close(`Pull requests can only change content in ${content.map(c => '`' + c + '`').join(', ')}. This one also changes:\n\n${outside.map(f => '- `' + f + '`').join('\n')}\n\nIf something else needs changing, please open an issue instead.`);
+            }
+
+            const open = await github.paginate(github.rest.pulls.list, { owner, repo, state: 'open' });
+            const mine = open.filter(p => p.user.login === author && p.number !== pr.number);
+            if (mine.length >= 2) {
+              return close(`You already have two pull requests open (${mine.map(p => '#' + p.number).join(', ')}). Please wait until one of them is merged or closed, then open this one again.`);
+            }

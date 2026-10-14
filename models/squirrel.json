@@ -1,0 +1,45 @@
+{
+  "id": "squirrel",
+  "name": "Red squirrel (Sciurus vulgaris)",
+  "author": "Animundo team",
+  "gait": "bound",
+  "colors": {
+    "fur": "#b5562a",
+    "fur_dark": "#8a3d1c",
+    "belly": "#efe3cf",
+    "dark": "#2a1f1a"
+  },
+  "bones": [
+    {"name": "body", "head": [0, 0.11, -0.07], "tail": [0, 0.13, 0.06], "role": "body"},
+    {"name": "head", "head": [0, 0.15, 0.07], "tail": [0, 0.16, 0.14], "parent": "body", "role": "head"},
+    {"name": "ear_l", "head": [0.022, 0.19, 0.09], "tail": [0.025, 0.24, 0.09], "parent": "head", "role": "ear", "mirror": true, "separate": true},
+    {"name": "leg_f_l", "head": [0.03, 0.095, 0.065], "tail": [0.03, 0.0, 0.07], "parent": "body", "role": "leg", "phase": 0.0, "mirror": true},
+    {"name": "leg_b_l", "head": [0.04, 0.1, -0.05], "tail": [0.04, 0.0, -0.03], "parent": "body", "role": "leg", "phase": 0.5, "mirror": true},
+    {"name": "tail_1", "head": [0, 0.1, -0.1], "tail": [0, 0.18, -0.16], "parent": "body", "role": "tail", "phase": 0.0},
+    {"name": "tail_2", "head": [0, 0.18, -0.16], "tail": [0, 0.27, -0.15], "parent": "tail_1", "role": "tail", "phase": 0.12},
+    {"name": "tail_3", "head": [0, 0.27, -0.15], "tail": [0, 0.32, -0.08], "parent": "tail_2", "role": "tail", "phase": 0.24}
+  ],
+  "parts": [
+    {"name": "body", "shape": "ball", "size": [0.09, 0.09, 0.17], "at": [0, 0.12, 0], "rot": [-15, 0, 0], "color": "fur", "bone": "body"},
+    {"name": "belly", "shape": "ball", "size": [0.07, 0.07, 0.12], "at": [0, 0.103, 0.025], "rot": [-15, 0, 0], "color": "belly", "bone": "body"},
+    {"name": "head", "shape": "ball", "size": [0.075, 0.07, 0.08], "at": [0, 0.155, 0.095], "color": "fur", "bone": "head"},
+    {"name": "snout", "shape": "ball", "size": [0.042, 0.036, 0.045], "at": [0, 0.146, 0.132], "color": "fur", "bone": "head"},
+    {"name": "chin", "shape": "ball", "size": [0.034, 0.024, 0.032], "at": [0, 0.134, 0.125], "color": "belly", "bone": "head"},
+    {"name": "nose", "shape": "ball", "size": [0.013, 0.011, 0.01], "at": [0, 0.152, 0.155], "color": "dark", "bone": "head", "separate": true},
+    {"name": "eye_l", "shape": "ball", "size": [0.012, 0.017, 0.014], "at": [0.031, 0.166, 0.118], "color": "dark", "bone": "head", "mirror": true, "separate": true},
+    {"name": "ear_l", "shape": "taper", "top": 0.45, "size": [0.03, 0.045, 0.016], "at": [0.022, 0.2, 0.088], "rot": [0, 0, -10], "color": "fur", "bone": "ear_l", "mirror": true},
+    {"name": "tuft_l", "shape": "cone", "size": [0.014, 0.03, 0.01], "at": [0.024, 0.226, 0.088], "rot": [0, 0, -10], "color": "fur_dark", "bone": "ear_l", "mirror": true, "separate": true},
+    {"name": "arm_l", "shape": "taper", "top": 0.75, "size": [0.028, 0.085, 0.028], "at": [0.03, 0.05, 0.066], "rot": [180, 0, 0], "color": "fur", "bone": "leg_f_l", "mirror": true},
+    {"name": "hand_l", "shape": "ball", "size": [0.024, 0.014, 0.03], "at": [0.03, 0.007, 0.074], "color": "fur_dark", "bone": "leg_f_l", "mirror": true},
+    {"name": "thigh_l", "shape": "ball", "size": [0.05, 0.075, 0.085], "at": [0.035, 0.085, -0.045], "rot": [-20, 0, 0], "color": "fur", "bone": "leg_b_l", "mirror": true},
+    {"name": "shin_l", "shape": "taper", "top": 0.6, "size": [0.026, 0.07, 0.026], "at": [0.04, 0.04, -0.035], "rot": [160, 0, 0], "color": "fur", "bone": "leg_b_l", "mirror": true},
+    {"name": "foot_l", "shape": "ball", "size": [0.026, 0.016, 0.065], "at": [0.04, 0.008, -0.02], "color": "fur_dark", "bone": "leg_b_l", "mirror": true},
+    {"name": "tail_1", "shape": "ball", "size": [0.06, 0.095, 0.07], "at": [0, 0.125, -0.115], "rot": [35, 0, 0], "color": "fur", "bone": "tail_1"},
+    {"name": "tail_2", "shape": "ball", "size": [0.07, 0.1, 0.08], "at": [0, 0.155, -0.135], "rot": [25, 0, 0], "color": "fur", "bone": "tail_1"},
+    {"name": "tail_3", "shape": "ball", "size": [0.078, 0.105, 0.085], "at": [0, 0.19, -0.152], "rot": [12, 0, 0], "color": "fur", "bone": "tail_1"},
+    {"name": "tail_4", "shape": "ball", "size": [0.084, 0.105, 0.09], "at": [0, 0.225, -0.16], "rot": [0, 0, 0], "color": "fur", "bone": "tail_2"},
+    {"name": "tail_5", "shape": "ball", "size": [0.084, 0.1, 0.09], "at": [0, 0.26, -0.154], "rot": [-15, 0, 0], "color": "fur", "bone": "tail_2"},
+    {"name": "tail_6", "shape": "ball", "size": [0.078, 0.09, 0.088], "at": [0, 0.29, -0.135], "rot": [-35, 0, 0], "color": "fur", "bone": "tail_3"},
+    {"name": "tail_7", "shape": "ball", "size": [0.068, 0.075, 0.08], "at": [0, 0.31, -0.105], "rot": [-60, 0, 0], "color": "fur_dark", "bone": "tail_3"}
+  ]
+}

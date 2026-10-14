@@ -1,0 +1,15 @@
+name: The game needs something new
+description: A tree shape, food kind or animal behaviour that data files can't add yet.
+labels: [needs-code]
+body:
+  - type: textarea
+    id: need
+    attributes:
+      label: What's missing?
+      placeholder: My place needs mangrove trees, which grow on roots above the water.
+    validations:
+      required: true
+  - type: input
+    id: for
+    attributes:
+      label: Which place or animal needs it?

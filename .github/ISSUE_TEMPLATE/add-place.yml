@@ -1,0 +1,27 @@
+name: Suggest a place
+description: A place you'd like to see in the game. You can add it yourself, or ask for help.
+labels: [place]
+body:
+  - type: input
+    id: place
+    attributes:
+      label: Place and country
+      placeholder: Lake Saimaa, Finland
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why this place?
+      description: One or two lines about what makes it special.
+  - type: textarea
+    id: animals
+    attributes:
+      label: Animals that live there
+  - type: dropdown
+    id: who
+    attributes:
+      label: Who will add it?
+      options:
+        - I'll add it myself
+        - I'd like someone to help

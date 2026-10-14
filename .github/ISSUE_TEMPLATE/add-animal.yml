@@ -1,0 +1,23 @@
+name: Suggest an animal
+description: An animal you'd like to play or meet in the game.
+labels: [animal]
+body:
+  - type: input
+    id: animal
+    attributes:
+      label: Animal
+      description: Common name and, if you know it, the scientific name.
+      placeholder: Saimaa ringed seal (Pusa hispida saimensis)
+    validations:
+      required: true
+  - type: input
+    id: where
+    attributes:
+      label: Where it lives
+  - type: dropdown
+    id: who
+    attributes:
+      label: Who will add it?
+      options:
+        - I'll add it myself
+        - I'd like someone to help

@@ -1,0 +1,94 @@
+{
+  "animal": {
+    "move": "ground",
+    "playable": false,
+    "tags": [],
+    "diet": [],
+    "hunts": [],
+    "territorial": false,
+    "digs": false,
+    "dark_vision": 0.4,
+    "cold_blooded": false,
+    "rain_chill": 0.7,
+    "shelter": "earth",
+    "walk": 4.0,
+    "sprint": 7.0,
+    "jump": 6.0,
+    "box": [
+      0.5,
+      0.5,
+      0.5
+    ],
+    "cam_height": 0.6,
+    "cam_dist": 3.5,
+    "text": {
+      "intro": "Explore, find food and keep warm. Rest somewhere safe at night.",
+      "night_hint": "It's night. Find somewhere safe to sleep.",
+      "too_exposed": "Too exposed to sleep! Find somewhere safe first.",
+      "sheltered": "You're safe here.",
+      "rain_start": "It's starting to rain. Find shelter to stay warm.",
+      "rain_stop": "The rain has stopped.",
+      "chased": "Something is chasing you! Run and hide!"
+    }
+  },
+  "land_mammal": {
+    "extends": "animal",
+    "digs": true,
+    "shelter": "earth"
+  },
+  "bird": {
+    "extends": "animal",
+    "move": "fly",
+    "shelter": "leaves",
+    "buttons": {
+      "jump": "fly",
+      "dig": "dive",
+      "sprint": "fast"
+    },
+    "text": {
+      "night_hint": "It's night. Fly into a tree's leaves to roost and sleep.",
+      "too_exposed": "Too exposed to sleep! Fly into a tree's leaves to roost.",
+      "sheltered": "You're safe, roosting in the tree.",
+      "rain_start": "It's starting to rain. Roost in a tree's leaves to stay dry.",
+      "chased": "Something is after you! Take to the air!"
+    }
+  },
+  "fish": {
+    "extends": "animal",
+    "move": "swim",
+    "cold_blooded": true,
+    "rain_chill": 0.0,
+    "shelter": "deep_water",
+    "spawn": "water",
+    "buttons": {
+      "jump": "up",
+      "dig": "down",
+      "sprint": "dash"
+    },
+    "text": {
+      "night_hint": "It's night. Swim down to deep water to rest.",
+      "too_exposed": "Too exposed to rest! Swim down to deep water first.",
+      "sheltered": "You're resting safely in deep water.",
+      "rain_start": "Raindrops patter on the lake surface above.",
+      "rain_stop": "The rain has stopped. The lake goes still.",
+      "out_of_water": "Fish need water! Back into the lake you go."
+    }
+  },
+  "insect": {
+    "extends": "animal",
+    "move": "fly",
+    "hover": true,
+    "shelter": "leaves_or_earth",
+    "buttons": {
+      "jump": "up",
+      "dig": "down",
+      "sprint": "fast"
+    },
+    "text": {
+      "night_hint": "It's night. Crawl into a tree's leaves, or under an earth overhang, to sleep.",
+      "too_exposed": "Too exposed to sleep! Crawl into a tree's leaves, or under an earth overhang.",
+      "sheltered": "You're tucked away safely.",
+      "rain_start": "It's starting to rain. Wet wings are slow and cold: hide in a tree's leaves or under an overhang."
+    }
+  }
+}

@@ -1,0 +1,23 @@
+name: Something isn't right
+description: A wrong fact, date, colour, food or name.
+labels: [fact]
+body:
+  - type: input
+    id: what
+    attributes:
+      label: Which place or animal?
+    validations:
+      required: true
+  - type: textarea
+    id: wrong
+    attributes:
+      label: What's wrong, and what's right?
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Source
+      description: A link or book that shows the right fact.
+    validations:
+      required: true

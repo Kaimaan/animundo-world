@@ -1,0 +1,3 @@
+# Built by tools/build_model.sh; the game builds its own copy
+assets/animals/*.glb
+.DS_Store

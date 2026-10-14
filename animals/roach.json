@@ -1,0 +1,51 @@
+{
+  "archetype": "fish",
+  "latin": "Rutilus rutilus",
+  "dark_vision": 0.4,
+  "tags": [
+    "fish",
+    "small_fish"
+  ],
+  "diet": [
+    "water_bugs"
+  ],
+  "walk": 1.2,
+  "sprint": 3.0,
+  "school": true,
+  "model": {
+    "file": "res://assets/animals/fish.glb",
+    "length": 0.22,
+    "yaw": 0.0,
+    "anims": {
+      "idle": "Armature|Swim",
+      "fly": "Armature|Swim"
+    },
+    "recolor": {
+      "Top": "#56656a",
+      "Bottom": "#dfe4e2",
+      "Fins": "#c8452e"
+    }
+  },
+  "text": {
+    "title": "Roach",
+    "nearby": "A school of roach swims by.",
+    "about_looks": "A silvery fish with red eyes and reddish fins.",
+    "about_food": "Water insects, snails and water plants.",
+    "about_home": "Swims in big schools in lakes, often near the shore.",
+    "about_winter": "Moves to deeper water in schools and is slow and quiet under the ice.",
+    "about_young": "Spawns in late spring in shallow, weedy water.",
+    "about_fact": "The roach is one of the most common fish in Finnish lakes. Pike and perch love to eat it."
+  },
+  "year": {
+    "winter": "active",
+    "shelter": "Shoals in deeper water in winter, slow and quiet under the ice.",
+    "young": "Spawns in May–June in shallow, weedy water.",
+    "food": {
+      "spring": "Water insects and plants.",
+      "summer": "Water insects, snails and plants.",
+      "autumn": "Water insects and plants.",
+      "winter": "Eats very little under the ice."
+    },
+    "notes": ""
+  }
+}

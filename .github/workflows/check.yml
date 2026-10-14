@@ -1,0 +1,24 @@
+name: Check content
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Every JSON file is valid JSON
+        run: |
+          status=0
+          for f in $(git ls-files '*.json'); do
+            python3 -m json.tool "$f" > /dev/null || { echo "::error file=$f::not valid JSON"; status=1; }
+          done
+          exit $status
+      - name: Check places
+        run: python3 tools/validate_region.py

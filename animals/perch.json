@@ -1,0 +1,47 @@
+{
+  "archetype": "fish",
+  "latin": "Perca fluviatilis",
+  "playable": true,
+  "color": "#4f6f3a",
+  "tags": ["fish", "small_fish"],
+  "diet": ["water_bugs"],
+  "dark_vision": 0.5,
+  "walk": 3.0,
+  "sprint": 6.0,
+  "jump": 0.0,
+  "box": [0.3, 0.25, 0.3],
+  "cam_height": 0.25,
+  "cam_dist": 2.0,
+  "model": {
+    "file": "res://assets/animals/fish.glb", "length": 0.45, "yaw": 0.0,
+    "anims": {"idle": "Armature|Swim", "fly": "Armature|Swim"},
+    "recolor": {"Top": "#66753a", "Bottom": "#e6e2c2", "Fins": "#e2702c"}
+  },
+  "text": {
+    "title": "Perch",
+    "menu_sub": "Swim the dark lakes, eat water insects, rest in deep water.",
+    "menu_wild": "Pike lurk in the lake.",
+    "night_hint": "It's night. Swim down to deep water, or hide under the old boat wreck, to rest.",
+    "intro": "Up and Down to swim deeper. Eat the drifting water insects.",
+    "hungry": "You're hungry. Look for water insects drifting in the lake.",
+    "no_food": "Nothing to eat here. Look for water insects drifting in the lake.",
+    "about_looks": "Green and gold with dark stripes, red-orange fins and a spiny fin on its back.",
+    "about_food": "Insect larvae and small water animals. Big perch eat small fish.",
+    "about_home": "Swims in schools among water plants and sunken wood in lakes.",
+    "about_winter": "Stays awake under the ice and moves to deeper water, where it eats slowly.",
+    "about_young": "In spring a female lays long ribbons of eggs on water plants and branches.",
+    "about_fact": "The perch is Finland's national fish."
+  },
+  "year": {
+    "winter": "active",
+    "shelter": "Shelters among water plants and sunken wood; moves to deeper water under the ice.",
+    "young": "Spawns in April–May, laying long ribbons of eggs on plants and branches.",
+    "food": {
+      "spring": "Insect larvae and small crustaceans.",
+      "summer": "Insect larvae and small fish.",
+      "autumn": "Small fish.",
+      "winter": "Feeds slowly under the ice."
+    },
+    "notes": ""
+  }
+}
