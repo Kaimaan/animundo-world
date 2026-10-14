@@ -3,6 +3,8 @@
   "name": "Red squirrel (Sciurus vulgaris)",
   "author": "Animundo team",
   "gait": "bound",
+  "sleep_pose": "curl",
+  "sleep_tail": "over",
   "colors": {
     "fur": "#b5562a",
     "fur_dark": "#8a3d1c",

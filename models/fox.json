@@ -3,6 +3,7 @@
   "name": "Red fox (Vulpes vulpes)",
   "author": "Animundo team",
   "gait": "walk",
+  "sleep_pose": "curl",
   "colors": {
     "fur": "#c4622b",
     "belly": "#efe3cf",
