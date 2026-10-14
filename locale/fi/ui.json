@@ -215,5 +215,17 @@
   "ui.timer.rest_title": "Lepoaika",
   "ui.timer.rest_body": "{name} nukkuu sikeästi. Tämän päivän peliaika on lopussa. Tule huomenna takaisin!",
   "ui.timer.rest_body_any": "Tämän päivän peliaika on lopussa. Tule huomenna takaisin!",
-  "ui.timer.grownups": "Aikuisille: peliaika"
+  "ui.timer.grownups": "Aikuisille: peliaika",
+  "ui.problem.button": "Menikö jotain pieleen? (aikuisille)",
+  "ui.problem.title": "Kerro, mikä meni pieleen",
+  "ui.problem.reason.stuck": "Eläin jäi jumiin",
+  "ui.problem.reason.slow": "Peli on hidas",
+  "ui.problem.reason.looks_wrong": "Jokin näyttää väärältä",
+  "ui.problem.reason.lost_progress": "Eläimiä tai edistystä katosi",
+  "ui.problem.reason.other": "Jokin muu",
+  "ui.problem.note_hint": "Mitä tapahtui? (vapaaehtoinen)",
+  "ui.problem.privacy": "Älä kirjoita nimiä tai yhteystietoja. Lähetämme tämän nimettömien peli- ja laitetietojen kanssa, emme koskaan pelaajan tunnusta.",
+  "ui.problem.send": "Lähetä",
+  "ui.problem.thanks": "Kiitos! Selvitämme asian.",
+  "ui.problem.reports": "Lähetä nimettömät vikaraportit (virheet, kaatumiset) automaattisesti"
 }
