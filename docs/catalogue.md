@@ -6,10 +6,10 @@ How to add each kind of thing: [CONTRIBUTING.md](../CONTRIBUTING.md). How it sho
 
 |  | Have | Wanted | In progress |
 |---|---|---|---|
-| Animals | 9 | 6 | 0 |
+| Animals | 9 | 7 | 0 |
 | Plants | 5 | 15 | 0 |
 | Trees | 5 | 0 | 0 |
-| Foods | 5 | 4 | 0 |
+| Foods | 5 | 6 | 0 |
 
 ## Animals
 
@@ -38,6 +38,7 @@ How to add each kind of thing: [CONTRIBUTING.md](../CONTRIBUTING.md). How it sho
 | **Common lizard** (sisilisko, *Zootoca vivipara*) | fi_nuuksio | Kestrel (summer) | New model. Cold-blooded, basks on sunny rocks. | Wanted |
 | **Chaffinch, with eggs and nestlings** (peippo, *Fringilla coelebs*) | fi_nuuksio | Fox (spring: birds and eggs), later sparrowhawk | New model. Tag `small_bird`. Code: nests with eggs and young. | Wanted |
 | **Night animals: bats and owls** (lepakot ja pöllöt) | fi_nuuksio |  | Code first: how night works has to be tested before the first night animal (decision 0014, open). See docs/animals-wanted.md. | Later |
+| **Moose (bull)** (hirvi, *Alces alces*) | fi_nuuksio | Bear and wolf later | The model is done: models/moose.json (1,500 triangles, 11 bones, real size). The animal file waits for its food (food first): leaves and twigs of birch, willow, aspen and rowan in summer, water plants, and pine shoots and twigs in winter. It also needs the big-animal builder fixes (core): sleep, stride and eating reach. | Wanted |
 
 ## Plants
 
@@ -117,6 +118,8 @@ What animals find to eat. A food name marked "grows there" has a plant you can s
 | **Mushrooms** (sienet) | Squirrel (summer and autumn; it dries them on branches) | Code: a new food kind that uses the mushroom plants. | Wanted |
 | **Bark, twigs and buds** (kuori, oksat, silmut) | Mountain hare (winter) | Code: a new food kind. | Wanted |
 | **Carrion** (raato) | Fox (winter) | Code: a new food kind. | Wanted |
+| **Leaves and twigs (browse)** (lehdet ja oksat) | Moose (its main food all year: leaves in summer, twigs and pine shoots in winter), hare (winter twigs) | Code: a new food kind, eaten from trees and shrubs at head height, not from the ground. | Wanted |
+| **Water plants** (vesikasvit) | Moose (summer: it wades in and eats pondweed and water lilies) | Code: the lake's pondweed and lilies become food. | Wanted |
 
 ## Core team work
 
@@ -132,3 +135,9 @@ Code changes that more content depends on. These are for the core team; the data
 | animals | **Body-plan templates** | A starting spec per body plan (four-legged, bird, fish), so agents and contributors copy the closest one instead of starting from scratch. | Wanted |
 | animals | **Swimming birds** | Ducks and grebes floating on the surface. No swimming birds yet. | Later |
 | trees | **Trees as recipes** | So contributors can add tree species without code (decision 0013). Undecided: measure first. | Later |
+| animals | **Sleep that fits the body** | Sleep lowers every animal by a fixed share of its height and swings straight legs out. That suits a fox, but a long-legged moose kneels awkwardly in mid-air, and a sleeping fox can't curl its tail over its nose. Lower the body to the real lying height and fold the legs under it, which needs a knee (an upper and a lower leg bone), or a per-animal sleep pose. | Wanted |
+| animals | **Stride and eating reach per animal** | Walk, run and eat use fixed angles. Long legs get huge strides (the moose needed `swing` 0.75), and a tall animal can't lower its head to the ground. Let a spec set stride length and how low or high it eats (a grazing hare, a browsing moose). | Wanted |
+| animals | **Build report: body and separate parts** | The build prints one triangle total. Separate parts (antlers, fins, spots, eyes) share the budget, and the body never gets fewer than 200, so the budget can be silently exceeded or the body starved. Print the body and the separate parts separately, and warn at the minimum. | Wanted |
+| animals | **Bird wings: fold and flap** | The default fold tips the wing out instead of down (roll is applied before yaw), folded wings stay as wide as spread ones, and the flap is a symmetric ±52° around the rest pose. Apply the tip-down tilt after the sweep, narrow folded wings, and make the downstroke shorter than the upstroke. | Wanted |
+| animals | **Insect wingbeat that sweeps** | The bee's buzz flips the wings up and down every frame. Real insect wings sweep forward and back; up and down reads as a jittery V. | Later |
+| animals | **Fish poses** | Fish use only idle and swim. The generated eat and sleep clips tip a fish over. A hovering idle, a slight head yaw against the tail while swimming, and resting near the bottom would suit fish better. | Later |
