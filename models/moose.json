@@ -1,0 +1,53 @@
+{
+  "id": "moose",
+  "name": "Eurasian elk / moose (Alces alces), adult bull",
+  "author": "Animundo team",
+  "gait": "walk",
+  "skin": {"triangles": 1500},
+  "colors": {
+    "fur": "#43302a",
+    "face": "#5a4231",
+    "legs": "#b9a88c",
+    "dark": "#241a15",
+    "antler": "#cdb894"
+  },
+  "bones": [
+    {"name": "body", "head": [0, 1.45, -0.8], "tail": [0, 1.5, 0.5], "role": "body"},
+    {"name": "neck", "head": [0, 1.62, 0.5], "tail": [0, 1.84, 1.01], "parent": "body", "role": "neck"},
+    {"name": "head", "head": [0, 1.84, 1.01], "tail": [0, 1.53, 1.66], "parent": "neck", "role": "head"},
+    {"name": "ear_l", "head": [0.1, 1.9, 0.89], "tail": [0.3, 1.98, 0.86], "parent": "head", "role": "ear", "mirror": true},
+    {"name": "leg_f_l", "head": [0.2, 1.3, 0.4], "tail": [0.2, 0.0, 0.43], "parent": "body", "role": "leg", "phase": 0.0, "swing": 0.75, "mirror": true},
+    {"name": "leg_b_l", "head": [0.2, 1.3, -0.72], "tail": [0.2, 0.0, -0.8], "parent": "body", "role": "leg", "phase": 0.5, "swing": 0.75, "mirror": true},
+    {"name": "tail", "head": [0, 1.58, -0.98], "tail": [0, 1.46, -1.06], "parent": "body", "role": "tail", "phase": 0.0}
+  ],
+  "parts": [
+    {"name": "chest", "shape": "ball", "size": [0.6, 0.85, 1.0], "at": [0, 1.47, 0.25], "color": "fur", "bone": "body"},
+    {"name": "hump", "shape": "ball", "size": [0.42, 0.4, 0.7], "at": [0, 1.75, 0.28], "color": "fur", "bone": "body"},
+    {"name": "barrel", "shape": "ball", "size": [0.64, 0.72, 1.0], "at": [0, 1.4, -0.3], "color": "fur", "bone": "body"},
+    {"name": "rump", "shape": "ball", "size": [0.54, 0.6, 0.62], "at": [0, 1.38, -0.75], "color": "fur", "bone": "body"},
+    {"name": "tail", "shape": "ball", "size": [0.1, 0.16, 0.1], "at": [0, 1.52, -1.02], "color": "fur", "bone": "tail"},
+    {"name": "neck", "shape": "ball", "size": [0.42, 0.66, 0.62], "at": [0, 1.68, 0.8], "rot": [-35, 0, 0], "color": "fur", "bone": "neck"},
+    {"name": "bell", "shape": "taper", "top": 0.4, "size": [0.1, 0.42, 0.2], "at": [0, 1.3, 0.98], "rot": [180, 0, 0], "color": "fur", "bone": "neck"},
+    {"name": "skull", "shape": "ball", "size": [0.32, 0.38, 0.44], "at": [0, 1.83, 1.08], "color": "fur", "bone": "head"},
+    {"name": "snout", "shape": "ball", "size": [0.26, 0.36, 0.56], "at": [0, 1.68, 1.38], "rot": [35, 0, 0], "color": "face", "bone": "head"},
+    {"name": "muzzle", "shape": "ball", "size": [0.29, 0.36, 0.32], "at": [0, 1.54, 1.62], "color": "face", "bone": "head"},
+    {"name": "lip", "shape": "ball", "size": [0.24, 0.18, 0.22], "at": [0, 1.44, 1.71], "color": "face", "bone": "head"},
+    {"name": "nostril_l", "shape": "ball", "size": [0.05, 0.07, 0.04], "at": [0.07, 1.55, 1.74], "color": "dark", "bone": "head", "mirror": true, "separate": true, "detail": 0.4},
+    {"name": "eye_l", "shape": "ball", "size": [0.045, 0.045, 0.045], "at": [0.13, 1.82, 1.16], "color": "dark", "bone": "head", "mirror": true, "separate": true, "detail": 0.5},
+    {"name": "ear_l", "shape": "taper", "top": 0.4, "size": [0.17, 0.34, 0.05], "at": [0.22, 1.95, 0.87], "rot": [0, 0, -62], "color": "face", "bone": "ear_l", "mirror": true, "separate": true, "detail": 0.5},
+    {"name": "beam_l", "shape": "taper", "top": 0.8, "size": [0.08, 0.22, 0.08], "at": [0.15, 2.02, 1.03], "rot": [0, 0, -60], "detail": 0.5, "color": "antler", "bone": "head", "mirror": true, "separate": true},
+    {"name": "palm_l", "shape": "ball", "size": [0.42, 0.07, 0.46], "at": [0.37, 2.13, 0.98], "rot": [0, 0, 30], "detail": 0.75, "color": "antler", "bone": "head", "mirror": true, "separate": true},
+    {"name": "tine1_l", "shape": "cone", "size": [0.06, 0.18, 0.06], "at": [0.425, 2.19, 0.82], "rot": [-40, 0, -15], "detail": 0.4, "color": "antler", "bone": "head", "mirror": true, "separate": true},
+    {"name": "tine2_l", "shape": "cone", "size": [0.06, 0.18, 0.06], "at": [0.53, 2.25, 0.895], "rot": [-20, 0, -30], "detail": 0.4, "color": "antler", "bone": "head", "mirror": true, "separate": true},
+    {"name": "tine3_l", "shape": "cone", "size": [0.06, 0.18, 0.06], "at": [0.565, 2.27, 1.026], "rot": [0, 0, -35], "detail": 0.4, "color": "antler", "bone": "head", "mirror": true, "separate": true},
+    {"name": "tine4_l", "shape": "cone", "size": [0.06, 0.18, 0.06], "at": [0.51, 2.24, 1.155], "rot": [20, 0, -30], "detail": 0.4, "color": "antler", "bone": "head", "mirror": true, "separate": true},
+    {"name": "brow_l", "shape": "cone", "size": [0.06, 0.18, 0.06], "at": [0.385, 2.155, 1.23], "rot": [70, 0, -10], "detail": 0.4, "color": "antler", "bone": "head", "mirror": true, "separate": true},
+    {"name": "shoulder_l", "shape": "ball", "size": [0.22, 0.62, 0.32], "at": [0.2, 1.1, 0.4], "color": "fur", "bone": "leg_f_l", "mirror": true},
+    {"name": "fore_l", "shape": "taper", "top": 0.7, "size": [0.13, 0.95, 0.14], "at": [0.2, 0.55, 0.425], "rot": [180, 0, 0], "color": "legs", "bone": "leg_f_l", "mirror": true},
+    {"name": "hoof_f_l", "shape": "ball", "size": [0.12, 0.1, 0.17], "at": [0.2, 0.05, 0.45], "color": "dark", "bone": "leg_f_l", "mirror": true},
+    {"name": "thigh_l", "shape": "ball", "size": [0.26, 0.7, 0.46], "at": [0.2, 1.15, -0.72], "color": "fur", "bone": "leg_b_l", "mirror": true},
+    {"name": "shin_l", "shape": "taper", "top": 0.6, "size": [0.15, 0.55, 0.18], "at": [0.2, 0.78, -0.83], "rot": [168, 0, 0], "color": "legs", "bone": "leg_b_l", "mirror": true},
+    {"name": "cannon_b_l", "shape": "taper", "top": 0.85, "size": [0.11, 0.6, 0.12], "at": [0.2, 0.32, -0.8], "rot": [180, 0, 0], "color": "legs", "bone": "leg_b_l", "mirror": true},
+    {"name": "hoof_b_l", "shape": "ball", "size": [0.12, 0.1, 0.17], "at": [0.2, 0.05, -0.78], "color": "dark", "bone": "leg_b_l", "mirror": true}
+  ]
+}
