@@ -30,5 +30,8 @@
   "food.kind.water_plants": "vesikasvit",
   "food.pondweed": "vita",
   "food.water lily leaves": "lumpeen lehdet",
-  "food.water horsetail": "järvikorte"
+  "food.water horsetail": "järvikorte",
+  "food.kind.cones": "kävyt",
+  "food.spruce cones": "kuusenkävyt",
+  "food.pine cones": "männynkävyt"
 }
