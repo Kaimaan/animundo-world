@@ -2,5 +2,9 @@
   "season.spring": "It's spring in {place}: the forest is waking up.",
   "season.summer": "It's summer in {place}: long days and lots of food.",
   "season.autumn": "It's autumn in {place}: the leaves are turning and falling.",
-  "season.winter": "It's winter in {place}: food is scarce, so keep warm."
+  "season.winter": "It's winter in {place}: food is scarce, so keep warm.",
+  "migrants.geese.south": "Look up! Geese are flying south for the winter.",
+  "migrants.geese.north": "Look up! Geese are flying north to their nesting grounds.",
+  "migrants.cranes.south": "Look up! Cranes are flying south for the winter.",
+  "migrants.cranes.north": "Look up! Cranes are flying back north for the summer."
 }

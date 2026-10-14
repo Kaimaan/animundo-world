@@ -33,11 +33,13 @@
   },
   "land_mammal": {
     "extends": "animal",
+    "kind": "mammal",
     "digs": true,
     "shelter": "earth"
   },
   "bird": {
     "extends": "animal",
+    "kind": "bird",
     "move": "fly",
     "shelter": "leaves",
     "buttons": {
@@ -55,6 +57,7 @@
   },
   "fish": {
     "extends": "animal",
+    "kind": "fish",
     "move": "swim",
     "cold_blooded": true,
     "rain_chill": 0.0,
@@ -76,6 +79,7 @@
   },
   "insect": {
     "extends": "animal",
+    "kind": "insect",
     "move": "fly",
     "hover": true,
     "shelter": "leaves_or_earth",

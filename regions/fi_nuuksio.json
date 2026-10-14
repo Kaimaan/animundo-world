@@ -51,13 +51,13 @@
     "mix": [
       {
         "shape": "spruce",
-        "weight": 45,
+        "weight": 43,
         "leaves": "#2c5846",
         "trunk": "#5b4433"
       },
       {
         "shape": "pine",
-        "weight": 30,
+        "weight": 28,
         "leaves": "#4f7d40",
         "trunk": "#b0703f"
       },
@@ -74,6 +74,12 @@
         "leaves": "#5f8f3a",
         "trunk": "#6b4a33",
         "autumn": "#d9772f"
+      },
+      {
+        "shape": "rowan",
+        "weight": 5,
+        "leaves": "#5f8a3a",
+        "autumn": "#c23b22"
       }
     ]
   },
@@ -94,9 +100,11 @@
     ],
     "stones": 0.04,
     "plants": [
-      {"model": "bilberry", "density": 0.3, "near_trees": 5},
+      {"model": "bilberry", "density": 0.29, "near_trees": 5},
       {"model": "lingonberry", "density": 0.1, "near_trees": 8},
-      {"model": "heather", "density": 0.15, "on": ["grass", "rock"]}
+      {"model": "heather", "density": 0.15, "on": ["grass", "rock"]},
+      {"model": "fly_agaric", "density": 0.006, "near_trees": 4},
+      {"model": "porcini", "density": 0.005, "near_trees": 4}
     ]
   },
   "lakes": [
@@ -184,6 +192,37 @@
     {
       "kind": "pike",
       "count": 2
+    }
+  ],
+  "migrants": [
+    {
+      "kind": "geese",
+      "names": [
+        "barnacle goose",
+        "bean goose"
+      ],
+      "south": [
+        "09-20",
+        "10-25"
+      ],
+      "north": [
+        "05-08",
+        "05-31"
+      ]
+    },
+    {
+      "kind": "cranes",
+      "names": [
+        "common crane"
+      ],
+      "south": [
+        "08-25",
+        "10-05"
+      ],
+      "north": [
+        "04-01",
+        "04-30"
+      ]
     }
   ],
   "animals": {

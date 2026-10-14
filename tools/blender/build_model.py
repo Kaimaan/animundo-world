@@ -236,6 +236,7 @@ def build_skin(spec, mats, arm_obj, opts):
     bm.from_mesh(skin_mesh)
     bpy.data.meshes.remove(skin_mesh)
     deform = bm.verts.layers.deform.verify()
+    pal = bm.verts.layers.int.new("pal")   # index into the spec's colours
     flat = opts["shading"] == "flat"
     for f in bm.faces:
         _, _, fi, _ = tree.find_nearest(f.calc_center_median())
@@ -248,6 +249,7 @@ def build_skin(spec, mats, arm_obj, opts):
     for v in bm.verts:
         _, _, fi, _ = tree.find_nearest(v.co)
         w[v.index, bone_names.index(src_info[fi][1] if fi is not None else body[0]["bone"])] = 1.0
+        v[pal] = src_info[fi][0] if fi is not None else 0
     edges = np.array([(e.verts[0].index, e.verts[1].index) for e in bm.edges], dtype=np.int64)
     deg = np.bincount(edges.ravel(), minlength=n).astype(np.float32)[:, None]
     for _ in range(int(opts["blend"])):
@@ -268,6 +270,7 @@ def build_skin(spec, mats, arm_obj, opts):
         gi = groups[p["bone"]].index
         for v in verts:
             v[deform][gi] = 1.0
+            v[pal] = color_names.index(p["color"])
         for f in bm.faces:
             if f.verts[0] in verts:
                 f.material_index = color_names.index(p["color"])
@@ -275,10 +278,39 @@ def build_skin(spec, mats, arm_obj, opts):
     bm.to_mesh(obj.data)
     bm.free()
     src.free()
+    one_material(obj, spec)
     obj.parent = arm_obj
     mod = obj.modifiers.new("Armature", "ARMATURE")
     mod.object = arm_obj
     return obj
+
+
+def one_material(obj, spec):
+    """Colours live on the vertices and the whole animal is one material, so
+    the phone draws it in one call. Vertex colours also blend softly where two
+    colours meet, instead of the jagged edge of per-triangle colours. The
+    palette (colour name -> hex) goes into the file for the game's coats."""
+    mesh = obj.data
+    names = list(spec["colors"])
+    lin = [srgb_to_linear(spec["colors"][n]) + [1.0] for n in names]
+    idx = [0] * len(mesh.vertices)
+    mesh.attributes["pal"].data.foreach_get("value", idx)
+    col = mesh.color_attributes.new("Col", "FLOAT_COLOR", "POINT")
+    col.data.foreach_set("color", [c for i in idx for c in lin[i]])
+    mesh.color_attributes.active_color = col
+    mesh.color_attributes.render_color_index = 0
+    for f in mesh.polygons:
+        f.material_index = 0
+    mesh.materials.clear()
+    mat = bpy.data.materials.new("body")
+    nodes = mat.node_tree.nodes
+    bsdf = nodes.get("Principled BSDF")
+    bsdf.inputs["Roughness"].default_value = 1.0
+    attr = nodes.new("ShaderNodeVertexColor")
+    attr.layer_name = "Col"
+    mat.node_tree.links.new(attr.outputs["Color"], bsdf.inputs["Base Color"])
+    mesh.materials.append(mat)
+    obj["animundo_palette"] = json.dumps(spec["colors"])
 
 
 def build_armature(spec):
@@ -452,6 +484,9 @@ def render_sheet(spec, arm_obj, mesh_obj, actions, out_path, coats, mats):
     size = 320
     setup_render(size)
     scene = bpy.context.scene
+    vertex_colours = "Col" in mesh_obj.data.color_attributes
+    if vertex_colours:
+        scene.display.shading.color_type = "VERTEX"
     corners = [mesh_obj.matrix_world @ Vector(c) for c in mesh_obj.bound_box]
     lo = Vector([min(c[i] for c in corners) for i in range(3)])
     hi = Vector([max(c[i] for c in corners) for i in range(3)])
@@ -461,6 +496,10 @@ def render_sheet(spec, arm_obj, mesh_obj, actions, out_path, coats, mats):
     bpy.ops.mesh.primitive_circle_add(vertices=32, radius=extent * 0.9, fill_type="NGON",
                                       location=(center.x, center.y, -0.001))
     ground = bpy.context.active_object
+    if vertex_colours:
+        gcol = ground.data.color_attributes.new("Col", "FLOAT_COLOR", "POINT")
+        for c in gcol.data:
+            c.color = (0.55, 0.65, 0.5, 1)
     gmat = bpy.data.materials.new("_ground")
     gmat.diffuse_color = (0.55, 0.65, 0.5, 1)
     ground.data.materials.append(gmat)
@@ -497,9 +536,17 @@ def render_sheet(spec, arm_obj, mesh_obj, actions, out_path, coats, mats):
 
     tiles = []
     base = {n: tuple(m.diffuse_color) for n, m in mats.items()}
+    names = list(spec["colors"])
+    if vertex_colours:
+        mesh = mesh_obj.data
+        idx = [0] * len(mesh.vertices)
+        mesh.attributes["pal"].data.foreach_get("value", idx)
     for name, d, clip, t, coat in shots:
         for n, m in mats.items():
             m.diffuse_color = (*srgb_to_linear(coat[n]), 1.0) if n in coat else base[n]
+        if vertex_colours:   # a coat swaps the palette colours on the vertices
+            lin = [srgb_to_linear(coat.get(n, spec["colors"][n])) + [1.0] for n in names]
+            mesh.color_attributes["Col"].data.foreach_set("color", [c for i in idx for c in lin[i]])
         action, frames = actions[clip]
         arm_obj.animation_data.action = action
         scene.frame_set(1 + round(t * frames))
@@ -509,6 +556,9 @@ def render_sheet(spec, arm_obj, mesh_obj, actions, out_path, coats, mats):
         label_data.body = name
         tiles.append(render_tile(size))
     save_sheet(tiles, out_path)
+    if vertex_colours:   # back to the normal colours before the model is exported
+        lin = [srgb_to_linear(spec["colors"][n]) + [1.0] for n in names]
+        mesh.color_attributes["Col"].data.foreach_set("color", [c for i in idx for c in lin[i]])
     arm_obj.animation_data.action = actions["idle"][0]
     for obj in (ground, cam, label):
         bpy.data.objects.remove(obj)
@@ -575,7 +625,8 @@ def main():
     mesh_obj.select_set(True)
     bpy.ops.export_scene.gltf(filepath=glb, export_format="GLB", use_selection=True,
                               export_animations=True, export_animation_mode="ACTIONS",
-                              export_apply=False, export_yup=True)
+                              export_apply=False, export_yup=True, export_extras=True,
+                              export_vertex_color="ACTIVE")
 
     # The game measures a model by its bone positions (head of each bone), so
     # print the length to put in animals/<id>.json for real-world scale.

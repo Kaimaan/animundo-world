@@ -99,6 +99,8 @@ The settings are tuned for the whole game (see [decision 0012](../docs/decisions
 
 `"skin": false` builds the old way, from loose parts. Don't use it for new animals.
 
+**Colours are stored on the vertices,** and the whole animal is one material, so the phone draws it in one call ([decision 0013](../docs/decisions/0013-one-material-per-animal.md)). Where two colours meet, they blend softly across one row of triangles. The colour names and values go into the model file, and that's how the game finds a colour to swap for a seasonal coat.
+
 ### Rules for a good spec
 These came from building the squirrel. Each one fixes something that looked wrong in a preview.
 

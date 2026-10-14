@@ -13,9 +13,10 @@ import os
 import re
 import sys
 
-TREE_SHAPES = {"spruce", "pine", "birch", "round"}
+TREE_SHAPES = {"spruce", "pine", "birch", "round", "rowan"}
 FOOD_KINDS = {"clover", "carrot", "berries", "insects", "water_bugs"}
 EDGES = {"lake", "none"}
+MIGRANT_KINDS = {"geese", "cranes"}  # flocks the game can draw (scripts/migrants.gd)
 PLANT_GROUND = {"grass", "rock", "sand"}
 HEX = re.compile(r"^#[0-9a-fA-F]{6}$")
 ID = re.compile(r"^[a-z]{2}_[a-z0-9_]+$")
@@ -87,6 +88,16 @@ def check(path):
             err(f'"seasons.{k}" must be a start date like "09-20" (month-day)')
     if "snow" in seasons and not isinstance(seasons["snow"], bool):
         err('"seasons.snow" must be true or false')
+
+    for i, m in enumerate(d.get("migrants", [])):
+        if m.get("kind") not in MIGRANT_KINDS:
+            err(f'"migrants[{i}].kind" must be one of {sorted(MIGRANT_KINDS)}')
+        for k in ("south", "north"):
+            span = m.get(k)
+            if span is None:
+                continue
+            if not (isinstance(span, list) and len(span) == 2 and all(isinstance(x, str) and re.match(r"^(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$", x) for x in span)):
+                err(f'"migrants[{i}].{k}" must be two dates like ["09-20", "10-25"]')
 
     trees = d.get("trees", {})
     num("trees", "density", 0, 0.05)

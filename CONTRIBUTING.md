@@ -18,6 +18,8 @@ Copy this prompt to your AI assistant and fill in the place:
 
 Then test it, and open a pull request (see below).
 
+**What's missing?** [docs/catalogue.md](docs/catalogue.md) shows the animals, plants, trees and foods the game has and what it still needs, most wanted first. Pick a row and claim it by setting its `status` to `in_progress` in [`wanted.json`](wanted.json). After adding anything, run `python3 tools/catalogue.py` to update the page.
+
 ## The region file
 Name it `<country code>_<place>.json`, all lowercase, for example `ke_masai_mara.json` or `us_yellowstone.json`. The `id` inside must match the file name.
 
@@ -38,7 +40,7 @@ Name it `<country code>_<place>.json`, all lowercase, for example `ke_masai_mara
 | `seasons` | Optional: when each season starts in your place, as month-day: `{"spring": "04-05", "summer": "05-25", "autumn": "09-20", "winter": "11-25", "snow": true}`. The game follows the real calendar, so it is autumn in the game when it is autumn there. The sun's height and the length of the day are worked out from `center.lat`. Leave it out to use northern-Europe dates (flipped for the southern hemisphere; no seasons near the equator). `snow` says whether snow lies in winter. |
 | `sky.*` | Colours of `day`, `horizon`, `dusk`, `night` and `sun`. |
 | `trees.density` (0–0.05) | Trees per square metre. Nuuksio's dense forest is 0.02. |
-| `trees.mix` | A list of `{shape, weight, leaves, trunk, autumn}`. Give `autumn` (a colour) to trees that drop their leaves: they turn that colour in autumn and stand bare in winter. Shapes: `spruce` (dark cone), `pine` (tall bare trunk, crown on top), `birch` (white trunk, small round crown), `round` (broadleaf tree). |
+| `trees.mix` | A list of `{shape, weight, leaves, trunk, autumn}`. Give `autumn` (a colour) to trees that drop their leaves: they turn that colour in autumn and stand bare in winter. Shapes: `spruce` (dark cone), `pine` (tall bare trunk, crown on top), `birch` (white trunk, small round crown), `round` (broadleaf tree, e.g. aspen), `rowan` (small tree; red berry clusters from August into winter). Leaf colours vary from tree to tree, so in autumn some birches are still green while others are gold or already bare. |
 | `ground_cover.grass`, `flowers`, `stones` (0–1) | How much of the ground has grass tufts, flowers and loose stones. Together with the plants below, they must add up to 1 or less. |
 | `ground_cover.plants` | Optional plants built from specs in [`models/plants/`](models/README.md#plants): a list of `{model, density, near_trees, on}`. `density` (0–1) is how much of the open ground has it. `near_trees` (blocks, optional) keeps it within that distance of a trunk, for forest plants like bilberry. `on` (optional) is the ground it grows on: any of `grass` (the default), `rock` and `sand`, e.g. `["grass", "rock"]` for heather on rocky hilltops. Each plant changes through the year by itself, following this region's `seasons`. |
 | `ground_cover.flower_colors` | A list of flower colours. |
@@ -46,6 +48,7 @@ Name it `<country code>_<place>.json`, all lowercase, for example `ke_masai_mara
 | `lakes` | Optional named lakes, carved into the land: a list of `{name, x, z, length, width, angle, depth, islands, wreck}`. `x`, `z` (0–1) place the middle on the map, `length` and `width` (0–1) are parts of the map size, `angle` (degrees) turns it, `depth` (2–7) is in metres, `islands` is how many little islands, `wreck: true` sinks an old rowing boat in it. The player is told the lake's name when they reach it. |
 | `lake_life.reeds`, `lilies`, `pondweed` (0–1) | How much of the shallows have reeds, of the water has lily pads, and of the deeper bottom has pondweed. |
 | `places` | Optional places of interest named on the map: a list of `{name, x, z}` (`x`, `z` 0–1 on the map), or `{name, at: "highest"}` for the top of the highest hill (the hills change with every new world). Lakes and the boat wreck are named on the map by themselves. |
+| `migrants` | Optional: birds that fly over on migration, as a V-shaped flock in the sky, with a message the first time. A list of `{kind, names, south, north}`: `kind` is `geese` or `cranes`, `names` the real species, and `south` and `north` the dates they pass over going each way, e.g. `"south": ["09-20", "10-25"]`. |
 | `fish` | Fish in the lakes: a list of `{kind, count}`, using fish from `animals/` (e.g. `roach`, `bream`, `pike`, `perch`). `count` is about how many swim near the player. |
 | `food` | A list of `{kind, weight, names}`. `names` (optional) are the real local species the player is told they ate, e.g. `["bilberries", "lingonberries"]`; one is picked per spawn. Kinds: `clover`, `carrot`, `berries`, `insects` (beetles on the ground), `water_bugs` (drift in lakes). |
 | `animals` | `playable`, `predators` and `prey`, using the animals in [`animals/`](animals/) (`rabbit`, `fox`, `kestrel`, `perch`, `bee`, ...). |
@@ -78,12 +81,12 @@ An animal is two data files: its **model** (`models/<id>.json`, what it looks li
 - **Never fake it.** Don't give an animal a food it doesn't really eat just because that's what the game has. A kestrel doesn't eat berries.
 - **Think about who eats it too.** Give it `tags` that the region's predators hunt (`small_mammal`, `small_bird`, `small_fish`...), so it joins the food web from both sides.
 
-[docs/animals-wanted.md](docs/animals-wanted.md) lists the animals and foods the game needs now, most wanted first. That's a good place to start. `tools/check_animals.gd` fails if any animal in a region can't find its food.
+[docs/catalogue.md](docs/catalogue.md) lists what the game has and the animals, plants and foods it needs now, most wanted first. That's a good place to start. `tools/check_animals.gd` fails if any animal in a region can't find its food.
 
 ### Start to finish
 The red squirrel was added this way. Its files are a good example.
 
-0. **Food.** List what it really eats in each season. Check every main food is in the region (see [Food first](#food-first-the-minimum-requirement)). If one isn't, add that first, or pick an animal from [docs/animals-wanted.md](docs/animals-wanted.md) instead.
+0. **Food.** List what it really eats in each season. Check every main food is in the region (see [Food first](#food-first-the-minimum-requirement)). If one isn't, add that first, or pick an animal from [docs/catalogue.md](docs/catalogue.md) instead.
 1. **Model.** Write `models/<id>.json` and build it with Blender. See [models/README.md](models/README.md).
    ```bash
    tools/build_model.sh models/<id>.json
@@ -217,7 +220,7 @@ Like an animal's, a plant's `year` records what it really does through the seaso
 Then match the model to it: each part's `show` (`{"from": "summer+50", "until": "autumn+20"}`) and the `seasons` colours. The bottom row of the preview sheet shows four real dates, so check it against your sources.
 
 ### Start to finish
-1. **Check** that it isn't in `models/plants/` already (rule 2), and that it really grows wild in your place (rule 3).
+1. **Check** that it isn't in `models/plants/` already (rule 2), and that it really grows wild in your place (rule 3). [docs/catalogue.md](docs/catalogue.md) lists the plants the game has and the ones it wants most.
 2. **Spec.** Copy [`models/plants/bilberry.json`](models/plants/bilberry.json) to `models/plants/<id>.json`. `<id>` is its English name in lowercase with `_`, e.g. `wood_anemone`. Fill in `name`, `latin`, `author`, `year`, `sources`, then the shapes and colours.
 3. **Build** it and look at the preview sheet (`models/previews/plants/<id>.png`). Fix it until it looks right from every side and in every season.
    ```bash

@@ -43,9 +43,10 @@ The game is for millions of players on cheap phones, with many animals on screen
 What we measured ([decision 0012](docs/decisions/0012-smooth-skin-models.md)):
 - **Animation is usually the biggest cost.** It grows with bones × clips. The downloaded fox's 51 bones and 12 clips are 407 of its 489 KB; the squirrel's 12 bones and 5 generated clips are 14 KB. Keep bones few.
 - **Each triangle costs about 35 bytes** of download with flat shading and about 20 with smooth shading.
+- **One material per animal.** Its colours are stored on the vertices, so the phone draws it in one call ([decision 0013](docs/decisions/0013-one-material-per-animal.md)). With one material per colour, 48 animals cost 1,218 draw calls per frame; now they cost 198.
 - **Smooth shading moves about 6 times fewer vertices** than flat: 587 for the squirrel against 3,278 for the same body faceted.
 
-The red squirrel is 1,000 triangles, 12 bones and a 36 KB download. Detail smaller than about 1 cm on a small animal, or 5 cm on a large one, won't show from the game camera, so leave it out.
+The red squirrel is 1,000 triangles, 12 bones, one material and a 33 KB download. Detail smaller than about 1 cm on a small animal, or 5 cm on a large one, won't show from the game camera, so leave it out.
 
 ## 5. Movement
 - **Real gaits.** Squirrels and hares `bound` (left and right legs together). Foxes, deer and most mammals `walk` (legs alternate). Fish wave their tail and birds flap.
