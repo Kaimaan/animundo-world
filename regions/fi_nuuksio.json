@@ -175,7 +175,8 @@
         "water boatmen"
       ]
     },
-    {"kind": "browse", "weight": 12, "names": ["birch leaves and twigs", "willow twigs", "aspen shoots", "rowan leaves"]}
+    {"kind": "browse", "weight": 12, "names": ["birch leaves and twigs", "willow twigs", "aspen shoots", "rowan leaves"]},
+    {"kind": "water_plants", "weight": 8, "names": ["pondweed", "water lily leaves", "water horsetail"]}
   ],
   "fish": [
     {
