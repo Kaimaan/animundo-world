@@ -17,7 +17,7 @@ Animundo teaches children about real nature, so **accuracy beats cuteness.**
 **Allowed stylisation:** a head and eyes up to about 15% larger than real, smooth rounded bodies instead of fur and feathers, and simplified shapes. Proportions between body parts stay real.
 
 ## 2. Shapes
-- **Built from simple solids:** balls, boxes, cylinders, cones and tapers, overlapping slightly so there are no gaps. Animals are built from a spec in [`models/`](models/README.md). Plants and props are made in code in [`scripts/art.gd`](scripts/art.gd).
+- **Built from simple solids:** balls, boxes, cylinders, cones and tapers, overlapping slightly so there are no gaps. Animals and plants are built from a spec in [`models/`](models/README.md). Trees, grass, flowers, stones and lake plants are still made in code in [`scripts/world.gd`](scripts/world.gd) and [`scripts/art.gd`](scripts/art.gd); new plants should be specs.
 - **Low-poly and soft.** Animals are one smooth, softly shaded body, like a clay figure ([decision 0012](docs/decisions/0012-smooth-skin-models.md)). Facets (flat shading) cost about 5 times more for the phone to animate, so they're for props and terrain, not animals.
 - **Silhouette first.** If you can't name the animal from its black outline, change the shapes before the colours.
 - **Rounded and friendly.** Avoid sharp spikes and thin needles, except where the real thing has them (ear tufts, a pike's teeth, spruce needles as a cone shape).
@@ -28,7 +28,7 @@ Animundo teaches children about real nature, so **accuracy beats cuteness.**
 - **No pure black or white.** Use a dark brown-black like `#2a1f1a` and a warm cream like `#efe3cf`. Pure black looks like a hole, and pure white glows in the light.
 - **Stand out from the ground.** An animal must read against its region's ground (`palette` in the region file, e.g. Nuuksio's `#5f9445` grass) and against snow (`#eef2f6`). If its real colours blend in, that's real camouflage. Keep it, but make the silhouette and field marks clear.
 - **Few colours.** Most animals need 3–6 colours. More turns into noise at game distance.
-- **Seasons are real.** Add a seasonal coat only if the real animal changes, e.g. a red squirrel greying in winter or a mountain hare turning white. See [models/README.md](models/README.md#seasonal-coats).
+- **Seasons are real.** Add a seasonal coat only if the real animal changes, e.g. a red squirrel greying in winter or a mountain hare turning white. See [models/README.md](models/README.md#seasonal-coats). Plants change too: autumn leaves, and flowers, berries and leaves that are there only part of the year. See [models/README.md](models/README.md#plants).
 
 ## 4. Size on screen and budgets
 The game is for millions of players on cheap phones, with many animals on screen at once, so every asset has a budget. What counts is what the player downloads (Godot's converted model, not the `.glb`) and the work the phone does every frame to animate it.
@@ -37,8 +37,8 @@ The game is for millions of players on cheap phones, with many animals on screen
 |---|---|---|---|
 | Playable animal | 1,000 (up to 1,500 for a large, complex one) | up to 16 | under 50 KB |
 | Wildlife that is never played (prey, fish in schools) | 400–800 | up to 12 | under 30 KB |
-| Prop or tree | under 300 | none | made in code |
-| Ground cover (grass, flowers, stones), drawn thousands of times | under 50 | none | made in code |
+| Plant spec, `kind: "bush"` (a bilberry, a fern), or a prop or tree | under 300 on any day of the year | none | `.glb` from a spec, or made in code |
+| Ground cover, `kind: "ground"` (grass, a small flower, a stone), drawn thousands of times | under 50 | none | `.glb` from a spec, or made in code |
 
 What we measured ([decision 0012](docs/decisions/0012-smooth-skin-models.md)):
 - **Animation is usually the biggest cost.** It grows with bones × clips. The downloaded fox's 51 bones and 12 clips are 407 of its 489 KB; the squirrel's 12 bones and 5 generated clips are 14 KB. Keep bones few.
@@ -69,6 +69,7 @@ Reviewers check new art against this list, using the preview sheet and an in-gam
 - [ ] It's within the triangle, bone and download budgets.
 - [ ] It reads clearly against the region's ground and against snow.
 - [ ] A seasonal coat is included only if the real animal changes colour.
+- [ ] A plant's flowers, berries and leaves come and go at the real time of year (the season row of its preview sheet).
 
 ## Older assets
 The fox, rabbit, kestrel and fish are downloaded models from before this guide. They are close to this style, but they use textures and different rigs. They will be rebuilt from specs over time, so copy the squirrel, not them.

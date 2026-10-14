@@ -34,12 +34,13 @@ Name it `<country code>_<place>.json`, all lowercase, for example `ke_masai_mara
 | `terrain.lakes` (0–1) | How many lakes or ponds. |
 | `terrain.edge` | `"lake"` puts water around the edge of the map. |
 | `terrain.seed` (any whole number) | Fixes the shape of the land, so the region is the same place in every game and for friends playing together. Try a few numbers and keep the one that looks best. Leave it out to get new land each game. |
-| `palette.*` | Colours (`"#rrggbb"`): `ground_lush`, `ground_dry`, `ground_high`, `dirt`, `rock`, `sand`, `water_deep`, `water_shallow`, and optional `ground_autumn` (faded grass) and `snow`. |
-| `seasons` | Optional: when each season starts in your place, as month-day: `{"spring": "04-05", "summer": "05-25", "autumn": "09-20", "winter": "11-25", "snow": true}`. The game follows the real calendar, so it is autumn in the game when it is autumn there. Leave it out to use northern-Europe dates (flipped for the southern hemisphere; no seasons near the equator). `snow` says whether snow lies in winter. |
+| `palette.*` | Colours (`"#rrggbb"`): `ground_lush`, `ground_dry`, `ground_high`, `dirt`, `rock`, `sand`, `water_deep`, `water_shallow`, and optional `ground_autumn` (faded grass), `heath_autumn` (berry shrubs on the forest floor in autumn colours, like Finnish *maaruska*) and `snow`. |
+| `seasons` | Optional: when each season starts in your place, as month-day: `{"spring": "04-05", "summer": "05-25", "autumn": "09-20", "winter": "11-25", "snow": true}`. The game follows the real calendar, so it is autumn in the game when it is autumn there. The sun's height and the length of the day are worked out from `center.lat`. Leave it out to use northern-Europe dates (flipped for the southern hemisphere; no seasons near the equator). `snow` says whether snow lies in winter. |
 | `sky.*` | Colours of `day`, `horizon`, `dusk`, `night` and `sun`. |
 | `trees.density` (0–0.05) | Trees per square metre. Nuuksio's dense forest is 0.02. |
 | `trees.mix` | A list of `{shape, weight, leaves, trunk, autumn}`. Give `autumn` (a colour) to trees that drop their leaves: they turn that colour in autumn and stand bare in winter. Shapes: `spruce` (dark cone), `pine` (tall bare trunk, crown on top), `birch` (white trunk, small round crown), `round` (broadleaf tree). |
-| `ground_cover.grass`, `flowers`, `stones` (0–1) | How much of the ground has grass tufts, flowers and loose stones. They must add up to 1 or less. |
+| `ground_cover.grass`, `flowers`, `stones` (0–1) | How much of the ground has grass tufts, flowers and loose stones. Together with the plants below, they must add up to 1 or less. |
+| `ground_cover.plants` | Optional plants built from specs in [`models/plants/`](models/README.md#plants): a list of `{model, density, near_trees}`. `density` (0–1) is how much of the open ground has it, and `near_trees` (blocks, optional) keeps it within that distance of a trunk, for forest plants like bilberry. Each plant changes through the year by itself, following this region's `seasons`. |
 | `ground_cover.flower_colors` | A list of flower colours. |
 | `ground_cover.flower_names` | Optional: the real flower species, one per colour in the same order, e.g. `["harebell", "heather"]`. Bees are told which flower they drank from. |
 | `lakes` | Optional named lakes, carved into the land: a list of `{name, x, z, length, width, angle, depth, islands, wreck}`. `x`, `z` (0–1) place the middle on the map, `length` and `width` (0–1) are parts of the map size, `angle` (degrees) turns it, `depth` (2–7) is in metres, `islands` is how many little islands, `wreck: true` sinks an old rowing boat in it. The player is told the lake's name when they reach it. |
@@ -173,6 +174,73 @@ The checker `tools/check_animals.gd` lists every missing message and every messa
 ```bash
 godot --headless --script tools/check_animals.gd
 ```
+
+## Adding plants
+A plant is one data file, `models/plants/<id>.json`: its looks and its year. Blender builds it into the model the game uses, plus a preview sheet ([models/README.md](models/README.md#plants)). The game scatters it on the ground of the places that list it, and it changes through the year by itself. A plant needs no code.
+
+Plants can be bushes, dwarf shrubs, ferns, flowers, grasses, mosses or mushrooms. **Trees aren't plant specs yet:** they are still built in code, because animals climb them and hide in them. Ask before starting a tree.
+
+### The rules
+Every plant must follow these rules. The checks run on every pull request and stop it if a rule they can test is broken. A reviewer checks the rest.
+
+| # | Rule | Checked by |
+|---|---|---|
+| 1 | **A real wild species.** Give its scientific name in `latin`. No garden varieties, and no made-up or "generic" plants. | Reviewer |
+| 2 | **One species, one file.** Before you start, look in `models/plants/` for its `latin` name. If it's there, improve that file instead of adding another. | `check_models.gd` |
+| 3 | **Only where it really grows.** List it in a place's `ground_cover.plants` only if it grows wild there today. Your sources must show that. A plant brought in by people that now grows wild (like garden lupin in Finland) is fine; say so in `year.notes`. | Reviewer |
+| 4 | **Real looks and size.** Take the size, shape and colours from photos and a field guide, and follow the [art guide](ART.md). The build prints the size. Keep its field marks, for example the green stems of a bilberry in winter. | Builder, reviewer |
+| 5 | **Its real year.** Fill in `year` (see below). Use `show` for flowers, fruit and leaves that are only there part of the year, and `seasons` for colours that change. A plant that drops its leaves must have `show` on its leaves. | `check_models.gd`, reviewer |
+| 6 | **Sources.** List in `sources` where its looks and its year come from: links or book titles. | `check_models.gd` |
+| 7 | **Made by you, from the spec.** No downloaded models, photos or textures. | Reviewer |
+| 8 | **Within budget.** `kind: "ground"` is under 50 triangles and `kind: "bush"` under 300, on the busiest day of the year. | Builder |
+| 9 | **Data only.** Change only `models/plants/`, its built files (`assets/plants/`, `models/previews/plants/`) and region files. If the plant needs something the spec can't do (a new shape, or being food, a hiding place or an obstacle), ask in your pull request. | Reviewer |
+| 10 | **Realistic amounts.** Set `density` to how common it really is there. Use `near_trees` for forest plants. Together with grass, flowers and stones, the amounts must add up to 1 or less. | `validate_region.py` |
+
+A plant is scenery, not food. Berries that animals eat come from the place's `food` list ([Food first](#food-first-the-minimum-requirement)). Don't add food to a place because you added a plant.
+
+### Its year
+Like an animal's, a plant's `year` records what it really does through the seasons. It's written for the place it's first added to. The `show` dates count from that place's own season starts, so one spec stays right in other places too: a bilberry in Lapland flowers later because Lapland's summer starts later.
+
+```json
+"year": {
+  "leaves": "deciduous",
+  "flowers": "Small pinkish bells under the leaves, late May to June.",
+  "fruit": "Blue-black berries ripen from mid-July into September.",
+  "notes": "Leaves turn red in autumn and fall. The angular stems stay green all winter."
+}
+```
+
+- `leaves`: `evergreen` or `deciduous` (it drops its leaves).
+- `flowers` and `fruit`: when, in a sentence, or `none`.
+- `notes`: optional. Anything else true about it, even what the game can't show yet.
+
+Then match the model to it: each part's `show` (`{"from": "summer+50", "until": "autumn+20"}`) and the `seasons` colours. The bottom row of the preview sheet shows four real dates, so check it against your sources.
+
+### Start to finish
+1. **Check** that it isn't in `models/plants/` already (rule 2), and that it really grows wild in your place (rule 3).
+2. **Spec.** Copy [`models/plants/bilberry.json`](models/plants/bilberry.json) to `models/plants/<id>.json`. `<id>` is its English name in lowercase with `_`, e.g. `wood_anemone`. Fill in `name`, `latin`, `author`, `year`, `sources`, then the shapes and colours.
+3. **Build** it and look at the preview sheet (`models/previews/plants/<id>.png`). Fix it until it looks right from every side and in every season.
+   ```bash
+   tools/build_model.sh models/plants/<id>.json
+   ```
+4. **Place it** in a region's `ground_cover.plants`: `{"model": "<id>", "density": 0.1, "near_trees": 5}`.
+5. **Check it.**
+   ```bash
+   python3 tools/validate_region.py
+   godot --headless --import
+   godot --headless --script tools/check_models.gd
+   ```
+6. **See it in the game.** Run `tools/build_web.sh && python3 tools/serve.py`, open `http://localhost:8060/?region=<region>&mode=safe`, and add `&date=2026-08-10` (and other dates) to see it through the year.
+7. **Pull request.** Include the preview sheet, a screenshot from the game, and your sources. Reviewers use the checklist in [ART.md](ART.md#7-checklist-for-review).
+
+An AI assistant can do steps 1–6 by itself. Give it this prompt:
+
+> Add a **[PLANT]** to the Animundo game, in **[PLACE]**. Read `ART.md`, `CONTRIBUTING.md` (Adding plants) and `models/README.md` (Plants), and use `models/plants/bilberry.json` as the example.
+> First check the rules: is it already in `models/plants/`, and does it really grow wild in this place? If not, stop and tell me.
+> Use real facts from sources you list: its size, shape and colours, and its year in this place (when it flowers and fruits, whether it drops its leaves, and its autumn colours).
+> Build it, look at the preview sheet and fix it until it looks right in every season. Add it to the region at a realistic density, run all the checks, and look at it in the browser in summer, autumn and winter.
+
+A person always reviews the preview sheet and the screenshot before merging.
 
 ## Translating
 All text the player sees is in [`locale/`](locale/), one folder per language with flat `{"key": "text"}` files:
