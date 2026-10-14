@@ -4,7 +4,10 @@
   "playable": true,
   "color": "#c8642a",
   "tags": ["predator"],
-  "diet": ["berries"],
+  "diet": [
+    "berries",
+    "insects"
+  ],
   "dark_vision": 0.85,
   "hunts": ["small_mammal", "small_bird"],
   "territorial": true,
@@ -35,8 +38,8 @@
     "night_hint": "It's night. Dig a den into a hillside and sleep in it.",
     "too_exposed": "Too exposed to sleep! Dig a den into a hillside and sleep in it.",
     "sheltered": "You're safe in your den.",
-    "hungry": "You're hungry. Look for voles and rabbits, or berry bushes.",
-    "no_food": "Nothing to eat here. Look for voles and rabbits, or berry bushes.",
+    "hungry": "You're hungry. Look for voles and rabbits, beetles, or berry bushes.",
+    "no_food": "Nothing to eat here. Look for voles and rabbits, beetles, or berry bushes.",
     "dig": "Digging... (a den keeps you safe and warm)",
     "rain_start": "It's starting to rain. Shelter in a den to stay warm.",
     "chased": "A rival fox is chasing you off its land!",

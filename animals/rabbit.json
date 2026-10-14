@@ -4,7 +4,11 @@
   "playable": true,
   "color": "#8a6a4c",
   "tags": ["small_mammal"],
-  "diet": ["clover", "carrot"],
+  "diet": [
+    "clover",
+    "carrot",
+    "browse"
+  ],
   "dark_vision": 0.6,
   "walk": 4.5,
   "sprint": 7.5,
@@ -26,8 +30,8 @@
     "night_hint": "It's night. Dig a burrow into a hillside and sleep in it.",
     "too_exposed": "Too exposed to sleep! Dig a burrow into a hillside and sleep in it.",
     "sheltered": "You're safe in your burrow.",
-    "hungry": "You're hungry. Look for clover (pink flowers) and wild carrots.",
-    "no_food": "Nothing to eat here. Look for clover (pink flowers) and wild carrots.",
+    "hungry": "You're hungry. Look for clover (pink flowers), wild carrots, or the twigs of young trees.",
+    "no_food": "Nothing to eat here. Look for clover (pink flowers), wild carrots, or the twigs of young trees.",
     "dig": "Digging... (a burrow keeps you safe and warm)",
     "rain_start": "It's starting to rain. Shelter in a burrow to stay warm.",
     "chased": "A fox is chasing you! Run, or hide in a burrow!",
