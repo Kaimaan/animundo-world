@@ -1,0 +1,147 @@
+{
+  "id": "fly_agaric",
+  "name": "Fly agaric",
+  "latin": "Amanita muscaria",
+  "author": "Animundo team",
+  "kind": "bush",
+  "year": {
+    "leaves": "deciduous",
+    "flowers": "none",
+    "fruit": "A mushroom: the red caps come up from August to October, most of all in September, and are gone after the first hard frosts.",
+    "notes": "Grows with birch, spruce and pine. The red cap is spotted with white warts. Very poisonous to people. Red squirrels and some slugs eat it. A great one to teach: look, don't pick."
+  },
+  "sources": [
+    "https://en.wikipedia.org/wiki/Amanita_muscaria",
+    "https://luontoportti.com/en/t/2416/fly-agaric"
+  ],
+  "colors": {
+    "stem": "#f1ede2",
+    "cap": "#d42a1f",
+    "wart": "#fbf7ec"
+  },
+  "parts": [
+    {
+      "name": "stem",
+      "shape": "taper",
+      "top": 0.7,
+      "size": [
+        0.036,
+        0.12,
+        0.036
+      ],
+      "at": [
+        0,
+        0.06,
+        0
+      ],
+      "color": "stem",
+      "detail": 0.5,
+      "show": {
+        "from": "summer+70",
+        "until": "autumn+40"
+      }
+    },
+    {
+      "name": "bulb",
+      "shape": "ball",
+      "size": [
+        0.045,
+        0.03,
+        0.045
+      ],
+      "at": [
+        0,
+        0.012,
+        0
+      ],
+      "color": "stem",
+      "detail": 0.5,
+      "show": {
+        "from": "summer+70",
+        "until": "autumn+40"
+      }
+    },
+    {
+      "name": "skirt",
+      "shape": "cylinder",
+      "size": [
+        0.044,
+        0.01,
+        0.044
+      ],
+      "at": [
+        0,
+        0.098,
+        0
+      ],
+      "color": "stem",
+      "detail": 0.5,
+      "show": {
+        "from": "summer+70",
+        "until": "autumn+40"
+      }
+    },
+    {
+      "name": "cap",
+      "shape": "ball",
+      "size": [
+        0.12,
+        0.07,
+        0.12
+      ],
+      "at": [
+        0,
+        0.13,
+        0
+      ],
+      "color": "cap",
+      "detail": 0.8,
+      "show": {
+        "from": "summer+70",
+        "until": "autumn+40"
+      }
+    },
+    {
+      "name": "wart_ring",
+      "shape": "ball",
+      "size": [
+        0.014,
+        0.008,
+        0.014
+      ],
+      "at": [
+        0,
+        0.155,
+        0.034
+      ],
+      "color": "wart",
+      "detail": 0.3,
+      "around": 6,
+      "jitter": 0.6,
+      "show": {
+        "from": "summer+70",
+        "until": "autumn+40"
+      }
+    },
+    {
+      "name": "wart_top",
+      "shape": "ball",
+      "size": [
+        0.015,
+        0.008,
+        0.015
+      ],
+      "at": [
+        0,
+        0.165,
+        0.0
+      ],
+      "color": "wart",
+      "detail": 0.3,
+      "show": {
+        "from": "summer+70",
+        "until": "autumn+40"
+      }
+    }
+  ]
+}
