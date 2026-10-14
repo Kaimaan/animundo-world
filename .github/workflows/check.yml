@@ -20,5 +20,23 @@ jobs:
             python3 -m json.tool "$f" > /dev/null || { echo "::error file=$f::not valid JSON"; status=1; }
           done
           exit $status
+      - name: Cache Blender
+        uses: actions/cache@v4
+        with:
+          path: ~/blender
+          key: blender-5.2.2-linux-x64
+      - name: Install Blender
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libxi6 libxkbcommon0 libxrender1 libxxf86vm1 libxfixes3 libsm6 libgl1 libegl1 > /dev/null
+          if [ ! -x ~/blender/blender ]; then
+            mkdir -p ~/blender
+            curl -sL https://download.blender.org/release/Blender5.2/blender-5.2.2-linux-x64.tar.xz | tar -xJ -C ~/blender --strip-components=1
+          fi
+          ~/blender/blender --version | head -1
+      - name: Build models
+        env:
+          BLENDER: /home/runner/blender/blender
+        run: tools/build_model.sh models/*.json models/plants/*.json
       - name: Check places
         run: python3 tools/validate_region.py
