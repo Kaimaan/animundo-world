@@ -11,5 +11,5 @@ done
 cp "$GAME/ART.md" ART.md
 cp "$GAME/docs/animals-wanted.md" docs/animals-wanted.md
 cp "$GAME/tools/validate_region.py" "$GAME/tools/build_model.sh" tools/
-cp "$GAME/tools/blender/build_model.py" tools/blender/
+rsync -a --delete --exclude "__pycache__" "$GAME/tools/blender/" tools/blender/
 echo "Imported from $GAME. CONTRIBUTING.md is not copied: merge changes by hand, keeping the note at the top."
