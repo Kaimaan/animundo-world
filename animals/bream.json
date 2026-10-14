@@ -12,23 +12,8 @@
   "sprint": 2.0,
   "school": true,
   "model": {
-    "file": "res://assets/animals/fish.glb",
-    "length": 0.42,
-    "yaw": 0.0,
-    "squash": [
-      0.8,
-      1.45,
-      1.0
-    ],
-    "anims": {
-      "idle": "Armature|Swim",
-      "fly": "Armature|Swim"
-    },
-    "recolor": {
-      "Top": "#5e5232",
-      "Bottom": "#c8b27a",
-      "Fins": "#4a4030"
-    }
+    "file": "res://assets/animals/bream.glb", "length": 0.330, "yaw": 0.0,
+    "anims": {"idle": "idle", "fly": "swim"}
   },
   "text": {
     "title": "Bream",

@@ -108,7 +108,8 @@ def load_spec(path):
         n = int(p.get("around", 1))
         if n > 1:
             # n copies spaced evenly around the stem, each a little different
-            rng = random.Random(f"{spec['id']}/{name}")
+            # parts with the same seed get the same turns (a flower spike on its shoot)
+            rng = random.Random(f"{spec['id']}/{p.get('seed', name)}")
             jit = float(p.get("jitter", 0.0))
             pivot = p.get("pivot", [0, 0])
             ring = []

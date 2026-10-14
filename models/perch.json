@@ -1,0 +1,59 @@
+{
+  "id": "perch",
+  "name": "European perch (Perca fluviatilis)",
+  "author": "Animundo team",
+  "gait": "walk",
+  "skin": {"triangles": 800},
+  "colors": {
+    "back": "#4a6330",
+    "side": "#a9b04a",
+    "bar": "#2f3a22",
+    "belly": "#efe3cf",
+    "fin_red": "#e0582a",
+    "fin": "#8d8a5a",
+    "fin_pale": "#c9b45a",
+    "eye": "#e0b23a",
+    "dark": "#2a1f1a"
+  },
+  "bones": [
+    {"name": "body", "head": [0, 0.09, 0.2], "tail": [0, 0.09, -0.02], "role": "body"},
+    {"name": "tail_1", "head": [0, 0.09, -0.02], "tail": [0, 0.09, -0.1], "parent": "body", "role": "fin", "phase": 0.0},
+    {"name": "tail_2", "head": [0, 0.09, -0.1], "tail": [0, 0.09, -0.16], "parent": "tail_1", "role": "fin", "phase": 0.12},
+    {"name": "tail_3", "head": [0, 0.09, -0.16], "tail": [0, 0.09, -0.23], "parent": "tail_2", "role": "fin", "phase": 0.24}
+  ],
+  "parts": [
+    {"name": "body", "shape": "ball", "size": [0.056, 0.115, 0.27], "at": [0, 0.09, 0.05], "color": "side", "bone": "body"},
+    {"name": "back", "shape": "ball", "size": [0.042, 0.06, 0.22], "at": [0, 0.122, 0.04], "color": "back", "bone": "body"},
+    {"name": "hump", "shape": "ball", "size": [0.04, 0.05, 0.1], "at": [0, 0.135, 0.09], "color": "back", "bone": "body"},
+    {"name": "belly", "shape": "ball", "size": [0.05, 0.06, 0.25], "at": [0, 0.058, 0.06], "color": "belly", "bone": "body"},
+    {"name": "head", "shape": "ball", "size": [0.05, 0.08, 0.12], "at": [0, 0.088, 0.155], "color": "side", "bone": "body"},
+    {"name": "crown", "shape": "ball", "size": [0.036, 0.04, 0.09], "at": [0, 0.11, 0.17], "color": "back", "bone": "body"},
+    {"name": "snout", "shape": "ball", "size": [0.03, 0.036, 0.05], "at": [0, 0.088, 0.205], "color": "side", "bone": "body"},
+    {"name": "jaw", "shape": "ball", "size": [0.028, 0.022, 0.06], "at": [0, 0.072, 0.195], "color": "belly", "bone": "body"},
+    {"name": "rear", "shape": "ball", "size": [0.046, 0.088, 0.16], "at": [0, 0.092, -0.06], "color": "side", "bone": "tail_1"},
+    {"name": "rear_back", "shape": "ball", "size": [0.032, 0.04, 0.14], "at": [0, 0.116, -0.06], "color": "back", "bone": "tail_1"},
+    {"name": "rear_belly", "shape": "ball", "size": [0.03, 0.03, 0.12], "at": [0, 0.064, -0.04], "color": "belly", "bone": "tail_1"},
+    {"name": "stalk", "shape": "ball", "size": [0.024, 0.048, 0.09], "at": [0, 0.091, -0.13], "color": "side", "bone": "tail_2"},
+    {"name": "stalk_end", "shape": "ball", "size": [0.016, 0.04, 0.05], "at": [0, 0.091, -0.165], "color": "side", "bone": "tail_3"},
+
+    {"name": "bar_1", "shape": "ball", "size": [0.062, 0.115, 0.042], "at": [0, 0.1, 0.115], "color": "bar", "bone": "body", "separate": true, "detail": 0.6},
+    {"name": "bar_2", "shape": "ball", "size": [0.066, 0.13, 0.044], "at": [0, 0.098, 0.065], "color": "bar", "bone": "body", "separate": true, "detail": 0.6},
+    {"name": "bar_3", "shape": "ball", "size": [0.064, 0.13, 0.044], "at": [0, 0.098, 0.015], "color": "bar", "bone": "body", "separate": true, "detail": 0.6},
+    {"name": "bar_4", "shape": "ball", "size": [0.055, 0.11, 0.04], "at": [0, 0.096, -0.04], "color": "bar", "bone": "tail_1", "separate": true, "detail": 0.6},
+    {"name": "bar_5", "shape": "ball", "size": [0.046, 0.085, 0.034], "at": [0, 0.096, -0.1], "color": "bar", "bone": "tail_1", "separate": true, "detail": 0.6},
+
+    {"name": "dorsal_1", "shape": "cylinder", "size": [0.1, 0.004, 0.14], "at": [0, 0.15, 0.06], "rot": [-12, 0, 90], "color": "fin", "bone": "body", "detail": 1.0},
+    {"name": "dorsal_spot", "shape": "cylinder", "size": [0.026, 0.007, 0.028], "at": [0, 0.163, 0.02], "rot": [0, 0, 90], "color": "dark", "bone": "body", "separate": true, "detail": 0.75},
+    {"name": "dorsal_2", "shape": "cylinder", "size": [0.08, 0.004, 0.1], "at": [0, 0.128, -0.06], "rot": [0, 0, 90], "color": "fin", "bone": "tail_1", "detail": 0.75},
+    {"name": "anal", "shape": "cylinder", "size": [0.07, 0.004, 0.065], "at": [0, 0.05, -0.06], "rot": [-15, 0, 90], "color": "fin_red", "bone": "tail_1", "detail": 0.75},
+    {"name": "tail_top", "shape": "cylinder", "size": [0.04, 0.004, 0.09], "at": [0, 0.113, -0.2], "rot": [35, 0, 90], "color": "fin", "bone": "tail_3", "detail": 0.75},
+    {"name": "tail_low", "shape": "cylinder", "size": [0.04, 0.004, 0.09], "at": [0, 0.069, -0.2], "rot": [-35, 0, 90], "color": "fin_red", "bone": "tail_3", "detail": 0.75},
+    {"name": "tail_mid", "shape": "cylinder", "size": [0.05, 0.004, 0.05], "at": [0, 0.091, -0.185], "rot": [0, 0, 90], "color": "fin", "bone": "tail_3", "detail": 0.75},
+    {"name": "pelvic_l", "shape": "cylinder", "size": [0.025, 0.004, 0.065], "at": [0.012, 0.035, 0.09], "rot": [-25, 0, 60], "color": "fin_red", "bone": "body", "mirror": true, "detail": 0.75},
+    {"name": "pectoral_l", "shape": "cylinder", "size": [0.03, 0.004, 0.06], "at": [0.03, 0.08, 0.1], "rot": [-15, -25, 90], "color": "fin_pale", "bone": "body", "mirror": true, "detail": 0.75},
+
+    {"name": "mouth_l", "shape": "box", "size": [0.004, 0.004, 0.03], "at": [0.012, 0.08, 0.21], "rot": [10, -15, 0], "color": "dark", "bone": "body", "mirror": true, "separate": true},
+    {"name": "eye_l", "shape": "ball", "size": [0.012, 0.024, 0.024], "at": [0.02, 0.1, 0.178], "color": "eye", "bone": "body", "mirror": true, "separate": true, "detail": 0.6},
+    {"name": "pupil_l", "shape": "ball", "size": [0.008, 0.013, 0.013], "at": [0.025, 0.1, 0.181], "color": "dark", "bone": "body", "mirror": true, "separate": true, "detail": 0.4}
+  ]
+}

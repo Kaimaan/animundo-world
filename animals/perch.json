@@ -13,9 +13,8 @@
   "cam_height": 0.25,
   "cam_dist": 2.0,
   "model": {
-    "file": "res://assets/animals/fish.glb", "length": 0.45, "yaw": 0.0,
-    "anims": {"idle": "Armature|Swim", "fly": "Armature|Swim"},
-    "recolor": {"Top": "#66753a", "Bottom": "#e6e2c2", "Fins": "#e2702c"}
+    "file": "res://assets/animals/perch.glb", "length": 0.360, "yaw": 0.0,
+    "anims": {"idle": "idle", "fly": "swim"}
   },
   "text": {
     "title": "Perch",

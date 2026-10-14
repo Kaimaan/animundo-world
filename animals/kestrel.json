@@ -11,12 +11,11 @@
   "sprint": 12.0,
   "jump": 4.0,
   "box": [0.3, 0.3, 0.3],
-  "cam_height": 0.4,
-  "cam_dist": 4.2,
+  "cam_height": 0.35,
+  "cam_dist": 2.2,
   "model": {
-    "file": "res://assets/animals/hawk.glb", "length": 0.7, "yaw": 3.14159,
-    "anims": {"idle": "metarig|Fly", "fly": "metarig|Fly"},
-    "ground_anim_speed": 0.04
+    "file": "res://assets/animals/kestrel.glb", "length": 0.085, "yaw": 0.0,
+    "anims": {"idle": "idle", "walk": "walk", "run": "run", "eat": "eat", "sleep": "sleep", "fly": "fly"}
   },
   "text": {
     "title": "Kestrel",

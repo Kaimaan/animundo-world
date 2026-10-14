@@ -12,23 +12,8 @@
   "walk": 0.5,
   "sprint": 6.5,
   "model": {
-    "file": "res://assets/animals/fish.glb",
-    "length": 0.95,
-    "yaw": 0.0,
-    "squash": [
-      0.8,
-      0.7,
-      1.0
-    ],
-    "anims": {
-      "idle": "Armature|Swim",
-      "fly": "Armature|Swim"
-    },
-    "recolor": {
-      "Top": "#47592c",
-      "Bottom": "#dcd9a8",
-      "Fins": "#8a6a2c"
-    }
+    "file": "res://assets/animals/pike.glb", "length": 0.690, "yaw": 0.0,
+    "anims": {"idle": "idle", "fly": "swim"}
   },
   "text": {
     "title": "Pike",

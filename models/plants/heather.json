@@ -1,0 +1,32 @@
+{
+  "id": "heather",
+  "name": "Heather",
+  "latin": "Calluna vulgaris",
+  "author": "Animundo team",
+  "kind": "bush",
+  "year": {
+    "leaves": "evergreen",
+    "flowers": "Spikes of small pale purple-pink flowers from late July to September. They dry brown and stay on the plant through the winter.",
+    "fruit": "Tiny dry capsules among the dead flowers; nothing an animal eats.",
+    "notes": "Tiny scale-like leaves pressed along the shoots, dark grey-green, browner in winter. Grows on dry, poor ground: rocky hilltops and open pine heath. Bumblebees and other bees drink from its flowers in late summer."
+  },
+  "sources": ["https://en.wikipedia.org/wiki/Calluna"],
+  "colors": {
+    "wood": "#6a4b36",
+    "shoot": "#55703f",
+    "flower": "#c98bbd"
+  },
+  "seasons": {
+    "spring": {"shoot": "#5f7d45", "flower": "#7d6250"},
+    "autumn": {"flower": "#9c6f74"},
+    "winter": {"shoot": "#5c5f3c", "flower": "#86664f"}
+  },
+  "parts": [
+    {"name": "shoot_out", "shape": "taper", "top": 0.5, "size": [0.022, 0.17, 0.022], "at": [0, 0.085, 0.08], "rot": [42, 0, 0], "color": "shoot", "detail": 0.4, "around": 8, "turn": 0, "jitter": 0.5, "seed": "out"},
+    {"name": "spike_out", "shape": "taper", "top": 0.6, "size": [0.032, 0.08, 0.032], "at": [0, 0.1184, 0.1101], "rot": [42, 0, 0], "color": "flower", "detail": 0.4, "around": 8, "turn": 0, "jitter": 0.5, "seed": "out", "show": {"from": "summer+55", "until": "spring+30"}},
+    {"name": "shoot_mid", "shape": "taper", "top": 0.5, "size": [0.022, 0.2, 0.022], "at": [0, 0.105, 0.045], "rot": [22, 0, 0], "color": "shoot", "detail": 0.4, "around": 6, "turn": 30, "jitter": 0.5, "seed": "mid"},
+    {"name": "spike_mid", "shape": "taper", "top": 0.6, "size": [0.032, 0.09, 0.032], "at": [0, 0.156, 0.0656], "rot": [22, 0, 0], "color": "flower", "detail": 0.4, "around": 6, "turn": 30, "jitter": 0.5, "seed": "mid", "show": {"from": "summer+55", "until": "spring+30"}},
+    {"name": "shoot_in", "shape": "taper", "top": 0.5, "size": [0.022, 0.22, 0.022], "at": [0, 0.12, 0.012], "rot": [6, 0, 0], "color": "shoot", "detail": 0.4, "around": 4, "turn": 15, "jitter": 0.5, "seed": "in"},
+    {"name": "spike_in", "shape": "taper", "top": 0.6, "size": [0.032, 0.1, 0.032], "at": [0, 0.1797, 0.0183], "rot": [6, 0, 0], "color": "flower", "detail": 0.4, "around": 4, "turn": 15, "jitter": 0.5, "seed": "in", "show": {"from": "summer+55", "until": "spring+30"}}
+  ]
+}

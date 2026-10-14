@@ -72,4 +72,4 @@ Reviewers check new art against this list, using the preview sheet and an in-gam
 - [ ] A plant's flowers, berries and leaves come and go at the real time of year (the season row of its preview sheet).
 
 ## Older assets
-The fox, rabbit, kestrel and fish are downloaded models from before this guide. They are close to this style, but they use textures and different rigs. They will be rebuilt from specs over time, so copy the squirrel, not them.
+All animals are now built from specs ([decision 0012](docs/decisions/0012-smooth-skin-models.md)). The downloaded fox, rabbit, kestrel and fish were replaced on 2026-10-14.

@@ -94,7 +94,9 @@
     ],
     "stones": 0.04,
     "plants": [
-      {"model": "bilberry", "density": 0.3, "near_trees": 5}
+      {"model": "bilberry", "density": 0.3, "near_trees": 5},
+      {"model": "lingonberry", "density": 0.1, "near_trees": 8},
+      {"model": "heather", "density": 0.15, "on": ["grass", "rock"]}
     ]
   },
   "lakes": [
