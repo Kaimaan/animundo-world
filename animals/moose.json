@@ -1,0 +1,72 @@
+{
+  "archetype": "land_mammal",
+  "latin": "Alces alces",
+  "playable": true,
+  "color": "#3b2a20",
+  "tags": [
+    "large_mammal"
+  ],
+  "diet": [
+    "browse",
+    "berries"
+  ],
+  "dark_vision": 0.6,
+  "digs": false,
+  "shelter": "under_tree",
+  "rain_chill": 0.3,
+  "walk": 3.6,
+  "sprint": 9.0,
+  "jump": 6.0,
+  "box": [
+    0.9,
+    1.9,
+    0.9
+  ],
+  "cam_height": 1.7,
+  "cam_dist": 5.5,
+  "model": {
+    "file": "res://assets/animals/moose.glb",
+    "length": 1.99,
+    "yaw": 0.0,
+    "anims": {
+      "idle": "idle",
+      "walk": "walk",
+      "run": "run",
+      "eat": "eat",
+      "sleep": "sleep"
+    }
+  },
+  "year": {
+    "winter": "active",
+    "shelter": "Doesn't build anything. Lies down for the night under dense young spruces, out of the wind; in deep snow it stays in a small area with good food.",
+    "young": "One or two calves (twins are common) born in May–June, hidden in thick cover. They follow their mother for a year.",
+    "food": {
+      "spring": "Fresh birch, willow and aspen shoots and leaves.",
+      "summer": "Leaves of birch, willow, aspen and rowan, herbs, and water plants it wades in for.",
+      "autumn": "Leaves while they last, bilberry shrubs, then twigs.",
+      "winter": "Pine and birch twigs and shoots, and bark; it can eat over 10 kg a day."
+    },
+    "notes": "Bulls grow new antlers every spring and drop them in midwinter (December–February): antlers could follow the season like a coat. The autumn rut (September–October), when bulls call and spar, would be a great thing to show. Moose swim well."
+  },
+  "text": {
+    "title": "Moose",
+    "play_as": "Play as a moose",
+    "menu_sub": "Browse the treetops, wade into lakes, rest under the spruces.",
+    "menu_wild": "Nothing here can hunt a grown moose.",
+    "intro_safe": "Safe mode: explore! You're the biggest animal in the forest. Find young birches to eat.",
+    "intro_survival": "Eat leaves and twigs to stay fed. At night, lie down under a spruce.",
+    "intro_wild": "You're the king of the forest. Keep fed and rest under the spruces at night.",
+    "night_hint": "It's night. Lie down under a big spruce's branches to sleep.",
+    "too_exposed": "Too open to sleep! Lie down under a spruce's branches.",
+    "sheltered": "You're resting under the spruce, out of the wind.",
+    "hungry": "You're hungry. Look for young birches and willows to browse.",
+    "no_food": "Nothing to eat here. Look for young birches and willows.",
+    "rain_start": "It's starting to rain. Your thick coat keeps you warm.",
+    "about_looks": "The biggest deer in the world: taller than a grown-up at the shoulder, with long pale legs and a droopy nose. Bulls have wide, flat antlers.",
+    "about_food": "Leaves and twigs from birches, willows and aspens, and water plants in summer. In winter, pine twigs.",
+    "about_home": "Lives in forests and bogs. It rests under thick spruces and builds no home at all.",
+    "about_winter": "Stays all winter. Its long legs walk through deep snow, and it eats twigs and pine shoots.",
+    "about_young": "One or two calves are born in early summer. They stay with their mother for a whole year.",
+    "about_fact": "A bull grows new antlers every spring and drops them in winter. Moose are great swimmers."
+  }
+}

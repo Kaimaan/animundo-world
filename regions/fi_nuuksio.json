@@ -174,7 +174,8 @@
         "caddisfly larvae",
         "water boatmen"
       ]
-    }
+    },
+    {"kind": "browse", "weight": 12, "names": ["birch leaves and twigs", "willow twigs", "aspen shoots", "rowan leaves"]}
   ],
   "fish": [
     {
@@ -227,6 +228,7 @@
   ],
   "animals": {
     "playable": [
+      "moose",
       "rabbit",
       "squirrel",
       "fox",
