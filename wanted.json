@@ -36,7 +36,6 @@
     {"id": "", "name": "Bark, twigs and buds", "local": "kuori, oksat, silmut", "feeds": "Mountain hare (winter)", "needs": "Twigs and buds exist now (`browse`, young trees) and the rabbit eats them. Still missing: bark gnawed from trees in deep snow (code: a food kind on tree trunks).", "status": "wanted"},
     {"id": "", "name": "Carrion", "local": "raato", "feeds": "Fox (winter)", "needs": "Code: a new food kind.", "status": "wanted"},
     {"id": "", "name": "Grass and herbs", "local": "heinä ja ruohot", "feeds": "Hare (its main food in summer)", "needs": "Code: a new food kind, grazing the meadow's grass tufts. Today a hare only finds clover and wild carrot.", "status": "wanted"},
-    {"id": "", "name": "Worms, snails and larvae in the mud", "local": "madot, kotilot ja toukat pohjamudassa", "feeds": "Bream (its main food: it sucks them from the bottom), roach", "needs": "Code: a new food kind on the lake bottom, found by digging in the mud. Today bottom feeders eat the water insects drifting in open water.", "status": "wanted"},
     {"id": "", "name": "Ducklings", "local": "ankanpoikaset", "feeds": "Pike (early summer), fox", "needs": "New model and a duck family on the lake. Tag `small_bird`.", "status": "later"}
   ],
   "core": [

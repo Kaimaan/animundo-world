@@ -9,7 +9,7 @@ How to add each kind of thing: [CONTRIBUTING.md](../CONTRIBUTING.md). How it sho
 | Animals | 13 | 4 | 0 |
 | Plants | 5 | 15 | 0 |
 | Trees | 5 | 0 | 0 |
-| Foods | 8 | 5 | 0 |
+| Foods | 9 | 4 | 0 |
 
 ## Animals
 
@@ -113,6 +113,7 @@ What animals find to eat. A food name marked "grows there" has a plant you can s
 | `browse` | fi_nuuksio | birch leaves and twigs, willow twigs, aspen shoots, rowan leaves | Moose, Rabbit |
 | `water_plants` | fi_nuuksio | pondweed, water lily leaves, water horsetail | Moose |
 | `cones` | fi_nuuksio | spruce cones, pine cones | Red squirrel |
+| `bottom_bugs` | fi_nuuksio | bloodworms, pond snails | Bream, Perch, Roach |
 
 ### Wanted
 
@@ -122,7 +123,6 @@ What animals find to eat. A food name marked "grows there" has a plant you can s
 | **Bark, twigs and buds** (kuori, oksat, silmut) | Mountain hare (winter) | Twigs and buds exist now (`browse`, young trees) and the rabbit eats them. Still missing: bark gnawed from trees in deep snow (code: a food kind on tree trunks). | Wanted |
 | **Carrion** (raato) | Fox (winter) | Code: a new food kind. | Wanted |
 | **Grass and herbs** (heinä ja ruohot) | Hare (its main food in summer) | Code: a new food kind, grazing the meadow's grass tufts. Today a hare only finds clover and wild carrot. | Wanted |
-| **Worms, snails and larvae in the mud** (madot, kotilot ja toukat pohjamudassa) | Bream (its main food: it sucks them from the bottom), roach | Code: a new food kind on the lake bottom, found by digging in the mud. Today bottom feeders eat the water insects drifting in open water. | Wanted |
 | **Ducklings** (ankanpoikaset) | Pike (early summer), fox | New model and a duck family on the lake. Tag `small_bird`. | Later |
 
 ## Core team work

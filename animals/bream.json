@@ -6,7 +6,8 @@
     "fish"
   ],
   "diet": [
-    "water_bugs"
+    "water_bugs",
+    "bottom_bugs"
   ],
   "walk": 0.8,
   "sprint": 2.0,
