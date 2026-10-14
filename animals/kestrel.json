@@ -5,6 +5,9 @@
   "color": "#9a6a3a",
   "tags": ["small_bird"],
   "diet": ["insects"],
+  "hunts": [
+    "vole"
+  ],
   "dark_vision": 0.25,
   "walk": 1.5,
   "fly": 7.0,
@@ -19,11 +22,14 @@
   },
   "text": {
     "title": "Kestrel",
+    "safe_tag": "Tag, you got it! In Safe mode kestrels fill up on beetles.",
+    "bite": "A kestrel grabbed you! Run for cover!",
+    "caught_you": "You were caught by a kestrel",
     "menu_sub": "Soar over the forest, catch beetles, roost in the trees.",
     "menu_wild": "Foxes catch you on the ground.",
     "intro": "Hold Fly to climb, Dive to drop. Roost in tree leaves at night.",
-    "hungry": "You're hungry. Look for beetles on the ground.",
-    "no_food": "Nothing to eat here. Look for beetles on the ground.",
+    "hungry": "You're hungry. Fly over the meadows and look for voles, or beetles.",
+    "no_food": "Nothing to eat here. Look for voles in the meadows, or beetles on the ground.",
     "chased": "A fox is after you! Take to the air!",
     "about_looks": "A small falcon with a long tail. The male has a grey head; the female is brown all over.",
     "about_food": "Mostly voles. Also big insects and small lizards.",
