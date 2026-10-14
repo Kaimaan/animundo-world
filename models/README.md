@@ -161,6 +161,15 @@ Seasons are `spring`, `summer`, `autumn` and `winter`. They follow the region's 
 
 To see a coat in the game, add a date to the URL, e.g. `&date=2027-01-20`.
 
+## Seasonal parts
+Some animals grow or lose parts with the seasons: a bull moose drops its antlers in midwinter and grows new ones from spring. Put such parts on their own bone, rooted where they grow from (the moose's `antlers` bone sits on top of the skull, with every antler part on it), and list that bone's size per season in the **animal file**, under `model`:
+
+```json
+"seasonal_parts": {"antlers": {"winter": 0.0, "spring": 0.5, "summer": 1.0, "autumn": 1.0}}
+```
+
+Sizes go from 0 (gone, tucked inside its root) to 1 (full size); seasons left out are full size. In the game a part **grows** slowly over a season's first three weeks, but **drops** all at once, as real antlers fall off. The preview sheet shows one tile per season. The build stops if a seasonal part isn't a bone in the spec.
+
 ## Using the model in the game
 After building, set the `model` entry in `animals/<id>.json`: `"file": "res://assets/animals/<id>.glb"`, `"yaw": 0.0`, the `length` the build printed (so the model keeps its real size), and the clips by name, e.g. `"anims": {"idle": "idle", "walk": "walk", "run": "run", "eat": "eat", "sleep": "sleep"}`.
 

@@ -505,7 +505,7 @@ def make_actions(spec, arm_obj, height):
 
 # --- preview sheet ---------------------------------------------------------------
 
-def render_sheet(spec, arm_obj, mesh_obj, actions, out_path, coats, mats):
+def render_sheet(spec, arm_obj, mesh_obj, actions, out_path, coats, mats, parts):
     size = 320
     setup_render(size)
     scene = bpy.context.scene
@@ -550,16 +550,20 @@ def render_sheet(spec, arm_obj, mesh_obj, actions, out_path, coats, mats):
     views = {"front": (0, 0.25, 1), "side": (1, 0.15, 0), "back 3/4": (-0.8, 0.5, -0.8), "top": (0.001, 1, 0.2)}
     shots = []
     for name, d in views.items():
-        shots.append((name, d, "idle", 0.0, {}))
+        shots.append((name, d, "idle", 0.0, {}, {}))
     for i in range(4):
-        shots.append((f"walk {i + 1}/4", (1, 0.15, 0), "walk", i / 4, {}))
+        shots.append((f"walk {i + 1}/4", (1, 0.15, 0), "walk", i / 4, {}, {}))
     extra = ["run", "eat", "sleep"] + [c for c in ("fly", "swim") if c in actions]
     for clip in extra:
-        shots.append((clip, (0.9, 0.35, 0.5), clip, 0.3, {}))
-    for season, coat in coats.items():
-        shots.append((f"{season} coat", (0.9, 0.35, 0.5), "idle", 0.0, coat))
+        shots.append((clip, (0.9, 0.35, 0.5), clip, 0.3, {}, {}))
+    # one tile per season that changes the animal: its coat colours and the
+    # size of seasonal parts (a moose's antlers: none in winter)
+    seasons = list(coats) + [x for table in parts.values() for x in table if x not in coats]
+    for season in dict.fromkeys(seasons):
+        scales = {bone: table.get(season, 1.0) for bone, table in parts.items()}
+        shots.append((season, (0.9, 0.35, 0.5), "idle", 0.0, coats.get(season, {}), scales))
     while len(shots) % 4:
-        shots.append(("idle", (0.9, 0.35, -0.5), "idle", 0.5, {}))
+        shots.append(("idle", (0.9, 0.35, -0.5), "idle", 0.5, {}, {}))
 
     tiles = []
     base = {n: tuple(m.diffuse_color) for n, m in mats.items()}
@@ -568,7 +572,10 @@ def render_sheet(spec, arm_obj, mesh_obj, actions, out_path, coats, mats):
         mesh = mesh_obj.data
         idx = [0] * len(mesh.vertices)
         mesh.attributes["pal"].data.foreach_get("value", idx)
-    for name, d, clip, t, coat in shots:
+    for name, d, clip, t, coat, scales in shots:
+        for bone in parts:
+            grow = max(scales.get(bone, 1.0), 0.0001)   # 0 hides the part inside its root
+            arm_obj.pose.bones[bone].scale = (grow, grow, grow)
         for n, m in mats.items():
             m.diffuse_color = (*srgb_to_linear(coat[n]), 1.0) if n in coat else base[n]
         if vertex_colours:   # a coat swaps the palette colours on the vertices
@@ -583,6 +590,8 @@ def render_sheet(spec, arm_obj, mesh_obj, actions, out_path, coats, mats):
         label_data.body = name
         tiles.append(render_tile(size))
     save_sheet(tiles, out_path)
+    for bone in parts:
+        arm_obj.pose.bones[bone].scale = (1.0, 1.0, 1.0)
     if vertex_colours:   # back to the normal colours before the model is exported
         lin = [srgb_to_linear(spec["colors"][n]) + [1.0] for n in names]
         mesh.color_attributes["Col"].data.foreach_set("color", [c for i in idx for c in lin[i]])
@@ -634,10 +643,16 @@ def main():
         preview = os.path.join(os.environ["BUILD_OUT"], model_id + ".png")
     os.makedirs(os.path.dirname(preview), exist_ok=True)
     coats = {}
+    parts = {}
     animal_file = os.path.join(ROOT, "animals", model_id + ".json")
     if os.path.exists(animal_file):
         with open(animal_file) as f:
-            coats = json.load(f).get("model", {}).get("coats", {})
+            model_cfg = json.load(f).get("model", {})
+            coats = model_cfg.get("coats", {})
+            parts = model_cfg.get("seasonal_parts", {})
+    for bone in parts:
+        if bone not in arm_obj.data.bones:
+            fail(f"animals/{model_id}.json: seasonal part '{bone}' is not a bone in the spec")
     for season, coat in coats.items():
         for n in coat:
             if n not in mats:
@@ -646,7 +661,7 @@ def main():
         for e in errors:
             print("ERROR:", e)
         sys.exit(1)
-    render_sheet(spec, arm_obj, mesh_obj, actions, preview, coats, mats)
+    render_sheet(spec, arm_obj, mesh_obj, actions, preview, coats, mats, parts)
 
     bpy.ops.object.select_all(action="DESELECT")
     arm_obj.select_set(True)
