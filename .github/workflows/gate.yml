@@ -35,7 +35,7 @@ jobs:
               return close(`Thank you for wanting to add to Animundo! Only verified players can open pull requests. In the game, open the menu and choose **Become a contributor**, then post your code in a [Verify me](https://github.com/${owner}/${repo}/issues/new?template=verify-me.yml) issue. After that, open your pull request again.`);
             }
 
-            const content = ['regions/', 'animals/', 'models/', 'locale/', 'plants/'];
+            const content = ['regions/', 'animals/', 'models/', 'locale/'];
             const files = await github.paginate(github.rest.pulls.listFiles, { owner, repo, pull_number: pr.number });
             const outside = files.map(f => f.filename).filter(f => !content.some(c => f.startsWith(c)));
             if (outside.length) {
