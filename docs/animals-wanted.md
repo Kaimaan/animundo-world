@@ -17,4 +17,3 @@ Bats (lepakot, such as the northern bat *Eptesicus nilssonii*), owls and other a
 ### Fixed already
 - **One material per animal** (2026-10-14). Colours are stored on the vertices, so each animal is one draw call: 48 animals went from 1,218 draw calls per frame to 198. It also softened the jagged colour edges ([decision 0013](decisions/0013-one-material-per-animal.md)).
 - **Kestrel ate berries.** Real kestrels don't, so berries were removed. Until voles arrive (row 1), it eats only beetles.
-
