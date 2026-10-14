@@ -9,7 +9,7 @@ How to add each kind of thing: [CONTRIBUTING.md](../CONTRIBUTING.md). How it sho
 | Animals | 11 | 5 | 0 |
 | Plants | 5 | 15 | 0 |
 | Trees | 5 | 0 | 0 |
-| Foods | 7 | 7 | 0 |
+| Foods | 7 | 6 | 0 |
 
 ## Animals
 
@@ -107,9 +107,9 @@ What animals find to eat. A food name marked "grows there" has a plant you can s
 | `clover` | fi_nuuksio | red clover, white clover | Rabbit, Bank vole |
 | `berries` | fi_nuuksio | bilberries (grows there), lingonberries (grows there), wild raspberries, crowberries | Fox, Moose, Red squirrel, Bank vole |
 | `carrot` | fi_nuuksio | wild carrot | Rabbit |
-| `insects` | fi_nuuksio | ground beetle, dung beetle, click beetle | Kestrel |
+| `insects` | fi_nuuksio | ground beetle, dung beetle, click beetle | Fox, Kestrel |
 | `water_bugs` | fi_nuuksio | mayfly larvae, caddisfly larvae, water boatmen | Bream, Perch, Roach |
-| `browse` | fi_nuuksio | birch leaves and twigs, willow twigs, aspen shoots, rowan leaves | Moose |
+| `browse` | fi_nuuksio | birch leaves and twigs, willow twigs, aspen shoots, rowan leaves | Moose, Rabbit |
 | `water_plants` | fi_nuuksio | pondweed, water lily leaves, water horsetail | Moose |
 
 ### Wanted
@@ -118,11 +118,10 @@ What animals find to eat. A food name marked "grows there" has a plant you can s
 |---|---|---|---|
 | **Spruce cones and seeds** (kuusenkävyt) | Squirrel (its main food autumn to spring) | Code: a new food kind. | Wanted |
 | **Mushrooms** (sienet) | Squirrel (summer and autumn; it dries them on branches) | Code: a new food kind that uses the mushroom plants. | Wanted |
-| **Bark, twigs and buds** (kuori, oksat, silmut) | Mountain hare (winter) | Code: a new food kind. | Wanted |
+| **Bark, twigs and buds** (kuori, oksat, silmut) | Mountain hare (winter) | Twigs and buds exist now (`browse`, young trees) and the rabbit eats them. Still missing: bark gnawed from trees in deep snow (code: a food kind on tree trunks). | Wanted |
 | **Carrion** (raato) | Fox (winter) | Code: a new food kind. | Wanted |
 | **Grass and herbs** (heinä ja ruohot) | Hare (its main food in summer) | Code: a new food kind, grazing the meadow's grass tufts. Today a hare only finds clover and wild carrot. | Wanted |
 | **Worms, snails and larvae in the mud** (madot, kotilot ja toukat pohjamudassa) | Bream (its main food: it sucks them from the bottom), roach | Code: a new food kind on the lake bottom, found by digging in the mud. Today bottom feeders eat the water insects drifting in open water. | Wanted |
-| **Beetles for the fox** (kovakuoriaiset ketulle) | Fox (summer) | Data only: add `insects` to the fox's `diet`. Its field guide already says it eats insects. | Wanted |
 | **Ducklings** (ankanpoikaset) | Pike (early summer), fox | New model and a duck family on the lake. Tag `small_bird`. | Later |
 
 ## Core team work
