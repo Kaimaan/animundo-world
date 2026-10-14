@@ -14,7 +14,7 @@ import re
 import sys
 
 TREE_SHAPES = {"spruce", "pine", "birch", "round", "rowan"}
-PLANT_FOOD_KINDS = {"berries", "mushrooms", "clover", "browse", "nectar"}  # food from ground-cover plants
+PLANT_FOOD_KINDS = {"berries", "mushrooms", "clover", "browse"}  # food from ground-cover plants (not nectar yet)
 FOOD_KINDS = {"clover", "carrot", "berries", "insects", "water_bugs", "browse", "water_plants", "cones", "bottom_bugs"}
 EDGES = {"lake", "none"}
 MIGRANT_KINDS = {"geese", "cranes"}  # flocks the game can draw (scripts/migrants.gd)
@@ -136,7 +136,9 @@ def check(path):
         if food is not None:
             kind = food if isinstance(food, str) else food.get("kind") if isinstance(food, dict) else None
             part = food.get("part", "") if isinstance(food, dict) else ""
-            if kind not in PLANT_FOOD_KINDS:
+            if kind == "nectar":
+                err(f'"ground_cover.plants[{i}].food": plants can\'t be bee flowers yet: see wanted.json core "Bee flowers from plant specs"')
+            elif kind not in PLANT_FOOD_KINDS:
                 err(f'"ground_cover.plants[{i}].food" kind must be one of {sorted(PLANT_FOOD_KINDS)}')
             if part and pl.get("model") in PLANTS:
                 spec = json.load(open(os.path.join(ROOT, "models", "plants", pl["model"] + ".json")))
