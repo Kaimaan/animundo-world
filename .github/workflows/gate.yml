@@ -32,7 +32,7 @@ jobs:
             const allowed = Buffer.from(list.data.content, 'base64').toString()
               .split('\n').map(l => l.trim().toLowerCase()).filter(l => l && !l.startsWith('#'));
             if (!allowed.includes(author.toLowerCase())) {
-              return close(`Thank you for wanting to add to Animundo! Only verified players can open pull requests. In the game, open the menu and choose **Become a contributor**, then post your code in a [Verify me](https://github.com/${owner}/${repo}/issues/new?template=verify-me.yml) issue. After that, open your pull request again.`);
+              return close(`Thank you for wanting to add to Animundo! Only verified contributors can open pull requests. In the game, a grown-up taps **For parents and teachers**, signs in with their email (it's free) and taps **Get my contributor code**. Post that code in a [Verify me](https://github.com/${owner}/${repo}/issues/new?template=verify-me.yml) issue. After that, open your pull request again.`);
             }
 
             const content = ['regions/', 'animals/', 'models/', 'locale/', 'wanted.json', 'docs/catalogue.md'];

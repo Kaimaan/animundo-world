@@ -2,7 +2,7 @@
 
 > **About this repository.** This is where Animundo's content lives; the game's code is kept separately, and every change merged here is copied into the game automatically. Commands below that use `godot` or `tools/build_web.sh` need the game repository: to try a change there before sending it, run `tools/export_to_game.sh <path to the game>`. Otherwise the core team runs the animal checks and plays your change for you. A *Play it* link on every pull request is coming ([decision 0013](https://github.com/Kaimaan/animundo/blob/main/docs/decisions/0013-public-world-repo.md)). Menu text (`locale/*/ui.json`, `loading.json`, `seasons.json`) belongs to the game and can't be changed here.
 >
-> You need to be a verified player to open a pull request: see [README.md](README.md#how-to-add-something).
+> You need to be a verified contributor to open a pull request. A grown-up with a (free) account in the game gets a code under *For parents and teachers*: see [README.md](README.md#how-to-add-something).
 
 Animundo is built by its players' families. Each place in the world is one small **region file** in [`regions/`](regions/). You don't need to know game programming. An AI assistant (Claude, ChatGPT and so on) can write the file with you.
 
@@ -13,8 +13,8 @@ Copy this prompt to your AI assistant and fill in the place:
 > Read `CONTRIBUTING.md` and `regions/fi_nuuksio.json` in the repository as the example.
 > Create a new region file for **[PLACE, COUNTRY]**. Use real facts about this place:
 > its landscape, typical trees, ground plants, colours of the ground, rock and water,
-> the sky, and which animals live there. Then run `python3 tools/validate_region.py`
-> and fix any problems.
+> the sky, and which animals live there. Put the links or books you used in `sources`.
+> Then run `python3 tools/validate_region.py` and fix any problems.
 
 Then test it, and open a pull request (see below).
 
@@ -25,7 +25,8 @@ Name it `<country code>_<place>.json`, all lowercase, for example `ke_masai_mara
 
 | Field | What it means |
 |---|---|
-| `id`, `name`, `country`, `description`, `author` | Who and what. `author` is your name or nickname. |
+| `id`, `name`, `country`, `description`, `author` | Who and what. `author` is your nickname, never a child's full name. |
+| `sources` | Where your facts come from: a list of links or book titles. |
 | `center.lat`, `center.lon` | Real coordinates of the middle of the area. |
 | `terrain.size` (128–2048) | Width of the map in metres (1 block = 1 m). Nuuksio is 512. Only the land around the animal is built, so bigger maps don't load slower. |
 | `terrain.base_height` (2–14) | How high the land is above the water. |
@@ -58,9 +59,8 @@ If your place needs a tree shape, food or animal that doesn't exist yet, say so 
 ## Test it
 ```bash
 python3 tools/validate_region.py regions/your_region.json
-tools/build_web.sh && python3 tools/serve.py
 ```
-Open `http://localhost:8060/?region=your_region&mode=safe`.
+Playing it needs the game repository, so the core team plays your place for you until *Play it* links on pull requests are ready. With the game repository, run `tools/export_to_game.sh <path to the game>`, then there `tools/build_web.sh && python3 tools/serve.py`, and open `http://localhost:8060/?region=your_region&mode=safe`.
 
 ## Send it in (pull request)
 1. Fork the repository on GitHub.
@@ -95,7 +95,7 @@ The red squirrel was added this way. Its files are a good example.
 3. **Animal file.** Copy [`animals/squirrel.json`](animals/squirrel.json) to `animals/<id>.json`. Set its traits, its English `text`, and the `model` entry: the `length` the build printed, and seasonal `coats` if the animal changes colour. Fill in its **`year`**: how it lives through the seasons (see [Its year](#its-year) below).
 4. **Translations.** Add `animal.<id>.<message>` to `locale/fi/animals.json` and every other language you can.
 5. **Place it.** Add the animal to a region's `animals.playable` list.
-6. **Check it.**
+6. **Check it** (these and step 7 need the game repository; otherwise the core team runs them for you).
    ```bash
    godot --headless --import
    godot --headless --script tools/check_models.gd
@@ -125,6 +125,7 @@ A person always reviews the preview sheet and the screenshot before merging.
 - `family`: optional. Who raises its young, so players can start life as a baby; see [Its family](#its-family).
 - `text`: what the game tells the player, in English. An animal only gets a message it (or its archetype) has. For example, fish have their own rain message instead of being told to find shelter. Write whole sentences, never pieces to glue together, so other languages can translate them.
 - `latin`: the scientific name, e.g. `"Vulpes vulpes"`. It's shown in the field guide and isn't translated.
+- `sources`: where its facts come from (size, colours, food, year), as a list of links or book titles.
 - Field guide: in `text`, one or two short sentences a child can read for each of `about_looks` (what it looks like), `about_food` (what it eats), `about_home` (where it lives and sleeps), `about_winter`, `about_young` and `about_fact` (something surprising). Use real facts. Players open it from the title screen's Field guide (every animal, playable or not), the in-game menu and when choosing a mode. An animal without them simply has no field guide button.
 
 ### Its year
@@ -227,7 +228,7 @@ Then match the model to it: each part's `show` (`{"from": "summer+50", "until": 
    tools/build_model.sh models/plants/<id>.json
    ```
 4. **Place it** in a region's `ground_cover.plants`: `{"model": "<id>", "density": 0.1, "near_trees": 5}`. Add `"on": ["grass", "rock"]` if it also grows on bare rock.
-5. **Check it.**
+5. **Check it** (the `godot` lines and step 6 need the game repository; otherwise the core team runs them for you).
    ```bash
    python3 tools/validate_region.py
    godot --headless --import

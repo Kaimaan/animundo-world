@@ -1,17 +1,17 @@
 name: Verify me
 description: Become a contributor so you can open pull requests.
 title: "Verify me"
-labels: [verify]
 body:
   - type: markdown
     attributes:
       value: |
-        In the game, open the menu and choose **Become a contributor**. You'll get a one-time code. Any player can do this, free or paid.
-        Use a nickname on GitHub, never a child's full name. Under 16? Ask a parent, guardian or teacher to do this for you.
+        In the game, tap **For parents and teachers** on the title screen. You need a grown-up's account: sign in with your email there if you haven't (it's free). Then tap **Get my contributor code** and post the code below. It works once, for 7 days.
+        A bot checks the code and lets your GitHub name open pull requests. It doesn't keep which player or email the code came from.
+        Use a nickname on GitHub, never a child's full name. Children take part through a parent, guardian or teacher.
   - type: input
     id: code
     attributes:
       label: Your contributor code
-      placeholder: ABCD-1234
+      placeholder: ABCD-EFGH
     validations:
       required: true
