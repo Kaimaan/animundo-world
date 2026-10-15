@@ -198,7 +198,7 @@ Parts take the same fields as an animal's (no `bone`), plus:
 
 | Field | What it means |
 |---|---|
-| `shape` | Also `leaf`: a flat leaf, pointed at the front (+z), with one face. `size` is `[width, unused, length]`. |
+| `shape` | Also `leaf`: a flat leaf, pointed at the front (+z), with one face. `size` is `[width, unused, length]`. With `detail` 0.5 or less it's a diamond of 2 triangles instead of 4, and a `ball` with `detail` 0.3 or less has 8 triangles instead of 16: use these for plants that grow everywhere (see the budgets in ART.md). |
 | `around` | Makes this many copies spaced evenly around the stem (the upright line through `pivot`, `[x, z]`, default `[0, 0]`). Put the first copy on the front (+z). `turn` (degrees) turns the whole ring. |
 | `jitter` | 0–1: copies in a ring differ a little in angle, tilt and size, so the plant looks grown, not machined. The same spec always builds the same plant. |
 | `seed` | Optional name: rings with the same `seed`, `around` and `jitter` get the same random turns, so one part can sit on another, like heather's flower spikes on its shoots. |

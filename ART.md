@@ -52,14 +52,16 @@ The game is for millions of players on cheap phones, with many animals on screen
 |---|---|---|---|
 | Playable animal | 1,000 (up to 1,500 for a large, complex one) | up to 16 | under 50 KB |
 | Wildlife that is never played (prey, fish in schools) | 400–800 | up to 12 | under 30 KB |
-| Plant spec, `kind: "bush"` (a bilberry, a fern), or a prop or tree | under 300 on any day of the year | none | `.glb` from a spec, or made in code |
+| Plant spec, `kind: "bush"` (a bilberry, a fern), or a prop or tree | under 300 on any day of the year; **about 120 for a common plant** (one that carpets the ground) | none | `.glb` from a spec, or made in code |
 | Ground cover, `kind: "ground"` (grass, a small flower, a stone), drawn thousands of times | under 50 | none | `.glb` from a spec, or made in code |
+| **All the plants of a place together** | under **100 per square metre** of open ground: each plant's `density` × its triangles, added up. `validate_region.py` checks it | | |
 
 What we measured ([decision 0012](docs/decisions/0012-smooth-skin-models.md)):
 - **Animation is usually the biggest cost.** It grows with bones × clips. The downloaded fox's 51 bones and 12 clips are 407 of its 489 KB; the squirrel's 12 bones and 5 generated clips are 14 KB. Keep bones few.
 - **Each triangle costs about 35 bytes** of download with flat shading and about 20 with smooth shading.
 - **One material per animal.** Its colours are stored on the vertices, so the phone draws it in one call ([decision 0013](docs/decisions/0013-one-material-per-animal.md)). With one material per colour, 48 animals cost 1,218 draw calls per frame; now they cost 198.
 - **Smooth shading moves about 6 times fewer vertices** than flat: 587 for the squirrel against 3,278 for the same body faceted.
+- **Plants are drawn thousands of times.** Measured in Nuuksio in August (2026-10-15): with five common plants at about 300 triangles each, the ground cover around the player cost 95–143k triangles and 161–173 draw calls, more than all the terrain and trees. Now each chunk's ground cover is one merged mesh per material (about 4 draw calls), plants are drawn only within about 20 m, and the common plants are about 120 triangles. Cheap plants use `detail` 0.5 or less for 2-triangle leaves and 0.3 or less for 8-triangle berries.
 
 The red squirrel is 1,000 triangles, 12 bones, one material and a 33 KB download. Detail smaller than about 1 cm on a small animal, or 5 cm on a large one, won't show from the game camera, so leave it out.
 

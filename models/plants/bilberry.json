@@ -23,13 +23,12 @@
     "autumn": {"leaf": "#c4493a", "leaf_dark": "#a53c36"}
   },
   "parts": [
-    {"name": "stem", "shape": "cylinder", "size": [0.012, 0.24, 0.012], "at": [0, 0.11, 0.035], "rot": [18, 0, 0], "color": "stem", "detail": 0.4, "around": 4, "jitter": 0.6},
-    {"name": "branch", "shape": "cylinder", "size": [0.009, 0.12, 0.009], "at": [0, 0.17, 0.09], "rot": [55, 0, 0], "color": "stem", "detail": 0.4, "around": 4, "turn": 45, "jitter": 0.6},
-    {"name": "leaf_low", "shape": "leaf", "size": [0.055, 0, 0.085], "at": [0, 0.1, 0.12], "rot": [-5, 0, 0], "color": "leaf_dark", "around": 8, "jitter": 0.8, "show": {"from": "spring+35", "until": "autumn+40"}},
-    {"name": "leaf_mid", "shape": "leaf", "size": [0.055, 0, 0.08], "at": [0, 0.16, 0.13], "rot": [-20, 0, 0], "color": "leaf", "around": 9, "turn": 16, "jitter": 0.8, "show": {"from": "spring+35", "until": "autumn+40"}},
-    {"name": "leaf_high", "shape": "leaf", "size": [0.05, 0, 0.075], "at": [0, 0.22, 0.1], "rot": [-30, 0, 0], "color": "leaf", "around": 8, "turn": 8, "jitter": 0.8, "show": {"from": "spring+35", "until": "autumn+40"}},
-    {"name": "leaf_top", "shape": "leaf", "size": [0.045, 0, 0.07], "at": [0, 0.27, 0.05], "rot": [-45, 0, 0], "color": "leaf", "around": 5, "turn": 30, "jitter": 0.8, "show": {"from": "spring+35", "until": "autumn+40"}},
-    {"name": "flower", "shape": "cone", "size": [0.022, 0.026, 0.022], "at": [0, 0.135, 0.1], "rot": [180, 0, 0], "color": "flower", "detail": 0.5, "around": 6, "turn": 10, "jitter": 0.8, "show": {"from": "summer", "until": "summer+30"}},
-    {"name": "berry", "shape": "ball", "size": [0.026, 0.026, 0.026], "at": [0, 0.13, 0.1], "color": "berry", "detail": 0.4, "around": 6, "turn": 10, "jitter": 0.8, "show": {"from": "summer+50", "until": "autumn+20"}}
+    {"name": "stem", "shape": "cylinder", "size": [0.012, 0.24, 0.012], "at": [0, 0.11, 0.035], "rot": [18, 0, 0], "color": "stem", "detail": 0.4, "around": 3, "jitter": 0.6},
+    {"name": "leaf_low", "shape": "leaf", "size": [0.063, 0, 0.094], "at": [0, 0.1, 0.12], "rot": [-5, 0, 0], "color": "leaf_dark", "around": 7, "jitter": 0.8, "show": {"from": "spring+35", "until": "autumn+40"}, "detail": 0.5},
+    {"name": "leaf_mid", "shape": "leaf", "size": [0.063, 0, 0.088], "at": [0, 0.16, 0.13], "rot": [-20, 0, 0], "color": "leaf", "around": 7, "turn": 16, "jitter": 0.8, "show": {"from": "spring+35", "until": "autumn+40"}, "detail": 0.5},
+    {"name": "leaf_high", "shape": "leaf", "size": [0.057, 0, 0.083], "at": [0, 0.22, 0.1], "rot": [-30, 0, 0], "color": "leaf", "around": 6, "turn": 8, "jitter": 0.8, "show": {"from": "spring+35", "until": "autumn+40"}, "detail": 0.5},
+    {"name": "leaf_top", "shape": "leaf", "size": [0.052, 0, 0.077], "at": [0, 0.27, 0.05], "rot": [-45, 0, 0], "color": "leaf", "around": 4, "turn": 30, "jitter": 0.8, "show": {"from": "spring+35", "until": "autumn+40"}, "detail": 0.5},
+    {"name": "flower", "shape": "cone", "size": [0.022, 0.026, 0.022], "at": [0, 0.135, 0.1], "rot": [180, 0, 0], "color": "flower", "detail": 0.4, "around": 6, "turn": 10, "jitter": 0.8, "show": {"from": "summer", "until": "summer+30"}},
+    {"name": "berry", "shape": "ball", "size": [0.026, 0.026, 0.026], "at": [0, 0.13, 0.1], "color": "berry", "detail": 0.3, "around": 6, "turn": 10, "jitter": 0.8, "show": {"from": "summer+50", "until": "autumn+20"}}
   ]
 }

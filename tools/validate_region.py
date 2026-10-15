@@ -30,6 +30,38 @@ ANIMALS = {f[:-5] for f in os.listdir(os.path.join(ROOT, "animals"))
 PLANTS = {f[:-5] for f in os.listdir(os.path.join(ROOT, "models", "plants")) if f.endswith(".json")}
 
 
+# Plants are drawn thousands of times on cheap phones, so a place's plants
+# together may cost at most this many triangles per square metre of open ground:
+# each plant's density times its triangles, added up (ART.md, budgets).
+PLANT_TRIS_PER_M2 = 100
+
+
+def glb_triangles(path):
+    """Triangles in a built model, read from the .glb (every part, all year)."""
+    import struct
+    with open(path, "rb") as f:
+        data = f.read()
+    n = struct.unpack("<I", data[12:16])[0]
+    gltf = json.loads(data[20:20 + n])
+    tris = 0
+    for mesh in gltf.get("meshes", []):
+        for prim in mesh.get("primitives", []):
+            acc = prim.get("indices", prim.get("attributes", {}).get("POSITION"))
+            if acc is not None:
+                tris += gltf["accessors"][acc]["count"] // 3
+    return tris
+
+
+def plant_cost(plants):
+    """[(model, density × triangles)] for the plants whose model is built."""
+    out = []
+    for pl in plants:
+        glb = os.path.join(ROOT, "assets", "plants", str(pl.get("model")) + ".glb")
+        if isinstance(pl.get("density"), (int, float)) and os.path.exists(glb):
+            out.append((pl["model"], pl["density"] * glb_triangles(glb)))
+    return out
+
+
 def check(path):
     errors = []
 
@@ -155,6 +187,12 @@ def check(path):
     total += sum(pl.get("density", 0) for pl in plants if isinstance(pl.get("density"), (int, float)))
     if total > 1:
         err('"ground_cover" grass + flowers + stones + plant densities must add up to 1 or less')
+    cost = plant_cost(plants)
+    if sum(c for _, c in cost) > PLANT_TRIS_PER_M2:
+        top = ", ".join(f"{m} {c:.0f}" for m, c in sorted(cost, key=lambda x: -x[1])[:3])
+        err(f'"ground_cover.plants" cost {sum(c for _, c in cost):.0f} triangles per square metre of open ground; '
+            f'the limit is {PLANT_TRIS_PER_M2} (ART.md). Lower the density of a common plant or make it simpler. '
+            f'Most expensive: {top}')
     for i, col in enumerate(gc.get("flower_colors", [])):
         if not (isinstance(col, str) and HEX.match(col)):
             err(f'"ground_cover.flower_colors[{i}]" must be a colour')
