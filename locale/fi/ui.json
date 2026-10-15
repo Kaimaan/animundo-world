@@ -259,7 +259,6 @@
   "ui.plans.full": "Täysversio",
   "ui.plans.supporter": "Tukijan versio",
   "ui.plans.free_price": "Aina ilmainen",
-  "ui.plans.price": "{n} €",
   "ui.plans.once": "{price}, kertamaksu",
   "ui.plans.free_what": "Muutama aloituseläin. Ei aikarajaa, ja eläimet tallentuvat aina.",
   "ui.plans.full_what": "Kaikki eläimet ja kaikki paikat, myös kaikki uudet, joita teemme myöhemmin.",
