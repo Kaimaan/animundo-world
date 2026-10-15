@@ -1,3 +1,2 @@
 # GitHub names allowed to open pull requests, one per line.
-# The verify bot adds players here; stewards and partners are added by hand.
-Kaimaan
+# The verify bot adds grown-ups here (decision 0013); stewards and partners are added by hand.
