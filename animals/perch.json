@@ -24,6 +24,7 @@
   },
   "text": {
     "title": "Perch",
+    "caught": "A tasty perch! +{food} food",
     "safe_tag": "Tag, you got it! In Safe mode perch fill up on water insects.",
     "bite": "A perch snapped at you! Swim for the reeds!",
     "caught_you": "You were caught by a perch",

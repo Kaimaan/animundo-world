@@ -19,6 +19,7 @@
   },
   "text": {
     "title": "Roach",
+    "caught": "A tasty roach! +{food} food",
     "nearby": "A school of roach swims by.",
     "about_looks": "A silvery fish with red eyes and reddish fins.",
     "about_food": "Water insects, snails and water plants.",

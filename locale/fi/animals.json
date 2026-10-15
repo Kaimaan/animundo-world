@@ -242,5 +242,14 @@
   "archetype.amphibian.rain_start": "Alkaa sataa. Sammakot rakastavat märkää!",
   "archetype.amphibian.rain_stop": "Sade on lakannut.",
   "archetype.reptile.rain_start": "Alkaa sataa. Sisiliskot piiloutuvat kivien alle odottamaan aurinkoa.",
-  "archetype.reptile.rain_stop": "Sade on lakannut. Nyt voi paistatella auringossa."
+  "archetype.reptile.rain_stop": "Sade on lakannut. Nyt voi paistatella auringossa.",
+  "animal.pike.play_as": "Pelaa haukena",
+  "animal.pike.menu_sub": "Väijy kaislikossa, iske ohi uiviin kaloihin, lepää syvässä vedessä.",
+  "animal.pike.menu_wild": "Mikään järvessä ei saalista isoa haukea.",
+  "animal.pike.intro": "Ylös ja Alas uidaksesi syvemmälle. Odota liikkumatta kaislikon lähellä ja syöksy sitten särjen tai ahvenen kimppuun!",
+  "animal.pike.safe_tag": "Hippa, sait sen kiinni! Turvallisessa tilassa hauki ei koskaan näe nälkää.",
+  "animal.pike.hungry": "Sinulla on nälkä. Väijy särkiparven lähellä ja iske!",
+  "animal.pike.no_food": "Täällä ei ole kaloja. Ui sinne, missä särjet ja ahvenet uivat parvissa.",
+  "animal.roach.caught": "Herkullinen särki! +{food} ruokaa",
+  "animal.perch.caught": "Herkullinen ahven! +{food} ruokaa"
 }
