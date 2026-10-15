@@ -28,7 +28,7 @@
     {"name": "leaf_mid", "shape": "leaf", "size": [0.046, 0, 0.062], "at": [0, 0.085, 0.056], "rot": [-38, 0, 0], "color": "leaf", "around": 7, "turn": 22, "jitter": 0.8, "detail": 0.5},
     {"name": "leaf_high", "shape": "leaf", "size": [0.044, 0, 0.057], "at": [0, 0.12, 0.048], "rot": [-50, 0, 0], "color": "leaf", "around": 6, "turn": 10, "jitter": 0.8, "detail": 0.5},
     {"name": "leaf_top", "shape": "leaf", "size": [0.039, 0, 0.051], "at": [0, 0.15, 0.03], "rot": [-62, 0, 0], "color": "leaf_light", "around": 5, "turn": 35, "jitter": 0.8, "detail": 0.5},
-    {"name": "flower", "shape": "cone", "size": [0.02, 0.022, 0.02], "at": [0, 0.165, 0.035], "rot": [160, 0, 0], "color": "flower", "detail": 0.4, "around": 5, "turn": 15, "jitter": 0.6, "show": {"from": "summer+10", "until": "summer+40"}},
+    {"name": "flower", "shape": "cone", "size": [0.02, 0.022, 0.02], "at": [0, 0.165, 0.035], "rot": [160, 0, 0], "color": "flower", "detail": 0.4, "around": 5, "turn": 15, "jitter": 0.6, "show": {"from": "summer+10", "until": "summer+40"}, "nectar": true},
     {"name": "berry", "shape": "ball", "size": [0.022, 0.022, 0.022], "at": [0, 0.168, 0.035], "color": "berry", "detail": 0.3, "around": 5, "turn": 15, "jitter": 0.6, "show": {"from": "summer+90", "until": "spring+40"}}
   ]
 }

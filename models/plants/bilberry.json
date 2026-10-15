@@ -6,7 +6,7 @@
   "kind": "bush",
   "year": {
     "leaves": "deciduous",
-    "flowers": "Small pinkish bells under the leaves, late May to June.",
+    "flowers": "Small pinkish bells under the leaves, mid May to mid June. One of the bumblebee's first big foods of the year.",
     "fruit": "Blue-black berries ripen from mid-July into September.",
     "notes": "Leaves turn red in autumn and fall. The angular stems stay green all winter, under the snow. Grows as a carpet in shady spruce and pine forest."
   },
@@ -28,7 +28,7 @@
     {"name": "leaf_mid", "shape": "leaf", "size": [0.063, 0, 0.088], "at": [0, 0.16, 0.13], "rot": [-20, 0, 0], "color": "leaf", "around": 7, "turn": 16, "jitter": 0.8, "show": {"from": "spring+35", "until": "autumn+40"}, "detail": 0.5},
     {"name": "leaf_high", "shape": "leaf", "size": [0.057, 0, 0.083], "at": [0, 0.22, 0.1], "rot": [-30, 0, 0], "color": "leaf", "around": 6, "turn": 8, "jitter": 0.8, "show": {"from": "spring+35", "until": "autumn+40"}, "detail": 0.5},
     {"name": "leaf_top", "shape": "leaf", "size": [0.052, 0, 0.077], "at": [0, 0.27, 0.05], "rot": [-45, 0, 0], "color": "leaf", "around": 4, "turn": 30, "jitter": 0.8, "show": {"from": "spring+35", "until": "autumn+40"}, "detail": 0.5},
-    {"name": "flower", "shape": "cone", "size": [0.022, 0.026, 0.022], "at": [0, 0.135, 0.1], "rot": [180, 0, 0], "color": "flower", "detail": 0.4, "around": 6, "turn": 10, "jitter": 0.8, "show": {"from": "summer", "until": "summer+30"}},
+    {"name": "flower", "shape": "cone", "size": [0.022, 0.026, 0.022], "at": [0, 0.135, 0.1], "rot": [180, 0, 0], "color": "flower", "detail": 0.4, "around": 6, "turn": 10, "jitter": 0.8, "show": {"from": "spring+38", "until": "summer+25"}, "nectar": true},
     {"name": "berry", "shape": "ball", "size": [0.026, 0.026, 0.026], "at": [0, 0.13, 0.1], "color": "berry", "detail": 0.3, "around": 6, "turn": 10, "jitter": 0.8, "show": {"from": "summer+50", "until": "autumn+20"}}
   ]
 }

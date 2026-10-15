@@ -92,6 +92,10 @@ def load_spec(path):
         if show is not None and not (isinstance(show, dict) and MARK.match(str(show.get("from")))
                                      and MARK.match(str(show.get("until")))):
             fail(f"part '{name}': show must be like {{\"from\": \"summer+55\", \"until\": \"autumn+15\"}}")
+        nectar = p.get("nectar")
+        if nectar is not None and nectar is not True and not (isinstance(nectar, dict) and MARK.match(str(nectar.get("from")))
+                                                              and MARK.match(str(nectar.get("until")))):
+            fail(f"part '{name}': nectar must be true or like {{\"from\": \"summer+55\", \"until\": \"autumn\"}}")
         if p.get("shape") not in SHAPES:
             fail(f"part '{name}': shape must be one of {', '.join(SHAPES)}")
             continue
