@@ -35,13 +35,18 @@ jobs:
               return close(`Thank you for wanting to add to Animundo! Only verified contributors can open pull requests. In the game, a grown-up taps **For parents and teachers**, signs in with their email (it's free) and taps **Get my contributor code**. Post that code in a [Verify me](https://github.com/${owner}/${repo}/issues/new?template=verify-me.yml) issue. After that, open your pull request again.`);
             }
 
-            const content = ['regions/', 'animals/', 'models/', 'locale/', 'wanted.json', 'docs/catalogue.md'];
+            // content only, and only data file types: a scene, script or workflow can never come in
+            const isContent = f => /^(regions|animals)\/[a-z0-9_]+\.json$/.test(f)
+              || /^models\/(plants\/)?[a-z0-9_]+\.json$/.test(f)
+              || /^models\/previews\/(plants\/)?[a-z0-9_]+\.png$/.test(f)
+              || /^locale\/[a-z]{2,3}(-[A-Za-z]+)?\/(animals|food|plants|regions)\.json$/.test(f)   // menu text belongs to the game repo (decision 0013)
+              || ['wanted.json', 'docs/catalogue.md'].includes(f);
             const files = await github.paginate(github.rest.pulls.listFiles, { owner, repo, pull_number: pr.number });
-            // menu text belongs to the game repo and is synced from there (decision 0013)
-            const gameOwned = f => /^locale\/([^/]+\/(ui|loading|seasons)\.json|languages\.json)$/.test(f);
-            const outside = files.map(f => f.filename).filter(f => gameOwned(f) || !content.some(c => f.startsWith(c)));
+            // a renamed file counts under both names, so nothing can be moved out of place
+            const names = files.flatMap(f => f.previous_filename ? [f.filename, f.previous_filename] : [f.filename]);
+            const outside = [...new Set(names.filter(f => !isContent(f)))];
             if (outside.length) {
-              return close(`Pull requests can only change content in ${content.map(c => '`' + c + '`').join(', ')}. This one also changes:\n\n${outside.map(f => '- `' + f + '`').join('\n')}\n\nIf something else needs changing, please open an issue instead.`);
+              return close(`Pull requests can only change content: place, animal and model files (\`.json\`), preview sheets (\`.png\`), the animal, food, plant and place text in \`locale/\`, \`wanted.json\` and \`docs/catalogue.md\`. This one also changes:\n\n${outside.map(f => '- `' + f + '`').join('\n')}\n\nIf something else needs changing, please open an issue instead.`);
             }
 
             const open = await github.paginate(github.rest.pulls.list, { owner, repo, state: 'open' });

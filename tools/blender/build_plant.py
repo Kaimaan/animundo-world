@@ -429,6 +429,9 @@ def main():
         report_errors()
 
     plant_id = spec["id"]
+    if not isinstance(plant_id, str) or not re.fullmatch(r"[a-z][a-z0-9_]*", plant_id):   # it becomes a file name
+        print(f"ERROR: 'id' must be lowercase letters, digits and _, got {plant_id!r}")
+        sys.exit(1)
     glb = os.path.join(ROOT, "assets", "plants", plant_id + ".glb")
     preview = os.path.join(ROOT, "models", "previews", "plants", plant_id + ".png")
     os.makedirs(os.path.dirname(glb), exist_ok=True)
