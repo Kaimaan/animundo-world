@@ -1,0 +1,59 @@
+{
+  "archetype": "amphibian",
+  "latin": "Rana temporaria",
+  "color": "#7a6a3a",
+  "tags": [
+    "amphibian",
+    "frog"
+  ],
+  "diet": [
+    "insects"
+  ],
+  "box": [
+    0.1,
+    0.06,
+    0.1
+  ],
+  "flee_speed": 2.6,
+  "food_value": 10,
+  "model": {
+    "file": "res://assets/animals/frog.glb",
+    "length": 0.049,
+    "yaw": 0.0,
+    "anims": {
+      "idle": "idle",
+      "walk": "walk",
+      "run": "run",
+      "eat": "eat",
+      "sleep": "sleep"
+    }
+  },
+  "year": {
+    "winter": "hibernates",
+    "hibernation": {
+      "from": "10-01",
+      "to": "04-15",
+      "wakes": "rarely"
+    },
+    "shelter": "Hibernates at the bottom of ponds and lakes, or buried under leaves and moss on land; spends summer in damp forest and meadows.",
+    "young": "In April–May each female lays a clump of about 2,000 eggs in a pond; the tadpoles turn into tiny froglets by July.",
+    "food": {
+      "spring": "Little: it is busy laying eggs.",
+      "summer": "Insects, spiders, worms and slugs, caught with its sticky tongue.",
+      "autumn": "Insects and slugs before winter.",
+      "winter": "Asleep."
+    },
+    "notes": "Eaten by pike, foxes, herons, storks and grass snakes. The spring croaking choruses and the frogspawn would be great to show."
+  },
+  "text": {
+    "title": "Common frog",
+    "caught": "A frog! +{food} food",
+    "stalk_hint": "A frog! Get close slowly, then tap Pounce before it hops away.",
+    "about_looks": "A smooth brown or olive frog with a dark patch behind each golden eye and long, strong back legs.",
+    "about_food": "Insects, spiders, worms and slugs, caught with a long sticky tongue.",
+    "about_home": "Lives in damp forests and meadows near ponds and lakes, and goes back to the water to lay its eggs.",
+    "about_winter": "Sleeps through winter at the bottom of a pond, or buried under leaves and moss.",
+    "about_young": "Lays big clumps of eggs in ponds in spring. Tadpoles hatch and turn into tiny froglets by summer.",
+    "about_fact": "A frog can breathe through its skin, so it can sleep all winter underwater."
+  }
+}

@@ -252,7 +252,9 @@
     ],
     "prey": [
       "rabbit",
-      "vole"
+      "vole",
+      "frog",
+      "lizard"
     ]
   }
 }

@@ -9,7 +9,9 @@
     "insects"
   ],
   "dark_vision": 0.85,
-  "hunts": ["small_mammal", "small_bird"],
+  "hunts": ["small_mammal", "small_bird",
+    "frog"
+  ],
   "territorial": true,
   "walk": 4.2,
   "sprint": 8.4,
