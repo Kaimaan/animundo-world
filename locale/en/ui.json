@@ -73,6 +73,7 @@
   "ui.air.low": "Running out of air! Swim up to breathe.",
   "country.fi": "Finland",
   "ui.nectar.no_flower": "No flower here. Fly right up to a blossom, then tap Drink.",
+  "ui.nectar.few_flowers": "Almost no flowers bloom at this time of year, so there's very little nectar to find.",
   "ui.nectar.empty": "This {flower} has no nectar left. Find another flower!",
   "ui.nectar.sip_one": "Sweet {flower} nectar! +{food} food  ({count} flower pollinated)",
   "ui.nectar.sip_many": "Sweet {flower} nectar! +{food} food  ({count} flowers pollinated)",
