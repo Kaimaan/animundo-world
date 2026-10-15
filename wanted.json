@@ -1,12 +1,10 @@
 {
   "about": "What Animundo is missing, most wanted first in each list. tools/catalogue.py turns this and the game's data into docs/catalogue.md. When something is added, its row shows as done; then delete it here. status: wanted, in_progress (say who), check (something to decide first) or later.",
   "animals": [
-    {"id": "mountain_hare", "name": "Mountain hare", "local": "metsäjänis", "latin": "Lepus timidus", "place": "fi_nuuksio", "feeds": "Fox, later lynx and eagle owl", "needs": "New model from a spec, with a white `winter` coat. It replaces the \"rabbit\": European rabbits don't live wild in Nuuksio (ART.md: real species only).", "status": "wanted"},
     {"id": "", "name": "Night animals: bats and owls", "local": "lepakot ja pöllöt", "latin": "", "place": "fi_nuuksio", "feeds": "", "needs": "Code first: how night works has to be tested before the first night animal (decision 0014, open). See docs/animals-wanted.md.", "status": "later"}
   ],
   "plants": [
     {"id": "red_clover", "name": "Red clover and white clover", "local": "puna-apila, valkoapila", "latin": "Trifolium pratense", "place": "fi_nuuksio", "feeds": "Hare (`clover`: players are already told they ate clover), bumblebee", "needs": "Data only for the look: meadows, roadsides, around old farms, not inside the forest. Two specs, one per species. Mark the flower heads `\"nectar\": true` so bees drink from them (models/README.md).", "status": "wanted"},
-    {"id": "", "name": "Wild carrot: check first", "local": "porkkana", "latin": "Daucus carota", "place": "fi_nuuksio", "feeds": "Hare (`carrot`)", "needs": "Rare in Finland, only a few places on the south coast, so it probably shouldn't be in Nuuksio. Decide with the core team whether to replace the `carrot` food with plants hares really eat there (grasses, herbs, willow twigs).", "status": "check"},
     {"id": "goat_willow", "name": "Goat willow (as a shrub)", "local": "raita", "latin": "Salix caprea", "place": "fi_nuuksio", "feeds": "Bumblebee (catkins are its first food, April–May), hare (twigs and bark in winter)", "needs": "Data only for the shrub: forest edges, clearings, lake shores. Mark the catkins `\"nectar\": true` so bees drink from them (models/README.md). Code: winter browse for hares.", "status": "wanted"},
     {"id": "wavy_hair_grass", "name": "Wavy hair-grass", "local": "metsälauha", "latin": "Avenella flexuosa", "place": "fi_nuuksio", "feeds": "Hare and voles (grass)", "needs": "Data only, `kind: \"ground\"`. The commonest grass of dry forest floor. Could replace the generic grass tuft inside the forest.", "status": "wanted"},
     {"id": "chanterelle", "name": "Chanterelle", "local": "kantarelli", "latin": "Cantharellus cibarius", "place": "fi_nuuksio", "feeds": "Squirrel (mushrooms)", "needs": "Data only, `kind: \"ground\"`. Mossy spruce and mixed forest, July–September.", "status": "wanted"},
@@ -27,9 +25,9 @@
     {"id": "", "name": "Aspen, grey alder, goat willow as trees", "local": "haapa, harmaaleppä, raita", "latin": "", "place": "fi_nuuksio", "feeds": "Hare (bark and twigs), beaver later", "needs": "Code: trees are still made in code. Trees as data recipes are undecided (decision 0013): measure first.", "status": "later"}
   ],
   "foods": [
-    {"id": "", "name": "Bark, twigs and buds", "local": "kuori, oksat, silmut", "feeds": "Mountain hare (winter)", "needs": "Twigs and buds exist now (`browse`, young trees) and the rabbit eats them. Still missing: bark gnawed from trees in deep snow (code: a food kind on tree trunks).", "status": "wanted"},
+    {"id": "", "name": "Bark, twigs and buds", "local": "kuori, oksat, silmut", "feeds": "Mountain hare (winter)", "needs": "Twigs and buds exist now (`browse`, young trees) and the hare eats them. Still missing: bark gnawed from trees in deep snow (code: a food kind on tree trunks).", "status": "wanted"},
     {"id": "", "name": "Carrion", "local": "raato", "feeds": "Fox (winter)", "needs": "Code: a new food kind.", "status": "wanted"},
-    {"id": "", "name": "Grass and herbs", "local": "heinä ja ruohot", "feeds": "Hare (its main food in summer)", "needs": "Code: a new food kind, grazing the meadow's grass tufts. Today a hare only finds clover and wild carrot.", "status": "wanted"},
+    {"id": "", "name": "Grass and herbs", "local": "heinä ja ruohot", "feeds": "Hare (its main food in summer)", "needs": "Code: a new food kind, grazing the meadow's grass tufts. Today a hare only finds clover and twigs.", "status": "wanted"},
     {"id": "", "name": "Ducklings", "local": "ankanpoikaset", "feeds": "Pike (early summer), fox", "needs": "New model and a duck family on the lake. Tag `small_bird`.", "status": "later"}
   ],
   "core": [

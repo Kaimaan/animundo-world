@@ -44,7 +44,7 @@ Positions are in the game's coordinates, in **metres**, with the animal standing
 |---|---|
 | `id` | The file name, e.g. `squirrel`. |
 | `name`, `author` | The animal (common and Latin name) and who made the spec. |
-| `gait` | `walk`: the left and right legs alternate (fox, deer). `bound`: they move together (squirrel, rabbit). |
+| `gait` | `walk`: the left and right legs alternate (fox, deer). `bound`: they move together (squirrel, hare). |
 | `colors` | Named colours, `{"fur": "#b5562a"}`. Parts use these names. |
 | `bones` | The skeleton. See below. |
 | `parts` | The shapes the body is made of. See below. |

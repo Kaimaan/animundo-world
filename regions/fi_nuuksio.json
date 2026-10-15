@@ -146,7 +146,7 @@
   "food": [
     {
       "kind": "clover",
-      "weight": 25,
+      "weight": 38,
       "names": [
         "red clover",
         "white clover"
@@ -160,13 +160,6 @@
         "lingonberries",
         "wild raspberries",
         "crowberries"
-      ]
-    },
-    {
-      "kind": "carrot",
-      "weight": 15,
-      "names": [
-        "wild carrot"
       ]
     },
     {
@@ -253,7 +246,7 @@
   "animals": {
     "playable": [
       "moose",
-      "rabbit",
+      "mountain_hare",
       "squirrel",
       "fox",
       "kestrel",
@@ -266,7 +259,7 @@
       "fox"
     ],
     "prey": [
-      "rabbit",
+      "mountain_hare",
       "vole",
       "frog",
       "lizard",
