@@ -51,18 +51,24 @@
     "mix": [
       {
         "shape": "spruce",
+        "plant": "norway_spruce",
+        "food": "cones",
         "weight": 43,
         "leaves": "#2c5846",
         "trunk": "#5b4433"
       },
       {
         "shape": "pine",
+        "plant": "scots_pine",
+        "food": "cones",
         "weight": 28,
         "leaves": "#4f7d40",
         "trunk": "#b0703f"
       },
       {
         "shape": "birch",
+        "plant": "birch",
+        "food": "browse",
         "weight": 20,
         "leaves": "#9cc35a",
         "trunk": "#ece6da",
@@ -70,6 +76,8 @@
       },
       {
         "shape": "round",
+        "plant": "aspen",
+        "food": "browse",
         "weight": 5,
         "leaves": "#5f8f3a",
         "trunk": "#6b4a33",
@@ -77,6 +85,8 @@
       },
       {
         "shape": "rowan",
+        "plant": "rowan",
+        "food": "browse",
         "weight": 5,
         "leaves": "#5f8a3a",
         "autumn": "#c23b22"
