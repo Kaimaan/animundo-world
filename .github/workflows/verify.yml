@@ -1,0 +1,98 @@
+# Verifies a contributor (decision 0013 in the game repo). A grown-up signed in
+# to the game gets a one-use code under "For parents and teachers" and posts it
+# in a Verify me issue. This bot looks the code up in Firestore
+# (contributor_codes/<code>), deletes it so it works once, adds the issue's
+# author to .github/contributors.txt and closes the issue.
+# It keeps nothing else: not which player or email the code came from.
+# Google access is keyless: the "world" provider in the game's Workload Identity
+# pool trusts only this workflow on main, as verify-bot@animundo-dev.
+name: Verify me
+on:
+  issues:
+    types: [opened, edited]
+permissions:
+  contents: write
+  issues: write
+  id-token: write
+concurrency:
+  group: verify-me   # one at a time, so two verifications don't both edit contributors.txt
+  cancel-in-progress: false
+jobs:
+  verify:
+    if: github.event.issue.state == 'open' && contains(github.event.issue.body, '### Your contributor code')
+    runs-on: ubuntu-latest
+    steps:
+      - id: gcp
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: projects/330774612272/locations/global/workloadIdentityPools/github/providers/world
+          service_account: verify-bot@animundo-dev.iam.gserviceaccount.com
+          token_format: access_token
+
+      - uses: actions/github-script@v7
+        env:
+          GCP_TOKEN: ${{ steps.gcp.outputs.access_token }}
+          FIREBASE_PROJECT: animundo-dev
+        with:
+          script: |
+            const issue = context.payload.issue;
+            const login = issue.user.login;
+            const { owner, repo } = context.repo;
+            const reply = async (body, close) => {
+              await github.rest.issues.createComment({ owner, repo, issue_number: issue.number, body });
+              if (close) await github.rest.issues.update({ owner, repo, issue_number: issue.number, state: 'closed', state_reason: 'completed' });
+            };
+            const tryAgain = 'In the game, open **For parents and teachers** and tap **Get my contributor code** for a new one, then edit this issue and put the new code in.';
+
+            const path = '.github/contributors.txt';
+            const listed = async () => {
+              const file = await github.rest.repos.getContent({ owner, repo, path });
+              const text = Buffer.from(file.data.content, 'base64').toString();
+              const names = text.split('\n').map(l => l.trim().toLowerCase());
+              return { text, sha: file.data.sha, has: names.includes(login.toLowerCase()) };
+            };
+            if ((await listed()).has) {
+              return reply(`@${login}, you're already verified, so you can open pull requests. Thank you!`, true);
+            }
+
+            // The issue form puts the code under its heading. Keep only the
+            // letters the game uses (no 0/O, 1/I), as the game does.
+            const section = issue.body.split('### Your contributor code')[1].split('###')[0];
+            const code = section.toUpperCase().replace(/[^A-HJ-NP-Z2-9]/g, '');
+            if (code.length !== 8) {
+              return reply(`That doesn't look like a contributor code. It has eight letters and numbers, like \`ABCD-EFGH\`. ${tryAgain}`, false);
+            }
+
+            const url = `https://firestore.googleapis.com/v1/projects/${process.env.FIREBASE_PROJECT}/databases/(default)/documents/contributor_codes/${code}`;
+            const auth = { Authorization: `Bearer ${process.env.GCP_TOKEN}` };
+            const got = await fetch(url, { headers: auth });
+            if (got.status === 404) {
+              return reply(`We couldn't find that code. It may have been used already, or have a typo. ${tryAgain}`, false);
+            }
+            if (!got.ok) throw new Error(`Firestore answered ${got.status}: ${await got.text()}`);
+            const doc = await got.json();
+            // one use: delete it only if nobody else used it since we read it
+            const del = await fetch(`${url}?currentDocument.updateTime=${encodeURIComponent(doc.updateTime)}`, { method: 'DELETE', headers: auth });
+            if (!del.ok) {
+              return reply(`That code was just used. ${tryAgain}`, false);
+            }
+            if (new Date(doc.fields.expires_at.timestampValue) < new Date()) {
+              return reply(`That code is too old: codes work for 7 days. ${tryAgain}`, false);
+            }
+
+            for (let attempt = 0; attempt < 3; attempt++) {
+              const now = await listed();
+              if (now.has) break;
+              try {
+                await github.rest.repos.createOrUpdateFileContents({
+                  owner, repo, path, sha: now.sha,
+                  message: `Verified contributor ${login} (#${issue.number})`,
+                  content: Buffer.from(now.text.replace(/\n*$/, '\n') + login + '\n').toString('base64'),
+                });
+                break;
+              } catch (e) {
+                if (e.status !== 409 || attempt === 2) throw e;   // someone else changed the file: read it again
+              }
+            }
+            core.notice(`Verified ${login}`);
+            await reply(`Welcome, @${login}! You're verified, so you can now open pull requests. [CONTRIBUTING.md](https://github.com/${owner}/${repo}/blob/main/CONTRIBUTING.md) and the [community page](https://animundo.app/create/) have prompts to copy into your AI assistant.`, true);

@@ -82,6 +82,10 @@ def check(path):
     for key in ("name", "country", "description", "author"):
         if not isinstance(d.get(key), str) or not d.get(key).strip():
             err(f'"{key}" must be a non-empty text')
+    # where the facts come from; required for new places once 0009's checks land
+    src = d.get("sources")
+    if src is not None and not (isinstance(src, list) and src and all(isinstance(x, str) and x.strip() for x in src)):
+        err('"sources" must be a list of links or book titles')
 
     c = d.get("center", {})
     if not (isinstance(c.get("lat"), (int, float)) and -90 <= c["lat"] <= 90):

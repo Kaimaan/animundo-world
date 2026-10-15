@@ -18,10 +18,10 @@ This repository is the game's **content**: small data files that anyone can writ
 
 ## How to add something
 
-1. **Get verified.** In the game, open the menu and choose *Become a contributor*. Post the code you get in a [Verify me](../../issues/new?template=verify-me.yml) issue. Any player can do this, free or paid.
+1. **Get verified.** In the game, a grown-up taps *For parents and teachers*, signs in with their email (a free account) and taps *Get my contributor code*. Post the code in a [Verify me](../../issues/new?template=verify-me.yml) issue, and a bot lets your GitHub name open pull requests. Free and paid players alike can do this.
 2. **Ask your AI assistant.** [CONTRIBUTING.md](CONTRIBUTING.md) has a prompt to copy for a new place or a new animal.
 3. **Open a pull request.** A bot checks your files. A steward who knows the area checks the facts.
-4. **See it in the game.** Once it's released, your nickname is in the credits.
+4. **See it in the game.** Once it's released, everyone can play it, and your nickname (`author`) is kept with it as its maker.
 
 Everything should follow the [art guide](ART.md), so the game looks like one world.
 
