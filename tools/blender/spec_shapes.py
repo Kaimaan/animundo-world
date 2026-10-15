@@ -36,19 +36,28 @@ def rot_matrix(rot):
 
 # a flat leaf, pointed at the front (+z), lying flat: one face
 LEAF = [(0, 0.5), (-0.5, 0.1), (-0.35, -0.25), (0, -0.5), (0.35, -0.25), (0.5, 0.1)]
+# cheaper versions for plants drawn thousands of times (`detail` 0.5 or less)
+LEAF_LOW = [(0, 0.5), (-0.5, -0.05), (0, -0.5), (0.5, -0.05)]           # a diamond: 2 triangles
+OCTA = [(0.5, 0, 0), (-0.5, 0, 0), (0, 0.5, 0), (0, -0.5, 0), (0, 0, 0.5), (0, 0, -0.5)]
+OCTA_FACES = [(0, 2, 4), (2, 1, 4), (1, 3, 4), (3, 0, 4), (2, 0, 5), (1, 2, 5), (3, 1, 5), (0, 3, 5)]
 
 
 def add_shape(bm, p):
     """Adds one spec part to the bmesh and returns its new vertices."""
     detail = p.get("detail", 1.0)
     shape = p["shape"]
-    if shape == "box":
+    if shape == "ball" and detail <= 0.3:
+        # a ball of 8 triangles: berries and tiny buds, drawn thousands of times
+        geom = [bm.verts.new(v) for v in OCTA]
+        for f in OCTA_FACES:
+            bm.faces.new([geom[i] for i in f])
+    elif shape == "box":
         geom = bmesh.ops.create_cube(bm, size=1.0)["verts"]
     elif shape == "ball":
         geom = bmesh.ops.create_uvsphere(bm, u_segments=max(4, round(10 * detail)),
                                          v_segments=max(3, round(7 * detail)), radius=0.5)["verts"]
     elif shape == "leaf":
-        geom = [bm.verts.new((x, y, 0.0)) for x, y in LEAF]
+        geom = [bm.verts.new((x, y, 0.0)) for x, y in (LEAF_LOW if detail <= 0.5 else LEAF)]
         bm.faces.new(geom)
     else:
         top = {"cone": 0.0, "cylinder": 1.0, "taper": p.get("top", 0.5)}[shape]
