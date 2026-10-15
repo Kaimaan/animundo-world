@@ -1,0 +1,25 @@
+{
+  "id": "red_stemmed_feathermoss",
+  "name": "Red-stemmed feathermoss",
+  "latin": "Pleurozium schreberi",
+  "author": "Animundo team",
+  "kind": "ground",
+  "year": {
+    "leaves": "evergreen",
+    "flowers": "none",
+    "fruit": "Rarely makes spore capsules; it spreads by growing along the ground.",
+    "notes": "Feathery, yellow-green shoots with red stems, growing in soft carpets a few centimetres deep. One of the commonest mosses of Finnish forests: it covers the floor under spruce and pine, together with bilberry and lingonberry. Green all year, under the snow in winter. Squirrels and birds line their nests with it."
+  },
+  "sources": ["https://en.wikipedia.org/wiki/Pleurozium_schreberi"],
+  "colors": {
+    "moss": "#8a9e3c",
+    "moss_dark": "#6f8a35"
+  },
+  "seasons": {
+    "winter": {"moss": "#7d8f3a"}
+  },
+  "parts": [
+    {"name": "carpet", "shape": "leaf", "size": [0.2, 0, 0.26], "at": [0, 0.012, 0.1], "rot": [-3, 0, 0], "color": "moss_dark", "detail": 0.5, "around": 4, "jitter": 0.7},
+    {"name": "shoot", "shape": "leaf", "size": [0.07, 0, 0.11], "at": [0, 0.022, 0.07], "rot": [-12, 0, 0], "color": "moss", "detail": 0.5, "around": 4, "turn": 45, "jitter": 0.8}
+  ]
+}

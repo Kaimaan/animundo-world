@@ -1,0 +1,29 @@
+{
+  "id": "wood_anemone",
+  "name": "Wood anemone",
+  "latin": "Anemone nemorosa",
+  "author": "Animundo team",
+  "kind": "ground",
+  "year": {
+    "leaves": "deciduous",
+    "flowers": "One white flower per stem, often pink underneath, with six petals and a yellow middle. In southern Finland from late April to May.",
+    "fruit": "A small nodding head of tiny green seeds in June; ants carry the seeds away.",
+    "notes": "10-25 cm tall, with three deeply cut leaves in a ring halfway up the stem. Grows in white carpets in leafy groves and herb-rich spruce forest, flowering before the trees come into leaf; the leaves wither by midsummer and the plant waits underground until next spring. Poisonous if eaten."
+  },
+  "sources": ["https://en.wikipedia.org/wiki/Anemone_nemorosa"],
+  "colors": {
+    "stem": "#7a5a50",
+    "leaf": "#4f8a40",
+    "petal": "#f4f1ea",
+    "middle": "#e8c43a"
+  },
+  "seasons": {
+    "spring": {"leaf": "#5f9a48"}
+  },
+  "parts": [
+    {"name": "stem", "shape": "cone", "size": [0.006, 0.16, 0.006], "at": [0, 0.08, 0], "color": "stem", "detail": 0.4, "show": {"from": "spring+20", "until": "summer+45"}},
+    {"name": "leaf", "shape": "leaf", "size": [0.04, 0, 0.07], "at": [0, 0.1, 0.04], "rot": [-5, 0, 0], "color": "leaf", "detail": 0.5, "around": 6, "jitter": 0.6, "show": {"from": "spring+20", "until": "summer+45"}},
+    {"name": "petal", "shape": "leaf", "size": [0.018, 0, 0.026], "at": [0, 0.158, 0.012], "rot": [-40, 0, 0], "color": "petal", "detail": 0.5, "around": 6, "show": {"from": "spring+28", "until": "spring+52"}},
+    {"name": "middle", "shape": "ball", "size": [0.01, 0.008, 0.01], "at": [0, 0.162, 0], "color": "middle", "detail": 0.3, "show": {"from": "spring+28", "until": "spring+52"}}
+  ]
+}

@@ -7,7 +7,7 @@ How to add each kind of thing: [CONTRIBUTING.md](../CONTRIBUTING.md). How it sho
 |  | Have | Wanted | In progress |
 |---|---|---|---|
 | Animals | 16 | 0 | 0 |
-| Plants | 7 | 12 | 0 |
+| Plants | 20 | 0 | 0 |
 | Trees | 5 | 0 | 0 |
 | Foods | 9 | 3 | 0 |
 
@@ -47,29 +47,30 @@ How to add each kind of thing: [CONTRIBUTING.md](../CONTRIBUTING.md). How it sho
 | Plant | Kind | Grows in | Leaves | Preview |
 |---|---|---|---|---|
 | **Bilberry** (*Vaccinium myrtillus*) | bush | fi_nuuksio | deciduous | [preview](../models/previews/plants/bilberry.png) |
+| **Bracken** (*Pteridium aquilinum*) | bush | fi_nuuksio | deciduous | [preview](../models/previews/plants/bracken.png) |
+| **Chanterelle** (*Cantharellus cibarius*) | ground | fi_nuuksio | deciduous | [preview](../models/previews/plants/chanterelle.png) |
 | **Crowberry** (*Empetrum nigrum*) | bush | fi_nuuksio | evergreen | [preview](../models/previews/plants/crowberry.png) |
+| **Fireweed** (*Chamaenerion angustifolium*) | bush | fi_nuuksio | deciduous | [preview](../models/previews/plants/fireweed.png) |
 | **Fly agaric** (*Amanita muscaria*) | bush | fi_nuuksio | deciduous | [preview](../models/previews/plants/fly_agaric.png) |
+| **Goat willow** (*Salix caprea*) | bush | fi_nuuksio | deciduous | [preview](../models/previews/plants/goat_willow.png) |
 | **Heather** (*Calluna vulgaris*) | bush | fi_nuuksio | evergreen | [preview](../models/previews/plants/heather.png) |
+| **Juniper** (*Juniperus communis*) | bush | fi_nuuksio | evergreen | [preview](../models/previews/plants/juniper.png) |
+| **Lily of the valley** (*Convallaria majalis*) | ground | fi_nuuksio | deciduous | [preview](../models/previews/plants/lily_of_the_valley.png) |
 | **Lingonberry** (*Vaccinium vitis-idaea*) | bush | fi_nuuksio | evergreen | [preview](../models/previews/plants/lingonberry.png) |
 | **Porcini** (*Boletus edulis*) | bush | fi_nuuksio | deciduous | [preview](../models/previews/plants/porcini.png) |
+| **Red clover** (*Trifolium pratense*) | ground | fi_nuuksio | deciduous | [preview](../models/previews/plants/red_clover.png) |
+| **Red-stemmed feathermoss** (*Pleurozium schreberi*) | ground | fi_nuuksio | evergreen | [preview](../models/previews/plants/red_stemmed_feathermoss.png) |
+| **Reindeer lichen** (*Cladonia rangiferina*) | ground | fi_nuuksio | evergreen | [preview](../models/previews/plants/reindeer_lichen.png) |
+| **Spiny wood fern** (*Dryopteris carthusiana*) | bush | fi_nuuksio | deciduous | [preview](../models/previews/plants/spiny_wood_fern.png) |
+| **Wavy hair-grass** (*Avenella flexuosa*) | ground | fi_nuuksio | evergreen | [preview](../models/previews/plants/wavy_hair_grass.png) |
+| **White clover** (*Trifolium repens*) | ground | fi_nuuksio | deciduous | [preview](../models/previews/plants/white_clover.png) |
 | **Wild raspberry** (*Rubus idaeus*) | bush | fi_nuuksio | deciduous | [preview](../models/previews/plants/wild_raspberry.png) |
+| **Wood anemone** (*Anemone nemorosa*) | ground | fi_nuuksio | deciduous | [preview](../models/previews/plants/wood_anemone.png) |
 
 ### Wanted
 
 | Plant | Place | Feeds | Needs | Status |
 |---|---|---|---|---|
-| **Red clover and white clover** (puna-apila, valkoapila, *Trifolium pratense*) | fi_nuuksio | Hare (`clover`: players are already told they ate clover), bumblebee | Data only for the look: meadows, roadsides, around old farms, not inside the forest. Two specs, one per species. Mark the flower heads `"nectar": true` so bees drink from them (models/README.md). | Wanted |
-| **Goat willow (as a shrub)** (raita, *Salix caprea*) | fi_nuuksio | Bumblebee (catkins are its first food, April–May), hare (twigs and bark in winter) | Data only for the shrub: forest edges, clearings, lake shores. Mark the catkins `"nectar": true` so bees drink from them (models/README.md). Code: winter browse for hares. | Wanted |
-| **Wavy hair-grass** (metsälauha, *Avenella flexuosa*) | fi_nuuksio | Hare and voles (grass) | Data only, `kind: "ground"`. The commonest grass of dry forest floor. Could replace the generic grass tuft inside the forest. | Wanted |
-| **Chanterelle** (kantarelli, *Cantharellus cibarius*) | fi_nuuksio | Squirrel (mushrooms) | Data only, `kind: "ground"`. Mossy spruce and mixed forest, July–September. | Wanted |
-| **Fireweed** (maitohorsma, *Chamaenerion angustifolium*) | fi_nuuksio | Bumblebee (summer nectar), hare | Data only. Clearings, burnt and open ground, roadsides. Up to 1.5 m: pink spikes July–August (mark them `"nectar": true`), red leaves and white seed fluff in autumn. | Wanted |
-| **Wood anemone** (valkovuokko, *Anemone nemorosa*) | fi_nuuksio | Early insects | Data only, `kind: "ground"`. Leafy groves and herb-rich spruce forest. White flowers in early May, gone by midsummer. | Wanted |
-| **Reindeer lichen** (poronjäkälä, *Cladonia rangiferina*) | fi_nuuksio |  | Data only, `kind: "ground"`, `on: ["rock"]`. Pale grey-green mats on rocky pine hilltops, the same all year. | Wanted |
-| **Red-stemmed feathermoss** (seinäsammal, *Pleurozium schreberi*) | fi_nuuksio | Nest lining for squirrels and birds | Data only, `kind: "ground"`. Green carpets under spruce, nearly everywhere. | Wanted |
-| **Juniper** (kataja, *Juniperus communis*) | fi_nuuksio | Birds (berry-cones), later | Data only, `kind: "bush"`. Rocky pine heath and dry slopes. Evergreen; berry-cones take two years to ripen from green to blue-black. | Wanted |
-| **Bracken** (sananjalka, *Pteridium aquilinum*) | fi_nuuksio |  | Data only, `kind: "bush"`. Spruce and mixed forest. Fronds unroll in late May, turn brown in autumn and die back in winter; long `leaf` shapes make the fronds. | Wanted |
-| **Spiny wood fern** (metsäalvejuuri, *Dryopteris carthusiana*) | fi_nuuksio |  | Data only, `kind: "bush"`. Damp spruce forest. | Wanted |
-| **Lily of the valley** (kielo, *Convallaria majalis*) | fi_nuuksio |  | Data only, `kind: "ground"`. Dry leafy groves and forest edges. White bells in June, poisonous red berries in autumn. Finland's national flower. | Wanted |
 | **Peat moss** (rahkasammal, *Sphagnum*) | fi_nuuksio |  | Code first: bog ground in the terrain. | Later |
 | **Cloudberry** (lakka, *Rubus chamaemorus*) | fi_nuuksio | Fox, birds | Code first: bog ground. Orange berries in July. | Later |
 | **Labrador tea** (suopursu, *Rhododendron tomentosum*) | fi_nuuksio |  | Code first: bog ground. White flowers in June. | Later |
@@ -103,7 +104,7 @@ What animals find to eat. A food name marked "grows there" has a plant you can s
 
 | Food | Place | Real names | Eaten by |
 |---|---|---|---|
-| `clover` | fi_nuuksio | red clover, white clover | Mountain hare, Bank vole |
+| `clover` | fi_nuuksio | red clover (grows there), white clover (grows there) | Mountain hare, Bank vole |
 | `berries` | fi_nuuksio | bilberries (grows there), lingonberries (grows there), wild raspberries (grows there), crowberries (grows there) | Fox, Moose, Red squirrel, Bank vole |
 | `insects` | fi_nuuksio | ground beetle, dung beetle, click beetle | Chaffinch, Fox, Common frog, Kestrel, Common lizard |
 | `water_bugs` | fi_nuuksio | mayfly larvae, caddisfly larvae, water boatmen | Bream, Perch, Roach, Young perch, Young roach |
@@ -129,6 +130,7 @@ Code changes that more content depends on. These are for the core team; the data
 | Area | Work | Why | Status |
 |---|---|---|---|
 | plants | **Remake the code-made ground cover as specs** | Grass tufts, stones, the four flowers (oxeye daisy, heather, harebell, tormentil), reeds, water lilies and pondweed then follow the same rules, art guide and seasons. The bee's flowers are tied to the bee's code, so they move last. | Wanted |
+| plants | **Plants that keep away from trees** | `near_trees` keeps a plant close to trunks, but nothing keeps meadow plants out of the forest. Red and white clover and fireweed grow in meadows, clearings and on roadsides, so today they are scattered thinly everywhere. A `far_from_trees` (blocks) option would put them in the open. | Wanted |
 | plants | **Bog ground in the terrain** | Nuuksio has small bogs; bog plants need somewhere to grow. | Later |
 | animals | **Swimming land animals** | A generated `swim` clip for every four-legged animal (dog paddle: short fast leg strokes, head up, tail trailing), played while it's in water, with a preview tile. Foxes, squirrels and hares really swim, but in the game they play their walk animation, so they look like they're walking on the lake bottom. | Wanted |
 | animals | **Body-plan templates** | A starting spec per body plan (four-legged, bird, fish), so agents and contributors copy the closest one instead of starting from scratch. | Wanted |

@@ -1,0 +1,27 @@
+{
+  "id": "spiny_wood_fern",
+  "name": "Spiny wood fern",
+  "latin": "Dryopteris carthusiana",
+  "author": "Animundo team",
+  "kind": "bush",
+  "year": {
+    "leaves": "deciduous",
+    "flowers": "none: a fern makes spores in small brown dots under its leaves, in late summer.",
+    "fruit": "none",
+    "notes": "A loose ring of 5-10 light green, finely cut fronds, 30-80 cm long, rising from one point and arching outwards. The stalks have pale brown scales. New fronds unroll in May; most turn yellow-brown in late autumn and wither under the snow, though a few stay green through a mild winter. Grows in damp spruce forest and on shady, mossy ground."
+  },
+  "sources": ["https://en.wikipedia.org/wiki/Dryopteris_carthusiana"],
+  "colors": {
+    "frond": "#6a9a42",
+    "frond_low": "#5a8a3a"
+  },
+  "seasons": {
+    "spring": {"frond": "#86b452"},
+    "autumn": {"frond": "#9a9a45", "frond_low": "#8a8040"}
+  },
+  "parts": [
+    {"name": "stipe", "shape": "leaf", "size": [0.05, 0, 0.4], "at": [0, 0.185, 0.075], "rot": [-68, 0, 0], "color": "frond_low", "detail": 0.5, "around": 7, "jitter": 0.6, "seed": "frond", "show": {"from": "spring+40", "until": "winter+20"}},
+    {"name": "blade", "shape": "leaf", "size": [0.17, 0, 0.42], "at": [0, 0.317, 0.353], "rot": [15, 0, 0], "color": "frond", "detail": 0.5, "around": 7, "jitter": 0.6, "seed": "frond", "show": {"from": "spring+40", "until": "winter+20"}},
+    {"name": "frond_young", "shape": "leaf", "size": [0.08, 0, 0.32], "at": [0, 0.155, 0.04], "rot": [-75, 0, 0], "color": "frond", "detail": 0.5, "around": 3, "turn": 25, "jitter": 0.6, "show": {"from": "spring+40", "until": "autumn+30"}}
+  ]
+}

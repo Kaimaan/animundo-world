@@ -1,0 +1,33 @@
+{
+  "id": "goat_willow",
+  "name": "Goat willow",
+  "latin": "Salix caprea",
+  "author": "Animundo team",
+  "kind": "bush",
+  "year": {
+    "leaves": "deciduous",
+    "flowers": "Catkins open in April and early May, before the leaves: silvery and soft at first, then the male catkins turn bright yellow with pollen. Male and female catkins grow on different bushes.",
+    "fruit": "The female catkins burst into white, fluffy seeds in late May and June.",
+    "notes": "Here a shrub of 2-4 m with several grey-green stems; it can also grow into a small tree. Broad oval leaves, dark green above and grey and felty below; yellow in October, then they fall. Grows on forest edges, in clearings and on lake shores. Its catkins are the first food for bumblebee queens in spring; hares and moose eat its twigs and bark in winter."
+  },
+  "sources": ["https://en.wikipedia.org/wiki/Salix_caprea"],
+  "colors": {
+    "bark": "#6f6b55",
+    "leaf": "#5a7f45",
+    "leaf_dark": "#4d7040",
+    "catkin": "#dccf78"
+  },
+  "seasons": {
+    "spring": {"leaf": "#7fa652", "leaf_dark": "#6c9448"},
+    "autumn": {"leaf": "#c9b04a", "leaf_dark": "#a9963e"}
+  },
+  "parts": [
+    {"name": "stem", "shape": "taper", "top": 0.4, "size": [0.05, 2.2, 0.05], "at": [0, 1.15, 0.2], "rot": [10, 0, 0], "color": "bark", "detail": 0.4, "around": 4, "jitter": 0.4},
+    {"name": "leaf_1", "shape": "leaf", "size": [0.18, 0, 0.28], "at": [0, 0.95, 0.38], "rot": [12, 0, 0], "color": "leaf_dark", "detail": 0.5, "around": 9, "jitter": 0.8, "show": {"from": "spring+40", "until": "autumn+35"}},
+    {"name": "leaf_2", "shape": "leaf", "size": [0.18, 0, 0.28], "at": [0, 1.35, 0.46], "rot": [6, 0, 0], "color": "leaf", "detail": 0.5, "around": 9, "turn": 20, "jitter": 0.8, "show": {"from": "spring+40", "until": "autumn+35"}},
+    {"name": "leaf_3", "shape": "leaf", "size": [0.17, 0, 0.26], "at": [0, 1.72, 0.44], "rot": [0, 0, 0], "color": "leaf", "detail": 0.5, "around": 8, "turn": 8, "jitter": 0.8, "show": {"from": "spring+40", "until": "autumn+35"}},
+    {"name": "leaf_4", "shape": "leaf", "size": [0.16, 0, 0.24], "at": [0, 2.05, 0.3], "rot": [-20, 0, 0], "color": "leaf", "detail": 0.5, "around": 6, "turn": 30, "jitter": 0.8, "show": {"from": "spring+40", "until": "autumn+35"}},
+    {"name": "catkin_low", "shape": "ball", "size": [0.04, 0.065, 0.04], "at": [0, 1.65, 0.38], "rot": [10, 0, 0], "color": "catkin", "detail": 0.3, "around": 8, "turn": 15, "jitter": 0.8, "nectar": true, "show": {"from": "spring+5", "until": "spring+40"}},
+    {"name": "catkin_high", "shape": "ball", "size": [0.04, 0.065, 0.04], "at": [0, 2.0, 0.34], "rot": [10, 0, 0], "color": "catkin", "detail": 0.3, "around": 8, "turn": 35, "jitter": 0.8, "nectar": true, "show": {"from": "spring+5", "until": "spring+40"}}
+  ]
+}
