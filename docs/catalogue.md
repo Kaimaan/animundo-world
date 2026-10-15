@@ -9,7 +9,7 @@ How to add each kind of thing: [CONTRIBUTING.md](../CONTRIBUTING.md). How it sho
 | Animals | 16 | 0 | 0 |
 | Plants | 20 | 0 | 0 |
 | Trees | 5 | 0 | 0 |
-| Foods | 9 | 3 | 0 |
+| Foods | 13 | 0 | 0 |
 
 ## Animals
 
@@ -104,6 +104,9 @@ What animals find to eat. A food name marked "grows there" has a plant you can s
 
 | Food | Place | Real names | Eaten by |
 |---|---|---|---|
+| `grass` | fi_nuuksio | wavy hair-grass (grows there), common bent, sheep's fescue, dandelion leaves, yarrow | Mountain hare, Bank vole |
+| `bark` | fi_nuuksio | birch bark, aspen bark, rowan bark | Mountain hare |
+| `carrion` | fi_nuuksio | roe deer remains, white-tailed deer remains | Fox |
 | `clover` | fi_nuuksio | red clover (grows there), white clover (grows there) | Mountain hare, Bank vole |
 | `berries` | fi_nuuksio | bilberries (grows there), lingonberries (grows there), wild raspberries (grows there), crowberries (grows there) | Fox, Moose, Red squirrel, Bank vole |
 | `insects` | fi_nuuksio | ground beetle, dung beetle, click beetle | Chaffinch, Fox, Common frog, Kestrel, Common lizard |
@@ -113,14 +116,12 @@ What animals find to eat. A food name marked "grows there" has a plant you can s
 | `cones` | fi_nuuksio | spruce cones, pine cones | Red squirrel |
 | `bottom_bugs` | fi_nuuksio | bloodworms, pond snails | Bream, Perch, Roach |
 | `seeds` | fi_nuuksio | spruce seeds, pine seeds, birch seeds | Chaffinch |
+| `mushrooms` | fi_nuuksio | porcini (grows there), chanterelles (grows there) | Red squirrel |
 
 ### Wanted
 
 | Food | Feeds | Needs | Status |
 |---|---|---|---|
-| **Bark, twigs and buds** (kuori, oksat, silmut) | Mountain hare (winter) | Twigs and buds exist now (`browse`, young trees) and the hare eats them. Still missing: bark gnawed from trees in deep snow (code: a food kind on tree trunks). | Wanted |
-| **Carrion** (raato) | Fox (winter) | Code: a new food kind. | Wanted |
-| **Grass and herbs** (heinä ja ruohot) | Hare (its main food in summer) | Code: a new food kind, grazing the meadow's grass tufts. Today a hare only finds clover and twigs. | Wanted |
 | **Ducklings** (ankanpoikaset) | Pike (early summer), fox | New model and a duck family on the lake. Tag `small_bird`. | Later |
 
 ## Core team work
@@ -132,6 +133,7 @@ Code changes that more content depends on. These are for the core team; the data
 | plants | **Remake the code-made ground cover as specs** | Grass tufts, stones, the four flowers (oxeye daisy, heather, harebell, tormentil), reeds, water lilies and pondweed then follow the same rules, art guide and seasons. The bee's flowers are tied to the bee's code, so they move last. | Wanted |
 | plants | **Plants that keep away from trees** | `near_trees` keeps a plant close to trunks, but nothing keeps meadow plants out of the forest. Red and white clover and fireweed grow in meadows, clearings and on roadsides, so today they are scattered thinly everywhere. A `far_from_trees` (blocks) option would put them in the open. | Wanted |
 | plants | **Bog ground in the terrain** | Nuuksio has small bogs; bog plants need somewhere to grow. | Later |
+| animals | **Frogs in the water** | Real pike eat frogs, but wild frogs in the game keep out of the water, and a swimming hunter's pounce would reach a frog sitting on the bank. Frogs that hop into the shallows (when fleeing, and in spring to spawn), and a swimming hunter that only catches prey in the water, let the pike hunt `frog`. | Wanted |
 | animals | **Swimming land animals** | A generated `swim` clip for every four-legged animal (dog paddle: short fast leg strokes, head up, tail trailing), played while it's in water, with a preview tile. Foxes, squirrels and hares really swim, but in the game they play their walk animation, so they look like they're walking on the lake bottom. | Wanted |
 | animals | **Body-plan templates** | A starting spec per body plan (four-legged, bird, fish), so agents and contributors copy the closest one instead of starting from scratch. | Wanted |
 | animals | **Swimming birds** | Ducks and grebes floating on the surface. No swimming birds yet. | Later |

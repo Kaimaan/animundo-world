@@ -6,7 +6,8 @@
   "tags": ["predator"],
   "diet": [
     "berries",
-    "insects"
+    "insects",
+    "carrion"
   ],
   "dark_vision": 0.85,
   "hunts": ["small_mammal", "small_bird",

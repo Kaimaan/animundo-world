@@ -5,8 +5,10 @@
   "color": "#8b7a66",
   "tags": ["small_mammal"],
   "diet": [
+    "grass",
     "clover",
-    "browse"
+    "browse",
+    "bark"
   ],
   "dark_vision": 0.7,
   "digs": false,

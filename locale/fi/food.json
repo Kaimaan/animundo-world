@@ -44,5 +44,18 @@
   "food.pine seeds": "männynsiemenet",
   "food.birch seeds": "koivunsiemenet",
   "food.kind.nest": "linnunpesä",
-  "food.chanterelles": "kantarellit"
+  "food.chanterelles": "kantarellit",
+  "food.kind.grass": "heinä ja ruohot",
+  "food.wavy hair-grass": "metsälauha",
+  "food.common bent": "nurmirölli",
+  "food.sheep's fescue": "lampaannata",
+  "food.dandelion leaves": "voikukan lehdet",
+  "food.yarrow": "siankärsämö",
+  "food.kind.bark": "kuori",
+  "food.birch bark": "koivun kuori",
+  "food.aspen bark": "haavan kuori",
+  "food.rowan bark": "pihlajan kuori",
+  "food.kind.carrion": "raato",
+  "food.roe deer remains": "metsäkauriin raato",
+  "food.white-tailed deer remains": "valkohäntäpeuran raato"
 }
