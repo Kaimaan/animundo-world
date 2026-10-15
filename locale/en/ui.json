@@ -101,6 +101,8 @@
   "ui.kind.bird": "Birds",
   "ui.kind.fish": "Fish",
   "ui.kind.insect": "Insects",
+  "ui.kind.amphibian": "Amphibians",
+  "ui.kind.reptile": "Reptiles",
   "ui.new.none_found": "No animal by that name yet.",
   "ui.new.add_own": "Can't find your animal?",
   "ui.new.add_own_sub": "Ask a grown-up to add it",
