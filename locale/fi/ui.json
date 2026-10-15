@@ -64,6 +64,8 @@
   "ui.death.fell": "Putosit maailman ulkopuolelle",
   "ui.death.starved": "Näännyit nälkään",
   "ui.death.froze": "Paleltuit kylmässä",
+  "ui.death.air": "Ilma loppui",
+  "ui.air.low": "Ilma loppuu! Ui pintaan hengittämään.",
   "country.fi": "Suomi",
   "ui.nectar.no_flower": "Tässä ei ole kukkaa. Lennä aivan kukan viereen ja napauta Juo.",
   "ui.nectar.empty": "Mettä ei ole enää jäljellä ({flower}). Etsi toinen kukka!",

@@ -64,6 +64,8 @@
   "ui.death.fell": "You fell out of the world",
   "ui.death.starved": "You starved",
   "ui.death.froze": "You froze in the cold",
+  "ui.death.air": "You ran out of air",
+  "ui.air.low": "Running out of air! Swim up to breathe.",
   "country.fi": "Finland",
   "ui.nectar.no_flower": "No flower here. Fly right up to a blossom, then tap Drink.",
   "ui.nectar.empty": "This {flower} has no nectar left. Find another flower!",
