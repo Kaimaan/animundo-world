@@ -15,6 +15,7 @@
   "digs": false,
   "shelter": "under_tree",
   "rain_chill": 0.3,
+  "breath": 40,
   "walk": 3.6,
   "sprint": 9.0,
   "jump": 6.0,
