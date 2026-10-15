@@ -1,0 +1,61 @@
+{
+  "archetype": "land_mammal",
+  "latin": "Lepus timidus",
+  "playable": true,
+  "color": "#8b7a66",
+  "tags": ["small_mammal"],
+  "diet": [
+    "clover",
+    "browse"
+  ],
+  "dark_vision": 0.7,
+  "digs": false,
+  "shelter": "under_tree",
+  "walk": 4.5,
+  "sprint": 8.0,
+  "jump": 6.4,
+  "box": [0.45, 0.6, 0.45],
+  "cam_height": 0.5,
+  "cam_dist": 2.2,
+  "model": {
+    "file": "res://assets/animals/mountain_hare.glb", "length": 0.36, "yaw": 0.0,
+    "anims": {"idle": "idle", "walk": "walk", "run": "run", "eat": "eat", "sleep": "sleep"},
+    "coats": {"winter": {"fur": "#f1efea", "fur_dark": "#d9d6cf", "belly": "#f6f4ef"}}
+  },
+  "text": {
+    "title": "Mountain hare",
+    "play_as": "Play as a mountain hare",
+    "menu_sub": "Nibble clover and twigs, hide under the spruces, outrun foxes.",
+    "menu_wild": "Foxes hunt you.",
+    "intro_safe": "Safe mode: explore! Find clover and young trees to nibble, and meet the foxes.",
+    "intro_survival": "Keep your food and warmth up. At night, rest under a spruce's low branches.",
+    "intro_wild": "Foxes hunt hares. Stay near cover and run!",
+    "night_hint": "It's night. Crouch under a spruce's low branches to rest.",
+    "too_exposed": "Too open to rest! Crouch under a spruce's low branches.",
+    "sheltered": "You're hidden under the spruce. Keep still!",
+    "hungry": "You're hungry. Look for clover (pink flowers) or the twigs of young trees.",
+    "no_food": "Nothing to eat here. Look for clover (pink flowers) or the twigs of young trees.",
+    "rain_start": "It's starting to rain. Shelter under a spruce to stay warm.",
+    "chased": "A fox is chasing you! Run, zigzag, or hide under a spruce!",
+    "stalk_hint": "A hare! Creep up slowly (don't run), then tap Pounce.",
+    "caught": "Delicious hare! +{food} food",
+    "about_looks": "Grey-brown in summer and snow-white in winter, but the tips of its ears stay black all year. It has long legs and big furry hind feet.",
+    "about_food": "Grass, clover and herbs in summer. In winter, twigs, buds and bark of willow, aspen, birch and rowan.",
+    "about_home": "Lives in forests and bogs. It doesn't dig: it rests in a small hollow under a spruce or a bush, and keeps very still.",
+    "about_winter": "Stays active all winter. Its big furry feet work like snowshoes, and its white coat hides it in the snow.",
+    "about_young": "The babies, called leverets, are born with fur and their eyes open, and can hop about almost straight away.",
+    "about_fact": "A mountain hare can run faster than a fox, zigzagging to shake it off."
+  },
+  "year": {
+    "winter": "active",
+    "shelter": "Doesn't dig. Rests by day in a shallow scrape (a form) under a spruce, a juniper or a bush; in deep snow it may dig a short hollow in a snowdrift.",
+    "young": "Two or three litters from April to August, of 2–5 leverets each, born furred with open eyes. The mother leaves them hidden in the grass and comes back to nurse them once a night.",
+    "food": {
+      "spring": "Fresh grass, sedges and herbs, and willow and aspen buds.",
+      "summer": "Grasses, clover, herbs and the leaves of bilberry and willow.",
+      "autumn": "Grasses and herbs while they last, then twigs and bilberry shrubs.",
+      "winter": "Twigs, buds and bark of willow, aspen, birch and rowan, gnawed from above the snow."
+    },
+    "notes": "Turns white from October to December and back to grey-brown in April–May; the ear tips stay black and the short tail is white all year. Mostly active at dusk and at night. Hares often run in a zigzag and double back on their tracks to fool foxes. Main predators in Finland: fox, lynx, goshawk and eagle owl."
+  }
+}

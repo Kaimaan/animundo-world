@@ -6,10 +6,10 @@ How to add each kind of thing: [CONTRIBUTING.md](../CONTRIBUTING.md). How it sho
 
 |  | Have | Wanted | In progress |
 |---|---|---|---|
-| Animals | 16 | 1 | 0 |
-| Plants | 7 | 13 | 0 |
+| Animals | 16 | 0 | 0 |
+| Plants | 7 | 12 | 0 |
 | Trees | 5 | 0 | 0 |
-| Foods | 10 | 3 | 0 |
+| Foods | 9 | 3 | 0 |
 
 ## Animals
 
@@ -25,9 +25,9 @@ How to add each kind of thing: [CONTRIBUTING.md](../CONTRIBUTING.md). How it sho
 | **Kestrel** (*Falco tinnunculus*) | fi_nuuksio | built from a spec [preview](../models/previews/kestrel.png) | yes | no | yes |
 | **Common lizard** (*Zootoca vivipara*) | fi_nuuksio | built from a spec [preview](../models/previews/lizard.png) | yes | no | yes |
 | **Moose** (*Alces alces*) | fi_nuuksio | built from a spec [preview](../models/previews/moose.png) | yes | no | yes |
+| **Mountain hare** (*Lepus timidus*) | fi_nuuksio | built from a spec [preview](../models/previews/mountain_hare.png) | yes | no | yes |
 | **Perch** (*Perca fluviatilis*) | fi_nuuksio | built from a spec [preview](../models/previews/perch.png) | yes | no | yes |
 | **Pike** (*Esox lucius*) | fi_nuuksio | built from a spec [preview](../models/previews/pike.png) | yes | no | yes |
-| **Rabbit** (*Oryctolagus cuniculus*) | fi_nuuksio | built from a spec [preview](../models/previews/rabbit.png) | yes | no | yes |
 | **Roach** (*Rutilus rutilus*) | fi_nuuksio | built from a spec [preview](../models/previews/roach.png) | yes | no | yes |
 | **Red squirrel** (*Sciurus vulgaris*) | fi_nuuksio | built from a spec [preview](../models/previews/squirrel.png) | yes | no | yes |
 | **Bank vole** (*Myodes glareolus*) | fi_nuuksio | built from a spec [preview](../models/previews/vole.png) | yes | no | yes |
@@ -38,7 +38,6 @@ How to add each kind of thing: [CONTRIBUTING.md](../CONTRIBUTING.md). How it sho
 
 | Animal | Place | Feeds | Needs | Status |
 |---|---|---|---|---|
-| **Mountain hare** (metsäjänis, *Lepus timidus*) | fi_nuuksio | Fox, later lynx and eagle owl | New model from a spec, with a white `winter` coat. It replaces the "rabbit": European rabbits don't live wild in Nuuksio (ART.md: real species only). | Wanted |
 | **Night animals: bats and owls** (lepakot ja pöllöt) | fi_nuuksio |  | Code first: how night works has to be tested before the first night animal (decision 0014, open). See docs/animals-wanted.md. | Later |
 
 ## Plants
@@ -60,7 +59,6 @@ How to add each kind of thing: [CONTRIBUTING.md](../CONTRIBUTING.md). How it sho
 | Plant | Place | Feeds | Needs | Status |
 |---|---|---|---|---|
 | **Red clover and white clover** (puna-apila, valkoapila, *Trifolium pratense*) | fi_nuuksio | Hare (`clover`: players are already told they ate clover), bumblebee | Data only for the look: meadows, roadsides, around old farms, not inside the forest. Two specs, one per species. Mark the flower heads `"nectar": true` so bees drink from them (models/README.md). | Wanted |
-| **Wild carrot: check first** (porkkana, *Daucus carota*) | fi_nuuksio | Hare (`carrot`) | Rare in Finland, only a few places on the south coast, so it probably shouldn't be in Nuuksio. Decide with the core team whether to replace the `carrot` food with plants hares really eat there (grasses, herbs, willow twigs). | Check first |
 | **Goat willow (as a shrub)** (raita, *Salix caprea*) | fi_nuuksio | Bumblebee (catkins are its first food, April–May), hare (twigs and bark in winter) | Data only for the shrub: forest edges, clearings, lake shores. Mark the catkins `"nectar": true` so bees drink from them (models/README.md). Code: winter browse for hares. | Wanted |
 | **Wavy hair-grass** (metsälauha, *Avenella flexuosa*) | fi_nuuksio | Hare and voles (grass) | Data only, `kind: "ground"`. The commonest grass of dry forest floor. Could replace the generic grass tuft inside the forest. | Wanted |
 | **Chanterelle** (kantarelli, *Cantharellus cibarius*) | fi_nuuksio | Squirrel (mushrooms) | Data only, `kind: "ground"`. Mossy spruce and mixed forest, July–September. | Wanted |
@@ -105,12 +103,11 @@ What animals find to eat. A food name marked "grows there" has a plant you can s
 
 | Food | Place | Real names | Eaten by |
 |---|---|---|---|
-| `clover` | fi_nuuksio | red clover, white clover | Rabbit, Bank vole |
+| `clover` | fi_nuuksio | red clover, white clover | Mountain hare, Bank vole |
 | `berries` | fi_nuuksio | bilberries (grows there), lingonberries (grows there), wild raspberries (grows there), crowberries (grows there) | Fox, Moose, Red squirrel, Bank vole |
-| `carrot` | fi_nuuksio | wild carrot | Rabbit |
 | `insects` | fi_nuuksio | ground beetle, dung beetle, click beetle | Chaffinch, Fox, Common frog, Kestrel, Common lizard |
 | `water_bugs` | fi_nuuksio | mayfly larvae, caddisfly larvae, water boatmen | Bream, Perch, Roach, Young perch, Young roach |
-| `browse` | fi_nuuksio | birch leaves and twigs, willow twigs, aspen shoots, rowan leaves | Moose, Rabbit |
+| `browse` | fi_nuuksio | birch leaves and twigs, willow twigs, aspen shoots, rowan leaves | Moose, Mountain hare |
 | `water_plants` | fi_nuuksio | pondweed, water lily leaves, water horsetail | Moose |
 | `cones` | fi_nuuksio | spruce cones, pine cones | Red squirrel |
 | `bottom_bugs` | fi_nuuksio | bloodworms, pond snails | Bream, Perch, Roach |
@@ -120,9 +117,9 @@ What animals find to eat. A food name marked "grows there" has a plant you can s
 
 | Food | Feeds | Needs | Status |
 |---|---|---|---|
-| **Bark, twigs and buds** (kuori, oksat, silmut) | Mountain hare (winter) | Twigs and buds exist now (`browse`, young trees) and the rabbit eats them. Still missing: bark gnawed from trees in deep snow (code: a food kind on tree trunks). | Wanted |
+| **Bark, twigs and buds** (kuori, oksat, silmut) | Mountain hare (winter) | Twigs and buds exist now (`browse`, young trees) and the hare eats them. Still missing: bark gnawed from trees in deep snow (code: a food kind on tree trunks). | Wanted |
 | **Carrion** (raato) | Fox (winter) | Code: a new food kind. | Wanted |
-| **Grass and herbs** (heinä ja ruohot) | Hare (its main food in summer) | Code: a new food kind, grazing the meadow's grass tufts. Today a hare only finds clover and wild carrot. | Wanted |
+| **Grass and herbs** (heinä ja ruohot) | Hare (its main food in summer) | Code: a new food kind, grazing the meadow's grass tufts. Today a hare only finds clover and twigs. | Wanted |
 | **Ducklings** (ankanpoikaset) | Pike (early summer), fox | New model and a duck family on the lake. Tag `small_bird`. | Later |
 
 ## Core team work
