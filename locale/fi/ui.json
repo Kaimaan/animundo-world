@@ -73,6 +73,7 @@
   "ui.air.low": "Ilma loppuu! Ui pintaan hengittämään.",
   "country.fi": "Suomi",
   "ui.nectar.no_flower": "Tässä ei ole kukkaa. Lennä aivan kukan viereen ja napauta Juo.",
+  "ui.nectar.few_flowers": "Tähän aikaan vuodesta tuskin mikään kukkii, joten mettä on hyvin vähän.",
   "ui.nectar.empty": "Mettä ei ole enää jäljellä ({flower}). Etsi toinen kukka!",
   "ui.nectar.sip_one": "Makeaa mettä ({flower})! +{food} ruokaa  ({count} kukka pölytetty)",
   "ui.nectar.sip_many": "Makeaa mettä ({flower})! +{food} ruokaa  ({count} kukkaa pölytetty)",
