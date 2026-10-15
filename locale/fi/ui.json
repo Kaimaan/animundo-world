@@ -198,7 +198,7 @@
   "ui.account.sent": "Lähetimme linkin osoitteeseen {email}.",
   "ui.account.sent_note": "Avaa linkki tällä laitteella. Eikö viestiä näy? Katso roskapostikansio.",
   "ui.account.signed_in": "Kirjautunut: {email}.",
-  "ui.account.signed_in_note": "Kaikki eläimet ovat auki. Jos haluat pelata toisella laitteella, napauta siellä Lisää eläimiä ja kirjaudu samalla sähköpostilla, tai käytä Omat eläimet -sivun Pelaa toisella laitteella -painiketta.",
+  "ui.account.signed_in_note": "Kaikki eläimet ovat auki. Jos haluat pelata toisella laitteella, avaa siellä Asetukset, napauta Aikuisen tili ja kirjaudu samalla sähköpostilla, tai käytä Omat eläimet -sivun Pelaa toisella laitteella -painiketta.",
   "ui.account.done": "Valmista! Kaikki eläimet ovat auki.",
   "ui.account.to_animals": "Valitse eläin",
   "ui.account.need_email": "Kirjoita vielä sähköpostiosoite, johon linkki lähetettiin.",
@@ -286,5 +286,12 @@
   "ui.paid.keep": "Tee ilmainen tili, niin pakettisi ja lapsesi eläimet pysyvät tallessa kaikilla laitteillanne.",
   "ui.paid.make_account": "Tee tili",
   "ui.paid.later": "Ei nyt",
-  "ui.scrambled_out": "Hups vain, pääsit kuivalle maalle!"
+  "ui.scrambled_out": "Hups vain, pääsit kuivalle maalle!",
+  "ui.account.settings_button": "Aikuisen tili",
+  "ui.account.sign_in_intro": "Kirjaudu sähköpostillasi, niin lapsesi eläimet ja avatut eläimet tulevat tälle laitteelle. Eikö sinulla ole vielä tiliä? Tämä luo ilmaisen tilin.",
+  "ui.account.sign_out": "Kirjaudu ulos",
+  "ui.account.sign_out_ask": "Kirjataanko {email} ulos tällä laitteella? Eläimet poistuvat tältä laitteelta, mutta ne säilyvät tililläsi. Kirjaudu uudelleen, niin saat ne takaisin.",
+  "ui.account.sign_out_failed": "Eläimiä ei saatu ensin tallennettua tilillesi. Tarkista nettiyhteys ja yritä uudelleen.",
+  "ui.account.sign_out_ingame": "Jos haluat kirjautua ulos, palaa ensin pelistä alkuvalikkoon.",
+  "ui.account.stay": "Pysy kirjautuneena"
 }
