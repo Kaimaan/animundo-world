@@ -61,5 +61,17 @@
   "plant.aspen.about_looks": "Korkea puu, jolla on sileä harmaanvihreä runko ja pyöreät lehdet pitkissä, litteissä ruodeissa. Lehdet värisevät ja havisevat pienimmästäkin tuulesta.",
   "plant.aspen.about_grows": "Metsissä, metsänreunoilla ja kallioisilla rinteillä. Haavat kasvavat usein ryhminä, kaikki samoista juurista.",
   "plant.aspen.about_year": "Lehdet puhkeavat toukokuussa. Syksyllä ne muuttuvat keltaisiksi, oransseiksi ja punaisiksi ja putoavat sitten.",
-  "plant.aspen.about_fact": "Hirvi syö mielellään haavan versoja ja kuorta. Vanhoissa haavoissa asuu monia eläimiä, kuten tikkoja ja liito-oravia."
+  "plant.aspen.about_fact": "Hirvi syö mielellään haavan versoja ja kuorta. Vanhoissa haavoissa asuu monia eläimiä, kuten tikkoja ja liito-oravia.",
+  "plant.wild_raspberry.title": "Vadelma",
+  "plant.wild_raspberry.latin": "Rubus idaeus",
+  "plant.wild_raspberry.about_looks": "Korkea pensas, jossa on pieniä piikkejä. Se on usein lasta pidempi. Lehdet ovat päältä vihreitä ja alta valkoisia. Kypsä punainen marja irtoaa varresta kuin pieni hattu, ja se on sisältä ontto.",
+  "plant.wild_raspberry.about_grows": "Aurinkoisilla aukeilla, metsänreunoilla ja polkujen varsilla sekä paikoissa, joista puut on kaadettu.",
+  "plant.wild_raspberry.about_year": "Kesäkuussa sillä on valkoisia kukkia. Marjat kypsyvät heinäkuun lopusta elokuuhun. Syksyllä lehdet kellastuvat ja putoavat, ja ruskeat varret seisovat lumessa koko talven.",
+  "plant.wild_raspberry.about_fact": "Jokainen vadelma on tehty monesta pienestä pallosta, ja jokaisessa pallossa on oma siemen. Varsi tekee marjoja vasta toisena kesänään.",
+  "plant.crowberry.title": "Variksenmarja",
+  "plant.crowberry.latin": "Empetrum nigrum",
+  "plant.crowberry.about_looks": "Matala vihreä matto, joka myötäilee maata. Sen pienet lehdet ovat kuin lyhyitä neulasia. Marjat ovat kiiltävän mustia.",
+  "plant.crowberry.about_grows": "Kallioilla ja kuivilla kankailla, usein kanervan ja puolukan vieressä, sekä soilla.",
+  "plant.crowberry.about_year": "Huhti- ja toukokuussa sillä on pieniä purppuraisia kukkia, joita on vaikea huomata. Mustat marjat kypsyvät heinäkuun lopulla, ja monet niistä säilyvät lumen alla kevääseen asti.",
+  "plant.crowberry.about_fact": "Kun lumi sulaa keväällä, viime vuoden variksenmarjat ovat yhä paikoillaan: hyvää ruokaa nälkäisille linnuille ja ketuille."
 }

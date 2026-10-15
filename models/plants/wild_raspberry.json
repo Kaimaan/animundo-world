@@ -1,0 +1,36 @@
+{
+  "id": "wild_raspberry",
+  "name": "Wild raspberry",
+  "latin": "Rubus idaeus",
+  "author": "Animundo team",
+  "kind": "bush",
+  "year": {
+    "leaves": "deciduous",
+    "flowers": "Small white flowers hanging under the leaves, June to early July.",
+    "fruit": "Red berries ripen from mid-July to late August; each berry is made of many small round drupelets.",
+    "notes": "Upright canes about 1–2 m tall with small prickles; leaves of three to five leaflets, whitish underneath. A cane grows leaves in its first year and flowers and fruits in its second, then dies. Leaves turn yellow and fall in October; the brown canes stand through the winter. Grows in clearings, along forest edges and on old fields."
+  },
+  "sources": ["https://en.wikipedia.org/wiki/Rubus_idaeus"],
+  "colors": {
+    "cane": "#7a6c48",
+    "leaf": "#5f8f3c",
+    "leaf_dark": "#4f7d36",
+    "flower": "#f2efe4",
+    "berry": "#c2263f"
+  },
+  "seasons": {
+    "spring": {"leaf": "#7fae4c", "leaf_dark": "#6c9c42"},
+    "autumn": {"leaf": "#b59a3e", "leaf_dark": "#9c8a3a"},
+    "winter": {"cane": "#7a5a44"}
+  },
+  "parts": [
+    {"name": "cane", "shape": "taper", "top": 0.5, "size": [0.03, 1.05, 0.03], "at": [0, 0.5, 0.172], "rot": [18, 0, 0], "color": "cane", "detail": 0.4, "around": 5, "jitter": 0.2, "seed": "cane"},
+    {"name": "cane_tip", "shape": "taper", "top": 0.3, "size": [0.026, 0.3, 0.026], "at": [0, 1.058, 0.437], "rot": [50, 0, 0], "color": "cane", "detail": 0.4, "around": 5, "jitter": 0.2, "seed": "cane"},
+    {"name": "leaf_1", "shape": "leaf", "size": [0.15, 0, 0.21], "at": [0, 0.32, 0.224], "rot": [20, 0, 0], "color": "leaf_dark", "around": 8, "turn": 0, "jitter": 0.8, "show": {"from": "spring+30", "until": "autumn+30"}},
+    {"name": "leaf_2", "shape": "leaf", "size": [0.15, 0, 0.21], "at": [0, 0.55, 0.298], "rot": [12, 0, 0], "color": "leaf", "around": 8, "turn": 22, "jitter": 0.8, "show": {"from": "spring+30", "until": "autumn+30"}},
+    {"name": "leaf_3", "shape": "leaf", "size": [0.15, 0, 0.21], "at": [0, 0.78, 0.373], "rot": [5, 0, 0], "color": "leaf", "around": 7, "turn": 10, "jitter": 0.8, "show": {"from": "spring+30", "until": "autumn+30"}},
+    {"name": "leaf_4", "shape": "leaf", "size": [0.15, 0, 0.21], "at": [0, 0.98, 0.438], "rot": [-5, 0, 0], "color": "leaf", "around": 7, "turn": 30, "jitter": 0.8, "show": {"from": "spring+30", "until": "autumn+30"}},
+    {"name": "flower", "shape": "cone", "size": [0.045, 0.035, 0.045], "at": [0, 0.7, 0.407], "rot": [150, 0, 0], "color": "flower", "detail": 0.5, "around": 8, "turn": 15, "jitter": 0.7, "show": {"from": "summer+10", "until": "summer+40"}},
+    {"name": "berry", "shape": "ball", "size": [0.05, 0.056, 0.05], "at": [0, 0.68, 0.4], "color": "berry", "detail": 0.4, "around": 6, "turn": 15, "jitter": 0.7, "show": {"from": "summer+55", "until": "summer+95"}}
+  ]
+}
