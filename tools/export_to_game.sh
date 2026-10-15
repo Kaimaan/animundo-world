@@ -14,7 +14,7 @@ for d in regions animals models; do
 	rsync -a --delete --exclude '*.import' "$d/" "$GAME/$d/"
 done
 # content text only: menu text (ui, loading, seasons, languages.json) belongs to the game repo
-for f in locale/*/animals.json locale/*/food.json locale/*/regions.json; do
+for f in locale/*/animals.json locale/*/food.json locale/*/plants.json locale/*/regions.json; do
 	[ -f "$f" ] || continue
 	mkdir -p "$GAME/$(dirname "$f")"
 	cp "$f" "$GAME/$f"

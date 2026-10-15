@@ -110,6 +110,11 @@ def check(path):
         for k in ("leaves", "trunk", "autumn"):
             if k in t and not (isinstance(t[k], str) and HEX.match(t[k])):
                 err(f'"trees.mix[{i}].{k}" must be a colour like "#2c5846"')
+        # the tree's field guide page (locale/<lang>/plants.json "plant.<id>.*") and the food it is to animals
+        if "plant" in t and not (isinstance(t["plant"], str) and re.match(r"^[a-z][a-z0-9_]*$", t["plant"])):
+            err(f'"trees.mix[{i}].plant" must be an id like "scots_pine"')
+        if "food" in t and not (isinstance(t["food"], str) and t["food"]):
+            err(f'"trees.mix[{i}].food" must be a food kind like "browse"')
 
     gc = d.get("ground_cover", {})
     for k in ("grass", "flowers", "stones"):
