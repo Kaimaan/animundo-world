@@ -101,6 +101,8 @@
   "ui.kind.bird": "Linnut",
   "ui.kind.fish": "Kalat",
   "ui.kind.insect": "Hyönteiset",
+  "ui.kind.amphibian": "Sammakkoeläimet",
+  "ui.kind.reptile": "Matelijat",
   "ui.new.none_found": "Sen nimistä eläintä ei vielä ole.",
   "ui.new.add_own": "Etkö löydä eläintäsi?",
   "ui.new.add_own_sub": "Pyydä aikuista lisäämään se",
