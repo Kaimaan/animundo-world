@@ -15,7 +15,7 @@ import sys
 
 TREE_SHAPES = {"spruce", "pine", "birch", "round", "rowan"}
 PLANT_FOOD_KINDS = {"berries", "mushrooms", "clover", "browse"}  # food from ground-cover plants (not nectar yet)
-FOOD_KINDS = {"clover", "carrot", "berries", "insects", "water_bugs", "browse", "water_plants", "cones", "bottom_bugs"}
+FOOD_KINDS = {"clover", "carrot", "berries", "insects", "water_bugs", "browse", "water_plants", "cones", "bottom_bugs", "seeds"}
 EDGES = {"lake", "none"}
 MIGRANT_KINDS = {"geese", "cranes"}  # flocks the game can draw (scripts/migrants.gd)
 PLANT_GROUND = {"grass", "rock", "sand"}

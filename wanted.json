@@ -2,7 +2,6 @@
   "about": "What Animundo is missing, most wanted first in each list. tools/catalogue.py turns this and the game's data into docs/catalogue.md. When something is added, its row shows as done; then delete it here. status: wanted, in_progress (say who), check (something to decide first) or later.",
   "animals": [
     {"id": "mountain_hare", "name": "Mountain hare", "local": "metsäjänis", "latin": "Lepus timidus", "place": "fi_nuuksio", "feeds": "Fox, later lynx and eagle owl", "needs": "New model from a spec, with a white `winter` coat. It replaces the \"rabbit\": European rabbits don't live wild in Nuuksio (ART.md: real species only).", "status": "wanted"},
-    {"id": "chaffinch", "name": "Chaffinch, with eggs and nestlings", "local": "peippo", "latin": "Fringilla coelebs", "place": "fi_nuuksio", "feeds": "Fox (spring: birds and eggs), later sparrowhawk", "needs": "New model. Tag `small_bird`. Code: nests with eggs and young.", "status": "wanted"},
     {"id": "", "name": "Night animals: bats and owls", "local": "lepakot ja pöllöt", "latin": "", "place": "fi_nuuksio", "feeds": "", "needs": "Code first: how night works has to be tested before the first night animal (decision 0014, open). See docs/animals-wanted.md.", "status": "later"}
   ],
   "plants": [
