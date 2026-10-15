@@ -104,8 +104,9 @@ jobs:
           git add -A -- regions animals models locale assets/animals assets/plants ART.md wanted.json \
             docs/animals-wanted.md docs/catalogue.md tools/validate_region.py tools/build_model.sh \
             tools/catalogue.py tools/blender .world-sync
-          if [ -n "$(git status --porcelain)" ]; then
-            echo "::error::The sync changed files outside the content mirror:"; git status --porcelain
+          outside=$(git diff --name-only; git ls-files --others --exclude-standard)
+          if [ -n "$outside" ]; then
+            echo "::error::The sync changed files outside the content mirror:"; echo "$outside"
             exit 1
           fi
           if git diff --cached --quiet -- . ':!.world-sync'; then
