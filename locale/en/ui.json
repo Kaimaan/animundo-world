@@ -259,7 +259,6 @@
   "ui.plans.full": "Full version",
   "ui.plans.supporter": "Supporter edition",
   "ui.plans.free_price": "Free forever",
-  "ui.plans.price": "€{n}",
   "ui.plans.once": "{price}, paid once",
   "ui.plans.free_what": "A few starter animals. No time limit, and the animals are always saved.",
   "ui.plans.full_what": "Every animal and every place, and all the new ones we make later.",
