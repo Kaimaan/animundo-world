@@ -198,7 +198,7 @@
   "ui.account.sent": "We sent a link to {email}.",
   "ui.account.sent_note": "Open the link on this device to finish. No email? Look in the spam folder.",
   "ui.account.signed_in": "Signed in as {email}.",
-  "ui.account.signed_in_note": "Every animal is unlocked. To play on another device, tap More animals there and sign in with the same email, or use Play on another device under Your animals.",
+  "ui.account.signed_in_note": "Every animal is unlocked. To play on another device, open Settings there, tap Grown-up account and sign in with the same email, or use Play on another device under Your animals.",
   "ui.account.done": "Done! Every animal is unlocked.",
   "ui.account.to_animals": "Choose an animal",
   "ui.account.need_email": "To finish, type the email address the link was sent to.",
@@ -286,5 +286,12 @@
   "ui.paid.keep": "Make a free account to keep your plan and your child's animals on all your devices.",
   "ui.paid.make_account": "Make an account",
   "ui.paid.later": "Not now",
-  "ui.scrambled_out": "Up you scramble, onto dry land!"
+  "ui.scrambled_out": "Up you scramble, onto dry land!",
+  "ui.account.settings_button": "Grown-up account",
+  "ui.account.sign_in_intro": "Sign in with your email to bring your child's animals and unlocked animals to this device. No account yet? This makes a free one.",
+  "ui.account.sign_out": "Sign out",
+  "ui.account.sign_out_ask": "Sign out {email} on this device? The animals leave this device but stay safe in your account. Sign in again to get them back.",
+  "ui.account.sign_out_failed": "Couldn't save the animals to your account first. Check the internet connection and try again.",
+  "ui.account.sign_out_ingame": "To sign out, leave the game for the title screen first.",
+  "ui.account.stay": "Stay signed in"
 }
