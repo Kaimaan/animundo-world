@@ -203,6 +203,7 @@ Parts take the same fields as an animal's (no `bone`), plus:
 | `jitter` | 0–1: copies in a ring differ a little in angle, tilt and size, so the plant looks grown, not machined. The same spec always builds the same plant. |
 | `seed` | Optional name: rings with the same `seed`, `around` and `jitter` get the same random turns, so one part can sit on another, like heather's flower spikes on its shoots. |
 | `show` | Optional: the part is there only part of the year, `{"from": "summer+50", "until": "autumn+20"}`: from 50 days after summer starts until 20 days after autumn starts. Use it for flowers, berries and leaves that fall. The dates are relative to each region's own `seasons`, so one bilberry is right in southern Finland and in Lapland. |
+| `nectar` | Optional, for flowers bees drink from: `true` makes the part a flower a bumblebee can drink nectar from while it shows. If the flowers stay on after the nectar is gone (heather's dry brown spikes), give the nectar its own dates, `{"from": "summer+55", "until": "autumn"}`. The game puts the flower at the part's height and lets the bee drink anywhere round its ring. |
 
 **Look up the plant's year** (when it flowers, fruits, turns colour and drops its leaves) in the same sources as its looks, then check the season row of the preview sheet. The top two rows show every part at once, flowers and berries together, so you can check the shapes.
 
