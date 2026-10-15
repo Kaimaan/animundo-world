@@ -111,6 +111,16 @@ class Catalogue:
         busy = lambda k: sum(1 for w in W.get(k, []) if w.get("status") == "in_progress")
         trees = sorted({t.get("shape") for r in self.regions.values() for t in r.get("trees", {}).get("mix", [])})
         foods = [(rid, f) for rid, r in self.regions.items() for f in r.get("food", [])]
+        # food plants in the ground cover whose kind the region's food list doesn't name (porcini: mushrooms)
+        for rid, r in self.regions.items():
+            listed = {f.get("kind") for f in r.get("food", [])}
+            extra = {}
+            for p in r.get("ground_cover", {}).get("plants", []):
+                food = p.get("food")
+                kind = food.get("kind") if isinstance(food, dict) else food
+                if kind and kind not in listed:
+                    extra.setdefault(kind, []).extend(p.get("names", [p.get("model", "")]))
+            foods += [(rid, {"kind": k, "names": n}) for k, n in extra.items()]
 
         s = ["# Animundo catalogue", "",
              "Everything in the game, and what it's still missing. **Generated:** don't edit this page. "

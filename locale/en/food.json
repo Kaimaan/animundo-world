@@ -11,5 +11,8 @@
   "food.kind.bottom_bugs": "worms and snails",
   "food.kind.mushrooms": "mushrooms",
   "food.kind.seeds": "seeds",
-  "food.kind.nest": "a bird's nest"
+  "food.kind.nest": "a bird's nest",
+  "food.kind.grass": "grass and herbs",
+  "food.kind.bark": "bark",
+  "food.kind.carrion": "carrion"
 }

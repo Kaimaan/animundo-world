@@ -13,15 +13,13 @@
     {"id": "", "name": "Aspen, grey alder, goat willow as trees", "local": "haapa, harmaaleppä, raita", "latin": "", "place": "fi_nuuksio", "feeds": "Hare (bark and twigs), beaver later", "needs": "Code: trees are still made in code. Trees as data recipes are undecided (decision 0013): measure first.", "status": "later"}
   ],
   "foods": [
-    {"id": "", "name": "Bark, twigs and buds", "local": "kuori, oksat, silmut", "feeds": "Mountain hare (winter)", "needs": "Twigs and buds exist now (`browse`, young trees) and the hare eats them. Still missing: bark gnawed from trees in deep snow (code: a food kind on tree trunks).", "status": "wanted"},
-    {"id": "", "name": "Carrion", "local": "raato", "feeds": "Fox (winter)", "needs": "Code: a new food kind.", "status": "wanted"},
-    {"id": "", "name": "Grass and herbs", "local": "heinä ja ruohot", "feeds": "Hare (its main food in summer)", "needs": "Code: a new food kind, grazing the meadow's grass tufts. Today a hare only finds clover and twigs.", "status": "wanted"},
     {"id": "", "name": "Ducklings", "local": "ankanpoikaset", "feeds": "Pike (early summer), fox", "needs": "New model and a duck family on the lake. Tag `small_bird`.", "status": "later"}
   ],
   "core": [
     {"area": "plants", "name": "Remake the code-made ground cover as specs", "why": "Grass tufts, stones, the four flowers (oxeye daisy, heather, harebell, tormentil), reeds, water lilies and pondweed then follow the same rules, art guide and seasons. The bee's flowers are tied to the bee's code, so they move last.", "status": "wanted"},
     {"area": "plants", "name": "Plants that keep away from trees", "why": "`near_trees` keeps a plant close to trunks, but nothing keeps meadow plants out of the forest. Red and white clover and fireweed grow in meadows, clearings and on roadsides, so today they are scattered thinly everywhere. A `far_from_trees` (blocks) option would put them in the open.", "status": "wanted"},
     {"area": "plants", "name": "Bog ground in the terrain", "why": "Nuuksio has small bogs; bog plants need somewhere to grow.", "status": "later"},
+    {"area": "animals", "name": "Frogs in the water", "why": "Real pike eat frogs, but wild frogs in the game keep out of the water, and a swimming hunter's pounce would reach a frog sitting on the bank. Frogs that hop into the shallows (when fleeing, and in spring to spawn), and a swimming hunter that only catches prey in the water, let the pike hunt `frog`.", "status": "wanted"},
     {"area": "animals", "name": "Swimming land animals", "why": "A generated `swim` clip for every four-legged animal (dog paddle: short fast leg strokes, head up, tail trailing), played while it's in water, with a preview tile. Foxes, squirrels and hares really swim, but in the game they play their walk animation, so they look like they're walking on the lake bottom.", "status": "wanted"},
     {"area": "animals", "name": "Body-plan templates", "why": "A starting spec per body plan (four-legged, bird, fish), so agents and contributors copy the closest one instead of starting from scratch.", "status": "wanted"},
     {"area": "animals", "name": "Swimming birds", "why": "Ducks and grebes floating on the surface. No swimming birds yet.", "status": "later"},
