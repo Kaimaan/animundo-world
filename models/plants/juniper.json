@@ -1,0 +1,33 @@
+{
+  "id": "juniper",
+  "name": "Juniper",
+  "latin": "Juniperus communis",
+  "author": "Animundo team",
+  "kind": "bush",
+  "year": {
+    "leaves": "evergreen",
+    "flowers": "Tiny yellow (male) and green (female) cones in May and June, on different bushes.",
+    "fruit": "Round berry-cones on the female bushes. They take two years to ripen, from green to blue-black with a pale bloom, so green and blue ones hang together all year.",
+    "notes": "A spiky evergreen shrub 1-3 m tall, often narrow like a column, with sharp needles in threes, grey-green with a white stripe on top. Turns a little bronze in hard winters. Grows on dry rocky pine heath, sunny slopes and old pastures. Thrushes and other birds eat the berry-cones and spread the seeds."
+  },
+  "sources": ["https://en.wikipedia.org/wiki/Juniperus_communis"],
+  "colors": {
+    "trunk": "#6b4e3a",
+    "needle": "#5a785a",
+    "needle_dark": "#4b684c",
+    "berry": "#3d4c78",
+    "berry_green": "#7d9a5a"
+  },
+  "seasons": {
+    "winter": {"needle": "#56604a", "needle_dark": "#4c5642"}
+  },
+  "parts": [
+    {"name": "trunk", "shape": "cylinder", "size": [0.05, 0.25, 0.05], "at": [0, 0.125, 0], "color": "trunk", "detail": 0.4},
+    {"name": "body_low", "shape": "ball", "size": [0.6, 0.95, 0.6], "at": [0, 0.6, 0], "color": "needle_dark", "detail": 0.4},
+    {"name": "body_mid", "shape": "ball", "size": [0.48, 0.85, 0.48], "at": [0, 1.15, 0.02], "color": "needle", "detail": 0.4},
+    {"name": "body_top", "shape": "ball", "size": [0.3, 0.6, 0.3], "at": [0, 1.62, -0.01], "color": "needle", "detail": 0.4},
+    {"name": "lobe", "shape": "ball", "size": [0.34, 0.6, 0.34], "at": [0, 0.78, 0.2], "rot": [10, 0, 0], "color": "needle", "detail": 0.4, "around": 3, "jitter": 0.7},
+    {"name": "berry", "shape": "ball", "size": [0.04, 0.04, 0.04], "at": [0, 0.7, 0.36], "color": "berry", "detail": 0.3, "around": 6, "turn": 20, "jitter": 0.8},
+    {"name": "berry_green", "shape": "ball", "size": [0.036, 0.036, 0.036], "at": [0, 1.15, 0.25], "color": "berry_green", "detail": 0.3, "around": 4, "turn": 45, "jitter": 0.8}
+  ]
+}

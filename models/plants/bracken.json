@@ -1,0 +1,32 @@
+{
+  "id": "bracken",
+  "name": "Bracken",
+  "latin": "Pteridium aquilinum",
+  "author": "Animundo team",
+  "kind": "bush",
+  "year": {
+    "leaves": "deciduous",
+    "flowers": "none: a fern makes spores under its leaves instead.",
+    "fruit": "none",
+    "notes": "Each frond grows alone from a creeping underground stem: a tall stalk with a broad, flat, triangular blade held out sideways, up to a metre high. The fronds come up curled like a fist in late May, unroll in June, turn rusty brown after the autumn frosts and lie flat under the snow. Grows in patches in spruce and mixed forest and on forest edges. Poisonous to eat raw."
+  },
+  "sources": ["https://en.wikipedia.org/wiki/Pteridium_aquilinum"],
+  "colors": {
+    "stalk": "#6a7a3a",
+    "frond": "#5f8f3a",
+    "frond_dark": "#4f7d35",
+    "fiddle": "#7fa44a"
+  },
+  "seasons": {
+    "autumn": {"frond": "#a8662e", "frond_dark": "#94582a", "stalk": "#8a6a3a"}
+  },
+  "parts": [
+    {"name": "fiddlehead", "shape": "ball", "size": [0.05, 0.07, 0.05], "at": [0, 0.24, 0.1], "color": "fiddle", "detail": 0.3, "around": 3, "jitter": 0.5, "seed": "frond", "show": {"from": "spring+45", "until": "summer+15"}},
+    {"name": "stalk", "shape": "cone", "size": [0.015, 0.75, 0.015], "at": [0, 0.37, 0.08], "rot": [8, 0, 0], "color": "stalk", "detail": 0.4, "around": 3, "jitter": 0.5, "seed": "frond", "show": {"from": "summer+10", "until": "winter+15"}},
+    {"name": "blade", "shape": "leaf", "size": [0.2, 0, 0.62], "at": [0, 0.7, 0.42], "rot": [8, 0, 0], "color": "frond", "detail": 0.5, "around": 3, "jitter": 0.5, "seed": "frond", "show": {"from": "summer+10", "until": "winter+15"}},
+    {"name": "pinna_right", "shape": "leaf", "size": [0.1, 0, 0.3], "at": [0.15, 0.69, 0.32], "rot": [8, 55, 0], "color": "frond_dark", "detail": 0.5, "around": 3, "jitter": 0.5, "seed": "frond", "show": {"from": "summer+10", "until": "winter+15"}},
+    {"name": "pinna_left", "shape": "leaf", "size": [0.1, 0, 0.3], "at": [-0.15, 0.69, 0.32], "rot": [8, -55, 0], "color": "frond_dark", "detail": 0.5, "around": 3, "jitter": 0.5, "seed": "frond", "show": {"from": "summer+10", "until": "winter+15"}},
+    {"name": "pinna_right_2", "shape": "leaf", "size": [0.08, 0, 0.22], "at": [0.11, 0.66, 0.55], "rot": [10, 50, 0], "color": "frond", "detail": 0.5, "around": 3, "jitter": 0.5, "seed": "frond", "show": {"from": "summer+10", "until": "winter+15"}},
+    {"name": "pinna_left_2", "shape": "leaf", "size": [0.08, 0, 0.22], "at": [-0.11, 0.66, 0.55], "rot": [10, -50, 0], "color": "frond", "detail": 0.5, "around": 3, "jitter": 0.5, "seed": "frond", "show": {"from": "summer+10", "until": "winter+15"}}
+  ]
+}

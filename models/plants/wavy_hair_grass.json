@@ -1,0 +1,29 @@
+{
+  "id": "wavy_hair_grass",
+  "name": "Wavy hair-grass",
+  "latin": "Avenella flexuosa",
+  "author": "Animundo team",
+  "kind": "ground",
+  "year": {
+    "leaves": "evergreen",
+    "flowers": "Airy, wavy flower heads on thin stalks 30-60 cm tall, silvery purple in June and July, turning straw-coloured by late summer.",
+    "fruit": "Tiny seeds; the dry stalks stand into the autumn.",
+    "notes": "The commonest grass of dry forest floor in Finland: fine, hair-thin leaves in loose tufts, bright green, staying green under the snow. Grows in pine and spruce forest, clearings and rocky slopes. Hares, voles and moose graze it."
+  },
+  "sources": ["https://en.wikipedia.org/wiki/Avenella_flexuosa"],
+  "colors": {
+    "blade": "#6e8f45",
+    "stalk": "#8d8a55",
+    "head": "#a99aa6"
+  },
+  "seasons": {
+    "spring": {"blade": "#7fa04c"},
+    "autumn": {"blade": "#8c9050", "head": "#b8a26a"},
+    "winter": {"blade": "#8d8a55", "head": "#b0a070"}
+  },
+  "parts": [
+    {"name": "blade", "shape": "leaf", "size": [0.018, 0, 0.26], "at": [0, 0.105, 0.05], "rot": [-64, 0, 0], "color": "blade", "detail": 0.5, "around": 9, "jitter": 0.8},
+    {"name": "stalk", "shape": "cone", "size": [0.006, 0.45, 0.006], "at": [0, 0.22, 0.04], "rot": [8, 0, 0], "color": "stalk", "detail": 0.4, "around": 2, "jitter": 0.6, "seed": "stalk", "show": {"from": "summer+15", "until": "autumn+40"}},
+    {"name": "head", "shape": "ball", "size": [0.035, 0.1, 0.035], "at": [0, 0.42, 0.067], "rot": [8, 0, 0], "color": "head", "detail": 0.3, "around": 2, "jitter": 0.6, "seed": "stalk", "show": {"from": "summer+15", "until": "autumn+40"}}
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "reindeer_lichen",
+  "name": "Reindeer lichen",
+  "latin": "Cladonia rangiferina",
+  "author": "Animundo team",
+  "kind": "ground",
+  "year": {
+    "leaves": "evergreen",
+    "flowers": "none",
+    "fruit": "none: a lichen spreads by breaking into pieces.",
+    "notes": "Pale grey-green cushions 5-10 cm high, made of many fine branches like tiny antlers. Grows very slowly, a few millimetres a year, on dry rocky pine hilltops and sandy heath. The same all year: crisp and brittle when dry, soft after rain. The main winter food of reindeer in Lapland, but not in Nuuksio, where there are no reindeer."
+  },
+  "sources": ["https://en.wikipedia.org/wiki/Cladonia_rangiferina"],
+  "colors": {
+    "lichen": "#d3d6c2",
+    "lichen_dark": "#b4bba2"
+  },
+  "parts": [
+    {"name": "cushion", "shape": "ball", "size": [0.13, 0.06, 0.13], "at": [0, 0.025, 0], "color": "lichen_dark", "detail": 0.3},
+    {"name": "branches", "shape": "leaf", "size": [0.05, 0, 0.08], "at": [0, 0.04, 0.06], "rot": [-55, 0, 0], "color": "lichen", "detail": 0.5, "around": 8, "jitter": 0.9},
+    {"name": "branches_top", "shape": "leaf", "size": [0.045, 0, 0.07], "at": [0, 0.055, 0.025], "rot": [-70, 0, 0], "color": "lichen", "detail": 0.5, "around": 6, "turn": 30, "jitter": 0.9}
+  ]
+}

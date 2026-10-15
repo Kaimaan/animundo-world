@@ -1,0 +1,28 @@
+{
+  "id": "white_clover",
+  "name": "White clover",
+  "latin": "Trifolium repens",
+  "author": "Animundo team",
+  "kind": "ground",
+  "year": {
+    "leaves": "deciduous",
+    "flowers": "Round white flower heads, sometimes a little pink, on their own stalks from June to September.",
+    "fruit": "Tiny seed pods in the brown, drooping flower heads.",
+    "notes": "Creeps along the ground and roots as it goes; leaves of three round leaflets, often with a pale band, about 10 cm high. Grows on lawns, paths, roadsides and meadows, wherever the grass is kept short. Bees drink from it; hares, voles and deer eat the leaves."
+  },
+  "sources": ["https://en.wikipedia.org/wiki/Trifolium_repens"],
+  "colors": {
+    "stem": "#6f9a4a",
+    "leaf": "#4c8a3c",
+    "flower": "#eeeadf"
+  },
+  "seasons": {
+    "spring": {"leaf": "#68a44a"},
+    "autumn": {"leaf": "#5a7f3c", "flower": "#a89a80"}
+  },
+  "parts": [
+    {"name": "leaf", "shape": "leaf", "size": [0.03, 0, 0.04], "at": [0, 0.045, 0.055], "rot": [-10, 0, 0], "color": "leaf", "detail": 0.5, "around": 9, "jitter": 0.7, "show": {"from": "spring+25", "until": "winter+10"}},
+    {"name": "stalk", "shape": "cone", "size": [0.008, 0.14, 0.008], "at": [0, 0.07, 0.02], "rot": [10, 0, 0], "color": "stem", "detail": 0.4, "show": {"from": "summer+15", "until": "autumn+5"}},
+    {"name": "flower", "shape": "ball", "size": [0.026, 0.024, 0.026], "at": [0, 0.139, 0.032], "color": "flower", "detail": 0.3, "nectar": true, "show": {"from": "summer+15", "until": "autumn+5"}}
+  ]
+}

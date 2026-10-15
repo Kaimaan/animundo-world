@@ -1,0 +1,29 @@
+{
+  "id": "red_clover",
+  "name": "Red clover",
+  "latin": "Trifolium pratense",
+  "author": "Animundo team",
+  "kind": "ground",
+  "year": {
+    "leaves": "deciduous",
+    "flowers": "Round pinkish-red flower heads from June to September.",
+    "fruit": "Tiny seed pods hidden in the brown, dried flower heads.",
+    "notes": "Leaves of three leaflets, often with a pale V-shaped mark. 20-40 cm tall. Grows in meadows, on roadsides and around old farms, not inside the forest. Leaves come up in late April and die back after the first hard frosts. Bumblebees drink from its long flowers; hares and voles eat the leaves."
+  },
+  "sources": ["https://en.wikipedia.org/wiki/Trifolium_pratense"],
+  "colors": {
+    "stem": "#5f8c3e",
+    "leaf": "#4f8a3a",
+    "flower": "#c4487e"
+  },
+  "seasons": {
+    "spring": {"leaf": "#6aa448"},
+    "autumn": {"leaf": "#5d7f3a", "flower": "#8a5a50"}
+  },
+  "parts": [
+    {"name": "stem", "shape": "cone", "size": [0.012, 0.22, 0.012], "at": [0, 0.11, 0.03], "rot": [14, 0, 0], "color": "stem", "detail": 0.4, "around": 2, "jitter": 0.5, "seed": "head", "show": {"from": "spring+25", "until": "winter+10"}},
+    {"name": "leaf_low", "shape": "leaf", "size": [0.04, 0, 0.06], "at": [0, 0.05, 0.06], "rot": [-10, 0, 0], "color": "leaf", "detail": 0.5, "around": 6, "jitter": 0.7, "show": {"from": "spring+25", "until": "winter+10"}},
+    {"name": "leaf_high", "shape": "leaf", "size": [0.035, 0, 0.05], "at": [0, 0.15, 0.07], "rot": [-15, 0, 0], "color": "leaf", "detail": 0.5, "around": 4, "turn": 30, "jitter": 0.7, "show": {"from": "spring+25", "until": "winter+10"}},
+    {"name": "flower", "shape": "ball", "size": [0.04, 0.042, 0.04], "at": [0, 0.218, 0.057], "color": "flower", "detail": 0.3, "around": 2, "jitter": 0.5, "seed": "head", "nectar": true, "show": {"from": "summer+15", "until": "autumn+5"}}
+  ]
+}

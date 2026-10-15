@@ -1,0 +1,38 @@
+{
+  "id": "fireweed",
+  "name": "Fireweed",
+  "latin": "Chamaenerion angustifolium",
+  "author": "Animundo team",
+  "kind": "bush",
+  "year": {
+    "leaves": "deciduous",
+    "flowers": "A tall spike of bright pink-purple flowers from July to August, opening from the bottom up.",
+    "fruit": "Long thin pods split open in late summer and autumn and let out white, fluffy seeds that blow away in the wind.",
+    "notes": "One straight stem 0.5-1.5 m tall with long, narrow leaves all the way up; the leaves turn red in autumn. The plant dies back in winter, but the dry stems often stand above the snow. Grows in large patches on clearings, burnt ground, roadsides and forest edges. Bumblebees drink from it all summer; hares and moose eat the leaves."
+  },
+  "sources": ["https://en.wikipedia.org/wiki/Chamaenerion_angustifolium"],
+  "colors": {
+    "stem": "#6b7a45",
+    "leaf": "#4f7d3e",
+    "flower": "#d65a9a",
+    "bud": "#9e3a6a",
+    "fluff": "#ece8e0"
+  },
+  "seasons": {
+    "autumn": {"leaf": "#b8433a", "stem": "#8a4a3a"},
+    "winter": {"stem": "#7a6050"}
+  },
+  "parts": [
+    {"name": "stem", "shape": "taper", "top": 0.4, "size": [0.016, 1.15, 0.016], "at": [0, 0.575, 0], "color": "stem", "detail": 0.4},
+    {"name": "leaf_1", "shape": "leaf", "size": [0.03, 0, 0.14], "at": [0, 0.25, 0.065], "rot": [8, 0, 0], "color": "leaf", "detail": 0.5, "around": 6, "jitter": 0.6, "show": {"from": "spring+40", "until": "autumn+40"}},
+    {"name": "leaf_2", "shape": "leaf", "size": [0.03, 0, 0.14], "at": [0, 0.45, 0.065], "rot": [0, 0, 0], "color": "leaf", "detail": 0.5, "around": 6, "turn": 30, "jitter": 0.6, "show": {"from": "spring+40", "until": "autumn+40"}},
+    {"name": "leaf_3", "shape": "leaf", "size": [0.028, 0, 0.13], "at": [0, 0.65, 0.06], "rot": [-10, 0, 0], "color": "leaf", "detail": 0.5, "around": 6, "jitter": 0.6, "show": {"from": "spring+40", "until": "autumn+40"}},
+    {"name": "leaf_4", "shape": "leaf", "size": [0.024, 0, 0.11], "at": [0, 0.84, 0.05], "rot": [-20, 0, 0], "color": "leaf", "detail": 0.5, "around": 6, "turn": 30, "jitter": 0.6, "show": {"from": "spring+40", "until": "autumn+40"}},
+    {"name": "spike", "shape": "cone", "size": [0.07, 0.34, 0.07], "at": [0, 1.03, 0], "color": "flower", "detail": 0.5, "show": {"from": "summer+40", "until": "summer+85"}},
+    {"name": "flower_low", "shape": "leaf", "size": [0.055, 0, 0.065], "at": [0, 0.9, 0.04], "rot": [-30, 0, 0], "color": "flower", "detail": 0.5, "around": 6, "jitter": 0.5, "nectar": true, "show": {"from": "summer+40", "until": "summer+85"}},
+    {"name": "flower_mid", "shape": "leaf", "size": [0.05, 0, 0.06], "at": [0, 0.98, 0.036], "rot": [-35, 0, 0], "color": "flower", "detail": 0.5, "around": 6, "turn": 30, "jitter": 0.5, "nectar": true, "show": {"from": "summer+40", "until": "summer+85"}},
+    {"name": "flower_high", "shape": "leaf", "size": [0.045, 0, 0.05], "at": [0, 1.06, 0.03], "rot": [-40, 0, 0], "color": "flower", "detail": 0.5, "around": 5, "jitter": 0.5, "nectar": true, "show": {"from": "summer+40", "until": "summer+85"}},
+    {"name": "bud", "shape": "cone", "size": [0.03, 0.12, 0.03], "at": [0, 1.17, 0], "color": "bud", "detail": 0.4, "show": {"from": "summer+30", "until": "summer+75"}},
+    {"name": "pods", "shape": "ball", "size": [0.07, 0.34, 0.07], "at": [0, 1.0, 0], "color": "fluff", "detail": 0.3, "show": {"from": "summer+80", "until": "autumn+30"}}
+  ]
+}

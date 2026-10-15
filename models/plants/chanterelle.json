@@ -1,0 +1,20 @@
+{
+  "id": "chanterelle",
+  "name": "Chanterelle",
+  "latin": "Cantharellus cibarius",
+  "author": "Animundo team",
+  "kind": "ground",
+  "year": {
+    "leaves": "deciduous",
+    "flowers": "none",
+    "fruit": "A mushroom: egg-yellow, funnel-shaped, usually in small groups. Comes up from July to early October, most of all in August.",
+    "notes": "3-8 cm across, with blunt, branching ridges instead of gills running down the stem, and a faint smell of apricots. Grows in mossy spruce and mixed forest, living together with the trees' roots. A favourite of Finnish mushroom pickers; slugs and squirrels eat it too."
+  },
+  "sources": ["https://en.wikipedia.org/wiki/Cantharellus_cibarius"],
+  "colors": {
+    "cap": "#eab43e"
+  },
+  "parts": [
+    {"name": "cap", "shape": "taper", "top": 4.5, "size": [0.012, 0.04, 0.012], "at": [0, 0.02, 0.04], "rot": [-12, 0, 0], "color": "cap", "detail": 0.6, "around": 3, "jitter": 0.8, "show": {"from": "summer+40", "until": "autumn+20"}}
+  ]
+}
