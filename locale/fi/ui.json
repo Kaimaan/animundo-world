@@ -285,5 +285,6 @@
   "ui.paid.sent": "Kiitos! Tämä auttaa meitä löytämään reilun hinnan.",
   "ui.paid.keep": "Tee ilmainen tili, niin pakettisi ja lapsesi eläimet pysyvät tallessa kaikilla laitteillanne.",
   "ui.paid.make_account": "Tee tili",
-  "ui.paid.later": "Ei nyt"
+  "ui.paid.later": "Ei nyt",
+  "ui.scrambled_out": "Hups vain, pääsit kuivalle maalle!"
 }
