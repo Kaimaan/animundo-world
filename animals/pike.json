@@ -9,7 +9,8 @@
     "big_fish"
   ],
   "hunts": [
-    "small_fish"
+    "small_fish",
+    "frog"
   ],
   "walk": 2.8,
   "sprint": 7.0,
