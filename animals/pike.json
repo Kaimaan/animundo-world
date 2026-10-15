@@ -1,6 +1,8 @@
 {
   "archetype": "fish",
   "latin": "Esox lucius",
+  "playable": true,
+  "color": "#5d7a3a",
   "dark_vision": 0.45,
   "tags": [
     "fish",
@@ -9,8 +11,13 @@
   "hunts": [
     "small_fish"
   ],
-  "walk": 0.5,
-  "sprint": 6.5,
+  "walk": 2.8,
+  "sprint": 7.0,
+  "lurk": 0.5,
+  "jump": 0.0,
+  "box": [0.45, 0.3, 0.45],
+  "cam_height": 0.3,
+  "cam_dist": 3.0,
   "model": {
     "file": "res://assets/animals/pike.glb", "length": 0.690, "yaw": 0.0,
     "anims": {"idle": "idle", "fly": "swim"}
@@ -21,6 +28,13 @@
     "chasing": "A pike is after you! Hide under the old boat or in the pondweed!",
     "bite": "A pike bit you! Swim for cover!",
     "caught_you": "A pike ate you.",
+    "play_as": "Play as a pike",
+    "menu_sub": "Lie in wait among the reeds, strike at passing fish, rest in deep water.",
+    "menu_wild": "Nothing in the lake hunts a big pike.",
+    "intro": "Up and Down to swim deeper. Wait still near the reeds, then dash at a roach or a perch!",
+    "safe_tag": "Tag, you got it! In Safe mode a pike never goes hungry.",
+    "hungry": "You're hungry. Lie in wait near a school of roach and strike!",
+    "no_food": "No fish here. Swim to where roach and perch swim in schools.",
     "about_looks": "Long and green with pale spots, a flat snout like a duck's bill and lots of sharp teeth.",
     "about_food": "Other fish, and sometimes frogs or even ducklings.",
     "about_home": "Hides among reeds and water plants close to the shore.",
