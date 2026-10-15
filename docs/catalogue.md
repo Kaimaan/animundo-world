@@ -7,7 +7,7 @@ How to add each kind of thing: [CONTRIBUTING.md](../CONTRIBUTING.md). How it sho
 |  | Have | Wanted | In progress |
 |---|---|---|---|
 | Animals | 15 | 2 | 0 |
-| Plants | 5 | 15 | 0 |
+| Plants | 7 | 13 | 0 |
 | Trees | 5 | 0 | 0 |
 | Foods | 9 | 3 | 0 |
 
@@ -48,17 +48,17 @@ How to add each kind of thing: [CONTRIBUTING.md](../CONTRIBUTING.md). How it sho
 | Plant | Kind | Grows in | Leaves | Preview |
 |---|---|---|---|---|
 | **Bilberry** (*Vaccinium myrtillus*) | bush | fi_nuuksio | deciduous | [preview](../models/previews/plants/bilberry.png) |
+| **Crowberry** (*Empetrum nigrum*) | bush | fi_nuuksio | evergreen | [preview](../models/previews/plants/crowberry.png) |
 | **Fly agaric** (*Amanita muscaria*) | bush | fi_nuuksio | deciduous | [preview](../models/previews/plants/fly_agaric.png) |
 | **Heather** (*Calluna vulgaris*) | bush | fi_nuuksio | evergreen | [preview](../models/previews/plants/heather.png) |
 | **Lingonberry** (*Vaccinium vitis-idaea*) | bush | fi_nuuksio | evergreen | [preview](../models/previews/plants/lingonberry.png) |
 | **Porcini** (*Boletus edulis*) | bush | fi_nuuksio | deciduous | [preview](../models/previews/plants/porcini.png) |
+| **Wild raspberry** (*Rubus idaeus*) | bush | fi_nuuksio | deciduous | [preview](../models/previews/plants/wild_raspberry.png) |
 
 ### Wanted
 
 | Plant | Place | Feeds | Needs | Status |
 |---|---|---|---|---|
-| **Wild raspberry** (vadelma, *Rubus idaeus*) | fi_nuuksio | Fox, squirrel (`berries`: players are already told they ate wild raspberries) | Data only. Clearings, forest edges, old fields. About 1–1.5 m of upright canes, `kind: "bush"`. White flowers in June, red berries July–August. | Wanted |
-| **Crowberry** (variksenmarja, *Empetrum nigrum*) | fi_nuuksio | Fox, squirrel (`berries`: players are already told they ate crowberries), later birds | Data only. Rocky hilltops and pine heath with heather (`on: ["grass", "rock"]`). A low evergreen mat; black berries from August that stay into winter. | Wanted |
 | **Red clover and white clover** (puna-apila, valkoapila, *Trifolium pratense*) | fi_nuuksio | Hare (`clover`: players are already told they ate clover), bumblebee | Data only for the look: meadows, roadsides, around old farms, not inside the forest. Two specs, one per species. Code to be the bee's flowers (see core team work). | Wanted |
 | **Wild carrot: check first** (porkkana, *Daucus carota*) | fi_nuuksio | Hare (`carrot`) | Rare in Finland, only a few places on the south coast, so it probably shouldn't be in Nuuksio. Decide with the core team whether to replace the `carrot` food with plants hares really eat there (grasses, herbs, willow twigs). | Check first |
 | **Goat willow (as a shrub)** (raita, *Salix caprea*) | fi_nuuksio | Bumblebee (catkins are its first food, April–May), hare (twigs and bark in winter) | Data only for the shrub: forest edges, clearings, lake shores. Code: bee food from a plant, and winter browse for hares. | Wanted |
@@ -106,7 +106,7 @@ What animals find to eat. A food name marked "grows there" has a plant you can s
 | Food | Place | Real names | Eaten by |
 |---|---|---|---|
 | `clover` | fi_nuuksio | red clover, white clover | Rabbit, Bank vole |
-| `berries` | fi_nuuksio | bilberries (grows there), lingonberries (grows there), wild raspberries, crowberries | Fox, Moose, Red squirrel, Bank vole |
+| `berries` | fi_nuuksio | bilberries (grows there), lingonberries (grows there), wild raspberries (grows there), crowberries (grows there) | Fox, Moose, Red squirrel, Bank vole |
 | `carrot` | fi_nuuksio | wild carrot | Rabbit |
 | `insects` | fi_nuuksio | ground beetle, dung beetle, click beetle | Fox, Common frog, Kestrel, Common lizard |
 | `water_bugs` | fi_nuuksio | mayfly larvae, caddisfly larvae, water boatmen | Bream, Perch, Roach, Young perch, Young roach |
