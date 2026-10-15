@@ -38,5 +38,10 @@
   "food.bloodworms": "surviaissääsken toukat",
   "food.pond snails": "limakotilot",
   "food.kind.mushrooms": "sienet",
-  "food.porcini": "herkkutatti"
+  "food.porcini": "herkkutatti",
+  "food.kind.seeds": "siemenet",
+  "food.spruce seeds": "kuusensiemenet",
+  "food.pine seeds": "männynsiemenet",
+  "food.birch seeds": "koivunsiemenet",
+  "food.kind.nest": "linnunpesä"
 }

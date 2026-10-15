@@ -190,7 +190,8 @@
     {"kind": "browse", "weight": 12, "names": ["birch leaves and twigs", "willow twigs", "aspen shoots", "rowan leaves"]},
     {"kind": "water_plants", "weight": 8, "names": ["pondweed", "water lily leaves", "water horsetail"]},
     {"kind": "cones", "weight": 10, "names": ["spruce cones", "pine cones"]},
-    {"kind": "bottom_bugs", "weight": 8, "names": ["bloodworms", "pond snails"]}
+    {"kind": "bottom_bugs", "weight": 8, "names": ["bloodworms", "pond snails"]},
+    {"kind": "seeds", "weight": 12, "names": ["spruce seeds", "pine seeds", "birch seeds"]}
   ],
   "fish": [
     {
@@ -258,7 +259,8 @@
       "kestrel",
       "perch",
       "pike",
-      "bee"
+      "bee",
+      "chaffinch"
     ],
     "predators": [
       "fox"
@@ -267,7 +269,8 @@
       "rabbit",
       "vole",
       "frog",
-      "lizard"
+      "lizard",
+      "chaffinch"
     ]
   }
 }

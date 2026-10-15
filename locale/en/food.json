@@ -9,5 +9,7 @@
   "food.kind.water_plants": "water plants",
   "food.kind.cones": "cones",
   "food.kind.bottom_bugs": "worms and snails",
-  "food.kind.mushrooms": "mushrooms"
+  "food.kind.mushrooms": "mushrooms",
+  "food.kind.seeds": "seeds",
+  "food.kind.nest": "a bird's nest"
 }

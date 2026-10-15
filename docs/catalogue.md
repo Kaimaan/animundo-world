@@ -6,10 +6,10 @@ How to add each kind of thing: [CONTRIBUTING.md](../CONTRIBUTING.md). How it sho
 
 |  | Have | Wanted | In progress |
 |---|---|---|---|
-| Animals | 15 | 2 | 0 |
+| Animals | 16 | 1 | 0 |
 | Plants | 7 | 13 | 0 |
 | Trees | 5 | 0 | 0 |
-| Foods | 9 | 3 | 0 |
+| Foods | 10 | 3 | 0 |
 
 ## Animals
 
@@ -19,6 +19,7 @@ How to add each kind of thing: [CONTRIBUTING.md](../CONTRIBUTING.md). How it sho
 |---|---|---|---|---|---|
 | **Bumblebee** (*Bombus lucorum*) | fi_nuuksio | built from a spec [preview](../models/previews/bee.png) | yes | no | yes |
 | **Bream** (*Abramis brama*) | fi_nuuksio | built from a spec [preview](../models/previews/bream.png) | yes | no | yes |
+| **Chaffinch** (*Fringilla coelebs*) | fi_nuuksio | built from a spec [preview](../models/previews/chaffinch.png) | yes | no | yes |
 | **Fox** (*Vulpes vulpes*) | fi_nuuksio | built from a spec [preview](../models/previews/fox.png) | yes | yes | yes |
 | **Common frog** (*Rana temporaria*) | fi_nuuksio | built from a spec [preview](../models/previews/frog.png) | yes | no | yes |
 | **Kestrel** (*Falco tinnunculus*) | fi_nuuksio | built from a spec [preview](../models/previews/kestrel.png) | yes | no | yes |
@@ -38,7 +39,6 @@ How to add each kind of thing: [CONTRIBUTING.md](../CONTRIBUTING.md). How it sho
 | Animal | Place | Feeds | Needs | Status |
 |---|---|---|---|---|
 | **Mountain hare** (metsäjänis, *Lepus timidus*) | fi_nuuksio | Fox, later lynx and eagle owl | New model from a spec, with a white `winter` coat. It replaces the "rabbit": European rabbits don't live wild in Nuuksio (ART.md: real species only). | Wanted |
-| **Chaffinch, with eggs and nestlings** (peippo, *Fringilla coelebs*) | fi_nuuksio | Fox (spring: birds and eggs), later sparrowhawk | New model. Tag `small_bird`. Code: nests with eggs and young. | Wanted |
 | **Night animals: bats and owls** (lepakot ja pöllöt) | fi_nuuksio |  | Code first: how night works has to be tested before the first night animal (decision 0014, open). See docs/animals-wanted.md. | Later |
 
 ## Plants
@@ -108,12 +108,13 @@ What animals find to eat. A food name marked "grows there" has a plant you can s
 | `clover` | fi_nuuksio | red clover, white clover | Rabbit, Bank vole |
 | `berries` | fi_nuuksio | bilberries (grows there), lingonberries (grows there), wild raspberries (grows there), crowberries (grows there) | Fox, Moose, Red squirrel, Bank vole |
 | `carrot` | fi_nuuksio | wild carrot | Rabbit |
-| `insects` | fi_nuuksio | ground beetle, dung beetle, click beetle | Fox, Common frog, Kestrel, Common lizard |
+| `insects` | fi_nuuksio | ground beetle, dung beetle, click beetle | Chaffinch, Fox, Common frog, Kestrel, Common lizard |
 | `water_bugs` | fi_nuuksio | mayfly larvae, caddisfly larvae, water boatmen | Bream, Perch, Roach, Young perch, Young roach |
 | `browse` | fi_nuuksio | birch leaves and twigs, willow twigs, aspen shoots, rowan leaves | Moose, Rabbit |
 | `water_plants` | fi_nuuksio | pondweed, water lily leaves, water horsetail | Moose |
 | `cones` | fi_nuuksio | spruce cones, pine cones | Red squirrel |
 | `bottom_bugs` | fi_nuuksio | bloodworms, pond snails | Bream, Perch, Roach |
+| `seeds` | fi_nuuksio | spruce seeds, pine seeds, birch seeds | Chaffinch |
 
 ### Wanted
 

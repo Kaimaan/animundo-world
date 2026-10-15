@@ -1,0 +1,78 @@
+{
+  "archetype": "bird",
+  "latin": "Fringilla coelebs",
+  "playable": true,
+  "color": "#b0705a",
+  "tags": ["small_bird"],
+  "diet": ["seeds", "insects"],
+  "dark_vision": 0.2,
+  "walk": 1.2,
+  "fly": 6.0,
+  "sprint": 9.0,
+  "jump": 3.5,
+  "box": [0.14, 0.14, 0.14],
+  "cam_height": 0.25,
+  "cam_dist": 1.6,
+  "flee_speed": 6.0,
+  "food_value": 12,
+  "songbird": {
+    "song": ["♪", "♫"],
+    "sings": ["04-01", "07-10"]
+  },
+  "nest": {
+    "tree": "spruce",
+    "height": [1.0, 1.3],
+    "eggs": ["05-08", "06-10"],
+    "nestlings": ["05-22", "06-25"],
+    "clutch": [4, 6],
+    "food_value": 20
+  },
+  "model": {
+    "file": "res://assets/animals/chaffinch.glb", "length": 0.040, "yaw": 0.0,
+    "anims": {"idle": "idle", "walk": "walk", "run": "run", "eat": "eat", "sleep": "sleep", "fly": "fly"}
+  },
+  "text": {
+    "title": "Chaffinch",
+    "menu_sub": "Sing from the treetops, flit between trees, pick seeds and beetles off the ground.",
+    "menu_wild": "Foxes catch you on the ground.",
+    "intro": "Hold Fly to climb, Dive to drop. Seeds and beetles are on the ground. Roost in tree leaves at night.",
+    "hungry": "You're hungry. Hop about on the ground under the trees and look for seeds and beetles.",
+    "no_food": "Nothing to eat here. Look for seeds under the spruces and birches, or beetles on the ground.",
+    "chased": "A fox is after you! Fly up into a tree!",
+    "caught": "A chaffinch! +{food} food",
+    "stalk_hint": "A chaffinch pecking at the ground. Creep up slowly: it flies off if it sees you.",
+    "sings": "A chaffinch is singing: a quick, falling trill with a flourish at the end.",
+    "nest_hint": "A chaffinch nest, low in the spruce! Tap Pounce to reach it.",
+    "caught_eggs": "You found a chaffinch nest and ate the eggs! +{food} food",
+    "caught_nestlings": "You found a chaffinch nest and ate the nestlings! +{food} food",
+    "nest_alarm": "Pink! Pink! The chaffinch parents call in alarm.",
+    "about_looks": "A sparrow-sized finch with two white bars on each wing. The male has a blue-grey head and a pinkish-orange face and breast; the female is olive-brown.",
+    "about_food": "Seeds of spruce, pine, birch and meadow plants, picked mostly off the ground. In summer, caterpillars, beetles and spiders.",
+    "about_home": "Lives in every kind of forest. The female builds a neat cup of moss and grass, covered in lichen and spider silk, in the fork of a spruce or birch.",
+    "about_winter": "Most fly to western and southern Europe in September and October and come back in April. A few males stay in Finland and visit bird feeders.",
+    "about_young": "Four to six eggs in May, blue-grey with purple spots. The parents feed the nestlings caterpillars, and they leave the nest after two weeks, in June.",
+    "about_fact": "Its Latin name, coelebs, means \"bachelor\". In winter in Sweden, Linnaeus saw only males: the females had flown further south."
+  },
+  "sources": [
+    "https://en.wikipedia.org/wiki/Common_chaffinch",
+    "https://www.luontoportti.com/en/t/1236/chaffinch",
+    "https://www.birdlife.fi/",
+    "Svensson, L. et al.: Collins Bird Guide, 2nd ed. (2009)"
+  ],
+  "year": {
+    "winter": "migrates",
+    "migration": {
+      "leaves": "09-25",
+      "returns": "04-01"
+    },
+    "shelter": "Roosts in dense spruces and other trees. The female builds the nest in early May: a neat cup of moss, grass and roots, covered in lichen and bound with spider silk, in a tree fork 1–10 m up, often in a spruce or birch.",
+    "young": "4–6 eggs from mid-May; the female sits on them for about 13 days. The nestlings are fed caterpillars and leave the nest after about 14 days, mostly in June. Some pairs raise a second brood.",
+    "food": {
+      "spring": "Seeds on the ground (spruce, pine and birch seeds, last year's meadow plants), then the first insects.",
+      "summer": "Caterpillars, beetles, flies and spiders from leaves and the ground; the nestlings get almost only insects.",
+      "autumn": "Seeds again, often in flocks on fields and under trees, before flying south.",
+      "winter": "Away: winters in western and southern Europe. A few males stay at bird feeders in southern Finland."
+    },
+    "notes": "Males arrive first, in late March or April, and sing from the treetops to claim their patch; the song is one of the first sounds of spring in Finland. Each male sings his own few song types, learned in his first spring. The alarm call is a loud 'pink!'. Nests are robbed by jays, crows, squirrels, martens and woodpeckers far more often than by foxes; a fox only reaches the lowest nests. Fledglings sit on low branches and the ground for a few days, where foxes and cats catch them. One of the commonest birds in Finland's forests."
+  }
+}
