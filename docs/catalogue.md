@@ -6,7 +6,7 @@ How to add each kind of thing: [CONTRIBUTING.md](../CONTRIBUTING.md). How it sho
 
 |  | Have | Wanted | In progress |
 |---|---|---|---|
-| Animals | 13 | 4 | 0 |
+| Animals | 15 | 2 | 0 |
 | Plants | 5 | 15 | 0 |
 | Trees | 5 | 0 | 0 |
 | Foods | 9 | 3 | 0 |
@@ -20,7 +20,9 @@ How to add each kind of thing: [CONTRIBUTING.md](../CONTRIBUTING.md). How it sho
 | **Bumblebee** (*Bombus lucorum*) | fi_nuuksio | built from a spec [preview](../models/previews/bee.png) | yes | no | yes |
 | **Bream** (*Abramis brama*) | fi_nuuksio | built from a spec [preview](../models/previews/bream.png) | yes | no | yes |
 | **Fox** (*Vulpes vulpes*) | fi_nuuksio | built from a spec [preview](../models/previews/fox.png) | yes | yes | yes |
+| **Common frog** (*Rana temporaria*) | fi_nuuksio | built from a spec [preview](../models/previews/frog.png) | yes | no | yes |
 | **Kestrel** (*Falco tinnunculus*) | fi_nuuksio | built from a spec [preview](../models/previews/kestrel.png) | yes | no | yes |
+| **Common lizard** (*Zootoca vivipara*) | fi_nuuksio | built from a spec [preview](../models/previews/lizard.png) | yes | no | yes |
 | **Moose** (*Alces alces*) | fi_nuuksio | built from a spec [preview](../models/previews/moose.png) | yes | no | yes |
 | **Perch** (*Perca fluviatilis*) | fi_nuuksio | built from a spec [preview](../models/previews/perch.png) | yes | no | yes |
 | **Pike** (*Esox lucius*) | fi_nuuksio | built from a spec [preview](../models/previews/pike.png) | yes | no | yes |
@@ -36,8 +38,6 @@ How to add each kind of thing: [CONTRIBUTING.md](../CONTRIBUTING.md). How it sho
 | Animal | Place | Feeds | Needs | Status |
 |---|---|---|---|---|
 | **Mountain hare** (metsäjänis, *Lepus timidus*) | fi_nuuksio | Fox, later lynx and eagle owl | New model from a spec, with a white `winter` coat. It replaces the "rabbit": European rabbits don't live wild in Nuuksio (ART.md: real species only). | Wanted |
-| **Common frog** (sammakko, *Rana temporaria*) | fi_nuuksio | Pike (spring), fox, later heron | New model. Code: an animal that lives on land and in water (a new archetype). | Wanted |
-| **Common lizard** (sisilisko, *Zootoca vivipara*) | fi_nuuksio | Kestrel (summer) | New model. Cold-blooded, basks on sunny rocks. | Wanted |
 | **Chaffinch, with eggs and nestlings** (peippo, *Fringilla coelebs*) | fi_nuuksio | Fox (spring: birds and eggs), later sparrowhawk | New model. Tag `small_bird`. Code: nests with eggs and young. | Wanted |
 | **Night animals: bats and owls** (lepakot ja pöllöt) | fi_nuuksio |  | Code first: how night works has to be tested before the first night animal (decision 0014, open). See docs/animals-wanted.md. | Later |
 
@@ -108,7 +108,7 @@ What animals find to eat. A food name marked "grows there" has a plant you can s
 | `clover` | fi_nuuksio | red clover, white clover | Rabbit, Bank vole |
 | `berries` | fi_nuuksio | bilberries (grows there), lingonberries (grows there), wild raspberries, crowberries | Fox, Moose, Red squirrel, Bank vole |
 | `carrot` | fi_nuuksio | wild carrot | Rabbit |
-| `insects` | fi_nuuksio | ground beetle, dung beetle, click beetle | Fox, Kestrel |
+| `insects` | fi_nuuksio | ground beetle, dung beetle, click beetle | Fox, Common frog, Kestrel, Common lizard |
 | `water_bugs` | fi_nuuksio | mayfly larvae, caddisfly larvae, water boatmen | Bream, Perch, Roach, Young perch, Young roach |
 | `browse` | fi_nuuksio | birch leaves and twigs, willow twigs, aspen shoots, rowan leaves | Moose, Rabbit |
 | `water_plants` | fi_nuuksio | pondweed, water lily leaves, water horsetail | Moose |
@@ -143,3 +143,6 @@ Code changes that more content depends on. These are for the core team; the data
 | animals | **Insect wingbeat that sweeps** | The bee's buzz flips the wings up and down every frame. Real insect wings sweep forward and back; up and down reads as a jittery V. | Later |
 | animals | **Fish poses** | Fish use only idle and swim. The generated eat and sleep clips tip a fish over. A hovering idle, a slight head yaw against the tail while swimming, and resting near the bottom would suit fish better. | Later |
 | animals | **A body that bends** | Curled-up sleep turns the head and wraps the tail, but the body is one straight bone. A short round animal (the bank vole) curls into a loaf rather than a ball, and the fox's curl stays a C. A spine of two or three body bones that bend in the curl pose would let them sleep in a real ball. | Wanted |
+| animals | **A real hop** | Legs are one bone each, so a frog's folded hind legs can only rock as one piece: no kick that straightens them. Knee and ankle bones that unfold in the run clip would give frogs (and hares) a real hop. | Wanted |
+| animals | **A lizard's walk** | Tails only wag sideways when idle, and legs swing around the left-right axis, which suits legs under the body. A lizard's legs stick out sideways and swing forward and back around an upright axis, and its body and tail wave side to side as it walks. | Wanted |
+| animals | **Marks painted on the skin** | Spots, bars and masks have to be separate pieces (about 30 triangles each): melted into the body they fade or bulge. A frog spends 350 of its 600 triangles on marks. A way to colour a patch of the skin without changing its shape would leave the budget for the body. | Wanted |

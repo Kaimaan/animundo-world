@@ -1,0 +1,502 @@
+{
+ "id": "frog",
+ "name": "Common frog (Rana temporaria)",
+ "author": "Animundo team",
+ "gait": "bound",
+ "sleep_drop": 0.15,
+ "sleep_legs": [
+  5,
+  -5
+ ],
+ "skin": {
+  "triangles": 600
+ },
+ "colors": {
+  "skin": "#9b8448",
+  "spot": "#463521",
+  "mask": "#3f281a",
+  "belly": "#e8d9a6",
+  "eye": "#d4a43a",
+  "dark": "#2a1f1a"
+ },
+ "bones": [
+  {
+   "name": "body",
+   "head": [
+    0,
+    0.013,
+    -0.035
+   ],
+   "tail": [
+    0,
+    0.02,
+    0.012
+   ],
+   "role": "body"
+  },
+  {
+   "name": "head",
+   "head": [
+    0,
+    0.02,
+    0.012
+   ],
+   "tail": [
+    0,
+    0.021,
+    0.042
+   ],
+   "parent": "body",
+   "role": "head"
+  },
+  {
+   "name": "leg_f_l",
+   "head": [
+    0.011,
+    0.016,
+    0.014
+   ],
+   "tail": [
+    0.016,
+    0.0,
+    0.021
+   ],
+   "parent": "body",
+   "role": "leg",
+   "phase": 0.0,
+   "swing": 0.45,
+   "mirror": true
+  },
+  {
+   "name": "leg_b_l",
+   "head": [
+    0.011,
+    0.011,
+    -0.03
+   ],
+   "tail": [
+    0.024,
+    0.002,
+    -0.01
+   ],
+   "parent": "body",
+   "role": "leg",
+   "phase": 0.5,
+   "swing": 0.75,
+   "mirror": true
+  }
+ ],
+ "parts": [
+  {
+   "name": "body",
+   "shape": "ball",
+   "size": [
+    0.034,
+    0.021,
+    0.052
+   ],
+   "at": [
+    0,
+    0.0165,
+    -0.007
+   ],
+   "rot": [
+    -20,
+    0,
+    0
+   ],
+   "color": "skin",
+   "bone": "body"
+  },
+  {
+   "name": "rump",
+   "shape": "ball",
+   "size": [
+    0.029,
+    0.016,
+    0.028
+   ],
+   "at": [
+    0,
+    0.0115,
+    -0.029
+   ],
+   "rot": [
+    -15,
+    0,
+    0
+   ],
+   "color": "skin",
+   "bone": "body"
+  },
+  {
+   "name": "belly",
+   "shape": "ball",
+   "size": [
+    0.03,
+    0.013,
+    0.046
+   ],
+   "at": [
+    0,
+    0.0115,
+    -0.003
+   ],
+   "rot": [
+    -20,
+    0,
+    0
+   ],
+   "color": "belly",
+   "bone": "body"
+  },
+  {
+   "name": "head",
+   "shape": "ball",
+   "size": [
+    0.032,
+    0.016,
+    0.026
+   ],
+   "at": [
+    0,
+    0.022,
+    0.021
+   ],
+   "rot": [
+    -5,
+    0,
+    0
+   ],
+   "color": "skin",
+   "bone": "head"
+  },
+  {
+   "name": "snout",
+   "shape": "ball",
+   "size": [
+    0.024,
+    0.011,
+    0.016
+   ],
+   "at": [
+    0,
+    0.0205,
+    0.035
+   ],
+   "color": "skin",
+   "bone": "head"
+  },
+  {
+   "name": "throat",
+   "shape": "ball",
+   "size": [
+    0.028,
+    0.009,
+    0.026
+   ],
+   "at": [
+    0,
+    0.0155,
+    0.025
+   ],
+   "color": "belly",
+   "bone": "head"
+  },
+  {
+   "name": "eye_l",
+   "shape": "ball",
+   "size": [
+    0.0078,
+    0.0078,
+    0.0078
+   ],
+   "at": [
+    0.0105,
+    0.0285,
+    0.025
+   ],
+   "color": "eye",
+   "bone": "head",
+   "mirror": true,
+   "separate": true,
+   "detail": 0.5
+  },
+  {
+   "name": "pupil_l",
+   "shape": "ball",
+   "size": [
+    0.0022,
+    0.003,
+    0.005
+   ],
+   "at": [
+    0.0136,
+    0.0298,
+    0.0258
+   ],
+   "rot": [
+    0,
+    0,
+    -30
+   ],
+   "color": "dark",
+   "bone": "head",
+   "mirror": true,
+   "separate": true,
+   "detail": 0.4
+  },
+  {
+   "name": "mask_l",
+   "shape": "ball",
+   "size": [
+    0.003,
+    0.0075,
+    0.012
+   ],
+   "at": [
+    0.0129,
+    0.0216,
+    0.0145
+   ],
+   "rot": [
+    -20,
+    0,
+    -25
+   ],
+   "color": "mask",
+   "bone": "head",
+   "mirror": true,
+   "separate": true,
+   "detail": 0.6
+  },
+  {
+   "name": "spot_1",
+   "shape": "ball",
+   "size": [
+    0.0065,
+    0.0016,
+    0.0055
+   ],
+   "at": [
+    0.006,
+    0.0262,
+    0.0
+   ],
+   "rot": [
+    -18,
+    30,
+    0
+   ],
+   "color": "spot",
+   "bone": "body",
+   "separate": true,
+   "detail": 0.6
+  },
+  {
+   "name": "spot_2",
+   "shape": "ball",
+   "size": [
+    0.0065,
+    0.0016,
+    0.0055
+   ],
+   "at": [
+    -0.007,
+    0.0238,
+    -0.012
+   ],
+   "rot": [
+    -18,
+    30,
+    0
+   ],
+   "color": "spot",
+   "bone": "body",
+   "separate": true,
+   "detail": 0.6
+  },
+  {
+   "name": "spot_3",
+   "shape": "ball",
+   "size": [
+    0.0065,
+    0.0016,
+    0.0055
+   ],
+   "at": [
+    0.004,
+    0.0196,
+    -0.026
+   ],
+   "rot": [
+    -18,
+    30,
+    0
+   ],
+   "color": "spot",
+   "bone": "body",
+   "separate": true,
+   "detail": 0.6
+  },
+  {
+   "name": "arm_l",
+   "shape": "taper",
+   "top": 0.8,
+   "size": [
+    0.0065,
+    0.018,
+    0.0065
+   ],
+   "at": [
+    0.0135,
+    0.008,
+    0.0175
+   ],
+   "rot": [
+    160,
+    0,
+    15
+   ],
+   "color": "skin",
+   "bone": "leg_f_l",
+   "mirror": true
+  },
+  {
+   "name": "hand_l",
+   "shape": "ball",
+   "size": [
+    0.009,
+    0.003,
+    0.009
+   ],
+   "at": [
+    0.016,
+    0.0015,
+    0.022
+   ],
+   "rot": [
+    0,
+    20,
+    0
+   ],
+   "color": "skin",
+   "bone": "leg_f_l",
+   "mirror": true
+  },
+  {
+   "name": "thigh_l",
+   "shape": "ball",
+   "size": [
+    0.011,
+    0.01,
+    0.029
+   ],
+   "at": [
+    0.0175,
+    0.0095,
+    -0.018
+   ],
+   "rot": [
+    5,
+    25,
+    0
+   ],
+   "color": "skin",
+   "bone": "leg_b_l",
+   "mirror": true
+  },
+  {
+   "name": "shin_l",
+   "shape": "ball",
+   "size": [
+    0.0075,
+    0.007,
+    0.03
+   ],
+   "at": [
+    0.0255,
+    0.0055,
+    -0.02
+   ],
+   "rot": [
+    0,
+    -6,
+    0
+   ],
+   "color": "skin",
+   "bone": "leg_b_l",
+   "mirror": true
+  },
+  {
+   "name": "foot_l",
+   "shape": "ball",
+   "size": [
+    0.011,
+    0.003,
+    0.03
+   ],
+   "at": [
+    0.03,
+    0.0015,
+    -0.019
+   ],
+   "rot": [
+    0,
+    15,
+    0
+   ],
+   "color": "skin",
+   "bone": "leg_b_l",
+   "mirror": true
+  },
+  {
+   "name": "bar_shin_l",
+   "shape": "ball",
+   "size": [
+    0.0085,
+    0.0016,
+    0.003
+   ],
+   "at": [
+    0.0262,
+    0.0088,
+    -0.013
+   ],
+   "rot": [
+    0,
+    -6,
+    0
+   ],
+   "color": "spot",
+   "bone": "leg_b_l",
+   "mirror": true,
+   "separate": true,
+   "detail": 0.5
+  },
+  {
+   "name": "bar_shin2_l",
+   "shape": "ball",
+   "size": [
+    0.0085,
+    0.0016,
+    0.003
+   ],
+   "at": [
+    0.0262,
+    0.0088,
+    -0.024
+   ],
+   "rot": [
+    0,
+    -6,
+    0
+   ],
+   "color": "spot",
+   "bone": "leg_b_l",
+   "mirror": true,
+   "separate": true,
+   "detail": 0.5
+  }
+ ]
+}

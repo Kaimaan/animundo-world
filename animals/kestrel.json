@@ -6,7 +6,8 @@
   "tags": ["small_bird"],
   "diet": ["insects"],
   "hunts": [
-    "vole"
+    "vole",
+    "lizard"
   ],
   "dark_vision": 0.25,
   "walk": 1.5,

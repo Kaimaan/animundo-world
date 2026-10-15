@@ -94,5 +94,26 @@
       "sheltered": "You're tucked away safely.",
       "rain_start": "It's starting to rain. Wet wings are slow and cold: hide in a tree's leaves or under an overhang."
     }
+  },
+  "amphibian": {
+    "extends": "animal",
+    "kind": "amphibian",
+    "cold_blooded": true,
+    "rain_chill": 0.0,
+    "shelter": "earth",
+    "text": {
+      "rain_start": "It's starting to rain. Frogs love the wet!",
+      "rain_stop": "The rain has stopped."
+    }
+  },
+  "reptile": {
+    "extends": "animal",
+    "kind": "reptile",
+    "cold_blooded": true,
+    "shelter": "earth",
+    "text": {
+      "rain_start": "It's starting to rain. Lizards hide under stones until the sun comes back.",
+      "rain_stop": "The rain has stopped. Time to bask in the sun."
+    }
   }
 }

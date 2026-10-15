@@ -1,0 +1,59 @@
+{
+  "archetype": "reptile",
+  "latin": "Zootoca vivipara",
+  "color": "#7a5a3a",
+  "tags": [
+    "reptile",
+    "lizard"
+  ],
+  "diet": [
+    "insects"
+  ],
+  "box": [
+    0.08,
+    0.04,
+    0.08
+  ],
+  "flee_speed": 2.2,
+  "food_value": 8,
+  "model": {
+    "file": "res://assets/animals/lizard.glb",
+    "length": 0.095,
+    "yaw": 0.0,
+    "anims": {
+      "idle": "idle",
+      "walk": "walk",
+      "run": "run",
+      "eat": "eat",
+      "sleep": "sleep"
+    }
+  },
+  "year": {
+    "winter": "hibernates",
+    "hibernation": {
+      "from": "09-25",
+      "to": "04-20",
+      "wakes": "never"
+    },
+    "shelter": "Basks on sunny rocks, stumps and logs, and hides under them; hibernates in holes in the ground and under roots.",
+    "young": "Gives birth to 3–10 live young in July–August (very few lizards do): that's why it's called viviparous, 'live-bearing'.",
+    "food": {
+      "spring": "Spiders and small insects.",
+      "summer": "Insects, spiders and small snails.",
+      "autumn": "Insects before hibernating.",
+      "winter": "Asleep."
+    },
+    "notes": "The only lizard found all over Finland, even north of the Arctic Circle. It can drop its tail to escape, and grows a new one. Basking in the morning sun would be great to show."
+  },
+  "text": {
+    "title": "Common lizard",
+    "caught": "A lizard! +{food} food",
+    "stalk_hint": "A lizard! Get close quietly, then tap Pounce before it darts into hiding.",
+    "about_looks": "A slim brown lizard with a dark stripe down its back and a long tail. Its belly is pale yellow or orange.",
+    "about_food": "Spiders, insects and small snails.",
+    "about_home": "Basks on sunny rocks and logs in forests and on bogs, and hides underneath them.",
+    "about_winter": "Sleeps through winter in a hole in the ground or under tree roots.",
+    "about_young": "Unlike most lizards, it doesn't lay eggs: the young are born alive in late summer.",
+    "about_fact": "If something catches its tail, the lizard can drop it and run. It grows a new one."
+  }
+}
