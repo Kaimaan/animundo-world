@@ -19,6 +19,7 @@ import bmesh
 import json
 import math
 import os
+import re
 import sys
 from mathutils import Matrix, Vector
 
@@ -646,6 +647,9 @@ def main():
     actions = make_actions(spec, arm_obj, height)
 
     model_id = spec["id"]
+    if not isinstance(model_id, str) or not re.fullmatch(r"[a-z][a-z0-9_]*", model_id):   # it becomes a file name
+        print(f"ERROR: 'id' must be lowercase letters, digits and _, got {model_id!r}")
+        sys.exit(1)
     glb = os.path.join(ROOT, "assets", "animals", model_id + ".glb")
     preview = os.path.join(ROOT, "models", "previews", model_id + ".png")
     if os.environ.get("BUILD_OUT"):   # experiments: write somewhere else

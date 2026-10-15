@@ -15,7 +15,10 @@ permissions:
   issues: write
   id-token: write
 concurrency:
-  group: verify-me   # one at a time, so two verifications don't both edit contributors.txt
+  # one run per issue: others can't push a verification out of the queue. Two
+  # issues racing for one code is settled by Firestore (delete only if unchanged),
+  # and two edits of contributors.txt by its sha (read again on conflict).
+  group: verify-me-${{ github.event.issue.number }}
   cancel-in-progress: false
 jobs:
   verify:

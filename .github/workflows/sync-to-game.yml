@@ -7,6 +7,9 @@ name: Sync to the game
 # - Builds the models whose spec or animal file changed, in Blender. The preview
 #   sheets come from the pull request, as reviewed.
 # Writes with a deploy key that only works for the game repo (secret GAME_DEPLOY_KEY).
+# The key is only on disk for the clone and the final push, never while Blender
+# runs content, and only the mirror paths may be committed (a merged file can't
+# add a workflow or code to the game).
 
 on:
   push:
@@ -39,6 +42,7 @@ jobs:
         with:
           repository: Kaimaan/animundo
           ssh-key: ${{ secrets.GAME_DEPLOY_KEY }}
+          persist-credentials: false   # gone before any content is built
           path: game
 
       - name: Stop if content was changed in the game repo
@@ -60,6 +64,8 @@ jobs:
               esac
             done | sort -u)
           fi
+          # only plain spec names reach the build (a file name is never run as shell)
+          specs=$(printf '%s\n' $specs | grep -E '^models/(plants/)?[a-z][a-z0-9_]*\.json$' || true)
           echo "specs=$(echo $specs)" >> "$GITHUB_OUTPUT"
           echo "To build: ${specs:-nothing}"
 
@@ -75,6 +81,7 @@ jobs:
         working-directory: world
         env:
           BLENDER: /home/runner/blender/blender
+          SPECS: ${{ steps.models.outputs.specs }}
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y -qq libxi6 libxkbcommon0 libxrender1 libxxf86vm1 libxfixes3 libsm6 libgl1 libegl1 > /dev/null
@@ -82,7 +89,7 @@ jobs:
             mkdir -p ~/blender
             curl -sL https://download.blender.org/release/Blender5.2/blender-5.2.2-linux-x64.tar.xz | tar -xJ -C ~/blender --strip-components=1
           fi
-          tools/build_model.sh ${{ steps.models.outputs.specs }}
+          tools/build_model.sh $SPECS
           git checkout -- models/previews   # keep the reviewed preview sheets
 
       - name: Copy into the game repo
@@ -90,8 +97,17 @@ jobs:
 
       - name: Commit and push if anything changed
         working-directory: game
+        env:
+          DEPLOY_KEY: ${{ secrets.GAME_DEPLOY_KEY }}
         run: |
-          git add -A
+          # the mirror paths only (decision 0013); anything else changed is refused
+          git add -A -- regions animals models locale assets/animals assets/plants ART.md wanted.json \
+            docs/animals-wanted.md docs/catalogue.md tools/validate_region.py tools/build_model.sh \
+            tools/catalogue.py tools/blender .world-sync
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "::error::The sync changed files outside the content mirror:"; git status --porcelain
+            exit 1
+          fi
           if git diff --cached --quiet -- . ':!.world-sync'; then
             echo "The game repo is already up to date"
             exit 0
@@ -100,6 +116,12 @@ jobs:
           git config user.email "animundo-sync@users.noreply.github.com"
           msg=$(git -C ../world log -1 --format=%s)
           git commit -q -m "Content from animundo-world ${GITHUB_SHA::7}: $msg" -m "https://github.com/${GITHUB_REPOSITORY}/commit/${GITHUB_SHA}"
+          mkdir -p ~/.ssh
+          printf '%s\n' "$DEPLOY_KEY" > ~/.ssh/game_key
+          chmod 600 ~/.ssh/game_key
+          ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
+          export GIT_SSH_COMMAND="ssh -i $HOME/.ssh/game_key -o IdentitiesOnly=yes"
+          git remote set-url origin git@github.com:Kaimaan/animundo.git
           for i in 1 2 3 4 5; do
             git push -q && { git log --oneline -1; exit 0; }
             git pull -q --rebase
