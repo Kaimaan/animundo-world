@@ -5,6 +5,8 @@
   "ui.ios_fullscreen": "iPhonessa: napauta Jaa ja sitten 'Lisää Koti-valikkoon', niin voit pelata koko näytöllä.",
   "ui.update": "Uusi versio – päivitä napauttamalla",
   "ui.rotate_device": "Käännä laite vaakatasoon pelataksesi",
+  "ui.rotate_tap": "Napauta tästä, niin peli kääntyy",
+  "ui.rotate_hint": "Jos ruutu ei käänny, laita puhelimen automaattinen kääntö päälle.",
   "ui.guide.move": "LIIKU",
   "ui.guide.look": "katsele vetämällä tästä",
   "ui.mode.safe": "Turvallinen",
