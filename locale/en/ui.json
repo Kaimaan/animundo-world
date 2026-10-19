@@ -5,6 +5,8 @@
   "ui.ios_fullscreen": "On iPhone: tap Share, then 'Add to Home Screen' to play full screen.",
   "ui.update": "New version — tap to update",
   "ui.rotate_device": "Turn your device sideways to play",
+  "ui.rotate_tap": "Tap here to play sideways",
+  "ui.rotate_hint": "If the screen doesn't turn, switch on auto-rotate on your phone.",
   "ui.guide.move": "MOVE",
   "ui.guide.look": "drag here to look around",
   "ui.mode.safe": "Safe",
