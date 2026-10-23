@@ -1,0 +1,83 @@
+{
+  "archetype": "bird",
+  "latin": "Parus major",
+  "playable": true,
+  "color": "#c9b646",
+  "tags": [
+    "small_bird"
+  ],
+  "diet": [
+    "seeds",
+    "insects"
+  ],
+  "dark_vision": 0.2,
+  "walk": 1.2,
+  "fly": 6.0,
+  "sprint": 9.0,
+  "jump": 3.5,
+  "box": [
+    0.14,
+    0.14,
+    0.14
+  ],
+  "cam_height": 0.25,
+  "cam_dist": 1.6,
+  "flee_speed": 6.0,
+  "food_value": 12,
+  "songbird": {
+    "song": [
+      "♪",
+      "♫"
+    ],
+    "sings": [
+      "02-15",
+      "07-01"
+    ]
+  },
+  "model": {
+    "file": "res://assets/animals/great_tit.glb",
+    "length": 0.04,
+    "yaw": 0.0,
+    "anims": {
+      "idle": "idle",
+      "walk": "walk",
+      "run": "run",
+      "eat": "eat",
+      "sleep": "sleep",
+      "fly": "fly"
+    }
+  },
+  "text": {
+    "title": "Great tit",
+    "menu_sub": "Flit between trees and find seeds and insects.",
+    "menu_wild": "Watch for predators while feeding on the ground.",
+    "intro": "Hold Fly to climb. Find seeds and insects, then rest among tree branches.",
+    "hungry": "Look for seeds and insects on the forest floor.",
+    "no_food": "No seeds or insects nearby. Search another patch of forest.",
+    "chased": "A predator! Fly into the trees.",
+    "caught": "A great tit! +{food} food",
+    "nearby": "A great tit flits between the trees.",
+    "about_looks": "A small bird with a black head, white cheeks and a yellow belly with a black stripe.",
+    "about_food": "Insects and caterpillars, and seeds especially in autumn and winter.",
+    "about_home": "Lives in woods, parks and gardens. Nests in a tree hole or nest box.",
+    "about_winter": "Many stay in Finland through winter, searching for food with other tits.",
+    "about_young": "The young hatch in a sheltered cavity in spring or early summer.",
+    "about_fact": "Its familiar two-note spring song sounds like ti-tyy."
+  },
+  "sources": [
+    "https://www.vaasa.fi/asu-ja-ela/vapaa-aika/luontovaasa/linnut/vaasan-lintulajit/kulttuurimaiden-lajit/talitiainen/",
+    "https://suomenluonto.fi/kortit/talitiainen/"
+  ],
+  "year": {
+    "winter": "active",
+    "shelter": "Roosts and nests in tree holes or boxes; the game approximates shelter with crowns.",
+    "young": "Nests in cavities in spring and early summer.",
+    "food": {
+      "spring": "Insects, caterpillars and seeds.",
+      "summer": "Insects and caterpillars.",
+      "autumn": "Seeds and invertebrates.",
+      "winter": "Seeds and overwintering invertebrates."
+    },
+    "notes": "Resident encounter species. Cavity nesting is not yet simulated."
+  }
+}
