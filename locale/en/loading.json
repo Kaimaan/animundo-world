@@ -21,5 +21,10 @@
   "loading.help.garden": "Leave a corner of your garden wild. Flowers and long grass feed bees and butterflies.",
   "loading.help.litter": "Take your litter home. Plastic in nature can hurt animals for many years.",
   "loading.help.pet_fish": "Never let pet fish go in a lake. They can bring diseases and push out wild fish.",
-  "loading.help.trails": "Stay on the trails in nature parks, so plants and nests don't get trampled."
+  "loading.help.trails": "Stay on the trails in nature parks, so plants and nests don't get trampled.",
+  "loading.install.title": "Add Animundo to your home screen?",
+  "loading.install.body": "Open the animal world with one tap next time.",
+  "loading.install.ios": "Open your browser’s Share menu, choose Add to Home Screen, then tap Add.",
+  "loading.install.add": "Add to home screen",
+  "loading.install.later": "Not now"
 }

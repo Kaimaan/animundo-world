@@ -21,5 +21,10 @@
   "loading.help.garden": "Jätä pihan nurkka villiksi. Kukat ja pitkä heinä ruokkivat mehiläisiä ja perhosia.",
   "loading.help.litter": "Vie roskasi kotiin. Muovi luonnossa voi vahingoittaa eläimiä vuosien ajan.",
   "loading.help.pet_fish": "Älä koskaan päästä lemmikkikaloja järveen. Ne voivat levittää tauteja ja syrjäyttää luonnonvaraiset kalat.",
-  "loading.help.trails": "Pysy luontopolulla, jotta kasvit ja pesät eivät tallaannu."
+  "loading.help.trails": "Pysy luontopolulla, jotta kasvit ja pesät eivät tallaannu.",
+  "loading.install.title": "Lisätäänkö Animundo kotivalikkoon?",
+  "loading.install.body": "Avaa eläinten maailma ensi kerralla yhdellä napautuksella.",
+  "loading.install.ios": "Avaa selaimen Jaa-valikko, valitse Lisää Koti-valikkoon ja napauta Lisää.",
+  "loading.install.add": "Lisää kotivalikkoon",
+  "loading.install.later": "Ei nyt"
 }
