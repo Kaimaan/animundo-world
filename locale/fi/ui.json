@@ -309,5 +309,6 @@
   "ui.account.stay": "Pysy kirjautuneena",
   "ui.account.sign_in": "Kirjaudu sisään",
   "ui.season.away": "Muuttanut talveksi pois",
-  "ui.season.hibernating": "Talvihorroksessa kevääseen asti"
+  "ui.season.hibernating": "Talvihorroksessa kevääseen asti",
+  "ui.guide.try_animal": "Pelaa eläimenä: {animal}"
 }

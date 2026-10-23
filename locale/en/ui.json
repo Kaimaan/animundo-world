@@ -309,5 +309,6 @@
   "ui.account.stay": "Stay signed in",
   "ui.account.sign_in": "Sign in",
   "ui.season.away": "Away for winter",
-  "ui.season.hibernating": "Hibernating until spring"
+  "ui.season.hibernating": "Hibernating until spring",
+  "ui.guide.try_animal": "Play as {animal}"
 }
