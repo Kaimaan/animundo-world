@@ -1,0 +1,80 @@
+{
+  "archetype": "land_mammal",
+  "latin": "Pteromys volans",
+  "playable": true,
+  "color": "#96968e",
+  "tags": [
+    "small_mammal"
+  ],
+  "diet": [
+    "browse"
+  ],
+  "dark_vision": 0.85,
+  "digs": false,
+  "climbs": true,
+  "climb": 2.8,
+  "shelter": "leaves",
+  "walk": 3.6,
+  "sprint": 6.5,
+  "jump": 6.6,
+  "box": [
+    0.3,
+    0.35,
+    0.3
+  ],
+  "cam_height": 0.35,
+  "cam_dist": 1.7,
+  "model": {
+    "file": "res://assets/animals/flying_squirrel.glb",
+    "length": 0.25,
+    "yaw": 0.0,
+    "anims": {
+      "idle": "idle",
+      "walk": "walk",
+      "run": "run",
+      "eat": "eat",
+      "sleep": "sleep",
+      "fly": "fly"
+    }
+  },
+  "text": {
+    "title": "Siberian flying squirrel",
+    "menu_sub": "Climb a tree, then hold Jump and steer to glide.",
+    "menu_wild": "Watch for predators. Climb and glide to safety.",
+    "intro_safe": "Climb a trunk, then hold Jump and steer away to glide. You lose height as you glide.",
+    "intro_survival": "Find leaves and buds to eat. Climb trees and glide between them.",
+    "intro_wild": "Stay near trees. Climb to safety and glide away from danger.",
+    "night_hint": "It's night. Run at a spruce trunk to climb it, then sleep in its thick branches.",
+    "too_exposed": "Too exposed to sleep! Climb a spruce and curl up in its thick branches.",
+    "sheltered": "You're curled up safe and warm in the spruce branches.",
+    "hungry": "Look for leaves and buds on young trees.",
+    "no_food": "No leaves or buds within reach. Look for young trees.",
+    "rain_start": "It's starting to rain. Climb into a spruce's thick branches to stay warm.",
+    "chased": "A fox is chasing you! Run up a tree!",
+    "about_looks": "Soft grey fur, a white belly, large dark eyes and a flat tail. A skin membrane stretches between its front and back legs.",
+    "about_food": "Leaves in summer; buds and birch and alder catkins in winter.",
+    "about_home": "Lives in tree holes and sometimes old squirrel dreys in mixed forests.",
+    "about_winter": "Stays active through winter and stores catkins for food.",
+    "about_young": "The mother raises her young in a tree nest in spring, sometimes with a second litter in summer.",
+    "about_fact": "It glides using skin stretched between its legs. It cannot flap or fly upwards."
+  },
+  "year": {
+    "winter": "active",
+    "shelter": "Tree holes, nest boxes and dreys. Tree crowns approximate shelter in the current game.",
+    "young": "Mother raises young in spring; sometimes a second summer litter.",
+    "food": {
+      "spring": "Buds and birch and alder catkins.",
+      "summer": "Mostly aspen and alder leaves.",
+      "autumn": "Leaves, buds and catkins; stores catkins.",
+      "winter": "Birch and alder catkins and tree buds."
+    },
+    "notes": "Nocturnal. Glides downwards between trees. Current browse food represents leaves and buds; stored catkins and nest cavities are not yet simulated."
+  },
+  "glides": true,
+  "glide_speed": 7.0,
+  "glide_sink": 1.8,
+  "sources": [
+    "https://wwf.fi/elainlajit/liito-orava/",
+    "https://julkaisut.metsa.fi/assets/pdf/lp/Muut/Liito_orava_kaupunkisuunnittelussa.pdf"
+  ]
+}
