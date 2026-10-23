@@ -1,0 +1,74 @@
+{
+  "id": "cottongrass",
+  "name": "Hare’s-tail cottongrass",
+  "latin": "Eriophorum vaginatum",
+  "author": "Animundo team",
+  "kind": "ground",
+  "year": {
+    "leaves": "evergreen",
+    "flowers": "Brown flower spike in spring.",
+    "fruit": "White cottony seed heads in early summer.",
+    "notes": "Grows in bogs. Simplified clump."
+  },
+  "sources": [
+    "https://www.luopioistenkasvisto.fi/Sivut/Kasvilajit/Tupasvilla.html"
+  ],
+  "colors": {
+    "green": "#6a8a43",
+    "white": "#eee9d9"
+  },
+  "parts": [
+    {
+      "name": "tuft",
+      "shape": "ball",
+      "size": [
+        0.16,
+        0.05,
+        0.16
+      ],
+      "at": [
+        0,
+        0.025,
+        0
+      ],
+      "color": "green",
+      "detail": 0.3
+    },
+    {
+      "name": "stem",
+      "shape": "cylinder",
+      "size": [
+        0.008,
+        0.45,
+        0.008
+      ],
+      "at": [
+        0,
+        0.225,
+        0
+      ],
+      "color": "green",
+      "detail": 0.3
+    },
+    {
+      "name": "cotton",
+      "shape": "ball",
+      "size": [
+        0.045,
+        0.07,
+        0.045
+      ],
+      "at": [
+        0,
+        0.46,
+        0
+      ],
+      "color": "white",
+      "detail": 0.3,
+      "show": {
+        "from": "summer",
+        "until": "summer+50"
+      }
+    }
+  ]
+}
