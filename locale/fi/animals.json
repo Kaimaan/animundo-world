@@ -290,5 +290,18 @@
   "animal.flying_squirrel.too_exposed": "Liian avointa nukkumiseen. Kiipeä suojaiseen latvukseen.",
   "animal.flying_squirrel.sheltered": "Olet suojassa puun oksistossa.",
   "animal.flying_squirrel.rain_start": "Alkaa sataa. Kiipeä suojaan puun oksistoon.",
-  "animal.flying_squirrel.chased": "Saalistaja lähestyy! Kiipeä puuhun ja liidä turvaan."
+  "animal.flying_squirrel.chased": "Saalistaja lähestyy! Kiipeä puuhun ja liidä turvaan.",
+  "animal.mallard.title": "Sinisorsa",
+  "animal.mallard.menu_sub": "Ui järvillä ja lennä rannalta toiselle.",
+  "animal.mallard.intro": "Ohjaa uidaksesi. Pidä lentopainike painettuna noustaksesi vedestä.",
+  "animal.mallard.menu_wild": "Varo rantojen saalistajia.",
+  "animal.mallard.hungry": "Etsi vesikasveja ja pieniä vesieläimiä.",
+  "animal.mallard.no_food": "Ei ruokaa lähellä. Etsi matalasta vedestä.",
+  "animal.mallard.chased": "Saalistaja! Ui pois tai nouse lentoon.",
+  "animal.mallard.about_looks": "Ruskea naarassinisorsa, jolla on leveä nokka ja sininen siipipeili.",
+  "animal.mallard.about_food": "Vesikasveja, siemeniä ja pieniä selkärangattomia.",
+  "animal.mallard.about_home": "Järviä, lampia ja suojaisia rantoja. Pesä on kasvillisuuden kätkössä maassa.",
+  "animal.mallard.about_winter": "Useimmat muuttavat etelämmäksi sulan veden äärelle.",
+  "animal.mallard.about_young": "Emo johtaa poikaset veteen. Ne etsivät itse ruokansa.",
+  "animal.mallard.about_fact": "Sinisorsa voi kurottaa veden alle niin, että pyrstö osoittaa kohti taivasta."
 }

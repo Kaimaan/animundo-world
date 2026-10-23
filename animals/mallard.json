@@ -1,0 +1,79 @@
+{
+  "archetype": "bird",
+  "latin": "Anas platyrhynchos",
+  "playable": true,
+  "color": "#82654b",
+  "tags": [
+    "bird",
+    "small_bird"
+  ],
+  "diet": [
+    "water_plants",
+    "water_bugs"
+  ],
+  "hunts": [],
+  "dark_vision": 0.25,
+  "walk": 1.4,
+  "fly": 7.0,
+  "sprint": 10.0,
+  "jump": 4.0,
+  "box": [
+    0.3,
+    0.32,
+    0.4
+  ],
+  "cam_height": 0.35,
+  "cam_dist": 2.2,
+  "model": {
+    "file": "res://assets/animals/mallard.glb",
+    "length": 0.22,
+    "yaw": 0.0,
+    "anims": {
+      "idle": "idle",
+      "walk": "walk",
+      "run": "run",
+      "eat": "eat",
+      "sleep": "sleep",
+      "fly": "fly"
+    }
+  },
+  "text": {
+    "title": "Mallard",
+    "menu_sub": "Paddle on the lakes and fly between shores.",
+    "menu_wild": "Foxes catch you on the ground.",
+    "intro": "Steer to paddle. Hold Fly to take off from the water.",
+    "hungry": "Look for water plants and small water animals.",
+    "no_food": "No food nearby. Explore the shallow water.",
+    "chased": "A predator! Swim away or take flight.",
+    "about_looks": "A brown female mallard, with a broad bill and a blue wing patch.",
+    "about_food": "Water plants, seeds and small invertebrates.",
+    "about_home": "Lakes, ponds and sheltered shores. Nests hidden on the ground.",
+    "about_winter": "Most migrate to open water farther south.",
+    "about_young": "The mother leads her ducklings to water. They find their own food.",
+    "about_fact": "A mallard can feed by tipping its head underwater and leaving its tail pointing up."
+  },
+  "year": {
+    "winter": "migrates",
+    "migration": {
+      "leaves": "11-01",
+      "returns": "04-01"
+    },
+    "shelter": "Sheltered shores; ground nest hidden in vegetation. Current game uses vegetation shelter.",
+    "young": "Female lays 5–12 eggs in April–May and leads the ducklings.",
+    "food": {
+      "spring": "Water plants, seeds and aquatic invertebrates.",
+      "summer": "Water plants, seeds and aquatic invertebrates.",
+      "autumn": "Water plants, seeds and aquatic invertebrates.",
+      "winter": "Water plants, seeds and aquatic invertebrates."
+    },
+    "notes": "Female plumage. First version has surface paddling and flight; no duckling family yet."
+  },
+  "surface_swimmer": true,
+  "swim_speed": 2.0,
+  "spawn": "water",
+  "rain_chill": 0.1,
+  "shelter": "leaves",
+  "sources": [
+    "https://riista.fi/riistalajit/sinisorsa-eli-heinasorsa/"
+  ]
+}
