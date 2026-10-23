@@ -255,3 +255,7 @@ All text the player sees is in [`locale/`](locale/), one folder per language wit
 - `plants.json`: the field guide pages of plants, mushrooms and trees, in every language including English. Keys are `plant.<id>.<part>`: `title`, `latin` (the same in every language), `about_looks`, `about_grows`, `about_year`, `about_safety`, `about_fact`, and an optional short `warning` shown when a player taps it ("Poisonous! Look, but don't pick."). `<id>` is the plant's id in `models/plants/`, or a tree's `plant` in the region. Safety text must be checked by someone who knows the species.
 
 Keep `{placeholders}` such as `{day}` exactly as they are; you can move them anywhere in the sentence. Anything not yet translated shows in English. To add a language, create `locale/<code>/` (two-letter ISO code) and add it to [`locale/languages.json`](locale/languages.json) under its own name (`"fi": "Suomi"`). The checker above reports what's still missing; add `--strict` to treat gaps as errors.
+
+## Wetland habitats
+
+Regions may define `bogs`: `{name, x, z, radius}` (normalised centre, radius in metres), and `streams`: `{points: [[x,z], ...], width}` (normalised points, width in metres). Channels use the same water level as lakes. Their layout is illustrative unless researched and documented. Plants with `habitat: "bog"` grow only in bogs; omitted habitat means forest. Each habitat has its own density total of at most 1.

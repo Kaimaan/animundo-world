@@ -153,6 +153,18 @@ def check(path):
         if "food" in t and not (isinstance(t["food"], str) and t["food"]):
             err(f'"trees.mix[{i}].food" must be a food kind like "browse"')
 
+    for i, bog in enumerate(d.get("bogs", [])):
+        if not isinstance(bog, dict) or not all(isinstance(bog.get(k), (int, float)) and 0 <= bog[k] <= 1 for k in ("x", "z")):
+            err(f'"bogs[{i}]" needs x/z between 0 and 1')
+        if not isinstance(bog, dict) or not isinstance(bog.get("radius"), (int, float)) or not 1 <= bog["radius"] <= 512:
+            err(f'"bogs[{i}].radius" must be 1–512 metres')
+    for i, stream in enumerate(d.get("streams", [])):
+        points = stream.get("points", []) if isinstance(stream, dict) else []
+        if not isinstance(points, list) or len(points) < 2 or not all(isinstance(p, list) and len(p) == 2 and all(isinstance(v, (int, float)) and 0 <= v <= 1 for v in p) for p in points):
+            err(f'"streams[{i}].points" needs at least two x/z pairs between 0 and 1')
+        if not isinstance(stream, dict) or not isinstance(stream.get("width"), (int, float)) or not 1 <= stream["width"] <= 32:
+            err(f'"streams[{i}].width" must be 1–32 metres')
+
     gc = d.get("ground_cover", {})
     for k in ("grass", "flowers", "stones"):
         num("ground_cover", k, 0, 1)
@@ -161,6 +173,8 @@ def check(path):
         err('"ground_cover.plants" must be a list')
         plants = []
     for i, pl in enumerate(plants):
+        if pl.get("habitat", "forest") not in ("forest", "bog"):
+            err(f'"ground_cover.plants[{i}].habitat" must be forest or bog')
         if pl.get("model") not in PLANTS:
             err(f'"ground_cover.plants[{i}].model" must be a plant in models/plants/ (known: {sorted(PLANTS)})')
         elif not os.path.exists(os.path.join(ROOT, "assets", "plants", pl["model"] + ".glb")):
@@ -189,7 +203,10 @@ def check(path):
             if not isinstance(pl.get("names", []), list):
                 err(f'"ground_cover.plants[{i}].names" must be a list of the food names the player is told')
     total = sum(gc.get(k, 0) for k in ("grass", "flowers", "stones"))
-    total += sum(pl.get("density", 0) for pl in plants if isinstance(pl.get("density"), (int, float)))
+    total += sum(pl.get("density", 0) for pl in plants if pl.get("habitat", "forest") == "forest" and isinstance(pl.get("density"), (int, float)))
+    bog_total = sum(pl.get("density", 0) for pl in plants if pl.get("habitat") == "bog" and isinstance(pl.get("density"), (int, float)))
+    if bog_total > 1:
+        err('Bog plant densities must add up to 1 or less')
     if total > 1:
         err('"ground_cover" grass + flowers + stones + plant densities must add up to 1 or less')
     cost = plant_cost(plants)
