@@ -1,0 +1,542 @@
+{
+  "id": "great_tit",
+  "name": "Great tit (Parus major)",
+  "author": "Animundo team",
+  "gait": "walk",
+  "fly_pitch": 45.0,
+  "colors": {
+    "back": "#738340",
+    "crown": "#202526",
+    "breast": "#d2bd47",
+    "belly": "#d6c553",
+    "rump": "#829147",
+    "wing": "#536773",
+    "white": "#f1efe8",
+    "dark": "#1c1816",
+    "beak": "#292c2d",
+    "legs": "#7c858a"
+  },
+  "bones": [
+    {
+      "name": "body",
+      "head": [
+        0.0,
+        0.0329,
+        -0.0235
+      ],
+      "tail": [
+        0.0,
+        0.0752,
+        0.0141
+      ],
+      "role": "body"
+    },
+    {
+      "name": "head",
+      "head": [
+        0.0,
+        0.0799,
+        0.0141
+      ],
+      "tail": [
+        0.0,
+        0.101,
+        0.0235
+      ],
+      "parent": "body",
+      "role": "head"
+    },
+    {
+      "name": "wing_l",
+      "head": [
+        0.0179,
+        0.0743,
+        0.0094
+      ],
+      "tail": [
+        0.1356,
+        0.0607,
+        -0.0072
+      ],
+      "parent": "body",
+      "role": "wing",
+      "mirror": true,
+      "fold": [
+        -111.0,
+        18.0,
+        -80.8
+      ],
+      "fold_length": 0.5
+    },
+    {
+      "name": "tail",
+      "head": [
+        0.0,
+        0.0352,
+        -0.0258
+      ],
+      "tail": [
+        0,
+        0.016,
+        -0.08
+      ],
+      "parent": "body",
+      "role": "tail"
+    },
+    {
+      "name": "leg_l",
+      "head": [
+        0.0085,
+        0.0329,
+        -0.0024
+      ],
+      "tail": [
+        0.0085,
+        0.0,
+        0.0047
+      ],
+      "parent": "body",
+      "role": "leg",
+      "phase": 0.0,
+      "mirror": true
+    }
+  ],
+  "skin": {
+    "triangles": 900
+  },
+  "parts": [
+    {
+      "name": "body",
+      "shape": "ball",
+      "size": [
+        0.0458,
+        0.0376,
+        0.0705
+      ],
+      "at": [
+        0.0,
+        0.0541,
+        -0.0047
+      ],
+      "rot": [
+        -50,
+        0,
+        0
+      ],
+      "color": "back",
+      "bone": "body"
+    },
+    {
+      "name": "breast",
+      "shape": "ball",
+      "size": [
+        0.0416,
+        0.0376,
+        0.0517
+      ],
+      "at": [
+        0.0,
+        0.0489,
+        0.0019
+      ],
+      "rot": [
+        -55,
+        0,
+        0
+      ],
+      "color": "breast",
+      "bone": "body"
+    },
+    {
+      "name": "belly",
+      "shape": "ball",
+      "size": [
+        0.039,
+        0.034,
+        0.042
+      ],
+      "at": [
+        0,
+        0.042,
+        -0.012
+      ],
+      "rot": [
+        -55,
+        0,
+        0
+      ],
+      "color": "belly",
+      "bone": "body"
+    },
+    {
+      "name": "upper_breast",
+      "shape": "ball",
+      "size": [
+        0.0342,
+        0.0235,
+        0.0188
+      ],
+      "at": [
+        0.0,
+        0.0667,
+        0.016
+      ],
+      "rot": [
+        -40,
+        0,
+        0
+      ],
+      "color": "breast",
+      "bone": "body"
+    },
+    {
+      "name": "rump",
+      "shape": "ball",
+      "size": [
+        0.0235,
+        0.0211,
+        0.0235
+      ],
+      "at": [
+        0.0,
+        0.0367,
+        -0.0244
+      ],
+      "color": "rump",
+      "bone": "body"
+    },
+    {
+      "name": "neck",
+      "shape": "ball",
+      "size": [
+        0.0235,
+        0.0235,
+        0.0235
+      ],
+      "at": [
+        0.0,
+        0.0822,
+        0.0141
+      ],
+      "color": "crown",
+      "bone": "head"
+    },
+    {
+      "name": "head",
+      "shape": "ball",
+      "size": [
+        0.0295,
+        0.0284,
+        0.0316
+      ],
+      "at": [
+        0.0,
+        0.094,
+        0.0211
+      ],
+      "color": "crown",
+      "bone": "head"
+    },
+    {
+      "name": "throat",
+      "shape": "ball",
+      "size": [
+        0.0188,
+        0.0169,
+        0.015
+      ],
+      "at": [
+        0.0,
+        0.0785,
+        0.0226
+      ],
+      "color": "dark",
+      "bone": "head"
+    },
+    {
+      "name": "cheek_l",
+      "shape": "ball",
+      "size": [
+        0.013,
+        0.0141,
+        0.0141
+      ],
+      "at": [
+        0.0061,
+        0.0869,
+        0.0291
+      ],
+      "color": "white",
+      "bone": "head",
+      "mirror": true,
+      "separate": true,
+      "detail": 0.5
+    },
+    {
+      "name": "eye_l",
+      "shape": "ball",
+      "size": [
+        0.0056,
+        0.0066,
+        0.0066
+      ],
+      "at": [
+        0.0085,
+        0.0963,
+        0.031
+      ],
+      "color": "dark",
+      "bone": "head",
+      "mirror": true,
+      "separate": true,
+      "detail": 0.7
+    },
+    {
+      "name": "beak",
+      "shape": "cone",
+      "size": [
+        0.0095,
+        0.011,
+        0.0095
+      ],
+      "at": [
+        0,
+        0.0898,
+        0.0362
+      ],
+      "rot": [
+        125,
+        0,
+        0
+      ],
+      "color": "beak",
+      "bone": "head",
+      "separate": true,
+      "detail": 0.4
+    },
+    {
+      "name": "wing_in_l",
+      "shape": "ball",
+      "size": [
+        0.0724,
+        0.006,
+        0.032
+      ],
+      "at": [
+        0.0485,
+        0.0706,
+        -0.0104
+      ],
+      "rot": [
+        0,
+        8.0,
+        -5.0
+      ],
+      "color": "wing",
+      "bone": "wing_l",
+      "mirror": true,
+      "separate": true,
+      "detail": 0.6
+    },
+    {
+      "name": "wing_out_l",
+      "shape": "taper",
+      "top": 0.15,
+      "size": [
+        0.006,
+        0.0724,
+        0.0282
+      ],
+      "at": [
+        0.0985,
+        0.0649,
+        -0.0196
+      ],
+      "rot": [
+        0,
+        8.0,
+        -95.0
+      ],
+      "color": "wing",
+      "bone": "wing_l",
+      "mirror": true,
+      "separate": true,
+      "detail": 0.4
+    },
+    {
+      "name": "shoulder_l",
+      "shape": "ball",
+      "size": [
+        0.029,
+        0.0075,
+        0.012
+      ],
+      "at": [
+        0.036,
+        0.0711,
+        -0.0024
+      ],
+      "rot": [
+        0,
+        8.0,
+        -5.0
+      ],
+      "color": "white",
+      "bone": "wing_l",
+      "mirror": true,
+      "separate": true,
+      "detail": 0.6
+    },
+    {
+      "name": "wingbar_l",
+      "shape": "ball",
+      "size": [
+        0.0615,
+        0.0075,
+        0.006
+      ],
+      "at": [
+        0.0485,
+        0.0711,
+        -0.0144
+      ],
+      "rot": [
+        0,
+        8.0,
+        -5.0
+      ],
+      "color": "white",
+      "bone": "wing_l",
+      "mirror": true,
+      "separate": true,
+      "detail": 0.6
+    },
+    {
+      "name": "tail",
+      "shape": "taper",
+      "top": 0.7,
+      "size": [
+        0.036,
+        0.068,
+        0.005
+      ],
+      "at": [
+        0,
+        0.025,
+        -0.058
+      ],
+      "rot": [
+        75,
+        0,
+        0
+      ],
+      "color": "dark",
+      "bone": "tail",
+      "separate": true,
+      "detail": 0.4
+    },
+    {
+      "name": "tail_edge_l",
+      "shape": "taper",
+      "top": 0.7,
+      "size": [
+        0.005,
+        0.054,
+        0.0045
+      ],
+      "at": [
+        0.0155,
+        0.024,
+        -0.062
+      ],
+      "rot": [
+        75,
+        0,
+        0
+      ],
+      "color": "white",
+      "bone": "tail",
+      "separate": true,
+      "detail": 0.4,
+      "mirror": true
+    },
+    {
+      "name": "thigh_l",
+      "shape": "ball",
+      "size": [
+        0.0141,
+        0.0188,
+        0.0164
+      ],
+      "at": [
+        0.0085,
+        0.032,
+        -0.0014
+      ],
+      "color": "belly",
+      "bone": "leg_l",
+      "mirror": true
+    },
+    {
+      "name": "shank_l",
+      "shape": "cylinder",
+      "size": [
+        0.0045,
+        0.0235,
+        0.0045
+      ],
+      "at": [
+        0.0085,
+        0.0132,
+        0.0019
+      ],
+      "color": "legs",
+      "bone": "leg_l",
+      "mirror": true,
+      "separate": true,
+      "detail": 0.4
+    },
+    {
+      "name": "foot_l",
+      "shape": "ball",
+      "size": [
+        0.0122,
+        0.0038,
+        0.016
+      ],
+      "at": [
+        0.0085,
+        0.0019,
+        0.0056
+      ],
+      "color": "legs",
+      "bone": "leg_l",
+      "mirror": true,
+      "separate": true,
+      "detail": 0.4
+    },
+    {
+      "name": "bib",
+      "shape": "ball",
+      "size": [
+        0.009,
+        0.04,
+        0.012
+      ],
+      "at": [
+        0,
+        0.052,
+        0.022
+      ],
+      "rot": [
+        -35,
+        0,
+        0
+      ],
+      "color": "dark",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.5
+    }
+  ]
+}

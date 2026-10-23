@@ -303,5 +303,20 @@
   "animal.mallard.about_home": "Järviä, lampia ja suojaisia rantoja. Pesä on kasvillisuuden kätkössä maassa.",
   "animal.mallard.about_winter": "Useimmat muuttavat etelämmäksi sulan veden äärelle.",
   "animal.mallard.about_young": "Emo johtaa poikaset veteen. Ne etsivät itse ruokansa.",
-  "animal.mallard.about_fact": "Sinisorsa voi kurottaa veden alle niin, että pyrstö osoittaa kohti taivasta."
+  "animal.mallard.about_fact": "Sinisorsa voi kurottaa veden alle niin, että pyrstö osoittaa kohti taivasta.",
+  "animal.great_tit.title": "Talitiainen",
+  "animal.great_tit.menu_sub": "Pyrähtele puusta toiseen ja etsi siemeniä ja hyönteisiä.",
+  "animal.great_tit.menu_wild": "Varo saalistajia ruokaillessasi maassa.",
+  "animal.great_tit.intro": "Pidä lentopainike painettuna noustaksesi. Etsi siemeniä ja hyönteisiä ja lepää oksistossa.",
+  "animal.great_tit.hungry": "Etsi siemeniä ja hyönteisiä metsänpohjalta.",
+  "animal.great_tit.no_food": "Ei siemeniä tai hyönteisiä lähellä. Tutki toista kohtaa metsästä.",
+  "animal.great_tit.chased": "Saalistaja! Lennä puiden suojaan.",
+  "animal.great_tit.caught": "Talitiainen! +{food} ruokaa",
+  "animal.great_tit.nearby": "Talitiainen pyrähtää puusta toiseen.",
+  "animal.great_tit.about_looks": "Musta pää, valkoiset posket ja keltainen vatsa, jonka keskellä kulkee musta juova.",
+  "animal.great_tit.about_food": "Hyönteisiä ja toukkia sekä etenkin syksyllä ja talvella siemeniä.",
+  "animal.great_tit.about_home": "Metsiä, puistoja ja pihoja. Pesii puunkolossa tai pöntössä.",
+  "animal.great_tit.about_winter": "Monet jäävät Suomeen talveksi ja etsivät ruokaa muiden tiaisten kanssa.",
+  "animal.great_tit.about_young": "Poikaset kuoriutuvat suojaisassa kolopesässä keväällä tai alkukesällä.",
+  "animal.great_tit.about_fact": "Tuttu kaksitavuinen kevätlaulu kuulostaa ti-tyyltä."
 }
