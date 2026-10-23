@@ -6,10 +6,10 @@
     "lat": 60.3007,
     "lon": 24.5263
   },
-  "description": "Boreal forest of spruce, Scots pine and birch on rolling granite bedrock, dotted with small dark lakes. Home of the Siberian flying squirrel.",
+  "description": "Boreal forest of spruce, Scots pine and birch on rolling granite bedrock, dotted with small dark lakes. Home of the Siberian flying squirrel. Local travel-test layout: named lakes are simplified and reduced in size, with compressed distances; this is not a geographic reconstruction.",
   "author": "Animundo team",
   "terrain": {
-    "size": 512,
+    "size": 2048,
     "base_height": 9,
     "relief": 12,
     "frequency": 0.04,
@@ -137,12 +137,42 @@
       "name": "Pitkäjärvi",
       "x": 0.4,
       "z": 0.5,
-      "length": 0.5,
-      "width": 0.085,
+      "length": 0.125,
+      "width": 0.02125,
       "angle": 80,
       "depth": 7,
       "islands": 2,
       "wreck": true
+    },
+    {
+      "name": "Siikajärvi",
+      "x": 0.24,
+      "z": 0.67,
+      "length": 0.22,
+      "width": 0.11,
+      "angle": 55,
+      "depth": 7,
+      "islands": 1
+    },
+    {
+      "name": "Kattilajärvi",
+      "x": 0.59,
+      "z": 0.33,
+      "length": 0.17,
+      "width": 0.09,
+      "angle": 20,
+      "depth": 6,
+      "islands": 0
+    },
+    {
+      "name": "Velskolan Pitkäjärvi",
+      "x": 0.73,
+      "z": 0.49,
+      "length": 0.3,
+      "width": 0.065,
+      "angle": 85,
+      "depth": 7,
+      "islands": 0
     }
   ],
   "places": [
@@ -306,5 +336,10 @@
       "lizard",
       "chaffinch"
     ]
-  }
+  },
+  "sources": [
+    "https://uuvi.fi/en/area/kattilajarvi-recreation-area/",
+    "https://www.nuuksiolakeland.fi/kartat",
+    "https://www.doria.fi/bitstream/handle/10024/134954/UUSra17_2008%20Selvitys%20Espoon%20j%C3%A4rvien%20tilasta_ElinaOinonen.pdf"
+  ]
 }
