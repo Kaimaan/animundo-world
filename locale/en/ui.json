@@ -310,5 +310,19 @@
   "ui.account.sign_in": "Sign in",
   "ui.season.away": "Away for winter",
   "ui.season.hibernating": "Hibernating until spring",
-  "ui.guide.try_animal": "Play as {animal}"
+  "ui.guide.try_animal": "Play as {animal}",
+  "ui.briefing.eat": "Eat these",
+  "ui.briefing.danger": "Watch out",
+  "ui.briefing.rest": "Rest here",
+  "ui.briefing.safe": "Safe mode",
+  "ui.briefing.safe_note": "Animals won’t hurt you",
+  "ui.briefing.play": "Play",
+  "ui.briefing.again": "Food · danger · shelter",
+  "ui.briefing.say_eat": "You can eat {item}.",
+  "ui.briefing.say_danger": "Watch out for {item}.",
+  "ui.briefing.shelter.earth": "Rest inside a burrow.",
+  "ui.briefing.shelter.leaves": "Rest among leaves.",
+  "ui.briefing.shelter.leaves_or_earth": "Rest among leaves or under earth.",
+  "ui.briefing.shelter.under_tree": "Rest under a tree.",
+  "ui.briefing.shelter.deep_water": "Rest in deep water."
 }

@@ -310,5 +310,19 @@
   "ui.account.sign_in": "Kirjaudu sisään",
   "ui.season.away": "Muuttanut talveksi pois",
   "ui.season.hibernating": "Talvihorroksessa kevääseen asti",
-  "ui.guide.try_animal": "Pelaa eläimenä: {animal}"
+  "ui.guide.try_animal": "Pelaa eläimenä: {animal}",
+  "ui.briefing.eat": "Syö näitä",
+  "ui.briefing.danger": "Varo näitä",
+  "ui.briefing.rest": "Lepää täällä",
+  "ui.briefing.safe": "Turvallinen tila",
+  "ui.briefing.safe_note": "Eläimet eivät satuta sinua",
+  "ui.briefing.play": "Pelaa",
+  "ui.briefing.again": "Ruoka · vaarat · suoja",
+  "ui.briefing.say_eat": "Voit syödä: {item}.",
+  "ui.briefing.say_danger": "Varo eläintä: {item}.",
+  "ui.briefing.shelter.earth": "Lepää pesäkolossa.",
+  "ui.briefing.shelter.leaves": "Lepää lehtien suojassa.",
+  "ui.briefing.shelter.leaves_or_earth": "Lepää lehtien tai maan suojassa.",
+  "ui.briefing.shelter.under_tree": "Lepää puun alla.",
+  "ui.briefing.shelter.deep_water": "Lepää syvässä vedessä."
 }
