@@ -6,8 +6,8 @@ How to add each kind of thing: [CONTRIBUTING.md](../CONTRIBUTING.md). How it sho
 
 |  | Have | Wanted | In progress |
 |---|---|---|---|
-| Animals | 17 | 0 | 0 |
-| Plants | 20 | 0 | 0 |
+| Animals | 18 | 0 | 0 |
+| Plants | 22 | 0 | 0 |
 | Trees | 5 | 0 | 0 |
 | Foods | 13 | 0 | 0 |
 
@@ -25,6 +25,7 @@ How to add each kind of thing: [CONTRIBUTING.md](../CONTRIBUTING.md). How it sho
 | **Common frog** (*Rana temporaria*) | fi_nuuksio | built from a spec [preview](../models/previews/frog.png) | yes | no | yes |
 | **Kestrel** (*Falco tinnunculus*) | fi_nuuksio | built from a spec [preview](../models/previews/kestrel.png) | yes | no | yes |
 | **Common lizard** (*Zootoca vivipara*) | fi_nuuksio | built from a spec [preview](../models/previews/lizard.png) | yes | no | yes |
+| **Mallard** (*Anas platyrhynchos*) | fi_nuuksio | built from a spec [preview](../models/previews/mallard.png) | yes | no | yes |
 | **Moose** (*Alces alces*) | fi_nuuksio | built from a spec [preview](../models/previews/moose.png) | yes | no | yes |
 | **Mountain hare** (*Lepus timidus*) | fi_nuuksio | built from a spec [preview](../models/previews/mountain_hare.png) | yes | no | yes |
 | **Perch** (*Perca fluviatilis*) | fi_nuuksio | built from a spec [preview](../models/previews/perch.png) | yes | no | yes |
@@ -50,6 +51,7 @@ How to add each kind of thing: [CONTRIBUTING.md](../CONTRIBUTING.md). How it sho
 | **Bilberry** (*Vaccinium myrtillus*) | bush | fi_nuuksio | deciduous | [preview](../models/previews/plants/bilberry.png) |
 | **Bracken** (*Pteridium aquilinum*) | bush | fi_nuuksio | deciduous | [preview](../models/previews/plants/bracken.png) |
 | **Chanterelle** (*Cantharellus cibarius*) | ground | fi_nuuksio | deciduous | [preview](../models/previews/plants/chanterelle.png) |
+| **Hare’s-tail cottongrass** (*Eriophorum vaginatum*) | ground | fi_nuuksio | evergreen | [preview](../models/previews/plants/cottongrass.png) |
 | **Crowberry** (*Empetrum nigrum*) | bush | fi_nuuksio | evergreen | [preview](../models/previews/plants/crowberry.png) |
 | **Fireweed** (*Chamaenerion angustifolium*) | bush | fi_nuuksio | deciduous | [preview](../models/previews/plants/fireweed.png) |
 | **Fly agaric** (*Amanita muscaria*) | bush | fi_nuuksio | deciduous | [preview](../models/previews/plants/fly_agaric.png) |
@@ -58,6 +60,7 @@ How to add each kind of thing: [CONTRIBUTING.md](../CONTRIBUTING.md). How it sho
 | **Juniper** (*Juniperus communis*) | bush | fi_nuuksio | evergreen | [preview](../models/previews/plants/juniper.png) |
 | **Lily of the valley** (*Convallaria majalis*) | ground | fi_nuuksio | deciduous | [preview](../models/previews/plants/lily_of_the_valley.png) |
 | **Lingonberry** (*Vaccinium vitis-idaea*) | bush | fi_nuuksio | evergreen | [preview](../models/previews/plants/lingonberry.png) |
+| **Flat-topped bog moss** (*Sphagnum angustifolium*) | ground | fi_nuuksio | evergreen | [preview](../models/previews/plants/peat_moss.png) |
 | **Porcini** (*Boletus edulis*) | bush | fi_nuuksio | deciduous | [preview](../models/previews/plants/porcini.png) |
 | **Red clover** (*Trifolium pratense*) | ground | fi_nuuksio | deciduous | [preview](../models/previews/plants/red_clover.png) |
 | **Red-stemmed feathermoss** (*Pleurozium schreberi*) | ground | fi_nuuksio | evergreen | [preview](../models/previews/plants/red_stemmed_feathermoss.png) |
@@ -72,10 +75,8 @@ How to add each kind of thing: [CONTRIBUTING.md](../CONTRIBUTING.md). How it sho
 
 | Plant | Place | Feeds | Needs | Status |
 |---|---|---|---|---|
-| **Peat moss** (rahkasammal, *Sphagnum*) | fi_nuuksio |  | Code first: bog ground in the terrain. | Later |
 | **Cloudberry** (lakka, *Rubus chamaemorus*) | fi_nuuksio | Fox, birds | Code first: bog ground. Orange berries in July. | Later |
 | **Labrador tea** (suopursu, *Rhododendron tomentosum*) | fi_nuuksio |  | Code first: bog ground. White flowers in June. | Later |
-| **Hare's-tail cottongrass** (tupasvilla, *Eriophorum vaginatum*) | fi_nuuksio | Hare (early spring shoots) | Code first: bog ground. White fluffy heads in late May and June. | Later |
 
 ## Trees
 
@@ -111,9 +112,9 @@ What animals find to eat. A food name marked "grows there" has a plant you can s
 | `clover` | fi_nuuksio | red clover (grows there), white clover (grows there) | Mountain hare, Bank vole |
 | `berries` | fi_nuuksio | bilberries (grows there), lingonberries (grows there), wild raspberries (grows there), crowberries (grows there) | Fox, Moose, Red squirrel, Bank vole |
 | `insects` | fi_nuuksio | ground beetle, dung beetle, click beetle | Chaffinch, Fox, Common frog, Kestrel, Common lizard |
-| `water_bugs` | fi_nuuksio | mayfly larvae, caddisfly larvae, water boatmen | Bream, Perch, Roach, Young perch, Young roach |
+| `water_bugs` | fi_nuuksio | mayfly larvae, caddisfly larvae, water boatmen | Bream, Mallard, Perch, Roach, Young perch, Young roach |
 | `browse` | fi_nuuksio | birch leaves and twigs, willow twigs, aspen shoots, rowan leaves | Siberian flying squirrel, Moose, Mountain hare |
-| `water_plants` | fi_nuuksio | pondweed, water lily leaves, water horsetail | Moose |
+| `water_plants` | fi_nuuksio | pondweed, water lily leaves, water horsetail | Mallard, Moose |
 | `cones` | fi_nuuksio | spruce cones, pine cones | Red squirrel |
 | `bottom_bugs` | fi_nuuksio | bloodworms, pond snails | Bream, Perch, Roach |
 | `seeds` | fi_nuuksio | spruce seeds, pine seeds, birch seeds | Chaffinch |
@@ -133,10 +134,8 @@ Code changes that more content depends on. These are for the core team; the data
 |---|---|---|---|
 | plants | **Remake the code-made ground cover as specs** | Grass tufts, stones, the four flowers (oxeye daisy, heather, harebell, tormentil), reeds, water lilies and pondweed then follow the same rules, art guide and seasons. The bee's flowers are tied to the bee's code, so they move last. | Wanted |
 | plants | **Plants that keep away from trees** | `near_trees` keeps a plant close to trunks, but nothing keeps meadow plants out of the forest. Red and white clover and fireweed grow in meadows, clearings and on roadsides, so today they are scattered thinly everywhere. A `far_from_trees` (blocks) option would put them in the open. | Wanted |
-| plants | **Bog ground in the terrain** | Nuuksio has small bogs; bog plants need somewhere to grow. | Later |
 | animals | **Swimming land animals** | A generated `swim` clip for every four-legged animal (dog paddle: short fast leg strokes, head up, tail trailing), played while it's in water, with a preview tile. Foxes, squirrels and hares really swim, but in the game they play their walk animation, so they look like they're walking on the lake bottom. | Wanted |
 | animals | **Body-plan templates** | A starting spec per body plan (four-legged, bird, fish), so agents and contributors copy the closest one instead of starting from scratch. | Wanted |
-| animals | **Swimming birds** | Ducks and grebes floating on the surface. No swimming birds yet. | Later |
 | trees | **Trees as recipes** | So contributors can add tree species without code (decision 0013). Undecided: measure first. | Later |
 | animals | **Stride and eating reach per animal** | Walk, run and eat use fixed angles. Long legs get huge strides (the moose needed `swing` 0.75), and a tall animal can't lower its head to the ground. Let a spec set stride length and how low or high it eats (a grazing hare, a browsing moose). | Wanted |
 | animals | **Build report: body and separate parts** | The build prints one triangle total. Separate parts (antlers, fins, spots, eyes) share the budget, and the body never gets fewer than 200, so the budget can be silently exceeded or the body starved. Print the body and the separate parts separately, and warn at the minimum. | Wanted |

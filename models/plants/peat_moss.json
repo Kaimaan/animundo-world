@@ -1,0 +1,38 @@
+{
+  "id": "peat_moss",
+  "name": "Flat-topped bog moss",
+  "latin": "Sphagnum angustifolium",
+  "author": "Animundo team",
+  "kind": "ground",
+  "year": {
+    "leaves": "evergreen",
+    "flowers": "none",
+    "fruit": "none; reproduces by spores",
+    "notes": "Grows in bogs. Simplified clump."
+  },
+  "sources": [
+    "https://laji.fi/taxon/MX.44030"
+  ],
+  "colors": {
+    "green": "#9baf4e",
+    "white": "#eee9d9"
+  },
+  "parts": [
+    {
+      "name": "tuft",
+      "shape": "ball",
+      "size": [
+        0.16,
+        0.05,
+        0.16
+      ],
+      "at": [
+        0,
+        0.025,
+        0
+      ],
+      "color": "green",
+      "detail": 0.3
+    }
+  ]
+}

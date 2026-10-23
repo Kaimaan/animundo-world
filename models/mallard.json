@@ -1,0 +1,270 @@
+{
+  "id": "mallard",
+  "name": "Mallard, female (Anas platyrhynchos)",
+  "author": "Animundo team",
+  "gait": "walk",
+  "fly_pitch": 0,
+  "colors": {
+    "brown": "#82654b",
+    "light": "#ad9973",
+    "dark": "#302a24",
+    "bill": "#a57943",
+    "blue": "#3c4c95"
+  },
+  "bones": [
+    {
+      "name": "body",
+      "head": [
+        0,
+        0.16,
+        -0.12
+      ],
+      "tail": [
+        0,
+        0.16,
+        0.14
+      ],
+      "role": "body"
+    },
+    {
+      "name": "head",
+      "head": [
+        0,
+        0.24,
+        0.13
+      ],
+      "tail": [
+        0,
+        0.29,
+        0.23
+      ],
+      "parent": "body",
+      "role": "head"
+    },
+    {
+      "name": "leg_l",
+      "head": [
+        0.07,
+        0.13,
+        0
+      ],
+      "tail": [
+        0.07,
+        0,
+        0
+      ],
+      "parent": "body",
+      "role": "leg",
+      "mirror": true
+    },
+    {
+      "name": "wing_l",
+      "head": [
+        0.09,
+        0.2,
+        0
+      ],
+      "tail": [
+        0.41,
+        0.2,
+        0
+      ],
+      "parent": "body",
+      "role": "wing",
+      "mirror": true,
+      "fold": [
+        -90,
+        10,
+        -80
+      ],
+      "fold_length": 0.65
+    }
+  ],
+  "parts": [
+    {
+      "name": "body",
+      "shape": "ball",
+      "size": [
+        0.23,
+        0.22,
+        0.4
+      ],
+      "at": [
+        0,
+        0.2,
+        -0.02
+      ],
+      "color": "brown",
+      "bone": "body"
+    },
+    {
+      "name": "breast",
+      "shape": "ball",
+      "size": [
+        0.21,
+        0.23,
+        0.21
+      ],
+      "at": [
+        0,
+        0.21,
+        0.1
+      ],
+      "color": "light",
+      "bone": "body"
+    },
+    {
+      "name": "neck",
+      "shape": "ball",
+      "size": [
+        0.1,
+        0.18,
+        0.1
+      ],
+      "at": [
+        0,
+        0.29,
+        0.14
+      ],
+      "color": "brown",
+      "bone": "body"
+    },
+    {
+      "name": "head",
+      "shape": "ball",
+      "size": [
+        0.12,
+        0.12,
+        0.15
+      ],
+      "at": [
+        0,
+        0.35,
+        0.19
+      ],
+      "color": "brown",
+      "bone": "head"
+    },
+    {
+      "name": "bill",
+      "shape": "ball",
+      "size": [
+        0.065,
+        0.025,
+        0.11
+      ],
+      "at": [
+        0,
+        0.335,
+        0.29
+      ],
+      "color": "bill",
+      "bone": "head",
+      "separate": true
+    },
+    {
+      "name": "eye_l",
+      "shape": "ball",
+      "size": [
+        0.014,
+        0.014,
+        0.014
+      ],
+      "at": [
+        0.055,
+        0.365,
+        0.22
+      ],
+      "color": "dark",
+      "bone": "head",
+      "separate": true,
+      "mirror": true
+    },
+    {
+      "name": "tail",
+      "shape": "ball",
+      "size": [
+        0.12,
+        0.05,
+        0.14
+      ],
+      "at": [
+        0,
+        0.23,
+        -0.24
+      ],
+      "color": "dark",
+      "bone": "body"
+    },
+    {
+      "name": "foot_l",
+      "shape": "ball",
+      "size": [
+        0.065,
+        0.025,
+        0.08
+      ],
+      "at": [
+        0.07,
+        0.013,
+        0.025
+      ],
+      "color": "bill",
+      "bone": "leg_l",
+      "mirror": true
+    },
+    {
+      "name": "leg_l",
+      "shape": "ball",
+      "size": [
+        0.025,
+        0.13,
+        0.025
+      ],
+      "at": [
+        0.07,
+        0.075,
+        0
+      ],
+      "color": "bill",
+      "bone": "leg_l",
+      "mirror": true
+    },
+    {
+      "name": "wing_l",
+      "shape": "ball",
+      "size": [
+        0.34,
+        0.025,
+        0.18
+      ],
+      "at": [
+        0.24,
+        0.2,
+        0
+      ],
+      "color": "brown",
+      "bone": "wing_l",
+      "mirror": true,
+      "separate": true
+    },
+    {
+      "name": "mirror_l",
+      "shape": "ball",
+      "size": [
+        0.12,
+        0.027,
+        0.07
+      ],
+      "at": [
+        0.3,
+        0.215,
+        -0.035
+      ],
+      "color": "blue",
+      "bone": "wing_l",
+      "mirror": true,
+      "separate": true
+    }
+  ]
+}
