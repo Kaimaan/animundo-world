@@ -307,5 +307,7 @@
   "ui.account.sign_out_failed": "Eläimiä ei saatu ensin tallennettua tilillesi. Tarkista nettiyhteys ja yritä uudelleen.",
   "ui.account.sign_out_ingame": "Jos haluat kirjautua ulos, palaa ensin pelistä alkuvalikkoon.",
   "ui.account.stay": "Pysy kirjautuneena",
-  "ui.account.sign_in": "Kirjaudu sisään"
+  "ui.account.sign_in": "Kirjaudu sisään",
+  "ui.season.away": "Muuttanut talveksi pois",
+  "ui.season.hibernating": "Talvihorroksessa kevääseen asti"
 }

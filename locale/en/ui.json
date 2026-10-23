@@ -307,5 +307,7 @@
   "ui.account.sign_out_failed": "Couldn't save the animals to your account first. Check the internet connection and try again.",
   "ui.account.sign_out_ingame": "To sign out, leave the game for the title screen first.",
   "ui.account.stay": "Stay signed in",
-  "ui.account.sign_in": "Sign in"
+  "ui.account.sign_in": "Sign in",
+  "ui.season.away": "Away for winter",
+  "ui.season.hibernating": "Hibernating until spring"
 }
