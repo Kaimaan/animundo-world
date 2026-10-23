@@ -110,26 +110,165 @@
     ],
     "stones": 0.04,
     "plants": [
-      {"model": "bilberry", "density": 0.22, "near_trees": 5, "food": {"kind": "berries", "part": "berry"}, "names": ["bilberries"], "amount": 15},
-      {"model": "lingonberry", "density": 0.09, "near_trees": 8, "food": {"kind": "berries", "part": "berry"}, "names": ["lingonberries"], "amount": 15},
-      {"model": "heather", "density": 0.1, "on": ["grass", "rock"]},
-      {"model": "fly_agaric", "density": 0.006, "near_trees": 4},
-      {"model": "porcini", "density": 0.005, "near_trees": 4, "food": "mushrooms", "names": ["porcini"], "amount": 25},
-      {"model": "wild_raspberry", "density": 0.025, "near_trees": 10, "food": {"kind": "berries", "part": "berry"}, "names": ["wild raspberries"], "amount": 15},
-      {"model": "crowberry", "density": 0.04, "on": ["grass", "rock"], "food": {"kind": "berries", "part": "berry"}, "names": ["crowberries"], "amount": 10},
-      {"model": "wavy_hair_grass", "density": 0.06, "near_trees": 8},
-      {"model": "red_stemmed_feathermoss", "density": 0.05, "near_trees": 6},
-      {"model": "bracken", "density": 0.03, "near_trees": 8},
-      {"model": "reindeer_lichen", "density": 0.03, "on": ["rock"]},
-      {"model": "wood_anemone", "density": 0.02, "near_trees": 6},
-      {"model": "spiny_wood_fern", "density": 0.015, "near_trees": 5},
-      {"model": "lily_of_the_valley", "density": 0.01, "near_trees": 8},
-      {"model": "white_clover", "density": 0.008, "food": "clover", "names": ["white clover"], "amount": 15},
-      {"model": "red_clover", "density": 0.006, "food": "clover", "names": ["red clover"], "amount": 15},
-      {"model": "fireweed", "density": 0.008},
-      {"model": "juniper", "density": 0.005, "on": ["grass", "rock"]},
-      {"model": "chanterelle", "density": 0.005, "near_trees": 4, "food": "mushrooms", "names": ["chanterelles"], "amount": 20},
-      {"model": "goat_willow", "density": 0.003}
+      {
+        "model": "bilberry",
+        "density": 0.22,
+        "near_trees": 5,
+        "food": {
+          "kind": "berries",
+          "part": "berry"
+        },
+        "names": [
+          "bilberries"
+        ],
+        "amount": 15
+      },
+      {
+        "model": "lingonberry",
+        "density": 0.09,
+        "near_trees": 8,
+        "food": {
+          "kind": "berries",
+          "part": "berry"
+        },
+        "names": [
+          "lingonberries"
+        ],
+        "amount": 15
+      },
+      {
+        "model": "heather",
+        "density": 0.1,
+        "on": [
+          "grass",
+          "rock"
+        ]
+      },
+      {
+        "model": "fly_agaric",
+        "density": 0.006,
+        "near_trees": 4
+      },
+      {
+        "model": "porcini",
+        "density": 0.005,
+        "near_trees": 4,
+        "food": "mushrooms",
+        "names": [
+          "porcini"
+        ],
+        "amount": 25
+      },
+      {
+        "model": "wild_raspberry",
+        "density": 0.025,
+        "near_trees": 10,
+        "food": {
+          "kind": "berries",
+          "part": "berry"
+        },
+        "names": [
+          "wild raspberries"
+        ],
+        "amount": 15
+      },
+      {
+        "model": "crowberry",
+        "density": 0.04,
+        "on": [
+          "grass",
+          "rock"
+        ],
+        "food": {
+          "kind": "berries",
+          "part": "berry"
+        },
+        "names": [
+          "crowberries"
+        ],
+        "amount": 10
+      },
+      {
+        "model": "wavy_hair_grass",
+        "density": 0.06,
+        "near_trees": 8
+      },
+      {
+        "model": "red_stemmed_feathermoss",
+        "density": 0.05,
+        "near_trees": 6
+      },
+      {
+        "model": "bracken",
+        "density": 0.03,
+        "near_trees": 8
+      },
+      {
+        "model": "reindeer_lichen",
+        "density": 0.03,
+        "on": [
+          "rock"
+        ]
+      },
+      {
+        "model": "wood_anemone",
+        "density": 0.02,
+        "near_trees": 6
+      },
+      {
+        "model": "spiny_wood_fern",
+        "density": 0.015,
+        "near_trees": 5
+      },
+      {
+        "model": "lily_of_the_valley",
+        "density": 0.01,
+        "near_trees": 8
+      },
+      {
+        "model": "white_clover",
+        "density": 0.008,
+        "food": "clover",
+        "names": [
+          "white clover"
+        ],
+        "amount": 15
+      },
+      {
+        "model": "red_clover",
+        "density": 0.006,
+        "food": "clover",
+        "names": [
+          "red clover"
+        ],
+        "amount": 15
+      },
+      {
+        "model": "fireweed",
+        "density": 0.008
+      },
+      {
+        "model": "juniper",
+        "density": 0.005,
+        "on": [
+          "grass",
+          "rock"
+        ]
+      },
+      {
+        "model": "chanterelle",
+        "density": 0.005,
+        "near_trees": 4,
+        "food": "mushrooms",
+        "names": [
+          "chanterelles"
+        ],
+        "amount": 20
+      },
+      {
+        "model": "goat_willow",
+        "density": 0.003
+      }
     ]
   },
   "lakes": [
@@ -251,11 +390,50 @@
         "water boatmen"
       ]
     },
-    {"kind": "browse", "weight": 12, "names": ["birch leaves and twigs", "willow twigs", "aspen shoots", "rowan leaves"]},
-    {"kind": "water_plants", "weight": 8, "names": ["pondweed", "water lily leaves", "water horsetail"]},
-    {"kind": "cones", "weight": 10, "names": ["spruce cones", "pine cones"]},
-    {"kind": "bottom_bugs", "weight": 8, "names": ["bloodworms", "pond snails"]},
-    {"kind": "seeds", "weight": 12, "names": ["spruce seeds", "pine seeds", "birch seeds"]}
+    {
+      "kind": "browse",
+      "weight": 12,
+      "names": [
+        "birch leaves and twigs",
+        "willow twigs",
+        "aspen shoots",
+        "rowan leaves"
+      ]
+    },
+    {
+      "kind": "water_plants",
+      "weight": 8,
+      "names": [
+        "pondweed",
+        "water lily leaves",
+        "water horsetail"
+      ]
+    },
+    {
+      "kind": "cones",
+      "weight": 10,
+      "names": [
+        "spruce cones",
+        "pine cones"
+      ]
+    },
+    {
+      "kind": "bottom_bugs",
+      "weight": 8,
+      "names": [
+        "bloodworms",
+        "pond snails"
+      ]
+    },
+    {
+      "kind": "seeds",
+      "weight": 12,
+      "names": [
+        "spruce seeds",
+        "pine seeds",
+        "birch seeds"
+      ]
+    }
   ],
   "fish": [
     {
@@ -324,7 +502,8 @@
       "perch",
       "pike",
       "bee",
-      "chaffinch"
+      "chaffinch",
+      "flying_squirrel"
     ],
     "predators": [
       "fox"
