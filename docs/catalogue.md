@@ -6,7 +6,7 @@ How to add each kind of thing: [CONTRIBUTING.md](../CONTRIBUTING.md). How it sho
 
 |  | Have | Wanted | In progress |
 |---|---|---|---|
-| Animals | 18 | 0 | 0 |
+| Animals | 19 | 0 | 0 |
 | Plants | 22 | 0 | 0 |
 | Trees | 5 | 0 | 0 |
 | Foods | 13 | 0 | 0 |
@@ -23,6 +23,7 @@ How to add each kind of thing: [CONTRIBUTING.md](../CONTRIBUTING.md). How it sho
 | **Siberian flying squirrel** (*Pteromys volans*) | fi_nuuksio | built from a spec [preview](../models/previews/flying_squirrel.png) | yes | no | yes |
 | **Fox** (*Vulpes vulpes*) | fi_nuuksio | built from a spec [preview](../models/previews/fox.png) | yes | yes | yes |
 | **Common frog** (*Rana temporaria*) | fi_nuuksio | built from a spec [preview](../models/previews/frog.png) | yes | no | yes |
+| **Great tit** (*Parus major*) | fi_nuuksio | built from a spec [preview](../models/previews/great_tit.png) | yes | no | yes |
 | **Kestrel** (*Falco tinnunculus*) | fi_nuuksio | built from a spec [preview](../models/previews/kestrel.png) | yes | no | yes |
 | **Common lizard** (*Zootoca vivipara*) | fi_nuuksio | built from a spec [preview](../models/previews/lizard.png) | yes | no | yes |
 | **Mallard** (*Anas platyrhynchos*) | fi_nuuksio | built from a spec [preview](../models/previews/mallard.png) | yes | no | yes |
@@ -111,13 +112,13 @@ What animals find to eat. A food name marked "grows there" has a plant you can s
 | `carrion` | fi_nuuksio | roe deer remains, white-tailed deer remains | Fox |
 | `clover` | fi_nuuksio | red clover (grows there), white clover (grows there) | Mountain hare, Bank vole |
 | `berries` | fi_nuuksio | bilberries (grows there), lingonberries (grows there), wild raspberries (grows there), crowberries (grows there) | Fox, Moose, Red squirrel, Bank vole |
-| `insects` | fi_nuuksio | ground beetle, dung beetle, click beetle | Chaffinch, Fox, Common frog, Kestrel, Common lizard |
+| `insects` | fi_nuuksio | ground beetle, dung beetle, click beetle | Chaffinch, Fox, Common frog, Great tit, Kestrel, Common lizard |
 | `water_bugs` | fi_nuuksio | mayfly larvae, caddisfly larvae, water boatmen | Bream, Mallard, Perch, Roach, Young perch, Young roach |
 | `browse` | fi_nuuksio | birch leaves and twigs, willow twigs, aspen shoots, rowan leaves | Siberian flying squirrel, Moose, Mountain hare |
 | `water_plants` | fi_nuuksio | pondweed, water lily leaves, water horsetail | Mallard, Moose |
 | `cones` | fi_nuuksio | spruce cones, pine cones | Red squirrel |
 | `bottom_bugs` | fi_nuuksio | bloodworms, pond snails | Bream, Perch, Roach |
-| `seeds` | fi_nuuksio | spruce seeds, pine seeds, birch seeds | Chaffinch |
+| `seeds` | fi_nuuksio | spruce seeds, pine seeds, birch seeds | Chaffinch, Great tit |
 | `mushrooms` | fi_nuuksio | porcini (grows there), chanterelles (grows there) | Red squirrel |
 
 ### Wanted
