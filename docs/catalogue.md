@@ -6,7 +6,7 @@ How to add each kind of thing: [CONTRIBUTING.md](../CONTRIBUTING.md). How it sho
 
 |  | Have | Wanted | In progress |
 |---|---|---|---|
-| Animals | 19 | 0 | 0 |
+| Animals | 20 | 0 | 0 |
 | Plants | 22 | 0 | 0 |
 | Trees | 5 | 0 | 0 |
 | Foods | 13 | 0 | 0 |
@@ -21,21 +21,22 @@ How to add each kind of thing: [CONTRIBUTING.md](../CONTRIBUTING.md). How it sho
 | **Bream** (*Abramis brama*) | fi_nuuksio | built from a spec [preview](../models/previews/bream.png) | yes | no | yes |
 | **Chaffinch** (*Fringilla coelebs*) | fi_nuuksio | built from a spec [preview](../models/previews/chaffinch.png) | yes | no | yes |
 | **Siberian flying squirrel** (*Pteromys volans*) | fi_nuuksio | built from a spec [preview](../models/previews/flying_squirrel.png) | yes | no | yes |
-| **Fox** (*Vulpes vulpes*) | fi_nuuksio | built from a spec [preview](../models/previews/fox.png) | yes | yes | yes |
-| **Common frog** (*Rana temporaria*) | fi_nuuksio | built from a spec [preview](../models/previews/frog.png) | yes | no | yes |
-| **Great tit** (*Parus major*) | fi_nuuksio | built from a spec [preview](../models/previews/great_tit.png) | yes | no | yes |
+| **Fox** (*Vulpes vulpes*) | fi_nuuksio, fi_saimaa | built from a spec [preview](../models/previews/fox.png) | yes | yes | yes |
+| **Common frog** (*Rana temporaria*) | fi_nuuksio, fi_saimaa | built from a spec [preview](../models/previews/frog.png) | yes | no | yes |
+| **Great tit** (*Parus major*) | fi_nuuksio, fi_saimaa | built from a spec [preview](../models/previews/great_tit.png) | yes | no | yes |
 | **Kestrel** (*Falco tinnunculus*) | fi_nuuksio | built from a spec [preview](../models/previews/kestrel.png) | yes | no | yes |
 | **Common lizard** (*Zootoca vivipara*) | fi_nuuksio | built from a spec [preview](../models/previews/lizard.png) | yes | no | yes |
-| **Mallard** (*Anas platyrhynchos*) | fi_nuuksio | built from a spec [preview](../models/previews/mallard.png) | yes | no | yes |
-| **Moose** (*Alces alces*) | fi_nuuksio | built from a spec [preview](../models/previews/moose.png) | yes | no | yes |
-| **Mountain hare** (*Lepus timidus*) | fi_nuuksio | built from a spec [preview](../models/previews/mountain_hare.png) | yes | no | yes |
-| **Perch** (*Perca fluviatilis*) | fi_nuuksio | built from a spec [preview](../models/previews/perch.png) | yes | no | yes |
-| **Pike** (*Esox lucius*) | fi_nuuksio | built from a spec [preview](../models/previews/pike.png) | yes | no | yes |
-| **Roach** (*Rutilus rutilus*) | fi_nuuksio | built from a spec [preview](../models/previews/roach.png) | yes | no | yes |
-| **Red squirrel** (*Sciurus vulgaris*) | fi_nuuksio | built from a spec [preview](../models/previews/squirrel.png) | yes | no | yes |
-| **Bank vole** (*Myodes glareolus*) | fi_nuuksio | built from a spec [preview](../models/previews/vole.png) | yes | no | yes |
-| **Young perch** (*Perca fluviatilis*) | fi_nuuksio | downloaded: rebuild from a spec | yes | no | yes |
-| **Young roach** (*Rutilus rutilus*) | fi_nuuksio | downloaded: rebuild from a spec | yes | no | yes |
+| **Mallard** (*Anas platyrhynchos*) | fi_nuuksio, fi_saimaa | built from a spec [preview](../models/previews/mallard.png) | yes | no | yes |
+| **Moose** (*Alces alces*) | fi_nuuksio, fi_saimaa | built from a spec [preview](../models/previews/moose.png) | yes | no | yes |
+| **Mountain hare** (*Lepus timidus*) | fi_nuuksio, fi_saimaa | built from a spec [preview](../models/previews/mountain_hare.png) | yes | no | yes |
+| **Perch** (*Perca fluviatilis*) | fi_nuuksio, fi_saimaa | built from a spec [preview](../models/previews/perch.png) | yes | no | yes |
+| **Pike** (*Esox lucius*) | fi_nuuksio, fi_saimaa | built from a spec [preview](../models/previews/pike.png) | yes | no | yes |
+| **Roach** (*Rutilus rutilus*) | fi_nuuksio, fi_saimaa | built from a spec [preview](../models/previews/roach.png) | yes | no | yes |
+| **Saimaa ringed seal** (*Pusa saimensis*) | fi_saimaa | built from a spec [preview](../models/previews/saimaa_seal.png) | yes | no | yes |
+| **Red squirrel** (*Sciurus vulgaris*) | fi_nuuksio, fi_saimaa | built from a spec [preview](../models/previews/squirrel.png) | yes | no | yes |
+| **Bank vole** (*Myodes glareolus*) | fi_nuuksio, fi_saimaa | built from a spec [preview](../models/previews/vole.png) | yes | no | yes |
+| **Young perch** (*Perca fluviatilis*) | fi_nuuksio, fi_saimaa | downloaded: rebuild from a spec | yes | no | yes |
+| **Young roach** (*Rutilus rutilus*) | fi_nuuksio, fi_saimaa | downloaded: rebuild from a spec | yes | no | yes |
 
 ### Wanted
 
@@ -49,28 +50,28 @@ How to add each kind of thing: [CONTRIBUTING.md](../CONTRIBUTING.md). How it sho
 
 | Plant | Kind | Grows in | Leaves | Preview |
 |---|---|---|---|---|
-| **Bilberry** (*Vaccinium myrtillus*) | bush | fi_nuuksio | deciduous | [preview](../models/previews/plants/bilberry.png) |
-| **Bracken** (*Pteridium aquilinum*) | bush | fi_nuuksio | deciduous | [preview](../models/previews/plants/bracken.png) |
-| **Chanterelle** (*Cantharellus cibarius*) | ground | fi_nuuksio | deciduous | [preview](../models/previews/plants/chanterelle.png) |
-| **Hare’s-tail cottongrass** (*Eriophorum vaginatum*) | ground | fi_nuuksio | evergreen | [preview](../models/previews/plants/cottongrass.png) |
-| **Crowberry** (*Empetrum nigrum*) | bush | fi_nuuksio | evergreen | [preview](../models/previews/plants/crowberry.png) |
-| **Fireweed** (*Chamaenerion angustifolium*) | bush | fi_nuuksio | deciduous | [preview](../models/previews/plants/fireweed.png) |
-| **Fly agaric** (*Amanita muscaria*) | bush | fi_nuuksio | deciduous | [preview](../models/previews/plants/fly_agaric.png) |
-| **Goat willow** (*Salix caprea*) | bush | fi_nuuksio | deciduous | [preview](../models/previews/plants/goat_willow.png) |
-| **Heather** (*Calluna vulgaris*) | bush | fi_nuuksio | evergreen | [preview](../models/previews/plants/heather.png) |
-| **Juniper** (*Juniperus communis*) | bush | fi_nuuksio | evergreen | [preview](../models/previews/plants/juniper.png) |
-| **Lily of the valley** (*Convallaria majalis*) | ground | fi_nuuksio | deciduous | [preview](../models/previews/plants/lily_of_the_valley.png) |
-| **Lingonberry** (*Vaccinium vitis-idaea*) | bush | fi_nuuksio | evergreen | [preview](../models/previews/plants/lingonberry.png) |
-| **Flat-topped bog moss** (*Sphagnum angustifolium*) | ground | fi_nuuksio | evergreen | [preview](../models/previews/plants/peat_moss.png) |
-| **Porcini** (*Boletus edulis*) | bush | fi_nuuksio | deciduous | [preview](../models/previews/plants/porcini.png) |
-| **Red clover** (*Trifolium pratense*) | ground | fi_nuuksio | deciduous | [preview](../models/previews/plants/red_clover.png) |
-| **Red-stemmed feathermoss** (*Pleurozium schreberi*) | ground | fi_nuuksio | evergreen | [preview](../models/previews/plants/red_stemmed_feathermoss.png) |
-| **Reindeer lichen** (*Cladonia rangiferina*) | ground | fi_nuuksio | evergreen | [preview](../models/previews/plants/reindeer_lichen.png) |
-| **Spiny wood fern** (*Dryopteris carthusiana*) | bush | fi_nuuksio | deciduous | [preview](../models/previews/plants/spiny_wood_fern.png) |
-| **Wavy hair-grass** (*Avenella flexuosa*) | ground | fi_nuuksio | evergreen | [preview](../models/previews/plants/wavy_hair_grass.png) |
-| **White clover** (*Trifolium repens*) | ground | fi_nuuksio | deciduous | [preview](../models/previews/plants/white_clover.png) |
-| **Wild raspberry** (*Rubus idaeus*) | bush | fi_nuuksio | deciduous | [preview](../models/previews/plants/wild_raspberry.png) |
-| **Wood anemone** (*Anemone nemorosa*) | ground | fi_nuuksio | deciduous | [preview](../models/previews/plants/wood_anemone.png) |
+| **Bilberry** (*Vaccinium myrtillus*) | bush | fi_nuuksio, fi_saimaa | deciduous | [preview](../models/previews/plants/bilberry.png) |
+| **Bracken** (*Pteridium aquilinum*) | bush | fi_nuuksio, fi_saimaa | deciduous | [preview](../models/previews/plants/bracken.png) |
+| **Chanterelle** (*Cantharellus cibarius*) | ground | fi_nuuksio, fi_saimaa | deciduous | [preview](../models/previews/plants/chanterelle.png) |
+| **Hare’s-tail cottongrass** (*Eriophorum vaginatum*) | ground | fi_nuuksio, fi_saimaa | evergreen | [preview](../models/previews/plants/cottongrass.png) |
+| **Crowberry** (*Empetrum nigrum*) | bush | fi_nuuksio, fi_saimaa | evergreen | [preview](../models/previews/plants/crowberry.png) |
+| **Fireweed** (*Chamaenerion angustifolium*) | bush | fi_nuuksio, fi_saimaa | deciduous | [preview](../models/previews/plants/fireweed.png) |
+| **Fly agaric** (*Amanita muscaria*) | bush | fi_nuuksio, fi_saimaa | deciduous | [preview](../models/previews/plants/fly_agaric.png) |
+| **Goat willow** (*Salix caprea*) | bush | fi_nuuksio, fi_saimaa | deciduous | [preview](../models/previews/plants/goat_willow.png) |
+| **Heather** (*Calluna vulgaris*) | bush | fi_nuuksio, fi_saimaa | evergreen | [preview](../models/previews/plants/heather.png) |
+| **Juniper** (*Juniperus communis*) | bush | fi_nuuksio, fi_saimaa | evergreen | [preview](../models/previews/plants/juniper.png) |
+| **Lily of the valley** (*Convallaria majalis*) | ground | fi_nuuksio, fi_saimaa | deciduous | [preview](../models/previews/plants/lily_of_the_valley.png) |
+| **Lingonberry** (*Vaccinium vitis-idaea*) | bush | fi_nuuksio, fi_saimaa | evergreen | [preview](../models/previews/plants/lingonberry.png) |
+| **Flat-topped bog moss** (*Sphagnum angustifolium*) | ground | fi_nuuksio, fi_saimaa | evergreen | [preview](../models/previews/plants/peat_moss.png) |
+| **Porcini** (*Boletus edulis*) | bush | fi_nuuksio, fi_saimaa | deciduous | [preview](../models/previews/plants/porcini.png) |
+| **Red clover** (*Trifolium pratense*) | ground | fi_nuuksio, fi_saimaa | deciduous | [preview](../models/previews/plants/red_clover.png) |
+| **Red-stemmed feathermoss** (*Pleurozium schreberi*) | ground | fi_nuuksio, fi_saimaa | evergreen | [preview](../models/previews/plants/red_stemmed_feathermoss.png) |
+| **Reindeer lichen** (*Cladonia rangiferina*) | ground | fi_nuuksio, fi_saimaa | evergreen | [preview](../models/previews/plants/reindeer_lichen.png) |
+| **Spiny wood fern** (*Dryopteris carthusiana*) | bush | fi_nuuksio, fi_saimaa | deciduous | [preview](../models/previews/plants/spiny_wood_fern.png) |
+| **Wavy hair-grass** (*Avenella flexuosa*) | ground | fi_nuuksio, fi_saimaa | evergreen | [preview](../models/previews/plants/wavy_hair_grass.png) |
+| **White clover** (*Trifolium repens*) | ground | fi_nuuksio, fi_saimaa | deciduous | [preview](../models/previews/plants/white_clover.png) |
+| **Wild raspberry** (*Rubus idaeus*) | bush | fi_nuuksio, fi_saimaa | deciduous | [preview](../models/previews/plants/wild_raspberry.png) |
+| **Wood anemone** (*Anemone nemorosa*) | ground | fi_nuuksio, fi_saimaa | deciduous | [preview](../models/previews/plants/wood_anemone.png) |
 
 ### Wanted
 
@@ -87,11 +88,11 @@ Trees are still made in code, because animals climb them and hide in them. Ask t
 
 | Shape | Grows in | How |
 |---|---|---|
-| `birch` | fi_nuuksio | made in code |
-| `pine` | fi_nuuksio | made in code |
-| `round` | fi_nuuksio | made in code |
-| `rowan` | fi_nuuksio | made in code |
-| `spruce` | fi_nuuksio | made in code |
+| `birch` | fi_nuuksio, fi_saimaa | made in code |
+| `pine` | fi_nuuksio, fi_saimaa | made in code |
+| `round` | fi_nuuksio, fi_saimaa | made in code |
+| `rowan` | fi_nuuksio, fi_saimaa | made in code |
+| `spruce` | fi_nuuksio, fi_saimaa | made in code |
 
 ### Wanted
 
@@ -119,7 +120,20 @@ What animals find to eat. A food name marked "grows there" has a plant you can s
 | `cones` | fi_nuuksio | spruce cones, pine cones | Red squirrel |
 | `bottom_bugs` | fi_nuuksio | bloodworms, pond snails | Bream, Perch, Roach |
 | `seeds` | fi_nuuksio | spruce seeds, pine seeds, birch seeds | Chaffinch, Great tit |
+| `grass` | fi_saimaa | wavy hair-grass (grows there), common bent, sheep's fescue, dandelion leaves, yarrow | Mountain hare, Bank vole |
+| `bark` | fi_saimaa | birch bark, aspen bark, rowan bark | Mountain hare |
+| `carrion` | fi_saimaa | roe deer remains, white-tailed deer remains | Fox |
+| `clover` | fi_saimaa | red clover (grows there), white clover (grows there) | Mountain hare, Bank vole |
+| `berries` | fi_saimaa | bilberries (grows there), lingonberries (grows there), wild raspberries (grows there), crowberries (grows there) | Fox, Moose, Red squirrel, Bank vole |
+| `insects` | fi_saimaa | ground beetle, dung beetle, click beetle | Chaffinch, Fox, Common frog, Great tit, Kestrel, Common lizard |
+| `water_bugs` | fi_saimaa | mayfly larvae, caddisfly larvae, water boatmen | Bream, Mallard, Perch, Roach, Young perch, Young roach |
+| `browse` | fi_saimaa | birch leaves and twigs, willow twigs, aspen shoots, rowan leaves | Siberian flying squirrel, Moose, Mountain hare |
+| `water_plants` | fi_saimaa | pondweed, water lily leaves, water horsetail | Mallard, Moose |
+| `cones` | fi_saimaa | spruce cones, pine cones | Red squirrel |
+| `bottom_bugs` | fi_saimaa | bloodworms, pond snails | Bream, Perch, Roach |
+| `seeds` | fi_saimaa | spruce seeds, pine seeds, birch seeds | Chaffinch, Great tit |
 | `mushrooms` | fi_nuuksio | porcini (grows there), chanterelles (grows there) | Red squirrel |
+| `mushrooms` | fi_saimaa | porcini (grows there), chanterelles (grows there) | Red squirrel |
 
 ### Wanted
 

@@ -1,0 +1,1474 @@
+{
+  "id": "saimaa_seal",
+  "name": "Saimaa ringed seal (Pusa saimensis)",
+  "author": "Animundo team",
+  "gait": "walk",
+  "skin": {
+    "triangles": 1200
+  },
+  "colors": {
+    "back": "#65716b",
+    "belly": "#a3aaa1",
+    "ring": "#d0d3c5",
+    "dark": "#202c2c",
+    "whisker": "#e4e5d8"
+  },
+  "bones": [
+    {
+      "name": "body",
+      "head": [
+        0,
+        0.28,
+        -0.3
+      ],
+      "tail": [
+        0,
+        0.28,
+        0.3
+      ],
+      "role": "body"
+    },
+    {
+      "name": "head",
+      "head": [
+        0,
+        0.35,
+        0.32
+      ],
+      "tail": [
+        0,
+        0.38,
+        0.57
+      ],
+      "parent": "body",
+      "role": "head"
+    },
+    {
+      "name": "front_l",
+      "head": [
+        0.2,
+        0.2,
+        0.18
+      ],
+      "tail": [
+        0.43,
+        0.08,
+        0.05
+      ],
+      "parent": "body",
+      "role": "leg",
+      "mirror": true
+    },
+    {
+      "name": "rear",
+      "head": [
+        0,
+        0.25,
+        -0.36
+      ],
+      "tail": [
+        0,
+        0.17,
+        -0.65
+      ],
+      "parent": "body",
+      "role": "fin",
+      "swing": 0.65
+    }
+  ],
+  "parts": [
+    {
+      "name": "body",
+      "shape": "ball",
+      "size": [
+        0.52,
+        0.49,
+        0.94
+      ],
+      "at": [
+        0,
+        0.28,
+        -0.03
+      ],
+      "color": "back",
+      "bone": "body"
+    },
+    {
+      "name": "belly",
+      "shape": "ball",
+      "size": [
+        0.44,
+        0.16,
+        0.78
+      ],
+      "at": [
+        0,
+        0.12,
+        0.02
+      ],
+      "color": "belly",
+      "bone": "body"
+    },
+    {
+      "name": "rear_body",
+      "shape": "ball",
+      "size": [
+        0.28,
+        0.23,
+        0.34
+      ],
+      "at": [
+        0,
+        0.22,
+        -0.37
+      ],
+      "color": "back",
+      "bone": "rear"
+    },
+    {
+      "name": "neck",
+      "shape": "ball",
+      "size": [
+        0.35,
+        0.34,
+        0.38
+      ],
+      "at": [
+        0,
+        0.32,
+        0.34
+      ],
+      "color": "back",
+      "bone": "head"
+    },
+    {
+      "name": "head",
+      "shape": "ball",
+      "size": [
+        0.3,
+        0.29,
+        0.31
+      ],
+      "at": [
+        0,
+        0.39,
+        0.5
+      ],
+      "color": "back",
+      "bone": "head"
+    },
+    {
+      "name": "muzzle",
+      "shape": "ball",
+      "size": [
+        0.23,
+        0.13,
+        0.15
+      ],
+      "at": [
+        0,
+        0.33,
+        0.63
+      ],
+      "color": "belly",
+      "bone": "head"
+    },
+    {
+      "name": "nose",
+      "shape": "ball",
+      "size": [
+        0.07,
+        0.045,
+        0.04
+      ],
+      "at": [
+        0,
+        0.36,
+        0.704
+      ],
+      "color": "dark",
+      "bone": "head",
+      "separate": true
+    },
+    {
+      "name": "eye_l",
+      "shape": "ball",
+      "size": [
+        0.042,
+        0.045,
+        0.025
+      ],
+      "at": [
+        0.12,
+        0.43,
+        0.59
+      ],
+      "color": "dark",
+      "bone": "head",
+      "mirror": true,
+      "separate": true
+    },
+    {
+      "name": "foreflipper_l",
+      "shape": "ball",
+      "size": [
+        0.3,
+        0.055,
+        0.13
+      ],
+      "at": [
+        0.29,
+        0.12,
+        0.12
+      ],
+      "color": "back",
+      "bone": "front_l",
+      "rot": [
+        0,
+        -25,
+        -15
+      ],
+      "mirror": true
+    },
+    {
+      "name": "hindflipper_l",
+      "shape": "ball",
+      "size": [
+        0.23,
+        0.05,
+        0.27
+      ],
+      "at": [
+        0.09,
+        0.14,
+        -0.5
+      ],
+      "color": "back",
+      "bone": "rear",
+      "rot": [
+        0,
+        -22,
+        0
+      ],
+      "mirror": true
+    },
+    {
+      "name": "ring_-1_0_0",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        -0.254,
+        0.28,
+        -0.185
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_-1_0_1",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        -0.24341986545873548,
+        0.3152671151375484,
+        -0.19741389536562842
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_-1_0_2",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        -0.23688098270668723,
+        0.3370633909777092,
+        -0.22991389536562842
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_-1_0_3",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        -0.23688098270668723,
+        0.33706339097770927,
+        -0.27008610463437155
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_-1_0_4",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        -0.24341986545873548,
+        0.3152671151375484,
+        -0.3025861046343716
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_-1_0_5",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        -0.254,
+        0.28,
+        -0.315
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_-1_0_6",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        -0.2645801345412645,
+        0.24473288486245165,
+        -0.3025861046343716
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_-1_0_7",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        -0.2711190172933128,
+        0.22293660902229082,
+        -0.2700861046343716
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_-1_0_8",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        -0.2711190172933128,
+        0.22293660902229082,
+        -0.22991389536562842
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_-1_0_9",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        -0.2645801345412645,
+        0.24473288486245162,
+        -0.19741389536562842
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_-1_1_0",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        -0.254,
+        0.36,
+        0.025
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_-1_1_1",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        -0.24341986545873548,
+        0.39526711513754836,
+        0.012586104634371584
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_-1_1_2",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        -0.23688098270668723,
+        0.41706339097770917,
+        -0.019913895365628417
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_-1_1_3",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        -0.23688098270668723,
+        0.4170633909777092,
+        -0.06008610463437158
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_-1_1_4",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        -0.24341986545873548,
+        0.39526711513754836,
+        -0.09258610463437159
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_-1_1_5",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        -0.254,
+        0.36,
+        -0.10500000000000001
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_-1_1_6",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        -0.2645801345412645,
+        0.3247328848624516,
+        -0.09258610463437159
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_-1_1_7",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        -0.2711190172933128,
+        0.3029366090222908,
+        -0.0600861046343716
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_-1_1_8",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        -0.2711190172933128,
+        0.30293660902229075,
+        -0.01991389536562843
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_-1_1_9",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        -0.2645801345412645,
+        0.3247328848624516,
+        0.012586104634371577
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_-1_2_0",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        -0.254,
+        0.29,
+        0.225
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_-1_2_1",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        -0.24341986545873548,
+        0.32526711513754836,
+        0.21258610463437158
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_-1_2_2",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        -0.23688098270668723,
+        0.3470633909777092,
+        0.18008610463437158
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_-1_2_3",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        -0.23688098270668723,
+        0.3470633909777092,
+        0.13991389536562843
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_-1_2_4",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        -0.24341986545873548,
+        0.32526711513754836,
+        0.10741389536562843
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_-1_2_5",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        -0.254,
+        0.29,
+        0.095
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_-1_2_6",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        -0.2645801345412645,
+        0.2547328848624516,
+        0.10741389536562843
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_-1_2_7",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        -0.2711190172933128,
+        0.23293660902229077,
+        0.1399138953656284
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_-1_2_8",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        -0.2711190172933128,
+        0.23293660902229077,
+        0.18008610463437158
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_-1_2_9",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        -0.2645801345412645,
+        0.2547328848624516,
+        0.21258610463437158
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "whisker_-1_0",
+      "shape": "box",
+      "size": [
+        0.16,
+        0.004,
+        0.005
+      ],
+      "at": [
+        -0.16,
+        0.33,
+        0.66
+      ],
+      "rot": [
+        0,
+        -12,
+        8
+      ],
+      "color": "whisker",
+      "bone": "head",
+      "separate": true
+    },
+    {
+      "name": "whisker_-1_1",
+      "shape": "box",
+      "size": [
+        0.16,
+        0.004,
+        0.005
+      ],
+      "at": [
+        -0.16,
+        0.34800000000000003,
+        0.652
+      ],
+      "rot": [
+        0,
+        -12,
+        0
+      ],
+      "color": "whisker",
+      "bone": "head",
+      "separate": true
+    },
+    {
+      "name": "whisker_-1_2",
+      "shape": "box",
+      "size": [
+        0.16,
+        0.004,
+        0.005
+      ],
+      "at": [
+        -0.16,
+        0.366,
+        0.644
+      ],
+      "rot": [
+        0,
+        -12,
+        -8
+      ],
+      "color": "whisker",
+      "bone": "head",
+      "separate": true
+    },
+    {
+      "name": "ring_1_0_0",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        0.254,
+        0.28,
+        -0.185
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_1_0_1",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        0.24341986545873548,
+        0.3152671151375484,
+        -0.19741389536562842
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_1_0_2",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        0.23688098270668723,
+        0.3370633909777092,
+        -0.22991389536562842
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_1_0_3",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        0.23688098270668723,
+        0.33706339097770927,
+        -0.27008610463437155
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_1_0_4",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        0.24341986545873548,
+        0.3152671151375484,
+        -0.3025861046343716
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_1_0_5",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        0.254,
+        0.28,
+        -0.315
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_1_0_6",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        0.2645801345412645,
+        0.24473288486245165,
+        -0.3025861046343716
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_1_0_7",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        0.2711190172933128,
+        0.22293660902229082,
+        -0.2700861046343716
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_1_0_8",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        0.2711190172933128,
+        0.22293660902229082,
+        -0.22991389536562842
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_1_0_9",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        0.2645801345412645,
+        0.24473288486245162,
+        -0.19741389536562842
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_1_1_0",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        0.254,
+        0.36,
+        0.025
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_1_1_1",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        0.24341986545873548,
+        0.39526711513754836,
+        0.012586104634371584
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_1_1_2",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        0.23688098270668723,
+        0.41706339097770917,
+        -0.019913895365628417
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_1_1_3",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        0.23688098270668723,
+        0.4170633909777092,
+        -0.06008610463437158
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_1_1_4",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        0.24341986545873548,
+        0.39526711513754836,
+        -0.09258610463437159
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_1_1_5",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        0.254,
+        0.36,
+        -0.10500000000000001
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_1_1_6",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        0.2645801345412645,
+        0.3247328848624516,
+        -0.09258610463437159
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_1_1_7",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        0.2711190172933128,
+        0.3029366090222908,
+        -0.0600861046343716
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_1_1_8",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        0.2711190172933128,
+        0.30293660902229075,
+        -0.01991389536562843
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_1_1_9",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        0.2645801345412645,
+        0.3247328848624516,
+        0.012586104634371577
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_1_2_0",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        0.254,
+        0.29,
+        0.225
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_1_2_1",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        0.24341986545873548,
+        0.32526711513754836,
+        0.21258610463437158
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_1_2_2",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        0.23688098270668723,
+        0.3470633909777092,
+        0.18008610463437158
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_1_2_3",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        0.23688098270668723,
+        0.3470633909777092,
+        0.13991389536562843
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_1_2_4",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        0.24341986545873548,
+        0.32526711513754836,
+        0.10741389536562843
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_1_2_5",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        0.254,
+        0.29,
+        0.095
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_1_2_6",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        0.2645801345412645,
+        0.2547328848624516,
+        0.10741389536562843
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_1_2_7",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        0.2711190172933128,
+        0.23293660902229077,
+        0.1399138953656284
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_1_2_8",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        0.2711190172933128,
+        0.23293660902229077,
+        0.18008610463437158
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "ring_1_2_9",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.027,
+        0.027
+      ],
+      "at": [
+        0.2645801345412645,
+        0.2547328848624516,
+        0.21258610463437158
+      ],
+      "color": "ring",
+      "bone": "body",
+      "separate": true,
+      "detail": 0.3
+    },
+    {
+      "name": "whisker_1_0",
+      "shape": "box",
+      "size": [
+        0.16,
+        0.004,
+        0.005
+      ],
+      "at": [
+        0.16,
+        0.33,
+        0.66
+      ],
+      "rot": [
+        0,
+        12,
+        -8
+      ],
+      "color": "whisker",
+      "bone": "head",
+      "separate": true
+    },
+    {
+      "name": "whisker_1_1",
+      "shape": "box",
+      "size": [
+        0.16,
+        0.004,
+        0.005
+      ],
+      "at": [
+        0.16,
+        0.34800000000000003,
+        0.652
+      ],
+      "rot": [
+        0,
+        12,
+        0
+      ],
+      "color": "whisker",
+      "bone": "head",
+      "separate": true
+    },
+    {
+      "name": "whisker_1_2",
+      "shape": "box",
+      "size": [
+        0.16,
+        0.004,
+        0.005
+      ],
+      "at": [
+        0.16,
+        0.366,
+        0.644
+      ],
+      "rot": [
+        0,
+        12,
+        8
+      ],
+      "color": "whisker",
+      "bone": "head",
+      "separate": true
+    }
+  ],
+  "sources": [
+    "https://www.metsa.fi/suojelu-ja-hoito/lajien-suojelu/saimaannorppa/",
+    "https://www.luontoon.fi/en/destinations/linnansaari-national-park/nature",
+    "https://julkaisut.metsa.fi/wp-content/uploads/sites/2/2023/05/endangered_saimaaringedseal_2023.pdf",
+    "https://wwf.fi/luontolive/info/ukk/"
+  ]
+}
