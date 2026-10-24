@@ -1,4 +1,12 @@
 {
+  "ui.location.world": "Maailma",
+  "ui.location.ready": "Pelipaikat",
+  "ui.location.map_hint": "Siirrä vetämällä · Zoomaa kahdella sormella tai + / −",
+  "ui.location.ready_count": "{count} valmista pelipaikkaa",
+  "ui.location.animal_count": "{count} eläintä pelattavana nyt",
+  "ui.location.choose_here": "Valitse tämä paikka",
+  "ui.location.short.fi_nuuksio": "Nuuksio",
+  "ui.location.short.fi_saimaa": "Saimaa",
   "ui.settings.test_sound": "Kokeile ääntä",
   "ui.settings.sound": "Luonnonäänet",
   "ui.menu": "Valikko",
