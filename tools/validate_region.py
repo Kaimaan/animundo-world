@@ -231,10 +231,13 @@ def check(path):
     for i, lake in enumerate(d.get("lakes", [])):
         if not isinstance(lake.get("name"), str) or not lake["name"].strip():
             err(f'"lakes[{i}].name" must be the lake\'s real name')
-        for k, lo, hi in (("x", 0, 1), ("z", 0, 1), ("length", 0.02, 1), ("width", 0.01, 0.5), ("angle", -360, 360), ("depth", 2, 7), ("islands", 0, 6)):
+        for k, lo, hi in (("x", 0, 1), ("z", 0, 1), ("length", 0.02, 1.5), ("width", 0.01, 1.5), ("angle", -360, 360), ("depth", 2, 7), ("islands", 0, 24)):
             v = lake.get(k)
             if v is not None and (not isinstance(v, (int, float)) or not lo <= v <= hi):
                 err(f'"lakes[{i}].{k}" must be a number from {lo} to {hi}')
+        radius = lake.get("island_radius", [3.5, 6.0])
+        if not isinstance(radius, list) or len(radius) != 2 or not all(isinstance(v, (int, float)) for v in radius) or not 2 <= radius[0] <= radius[1] <= 80:
+            err(f'"lakes[{i}].island_radius" must be [minimum, maximum] from 2 to 80 metres')
     for i, pl in enumerate(d.get("places", [])):
         if not isinstance(pl.get("name"), str) or not pl["name"].strip():
             err(f'"places[{i}].name" must be the place\'s real name')
