@@ -1,0 +1,91 @@
+{
+  "archetype": "land_mammal",
+  "latin": "Pusa saimensis",
+  "playable": true,
+  "color": "#65716b",
+  "tags": [
+    "mammal",
+    "seal"
+  ],
+  "diet": [],
+  "hunts": [
+    "small_fish"
+  ],
+  "digs": false,
+  "diving_mammal": true,
+  "walk": 0.8,
+  "sprint": 1.3,
+  "swim_speed": 3.8,
+  "swim_sprint_speed": 5.4,
+  "jump": 2.8,
+  "breath": 60,
+  "rain_chill": 0.05,
+  "water_chill": 0,
+  "shelter": "shore",
+  "spawn": "water",
+  "box": [
+    0.6,
+    0.55,
+    0.9
+  ],
+  "cam_height": 0.6,
+  "cam_dist": 3.3,
+  "buttons": {
+    "jump": "up",
+    "dig": "down",
+    "sprint": "fast"
+  },
+  "model": {
+    "file": "res://assets/animals/saimaa_seal.glb",
+    "length": 0.68,
+    "yaw": 0.0,
+    "anims": {
+      "idle": "idle",
+      "walk": "walk",
+      "run": "run",
+      "eat": "eat",
+      "sleep": "sleep",
+      "fly": "swim"
+    }
+  },
+  "text": {
+    "title": "Saimaa ringed seal",
+    "menu_sub": "Dive between islands and surface for air.",
+    "menu_wild": "Fish and rest ashore.",
+    "intro": "Swim between islands. Hold Down to dive, Up to surface. Breathe at the surface.",
+    "hungry": "Look underwater for small perch and roach.",
+    "no_food": "No small fish within reach. Explore the water.",
+    "caught": "A fish! +{food} food",
+    "night_hint": "Find a quiet shore or rock to rest.",
+    "too_exposed": "Reach dry shore before resting.",
+    "sheltered": "You can rest here on the shore.",
+    "out_of_water": "Move slowly across shore and return to the water to hunt.",
+    "about_looks": "A rounded grey seal with pale rings, large dark eyes, whiskers and short flippers. Adults are about 1.3–1.45 metres long.",
+    "about_food": "Small schooling fish. This first game region offers small perch and roach; vendace and smelt are not yet modelled.",
+    "about_home": "Lives only in the Saimaa lake system. Linnansaari is an important seal habitat.",
+    "about_winter": "Stays in Saimaa all year. In winter it uses breathing holes and snow lairs. This first version has diving and shore rest, not snow-lair construction.",
+    "about_young": "Usually one pup is born in a snow lair in late winter. The first version starts as an adult.",
+    "about_fact": "Its ring pattern stays recognisable through life. Observe wild seals from a distance and leave resting places undisturbed.",
+    "safe_tag": "Tag! The fish swims away unharmed.",
+    "bite": "A seal caught up with you!",
+    "caught_you": "The seal caught you."
+  },
+  "year": {
+    "winter": "active",
+    "shelter": "Rocky shores in open water; snow lairs in winter. First version supports shore rest only.",
+    "young": "One pup in a snow lair in late winter; no baby mode yet.",
+    "food": {
+      "spring": "Small schooling fish, including perch, roach, vendace and smelt.",
+      "summer": "Small schooling fish, including perch, roach, vendace and smelt.",
+      "autumn": "Small schooling fish, including perch, roach, vendace and smelt.",
+      "winter": "Small schooling fish, including perch, roach, vendace and smelt."
+    },
+    "notes": "Freshwater, air-breathing resident. 60-second playable dive budget is compressed for the game. No migration, hibernation, human threats or snow-lair simulation in the first version."
+  },
+  "sources": [
+    "https://www.metsa.fi/suojelu-ja-hoito/lajien-suojelu/saimaannorppa/",
+    "https://www.luontoon.fi/en/destinations/linnansaari-national-park/nature",
+    "https://julkaisut.metsa.fi/wp-content/uploads/sites/2/2023/05/endangered_saimaaringedseal_2023.pdf",
+    "https://wwf.fi/luontolive/info/ukk/"
+  ]
+}
