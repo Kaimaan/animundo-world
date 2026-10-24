@@ -1,4 +1,12 @@
 {
+  "ui.location.world": "World",
+  "ui.location.ready": "Ready places",
+  "ui.location.map_hint": "Drag to explore · Pinch or use + / − to zoom",
+  "ui.location.ready_count": "{count} playable places",
+  "ui.location.animal_count": "{count} animals available now",
+  "ui.location.choose_here": "Choose this place",
+  "ui.location.short.fi_nuuksio": "Nuuksio",
+  "ui.location.short.fi_saimaa": "Saimaa",
   "ui.settings.test_sound": "Test sound",
   "ui.settings.sound": "Nature sounds",
   "ui.menu": "Menu",
