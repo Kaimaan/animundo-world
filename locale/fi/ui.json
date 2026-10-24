@@ -33,7 +33,7 @@
   "ui.button.sleep": "Nuku",
   "ui.button.fly": "Lennä",
   "ui.button.dive": "Syöksy",
-  "ui.button.fast": "Nopeasti",
+  "ui.button.fast": "Nopeammin",
   "ui.button.up": "Ylös",
   "ui.button.down": "Alas",
   "ui.button.dash": "Spurttaa",
@@ -324,5 +324,13 @@
   "ui.briefing.shelter.leaves": "Lepää lehtien suojassa.",
   "ui.briefing.shelter.leaves_or_earth": "Lepää lehtien tai maan suojassa.",
   "ui.briefing.shelter.under_tree": "Lepää puun alla.",
-  "ui.briefing.shelter.deep_water": "Lepää syvässä vedessä."
+  "ui.briefing.shelter.deep_water": "Lepää syvässä vedessä.",
+  "ui.location.start": "Lähde tutkimaan",
+  "ui.location.animal_first": "Valitse eläin",
+  "ui.location.place_first": "Valitse paikka",
+  "ui.location.choose": "Valitse aloituspaikka",
+  "ui.location.none": "Sopivaa paikkaa ei ole saatavilla tänä vuodenaikana.",
+  "ui.location.unsupported": "Tämä eläin ei voi aloittaa tässä paikassa.",
+  "ui.briefing.shelter.shore": "Lepää kuivalla rannalla tai kivellä.",
+  "ui.location.finland": "Suomi"
 }

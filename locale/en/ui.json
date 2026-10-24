@@ -33,7 +33,7 @@
   "ui.button.sleep": "Sleep",
   "ui.button.fly": "Fly",
   "ui.button.dive": "Dive",
-  "ui.button.fast": "Fast",
+  "ui.button.fast": "Faster",
   "ui.button.up": "Up",
   "ui.button.down": "Down",
   "ui.button.dash": "Dash",
@@ -324,5 +324,13 @@
   "ui.briefing.shelter.leaves": "Rest among leaves.",
   "ui.briefing.shelter.leaves_or_earth": "Rest among leaves or under earth.",
   "ui.briefing.shelter.under_tree": "Rest under a tree.",
-  "ui.briefing.shelter.deep_water": "Rest in deep water."
+  "ui.briefing.shelter.deep_water": "Rest in deep water.",
+  "ui.location.start": "Start exploring",
+  "ui.location.animal_first": "Choose an animal",
+  "ui.location.place_first": "Choose a place",
+  "ui.location.choose": "Choose your starting place",
+  "ui.location.none": "No suitable place is available this season.",
+  "ui.location.unsupported": "This animal cannot start in that place.",
+  "ui.briefing.shelter.shore": "Rest on a dry shore or rock.",
+  "ui.location.finland": "Finland"
 }
