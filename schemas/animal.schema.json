@@ -1,0 +1,306 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Kaimaan/animundo-world/schemas/animal.schema.json",
+  "title": "Animal",
+  "description": "An animal: animals/<id>.json. The archetype gives defaults, so every trait is optional here. Keys that only some archetypes use (glide_*, swim_*, school, songbird, nest) are left optional for every archetype, because the game accepts them on any animal (see schemas/README.md). Rules that need other files or the merged archetype defaults (texts a playable animal needs, the food web, the rain message rule, family texts) are checked by tools/check_animals.py.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["archetype", "latin", "tags", "model", "year", "text"],
+  "properties": {
+    "archetype": {
+      "description": "A key in animals/archetypes.json (checked by check_animals.py).",
+      "$ref": "#/$defs/id"
+    },
+    "status": {
+      "description": "draft, reviewed or released. Missing means released.",
+      "enum": ["draft", "reviewed", "released"]
+    },
+    "latin": {"description": "The scientific name, e.g. \"Vulpes vulpes\".", "$ref": "#/$defs/text"},
+    "sources": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/text"}},
+    "playable": {"description": "It can be played (otherwise it is wildlife only).", "type": "boolean"},
+    "tags": {
+      "description": "What it is to hunters, e.g. small_mammal.",
+      "type": "array",
+      "items": {"$ref": "#/$defs/tag"}
+    },
+    "diet": {
+      "description": "Food kinds it eats. Each must be in the region's food (decision 0011).",
+      "type": "array",
+      "items": {"$ref": "#/$defs/diet_kind"}
+    },
+    "hunts": {
+      "description": "Tags of the animals it hunts.",
+      "type": "array",
+      "items": {"$ref": "#/$defs/tag"}
+    },
+    "territorial": {"type": "boolean"},
+    "digs": {"type": "boolean"},
+    "dark_vision": {
+      "description": "How well it sees in dim light (check_animals.gd).",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "cold_blooded": {"type": "boolean"},
+    "rain_chill": {"description": "How much rain cools it; 0 means rain doesn't matter.", "type": "number"},
+    "water_chill": {"type": "number"},
+    "breath": {"description": "Seconds it can stay under water.", "type": "number"},
+    "move": {
+      "description": "Checked by check_animals.gd. Usually set by the archetype.",
+      "enum": ["ground", "fly", "swim"]
+    },
+    "shelter": {
+      "description": "Checked by check_animals.gd.",
+      "enum": ["earth", "leaves", "leaves_or_earth", "deep_water", "under_tree", "shore"]
+    },
+    "spawn": {"description": "Where a player starts (main.gd).", "enum": ["land", "water", "flower"]},
+    "walk": {"type": "number"},
+    "sprint": {"type": "number"},
+    "jump": {"type": "number"},
+    "fly": {"type": "number"},
+    "climb": {"type": "number"},
+    "dive": {"type": "number"},
+    "swim_speed": {"type": "number"},
+    "swim_sprint_speed": {"type": "number"},
+    "lurk": {"type": "number"},
+    "flee_speed": {"type": "number"},
+    "glide_speed": {"type": "number"},
+    "glide_sink": {"type": "number"},
+    "metabolism": {"type": "number"},
+    "food_value": {"type": "number"},
+    "climbs": {"type": "boolean"},
+    "glides": {"type": "boolean"},
+    "school": {"type": "boolean"},
+    "surface_swimmer": {"type": "boolean"},
+    "diving_mammal": {"type": "boolean"},
+    "box": {
+      "description": "Collision box [x, y, z] in metres.",
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {"type": "number"}
+    },
+    "cam_height": {"type": "number"},
+    "cam_dist": {"type": "number"},
+    "color": {"$ref": "#/$defs/colour"},
+    "buttons": {
+      "description": "Renames the small buttons, e.g. {\"jump\": \"fly\"} (hud.gd).",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "jump": {"$ref": "#/$defs/text"},
+        "dig": {"$ref": "#/$defs/text"},
+        "sprint": {"$ref": "#/$defs/text"}
+      }
+    },
+    "model": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["file", "length", "yaw", "anims"],
+      "properties": {
+        "file": {"type": "string", "pattern": "^res://assets/animals/[a-z0-9_]+\\.glb$"},
+        "length": {"description": "Real body length in metres.", "type": "number", "exclusiveMinimum": 0},
+        "yaw": {"type": "number"},
+        "anims": {
+          "description": "Action to clip in the .glb. Fish map only idle and fly (to swim).",
+          "type": "object",
+          "required": ["idle"],
+          "propertyNames": {"enum": ["idle", "walk", "run", "eat", "sleep", "fly"]},
+          "additionalProperties": {"enum": ["idle", "walk", "run", "eat", "sleep", "fly", "swim"]}
+        },
+        "coats": {
+          "description": "Seasonal colours: {season: {colour name in the model spec: colour}}.",
+          "type": "object",
+          "propertyNames": {"enum": ["spring", "summer", "autumn", "winter"]},
+          "additionalProperties": {"type": "object", "additionalProperties": {"$ref": "#/$defs/colour"}}
+        },
+        "seasonal_parts": {
+          "description": "Parts sized per season: {bone: {season: scale}}, e.g. antlers.",
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "propertyNames": {"enum": ["spring", "summer", "autumn", "winter"]},
+            "additionalProperties": {"type": "number"}
+          }
+        },
+        "ground_anim_speed": {"type": "number"}
+      }
+    },
+    "songbird": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sings"],
+      "properties": {
+        "song": {"type": "array", "items": {"type": "string"}},
+        "sings": {
+          "description": "When it sings: [from, until] as month-day.",
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {"$ref": "#/$defs/month_day"}
+        }
+      }
+    },
+    "nest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "tree": {"$ref": "#/$defs/text"},
+        "height": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "number"}},
+        "eggs": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"$ref": "#/$defs/month_day"}},
+        "nestlings": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"$ref": "#/$defs/month_day"}},
+        "clutch": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "integer", "minimum": 0}},
+        "food_value": {"type": "number"}
+      }
+    },
+    "year": {
+      "description": "How it lives through the seasons (CONTRIBUTING.md, Its year; check_animals.gd).",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["winter", "shelter", "young", "food"],
+      "properties": {
+        "winter": {"enum": ["active", "hibernates", "migrates"]},
+        "hibernation": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["from", "to", "wakes"],
+          "properties": {
+            "from": {"$ref": "#/$defs/month_day"},
+            "to": {"$ref": "#/$defs/month_day"},
+            "wakes": {"enum": ["never", "rarely", "often"]}
+          }
+        },
+        "migration": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["leaves", "returns"],
+          "properties": {"leaves": {"$ref": "#/$defs/month_day"}, "returns": {"$ref": "#/$defs/month_day"}}
+        },
+        "shelter": {"$ref": "#/$defs/text"},
+        "young": {"$ref": "#/$defs/text"},
+        "food": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["spring", "summer", "autumn", "winter"],
+          "properties": {
+            "spring": {"$ref": "#/$defs/text"},
+            "summer": {"$ref": "#/$defs/text"},
+            "autumn": {"$ref": "#/$defs/text"},
+            "winter": {"$ref": "#/$defs/text"}
+          }
+        },
+        "notes": {"type": "string"}
+      },
+      "allOf": [
+        {"if": {"properties": {"winter": {"const": "hibernates"}}}, "then": {"required": ["hibernation"]}},
+        {"if": {"properties": {"winter": {"const": "migrates"}}}, "then": {"required": ["migration"]}}
+      ]
+    },
+    "family": {
+      "description": "Who raises its young, for a baby start (decision 0010; check_animals.gd).",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["baby_scale", "lessons", "sources"],
+      "properties": {
+        "raised_by": {"type": "array", "items": {"enum": ["mother", "father", "sisters"]}},
+        "siblings": {
+          "description": "[fewest, most], from 0 to 6, fewest first.",
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {"type": "number", "minimum": 0, "maximum": 6}
+        },
+        "baby_scale": {"type": "number", "minimum": 0.2, "maximum": 0.9},
+        "lessons": {"type": "array", "minItems": 1, "items": {"enum": ["eat", "pounce", "shelter", "sleep"]}},
+        "sources": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/text"}}
+      }
+    },
+    "text": {
+      "description": "English messages. Each key is one event; maxLength is the longest text today plus about 30%.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "about_fact": {"type": "string", "pattern": "\\S", "maxLength": 170},
+        "about_food": {"type": "string", "pattern": "\\S", "maxLength": 160},
+        "about_home": {"type": "string", "pattern": "\\S", "maxLength": 200},
+        "about_looks": {"type": "string", "pattern": "\\S", "maxLength": 200},
+        "about_winter": {"type": "string", "pattern": "\\S", "maxLength": 200},
+        "about_young": {"type": "string", "pattern": "\\S", "maxLength": 200},
+        "bedtime": {"type": "string", "pattern": "\\S", "maxLength": 100},
+        "bite": {"type": "string", "pattern": "\\S", "maxLength": 80},
+        "calling_father": {"type": "string", "pattern": "\\S", "maxLength": 80},
+        "calling_mother": {"type": "string", "pattern": "\\S", "maxLength": 80},
+        "caught": {"type": "string", "pattern": "\\S", "maxLength": 80},
+        "caught_eggs": {"type": "string", "pattern": "\\S", "maxLength": 80},
+        "caught_nestlings": {"type": "string", "pattern": "\\S", "maxLength": 90},
+        "caught_you": {"type": "string", "pattern": "\\S", "maxLength": 80},
+        "chased": {"type": "string", "pattern": "\\S", "maxLength": 80},
+        "chasing": {"type": "string", "pattern": "\\S", "maxLength": 90},
+        "dig": {"type": "string", "pattern": "\\S", "maxLength": 100},
+        "family_father": {"type": "string", "pattern": "\\S", "maxLength": 80},
+        "family_mother": {"type": "string", "pattern": "\\S", "maxLength": 80},
+        "family_siblings": {"type": "string", "pattern": "\\S", "maxLength": 90},
+        "family_you": {"type": "string", "pattern": "\\S", "maxLength": 120},
+        "fed_father": {"type": "string", "pattern": "\\S", "maxLength": 80},
+        "fed_mother": {"type": "string", "pattern": "\\S", "maxLength": 80},
+        "grown_up": {"type": "string", "pattern": "\\S", "maxLength": 80},
+        "hungry": {"type": "string", "pattern": "\\S", "maxLength": 130},
+        "intro": {"type": "string", "pattern": "\\S", "maxLength": 130},
+        "intro_safe": {"type": "string", "pattern": "\\S", "maxLength": 120},
+        "intro_survival": {"type": "string", "pattern": "\\S", "maxLength": 120},
+        "intro_wild": {"type": "string", "pattern": "\\S", "maxLength": 100},
+        "lesson_eat": {"type": "string", "pattern": "\\S", "maxLength": 80},
+        "lesson_pounce": {"type": "string", "pattern": "\\S", "maxLength": 80},
+        "lesson_shelter": {"type": "string", "pattern": "\\S", "maxLength": 80},
+        "lesson_sleep": {"type": "string", "pattern": "\\S", "maxLength": 80},
+        "menu_sub": {"type": "string", "pattern": "\\S", "maxLength": 110},
+        "menu_wild": {"type": "string", "pattern": "\\S", "maxLength": 80},
+        "nearby": {"type": "string", "pattern": "\\S", "maxLength": 80},
+        "nest_alarm": {"type": "string", "pattern": "\\S", "maxLength": 80},
+        "nest_hint": {"type": "string", "pattern": "\\S", "maxLength": 80},
+        "night_hint": {"type": "string", "pattern": "\\S", "maxLength": 110},
+        "no_food": {"type": "string", "pattern": "\\S", "maxLength": 120},
+        "out_of_water": {"type": "string", "pattern": "\\S", "maxLength": 80},
+        "play_as": {"type": "string", "pattern": "\\S", "maxLength": 80},
+        "rain_start": {"type": "string", "pattern": "\\S", "maxLength": 130},
+        "rain_stop": {"type": "string", "pattern": "\\S", "maxLength": 80},
+        "rival_bite": {"type": "string", "pattern": "\\S", "maxLength": 80},
+        "rival_caught_you": {"type": "string", "pattern": "\\S", "maxLength": 80},
+        "safe_tag": {"type": "string", "pattern": "\\S", "maxLength": 80},
+        "sheltered": {"type": "string", "pattern": "\\S", "maxLength": 80},
+        "sings": {"type": "string", "pattern": "\\S", "maxLength": 100},
+        "stalk_hint": {"type": "string", "pattern": "\\S", "maxLength": 110},
+        "title": {"type": "string", "pattern": "\\S", "maxLength": 80},
+        "too_exposed": {"type": "string", "pattern": "\\S", "maxLength": 110}
+      }
+    }
+  },
+  "$defs": {
+    "id": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"},
+    "tag": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"},
+    "text": {"type": "string", "pattern": "\\S"},
+    "colour": {"type": "string", "pattern": "^#[0-9a-fA-F]{6}$"},
+    "month_day": {"type": "string", "pattern": "^(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$"},
+    "diet_kind": {
+      "description": "The food.kind.* keys in locale/en/food.json, plus nectar (from a region's flowers).",
+      "enum": [
+        "bark",
+        "berries",
+        "bottom_bugs",
+        "browse",
+        "carrion",
+        "carrot",
+        "clover",
+        "cones",
+        "grass",
+        "insects",
+        "mushrooms",
+        "nectar",
+        "nest",
+        "seeds",
+        "water_bugs",
+        "water_plants"
+      ]
+    }
+  }
+}

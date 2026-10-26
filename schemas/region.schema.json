@@ -1,0 +1,358 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Kaimaan/animundo-world/schemas/region.schema.json",
+  "title": "Region",
+  "description": "A place: regions/<id>.json. Ranges and lists come from tools/validate_region.py and the game. Rules that need other files (animal and plant ids exist, densities add up, the plant triangle budget, the food web) are checked by validate_region.py and check_animals.py, not here.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "name", "country", "center", "description", "author", "sources"],
+  "properties": {
+    "id": {
+      "description": "Equals the file name: <country code>_<place>, lower case.",
+      "type": "string",
+      "pattern": "^[a-z]{2}_[a-z0-9_]+$"
+    },
+    "status": {"$ref": "#/$defs/status"},
+    "name": {"$ref": "#/$defs/text"},
+    "country": {"$ref": "#/$defs/text"},
+    "description": {"$ref": "#/$defs/text"},
+    "author": {"$ref": "#/$defs/text"},
+    "sources": {
+      "description": "Where the facts come from: links or book titles.",
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/text"}
+    },
+    "center": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["lat", "lon"],
+      "properties": {
+        "lat": {"type": "number", "minimum": -90, "maximum": 90},
+        "lon": {"type": "number", "minimum": -180, "maximum": 180}
+      }
+    },
+    "terrain": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "size": {"type": "number", "minimum": 128, "maximum": 2048},
+        "base_height": {"type": "number", "minimum": 2, "maximum": 14},
+        "relief": {"type": "number", "minimum": 0, "maximum": 16},
+        "frequency": {"type": "number", "minimum": 0.005, "maximum": 0.15},
+        "rock_ridges": {"type": "number", "minimum": 0, "maximum": 1},
+        "rock_above": {"type": "number", "minimum": 6, "maximum": 28},
+        "lakes": {"type": "number", "minimum": 0, "maximum": 1},
+        "edge": {"enum": ["lake", "none"]},
+        "seed": {"type": "integer"}
+      }
+    },
+    "palette": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "ground_lush": {"$ref": "#/$defs/colour"},
+        "ground_dry": {"$ref": "#/$defs/colour"},
+        "ground_high": {"$ref": "#/$defs/colour"},
+        "dirt": {"$ref": "#/$defs/colour"},
+        "rock": {"$ref": "#/$defs/colour"},
+        "sand": {"$ref": "#/$defs/colour"},
+        "water_deep": {"$ref": "#/$defs/colour"},
+        "water_shallow": {"$ref": "#/$defs/colour"},
+        "ground_autumn": {"$ref": "#/$defs/colour"},
+        "heath_autumn": {"$ref": "#/$defs/colour"},
+        "snow": {"$ref": "#/$defs/colour"}
+      }
+    },
+    "sky": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "day": {"$ref": "#/$defs/colour"},
+        "horizon": {"$ref": "#/$defs/colour"},
+        "dusk": {"$ref": "#/$defs/colour"},
+        "night": {"$ref": "#/$defs/colour"},
+        "sun": {"$ref": "#/$defs/colour"}
+      }
+    },
+    "seasons": {
+      "description": "When each season starts here, as month-day.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "spring": {"$ref": "#/$defs/month_day"},
+        "summer": {"$ref": "#/$defs/month_day"},
+        "autumn": {"$ref": "#/$defs/month_day"},
+        "winter": {"$ref": "#/$defs/month_day"},
+        "snow": {"type": "boolean"}
+      }
+    },
+    "trees": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "density": {"type": "number", "minimum": 0, "maximum": 0.05},
+        "mix": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["shape", "weight"],
+            "properties": {
+              "shape": {"enum": ["spruce", "pine", "birch", "round", "rowan"]},
+              "weight": {"type": "number", "exclusiveMinimum": 0},
+              "leaves": {"$ref": "#/$defs/colour"},
+              "trunk": {"$ref": "#/$defs/colour"},
+              "autumn": {"$ref": "#/$defs/colour"},
+              "plant": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"},
+              "food": {"$ref": "#/$defs/food_kind"}
+            }
+          }
+        }
+      }
+    },
+    "ground_cover": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "grass": {"type": "number", "minimum": 0, "maximum": 1},
+        "flowers": {"type": "number", "minimum": 0, "maximum": 1},
+        "stones": {"type": "number", "minimum": 0, "maximum": 1},
+        "flower_colors": {"type": "array", "items": {"$ref": "#/$defs/colour"}},
+        "flower_names": {"type": "array", "items": {"$ref": "#/$defs/text"}},
+        "plants": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["model", "density"],
+            "properties": {
+              "model": {
+                "description": "A plant id in models/plants/.",
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9_]*$"
+              },
+              "density": {"type": "number", "exclusiveMinimum": 0, "maximum": 1},
+              "near_trees": {"type": "number", "minimum": 0, "maximum": 16},
+              "on": {"type": "array", "minItems": 1, "items": {"enum": ["grass", "rock", "sand"]}},
+              "habitat": {"enum": ["forest", "bog"]},
+              "food": {
+                "oneOf": [
+                  {"$ref": "#/$defs/plant_food_kind"},
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": ["kind"],
+                    "properties": {
+                      "kind": {"$ref": "#/$defs/plant_food_kind"},
+                      "part": {"description": "The name of a part in the plant's spec.", "type": "string"}
+                    }
+                  }
+                ]
+              },
+              "names": {"type": "array", "items": {"$ref": "#/$defs/text"}},
+              "amount": {"type": "number"}
+            }
+          }
+        }
+      }
+    },
+    "lakes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name"],
+        "properties": {
+          "name": {"$ref": "#/$defs/text"},
+          "x": {"type": "number", "minimum": 0, "maximum": 1},
+          "z": {"type": "number", "minimum": 0, "maximum": 1},
+          "length": {"type": "number", "minimum": 0.02, "maximum": 1.5},
+          "width": {"type": "number", "minimum": 0.01, "maximum": 1.5},
+          "angle": {"type": "number", "minimum": -360, "maximum": 360},
+          "depth": {"type": "number", "minimum": 2, "maximum": 7},
+          "islands": {"type": "number", "minimum": 0, "maximum": 24},
+          "island_radius": {
+            "description": "[minimum, maximum] in metres, from 2 to 80.",
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {"type": "number", "minimum": 2, "maximum": 80}
+          },
+          "wreck": {"type": "boolean"}
+        }
+      }
+    },
+    "places": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name"],
+        "properties": {
+          "name": {"$ref": "#/$defs/text"},
+          "at": {"const": "highest"},
+          "x": {"type": "number", "minimum": 0, "maximum": 1},
+          "z": {"type": "number", "minimum": 0, "maximum": 1}
+        },
+        "if": {"not": {"required": ["at"]}},
+        "then": {"required": ["x", "z"]}
+      }
+    },
+    "lake_life": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "reeds": {"type": "number", "minimum": 0, "maximum": 1},
+        "lilies": {"type": "number", "minimum": 0, "maximum": 1},
+        "pondweed": {"type": "number", "minimum": 0, "maximum": 1}
+      }
+    },
+    "food": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["kind"],
+        "properties": {
+          "kind": {"$ref": "#/$defs/region_food_kind"},
+          "weight": {"type": "number"},
+          "amount": {"type": "number"},
+          "names": {"type": "array", "items": {"$ref": "#/$defs/text"}}
+        }
+      }
+    },
+    "fish": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["kind", "count"],
+        "properties": {
+          "kind": {"description": "An animal id in animals/.", "$ref": "#/$defs/id"},
+          "count": {"type": "integer", "minimum": 0, "maximum": 40}
+        }
+      }
+    },
+    "migrants": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["kind"],
+        "properties": {
+          "kind": {"enum": ["geese", "cranes"]},
+          "names": {"type": "array", "items": {"$ref": "#/$defs/text"}},
+          "south": {"$ref": "#/$defs/date_span"},
+          "north": {"$ref": "#/$defs/date_span"}
+        }
+      }
+    },
+    "animals": {
+      "description": "Animal ids in animals/.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "playable": {"type": "array", "items": {"$ref": "#/$defs/id"}},
+        "predators": {"type": "array", "items": {"$ref": "#/$defs/id"}},
+        "prey": {"type": "array", "items": {"$ref": "#/$defs/id"}},
+        "featured": {"type": "array", "items": {"$ref": "#/$defs/id"}}
+      }
+    },
+    "bogs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["x", "z", "radius"],
+        "properties": {
+          "name": {"$ref": "#/$defs/text"},
+          "x": {"type": "number", "minimum": 0, "maximum": 1},
+          "z": {"type": "number", "minimum": 0, "maximum": 1},
+          "radius": {"type": "number", "minimum": 1, "maximum": 512}
+        }
+      }
+    },
+    "streams": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["points", "width"],
+        "properties": {
+          "points": {
+            "type": "array",
+            "minItems": 2,
+            "items": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {"type": "number", "minimum": 0, "maximum": 1}
+            }
+          },
+          "width": {"type": "number", "minimum": 1, "maximum": 32}
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "description": "An explored place (draft or reviewed) needs at least 3 sources.",
+      "if": {"required": ["status"], "properties": {"status": {"enum": ["draft", "reviewed"]}}},
+      "then": {"properties": {"sources": {"minItems": 3}}}
+    }
+  ],
+  "$defs": {
+    "status": {
+      "description": "draft, reviewed or released. Missing means released.",
+      "enum": ["draft", "reviewed", "released"]
+    },
+    "text": {"type": "string", "pattern": "\\S"},
+    "id": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"},
+    "colour": {"type": "string", "pattern": "^#[0-9a-fA-F]{6}$"},
+    "month_day": {"type": "string", "pattern": "^(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$"},
+    "date_span": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"$ref": "#/$defs/month_day"}},
+    "food_kind": {
+      "description": "The food.kind.* keys in locale/en/food.json.",
+      "enum": [
+        "bark",
+        "berries",
+        "bottom_bugs",
+        "browse",
+        "carrion",
+        "carrot",
+        "clover",
+        "cones",
+        "grass",
+        "insects",
+        "mushrooms",
+        "nest",
+        "seeds",
+        "water_bugs",
+        "water_plants"
+      ]
+    },
+    "region_food_kind": {
+      "description": "FOOD_KINDS in tools/validate_region.py: the kinds a region's food list can put down (mushrooms come from plants, nests from birds).",
+      "enum": [
+        "bark",
+        "berries",
+        "bottom_bugs",
+        "browse",
+        "carrion",
+        "carrot",
+        "clover",
+        "cones",
+        "grass",
+        "insects",
+        "seeds",
+        "water_bugs",
+        "water_plants"
+      ]
+    },
+    "plant_food_kind": {
+      "description": "PLANT_FOOD_KINDS in tools/validate_region.py.",
+      "enum": ["berries", "browse", "clover", "mushrooms"]
+    }
+  }
+}

@@ -1,0 +1,915 @@
+{
+ "about": "Broken copies of real content, one rule each, for tools/test_broken.py. Each case edits files as they are today (JSON Pointer paths) and says which checks must fail; every other check must pass. needs_built_models: the case is skipped until tools/build_model.sh has built the models.",
+ "cases": [
+  {
+   "name": "fox_unknown_archetype",
+   "why": "The archetype must be a key in animals/archetypes.json.",
+   "edits": [
+    {
+     "file": "animals/fox.json",
+     "set": {
+      "/archetype": "dog"
+     }
+    }
+   ],
+   "expect": {
+    "check_animals": "fail"
+   }
+  },
+  {
+   "name": "squirrel_playable_text",
+   "why": "A playable animal needs every REQUIRED_PLAYABLE text.",
+   "edits": [
+    {
+     "file": "animals/squirrel.json",
+     "delete": [
+      "/text/menu_sub"
+     ]
+    }
+   ],
+   "expect": {
+    "check_animals": "fail"
+   }
+  },
+  {
+   "name": "moose_intro",
+   "why": "A playable animal needs intro, or all three intro_<mode> texts.",
+   "edits": [
+    {
+     "file": "animals/moose.json",
+     "delete": [
+      "/text/intro_wild"
+     ]
+    }
+   ],
+   "expect": {
+    "check_animals": "fail"
+   }
+  },
+  {
+   "name": "fox_dark_vision",
+   "why": "dark_vision is a number from 0 to 1.",
+   "edits": [
+    {
+     "file": "animals/fox.json",
+     "set": {
+      "/dark_vision": 1.5
+     }
+    }
+   ],
+   "expect": {
+    "check_animals": "fail",
+    "schema": "fail"
+   }
+  },
+  {
+   "name": "vole_digs_text",
+   "why": "An animal that digs needs a dig text.",
+   "edits": [
+    {
+     "file": "animals/vole.json",
+     "delete": [
+      "/text/dig"
+     ]
+    }
+   ],
+   "expect": {
+    "check_animals": "fail"
+   }
+  },
+  {
+   "name": "kestrel_safe_tag",
+   "why": "A playable hunter needs safe_tag.",
+   "edits": [
+    {
+     "file": "animals/kestrel.json",
+     "delete": [
+      "/text/safe_tag"
+     ]
+    }
+   ],
+   "expect": {
+    "check_animals": "fail"
+   }
+  },
+  {
+   "name": "fox_territorial_text",
+   "why": "A territorial animal needs rival_bite and rival_caught_you.",
+   "edits": [
+    {
+     "file": "animals/fox.json",
+     "delete": [
+      "/text/rival_bite"
+     ]
+    }
+   ],
+   "expect": {
+    "check_animals": "fail"
+   }
+  },
+  {
+   "name": "kestrel_bite_text",
+   "why": "A hunter needs bite and caught_you.",
+   "edits": [
+    {
+     "file": "animals/kestrel.json",
+     "delete": [
+      "/text/bite"
+     ]
+    }
+   ],
+   "expect": {
+    "check_animals": "fail"
+   }
+  },
+  {
+   "name": "perch_rain_message",
+   "why": "An animal rain doesn't chill is never told to find shelter from it.",
+   "edits": [
+    {
+     "file": "animals/perch.json",
+     "set": {
+      "/text/rain_start": "Rain! Swim down to shelter."
+     }
+    }
+   ],
+   "expect": {
+    "check_animals": "fail"
+   }
+  },
+  {
+   "name": "fox_model_path",
+   "why": "model.file is res://assets/animals/<id>.glb.",
+   "edits": [
+    {
+     "file": "animals/fox.json",
+     "set": {
+      "/model/file": "res://models/fox.glb"
+     }
+    }
+   ],
+   "expect": {
+    "check_animals": "fail",
+    "schema": "fail"
+   }
+  },
+  {
+   "name": "fox_model_missing",
+   "why": "model.file must be built.",
+   "edits": [
+    {
+     "file": "animals/fox.json",
+     "set": {
+      "/model/file": "res://assets/animals/wolf.glb"
+     }
+    }
+   ],
+   "expect": {
+    "check_animals": "fail"
+   },
+   "needs_built_models": true
+  },
+  {
+   "name": "fox_no_year",
+   "why": "Every animal has a year section.",
+   "edits": [
+    {
+     "file": "animals/fox.json",
+     "delete": [
+      "/year"
+     ]
+    }
+   ],
+   "expect": {
+    "check_animals": "fail",
+    "schema": "fail"
+   }
+  },
+  {
+   "name": "fox_year_winter",
+   "why": "year.winter is active, hibernates or migrates.",
+   "edits": [
+    {
+     "file": "animals/fox.json",
+     "set": {
+      "/year/winter": "sleeps"
+     }
+    }
+   ],
+   "expect": {
+    "check_animals": "fail",
+    "schema": "fail"
+   }
+  },
+  {
+   "name": "bee_hibernation_date",
+   "why": "Hibernation dates are month-day.",
+   "edits": [
+    {
+     "file": "animals/bee.json",
+     "set": {
+      "/year/hibernation/from": "Sept 15"
+     }
+    }
+   ],
+   "expect": {
+    "check_animals": "fail",
+    "schema": "fail"
+   }
+  },
+  {
+   "name": "chaffinch_no_migration",
+   "why": "A migrating animal gives its migration dates.",
+   "edits": [
+    {
+     "file": "animals/chaffinch.json",
+     "delete": [
+      "/year/migration"
+     ]
+    }
+   ],
+   "expect": {
+    "check_animals": "fail",
+    "schema": "fail"
+   }
+  },
+  {
+   "name": "fox_year_food",
+   "why": "year.food says what it eats in every season.",
+   "edits": [
+    {
+     "file": "animals/fox.json",
+     "delete": [
+      "/year/food/winter"
+     ]
+    }
+   ],
+   "expect": {
+    "check_animals": "fail",
+    "schema": "fail"
+   }
+  },
+  {
+   "name": "fox_baby_scale",
+   "why": "family.baby_scale is from 0.2 to 0.9.",
+   "edits": [
+    {
+     "file": "animals/fox.json",
+     "set": {
+      "/family/baby_scale": 1.2
+     }
+    }
+   ],
+   "expect": {
+    "check_animals": "fail",
+    "schema": "fail"
+   }
+  },
+  {
+   "name": "fox_family_lessons",
+   "why": "family.lessons are eat, pounce, shelter and sleep.",
+   "edits": [
+    {
+     "file": "animals/fox.json",
+     "set": {
+      "/family/lessons": [
+       "eat",
+       "fly"
+      ]
+     }
+    }
+   ],
+   "expect": {
+    "check_animals": "fail",
+    "schema": "fail"
+   }
+  },
+  {
+   "name": "fox_pounce_without_hunting",
+   "why": "The pounce lesson needs an animal that hunts.",
+   "edits": [
+    {
+     "file": "animals/fox.json",
+     "set": {
+      "/hunts": []
+     }
+    }
+   ],
+   "expect": {
+    "check_animals": "fail"
+   }
+  },
+  {
+   "name": "fox_family_text",
+   "why": "A family needs a text for each lesson.",
+   "edits": [
+    {
+     "file": "animals/fox.json",
+     "delete": [
+      "/text/lesson_sleep"
+     ]
+    }
+   ],
+   "expect": {
+    "check_animals": "fail"
+   }
+  },
+  {
+   "name": "fox_move",
+   "why": "move is ground, fly or swim.",
+   "edits": [
+    {
+     "file": "animals/fox.json",
+     "set": {
+      "/move": "burrow"
+     }
+    }
+   ],
+   "expect": {
+    "check_animals": "fail",
+    "schema": "fail"
+   }
+  },
+  {
+   "name": "moose_shelter",
+   "why": "shelter is one of the shelters the game knows.",
+   "edits": [
+    {
+     "file": "animals/moose.json",
+     "set": {
+      "/shelter": "cave"
+     }
+    }
+   ],
+   "expect": {
+    "check_animals": "fail",
+    "schema": "fail"
+   }
+  },
+  {
+   "name": "region_unknown_playable",
+   "why": "A region's playable animals have files.",
+   "edits": [
+    {
+     "file": "regions/fi_nuuksio.json",
+     "set": {
+      "/animals/playable/-": "wolf"
+     }
+    }
+   ],
+   "expect": {
+    "check_animals": "fail",
+    "validate_region": "fail"
+   }
+  },
+  {
+   "name": "region_no_cones",
+   "why": "Every diet food kind is in the region (decision 0011).",
+   "edits": [
+    {
+     "file": "regions/fi_nuuksio.json",
+     "drop": {
+      "/food": {
+       "kind": "cones"
+      }
+     }
+    }
+   ],
+   "expect": {
+    "check_animals": "fail"
+   }
+  },
+  {
+   "name": "region_no_lizard",
+   "why": "Every hunts tag belongs to another animal in the region.",
+   "edits": [
+    {
+     "file": "regions/fi_nuuksio.json",
+     "drop": {
+      "/animals/prey": "lizard"
+     }
+    }
+   ],
+   "expect": {
+    "check_animals": "fail"
+   }
+  },
+  {
+   "name": "bee_eats_nothing",
+   "why": "Every animal has a diet or hunts.",
+   "edits": [
+    {
+     "file": "animals/bee.json",
+     "set": {
+      "/diet": []
+     }
+    }
+   ],
+   "expect": {
+    "check_animals": "fail"
+   }
+  },
+  {
+   "name": "fi_placeholder",
+   "why": "A translation uses the same placeholders as English.",
+   "edits": [
+    {
+     "file": "locale/fi/ui.json",
+     "set": {
+      "/ui.mode_label": "Tila: {tila}"
+     }
+    }
+   ],
+   "expect": {
+    "check_animals": "fail"
+   }
+  },
+  {
+   "name": "fi_unknown_key",
+   "why": "A translated key exists in English.",
+   "edits": [
+    {
+     "file": "locale/fi/animals.json",
+     "set": {
+      "/animal.fox.typo": "Kettu"
+     }
+    }
+   ],
+   "expect": {
+    "check_animals": "fail"
+   }
+  },
+  {
+   "name": "fi_invalid_json",
+   "why": "Locale files are valid JSON.",
+   "edits": [
+    {
+     "file": "locale/fi/food.json",
+     "raw": "{\"food.bilberries\": \"mustikat\",\n"
+    }
+   ],
+   "expect": {
+    "check_animals": "fail",
+    "schema": "fail"
+   }
+  },
+  {
+   "name": "vole_glb_missing",
+   "why": "Every animal model is built.",
+   "edits": [
+    {
+     "file": "assets/animals/vole.glb",
+     "remove": true
+    }
+   ],
+   "expect": {
+    "check_animals": "fail",
+    "check_models": "fail"
+   },
+   "needs_built_models": true
+  },
+  {
+   "name": "vole_glb_no_sleep",
+   "why": "A built animal has every clip: idle, walk, run, eat, sleep.",
+   "edits": [
+    {
+     "file": "assets/animals/vole.glb",
+     "glb": {
+      "rename_clip": [
+       "sleep",
+       "nap"
+      ]
+     }
+    }
+   ],
+   "expect": {
+    "check_models": "fail"
+   },
+   "needs_built_models": true
+  },
+  {
+   "name": "vole_glb_no_skeleton",
+   "why": "A built animal has a skeleton.",
+   "edits": [
+    {
+     "file": "assets/animals/vole.glb",
+     "glb": {
+      "drop": "skins"
+     }
+    }
+   ],
+   "expect": {
+    "check_models": "fail"
+   },
+   "needs_built_models": true
+  },
+  {
+   "name": "bilberry_id",
+   "why": "A plant's id equals its file name.",
+   "edits": [
+    {
+     "file": "models/plants/bilberry.json",
+     "set": {
+      "/id": "blueberry"
+     }
+    }
+   ],
+   "expect": {
+    "check_models": "fail",
+    "schema": "fail"
+   }
+  },
+  {
+   "name": "bilberry_latin",
+   "why": "latin is a scientific name.",
+   "edits": [
+    {
+     "file": "models/plants/bilberry.json",
+     "set": {
+      "/latin": "vaccinium myrtillus"
+     }
+    }
+   ],
+   "expect": {
+    "check_models": "fail",
+    "schema": "fail"
+   }
+  },
+  {
+   "name": "plant_duplicate_species",
+   "why": "One species, one spec.",
+   "edits": [
+    {
+     "file": "models/plants/bilberry_two.json",
+     "copy_from": "models/plants/bilberry.json",
+     "set": {
+      "/id": "bilberry_two"
+     }
+    }
+   ],
+   "expect": {
+    "check_models": "fail"
+   }
+  },
+  {
+   "name": "bilberry_sources",
+   "why": "A plant lists its sources.",
+   "edits": [
+    {
+     "file": "models/plants/bilberry.json",
+     "set": {
+      "/sources": []
+     }
+    }
+   ],
+   "expect": {
+    "check_models": "fail",
+    "schema": "fail"
+   }
+  },
+  {
+   "name": "bilberry_kind",
+   "why": "kind is ground or bush.",
+   "edits": [
+    {
+     "file": "models/plants/bilberry.json",
+     "set": {
+      "/kind": "tree"
+     }
+    }
+   ],
+   "expect": {
+    "check_models": "fail",
+    "schema": "fail"
+   }
+  },
+  {
+   "name": "bilberry_no_year",
+   "why": "A plant has a year section.",
+   "edits": [
+    {
+     "file": "models/plants/bilberry.json",
+     "delete": [
+      "/year"
+     ]
+    }
+   ],
+   "expect": {
+    "check_models": "fail",
+    "schema": "fail"
+   }
+  },
+  {
+   "name": "bilberry_leaves_no_show",
+   "why": "A plant that drops its leaves has parts with show.",
+   "edits": [
+    {
+     "file": "models/plants/bilberry.json",
+     "delete": [
+      "/parts/1/show",
+      "/parts/2/show",
+      "/parts/3/show",
+      "/parts/4/show",
+      "/parts/5/show",
+      "/parts/6/show"
+     ]
+    }
+   ],
+   "expect": {
+    "check_models": "fail",
+    "schema": "fail"
+   }
+  },
+  {
+   "name": "bilberry_show_format",
+   "why": "show is two season marks like summer+50.",
+   "edits": [
+    {
+     "file": "models/plants/bilberry.json",
+     "set": {
+      "/parts/5/show": {
+       "from": "July",
+       "until": "autumn"
+      }
+     }
+    }
+   ],
+   "expect": {
+    "check_models": "fail",
+    "schema": "fail"
+   }
+  },
+  {
+   "name": "bilberry_season_name",
+   "why": "seasons are spring, summer, autumn and winter.",
+   "edits": [
+    {
+     "file": "models/plants/bilberry.json",
+     "set": {
+      "/seasons/monsoon": {}
+     }
+    }
+   ],
+   "expect": {
+    "check_models": "fail",
+    "schema": "fail"
+   }
+  },
+  {
+   "name": "bilberry_season_colour",
+   "why": "A seasonal colour changes a colour in colors.",
+   "edits": [
+    {
+     "file": "models/plants/bilberry.json",
+     "set": {
+      "/seasons/autumn/nope": "#ffffff"
+     }
+    }
+   ],
+   "expect": {
+    "check_models": "fail",
+    "schema": "fail"
+   }
+  },
+  {
+   "name": "bilberry_no_preview",
+   "why": "A plant has its preview sheet.",
+   "edits": [
+    {
+     "file": "models/previews/plants/bilberry.png",
+     "remove": true
+    }
+   ],
+   "expect": {
+    "check_models": "fail"
+   }
+  },
+  {
+   "name": "bilberry_glb_missing",
+   "why": "A plant is built.",
+   "edits": [
+    {
+     "file": "assets/plants/bilberry.glb",
+     "remove": true
+    }
+   ],
+   "expect": {
+    "check_models": "fail",
+    "validate_region": "fail"
+   },
+   "needs_built_models": true
+  },
+  {
+   "name": "bilberry_no_triangles",
+   "why": "A plant has triangles on at least one of four dates.",
+   "edits": [
+    {
+     "file": "models/plants/bilberry.json",
+     "set": {
+      "/parts/0/show": {
+       "from": "spring",
+       "until": "spring+1"
+      },
+      "/parts/1/show": {
+       "from": "spring",
+       "until": "spring+1"
+      },
+      "/parts/2/show": {
+       "from": "spring",
+       "until": "spring+1"
+      },
+      "/parts/3/show": {
+       "from": "spring",
+       "until": "spring+1"
+      },
+      "/parts/4/show": {
+       "from": "spring",
+       "until": "spring+1"
+      },
+      "/parts/5/show": {
+       "from": "spring",
+       "until": "spring+1"
+      },
+      "/parts/6/show": {
+       "from": "spring",
+       "until": "spring+1"
+      }
+     }
+    }
+   ],
+   "expect": {
+    "check_models": "fail"
+   }
+  },
+  {
+   "name": "bilberry_more_parts_built",
+   "why": "The built model has no more parts than the spec.",
+   "edits": [
+    {
+     "file": "models/plants/bilberry.json",
+     "delete": [
+      "/parts/5"
+     ]
+    }
+   ],
+   "expect": {
+    "check_models": "fail"
+   }
+  },
+  {
+   "name": "region_bad_colour",
+   "why": "Colours are #rrggbb.",
+   "edits": [
+    {
+     "file": "regions/fi_nuuksio.json",
+     "set": {
+      "/palette/rock": "grey"
+     }
+    }
+   ],
+   "expect": {
+    "schema": "fail",
+    "validate_region": "fail"
+   }
+  },
+  {
+   "name": "region_unknown_key",
+   "why": "A region has no keys the game doesn't know.",
+   "edits": [
+    {
+     "file": "regions/fi_nuuksio.json",
+     "set": {
+      "/weather": "rainy"
+     }
+    }
+   ],
+   "expect": {
+    "schema": "fail"
+   }
+  },
+  {
+   "name": "region_status",
+   "why": "status is draft, reviewed or released.",
+   "edits": [
+    {
+     "file": "regions/fi_nuuksio.json",
+     "set": {
+      "/status": "final"
+     }
+    }
+   ],
+   "expect": {
+    "schema": "fail"
+   }
+  },
+  {
+   "name": "region_explored_sources",
+   "why": "An explored place has at least 3 sources.",
+   "edits": [
+    {
+     "file": "regions/fi_nuuksio.json",
+     "set": {
+      "/status": "reviewed",
+      "/sources": [
+       "https://en.wikipedia.org/wiki/Nuuksio_National_Park"
+      ]
+     }
+    }
+   ],
+   "expect": {
+    "schema": "fail"
+   }
+  },
+  {
+   "name": "fox_unknown_key",
+   "why": "An animal has no keys the game doesn't know.",
+   "edits": [
+    {
+     "file": "animals/fox.json",
+     "set": {
+      "/wings": 2
+     }
+    }
+   ],
+   "expect": {
+    "schema": "fail"
+   }
+  },
+  {
+   "name": "fox_text_too_long",
+   "why": "Texts stay short enough for the screen.",
+   "edits": [
+    {
+     "file": "animals/fox.json",
+     "set": {
+      "/text/title": "A very long title A very long title A very long title A very long title A very long title A very long title "
+     }
+    }
+   ],
+   "expect": {
+    "schema": "fail"
+   }
+  },
+  {
+   "name": "fox_model_shape",
+   "why": "A part's shape is one build_model.py knows.",
+   "edits": [
+    {
+     "file": "models/fox.json",
+     "set": {
+      "/parts/0/shape": "pyramid"
+     }
+    }
+   ],
+   "expect": {
+    "schema": "fail"
+   }
+  },
+  {
+   "name": "fox_part_colour",
+   "why": "A part's colour is in colors.",
+   "edits": [
+    {
+     "file": "models/fox.json",
+     "set": {
+      "/parts/0/color": "purple"
+     }
+    }
+   ],
+   "expect": {
+    "schema": "fail"
+   }
+  },
+  {
+   "name": "archetype_extends",
+   "why": "An archetype extends one in the same file.",
+   "edits": [
+    {
+     "file": "animals/archetypes.json",
+     "set": {
+      "/bird/extends": "creature"
+     }
+    }
+   ],
+   "expect": {
+    "schema": "fail",
+    "check_animals": "fail"
+   }
+  },
+  {
+   "name": "wanted_status",
+   "why": "A wanted row's status is wanted, in_progress, check or later.",
+   "edits": [
+    {
+     "file": "wanted.json",
+     "set": {
+      "/core/0/status": "done"
+     }
+    }
+   ],
+   "expect": {
+    "schema": "fail"
+   }
+  }
+ ]
+}

@@ -1,0 +1,223 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Kaimaan/animundo-world/schemas/model.schema.json",
+  "title": "Model spec",
+  "description": "A model spec: models/<id>.json (an animal) or models/plants/<id>.json (a plant, which has a kind). tools/check_schemas.py picks the definition by folder. Rules between parts of a spec (a part's colour and bone exist, mirrored names end in _l, the bone budget) are checked by tools/check_schemas.py.",
+  "if": {"type": "object", "required": ["kind"]},
+  "then": {"$ref": "#/$defs/plant_model"},
+  "else": {"$ref": "#/$defs/animal_model"},
+  "$defs": {
+    "animal_model": {
+      "description": "models/<id>.json: an animal built by tools/blender/build_model.py.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "author", "colors", "bones", "parts"],
+      "properties": {
+        "id": {"description": "Equals the file name.", "$ref": "#/$defs/id"},
+        "status": {
+          "description": "draft, reviewed or released. Missing means released.",
+          "enum": ["draft", "reviewed", "released"]
+        },
+        "name": {"$ref": "#/$defs/text"},
+        "author": {"$ref": "#/$defs/text"},
+        "sources": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/text"}},
+        "colors": {
+          "description": "Named colours; parts use these names.",
+          "type": "object",
+          "minProperties": 1,
+          "propertyNames": {"$ref": "#/$defs/id"},
+          "additionalProperties": {"$ref": "#/$defs/colour"}
+        },
+        "gait": {"enum": ["walk", "bound"]},
+        "skin": {
+          "description": "Settings for the melted skin, or false for the old loose-parts build. triangles: ART.md budgets (400 for small wildlife up to 1,500 for a large playable animal).",
+          "oneOf": [
+            {"const": false},
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "triangles": {"type": "integer", "minimum": 400, "maximum": 1500},
+                "shading": {"enum": ["smooth", "flat"]},
+                "voxel": {"type": "number", "exclusiveMinimum": 0},
+                "smooth": {"type": "number"},
+                "keep": {"type": "number"},
+                "blend": {"type": "number"}
+              }
+            }
+          ]
+        },
+        "bones": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["name", "head", "tail"],
+            "properties": {
+              "name": {"$ref": "#/$defs/text"},
+              "head": {"$ref": "#/$defs/vec3"},
+              "tail": {"$ref": "#/$defs/vec3"},
+              "parent": {"description": "A bone defined above it, or root (the default).", "type": "string"},
+              "role": {
+                "description": "ROLES in tools/blender/build_model.py.",
+                "enum": ["body", "head", "neck", "leg", "tail", "ear", "wing", "fin", "jaw", "none"]
+              },
+              "phase": {"type": "number", "minimum": 0, "maximum": 1},
+              "swing": {"type": "number"},
+              "mirror": {"description": "Adds a right-side copy; the name must end in _l.", "type": "boolean"},
+              "separate": {"type": "boolean"},
+              "fold": {"$ref": "#/$defs/vec3"},
+              "fold_length": {"type": "number"}
+            }
+          }
+        },
+        "parts": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["name", "shape", "size", "at", "color"],
+            "properties": {
+              "name": {"$ref": "#/$defs/text"},
+              "shape": {
+                "description": "SHAPES in tools/blender/build_model.py.",
+                "enum": ["box", "ball", "cone", "cylinder", "taper"]
+              },
+              "size": {"$ref": "#/$defs/vec3"},
+              "at": {"$ref": "#/$defs/vec3"},
+              "rot": {"$ref": "#/$defs/vec3"},
+              "color": {"description": "A key of colors.", "$ref": "#/$defs/id"},
+              "bone": {"description": "A bone name in bones (default: the first bone).", "type": "string"},
+              "mirror": {"description": "Adds a right-side copy; the name must end in _l.", "type": "boolean"},
+              "separate": {"type": "boolean"},
+              "smooth": {"type": "boolean"},
+              "top": {"type": "number", "minimum": 0, "maximum": 1},
+              "detail": {"type": "number"}
+            }
+          }
+        },
+        "sleep_pose": {"enum": ["curl"]},
+        "sleep_tail": {"enum": ["around", "over"]},
+        "sleep_drop": {"type": "number"},
+        "sleep_legs": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "number"}},
+        "fly_pitch": {"type": "number"},
+        "fly_legs": {"type": "number"},
+        "wingbeat": {"enum": ["buzz"]}
+      }
+    },
+    "plant_model": {
+      "description": "models/plants/<id>.json: a plant built by tools/blender/build_plant.py.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "author", "latin", "sources", "kind", "year", "colors", "parts"],
+      "properties": {
+        "id": {"description": "Equals the file name.", "$ref": "#/$defs/id"},
+        "status": {
+          "description": "draft, reviewed or released. Missing means released.",
+          "enum": ["draft", "reviewed", "released"]
+        },
+        "name": {"$ref": "#/$defs/text"},
+        "author": {"$ref": "#/$defs/text"},
+        "sources": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/text"}},
+        "colors": {
+          "description": "Named colours; parts use these names.",
+          "type": "object",
+          "minProperties": 1,
+          "propertyNames": {"$ref": "#/$defs/id"},
+          "additionalProperties": {"$ref": "#/$defs/colour"},
+          "maxProperties": 64
+        },
+        "latin": {
+          "description": "The scientific name, e.g. \"Vaccinium myrtillus\" (check_models.gd).",
+          "type": "string",
+          "pattern": "^[A-Z][a-z]+ [a-z-]+( [a-z-]+)*$"
+        },
+        "kind": {
+          "description": "Budget class: ground under 50 triangles, bush under 300 (ART.md).",
+          "enum": ["ground", "bush"]
+        },
+        "year": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["leaves", "flowers", "fruit"],
+          "properties": {
+            "leaves": {"enum": ["evergreen", "deciduous"]},
+            "flowers": {"description": "When, in a sentence, or \"none\".", "$ref": "#/$defs/text"},
+            "fruit": {"description": "When, in a sentence, or \"none\".", "$ref": "#/$defs/text"},
+            "notes": {"type": "string"}
+          }
+        },
+        "seasons": {
+          "description": "Colours that change: {season: {colour name: colour}}.",
+          "type": "object",
+          "propertyNames": {"enum": ["spring", "summer", "autumn", "winter"]},
+          "additionalProperties": {"type": "object", "additionalProperties": {"$ref": "#/$defs/colour"}}
+        },
+        "parts": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["name", "shape", "size", "at", "color"],
+            "properties": {
+              "name": {"$ref": "#/$defs/text"},
+              "shape": {
+                "description": "SHAPES in tools/blender/build_plant.py.",
+                "enum": ["box", "ball", "cone", "cylinder", "taper", "leaf"]
+              },
+              "size": {"$ref": "#/$defs/vec3"},
+              "at": {"$ref": "#/$defs/vec3"},
+              "rot": {"$ref": "#/$defs/vec3"},
+              "color": {"description": "A key of colors.", "$ref": "#/$defs/id"},
+              "mirror": {"type": "boolean"},
+              "smooth": {"type": "boolean"},
+              "top": {
+                "description": "A taper's top width compared with its bottom; above 1 widens it (a chanterelle's cap).",
+                "type": "number",
+                "minimum": 0
+              },
+              "detail": {"type": "number"},
+              "around": {"type": "integer", "minimum": 1},
+              "turn": {"type": "number"},
+              "jitter": {"type": "number"},
+              "pivot": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "number"}},
+              "seed": {"type": "string"},
+              "show": {
+                "description": "When the part is there, e.g. {\"from\": \"summer+50\", \"until\": \"autumn+20\"}.",
+                "$ref": "#/$defs/span"
+              },
+              "nectar": {
+                "description": "Bees drink from it: true, or only between two marks.",
+                "oneOf": [{"type": "boolean"}, {"$ref": "#/$defs/span"}]
+              }
+            }
+          }
+        }
+      },
+      "allOf": [
+        {
+          "description": "A plant that drops its leaves needs a part with show (check_models.gd).",
+          "if": {
+            "properties": {"year": {"properties": {"leaves": {"const": "deciduous"}}, "required": ["leaves"]}},
+            "required": ["year"]
+          },
+          "then": {"properties": {"parts": {"contains": {"type": "object", "required": ["show"]}}}}
+        }
+      ]
+    },
+    "id": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"},
+    "text": {"type": "string", "pattern": "\\S"},
+    "colour": {"type": "string", "pattern": "^#[0-9a-fA-F]{6}$"},
+    "vec3": {"type": "array", "minItems": 3, "maxItems": 3, "items": {"type": "number"}},
+    "mark": {"type": "string", "pattern": "^(spring|summer|autumn|winter)(\\+\\d+)?$"},
+    "span": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["from", "until"],
+      "properties": {"from": {"$ref": "#/$defs/mark"}, "until": {"$ref": "#/$defs/mark"}}
+    }
+  }
+}

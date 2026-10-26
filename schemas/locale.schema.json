@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Kaimaan/animundo-world/schemas/locale.schema.json",
+  "title": "Locale file",
+  "description": "locale/<lang>/<file>.json: a flat {key: text} map. The top level fits every file; tools/check_schemas.py checks each file against its own definition in $defs (by file name), and locale/languages.json against $defs/languages. Keeping {placeholders} the same as in English and keys that exist in English are checked by tools/check_animals.py.",
+  "type": "object",
+  "propertyNames": {"pattern": "^[a-z][a-z0-9_]*\\..+$"},
+  "additionalProperties": {"$ref": "#/$defs/message"},
+  "$defs": {
+    "message": {"type": "string", "pattern": "\\S"},
+    "animals": {
+      "description": "Animal messages: animal.<id>.<event> and archetype.<name>.<event>.",
+      "type": "object",
+      "propertyNames": {"pattern": "^(animal|archetype)\\.[a-z][a-z0-9_]*\\.[a-z][a-z0-9_]*$"},
+      "additionalProperties": {"$ref": "#/$defs/message"}
+    },
+    "food": {
+      "description": "Food names, keyed by the English name in region files (food.<name>), food kinds (food.kind.<kind>) and flower names (flower.<name>).",
+      "type": "object",
+      "propertyNames": {"pattern": "^(food|flower)\\.\\S.*$"},
+      "additionalProperties": {"$ref": "#/$defs/message"}
+    },
+    "plants": {
+      "description": "Field guide pages: plant.<id>.<part>.",
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^plant\\.[a-z][a-z0-9_]*\\.(title|latin|about_looks|about_grows|about_year|about_safety|about_fact|warning)$"
+      },
+      "additionalProperties": {"$ref": "#/$defs/message"}
+    },
+    "regions": {
+      "description": "Place names: region.<id>.<field>.",
+      "type": "object",
+      "propertyNames": {"pattern": "^region\\.[a-z]{2}_[a-z0-9_]+\\.[a-z][a-z0-9_]*$"},
+      "additionalProperties": {"$ref": "#/$defs/message"}
+    },
+    "ui": {
+      "description": "Menus and general messages (owned by the game repository).",
+      "type": "object",
+      "propertyNames": {"pattern": "^(ui|country)(\\.[A-Za-z0-9_]+)+$"},
+      "additionalProperties": {"$ref": "#/$defs/message"}
+    },
+    "loading": {
+      "description": "Loading screen tips (owned by the game repository).",
+      "type": "object",
+      "propertyNames": {"pattern": "^loading(\\.[A-Za-z0-9_]+)+$"},
+      "additionalProperties": {"$ref": "#/$defs/message"}
+    },
+    "seasons": {
+      "description": "Season and migration messages (owned by the game repository).",
+      "type": "object",
+      "propertyNames": {"pattern": "^(season|migrants)(\\.[A-Za-z0-9_]+)+$"},
+      "additionalProperties": {"$ref": "#/$defs/message"}
+    },
+    "languages": {
+      "description": "locale/languages.json: each language's two-letter code and its own name, e.g. {\"fi\": \"Suomi\"}.",
+      "type": "object",
+      "required": ["en"],
+      "propertyNames": {"pattern": "^[a-z]{2}$"},
+      "additionalProperties": {"$ref": "#/$defs/message"}
+    }
+  }
+}
