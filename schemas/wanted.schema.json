@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Kaimaan/animundo-world/schemas/wanted.schema.json",
+  "title": "Wanted list",
+  "description": "wanted.json: what Animundo is missing, most wanted first in each list. tools/catalogue.py turns it into docs/catalogue.md.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["about", "animals", "plants", "trees", "foods", "core"],
+  "properties": {
+    "about": {"type": "string"},
+    "animals": {"type": "array", "items": {"$ref": "#/$defs/species_row"}},
+    "plants": {"type": "array", "items": {"$ref": "#/$defs/species_row"}},
+    "trees": {"type": "array", "items": {"$ref": "#/$defs/species_row"}},
+    "foods": {"type": "array", "items": {"$ref": "#/$defs/food_row"}},
+    "core": {"type": "array", "items": {"$ref": "#/$defs/core_row"}}
+  },
+  "$defs": {
+    "status": {
+      "description": "wanted, in_progress (say who), check (something to decide first) or later (STATUS in tools/catalogue.py).",
+      "enum": ["wanted", "in_progress", "check", "later"]
+    },
+    "species_row": {
+      "description": "An animal, plant or tree. id is the file it will have (empty until decided).",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "status"],
+      "properties": {
+        "id": {"type": "string"},
+        "name": {"type": "string"},
+        "local": {"type": "string"},
+        "latin": {"type": "string"},
+        "place": {"type": "string"},
+        "feeds": {"type": "string"},
+        "needs": {"type": "string"},
+        "status": {"$ref": "#/$defs/status"},
+        "who": {"description": "Who is working on it, while in_progress.", "type": "string"}
+      }
+    },
+    "food_row": {
+      "description": "A food kind.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "status"],
+      "properties": {
+        "id": {"type": "string"},
+        "name": {"type": "string"},
+        "local": {"type": "string"},
+        "feeds": {"type": "string"},
+        "needs": {"type": "string"},
+        "status": {"$ref": "#/$defs/status"},
+        "who": {"description": "Who is working on it, while in_progress.", "type": "string"}
+      }
+    },
+    "core_row": {
+      "description": "Code or tooling work.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["area", "name", "why", "status"],
+      "properties": {
+        "area": {"type": "string"},
+        "name": {"type": "string"},
+        "why": {"type": "string"},
+        "status": {"$ref": "#/$defs/status"},
+        "who": {"description": "Who is working on it, while in_progress.", "type": "string"}
+      }
+    }
+  }
+}

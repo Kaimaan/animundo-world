@@ -13,6 +13,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Install the schema checker
+        run: pip install --quiet jsonschema==4.23.0
       - name: Every JSON file is valid JSON
         run: |
           status=0
@@ -40,5 +42,13 @@ jobs:
         run: tools/build_model.sh models/*.json models/plants/*.json
       - name: Check places
         run: python3 tools/validate_region.py
+      - name: Check against the schemas
+        run: python3 tools/check_schemas.py
+      - name: Check animals and translations
+        run: python3 tools/check_animals.py
+      - name: Check built models
+        run: python3 tools/check_models.py
+      - name: The checks catch broken content
+        run: python3 tools/test_broken.py
       - name: Catalogue is up to date
         run: if [ -f tools/catalogue.py ]; then python3 tools/catalogue.py --check; fi

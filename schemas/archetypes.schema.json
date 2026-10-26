@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Kaimaan/animundo-world/schemas/archetypes.schema.json",
+  "title": "Archetypes",
+  "description": "animals/archetypes.json: shared defaults for animals. Each archetype lists only what differs from the one it extends; \"animal\" is the root of every chain.",
+  "type": "object",
+  "required": ["animal"],
+  "propertyNames": {"$ref": "#/$defs/id"},
+  "additionalProperties": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "extends": {"description": "Another archetype in this file.", "$ref": "#/$defs/id"},
+      "kind": {"$ref": "#/$defs/id"},
+      "hover": {"type": "boolean"},
+      "playable": {"description": "It can be played (otherwise it is wildlife only).", "type": "boolean"},
+      "tags": {
+        "description": "What it is to hunters, e.g. small_mammal.",
+        "type": "array",
+        "items": {"$ref": "#/$defs/tag"}
+      },
+      "diet": {
+        "description": "Food kinds it eats. Each must be in the region's food (decision 0011).",
+        "type": "array",
+        "items": {"$ref": "#/$defs/diet_kind"}
+      },
+      "hunts": {
+        "description": "Tags of the animals it hunts.",
+        "type": "array",
+        "items": {"$ref": "#/$defs/tag"}
+      },
+      "territorial": {"type": "boolean"},
+      "digs": {"type": "boolean"},
+      "dark_vision": {
+        "description": "How well it sees in dim light (check_animals.gd).",
+        "type": "number",
+        "minimum": 0,
+        "maximum": 1
+      },
+      "cold_blooded": {"type": "boolean"},
+      "rain_chill": {"description": "How much rain cools it; 0 means rain doesn't matter.", "type": "number"},
+      "water_chill": {"type": "number"},
+      "breath": {"description": "Seconds it can stay under water.", "type": "number"},
+      "move": {
+        "description": "Checked by check_animals.gd. Usually set by the archetype.",
+        "enum": ["ground", "fly", "swim"]
+      },
+      "shelter": {
+        "description": "Checked by check_animals.gd.",
+        "enum": ["earth", "leaves", "leaves_or_earth", "deep_water", "under_tree", "shore"]
+      },
+      "spawn": {"description": "Where a player starts (main.gd).", "enum": ["land", "water", "flower"]},
+      "walk": {"type": "number"},
+      "sprint": {"type": "number"},
+      "jump": {"type": "number"},
+      "fly": {"type": "number"},
+      "climb": {"type": "number"},
+      "dive": {"type": "number"},
+      "swim_speed": {"type": "number"},
+      "swim_sprint_speed": {"type": "number"},
+      "lurk": {"type": "number"},
+      "flee_speed": {"type": "number"},
+      "glide_speed": {"type": "number"},
+      "glide_sink": {"type": "number"},
+      "metabolism": {"type": "number"},
+      "food_value": {"type": "number"},
+      "climbs": {"type": "boolean"},
+      "glides": {"type": "boolean"},
+      "school": {"type": "boolean"},
+      "surface_swimmer": {"type": "boolean"},
+      "diving_mammal": {"type": "boolean"},
+      "box": {
+        "description": "Collision box [x, y, z] in metres.",
+        "type": "array",
+        "minItems": 3,
+        "maxItems": 3,
+        "items": {"type": "number"}
+      },
+      "cam_height": {"type": "number"},
+      "cam_dist": {"type": "number"},
+      "color": {"$ref": "#/$defs/colour"},
+      "buttons": {
+        "description": "Renames the small buttons, e.g. {\"jump\": \"fly\"} (hud.gd).",
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "jump": {"$ref": "#/$defs/text"},
+          "dig": {"$ref": "#/$defs/text"},
+          "sprint": {"$ref": "#/$defs/text"}
+        }
+      },
+      "text": {
+        "type": "object",
+        "propertyNames": {"$ref": "#/$defs/id"},
+        "additionalProperties": {"$ref": "#/$defs/text"}
+      }
+    }
+  },
+  "$defs": {
+    "id": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"},
+    "tag": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"},
+    "text": {"type": "string", "pattern": "\\S"},
+    "colour": {"type": "string", "pattern": "^#[0-9a-fA-F]{6}$"},
+    "diet_kind": {
+      "description": "The food.kind.* keys in locale/en/food.json, plus nectar (from a region's flowers).",
+      "enum": [
+        "bark",
+        "berries",
+        "bottom_bugs",
+        "browse",
+        "carrion",
+        "carrot",
+        "clover",
+        "cones",
+        "grass",
+        "insects",
+        "mushrooms",
+        "nectar",
+        "nest",
+        "seeds",
+        "water_bugs",
+        "water_plants"
+      ]
+    }
+  }
+}

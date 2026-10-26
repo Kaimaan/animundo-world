@@ -95,12 +95,13 @@ The red squirrel was added this way. Its files are a good example.
 3. **Animal file.** Copy [`animals/squirrel.json`](animals/squirrel.json) to `animals/<id>.json`. Set its traits, its English `text`, and the `model` entry: the `length` the build printed, and seasonal `coats` if the animal changes colour. Fill in its **`year`**: how it lives through the seasons (see [Its year](#its-year) below).
 4. **Translations.** Add `animal.<id>.<message>` to `locale/fi/animals.json` and every other language you can.
 5. **Place it.** Add the animal to a region's `animals.playable` list.
-6. **Check it** (these and step 7 need the game repository; otherwise the core team runs them for you).
+6. **Check it.** These run without the game ([schemas/README.md](schemas/README.md)); `check_models.py` needs the models built.
    ```bash
-   godot --headless --import
-   godot --headless --script tools/check_models.gd
-   godot --headless --script tools/check_animals.gd
+   python3 tools/check_schemas.py
+   python3 tools/check_animals.py
+   python3 tools/check_models.py
    ```
+   With the game repository you can also run its own checks: `godot --headless --import`, then `godot --headless --script tools/check_models.gd` and `tools/check_animals.gd`.
 7. **Play it.** Run `tools/build_web.sh && python3 tools/serve.py` and open `http://localhost:8060/?region=<region>&mode=safe&animal=<id>`. Add `&date=2027-01-20` to see the winter coat.
 8. **Pull request.** Include the preview sheet, a screenshot from the game, and where you checked the animal's size and colours. Reviewers use the checklist in [ART.md](ART.md#7-checklist-for-review).
 
@@ -174,9 +175,9 @@ With a `family` section, players can start this animal as a baby: its real famil
 - `sources`: where the family facts come from.
 - `text` then needs: `family_you` and `grown_up`; for each one in `raised_by`, `family_<who>`, `calling_<who>` and `fed_<who>`; `family_siblings` when it has siblings; and `lesson_<name>` for each lesson. See [`animals/fox.json`](animals/fox.json).
 
-The checker `tools/check_animals.gd` lists every missing message and every message that breaks the rules that keep messages sensible:
+The checker `tools/check_animals.py` (a copy of the game's `check_animals.gd` that runs without the game) lists every missing message and every message that breaks the rules that keep messages sensible:
 ```bash
-godot --headless --script tools/check_animals.gd
+python3 tools/check_animals.py
 ```
 
 ## Adding plants
@@ -228,11 +229,11 @@ Then match the model to it: each part's `show` (`{"from": "summer+50", "until": 
    tools/build_model.sh models/plants/<id>.json
    ```
 4. **Place it** in a region's `ground_cover.plants`: `{"model": "<id>", "density": 0.1, "near_trees": 5}`. Add `"on": ["grass", "rock"]` if it also grows on bare rock.
-5. **Check it** (the `godot` lines and step 6 need the game repository; otherwise the core team runs them for you).
+5. **Check it** (step 6 needs the game repository; otherwise the core team plays it for you).
    ```bash
    python3 tools/validate_region.py
-   godot --headless --import
-   godot --headless --script tools/check_models.gd
+   python3 tools/check_schemas.py
+   python3 tools/check_models.py
    ```
 6. **See it in the game.** Run `tools/build_web.sh && python3 tools/serve.py`, open `http://localhost:8060/?region=<region>&mode=safe`, and add `&date=2026-08-10` (and other dates) to see it through the year.
 7. **Pull request.** Include the preview sheet, a screenshot from the game, and your sources. Reviewers use the checklist in [ART.md](ART.md#7-checklist-for-review).
