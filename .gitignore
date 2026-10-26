@@ -2,3 +2,6 @@
 assets/animals/*.glb
 .DS_Store
 assets/plants/*.glb
+
+# Python caches from running the tools
+__pycache__/
