@@ -1034,7 +1034,8 @@
     }
    ],
    "expect": {
-    "check_taxa": "fail"
+    "check_taxa": "fail",
+    "check_models": "fail"
    }
   }
  ]
