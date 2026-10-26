@@ -347,6 +347,7 @@
   "ui.location.choose": "Valitse aloituspaikka",
   "ui.location.none": "Sopivaa paikkaa ei ole saatavilla tänä vuodenaikana.",
   "ui.location.unsupported": "Tämä eläin ei voi aloittaa tässä paikassa.",
+  "ui.place.not_here": "Tähän paikkaan ei pääse juuri nyt.",
   "ui.briefing.shelter.shore": "Lepää kuivalla rannalla tai kivellä.",
   "ui.location.finland": "Suomi",
   "ui.new.free_choices": "Ilmaiset eläimesi: {used}/{limit}",

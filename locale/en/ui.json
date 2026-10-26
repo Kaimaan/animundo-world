@@ -347,6 +347,7 @@
   "ui.location.choose": "Choose your starting place",
   "ui.location.none": "No suitable place is available this season.",
   "ui.location.unsupported": "This animal cannot start in that place.",
+  "ui.place.not_here": "This place isn't here right now.",
   "ui.briefing.shelter.shore": "Rest on a dry shore or rock.",
   "ui.location.finland": "Finland",
   "ui.new.free_choices": "Your free animals: {used}/{limit}",
