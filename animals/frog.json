@@ -2,6 +2,7 @@
   "archetype": "amphibian",
   "latin": "Rana temporaria",
   "taxon": {"gbif_key": 2426805, "rank": "SPECIES", "name": "Rana temporaria"},
+  "playable": true,
   "color": "#7a6a3a",
   "tags": [
     "amphibian",
@@ -17,6 +18,13 @@
   ],
   "flee_speed": 2.6,
   "food_value": 10,
+  "dark_vision": 0.7,
+  "shelter": "under_tree",
+  "walk": 1.8,
+  "sprint": 3.2,
+  "jump": 6.4,
+  "cam_height": 0.08,
+  "cam_dist": 0.9,
   "model": {
     "file": "res://assets/animals/frog.glb",
     "length": 0.049,
@@ -44,10 +52,23 @@
       "autumn": "Insects and slugs before winter.",
       "winter": "Asleep."
     },
-    "notes": "Eaten by pike, foxes, herons, storks and grass snakes. The spring croaking choruses and the frogspawn would be great to show."
+    "notes": "Eaten by pike, foxes, herons, storks and grass snakes. The spring croaking choruses and the frogspawn would be great to show. Outside the breeding season it is most active at dusk and at night, and rests by day in damp moss, under logs and stones; the game still rests it at night. It gets no family: the parents leave the eggs, so froglets grow up on their own."
   },
   "text": {
     "title": "Common frog",
+    "menu_sub": "Hop through the damp forest, catch beetles, swim in the lakes.",
+    "menu_wild": "Foxes hunt you on land, pike in the water.",
+    "intro_safe": "Safe mode: explore! Hop through the forest, catch beetles and swim in the lakes.",
+    "intro_survival": "Keep your food up: catch beetles on the ground. When you're tired, rest in the damp moss under a spruce.",
+    "intro_wild": "Foxes hunt frogs on land, and pike lurk in the lakes. Hop away fast!",
+    "night_hint": "It's night. Frogs hunt in the dark too. When you're tired, rest in the moss under a spruce.",
+    "too_exposed": "Too open to rest! Hop under a spruce's low branches, into the damp moss.",
+    "sheltered": "You're hidden in the damp moss under the spruce.",
+    "hungry": "You're hungry. Look for beetles on the ground and catch them with your sticky tongue.",
+    "no_food": "Nothing to eat here. Hop on through the forest and look for beetles on the ground.",
+    "rain_start": "It's raining! Frogs love the wet. Hop about and hunt.",
+    "rain_stop": "The rain has stopped. The moss is still nice and damp.",
+    "chased": "Something is chasing you! Hop away, or jump into the water!",
     "caught": "A frog! +{food} food",
     "stalk_hint": "A frog! Get close slowly, then tap Pounce before it hops away.",
     "about_looks": "A smooth brown or olive frog with a dark patch behind each golden eye and long, strong back legs.",
@@ -56,5 +77,8 @@
     "about_winter": "Sleeps through winter at the bottom of a pond, or buried under leaves and moss.",
     "about_young": "Lays big clumps of eggs in ponds in spring. Tadpoles hatch and turn into tiny froglets by summer.",
     "about_fact": "A frog can breathe through its skin, so it can sleep all winter underwater."
-  }
+  },
+  "sources": [
+    "https://en.wikipedia.org/wiki/Common_frog"
+  ]
 }
