@@ -9,7 +9,7 @@ How everything in the game world should look: animals, plants, props and places.
 ## 1. Real first, then simple
 Animundo teaches children about real nature, so **accuracy beats cuteness.**
 
-- **The real species.** Every animal, plant and place is a real one. Check proportions, colours and size against photos and a field guide, not other games or cartoons.
+- **The real species.** Every animal, plant and place is a real one. Check proportions, colours and size against photos and a field guide, not other games or cartoons. A reference picture drawn for the purpose is fine for shape and colours if it is checked against a field guide; the size always comes from the field guide. Reference pictures and photos are only looked at: they are never committed or shown in the game.
 - **Keep its field marks.** These are the few things that tell a species apart, and they must show from a few metres away: a red squirrel's ear tufts and white belly, a fox's white tail tip and dark legs, a perch's dark stripes. Leave out everything else.
 - **Real size in metres.** A squirrel is 0.36 m long and a fox about 1 m. Never scale an animal up to make it easier to see; the camera handles that (`cam_dist` in the animal file). The one exception is the small world (see [Two scales](#two-scales-the-world-and-the-small-world)).
 - **No people things.** Animals don't wear clothes, stand on two legs (unless the real one does), smile or have cartoon eyes. They behave like real animals.
