@@ -2,6 +2,7 @@
   "id": "wood_anemone",
   "name": "Wood anemone",
   "latin": "Anemone nemorosa",
+  "taxon": {"gbif_key": 3033263, "rank": "SPECIES", "name": "Anemone nemorosa"},
   "author": "Animundo team",
   "kind": "ground",
   "year": {

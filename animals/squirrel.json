@@ -1,6 +1,7 @@
 {
   "archetype": "land_mammal",
   "latin": "Sciurus vulgaris",
+  "taxon": {"gbif_key": 8211070, "rank": "SPECIES", "name": "Sciurus vulgaris"},
   "playable": true,
   "color": "#b5562a",
   "tags": ["small_mammal"],

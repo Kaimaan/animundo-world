@@ -1,6 +1,7 @@
 {
   "archetype": "amphibian",
   "latin": "Rana temporaria",
+  "taxon": {"gbif_key": 2426805, "rank": "SPECIES", "name": "Rana temporaria"},
   "color": "#7a6a3a",
   "tags": [
     "amphibian",

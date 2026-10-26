@@ -1,6 +1,7 @@
 {
   "archetype": "land_mammal",
   "latin": "Myodes glareolus",
+  "taxon": {"gbif_key": 5706764, "rank": "SPECIES", "name": "Myodes glareolus"},
   "playable": false,
   "color": "#9a4a2a",
   "tags": [

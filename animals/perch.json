@@ -1,6 +1,7 @@
 {
   "archetype": "fish",
   "latin": "Perca fluviatilis",
+  "taxon": {"gbif_key": 8140485, "rank": "SPECIES", "name": "Perca fluviatilis"},
   "playable": true,
   "color": "#4f6f3a",
   "tags": ["fish", "small_fish"],

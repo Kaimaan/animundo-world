@@ -2,6 +2,7 @@
   "id": "wild_raspberry",
   "name": "Wild raspberry",
   "latin": "Rubus idaeus",
+  "taxon": {"gbif_key": 2993094, "rank": "SPECIES", "name": "Rubus idaeus"},
   "author": "Animundo team",
   "kind": "bush",
   "year": {

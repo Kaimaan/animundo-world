@@ -2,6 +2,7 @@
   "id": "red_stemmed_feathermoss",
   "name": "Red-stemmed feathermoss",
   "latin": "Pleurozium schreberi",
+  "taxon": {"gbif_key": 2679715, "rank": "SPECIES", "name": "Pleurozium schreberi"},
   "author": "Animundo team",
   "kind": "ground",
   "year": {

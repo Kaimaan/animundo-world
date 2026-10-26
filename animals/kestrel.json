@@ -1,6 +1,7 @@
 {
   "archetype": "bird",
   "latin": "Falco tinnunculus",
+  "taxon": {"gbif_key": 9616058, "rank": "SPECIES", "name": "Falco tinnunculus"},
   "playable": true,
   "color": "#9a6a3a",
   "tags": ["small_bird"],

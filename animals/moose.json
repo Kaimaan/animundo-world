@@ -1,6 +1,7 @@
 {
   "archetype": "land_mammal",
   "latin": "Alces alces",
+  "taxon": {"gbif_key": 2440940, "rank": "SPECIES", "name": "Alces alces"},
   "playable": true,
   "color": "#3b2a20",
   "tags": [

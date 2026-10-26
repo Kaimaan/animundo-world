@@ -1,6 +1,7 @@
 {
   "archetype": "reptile",
   "latin": "Zootoca vivipara",
+  "taxon": {"gbif_key": 9702100, "rank": "SPECIES", "name": "Zootoca vivipara"},
   "color": "#7a5a3a",
   "tags": [
     "reptile",

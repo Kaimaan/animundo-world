@@ -532,7 +532,8 @@
    ],
    "expect": {
     "check_models": "fail",
-    "schema": "fail"
+    "schema": "fail",
+    "check_taxa": "fail"
    }
   },
   {
@@ -548,7 +549,8 @@
     }
    ],
    "expect": {
-    "check_models": "fail"
+    "check_models": "fail",
+    "check_taxa": "fail"
    }
   },
   {
@@ -924,6 +926,115 @@
    ],
    "expect": {
     "schema": "fail"
+   }
+  },
+  {
+   "name": "red_fox_copy_of_fox",
+   "why": "One real species, one file: a copy of fox under another id is the same species (GBIF taxon).",
+   "edits": [
+    {
+     "file": "animals/red_fox.json",
+     "copy_from": "animals/fox.json"
+    }
+   ],
+   "expect": {
+    "check_taxa": "fail"
+   }
+  },
+  {
+   "name": "fox_without_taxon",
+   "why": "Every animal file says which real species it is.",
+   "edits": [
+    {
+     "file": "animals/fox.json",
+     "delete": [
+      "/taxon"
+     ]
+    }
+   ],
+   "expect": {
+    "schema": "fail",
+    "check_taxa": "fail"
+   }
+  },
+  {
+   "name": "heather_latin_not_taxon",
+   "why": "A plant's latin is its taxon's accepted name.",
+   "edits": [
+    {
+     "file": "models/plants/heather.json",
+     "set": {
+      "/latin": "Erica vulgaris"
+     }
+    }
+   ],
+   "expect": {
+    "check_taxa": "fail"
+   }
+  },
+  {
+   "name": "young_perch_not_a_stage",
+   "why": "young_perch is the same species as perch, so it must say it is a stage of it.",
+   "edits": [
+    {
+     "file": "animals/young_perch.json",
+     "delete": [
+      "/stage_of"
+     ]
+    }
+   ],
+   "expect": {
+    "check_taxa": "fail"
+   }
+  },
+  {
+   "name": "young_perch_stage_of_nothing",
+   "why": "stage_of names an existing animal file.",
+   "edits": [
+    {
+     "file": "animals/young_perch.json",
+     "set": {
+      "/stage_of": "perch_fry"
+     }
+    }
+   ],
+   "expect": {
+    "check_taxa": "fail"
+   }
+  },
+  {
+   "name": "young_roach_stage_of_perch",
+   "why": "stage_of names a file of the same species.",
+   "edits": [
+    {
+     "file": "animals/young_roach.json",
+     "set": {
+      "/stage_of": "perch"
+     }
+    }
+   ],
+   "expect": {
+    "check_taxa": "fail"
+   }
+  },
+  {
+   "name": "bilberry_copy_of_heather_taxon",
+   "why": "Two plant specs can't be the same species.",
+   "edits": [
+    {
+     "file": "models/plants/bilberry.json",
+     "set": {
+      "/latin": "Calluna vulgaris",
+      "/taxon": {
+       "gbif_key": 2882482,
+       "rank": "SPECIES",
+       "name": "Calluna vulgaris"
+      }
+     }
+    }
+   ],
+   "expect": {
+    "check_taxa": "fail"
    }
   }
  ]

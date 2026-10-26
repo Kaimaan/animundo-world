@@ -2,6 +2,7 @@
   "id": "fly_agaric",
   "name": "Fly agaric",
   "latin": "Amanita muscaria",
+  "taxon": {"gbif_key": 8168319, "rank": "SPECIES", "name": "Amanita muscaria"},
   "author": "Animundo team",
   "kind": "bush",
   "year": {

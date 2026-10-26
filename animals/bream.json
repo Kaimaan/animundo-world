@@ -1,6 +1,7 @@
 {
   "archetype": "fish",
   "latin": "Abramis brama",
+  "taxon": {"gbif_key": 9809222, "rank": "SPECIES", "name": "Abramis brama"},
   "dark_vision": 0.65,
   "tags": [
     "fish"

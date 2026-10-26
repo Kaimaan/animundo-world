@@ -1,6 +1,8 @@
 {
   "archetype": "fish",
   "latin": "Rutilus rutilus",
+  "taxon": {"gbif_key": 2359706, "rank": "SPECIES", "name": "Rutilus rutilus"},
+  "stage_of": "roach",
   "dark_vision": 0.4,
   "tags": [
     "fish",

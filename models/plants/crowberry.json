@@ -2,6 +2,7 @@
   "id": "crowberry",
   "name": "Crowberry",
   "latin": "Empetrum nigrum",
+  "taxon": {"gbif_key": 8925249, "rank": "SPECIES", "name": "Empetrum nigrum"},
   "author": "Animundo team",
   "kind": "bush",
   "year": {

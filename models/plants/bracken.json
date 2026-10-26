@@ -2,6 +2,7 @@
   "id": "bracken",
   "name": "Bracken",
   "latin": "Pteridium aquilinum",
+  "taxon": {"gbif_key": 5275012, "rank": "SPECIES", "name": "Pteridium aquilinum"},
   "author": "Animundo team",
   "kind": "bush",
   "year": {

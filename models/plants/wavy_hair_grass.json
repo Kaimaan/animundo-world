@@ -2,6 +2,7 @@
   "id": "wavy_hair_grass",
   "name": "Wavy hair-grass",
   "latin": "Avenella flexuosa",
+  "taxon": {"gbif_key": 4149465, "rank": "SPECIES", "name": "Avenella flexuosa"},
   "author": "Animundo team",
   "kind": "ground",
   "year": {

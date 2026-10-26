@@ -1,6 +1,7 @@
 {
   "archetype": "bird",
   "latin": "Fringilla coelebs",
+  "taxon": {"gbif_key": 2494422, "rank": "SPECIES", "name": "Fringilla coelebs"},
   "playable": true,
   "color": "#b0705a",
   "tags": ["small_bird"],

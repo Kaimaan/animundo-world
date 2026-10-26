@@ -2,6 +2,7 @@
   "id": "reindeer_lichen",
   "name": "Reindeer lichen",
   "latin": "Cladonia rangiferina",
+  "taxon": {"gbif_key": 8597577, "rank": "SPECIES", "name": "Cladonia rangiferina"},
   "author": "Animundo team",
   "kind": "ground",
   "year": {

@@ -2,6 +2,7 @@
   "id": "fireweed",
   "name": "Fireweed",
   "latin": "Chamaenerion angustifolium",
+  "taxon": {"gbif_key": 6428353, "rank": "SPECIES", "name": "Chamaenerion angustifolium"},
   "author": "Animundo team",
   "kind": "bush",
   "year": {

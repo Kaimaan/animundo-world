@@ -2,6 +2,7 @@
   "id": "cottongrass",
   "name": "Hare’s-tail cottongrass",
   "latin": "Eriophorum vaginatum",
+  "taxon": {"gbif_key": 2730185, "rank": "SPECIES", "name": "Eriophorum vaginatum"},
   "author": "Animundo team",
   "kind": "ground",
   "year": {

@@ -1,6 +1,8 @@
 {
   "archetype": "fish",
   "latin": "Perca fluviatilis",
+  "taxon": {"gbif_key": 8140485, "rank": "SPECIES", "name": "Perca fluviatilis"},
+  "stage_of": "perch",
   "dark_vision": 0.4,
   "tags": [
     "fish",

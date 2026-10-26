@@ -1,6 +1,7 @@
 {
   "archetype": "land_mammal",
-  "latin": "Pusa saimensis",
+  "latin": "Pusa hispida saimensis",
+  "taxon": {"gbif_key": 5219371, "rank": "SUBSPECIES", "name": "Pusa hispida saimensis"},
   "playable": true,
   "color": "#65716b",
   "tags": [

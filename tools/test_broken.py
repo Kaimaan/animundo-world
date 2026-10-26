@@ -35,8 +35,8 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, ".."))
 CASES = os.path.join(ROOT, "tests", "broken", "cases.json")
 CONTENT = ["regions", "animals", "models", "locale", "wanted.json", "assets"]
-TOOLS = ["check_schemas.py", "validate_region.py", "check_animals.py", "check_models.py"]
-CHECKS = ["schema", "validate_region", "check_animals", "check_models"]
+TOOLS = ["check_schemas.py", "validate_region.py", "check_animals.py", "check_models.py", "check_taxa.py"]
+CHECKS = ["schema", "validate_region", "check_animals", "check_models", "check_taxa"]
 
 
 # --- editing ------------------------------------------------------------------
@@ -191,6 +191,8 @@ def verdicts(root, built, files):
         out["check_models"] = ("fail" if code else "pass", text)
     else:
         out["check_models"] = ("skip", "")
+    code, text = run([py, os.path.join(tools, "check_taxa.py")], root)
+    out["check_taxa"] = ("fail" if code else "pass", text)
     return out
 
 

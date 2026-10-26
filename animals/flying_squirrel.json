@@ -1,6 +1,7 @@
 {
   "archetype": "land_mammal",
   "latin": "Pteromys volans",
+  "taxon": {"gbif_key": 2437258, "rank": "SPECIES", "name": "Pteromys volans"},
   "playable": true,
   "color": "#96968e",
   "tags": [

@@ -126,6 +126,7 @@ A person always reviews the preview sheet and the screenshot before merging.
 - `family`: optional. Who raises its young, so players can start life as a baby; see [Its family](#its-family).
 - `text`: what the game tells the player, in English. An animal only gets a message it (or its archetype) has. For example, fish have their own rain message instead of being told to find shelter. Write whole sentences, never pieces to glue together, so other languages can translate them.
 - `latin`: the scientific name, e.g. `"Vulpes vulpes"`. It's shown in the field guide and isn't translated.
+- `taxon`: which real species it is, from GBIF: run `python3 tools/taxon.py "Vulpes vulpes"` and paste what it prints, or run `python3 tools/taxon.py --fill` to add it to every file without one. **One real species, one file:** first run `python3 tools/taxon.py --same "<latin name>"`. If a file already is that species (perhaps under another name: `red_fox` is `fox`), improve it instead. A young animal shown as its own file (`young_perch`) has `"stage_of": "perch"`. `tools/check_taxa.py` checks all this.
 - `sources`: where its facts come from (size, colours, food, year), as a list of links or book titles.
 - Field guide: in `text`, one or two short sentences a child can read for each of `about_looks` (what it looks like), `about_food` (what it eats), `about_home` (where it lives and sleeps), `about_winter`, `about_young` and `about_fact` (something surprising). Use real facts. Players open it from the title screen's Field guide (every animal, playable or not), the in-game menu and when choosing a mode. An animal without them simply has no field guide button.
 
@@ -191,7 +192,7 @@ Every plant must follow these rules. The checks run on every pull request and st
 | # | Rule | Checked by |
 |---|---|---|
 | 1 | **A real wild species.** Give its scientific name in `latin`. No garden varieties, and no made-up or "generic" plants. | Reviewer |
-| 2 | **One species, one file.** Before you start, look in `models/plants/` for its `latin` name. If it's there, improve that file instead of adding another. | `check_models.gd` |
+| 2 | **One species, one file.** Before you start, run `python3 tools/taxon.py --plant --same "<latin name>"`: if a spec already is that species, improve it instead of adding another. Add its `taxon` with `python3 tools/taxon.py --plant "<latin name>"` (mushrooms and lichens are fungi in GBIF; that's fine). | `check_taxa.py`, `check_models.gd` |
 | 3 | **Only where it really grows.** List it in a place's `ground_cover.plants` only if it grows wild there today. Your sources must show that. A plant brought in by people that now grows wild (like garden lupin in Finland) is fine; say so in `year.notes`. | Reviewer |
 | 4 | **Real looks and size.** Take the size, shape and colours from photos and a field guide, and follow the [art guide](ART.md). The build prints the size. Keep its field marks, for example the green stems of a bilberry in winter. | Builder, reviewer |
 | 5 | **Its real year.** Fill in `year` (see below). Use `show` for flowers, fruit and leaves that are only there part of the year, and `seasons` for colours that change. A plant that drops its leaves must have `show` on its leaves. | `check_models.gd`, reviewer |

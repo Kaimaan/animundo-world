@@ -2,6 +2,7 @@
   "id": "heather",
   "name": "Heather",
   "latin": "Calluna vulgaris",
+  "taxon": {"gbif_key": 2882482, "rank": "SPECIES", "name": "Calluna vulgaris"},
   "author": "Animundo team",
   "kind": "bush",
   "year": {

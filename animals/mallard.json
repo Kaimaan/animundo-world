@@ -1,6 +1,7 @@
 {
   "archetype": "bird",
   "latin": "Anas platyrhynchos",
+  "taxon": {"gbif_key": 9761484, "rank": "SPECIES", "name": "Anas platyrhynchos"},
   "playable": true,
   "color": "#82654b",
   "tags": [

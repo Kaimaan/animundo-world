@@ -2,6 +2,7 @@
   "id": "lingonberry",
   "name": "Lingonberry",
   "latin": "Vaccinium vitis-idaea",
+  "taxon": {"gbif_key": 2882835, "rank": "SPECIES", "name": "Vaccinium vitis-idaea"},
   "author": "Animundo team",
   "kind": "bush",
   "year": {

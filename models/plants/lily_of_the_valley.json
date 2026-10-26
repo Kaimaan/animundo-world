@@ -2,6 +2,7 @@
   "id": "lily_of_the_valley",
   "name": "Lily of the valley",
   "latin": "Convallaria majalis",
+  "taxon": {"gbif_key": 7459480, "rank": "SPECIES", "name": "Convallaria majalis"},
   "author": "Animundo team",
   "kind": "ground",
   "year": {

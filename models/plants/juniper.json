@@ -2,6 +2,7 @@
   "id": "juniper",
   "name": "Juniper",
   "latin": "Juniperus communis",
+  "taxon": {"gbif_key": 2684709, "rank": "SPECIES", "name": "Juniperus communis"},
   "author": "Animundo team",
   "kind": "bush",
   "year": {

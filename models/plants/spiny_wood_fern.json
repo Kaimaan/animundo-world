@@ -2,6 +2,7 @@
   "id": "spiny_wood_fern",
   "name": "Spiny wood fern",
   "latin": "Dryopteris carthusiana",
+  "taxon": {"gbif_key": 5275149, "rank": "SPECIES", "name": "Dryopteris carthusiana"},
   "author": "Animundo team",
   "kind": "bush",
   "year": {

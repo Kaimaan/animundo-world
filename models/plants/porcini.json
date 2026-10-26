@@ -2,6 +2,7 @@
   "id": "porcini",
   "name": "Porcini",
   "latin": "Boletus edulis",
+  "taxon": {"gbif_key": 5954958, "rank": "SPECIES", "name": "Boletus edulis"},
   "author": "Animundo team",
   "kind": "bush",
   "year": {

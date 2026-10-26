@@ -2,6 +2,7 @@
   "id": "chanterelle",
   "name": "Chanterelle",
   "latin": "Cantharellus cibarius",
+  "taxon": {"gbif_key": 5249504, "rank": "SPECIES", "name": "Cantharellus cibarius"},
   "author": "Animundo team",
   "kind": "ground",
   "year": {

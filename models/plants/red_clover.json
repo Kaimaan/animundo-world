@@ -2,6 +2,7 @@
   "id": "red_clover",
   "name": "Red clover",
   "latin": "Trifolium pratense",
+  "taxon": {"gbif_key": 8324121, "rank": "SPECIES", "name": "Trifolium pratense"},
   "author": "Animundo team",
   "kind": "ground",
   "year": {

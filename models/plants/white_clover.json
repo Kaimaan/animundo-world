@@ -2,6 +2,7 @@
   "id": "white_clover",
   "name": "White clover",
   "latin": "Trifolium repens",
+  "taxon": {"gbif_key": 5358748, "rank": "SPECIES", "name": "Trifolium repens"},
   "author": "Animundo team",
   "kind": "ground",
   "year": {

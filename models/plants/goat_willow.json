@@ -2,6 +2,7 @@
   "id": "goat_willow",
   "name": "Goat willow",
   "latin": "Salix caprea",
+  "taxon": {"gbif_key": 5372952, "rank": "SPECIES", "name": "Salix caprea"},
   "author": "Animundo team",
   "kind": "bush",
   "year": {

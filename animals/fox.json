@@ -1,6 +1,7 @@
 {
   "archetype": "land_mammal",
   "latin": "Vulpes vulpes",
+  "taxon": {"gbif_key": 5219243, "rank": "SPECIES", "name": "Vulpes vulpes"},
   "playable": true,
   "color": "#c8642a",
   "tags": ["predator"],

@@ -1,6 +1,7 @@
 {
   "archetype": "insect",
   "latin": "Bombus lucorum",
+  "taxon": {"gbif_key": 1340298, "rank": "SPECIES", "name": "Bombus lucorum"},
   "playable": true,
   "color": "#c99a1c",
   "tags": ["insect"],

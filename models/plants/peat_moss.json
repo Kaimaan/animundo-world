@@ -2,6 +2,7 @@
   "id": "peat_moss",
   "name": "Flat-topped bog moss",
   "latin": "Sphagnum angustifolium",
+  "taxon": {"gbif_key": 2668960, "rank": "SPECIES", "name": "Sphagnum angustifolium"},
   "author": "Animundo team",
   "kind": "ground",
   "year": {

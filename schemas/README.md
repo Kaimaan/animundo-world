@@ -18,6 +18,8 @@ pip install jsonschema
 python3 tools/check_schemas.py              # every content file against its schema
 python3 tools/check_animals.py              # animals, food web and translations (port of check_animals.gd)
 python3 tools/check_models.py               # built models (port of check_models.gd)
+python3 tools/check_taxa.py                 # one real species, one file (by GBIF taxon ID)
+python3 tools/taxon.py --verify             # every taxon against GBIF itself (needs the network)
 python3 tools/test_broken.py                # broken content must fail the right checks
 ```
 
@@ -32,6 +34,7 @@ A JSON Schema can only look at one file. So the work is split:
 - **The schemas** check the shape of one file: its keys, types, lists of allowed values and number ranges.
 - **`check_schemas.py`** also checks the rules inside one file that a schema can't express: the id equals the file name, a model part's colour and bone exist, mirrored names end in `_l`, an archetype extends another one in the same file, and the ART.md budgets that depend on the animal file (at most 16 bones; a model of an animal that isn't playable has at most 800 triangles).
 - **`validate_region.py`** checks a region against other files: its animals and plants exist and are built, the ground cover densities add up to 1 or less, and the plant triangle budget.
+- **`check_taxa.py`** checks that every animal file and plant spec says which real species it is (`taxon`, the GBIF ID of its accepted name, written by `tools/taxon.py`), that `latin` is that name, and that no two files are the same species unless one is a `stage_of` the other. It is new, not a port of a game checker, so the game's `.gd` checkers don't know these rules.
 - **`check_animals.py`** and **`check_models.py`** give the same verdict as the game's `check_animals.gd` and `check_models.gd`, with the same messages. They check what needs several files or an animal merged with its archetypes: the texts a playable animal needs, food first (decision 0011), the rain message rule, family texts, translations and built models.
 
 ## Decisions

@@ -1,6 +1,7 @@
 {
   "archetype": "land_mammal",
   "latin": "Lepus timidus",
+  "taxon": {"gbif_key": 2436756, "rank": "SPECIES", "name": "Lepus timidus"},
   "playable": true,
   "color": "#8b7a66",
   "tags": ["small_mammal"],

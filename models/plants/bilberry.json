@@ -2,6 +2,7 @@
   "id": "bilberry",
   "name": "Bilberry",
   "latin": "Vaccinium myrtillus",
+  "taxon": {"gbif_key": 2882833, "rank": "SPECIES", "name": "Vaccinium myrtillus"},
   "author": "Animundo team",
   "kind": "bush",
   "year": {

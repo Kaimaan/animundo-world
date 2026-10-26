@@ -1,6 +1,7 @@
 {
   "archetype": "bird",
   "latin": "Parus major",
+  "taxon": {"gbif_key": 9705453, "rank": "SPECIES", "name": "Parus major"},
   "playable": true,
   "color": "#c9b646",
   "tags": [

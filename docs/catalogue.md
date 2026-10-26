@@ -32,7 +32,7 @@ How to add each kind of thing: [CONTRIBUTING.md](../CONTRIBUTING.md). How it sho
 | **Perch** (*Perca fluviatilis*) | fi_nuuksio, fi_saimaa | built from a spec [preview](../models/previews/perch.png) | yes | no | yes |
 | **Pike** (*Esox lucius*) | fi_nuuksio, fi_saimaa | built from a spec [preview](../models/previews/pike.png) | yes | no | yes |
 | **Roach** (*Rutilus rutilus*) | fi_nuuksio, fi_saimaa | built from a spec [preview](../models/previews/roach.png) | yes | no | yes |
-| **Saimaa ringed seal** (*Pusa saimensis*) | fi_saimaa | built from a spec [preview](../models/previews/saimaa_seal.png) | yes | no | yes |
+| **Saimaa ringed seal** (*Pusa hispida saimensis*) | fi_saimaa | built from a spec [preview](../models/previews/saimaa_seal.png) | yes | no | yes |
 | **Red squirrel** (*Sciurus vulgaris*) | fi_nuuksio, fi_saimaa | built from a spec [preview](../models/previews/squirrel.png) | yes | no | yes |
 | **Bank vole** (*Myodes glareolus*) | fi_nuuksio, fi_saimaa | built from a spec [preview](../models/previews/vole.png) | yes | no | yes |
 | **Young perch** (*Perca fluviatilis*) | fi_nuuksio, fi_saimaa | downloaded: rebuild from a spec | yes | no | yes |
