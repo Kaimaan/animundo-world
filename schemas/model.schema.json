@@ -175,9 +175,10 @@
               "mirror": {"type": "boolean"},
               "smooth": {"type": "boolean"},
               "top": {
-                "description": "A taper's top width compared with its bottom; above 1 widens it (a chanterelle's cap).",
+                "description": "A taper's top width compared with its bottom; above 1 widens it (a chanterelle's cap). Capped at 10 to catch typos.",
                 "type": "number",
-                "minimum": 0
+                "minimum": 0,
+                "maximum": 10
               },
               "detail": {"type": "number"},
               "around": {"type": "integer", "minimum": 1},

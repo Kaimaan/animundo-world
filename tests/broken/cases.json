@@ -910,6 +910,21 @@
    "expect": {
     "schema": "fail"
    }
+  },
+  {
+   "name": "chanterelle_top_typo",
+   "why": "A plant taper's top is at most 10, so a typo like 45 for 4.5 is caught.",
+   "edits": [
+    {
+     "file": "models/plants/chanterelle.json",
+     "set": {
+      "/parts/0/top": 45
+     }
+    }
+   ],
+   "expect": {
+    "schema": "fail"
+   }
   }
  ]
 }
