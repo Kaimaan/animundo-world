@@ -1,0 +1,347 @@
+{
+ "id": "emperor_penguin",
+ "name": "Emperor penguin (Aptenodytes forsteri)",
+ "author": "Animundo team",
+ "gait": "walk",
+ "fly_pitch": 80,
+ "colors": {
+  "black": "#1f2125",
+  "white": "#ece9e2",
+  "yellow": "#e9a83a",
+  "orange": "#d9772e",
+  "feet": "#2a2826",
+  "dark": "#3a3530"
+ },
+ "bones": [
+  {
+   "name": "body",
+   "head": [
+    0,
+    0.14,
+    -0.02
+   ],
+   "tail": [
+    0,
+    0.8,
+    0.0
+   ],
+   "role": "body"
+  },
+  {
+   "name": "head",
+   "head": [
+    0,
+    0.84,
+    0.0
+   ],
+   "tail": [
+    0,
+    1.0,
+    0.12
+   ],
+   "parent": "body",
+   "role": "head"
+  },
+  {
+   "name": "wing_l",
+   "head": [
+    0.17,
+    0.74,
+    0.0
+   ],
+   "tail": [
+    0.56,
+    0.72,
+    0.0
+   ],
+   "parent": "body",
+   "role": "wing",
+   "mirror": true,
+   "fold": [
+    0,
+    -10,
+    75
+   ],
+   "fold_length": 1.0
+  },
+  {
+   "name": "leg_l",
+   "head": [
+    0.09,
+    0.14,
+    0.03
+   ],
+   "tail": [
+    0.09,
+    0.0,
+    0.06
+   ],
+   "parent": "body",
+   "role": "leg",
+   "phase": 0.0,
+   "mirror": true
+  }
+ ],
+ "parts": [
+  {
+   "name": "body_low",
+   "shape": "ball",
+   "size": [
+    0.44,
+    0.52,
+    0.42
+   ],
+   "at": [
+    0,
+    0.38,
+    -0.01
+   ],
+   "color": "black",
+   "bone": "body"
+  },
+  {
+   "name": "body_up",
+   "shape": "ball",
+   "size": [
+    0.34,
+    0.5,
+    0.32
+   ],
+   "at": [
+    0,
+    0.72,
+    -0.01
+   ],
+   "color": "black",
+   "bone": "body"
+  },
+  {
+   "name": "belly",
+   "shape": "ball",
+   "size": [
+    0.36,
+    0.72,
+    0.3
+   ],
+   "at": [
+    0,
+    0.46,
+    0.08
+   ],
+   "color": "white",
+   "bone": "body"
+  },
+  {
+   "name": "chest",
+   "shape": "ball",
+   "size": [
+    0.26,
+    0.3,
+    0.2
+   ],
+   "at": [
+    0,
+    0.78,
+    0.07
+   ],
+   "color": "yellow",
+   "bone": "body"
+  },
+  {
+   "name": "neck",
+   "shape": "ball",
+   "size": [
+    0.24,
+    0.2,
+    0.24
+   ],
+   "at": [
+    0,
+    0.88,
+    0.01
+   ],
+   "color": "black",
+   "bone": "head"
+  },
+  {
+   "name": "head",
+   "shape": "ball",
+   "size": [
+    0.2,
+    0.2,
+    0.22
+   ],
+   "at": [
+    0,
+    1.0,
+    0.03
+   ],
+   "color": "black",
+   "bone": "head"
+  },
+  {
+   "name": "ear_l",
+   "shape": "ball",
+   "size": [
+    0.03,
+    0.09,
+    0.07
+   ],
+   "at": [
+    0.088,
+    0.95,
+    0.0
+   ],
+   "rot": [
+    -20,
+    0,
+    0
+   ],
+   "color": "yellow",
+   "bone": "head",
+   "mirror": true,
+   "separate": true,
+   "detail": 0.5
+  },
+  {
+   "name": "bill",
+   "shape": "cone",
+   "size": [
+    0.045,
+    0.15,
+    0.035
+   ],
+   "at": [
+    0,
+    0.975,
+    0.18
+   ],
+   "rot": [
+    100,
+    0,
+    0
+   ],
+   "color": "black",
+   "bone": "head",
+   "separate": true,
+   "detail": 0.6
+  },
+  {
+   "name": "bill_stripe_l",
+   "shape": "ball",
+   "size": [
+    0.012,
+    0.012,
+    0.07
+   ],
+   "at": [
+    0.017,
+    0.965,
+    0.155
+   ],
+   "rot": [
+    10,
+    0,
+    0
+   ],
+   "color": "orange",
+   "bone": "head",
+   "mirror": true,
+   "separate": true,
+   "detail": 0.4
+  },
+  {
+   "name": "eye_l",
+   "shape": "ball",
+   "size": [
+    0.022,
+    0.022,
+    0.022
+   ],
+   "at": [
+    0.085,
+    1.02,
+    0.08
+   ],
+   "color": "dark",
+   "bone": "head",
+   "mirror": true,
+   "separate": true,
+   "detail": 0.5
+  },
+  {
+   "name": "flipper_l",
+   "shape": "ball",
+   "size": [
+    0.4,
+    0.035,
+    0.12
+   ],
+   "at": [
+    0.36,
+    0.72,
+    0.0
+   ],
+   "color": "black",
+   "bone": "wing_l",
+   "mirror": true,
+   "separate": true,
+   "detail": 0.6
+  },
+  {
+   "name": "tail",
+   "shape": "ball",
+   "size": [
+    0.16,
+    0.06,
+    0.16
+   ],
+   "at": [
+    0,
+    0.15,
+    -0.16
+   ],
+   "rot": [
+    -25,
+    0,
+    0
+   ],
+   "color": "black",
+   "bone": "body"
+  },
+  {
+   "name": "leg_l",
+   "shape": "ball",
+   "size": [
+    0.08,
+    0.12,
+    0.08
+   ],
+   "at": [
+    0.09,
+    0.08,
+    0.03
+   ],
+   "color": "black",
+   "bone": "leg_l",
+   "mirror": true
+  },
+  {
+   "name": "foot_l",
+   "shape": "ball",
+   "size": [
+    0.1,
+    0.035,
+    0.14
+   ],
+   "at": [
+    0.09,
+    0.017,
+    0.08
+   ],
+   "color": "feet",
+   "bone": "leg_l",
+   "mirror": true
+  }
+ ]
+}

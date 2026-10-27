@@ -15,7 +15,7 @@ The edits file (every key but `id` and `name` is optional):
 
     {
       "id": "lynx", "name": "Eurasian lynx (Lynx lynx)", "author": "...",
-      "length_m": 1.05,        # nose to rump, without the tail: scales everything
+      "length_m": 1.05,        # nose to rump, without the tail (an upright bird: its height): scales everything
       "shoulder_m": 0.68,      # top of the back at the shoulders: sets the legs' length
       "tail_m": 0.18,          # the tail's length: shortens or lengthens it; 0 removes it
       "colors": {"fur": "#8b7355", "belly": "#f0e8d8", "dark": "#2a2420"},
@@ -65,9 +65,21 @@ def bone(spec, name):
     return next(b for b in spec["bones"] if b["name"] == name)
 
 
+def upright(spec):
+    """A body bone standing more than 60 degrees from level (a penguin): its length is its height."""
+    b = next((b for b in spec["bones"] if b.get("role") == "body"), None)
+    if b is None:
+        return False
+    dy = abs(b["tail"][1] - b["head"][1])
+    dz = math.hypot(b["tail"][2] - b["head"][2], b["tail"][0] - b["head"][0])
+    return math.degrees(math.atan2(dy, dz)) > 60
+
+
 def body_length(spec):
-    """Nose to rump along z, without the tail."""
+    """Nose to rump along z, without the tail; for an upright animal, its standing height."""
     _, role = roles(spec)
+    if upright(spec):
+        return max(p["at"][1] + p["size"][1] / 2 for p in spec["parts"] if role[p["name"]] not in ("wing", "tail"))
     zs = []
     for p in spec["parts"]:
         if role[p["name"]] == "tail":

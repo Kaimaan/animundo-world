@@ -1,0 +1,9 @@
+{
+ "reference": "emperor_penguin",
+ "id": "king_penguin_example",
+ "name": "King penguin (Aptenodytes patagonicus)",
+ "author": "Animundo team",
+ "length_m": 0.95,
+ "colors": {"yellow": "#f08a24"},
+ "head": 1.05
+}
