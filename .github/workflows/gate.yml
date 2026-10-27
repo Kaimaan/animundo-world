@@ -57,6 +57,13 @@ jobs:
               return close(`Plants can be added to \`poisonous-plants.json\`, never removed. If an entry is wrong, please open an issue.`);
             }
 
+            // every commit is signed off (DCO): the contributor may send it, under the repository's licences
+            const commits = await github.paginate(github.rest.pulls.listCommits, { owner, repo, pull_number: pr.number });
+            const unsigned = commits.filter(c => !/^Signed-off-by: .+ <.+>$/m.test(c.commit.message));
+            if (unsigned.length) {
+              return close(`Every commit needs a sign-off line, which says you agree to the [Developer Certificate of Origin](https://developercertificate.org) and share your work under this repository's licences. Add it with \`git commit -s\` (or \`git commit --amend -s\` and a force push), then open this pull request again. Not signed off: ${unsigned.map(c => c.sha.slice(0, 7)).join(', ')}.`);
+            }
+
             const limit = author.toLowerCase() === BOT ? 10 : 2;
             const open = await github.paginate(github.rest.pulls.list, { owner, repo, state: 'open' });
             const mine = open.filter(p => p.user.login === author && p.number !== pr.number);

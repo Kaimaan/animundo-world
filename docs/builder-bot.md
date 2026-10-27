@@ -8,6 +8,7 @@
 - **Permissions:** Contents read and write, Pull requests read and write, Metadata read. Nothing else: no Administration, Workflows, Actions, Secrets or Members. Without the Workflows permission GitHub refuses any push that changes `.github/workflows/`.
 - **Branches:** it pushes only to branches named `builder/*`. `main` needs a pull request with an approving review from [CODEOWNERS](../.github/CODEOWNERS).
 - **The gate** treats it like any verified contributor ([gate.yml](../.github/workflows/gate.yml)): only content files may change. Its one difference is a limit of 10 open pull requests instead of 2, because each one is a different family's place.
+- **Its commits are signed off** (DCO), like everyone's.
 - **Its pull requests** say where the place is, its sources, every check's result, the new species with their preview sheets and the builder's review notes. They never name the family.
 
 ## Poisonous plants

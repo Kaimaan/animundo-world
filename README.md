@@ -4,7 +4,7 @@ Every place, animal and translation in [Animundo](https://animundo.app), a game 
 
 This repository is the game's **content**: small data files that anyone can write with the help of an AI assistant. The game's code is kept separately.
 
-> **Not open yet.** We'll start accepting pull requests once our contributor terms are ready. Until then, this repository is private.
+Places can also be built by [Animundo Builder](https://github.com/Kaimaan/animundo-builder): a family picks a real place in the game, agents research it and build its animals, the family plays it and submits it, and the [builder bot](docs/builder-bot.md) opens a pull request here for a person to review.
 
 ## What's here
 
@@ -31,3 +31,11 @@ Everything should follow the [art guide](ART.md), so the game looks like one wor
 - Use a nickname, never a child's full name.
 - Pull requests change content only: `regions/`, `animals/`, `models/`, `locale/`, plus claiming a row in `wanted.json`. Changes elsewhere are closed automatically.
 - At most two open pull requests per person.
+- Sign off every commit (`git commit -s`): see [Licence](#licence).
+
+## Licence
+
+- **Content** (places, animals, models, preview sheets, text): [CC BY 4.0](LICENSE). Anyone may reuse it, with credit to "Animundo and its contributors".
+- **Tools and workflows** (`tools/`, `.github/`): [MIT](LICENSE-CODE).
+- **Contributing:** every commit carries a `Signed-off-by:` line, which means you agree to the [Developer Certificate of Origin](https://developercertificate.org): you have the right to send it, and it is shared under these licences. The gate closes pull requests with commits that aren't signed off.
+- Facts come from the sources cited in each file; map data from OpenStreetMap is © OpenStreetMap contributors, under the [ODbL](https://opendatacommons.org/licenses/odbl/).

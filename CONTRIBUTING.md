@@ -1,6 +1,6 @@
 # Add your favourite place to Animundo
 
-> **About this repository.** This is where Animundo's content lives; the game's code is kept separately, and every change merged here is copied into the game automatically. Commands below that use `godot` or `tools/build_web.sh` need the game repository: to try a change there before sending it, run `tools/export_to_game.sh <path to the game>`. Otherwise the core team runs the animal checks and plays your change for you. A *Play it* link on every pull request is coming ([decision 0013](https://github.com/Kaimaan/animundo/blob/main/docs/decisions/0013-public-world-repo.md)). Menu text (`locale/*/ui.json`, `loading.json`, `seasons.json`) belongs to the game and can't be changed here.
+> **About this repository.** This is where Animundo's content lives; the game's code is kept separately, and every change merged here is copied into the game automatically. Commands below that use `godot` or `tools/build_web.sh` need the game repository: to try a change there before sending it, run `tools/export_to_game.sh <path to the game>`. Otherwise the core team runs the animal checks and plays your change for you. A *Play it* link on every pull request is coming. Menu text (`locale/*/ui.json`, `loading.json`, `seasons.json`) belongs to the game and can't be changed here.
 >
 > You need to be a verified contributor to open a pull request. A grown-up with a (free) account in the game gets a code under *For parents and teachers*: see [README.md](README.md#how-to-add-something).
 
@@ -64,7 +64,7 @@ Playing it needs the game repository, so the core team plays your place for you 
 
 ## Send it in (pull request)
 1. Fork the repository on GitHub.
-2. Add your region file and commit it.
+2. Add your region file and commit it with a sign-off: `git commit -s` (it adds `Signed-off-by: your name`). That says you agree to the [Developer Certificate of Origin](https://developercertificate.org) and that your work is shared under [CC BY 4.0](LICENSE).
 3. Open a pull request. Include a screenshot and one line about why you love the place.
 
 ## Adding animals
