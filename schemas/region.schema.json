@@ -75,12 +75,12 @@
         "base_height": {
           "type": "number",
           "minimum": 2,
-          "maximum": 14
+          "maximum": 46
         },
         "relief": {
           "type": "number",
           "minimum": 0,
-          "maximum": 16
+          "maximum": 48
         },
         "frequency": {
           "type": "number",
@@ -95,7 +95,7 @@
         "rock_above": {
           "type": "number",
           "minimum": 6,
-          "maximum": 28
+          "maximum": 60
         },
         "lakes": {
           "type": "number",
@@ -110,6 +110,18 @@
         },
         "seed": {
           "type": "integer"
+        },
+        "height": {
+          "description": "The land's height in blocks: 32 for most places, up to 64 for high mountains and deep sea. validate_region.py scales the other limits to it.",
+          "type": "integer",
+          "minimum": 32,
+          "maximum": 64
+        },
+        "water_level": {
+          "description": "The water's level in blocks (default 8; at most height - 8).",
+          "type": "integer",
+          "minimum": 4,
+          "maximum": 56
         }
       }
     },
@@ -397,7 +409,7 @@
           "depth": {
             "type": "number",
             "minimum": 2,
-            "maximum": 7
+            "maximum": 55
           },
           "islands": {
             "type": "number",
@@ -666,7 +678,7 @@
           "description": "Land this high or higher is a glacier: ice over the rock.",
           "type": "integer",
           "minimum": 6,
-          "maximum": 28
+          "maximum": 60
         },
         "icebergs": {
           "type": "object",

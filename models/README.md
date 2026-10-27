@@ -63,9 +63,10 @@ Don't start a new animal from nothing. Copy the existing model closest to it in 
 | Bees, bumblebees, wasps | `bee` | Size, bands |
 | Snakes, slow worm, eels | `examples/grass_snake` | Size, head, pattern; eels: `swims`, fins |
 | Porpoises and dolphins (up to about 3 m) | `examples/harbour_porpoise` | Size, beak or blunt head, fin shape, pattern |
+| Orcas, pilot whales, belugas (up to about 8 m) | `examples/harbour_porpoise`, scaled up | Only in deep-sea places (`terrain.water_level` 24 or more, see CONTRIBUTING) |
 | Butterflies and moths | `examples/peacock_butterfly` | Wing shape, colours, eyespots |
 | **Not possible yet** | | |
-| Orcas and great whales (over about 3 m) | none | The game's water is at most about 8 m deep |
+| Great whales (over about 8 m) | none | Even a deep-sea place's water is at most about 55 m deep, and the game hasn't been tested with animals that big |
 | Dragonflies | none | Two pairs of wings that beat apart |
 | Bats | none | Wings from the arms; night animals come later |
 
@@ -185,7 +186,7 @@ An animal without legs moves by waving its body. Make the body a chain of `spine
 - **`"undulate": "side"`** (the default) waves left and right: snakes, slow worms, eels. Asleep, the chain curls into a coil. Example: [examples/grass_snake.json](examples/grass_snake.json).
 - **`"undulate": "up"`** beats up and down: whales, dolphins, porpoises, whose tail ends in a flat, horizontal fluke (a wide, thin ball on the last bone). Flippers are `fin` bones; the dorsal fin is a `taper`. Raise `swing` a little along the chain so the tail beats more than the chest. Example: [examples/harbour_porpoise.json](examples/harbour_porpoise.json).
 - **`"swims": true`** gives the model a `swim` clip even without fins (a whale, a swimming grass snake).
-- **The sea:** every place already ends in water at its edge (`terrain.edge`: `"lake"`), and its `lakes` can be large. The game's water is at most about 8 m deep, so swimmers up to about 3 m long fit: porpoises and most dolphins. Orcas and the great whales need deeper water in the game first.
+- **The sea:** every place already ends in water at its edge (`terrain.edge`: `"lake"`), and its `lakes` can be large. Most places' water is at most about 8 m deep, so swimmers up to about 3 m long fit there: porpoises and most dolphins. A deep-sea place (`terrain.height` 64, `terrain.water_level` 24 or more) has room for orcas and other whales up to about 8 m; the great whales are still bigger than the game has been tested with.
 
 The `examples/` models are body-plan examples, not animals in the game: start a new kind of animal from one of them, then it becomes the reference model for its kind. They are built and checked in CI like the rest.
 

@@ -29,6 +29,7 @@ Name it `<country code>_<place>.json`, all lowercase, for example `ke_masai_mara
 | `sources` | Where your facts come from: a list of links or book titles. |
 | `center.lat`, `center.lon` | Real coordinates of the middle of the area. |
 | `terrain.size` (128–2048) | Width of the map in metres (1 block = 1 m). Nuuksio is 512. Only the land around the animal is built, so bigger maps don't load slower. |
+| `terrain.height` (32–64) and `terrain.water_level` | The land's height in blocks and the water's level: 32 and 8 for most places. For high mountains or deep sea (fjords, orcas), use up to 64 with the water higher, e.g. 64 and 24; the limits below then grow with it (base height and relief by the extra height, `rock_above` and `ice.glacier_above` up to height − 4, lake depth up to the water level − 1). |
 | `terrain.base_height` (2–14) | How high the land is above the water. |
 | `terrain.relief` (0–16) | How hilly it is. Use 0–4 for flat plains and 12–16 for steep hills. |
 | `terrain.frequency` (0.005–0.15) | Size of hills: small numbers give wide, gentle hills. |

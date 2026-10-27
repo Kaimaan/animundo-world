@@ -101,17 +101,24 @@ def check(path):
         if not isinstance(v, (int, float)) or not lo <= v <= hi:
             err(f'"{section}.{key}" must be a number from {lo} to {hi}')
 
-    num("terrain", "base_height", 2, 14)
-    num("terrain", "relief", 0, 16)
+    # a taller world (high mountains, deep sea) scales the land's limits: 32 blocks and water at 8 for most places
+    num("terrain", "height", 32, 64)
+    height = d.get("terrain", {}).get("height", 32)
+    height = height if isinstance(height, int) and 32 <= height <= 64 else 32
+    num("terrain", "water_level", 4, height - 8)
+    water = d.get("terrain", {}).get("water_level", 8)
+    water = water if isinstance(water, int) else 8
+    num("terrain", "base_height", 2, 14 + height - 32)
+    num("terrain", "relief", 0, 16 + height - 32)
     num("terrain", "frequency", 0.005, 0.15)
     num("terrain", "rock_ridges", 0, 1)
-    num("terrain", "rock_above", 6, 28)
+    num("terrain", "rock_above", 6, height - 4)
     num("terrain", "lakes", 0, 1)
     ice = d.get("ice", {})
     if not isinstance(ice, dict):
         err('"ice" must be an object')
         ice = {}
-    num("ice", "glacier_above", 6, 28)
+    num("ice", "glacier_above", 6, height - 4)
     for k, lo, hi in (("amount", 0, 0.3), ("height", 1, 8)):
         v = ice.get("icebergs", {}).get(k)
         if v is not None and (not isinstance(v, (int, float)) or not lo <= v <= hi):
@@ -264,7 +271,7 @@ def check(path):
     for i, lake in enumerate(d.get("lakes", [])):
         if not isinstance(lake.get("name"), str) or not lake["name"].strip():
             err(f'"lakes[{i}].name" must be the lake\'s real name')
-        for k, lo, hi in (("x", 0, 1), ("z", 0, 1), ("length", 0.02, 1.5), ("width", 0.01, 1.5), ("angle", -360, 360), ("depth", 2, 7), ("islands", 0, 24)):
+        for k, lo, hi in (("x", 0, 1), ("z", 0, 1), ("length", 0.02, 1.5), ("width", 0.01, 1.5), ("angle", -360, 360), ("depth", 2, max(7, water - 1)), ("islands", 0, 24)):
             v = lake.get(k)
             if v is not None and (not isinstance(v, (int, float)) or not lo <= v <= hi):
                 err(f'"lakes[{i}].{k}" must be a number from {lo} to {hi}')
