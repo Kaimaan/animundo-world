@@ -1,0 +1,72 @@
+{
+ "base": "boreal_forest",
+ "description": "A flat sunny grassland with a few flat-topped trees and muddy seasonal pools.",
+ "flowers": [],
+ "food": [
+  {
+   "kind": "grass",
+   "names": [
+    "red oat grass",
+    "buffalo grass",
+    "star grass"
+   ]
+  },
+  {
+   "kind": "browse",
+   "names": [
+    "umbrella thorn",
+    "whistling thorn",
+    "small thorn bushes"
+   ]
+  },
+  {
+   "kind": "carrion",
+   "names": [
+    "wildebeest remains",
+    "zebra remains",
+    "gazelle remains"
+   ]
+  }
+ ],
+ "grass": "lush",
+ "land": "flat",
+ "palette": {
+  "dirt": "#7a5a3e",
+  "ground_dry": "#c8b15e",
+  "ground_high": "#a89e6a",
+  "ground_lush": "#7d9b3f",
+  "rock": "#8a817a",
+  "sand": "#d3c092",
+  "water_deep": "#3d4f3f",
+  "water_shallow": "#7a8a6a"
+ },
+ "plants": [],
+ "trees": {
+  "density": "sparse",
+  "mix": [
+   {
+    "autumn": null,
+    "food": "browse",
+    "leaves": "#6f9040",
+    "shape": "round",
+    "trunk": "#6b4e35",
+    "weight": 100
+   }
+  ]
+ },
+ "water": "pools",
+ "water_life": {
+  "lilies": "none",
+  "pondweed": "none",
+  "reeds": "some"
+ },
+ "water_name": "Muddy water holes",
+ "wetness": "dry",
+ "id": "savanna",
+ "tropical": true,
+ "sources": [
+  "ielc.libguides.com - African and Asian Lions Fact Sheet",
+  "eol.org - African Lion articles",
+  "masaimarawildlife.org - Panthera Leo"
+ ]
+}
