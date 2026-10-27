@@ -19,6 +19,7 @@ python3 tools/check_schemas.py              # every content file against its sch
 python3 tools/check_animals.py              # animals, food web and translations (port of check_animals.gd)
 python3 tools/check_models.py               # built models (port of check_models.gd)
 python3 tools/check_taxa.py                 # one real species, one file (by GBIF taxon ID)
+python3 tools/check_draft.py DRAFT_DIR      # a draft of new content, every check at once, as JSON
 python3 tools/taxon.py --verify             # every taxon against GBIF itself (needs the network)
 python3 tools/test_broken.py                # broken content must fail the right checks
 ```

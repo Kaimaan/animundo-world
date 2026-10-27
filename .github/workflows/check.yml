@@ -50,6 +50,8 @@ jobs:
         run: python3 tools/check_taxa.py
       - name: Check built models
         run: python3 tools/check_models.py
+      - name: A whole draft is checked at once
+        run: python3 tools/test_check_draft.py
       - name: The checks catch broken content
         run: python3 tools/test_broken.py
       - name: Catalogue is up to date
