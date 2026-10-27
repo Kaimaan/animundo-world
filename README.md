@@ -14,6 +14,8 @@ Places can also be built by [Animundo Builder](https://github.com/Kaimaan/animun
 | [`animals/`](animals/) | Animals: how they live, what they eat, how they spend the year, and what the game tells the player |
 | [`models/`](models/README.md) | What animals look like, as specs that Blender turns into 3D models |
 | [`locale/`](locale/) | All text in every language |
+| [`homes/`](homes/README.md) | Home templates: the land of one habitat, copied when a family asks for an animal |
+| [`animal-list.json`](tools/animal_list.py) | The animals a family can ask for in Animundo Builder, with GBIF IDs, starting models and habitats |
 | [`docs/animals-wanted.md`](docs/animals-wanted.md) | Animals and foods the game needs next |
 
 ## How to add something

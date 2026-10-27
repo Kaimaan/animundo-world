@@ -49,6 +49,10 @@ jobs:
         run: python3 tools/validate_region.py
       - name: Check against the schemas
         run: python3 tools/check_schemas.py
+      - name: Check the home templates
+        run: python3 tools/homes.py check
+      - name: Check the animal list
+        run: python3 tools/animal_list.py --check
       - name: Check animals and translations
         run: python3 tools/check_animals.py
       - name: One real species, one file
