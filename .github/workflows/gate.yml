@@ -1,5 +1,6 @@
 # Closes pull requests that aren't from verified players, change files outside
-# the content folders, or go over two open pull requests per person.
+# the content folders, or go over two open pull requests per person (ten for
+# the builder bot, whose pull requests come from families' submitted places).
 # Runs on pull_request_target so it can comment on PRs from forks. It never
 # checks out or runs the PR's code: it only reads the PR's file list.
 name: Contributor gate
@@ -17,6 +18,7 @@ jobs:
       - uses: actions/github-script@v7
         with:
           script: |
+            const BOT = 'animundo-builder[bot]';   // the GitHub App that opens pull requests for submitted places
             const pr = context.payload.pull_request;
             const author = pr.user.login;
             const { owner, repo } = context.repo;
@@ -40,17 +42,24 @@ jobs:
               || /^models\/(plants\/)?[a-z0-9_]+\.json$/.test(f)
               || /^models\/previews\/(plants\/)?[a-z0-9_]+\.png$/.test(f)
               || /^locale\/[a-z]{2,3}(-[A-Za-z]+)?\/(animals|food|plants|regions)\.json$/.test(f)   // menu text belongs to the game repo (decision 0013)
-              || ['wanted.json', 'docs/catalogue.md'].includes(f);
+              || ['wanted.json', 'docs/catalogue.md', 'poisonous-plants.json'].includes(f);
             const files = await github.paginate(github.rest.pulls.listFiles, { owner, repo, pull_number: pr.number });
             // a renamed file counts under both names, so nothing can be moved out of place
             const names = files.flatMap(f => f.previous_filename ? [f.filename, f.previous_filename] : [f.filename]);
             const outside = [...new Set(names.filter(f => !isContent(f)))];
             if (outside.length) {
-              return close(`Pull requests can only change content: place, animal and model files (\`.json\`), preview sheets (\`.png\`), the animal, food, plant and place text in \`locale/\`, \`wanted.json\` and \`docs/catalogue.md\`. This one also changes:\n\n${outside.map(f => '- `' + f + '`').join('\n')}\n\nIf something else needs changing, please open an issue instead.`);
+              return close(`Pull requests can only change content: place, animal and model files (\`.json\`), preview sheets (\`.png\`), the animal, food, plant and place text in \`locale/\`, \`wanted.json\`, \`docs/catalogue.md\` and additions to \`poisonous-plants.json\`. This one also changes:\n\n${outside.map(f => '- `' + f + '`').join('\n')}\n\nIf something else needs changing, please open an issue instead.`);
             }
 
+            // the poisonous plant list only grows: an addition is fine, a removal is for the owner
+            const poison = files.find(f => f.filename === 'poisonous-plants.json' || f.previous_filename === 'poisonous-plants.json');
+            if (poison && (poison.status !== 'modified' || /^-\s*\{/m.test(poison.patch || ''))) {
+              return close(`Plants can be added to \`poisonous-plants.json\`, never removed. If an entry is wrong, please open an issue.`);
+            }
+
+            const limit = author.toLowerCase() === BOT ? 10 : 2;
             const open = await github.paginate(github.rest.pulls.list, { owner, repo, state: 'open' });
             const mine = open.filter(p => p.user.login === author && p.number !== pr.number);
-            if (mine.length >= 2) {
-              return close(`You already have two pull requests open (${mine.map(p => '#' + p.number).join(', ')}). Please wait until one of them is merged or closed, then open this one again.`);
+            if (mine.length >= limit) {
+              return close(`You already have ${limit === 2 ? 'two' : limit} pull requests open (${mine.map(p => '#' + p.number).join(', ')}). Please wait until one of them is merged or closed, then open this one again.`);
             }

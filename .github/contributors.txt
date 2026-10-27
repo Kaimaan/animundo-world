@@ -1,3 +1,5 @@
 # GitHub names allowed to open pull requests, one per line.
 # The verify bot adds grown-ups here (decision 0013); stewards and partners are added by hand.
 Kaimaan
+# The builder bot (the Animundo Builder GitHub App): opens a pull request when a family submits a place.
+animundo-builder[bot]

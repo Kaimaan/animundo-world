@@ -34,7 +34,7 @@ import tempfile
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, ".."))
 CASES = os.path.join(ROOT, "tests", "broken", "cases.json")
-CONTENT = ["regions", "animals", "models", "locale", "wanted.json", "assets"]
+CONTENT = ["regions", "animals", "models", "locale", "wanted.json", "poisonous-plants.json", "assets"]
 TOOLS = ["check_schemas.py", "validate_region.py", "check_animals.py", "check_models.py", "check_taxa.py"]
 CHECKS = ["schema", "validate_region", "check_animals", "check_models", "check_taxa"]
 

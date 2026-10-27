@@ -1037,6 +1037,21 @@
     "check_taxa": "fail",
     "check_models": "fail"
    }
+  },
+  {
+   "name": "nuuksio_poisonous_food",
+   "why": "A plant on poisonous-plants.json can never be food (spec 07).",
+   "edits": [
+    {
+     "file": "regions/fi_nuuksio.json",
+     "set": {
+      "/ground_cover/plants/3/food": "mushrooms"
+     }
+    }
+   ],
+   "expect": {
+    "check_taxa": "fail"
+   }
   }
  ]
 }

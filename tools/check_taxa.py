@@ -15,7 +15,9 @@ Rules:
   and its name is the file's latin;
 - no two animal files, and no two plant specs, have the same gbif_key, unless
   the others are a stage_of the one (young_perch is a stage of perch);
-- a stage_of names an animal file of the same taxon that is not a stage itself.
+- a stage_of names an animal file of the same taxon that is not a stage itself;
+- every entry in poisonous-plants.json has a name and a gbif_key, and no
+  place's ground cover marks a plant of that taxon as food.
 
 Exits non-zero and lists every problem.
 """
@@ -63,6 +65,29 @@ def check(kind, docs, errors):
                           f'one species, one file (or mark the others stage_of the first)')
 
 
+def check_poison(root, plants, errors):
+    path = os.path.join(root, "poisonous-plants.json")
+    if not os.path.isfile(path):
+        errors.append("poisonous-plants.json is missing")
+        return
+    with open(path, encoding="utf-8") as fh:
+        entries = json.load(fh).get("plants", [])
+    poison = {}
+    for e in entries:
+        if not isinstance(e.get("name"), str) or not isinstance(e.get("gbif_key"), int):
+            errors.append(f"poisonous-plants.json: an entry needs a name and a gbif_key: {e}")
+            continue
+        poison[e["gbif_key"]] = e["name"]
+    regions = files(root, "regions")
+    for rid, r in regions.items():
+        gc = r.get("ground_cover", {}) if isinstance(r.get("ground_cover"), dict) else {}
+        for p in gc.get("plants", []):
+            model = p.get("model")
+            key = plants.get(model, {}).get("taxon", {}).get("gbif_key")
+            if p.get("food") and key in poison:
+                errors.append(f'region {rid}: {model} ({poison[key]}) is poisonous, so it can\'t be food')
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--root", default=os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
@@ -72,6 +97,7 @@ def main():
     plants = files(args.root, os.path.join("models", "plants"))
     check("animal", animals, errors)
     check("plant", plants, errors)
+    check_poison(args.root, plants, errors)
     for e in errors:
         print("ERROR: " + e, file=sys.stderr)
     print(f"{len(animals)} animals and {len(plants)} plants: {len(errors)} problems")
