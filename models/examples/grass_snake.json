@@ -1,0 +1,485 @@
+{
+  "id": "grass_snake",
+  "name": "Grass snake (Natrix natrix): body-plan example for snakes",
+  "author": "Animundo team",
+  "gait": "walk",
+  "undulate": "side",
+  "swims": true,
+  "skin": {
+    "triangles": 700,
+    "voxel": 0.004
+  },
+  "colors": {
+    "back": "#5e6446",
+    "belly": "#d8d0ae",
+    "collar": "#e9c74a",
+    "dark": "#1c1d16"
+  },
+  "bones": [
+    {
+      "name": "body",
+      "head": [
+        0,
+        0.011,
+        0.3
+      ],
+      "tail": [
+        0,
+        0.011,
+        0.4
+      ],
+      "role": "body",
+      "swing": 0.3
+    },
+    {
+      "name": "head",
+      "head": [
+        0,
+        0.011,
+        0.4
+      ],
+      "tail": [
+        0,
+        0.011,
+        0.46
+      ],
+      "parent": "body",
+      "role": "head",
+      "swing": 0.4
+    },
+    {
+      "name": "spine_1",
+      "head": [
+        0,
+        0.011,
+        0.3
+      ],
+      "tail": [
+        0,
+        0.011,
+        0.18
+      ],
+      "parent": "body",
+      "role": "spine",
+      "phase": 0.2,
+      "swing": 1.0
+    },
+    {
+      "name": "spine_2",
+      "head": [
+        0,
+        0.011,
+        0.18
+      ],
+      "tail": [
+        0,
+        0.011,
+        0.06
+      ],
+      "parent": "spine_1",
+      "role": "spine",
+      "phase": 0.4,
+      "swing": 1.0
+    },
+    {
+      "name": "spine_3",
+      "head": [
+        0,
+        0.011,
+        0.06
+      ],
+      "tail": [
+        0,
+        0.011,
+        -0.06
+      ],
+      "parent": "spine_2",
+      "role": "spine",
+      "phase": 0.6,
+      "swing": 1.0
+    },
+    {
+      "name": "spine_4",
+      "head": [
+        0,
+        0.011,
+        -0.06
+      ],
+      "tail": [
+        0,
+        0.011,
+        -0.18
+      ],
+      "parent": "spine_3",
+      "role": "spine",
+      "phase": 0.8,
+      "swing": 1.0
+    },
+    {
+      "name": "spine_5",
+      "head": [
+        0,
+        0.011,
+        -0.18
+      ],
+      "tail": [
+        0,
+        0.011,
+        -0.3
+      ],
+      "parent": "spine_4",
+      "role": "spine",
+      "phase": 1.0,
+      "swing": 1.0
+    },
+    {
+      "name": "spine_6",
+      "head": [
+        0,
+        0.011,
+        -0.3
+      ],
+      "tail": [
+        0,
+        0.009899999999999999,
+        -0.4
+      ],
+      "parent": "spine_5",
+      "role": "spine",
+      "phase": 1.2,
+      "swing": 1.0
+    },
+    {
+      "name": "spine_7",
+      "head": [
+        0,
+        0.011,
+        -0.4
+      ],
+      "tail": [
+        0,
+        0.009899999999999999,
+        -0.47
+      ],
+      "parent": "spine_6",
+      "role": "spine",
+      "phase": 1.4,
+      "swing": 1.0
+    }
+  ],
+  "parts": [
+    {
+      "name": "neck",
+      "shape": "ball",
+      "size": [
+        0.022,
+        0.019,
+        0.12
+      ],
+      "at": [
+        0,
+        0.01,
+        0.35
+      ],
+      "color": "back",
+      "bone": "body"
+    },
+    {
+      "name": "head",
+      "shape": "ball",
+      "size": [
+        0.026,
+        0.016,
+        0.04
+      ],
+      "at": [
+        0,
+        0.011,
+        0.42
+      ],
+      "color": "back",
+      "bone": "head"
+    },
+    {
+      "name": "snout",
+      "shape": "ball",
+      "size": [
+        0.016,
+        0.011,
+        0.024
+      ],
+      "at": [
+        0,
+        0.01,
+        0.445
+      ],
+      "color": "back",
+      "bone": "head"
+    },
+    {
+      "name": "chin",
+      "shape": "ball",
+      "size": [
+        0.02,
+        0.006,
+        0.04
+      ],
+      "at": [
+        0,
+        0.004,
+        0.425
+      ],
+      "color": "belly",
+      "bone": "head"
+    },
+    {
+      "name": "eye_l",
+      "shape": "ball",
+      "size": [
+        0.0045,
+        0.0045,
+        0.0045
+      ],
+      "at": [
+        0.01,
+        0.015,
+        0.432
+      ],
+      "color": "dark",
+      "bone": "head",
+      "mirror": true,
+      "separate": true,
+      "detail": 0.4
+    },
+    {
+      "name": "collar_l",
+      "shape": "ball",
+      "size": [
+        0.008,
+        0.012,
+        0.012
+      ],
+      "at": [
+        0.009,
+        0.013,
+        0.392
+      ],
+      "color": "collar",
+      "bone": "body",
+      "mirror": true,
+      "separate": true,
+      "detail": 0.5
+    },
+    {
+      "name": "collar_dark_l",
+      "shape": "ball",
+      "size": [
+        0.008,
+        0.012,
+        0.01
+      ],
+      "at": [
+        0.01,
+        0.013,
+        0.378
+      ],
+      "color": "dark",
+      "bone": "body",
+      "mirror": true,
+      "separate": true,
+      "detail": 0.5
+    },
+    {
+      "name": "seg_1",
+      "shape": "ball",
+      "size": [
+        0.026,
+        0.022,
+        0.15
+      ],
+      "at": [
+        0,
+        0.011,
+        0.24
+      ],
+      "color": "back",
+      "bone": "spine_1"
+    },
+    {
+      "name": "belly_1",
+      "shape": "ball",
+      "size": [
+        0.0208,
+        0.006,
+        0.13
+      ],
+      "at": [
+        0,
+        0.003,
+        0.24
+      ],
+      "color": "belly",
+      "bone": "spine_1"
+    },
+    {
+      "name": "seg_2",
+      "shape": "ball",
+      "size": [
+        0.026,
+        0.022,
+        0.15
+      ],
+      "at": [
+        0,
+        0.011,
+        0.12
+      ],
+      "color": "back",
+      "bone": "spine_2"
+    },
+    {
+      "name": "belly_2",
+      "shape": "ball",
+      "size": [
+        0.0208,
+        0.006,
+        0.13
+      ],
+      "at": [
+        0,
+        0.003,
+        0.12
+      ],
+      "color": "belly",
+      "bone": "spine_2"
+    },
+    {
+      "name": "seg_3",
+      "shape": "ball",
+      "size": [
+        0.025,
+        0.021,
+        0.15
+      ],
+      "at": [
+        0,
+        0.0105,
+        0.0
+      ],
+      "color": "back",
+      "bone": "spine_3"
+    },
+    {
+      "name": "belly_3",
+      "shape": "ball",
+      "size": [
+        0.020000000000000004,
+        0.006,
+        0.13
+      ],
+      "at": [
+        0,
+        0.003,
+        0.0
+      ],
+      "color": "belly",
+      "bone": "spine_3"
+    },
+    {
+      "name": "seg_4",
+      "shape": "ball",
+      "size": [
+        0.023,
+        0.019,
+        0.15
+      ],
+      "at": [
+        0,
+        0.0095,
+        -0.12
+      ],
+      "color": "back",
+      "bone": "spine_4"
+    },
+    {
+      "name": "belly_4",
+      "shape": "ball",
+      "size": [
+        0.0184,
+        0.006,
+        0.13
+      ],
+      "at": [
+        0,
+        0.003,
+        -0.12
+      ],
+      "color": "belly",
+      "bone": "spine_4"
+    },
+    {
+      "name": "seg_5",
+      "shape": "ball",
+      "size": [
+        0.019,
+        0.016,
+        0.15
+      ],
+      "at": [
+        0,
+        0.008,
+        -0.24
+      ],
+      "color": "back",
+      "bone": "spine_5"
+    },
+    {
+      "name": "belly_5",
+      "shape": "ball",
+      "size": [
+        0.0152,
+        0.006,
+        0.13
+      ],
+      "at": [
+        0,
+        0.003,
+        -0.24
+      ],
+      "color": "belly",
+      "bone": "spine_5"
+    },
+    {
+      "name": "seg_6",
+      "shape": "ball",
+      "size": [
+        0.013,
+        0.011,
+        0.15
+      ],
+      "at": [
+        0,
+        0.0055,
+        -0.35
+      ],
+      "color": "back",
+      "bone": "spine_6"
+    },
+    {
+      "name": "seg_7",
+      "shape": "ball",
+      "size": [
+        0.008,
+        0.007,
+        0.1
+      ],
+      "at": [
+        0,
+        0.0035,
+        -0.435
+      ],
+      "color": "back",
+      "bone": "spine_7"
+    }
+  ]
+}

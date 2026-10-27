@@ -29,7 +29,7 @@ from spec_shapes import AXIS, ROOT, add_shape, g2b, render_tile, rot_matrix, sav
 
 FPS = 24
 SHAPES = ("box", "ball", "cone", "cylinder", "taper")
-ROLES = ("body", "head", "neck", "leg", "tail", "ear", "wing", "fin", "jaw", "none")
+ROLES = ("body", "head", "neck", "leg", "tail", "ear", "wing", "fin", "jaw", "spine", "none")
 CLIPS = {"idle": 48, "walk": 24, "run": 16, "eat": 24, "sleep": 48}
 errors = []
 
@@ -58,6 +58,9 @@ def load_spec(path):
     spec.setdefault("gait", "walk")
     if spec["gait"] not in ("walk", "bound"):
         fail("gait must be 'walk' (legs on each side alternate) or 'bound' (left and right move together)")
+    spec.setdefault("undulate", "side")
+    if spec["undulate"] not in ("side", "up"):
+        fail("undulate must be 'side' (snakes, eels: the body waves left and right) or 'up' (whales: up and down)")
     # expand mirrored bones and parts into explicit left/right copies
     bones = []
     for b in spec["bones"]:
@@ -398,12 +401,28 @@ def pose_for(clip, t, b, height, is_front, side):
             r = side * 0.6 * sw * (1 if round(t * FLY_FRAMES) % 2 == 0 else -1)
         elif clip == "fly":
             r = side * 0.9 * sw * s
+    elif role == "spine":
+        # a segmented body: a wave runs from head to tail (phase grows tailward).
+        # Snakes wave side to side; whales and dolphins beat up and down.
+        if clip == "sleep":
+            if UNDULATE["axis"] == "side":
+                y = 0.95 * sw   # coiled up
+        else:
+            amp = {"idle": 0.05, "walk": 0.4, "run": 0.55, "swim": 0.4, "eat": 0.03}.get(clip, 0.0)
+            v = amp * sw * wave(t, -ph)
+            if UNDULATE["axis"] == "side":
+                y = v
+            else:
+                p = v
     elif role == "fin":
         if clip in ("swim", "walk", "run", "idle"):
             amp = {"idle": 0.1, "walk": 0.3, "swim": 0.35, "run": 0.5}[clip]
             y = amp * sw * wave(t, -ph, 2 if clip == "run" else 1)
     return p, y, r
 
+
+# How "spine" bones wave: set per model in make_actions from "undulate".
+UNDULATE = {"axis": "side"}
 
 # Birds (anything with "wing" bones): set per model in make_actions.
 BIRD = {"on": False, "pitch": 0.0, "buzz": False, "legs": 1.3}
@@ -476,7 +495,8 @@ def make_actions(spec, arm_obj, height):
     BIRD["legs"] = math.radians(spec.get("fly_legs", 75))      # legs swing back in flight (birds tuck them)
     if "wing" in roles:
         clips["fly"] = FLY_FRAMES
-    if "fin" in roles:
+    UNDULATE["axis"] = spec["undulate"]
+    if "fin" in roles or spec.get("swims"):   # "swims": true gives a swim clip without fins (a whale's flukes, a swimming snake)
         clips["swim"] = 24
     arm_obj.animation_data_create()
     actions = {}

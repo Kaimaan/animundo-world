@@ -1,0 +1,393 @@
+{
+  "id": "harbour_porpoise",
+  "name": "Harbour porpoise (Phocoena phocoena): body-plan example for whales and dolphins",
+  "author": "Animundo team",
+  "gait": "walk",
+  "undulate": "up",
+  "swims": true,
+  "skin": {
+    "triangles": 900,
+    "voxel": 0.012
+  },
+  "colors": {
+    "back": "#3c4147",
+    "belly": "#c8ccce",
+    "dark": "#16181a"
+  },
+  "bones": [
+    {
+      "name": "body",
+      "head": [
+        0,
+        0.22,
+        0.3
+      ],
+      "tail": [
+        0,
+        0.22,
+        0.55
+      ],
+      "role": "body",
+      "swing": 0.3
+    },
+    {
+      "name": "head",
+      "head": [
+        0,
+        0.22,
+        0.55
+      ],
+      "tail": [
+        0,
+        0.22,
+        0.76
+      ],
+      "parent": "body",
+      "role": "head",
+      "swing": 0.2
+    },
+    {
+      "name": "spine_1",
+      "head": [
+        0,
+        0.22,
+        0.3
+      ],
+      "tail": [
+        0,
+        0.22,
+        0.05
+      ],
+      "parent": "body",
+      "role": "spine",
+      "phase": 0.15,
+      "swing": 0.25
+    },
+    {
+      "name": "spine_2",
+      "head": [
+        0,
+        0.22,
+        0.05
+      ],
+      "tail": [
+        0,
+        0.23,
+        -0.2
+      ],
+      "parent": "spine_1",
+      "role": "spine",
+      "phase": 0.3,
+      "swing": 0.35
+    },
+    {
+      "name": "spine_3",
+      "head": [
+        0,
+        0.23,
+        -0.2
+      ],
+      "tail": [
+        0,
+        0.24,
+        -0.42
+      ],
+      "parent": "spine_2",
+      "role": "spine",
+      "phase": 0.45,
+      "swing": 0.45
+    },
+    {
+      "name": "spine_4",
+      "head": [
+        0,
+        0.24,
+        -0.42
+      ],
+      "tail": [
+        0,
+        0.25,
+        -0.6
+      ],
+      "parent": "spine_3",
+      "role": "spine",
+      "phase": 0.6,
+      "swing": 0.55
+    },
+    {
+      "name": "spine_5",
+      "head": [
+        0,
+        0.25,
+        -0.6
+      ],
+      "tail": [
+        0,
+        0.25,
+        -0.74
+      ],
+      "parent": "spine_4",
+      "role": "spine",
+      "phase": 0.75,
+      "swing": 0.65
+    },
+    {
+      "name": "flipper_l",
+      "head": [
+        0.13,
+        0.16,
+        0.33
+      ],
+      "tail": [
+        0.3,
+        0.07999999999999999,
+        0.22
+      ],
+      "parent": "body",
+      "role": "fin",
+      "swing": 0.3,
+      "mirror": true
+    }
+  ],
+  "parts": [
+    {
+      "name": "chest",
+      "shape": "ball",
+      "size": [
+        0.37,
+        0.37,
+        0.62
+      ],
+      "at": [
+        0,
+        0.22,
+        0.33
+      ],
+      "color": "back",
+      "bone": "body"
+    },
+    {
+      "name": "head",
+      "shape": "ball",
+      "size": [
+        0.28,
+        0.26,
+        0.26
+      ],
+      "at": [
+        0,
+        0.22,
+        0.62
+      ],
+      "color": "back",
+      "bone": "head"
+    },
+    {
+      "name": "snout",
+      "shape": "ball",
+      "size": [
+        0.18,
+        0.16,
+        0.12
+      ],
+      "at": [
+        0,
+        0.2,
+        0.72
+      ],
+      "color": "back",
+      "bone": "head"
+    },
+    {
+      "name": "throat",
+      "shape": "ball",
+      "size": [
+        0.24,
+        0.12,
+        0.3
+      ],
+      "at": [
+        0,
+        0.14,
+        0.58
+      ],
+      "color": "belly",
+      "bone": "head"
+    },
+    {
+      "name": "eye_l",
+      "shape": "ball",
+      "size": [
+        0.025,
+        0.025,
+        0.025
+      ],
+      "at": [
+        0.12,
+        0.23,
+        0.64
+      ],
+      "color": "dark",
+      "bone": "head",
+      "mirror": true,
+      "separate": true,
+      "detail": 0.4
+    },
+    {
+      "name": "belly",
+      "shape": "ball",
+      "size": [
+        0.32,
+        0.16,
+        0.62
+      ],
+      "at": [
+        0,
+        0.1,
+        0.25
+      ],
+      "color": "belly",
+      "bone": "body"
+    },
+    {
+      "name": "mid",
+      "shape": "ball",
+      "size": [
+        0.35,
+        0.35,
+        0.52
+      ],
+      "at": [
+        0,
+        0.22,
+        0.02
+      ],
+      "color": "back",
+      "bone": "spine_1"
+    },
+    {
+      "name": "belly_mid",
+      "shape": "ball",
+      "size": [
+        0.28,
+        0.14,
+        0.42
+      ],
+      "at": [
+        0,
+        0.1,
+        0.0
+      ],
+      "color": "belly",
+      "bone": "spine_1"
+    },
+    {
+      "name": "dorsal",
+      "shape": "taper",
+      "size": [
+        0.035,
+        0.15,
+        0.2
+      ],
+      "top": 0.15,
+      "at": [
+        0,
+        0.43,
+        0.0
+      ],
+      "rot": [
+        -30,
+        0,
+        0
+      ],
+      "color": "back",
+      "bone": "spine_1"
+    },
+    {
+      "name": "rear",
+      "shape": "ball",
+      "size": [
+        0.28,
+        0.29,
+        0.46
+      ],
+      "at": [
+        0,
+        0.23,
+        -0.22
+      ],
+      "color": "back",
+      "bone": "spine_2"
+    },
+    {
+      "name": "stock",
+      "shape": "ball",
+      "size": [
+        0.17,
+        0.22,
+        0.42
+      ],
+      "at": [
+        0,
+        0.24,
+        -0.42
+      ],
+      "color": "back",
+      "bone": "spine_3"
+    },
+    {
+      "name": "peduncle",
+      "shape": "ball",
+      "size": [
+        0.09,
+        0.14,
+        0.3
+      ],
+      "at": [
+        0,
+        0.25,
+        -0.6
+      ],
+      "color": "back",
+      "bone": "spine_4"
+    },
+    {
+      "name": "fluke",
+      "shape": "ball",
+      "size": [
+        0.46,
+        0.035,
+        0.16
+      ],
+      "at": [
+        0,
+        0.25,
+        -0.72
+      ],
+      "color": "back",
+      "bone": "spine_5"
+    },
+    {
+      "name": "flipper_l",
+      "shape": "ball",
+      "size": [
+        0.22,
+        0.035,
+        0.1
+      ],
+      "at": [
+        0.22,
+        0.12,
+        0.27
+      ],
+      "rot": [
+        0,
+        30,
+        -20
+      ],
+      "color": "back",
+      "bone": "flipper_l",
+      "mirror": true
+    }
+  ]
+}

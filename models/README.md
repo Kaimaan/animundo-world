@@ -61,10 +61,12 @@ Don't start a new animal from nothing. Copy the existing model closest to it in 
 | Frogs and toads | `frog` | Skin, colours |
 | Lizards | `lizard` | Size, colours |
 | Bees, bumblebees, wasps | `bee` | Size, bands |
+| Snakes, slow worm, eels | `examples/grass_snake` | Size, head, pattern; eels: `swims`, fins |
+| Porpoises and dolphins (up to about 3 m) | `examples/harbour_porpoise` | Size, beak or blunt head, fin shape, pattern |
+| Butterflies and moths | `examples/peacock_butterfly` | Wing shape, colours, eyespots |
 | **Not possible yet** | | |
-| Snakes, slow worm | none | Needs legless crawling in the builder |
-| Whales, dolphins | none | Swim with up-and-down tail beats and a flat fluke (fish beat side to side), and need open sea; the pike or seal won't do |
-| Butterflies, dragonflies | none | Need broad flapping insect wings (the bee only buzzes) |
+| Orcas and great whales (over about 3 m) | none | The game's water is at most about 8 m deep |
+| Dragonflies | none | Two pairs of wings that beat apart |
 | Bats | none | Wings from the arms; night animals come later |
 
 When a new animal is approved, it becomes the reference model for its kind: a steward adds it to this table when merging, and later animals of that kind start from it.
@@ -175,6 +177,17 @@ The bumblebee ([bee.json](bee.json)) is the example.
 - **Wings rest flat over the back:** a `fold` that only sweeps them back, such as `[0, 84, 4]`, with `"fold_length": 1.0` (insect wings don't fold).
 - **Colour bands are their own overlapping balls** (a bee's yellow collar, yellow band and white tail); the skin blends their colours softly.
 - **Six legs** are three mirrored `leg` bones; phases 0, 0.5 and 0 (front, middle, back) give the insect's tripod walk.
+- **Butterflies and moths flap** instead of buzzing: leave `wingbeat` out. Make the wings broad flat balls on one `wing` bone per side, and fold them closed upright over the back at rest with `"fold": [0, 0, -80]` and `"fold_length": 1.0`. Eyespots and bands are thin separate balls on the wings. Example: [examples/peacock_butterfly.json](examples/peacock_butterfly.json).
+
+### Bodies that wave: snakes, eels, whales and dolphins
+An animal without legs moves by waving its body. Make the body a chain of `spine` bones from the neck to the tail tip, each parented to the one before, with `phase` growing toward the tail (about 0.15 to 0.2 per bone), so a wave runs from head to tail. One overlapping ball per bone makes the body.
+
+- **`"undulate": "side"`** (the default) waves left and right: snakes, slow worms, eels. Asleep, the chain curls into a coil. Example: [examples/grass_snake.json](examples/grass_snake.json).
+- **`"undulate": "up"`** beats up and down: whales, dolphins, porpoises, whose tail ends in a flat, horizontal fluke (a wide, thin ball on the last bone). Flippers are `fin` bones; the dorsal fin is a `taper`. Raise `swing` a little along the chain so the tail beats more than the chest. Example: [examples/harbour_porpoise.json](examples/harbour_porpoise.json).
+- **`"swims": true`** gives the model a `swim` clip even without fins (a whale, a swimming grass snake).
+- **The sea:** every place already ends in water at its edge (`terrain.edge`: `"lake"`), and its `lakes` can be large. The game's water is at most about 8 m deep, so swimmers up to about 3 m long fit: porpoises and most dolphins. Orcas and the great whales need deeper water in the game first.
+
+The `examples/` models are body-plan examples, not animals in the game: start a new kind of animal from one of them, then it becomes the reference model for its kind. They are built and checked in CI like the rest.
 
 ### Checklist for a good model
 - **Real size.** Look the animal up. The build prints its length and height.

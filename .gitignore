@@ -5,3 +5,6 @@ assets/plants/*.glb
 
 # Python caches from running the tools
 __pycache__/
+
+# Body-plan examples are built for checking only
+models/examples/previews/*.glb

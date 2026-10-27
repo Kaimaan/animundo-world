@@ -1,0 +1,321 @@
+{
+  "id": "peacock_butterfly",
+  "name": "Peacock butterfly (Aglais io): body-plan example for butterflies and moths",
+  "author": "Animundo team",
+  "gait": "walk",
+  "fly_pitch": 0,
+  "fly_legs": 30,
+  "skin": {
+    "triangles": 500
+  },
+  "colors": {
+    "body": "#2a211c",
+    "wing": "#9a2c20",
+    "spot": "#e0c060",
+    "blue": "#4a6fa8",
+    "dark": "#1d1a20"
+  },
+  "bones": [
+    {
+      "name": "body",
+      "head": [
+        0,
+        0.006,
+        -0.009
+      ],
+      "tail": [
+        0,
+        0.006,
+        0.004
+      ],
+      "role": "body"
+    },
+    {
+      "name": "head",
+      "head": [
+        0,
+        0.006,
+        0.004
+      ],
+      "tail": [
+        0,
+        0.006,
+        0.008
+      ],
+      "parent": "body",
+      "role": "head",
+      "swing": 0.4
+    },
+    {
+      "name": "antenna_l",
+      "head": [
+        0.0008,
+        0.0072,
+        0.0065
+      ],
+      "tail": [
+        0.0028,
+        0.01,
+        0.0135
+      ],
+      "parent": "head",
+      "role": "ear",
+      "mirror": true
+    },
+    {
+      "name": "wing_l",
+      "head": [
+        0.0015,
+        0.0075,
+        0.001
+      ],
+      "tail": [
+        0.029,
+        0.0075,
+        0.001
+      ],
+      "parent": "body",
+      "role": "wing",
+      "mirror": true,
+      "fold": [
+        0,
+        0,
+        -80
+      ],
+      "fold_length": 1.0,
+      "swing": 0.9
+    },
+    {
+      "name": "leg_f_l",
+      "head": [
+        0.001,
+        0.005,
+        0.003
+      ],
+      "tail": [
+        0.004,
+        0.0,
+        0.006
+      ],
+      "parent": "body",
+      "role": "leg",
+      "phase": 0.0,
+      "mirror": true
+    },
+    {
+      "name": "leg_b_l",
+      "head": [
+        0.001,
+        0.005,
+        -0.001
+      ],
+      "tail": [
+        0.004,
+        0.0,
+        -0.004
+      ],
+      "parent": "body",
+      "role": "leg",
+      "phase": 0.5,
+      "mirror": true
+    }
+  ],
+  "parts": [
+    {
+      "name": "thorax",
+      "shape": "ball",
+      "size": [
+        0.004,
+        0.004,
+        0.007
+      ],
+      "at": [
+        0,
+        0.006,
+        0.001
+      ],
+      "color": "body",
+      "bone": "body"
+    },
+    {
+      "name": "abdomen",
+      "shape": "ball",
+      "size": [
+        0.003,
+        0.003,
+        0.011
+      ],
+      "at": [
+        0,
+        0.0055,
+        -0.007
+      ],
+      "color": "body",
+      "bone": "body"
+    },
+    {
+      "name": "head",
+      "shape": "ball",
+      "size": [
+        0.0032,
+        0.003,
+        0.003
+      ],
+      "at": [
+        0,
+        0.006,
+        0.0055
+      ],
+      "color": "body",
+      "bone": "head"
+    },
+    {
+      "name": "antenna_l",
+      "shape": "cylinder",
+      "size": [
+        0.0004,
+        0.0085,
+        0.0004
+      ],
+      "at": [
+        0.0018,
+        0.0086,
+        0.01
+      ],
+      "rot": [
+        -52,
+        0,
+        -14
+      ],
+      "color": "body",
+      "bone": "antenna_l",
+      "mirror": true,
+      "separate": true,
+      "detail": 0.6
+    },
+    {
+      "name": "forewing_l",
+      "shape": "ball",
+      "size": [
+        0.026,
+        0.0004,
+        0.017
+      ],
+      "at": [
+        0.014,
+        0.0075,
+        0.004
+      ],
+      "rot": [
+        0,
+        -12,
+        0
+      ],
+      "color": "wing",
+      "bone": "wing_l",
+      "mirror": true,
+      "separate": true,
+      "detail": 0.6
+    },
+    {
+      "name": "hindwing_l",
+      "shape": "ball",
+      "size": [
+        0.019,
+        0.0004,
+        0.015
+      ],
+      "at": [
+        0.01,
+        0.0073,
+        -0.006
+      ],
+      "rot": [
+        0,
+        20,
+        0
+      ],
+      "color": "wing",
+      "bone": "wing_l",
+      "mirror": true,
+      "separate": true,
+      "detail": 0.6
+    },
+    {
+      "name": "eye_fore_l",
+      "shape": "ball",
+      "size": [
+        0.007,
+        0.0006,
+        0.006
+      ],
+      "at": [
+        0.02,
+        0.0078,
+        0.007
+      ],
+      "color": "spot",
+      "bone": "wing_l",
+      "mirror": true,
+      "separate": true,
+      "detail": 0.5
+    },
+    {
+      "name": "eye_fore_in_l",
+      "shape": "ball",
+      "size": [
+        0.0035,
+        0.0007,
+        0.003
+      ],
+      "at": [
+        0.02,
+        0.0079,
+        0.007
+      ],
+      "color": "blue",
+      "bone": "wing_l",
+      "mirror": true,
+      "separate": true,
+      "detail": 0.5
+    },
+    {
+      "name": "eye_hind_l",
+      "shape": "ball",
+      "size": [
+        0.006,
+        0.0006,
+        0.005
+      ],
+      "at": [
+        0.012,
+        0.0076,
+        -0.008
+      ],
+      "color": "dark",
+      "bone": "wing_l",
+      "mirror": true,
+      "separate": true,
+      "detail": 0.5
+    },
+    {
+      "name": "eye_hind_in_l",
+      "shape": "ball",
+      "size": [
+        0.003,
+        0.0007,
+        0.0025
+      ],
+      "at": [
+        0.012,
+        0.0077,
+        -0.008
+      ],
+      "color": "blue",
+      "bone": "wing_l",
+      "mirror": true,
+      "separate": true,
+      "detail": 0.5
+    }
+  ]
+}
