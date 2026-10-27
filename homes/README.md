@@ -7,7 +7,7 @@ A **home** is the land of one habitat, ready to copy: terrain, trees, ground pla
 | `boreal_forest.json` | `boreal_forest` | `regions/fi_nuuksio.json` |
 | `boreal_lake.json` | `boreal_lake` | `regions/fi_saimaa.json` |
 
-A home is a region file with an extra `based_on` field. Make a region from one with:
+A home is a region file with two extra fields, `based_on` and `about` (a note for builders); its `description` is what players read. Make a region from one with:
 
 ```bash
 python3 tools/homes.py make boreal_forest --id fi_lynx_forest --name "Lynx forest" --country Finland --lat 61.2 --lon 26.9

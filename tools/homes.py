@@ -28,8 +28,8 @@ HOMES = os.path.join(ROOT, "homes")
 sys.path.insert(0, HERE)
 import validate_region  # noqa: E402
 
-# fields a home has that a region doesn't
-HOME_ONLY = ("based_on",)
+# fields a home has that a region doesn't: notes for builders, not players
+HOME_ONLY = ("based_on", "about")
 # a spot to check each home at: where it was based on
 CHECK_AT = {"boreal_forest": (60.3, 24.53), "boreal_lake": (62.12, 28.51)}
 
