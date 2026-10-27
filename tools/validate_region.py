@@ -19,7 +19,7 @@ FOOD_KINDS = {"clover", "carrot", "berries", "insects", "water_bugs", "browse", 
               "grass", "bark", "carrion"}
 EDGES = {"lake", "none"}
 MIGRANT_KINDS = {"geese", "cranes"}  # flocks the game can draw (scripts/migrants.gd)
-PLANT_GROUND = {"grass", "rock", "sand"}
+PLANT_GROUND = {"grass", "rock", "sand", "seabed"}   # seabed: under water (corals, sea grass)
 HEX = re.compile(r"^#[0-9a-fA-F]{6}$")
 ID = re.compile(r"^[a-z]{2}_[a-z0-9_]+$")
 
@@ -139,6 +139,9 @@ def check(path):
     num("caves", "amount", 0, 0.3)
     if "entrances" in caves and not isinstance(caves["entrances"], bool):
         err('"caves.entrances" must be true or false')
+    seabed = d.get("terrain", {}).get("seabed")
+    if seabed is not None and seabed not in ("mud", "sand"):
+        err('"terrain.seabed" must be "mud" or "sand"')
     edge = d.get("terrain", {}).get("edge")
     if edge is not None and edge not in EDGES:
         err(f'"terrain.edge" must be one of {sorted(EDGES)}')

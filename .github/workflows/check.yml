@@ -44,7 +44,7 @@ jobs:
         env:
           BLENDER: /home/runner/blender/blender
           BUILD_OUT: models/examples/previews
-        run: tools/build_model.sh models/examples/*.json models/examples/trees/*.json
+        run: tools/build_model.sh models/examples/*.json models/examples/trees/*.json models/examples/plants/*.json
       - name: Check places
         run: python3 tools/validate_region.py
       - name: Check against the schemas

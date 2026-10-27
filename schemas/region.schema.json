@@ -122,6 +122,13 @@
           "type": "integer",
           "minimum": 4,
           "maximum": 56
+        },
+        "seabed": {
+          "description": "The ground under deep water: mud (default) or sand (warm seas, reefs).",
+          "enum": [
+            "mud",
+            "sand"
+          ]
         }
       }
     },
@@ -322,7 +329,8 @@
                   "enum": [
                     "grass",
                     "rock",
-                    "sand"
+                    "sand",
+                    "seabed"
                   ]
                 }
               },

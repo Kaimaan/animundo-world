@@ -438,6 +438,9 @@ def main():
         sys.exit(1)
     glb = os.path.join(ROOT, "assets", "plants", plant_id + ".glb")
     preview = os.path.join(ROOT, "models", "previews", "plants", plant_id + ".png")
+    if os.environ.get("BUILD_OUT"):   # experiments and examples: write somewhere else
+        glb = os.path.join(os.environ["BUILD_OUT"], plant_id + ".glb")
+        preview = os.path.join(os.environ["BUILD_OUT"], plant_id + ".png")
     os.makedirs(os.path.dirname(glb), exist_ok=True)
     os.makedirs(os.path.dirname(preview), exist_ok=True)
     render_sheet(spec, obj, preview)

@@ -1,0 +1,61 @@
+{
+  "id": "brain_coral",
+  "name": "Grooved brain coral (Diploria labyrinthiformis): example coral",
+  "latin": "Diploria labyrinthiformis",
+  "author": "Animundo team",
+  "kind": "bush",
+  "year": {
+    "leaves": "evergreen",
+    "notes": "A round dome with winding grooves like a brain, up to 2 m wide. Grows slowly on reefs in warm seas."
+  },
+  "sources": [
+    "example"
+  ],
+  "colors": {
+    "body": "#b5a24e",
+    "groove": "#7d6b2f"
+  },
+  "parts": [
+    {
+      "name": "dome",
+      "shape": "ball",
+      "size": [
+        0.6,
+        0.36,
+        0.6
+      ],
+      "at": [
+        0,
+        0.15,
+        0
+      ],
+      "color": "body",
+      "detail": 0.6
+    },
+    {
+      "name": "ridge",
+      "shape": "ball",
+      "size": [
+        0.08,
+        0.05,
+        0.5
+      ],
+      "at": [
+        0.0,
+        0.31,
+        0
+      ],
+      "rot": [
+        0,
+        0,
+        0
+      ],
+      "color": "groove",
+      "detail": 0.4,
+      "around": 3,
+      "turn": 0,
+      "jitter": 0.3,
+      "seed": "ridge"
+    }
+  ]
+}

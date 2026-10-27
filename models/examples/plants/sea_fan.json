@@ -1,0 +1,52 @@
+{
+  "id": "sea_fan",
+  "name": "Common sea fan (Gorgonia ventalina): example coral",
+  "latin": "Gorgonia ventalina",
+  "author": "Animundo team",
+  "kind": "bush",
+  "year": {
+    "leaves": "evergreen",
+    "notes": "A flat purple fan of fine branches, up to 1.8 m tall, held across the current to catch food from the water."
+  },
+  "sources": [
+    "example"
+  ],
+  "colors": {
+    "stalk": "#6b3f6e",
+    "fan": "#a35aa8"
+  },
+  "parts": [
+    {
+      "name": "stalk",
+      "shape": "cylinder",
+      "size": [
+        0.04,
+        0.12,
+        0.04
+      ],
+      "at": [
+        0,
+        0.06,
+        0
+      ],
+      "color": "stalk",
+      "detail": 0.4
+    },
+    {
+      "name": "fan",
+      "shape": "ball",
+      "size": [
+        0.7,
+        0.62,
+        0.04
+      ],
+      "at": [
+        0,
+        0.42,
+        0
+      ],
+      "color": "fan",
+      "detail": 0.5
+    }
+  ]
+}

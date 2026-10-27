@@ -58,6 +58,8 @@ Don't start a new animal from nothing. Copy the existing model closest to it in 
 | Wading birds: crane, heron | `mallard`, reshaped | Long legs, long neck and bill |
 | Long fish: pike, salmon, trout | `pike` | Body depth, fins, colours |
 | Perch-shaped and deep-bodied fish | `perch`, `bream`, `roach` | Body depth, fins, colours |
+| Reef fish: clownfish, tangs, parrotfish, butterflyfish | `perch` or `bream`, reshaped | Bright colours and bands; tangs and butterflyfish are deep and flat like a bream. On a reef place's sandy floor among corals |
+| Corals, sea fans, sea grass | `examples/plants/` (staghorn coral, brain coral, sea fan) | Plant specs that grow `on: ["seabed"]`, see [Corals and sea grass](#corals-and-sea-grass); build them 1–2 m across, like real reef corals |
 | Frogs and toads | `frog` | Skin, colours |
 | Lizards | `lizard` | Size, colours |
 | Bees, bumblebees, wasps | `bee` | Size, bands |
@@ -284,3 +286,6 @@ Parts take the same fields as an animal's (no `bone`), plus:
 **Look up the plant's year** (when it flowers, fruits, turns colour and drops its leaves) in the same sources as its looks, then check the season row of the preview sheet. The top two rows show every part at once, flowers and berries together, so you can check the shapes.
 
 To grow it in a region, add it to the region file's `ground_cover.plants` (see [CONTRIBUTING.md](../CONTRIBUTING.md)) and run `godot --headless --import` and `godot --headless --script tools/check_models.gd`. The game reads the spec (`scripts/plant_model.gd`) to recolour the plant and leave out parts for the season. It finds parts by their order in the spec, so rebuild after adding, removing or reordering parts.
+
+### Corals and sea grass
+Corals are animals, but in the game they are scenery on the sea floor, built like plants: a plant spec with `"kind": "bush"`, evergreen, and a region uses it in `ground_cover.plants` with `"on": ["seabed"]`, so it grows under the water (on a sandy floor with `terrain.seabed: "sand"`). Keep them simple: a branching coral is a few cones from a base, a brain coral a squashed ball with a ridge or two, a sea fan a flat upright ball on a stalk. Examples: [examples/plants/](examples/plants/) (staghorn coral, brain coral, sea fan), previews in `examples/previews/`.
