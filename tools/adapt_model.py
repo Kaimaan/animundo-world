@@ -28,6 +28,8 @@ The edits file (every key but `id` and `name` is optional):
       "tail_width": 0.7,
       "neck": 2.0,             # the neck's length; the head moves with it
       "mane": 1.3,             # the mane's height (parts named mane_*)
+      "bill": 1.5,             # a bird's bill (parts bill*): its length, from where it meets the head
+      "bill_depth": 3.0,       # and its height (a puffin's tall triangle)
       "drop": ["antlers", "bell"],   # parts, groups (mane: mane_1, mane_2...) or bones to remove
       "marks": ["ear_tufts", "ruff", "tail_tip"],
       "horn_m": 0.3,           # with the horns mark: horn length, and how far they sweep back
@@ -36,9 +38,10 @@ The edits file (every key but `id` and `name` is optional):
     }
 
 Marks: ear_tufts, ruff, tail_tip, horns (a pair on the skull, colour `horn` or
-`dark`), stripes (bands around the body and neck, colour `dark`).
+`dark`), stripes (bands around the body and neck, colour `dark`), spots (patches on the body
+and neck, colour `spot` or `dark`), hammer (a hammerhead shark's head, the eyes at its ends).
 
-Factors are clamped to 0.4-2.5, so an edit can't break the body plan. Prints the
+Factors are clamped to 0.4-2.5 (bill_depth to 4), so an edit can't break the body plan. Prints the
 new spec, or writes it with --out. Then build it: tools/build_model.sh.
 """
 import argparse
@@ -47,12 +50,13 @@ import json
 import math
 import sys
 
-MARKS = ("ear_tufts", "ruff", "tail_tip", "horns", "stripes")
-FACTORS = ("head", "muzzle", "ears", "leg_thickness", "paws", "body_girth", "tail_width", "neck", "mane")
+MARKS = ("ear_tufts", "ruff", "tail_tip", "horns", "stripes", "hammer", "spots")
+FACTORS = ("head", "muzzle", "ears", "leg_thickness", "paws", "body_girth", "tail_width", "neck", "mane",
+           "bill", "bill_depth")
 
 
-def clamp(f):
-    return max(0.4, min(2.5, float(f)))
+def clamp(f, hi=2.5):
+    return max(0.4, min(hi, float(f)))
 
 
 def roles(spec):
@@ -414,6 +418,10 @@ def add_marks(spec, marks, edits=None):
             add_horns(spec, float(edits.get("horn_m", 0)), float(edits.get("horn_curve", 30)))
         elif mark == "stripes":
             add_stripes(spec)
+        elif mark == "spots":
+            add_spots(spec)
+        elif mark == "hammer":
+            add_hammer(spec)
 
 
 def melt_limit(spec):
@@ -448,6 +456,127 @@ def add_horns(spec, length, curve):
             "at": [x + seg * 0.08, y + dy * seg / 2, z + dz * seg / 2], "rot": [-math.degrees(a), 0, 0],
             "color": color, "bone": skull["bone"], "mirror": True, "separate": True, "detail": 0.5})
         x, y, z, width = x + seg * 0.16, y + dy * seg, z + dz * seg, width * 0.7
+
+
+def scale_bill(spec, length, depth):
+    """A bird's bill (parts named bill*): longer from where it meets the head, and taller."""
+    bill = next((p for p in spec["parts"] if p["name"] == "bill"), None)
+    if bill is None:
+        raise ValueError("bill: the reference has no part named bill")
+    ax = long_axis(bill)
+    e = [0, 0, 0]
+    e[ax] = 1
+    u = rotate(bill.get("rot"), e)
+    if u[2] < 0:   # the bill points forward: its base is the back end
+        u = [-c for c in u]
+    base = [bill["at"][i] - u[i] * bill["size"][ax] / 2 for i in range(3)]
+    for p in spec["parts"]:
+        if not p["name"].startswith("bill"):
+            continue
+        pax = long_axis(p, u)
+        up = max((j for j in range(3) if j != pax),
+                 key=lambda j: abs(rotate(p.get("rot"), [1 if k == j else 0 for k in range(3)])[1]))
+        rel = [p["at"][i] - base[i] for i in range(3)]
+        s = sum(rel[i] * u[i] for i in range(3))
+        off = [rel[i] - u[i] * s for i in range(3)]   # from the bill's centre line
+        off[1] *= depth   # a stripe on the bill keeps to its edge as the bill deepens
+        p["at"] = [base[i] + u[i] * s * length + off[i] for i in range(3)]
+        p["size"][pax] *= length
+        p["size"][up] *= depth
+
+
+def add_hammer(spec):
+    """A hammerhead's head: a wide flat blade across the front, the eyes at its two ends."""
+    _, role = roles(spec)
+    melted = [p for p in spec["parts"] if not p.get("separate") and role[p["name"]] in ("body", "head")]
+    front = max(p["at"][2] + p["size"][2] / 2 for p in melted)
+    near = [p for p in melted if p["at"][2] + p["size"][2] / 2 > front - body_length(spec) * 0.2]
+    width = max(p["size"][0] for p in near)
+    snout = max(near, key=lambda p: p["at"][2] + p["size"][2] / 2)
+    blade = {"name": "hammer", "shape": "ball", "size": [width * 2.6, snout["size"][1] * 0.75, body_length(spec) * 0.1],
+             "at": [0, snout["at"][1], front - body_length(spec) * 0.06], "color": snout["color"], "bone": snout["bone"]}
+    spec["parts"].append(blade)
+    for p in spec["parts"]:
+        if p["name"].startswith("eye"):
+            p["at"] = [blade["size"][0] / 2 * 0.88 * (1 if p["at"][0] >= 0 else -1), blade["at"][1], blade["at"][2]]
+
+
+def facing(n):
+    """The rot that turns a part's local up (y) to point along the unit vector n."""
+    pitch = math.degrees(math.acos(max(-1.0, min(1.0, n[1]))))
+    yaw = math.degrees(math.atan2(n[0], n[2]))
+    best = max(([sp * pitch, sy * yaw, 0] for sp in (1, -1) for sy in (1, -1)),
+                key=lambda r: sum(a * b for a, b in zip(rotate(r, [0, 1, 0]), n)))
+    return [round(c, 2) for c in best]
+
+
+def inside(p, point):
+    """Is a point inside a ball part?"""
+    rel = [point[i] - p["at"][i] for i in range(3)]
+    q = 0.0
+    for j in range(3):
+        e = [0, 0, 0]
+        e[j] = 1
+        w = rotate(p.get("rot"), e)
+        q += (sum(rel[i] * w[i] for i in range(3)) / (p["size"][j] / 2)) ** 2
+    return q < 1.0
+
+
+def add_spots(spec):
+    """Patches on the body and neck (a giraffe): small flat diamonds lying on the skin, kept as their
+    own pieces (the skin is too coarse to carry patches). Rows along each part, offset like a net;
+    patches that would sit inside a neighbouring part are left out."""
+    color = "spot" if "spot" in spec["colors"] else "dark"
+    _, role = roles(spec)
+    trunk = [p for p in spec["parts"] if not p.get("separate") and p["shape"] == "ball"
+             and role[p["name"]] in ("body", "neck") and not p["name"].startswith(("mane", "belly"))]
+    line = {}
+    for b in spec["bones"]:
+        d = [b["tail"][i] - b["head"][i] for i in range(3)]
+        n = math.sqrt(sum(c * c for c in d)) or 1.0
+        line[b["name"]] = [c / n for c in d]
+    def place(period):
+        spots = []
+        for p in trunk:
+            ax = long_axis(p, line[p["bone"]])
+            cross = [j for j in range(3) if j != ax]
+            half = p["size"][ax] / 2
+            rows = max(1, round(half * 2 * 0.8 / period))
+            for r in range(rows):
+                t = (r + 0.5) / rows * 1.6 * half - 0.8 * half
+                s = math.sqrt(max(0.0, 1 - (t / half) ** 2))
+                for ang in (-40, 10, 60, 120, 170, 220):
+                    a = math.radians(ang + (25 if r % 2 else 0))
+                    if math.sin(a) < -0.5:   # not under the belly
+                        continue
+                    local = [0.0, 0.0, 0.0]
+                    local[ax] = t
+                    local[cross[0]] = math.cos(a) * p["size"][cross[0]] / 2 * s
+                    local[cross[1]] = math.sin(a) * p["size"][cross[1]] / 2 * s
+                    normal = [0.0, 0.0, 0.0]   # the ellipsoid's normal there
+                    for j in cross:
+                        normal[j] = local[j] / (p["size"][j] / 2) ** 2
+                    normal[ax] = local[ax] / half ** 2
+                    w, nw = rotate(p.get("rot"), local), rotate(p.get("rot"), normal)
+                    nn = math.sqrt(sum(c * c for c in nw)) or 1.0
+                    nw = [c / nn for c in nw]
+                    at = [p["at"][i] + w[i] for i in range(3)]
+                    if any(inside(q, at) for q in trunk if q is not p):
+                        continue
+                    spots.append({"name": f"spot_{len(spots) + 1}", "shape": "ball",
+                                  "size": [period * 0.85, period * 0.05, period * 0.7],
+                                  "at": [at[i] + nw[i] * period * 0.01 for i in range(3)], "rot": facing(nw),
+                                  "color": color, "bone": p["bone"], "separate": True, "detail": 0.3})
+        return spots
+    period = body_length(spec) / 11
+    spots = place(period)
+    while len(spots) > 48:   # 8 triangles each: keep them within a large animal's budget
+        period *= 1.15
+        spots = place(period)
+    spec["parts"] += spots
+    skin = spec.setdefault("skin", {})
+    if isinstance(skin, dict):
+        skin["triangles"] = max(skin.get("triangles", 1000), 1400)
 
 
 def add_stripes(spec):
@@ -551,6 +680,8 @@ def adapt(ref, edits):
         drop(spec, edits["drop"])
     if "neck" in edits:
         neck_length(spec, clamp(edits["neck"]))
+    if "bill" in edits or "bill_depth" in edits:
+        scale_bill(spec, clamp(edits.get("bill", 1)), clamp(edits.get("bill_depth", 1), 4.0))
     if "mane" in edits:
         mane(spec, clamp(edits["mane"]))
     if "body_girth" in edits:

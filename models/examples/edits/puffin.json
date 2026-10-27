@@ -1,0 +1,37 @@
+{
+ "reference": "emperor_penguin",
+ "id": "puffin_example",
+ "name": "Atlantic puffin (Fratercula arctica)",
+ "author": "Animundo team",
+ "length_m": 0.28,
+ "colors": {
+  "yellow": "#ece9e2",
+  "orange": "#e8b830",
+  "feet": "#e0662a",
+  "dark": "#2a2420"
+ },
+ "head": 1.35,
+ "bill": 0.9,
+ "bill_depth": 4.0,
+ "repaint": [
+  {
+   "part": "bill",
+   "color": "feet"
+  },
+  {
+   "part": "ear_l",
+   "color": "white"
+  },
+  {
+   "part": "chest",
+   "color": "white"
+  },
+  {
+   "part": "head",
+   "color": "white"
+  }
+ ],
+ "drop": [
+  "bill_stripe_l"
+ ]
+}

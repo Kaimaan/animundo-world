@@ -1,0 +1,9 @@
+{
+ "reference": "reef_shark",
+ "id": "hammerhead_example",
+ "name": "Scalloped hammerhead (Sphyrna lewini)",
+ "author": "Animundo team",
+ "length_m": 3.0,
+ "colors": {"back": "#7d8a86", "fin": "#7d8a86", "tip": "#5b6663"},
+ "marks": ["hammer"]
+}
