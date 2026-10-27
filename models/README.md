@@ -122,7 +122,7 @@ The kestrel ([kestrel.json](kestrel.json)) is the example.
 - **Model the wings spread** straight out sideways, as in flight, with each `wing` bone's head at the shoulder and its tail toward the wing tip. Use the real wingspan.
 - **On the ground the builder folds them:** `fold` (degrees, per wing bone) turns the wing on its side and sweeps it back, and `fold_length` (default 0.6) shortens it, like a wing folding at the wrist. The default fold doesn't suit every bird; the kestrel uses `"fold": [-111, 18, -80.8]`. Check the folded wing from the front and top: it should lie flat on the flank, with the tips over the tail.
 - **Keep wings narrow:** folding shortens a wing but doesn't narrow it, so a broad wing folds into a block.
-- **Model the bird perched,** body tipped up as it really sits. `fly_pitch` (degrees, default 50) tips the body level in flight; the head and tail stay level and the legs tuck back.
+- **Model the bird perched,** body tipped up as it really sits. `fly_pitch` (degrees, default 50) is how far the body tips forward in flight, from its perched angle: set it to about the perched tilt so the flying body ends level. More is not better: past that the bird flies nose-down. The head and tail stay level and the legs tuck back. The preview sheet draws every clip, fly too, standing on the ground; in the game the bird flies at height, so judge the fly frame by its wings and body angle, not by where it is.
 - **Thin legs, wings and tail feathers** stay separate rigid pieces automatically, which keeps them crisp.
 
 ### Fish
