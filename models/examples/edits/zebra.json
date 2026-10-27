@@ -1,0 +1,14 @@
+{
+ "reference": "horse",
+ "id": "zebra_example",
+ "name": "Plains zebra (Equus quagga)",
+ "author": "Animundo team",
+ "length_m": 2.3,
+ "shoulder_m": 1.3,
+ "tail_m": 0.5,
+ "colors": {"fur": "#ece6da", "muzzle": "#2a2420", "mane": "#2a2420", "legs": "#ece6da", "dark": "#211c19"},
+ "head": 1.05,
+ "ears": 1.3,
+ "mane": 1.2,
+ "marks": ["stripes"]
+}

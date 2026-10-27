@@ -1,0 +1,34 @@
+{
+ "reference": "horse",
+ "id": "gazelle_example",
+ "name": "Thomson's gazelle (Eudorcas thomsonii)",
+ "author": "Animundo team",
+ "length_m": 1.0,
+ "shoulder_m": 0.65,
+ "tail_m": 0.2,
+ "colors": {
+  "fur": "#c2884a",
+  "muzzle": "#c2884a",
+  "mane": "#c2884a",
+  "legs": "#c2884a",
+  "belly": "#efe3cf",
+  "dark": "#2a1f1a"
+ },
+ "drop": [
+  "mane"
+ ],
+ "head": 1.15,
+ "ears": 1.3,
+ "leg_thickness": 1.15,
+ "marks": [
+  "horns"
+ ],
+ "horn_m": 0.3,
+ "horn_curve": 30,
+ "repaint": [
+  {
+   "part": "belly",
+   "color": "belly"
+  }
+ ]
+}

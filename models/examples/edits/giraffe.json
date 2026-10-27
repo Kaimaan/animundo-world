@@ -1,0 +1,26 @@
+{
+ "reference": "horse",
+ "id": "giraffe_example",
+ "name": "Giraffe (Giraffa camelopardalis)",
+ "author": "Animundo team",
+ "length_m": 3.0,
+ "shoulder_m": 3.1,
+ "tail_m": 0.9,
+ "colors": {
+  "fur": "#c98a45",
+  "muzzle": "#d9b98a",
+  "mane": "#7a4f2a",
+  "legs": "#c98a45",
+  "horn": "#5a3f28"
+ },
+ "neck": 2.5,
+ "mane": 0.6,
+ "ears": 1.2,
+ "body_girth": 0.95,
+ "marks": [
+  "horns"
+ ],
+ "horn_m": 0.16,
+ "horn_curve": 0,
+ "leg_thickness": 1.4
+}

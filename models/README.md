@@ -42,12 +42,13 @@ Don't start a new animal from nothing. Copy the existing model closest to it in 
 
 | New animal | Start from | Change |
 |---|---|---|
+| Horses, zebras, giraffe, okapi, camel, antelopes, wildebeest, goats and sheep | `horse` | *Looks like:* a sandy (dun) horse, slim body, long thin legs with dark hooves, a neck rising at about 40°, a long head with a pale muzzle, small upright ears, a short dark upright mane, a dark hanging tail. Change: size, neck length (`neck`), horns (`horns`), stripes (`stripes`); `drop: ["mane"]` for animals without one. Examples: [zebra](examples/edits/zebra.json), [giraffe](examples/edits/giraffe.json), [gazelle](examples/edits/gazelle.json) |
 | Deer: red deer, roe deer, reindeer | `moose` | Lighter body and legs, antler shape; reindeer: heavier coat, both sexes carry antlers |
-| Wild boar, other heavy hoofed animals | `moose` | Short legs, low head, big snout |
+| Wild boar, hippo, rhino, tapir, bison, other heavy hoofed animals | `moose` | Short legs, low head, big snout; `drop: ["antlers", "bell"]`. Example: [hippo](examples/edits/hippo.json) |
 | Dog family: wolf, arctic fox | `fox` | Size, legs, tail, coat colours |
 | Weasel family: pine marten, otter, wolverine, badger | `fox` | Long low body, short legs; otter: swims like the seal |
 | Lynx | `fox`, scaled up | Short tail, ear tufts |
-| Bears: brown, polar, giant panda, sun bear | `brown_bear` | Size, snout length, ear size, colours. Its eye patches, shoulder band and chest mark are fur-coloured, ready to repaint (panda, sun bear) |
+| Bears: brown, polar, giant panda, sun bear | `brown_bear` | *Looks like:* a heavy brown body with a shoulder hump, a big round head, small round ears, a short pale snout, thick legs with flat paws, a stub tail. Change: size, snout length, ear size, colours. Its eye patches, shoulder band and chest mark are fur-coloured, ready to repaint (panda, sun bear) |
 | Hares and rabbits | `mountain_hare` | Ears, coat |
 | Squirrels | `squirrel`; gliders: `flying_squirrel` | Size, tail, colours |
 | Mice, voles, shrews, lemmings | `vole` | Size, tail, snout |
@@ -73,7 +74,7 @@ Don't start a new animal from nothing. Copy the existing model closest to it in 
 | Dragonflies | none | Two pairs of wings that beat apart |
 | Bats | none | Wings from the arms; night animals come later |
 
-**Adapting a reference in code:** `tools/adapt_model.py` makes a new spec from a reference and a short list of edits, so nobody has to keep 80 positions and sizes consistent by hand. It scales the reference to the real body length, stretches the legs to the real shoulder height, sets the tail's length, then applies edits to whole groups of parts (head, muzzle, ears, leg thickness, paws, body girth, tail width), moving positions and sizes together so parts keep overlapping. It also adds marks (`ear_tufts`, `ruff`, `tail_tip`) and repaints parts. The lynx from the fox: [`examples/edits/lynx.json`](examples/edits/lynx.json).
+**Adapting a reference in code:** `tools/adapt_model.py` makes a new spec from a reference and a short list of edits, so nobody has to keep 80 positions and sizes consistent by hand. It scales the reference to the real body length, stretches the legs to the real shoulder height, sets the tail's length, then applies edits to whole groups of parts (head, muzzle, ears, leg thickness, paws, body girth, tail width), moving positions and sizes together so parts keep overlapping. It also stretches the neck (`neck`, the head moves with it) and the mane (`mane`), removes parts (`drop`: a part, a group such as `mane`, or a bone such as `antlers`), adds marks (`ear_tufts`, `ruff`, `tail_tip`, `horns` with `horn_m` and `horn_curve`, `stripes`) and repaints parts. A reference can carry fur-coloured parts for its kind's marks, ready to repaint: the brown bear's eye patches and shoulder band make the panda. The lynx from the fox: [`examples/edits/lynx.json`](examples/edits/lynx.json); every file in [`examples/edits/`](examples/edits/) is built in CI.
 
 ```bash
 python3 tools/adapt_model.py models/fox.json models/examples/edits/lynx.json --out models/lynx.json

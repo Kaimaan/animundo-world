@@ -1,0 +1,707 @@
+{
+ "id": "horse",
+ "name": "Przewalski's horse (Equus ferus przewalskii)",
+ "author": "Animundo team",
+ "gait": "walk",
+ "colors": {
+  "fur": "#bf9662",
+  "muzzle": "#efe3cf",
+  "mane": "#2e241d",
+  "legs": "#2e241d",
+  "hoof": "#241a15",
+  "dark": "#1f1813"
+ },
+ "bones": [
+  {
+   "name": "body",
+   "head": [
+    0,
+    1.05,
+    -0.85
+   ],
+   "tail": [
+    0,
+    1.1,
+    0.42
+   ],
+   "role": "body"
+  },
+  {
+   "name": "neck",
+   "head": [
+    0,
+    1.25,
+    0.42
+   ],
+   "tail": [
+    0,
+    1.68,
+    0.9
+   ],
+   "parent": "body",
+   "role": "neck"
+  },
+  {
+   "name": "head",
+   "head": [
+    0,
+    1.68,
+    0.9
+   ],
+   "tail": [
+    0,
+    1.32,
+    1.32
+   ],
+   "parent": "neck",
+   "role": "head"
+  },
+  {
+   "name": "ear_l",
+   "head": [
+    0.06,
+    1.74,
+    0.9
+   ],
+   "tail": [
+    0.08,
+    1.88,
+    0.88
+   ],
+   "parent": "head",
+   "role": "ear",
+   "mirror": true
+  },
+  {
+   "name": "leg_f_l",
+   "head": [
+    0.15,
+    1.1,
+    0.36
+   ],
+   "tail": [
+    0.15,
+    0.0,
+    0.39
+   ],
+   "parent": "body",
+   "role": "leg",
+   "phase": 0.0,
+   "swing": 0.75,
+   "mirror": true
+  },
+  {
+   "name": "leg_b_l",
+   "head": [
+    0.15,
+    1.1,
+    -0.66
+   ],
+   "tail": [
+    0.15,
+    0.0,
+    -0.7
+   ],
+   "parent": "body",
+   "role": "leg",
+   "phase": 0.5,
+   "swing": 0.75,
+   "mirror": true
+  },
+  {
+   "name": "tail_1",
+   "head": [
+    0,
+    1.18,
+    -0.92
+   ],
+   "tail": [
+    0,
+    0.92,
+    -1.04
+   ],
+   "parent": "body",
+   "role": "tail",
+   "phase": 0.0
+  },
+  {
+   "name": "tail_2",
+   "head": [
+    0,
+    0.92,
+    -1.04
+   ],
+   "tail": [
+    0,
+    0.55,
+    -1.08
+   ],
+   "parent": "tail_1",
+   "role": "tail",
+   "phase": 0.12
+  }
+ ],
+ "parts": [
+  {
+   "name": "rump",
+   "shape": "ball",
+   "size": [
+    0.48,
+    0.56,
+    0.56
+   ],
+   "at": [
+    0,
+    1.08,
+    -0.68
+   ],
+   "color": "fur",
+   "bone": "body"
+  },
+  {
+   "name": "barrel",
+   "shape": "ball",
+   "size": [
+    0.52,
+    0.6,
+    1.2
+   ],
+   "at": [
+    0,
+    1.04,
+    -0.2
+   ],
+   "color": "fur",
+   "bone": "body"
+  },
+  {
+   "name": "belly",
+   "shape": "ball",
+   "size": [
+    0.42,
+    0.16,
+    0.9
+   ],
+   "at": [
+    0,
+    0.78,
+    -0.18
+   ],
+   "color": "fur",
+   "bone": "body"
+  },
+  {
+   "name": "chest",
+   "shape": "ball",
+   "size": [
+    0.46,
+    0.6,
+    0.56
+   ],
+   "at": [
+    0,
+    1.04,
+    0.3
+   ],
+   "color": "fur",
+   "bone": "body"
+  },
+  {
+   "name": "withers",
+   "shape": "ball",
+   "size": [
+    0.3,
+    0.3,
+    0.46
+   ],
+   "at": [
+    0,
+    1.22,
+    0.28
+   ],
+   "color": "fur",
+   "bone": "body"
+  },
+  {
+   "name": "neck_1",
+   "shape": "ball",
+   "size": [
+    0.32,
+    0.5,
+    0.46
+   ],
+   "at": [
+    0.0,
+    1.302,
+    0.478
+   ],
+   "rot": [
+    -41.9,
+    0,
+    0
+   ],
+   "color": "fur",
+   "bone": "neck"
+  },
+  {
+   "name": "neck_2",
+   "shape": "ball",
+   "size": [
+    0.24,
+    0.42,
+    0.4
+   ],
+   "at": [
+    0.0,
+    1.456,
+    0.65
+   ],
+   "rot": [
+    -41.9,
+    0,
+    0
+   ],
+   "color": "fur",
+   "bone": "neck"
+  },
+  {
+   "name": "neck_3",
+   "shape": "ball",
+   "size": [
+    0.2,
+    0.34,
+    0.34
+   ],
+   "at": [
+    0.0,
+    1.615,
+    0.828
+   ],
+   "rot": [
+    -41.9,
+    0,
+    0
+   ],
+   "color": "fur",
+   "bone": "neck"
+  },
+  {
+   "name": "mane_1",
+   "shape": "ball",
+   "size": [
+    0.08,
+    0.2,
+    0.26
+   ],
+   "at": [
+    0,
+    1.487,
+    0.294
+   ],
+   "rot": [
+    -41.9,
+    0,
+    0
+   ],
+   "color": "mane",
+   "bone": "neck"
+  },
+  {
+   "name": "mane_2",
+   "shape": "ball",
+   "size": [
+    0.08,
+    0.2,
+    0.26
+   ],
+   "at": [
+    0,
+    1.603,
+    0.468
+   ],
+   "rot": [
+    -41.9,
+    0,
+    0
+   ],
+   "color": "mane",
+   "bone": "neck"
+  },
+  {
+   "name": "mane_3",
+   "shape": "ball",
+   "size": [
+    0.08,
+    0.2,
+    0.26
+   ],
+   "at": [
+    0,
+    1.717,
+    0.641
+   ],
+   "rot": [
+    -41.9,
+    0,
+    0
+   ],
+   "color": "mane",
+   "bone": "neck"
+  },
+  {
+   "name": "mane_4",
+   "shape": "ball",
+   "size": [
+    0.08,
+    0.2,
+    0.26
+   ],
+   "at": [
+    0,
+    1.807,
+    0.786
+   ],
+   "rot": [
+    -41.9,
+    0,
+    0
+   ],
+   "color": "mane",
+   "bone": "neck"
+  },
+  {
+   "name": "skull",
+   "shape": "ball",
+   "size": [
+    0.25,
+    0.29,
+    0.32
+   ],
+   "at": [
+    0.0,
+    1.626,
+    0.963
+   ],
+   "color": "fur",
+   "bone": "head"
+  },
+  {
+   "name": "face",
+   "shape": "ball",
+   "size": [
+    0.2,
+    0.23,
+    0.44
+   ],
+   "at": [
+    0.0,
+    1.5,
+    1.11
+   ],
+   "rot": [
+    40.6,
+    0,
+    0
+   ],
+   "color": "fur",
+   "bone": "head"
+  },
+  {
+   "name": "muzzle",
+   "shape": "ball",
+   "size": [
+    0.19,
+    0.19,
+    0.21
+   ],
+   "at": [
+    0.0,
+    1.356,
+    1.278
+   ],
+   "rot": [
+    40.6,
+    0,
+    0
+   ],
+   "color": "muzzle",
+   "bone": "head"
+  },
+  {
+   "name": "nostril_l",
+   "shape": "ball",
+   "size": [
+    0.035,
+    0.04,
+    0.03
+   ],
+   "at": [
+    0.06,
+    1.3760000000000001,
+    1.358
+   ],
+   "color": "dark",
+   "bone": "head",
+   "mirror": true,
+   "separate": true,
+   "detail": 0.4
+  },
+  {
+   "name": "eye_l",
+   "shape": "ball",
+   "size": [
+    0.04,
+    0.04,
+    0.04
+   ],
+   "at": [
+    0.115,
+    1.618,
+    1.004
+   ],
+   "color": "dark",
+   "bone": "head",
+   "mirror": true,
+   "separate": true,
+   "detail": 0.5
+  },
+  {
+   "name": "ear_l",
+   "shape": "taper",
+   "size": [
+    0.07,
+    0.15,
+    0.04
+   ],
+   "at": [
+    0.07,
+    1.81,
+    0.9
+   ],
+   "rot": [
+    -10,
+    0,
+    -12
+   ],
+   "color": "fur",
+   "bone": "ear_l",
+   "top": 0.35,
+   "mirror": true,
+   "separate": true,
+   "detail": 0.5
+  },
+  {
+   "name": "shoulder_l",
+   "shape": "ball",
+   "size": [
+    0.2,
+    0.5,
+    0.32
+   ],
+   "at": [
+    0.15,
+    0.92,
+    0.36
+   ],
+   "color": "fur",
+   "bone": "leg_f_l",
+   "mirror": true
+  },
+  {
+   "name": "fore_l",
+   "shape": "taper",
+   "size": [
+    0.13,
+    0.42,
+    0.14
+   ],
+   "at": [
+    0.15,
+    0.5,
+    0.37
+   ],
+   "rot": [
+    180,
+    0,
+    0
+   ],
+   "color": "fur",
+   "bone": "leg_f_l",
+   "top": 0.75,
+   "mirror": true
+  },
+  {
+   "name": "cannon_f_l",
+   "shape": "taper",
+   "size": [
+    0.105,
+    0.4,
+    0.11
+   ],
+   "at": [
+    0.15,
+    0.23,
+    0.38
+   ],
+   "rot": [
+    180,
+    0,
+    0
+   ],
+   "color": "legs",
+   "bone": "leg_f_l",
+   "top": 0.9,
+   "mirror": true
+  },
+  {
+   "name": "hoof_f_l",
+   "shape": "ball",
+   "size": [
+    0.12,
+    0.08,
+    0.14
+   ],
+   "at": [
+    0.15,
+    0.04,
+    0.39
+   ],
+   "color": "hoof",
+   "bone": "leg_f_l",
+   "mirror": true
+  },
+  {
+   "name": "thigh_l",
+   "shape": "ball",
+   "size": [
+    0.24,
+    0.56,
+    0.42
+   ],
+   "at": [
+    0.15,
+    0.92,
+    -0.66
+   ],
+   "color": "fur",
+   "bone": "leg_b_l",
+   "mirror": true
+  },
+  {
+   "name": "gaskin_l",
+   "shape": "taper",
+   "size": [
+    0.14,
+    0.36,
+    0.16
+   ],
+   "at": [
+    0.15,
+    0.56,
+    -0.73
+   ],
+   "rot": [
+    168,
+    0,
+    0
+   ],
+   "color": "fur",
+   "bone": "leg_b_l",
+   "top": 0.7,
+   "mirror": true
+  },
+  {
+   "name": "cannon_b_l",
+   "shape": "taper",
+   "size": [
+    0.105,
+    0.4,
+    0.11
+   ],
+   "at": [
+    0.15,
+    0.23,
+    -0.7100000000000001
+   ],
+   "rot": [
+    180,
+    0,
+    0
+   ],
+   "color": "legs",
+   "bone": "leg_b_l",
+   "top": 0.9,
+   "mirror": true
+  },
+  {
+   "name": "hoof_b_l",
+   "shape": "ball",
+   "size": [
+    0.12,
+    0.08,
+    0.14
+   ],
+   "at": [
+    0.15,
+    0.04,
+    -0.7000000000000001
+   ],
+   "color": "hoof",
+   "bone": "leg_b_l",
+   "mirror": true
+  },
+  {
+   "name": "tail_1",
+   "shape": "ball",
+   "size": [
+    0.1,
+    0.14,
+    0.14
+   ],
+   "at": [
+    0,
+    1.18,
+    -0.96
+   ],
+   "color": "mane",
+   "bone": "tail_1"
+  },
+  {
+   "name": "tail_2",
+   "shape": "ball",
+   "size": [
+    0.12,
+    0.3,
+    0.12
+   ],
+   "at": [
+    0,
+    0.98,
+    -1.04
+   ],
+   "rot": [
+    -15,
+    0,
+    0
+   ],
+   "color": "mane",
+   "bone": "tail_1"
+  },
+  {
+   "name": "tail_3",
+   "shape": "ball",
+   "size": [
+    0.13,
+    0.34,
+    0.12
+   ],
+   "at": [
+    0,
+    0.72,
+    -1.07
+   ],
+   "color": "mane",
+   "bone": "tail_2"
+  }
+ ]
+}

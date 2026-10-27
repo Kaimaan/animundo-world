@@ -53,10 +53,14 @@ jobs:
         run: python3 tools/homes.py check
       - name: Check the animal list
         run: python3 tools/animal_list.py --check
-      - name: Adapt a reference model (the lynx from the fox)
+      - name: Adapt reference models (every example in models/examples/edits)
         run: |
-          python3 tools/adapt_model.py models/fox.json models/examples/edits/lynx.json --out /tmp/lynx_example.json
-          BUILD_OUT=/tmp tools/build_model.sh /tmp/lynx_example.json
+          for edits in models/examples/edits/*.json; do
+            ref=$(python3 -c "import json, sys; print(json.load(open(sys.argv[1]))['reference'])" "$edits")
+            name=$(basename "$edits" .json)
+            python3 tools/adapt_model.py "models/$ref.json" "$edits" --out "/tmp/${name}_example.json"
+            BUILD_OUT=/tmp tools/build_model.sh "/tmp/${name}_example.json"
+          done
       - name: Check animals and translations
         run: python3 tools/check_animals.py
       - name: One real species, one file
