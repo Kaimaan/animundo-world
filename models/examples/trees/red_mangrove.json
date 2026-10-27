@@ -1,0 +1,31 @@
+{
+  "id": "red_mangrove",
+  "kind": "tree",
+  "author": "Animundo team",
+  "name": "Red mangrove (Rhizophora mangle): example tree",
+  "latin": "Rhizophora mangle",
+  "trunk": {
+    "height": [
+      6,
+      8
+    ],
+    "roots": {
+      "count": 7,
+      "spread": 3,
+      "height": 4
+    }
+  },
+  "crown": {
+    "shape": "round",
+    "radius": 3.0,
+    "squash": 1.6
+  },
+  "colors": {
+    "trunk": "#6b5440",
+    "leaves": "#3f7a3a"
+  },
+  "on": [
+    "water",
+    "sand"
+  ]
+}

@@ -20,7 +20,9 @@
       "properties": {
         "height": {"description": "Lowest and highest trunk, in blocks (metres).", "type": "array", "items": {"type": "integer", "minimum": 1, "maximum": 16}, "minItems": 2, "maxItems": 2},
         "girth": {"description": "Trunk width in blocks.", "enum": [1, 2, 3]},
-        "lean": {"description": "Blocks the top of the trunk leans over (palms).", "type": "integer", "minimum": 0, "maximum": 4}
+        "lean": {"description": "Blocks the top of the trunk leans over (palms).", "type": "integer", "minimum": 0, "maximum": 4},
+        "roots": {"description": "Stilt roots arching from the trunk to the ground (mangroves).", "type": "object", "additionalProperties": false,
+          "properties": {"count": {"type": "integer", "minimum": 3, "maximum": 10}, "spread": {"type": "integer", "minimum": 1, "maximum": 4}, "height": {"type": "integer", "minimum": 1, "maximum": 5}}}
       }
     },
     "crown": {
@@ -45,6 +47,6 @@
         "autumn": {"description": "Deciduous trees: the autumn colour; the leaves fall after it.", "type": "string", "pattern": "^#[0-9a-fA-F]{6}$"}
       }
     },
-    "on": {"description": "The ground it grows on (default grass).", "type": "array", "items": {"enum": ["grass", "rock", "sand"]}, "minItems": 1, "uniqueItems": true}
+    "on": {"description": "The ground it grows on (default grass); water is shallow water, at most 2 blocks deep, over sand or mud.", "type": "array", "items": {"enum": ["grass", "rock", "sand", "water"]}, "minItems": 1, "uniqueItems": true}
   }
 }

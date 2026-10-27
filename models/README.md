@@ -227,12 +227,13 @@ Trees are made of blocks, like the land, so they're built differently from anima
 | `trunk.height` | `[lowest, highest]` trunk in blocks (metres) |
 | `trunk.girth` | 1, 2 or 3 blocks wide (a baobab is 3) |
 | `trunk.lean` | blocks the top leans over (palms) |
+| `trunk.roots` | stilt roots, `{count, spread, height}`: they arch out from the trunk and drop into the water (mangroves) |
 | `crown.shape` | `round`, `cone`, `column`, `umbrella` or `palm` |
 | `crown.radius`, `squash`, `height` | the crown's size; `squash` flattens a round crown |
 | `crown.thickness`, `branches` | an umbrella's flat crown and its forked branches |
 | `crown.fronds`, `length`, `droop` | a palm's leaves |
 | `colors` | `trunk`, `leaves`, and `autumn` for trees that drop their leaves (bare in winter) |
-| `on` | the ground it grows on: `grass`, `rock`, `sand` (default grass) |
+| `on` | the ground it grows on: `grass`, `rock`, `sand`, or `water` for shallow water at most 2 blocks deep (default grass) |
 
 A tree must fit the game: at most 18 blocks tall and 8 blocks from the trunk to the crown's edge. Like every plant it has a `latin` name, a `taxon` (`tools/taxon.py`), `sources` and a field guide page in `locale/<lang>/plants.json`.
 
@@ -244,7 +245,8 @@ A tree must fit the game: at most 18 blocks tall and 8 blocks from the trunk to 
 | Acacias, stone pines | `umbrella` | `examples/trees/umbrella_thorn.json` |
 | Palms | `palm` | `examples/trees/coconut_palm.json` |
 | Baobabs | `round`, girth 3 | `examples/trees/baobab.json` |
-| **Not possible yet:** mangroves (stilt roots in water), cacti, bamboo groves, trees taller than 18 m | | |
+| Mangroves | `round`, stilt roots, `on: ["water", "sand"]` | `examples/trees/red_mangrove.json` |
+| **Not possible yet:** cacti, bamboo groves, trees taller than 18 m | | |
 
 ## Plants
 Plants are made the same way, from a spec in `models/plants/<id>.json`, and built with the same command:

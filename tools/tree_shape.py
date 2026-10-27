@@ -14,6 +14,10 @@ Crown shapes:
   column    a tall narrow crown (cypress, poplar): radius, height
   umbrella  a wide flat crown on forked branches (acacia, stone pine): radius, thickness
   palm      fronds arching out from the top (palms): fronds, length, droop
+
+Stilt roots (mangroves): trunk.roots = {"count", "spread", "height"} arches
+`count` roots out from the trunk at `height` blocks down to the ground
+`spread` blocks away, so the tree stands over shallow water (on: ["water"]).
 """
 
 CROWNS = ("round", "cone", "column", "umbrella", "palm")
@@ -149,6 +153,22 @@ def build(spec, tall, salt=1):
             for s in range(1, length + 1):
                 y = stem + 1 + round(s * 0.5 - droop * s * s / length)
                 put(top[0] + round(dx * s), y, round(dz * s))
+    roots = trunk_spec.get("roots")
+    if roots:
+        import math
+        n, spread, rh = roots.get("count", 6), roots.get("spread", 2), roots.get("height", 2)
+        for k in range(n):
+            a = 2 * math.pi * k / n + 0.3
+            y = rh
+            for s in range(1, spread + 1):
+                # out from the trunk at `rh`, sloping down, then straight down into the water
+                x, z = round(math.cos(a) * s), round(math.sin(a) * s)
+                if s < spread:
+                    y = max(2, rh - round((rh - 2) * s / spread))
+                    trunk.add((x, y, z))
+                else:
+                    for yy in range(1, y + 1):
+                        trunk.add((x, yy, z))
     return {"trunk": sorted([list(b) for b in trunk]), "leaf": sorted([list(b) for b in leaf])}
 
 

@@ -83,6 +83,9 @@ def render_sheet(spec, templates, out_path):
     bpy.ops.mesh.primitive_circle_add(vertices=48, radius=extent * 0.75, fill_type="NGON", location=(0, 0, -0.002))
     ground = bpy.context.active_object
     ground.data.materials.append(material("_ground", "#8fae6a"))
+    if "water" in spec.get("on", []):   # a tree of shallow water: show it standing in 2 m of water
+        bpy.ops.mesh.primitive_circle_add(vertices=48, radius=extent * 0.75, fill_type="NGON", location=(0, 0, 1.9))
+        bpy.context.active_object.data.materials.append(material("_water", "#4d8fa8"))
     cam_data = bpy.data.cameras.new("cam")
     cam_data.type = "ORTHO"
     cam_data.ortho_scale = extent * 1.25
