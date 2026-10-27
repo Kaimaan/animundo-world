@@ -63,6 +63,11 @@ jobs:
             python3 tools/adapt_model.py "models/$ref.json" "$edits" --out "/tmp/${name}_example.json"
             BUILD_OUT=/tmp tools/build_model.sh "/tmp/${name}_example.json"
           done
+      - name: Adapt home templates (every example in homes/examples)
+        run: |
+          for h in homes/examples/*.json; do
+            python3 tools/adapt_home.py homes/boreal_forest.json "$h" --check --out /tmp/home.json || exit 1
+          done
       - name: Check animals and translations
         run: python3 tools/check_animals.py
       - name: One real species, one file
