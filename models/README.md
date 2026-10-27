@@ -67,7 +67,7 @@ Don't start a new animal from nothing. Copy the existing model closest to it in 
 | Butterflies, dragonflies | none | Need broad flapping insect wings (the bee only buzzes) |
 | Bats | none | Wings from the arms; night animals come later |
 
-When a new animal is approved, it becomes the reference model for its kind: add it to this table (the builder does this in its pull request), and later animals of that kind start from it.
+When a new animal is approved, it becomes the reference model for its kind: a steward adds it to this table when merging, and later animals of that kind start from it.
 
 ## The spec
 Positions are in the game's coordinates, in **metres**, with the animal standing on the ground at `y = 0` and facing forward:
