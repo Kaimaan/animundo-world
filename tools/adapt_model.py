@@ -289,7 +289,23 @@ def paws(spec, f):
 
 
 def body_girth(spec, f):
-    for p in group(spec, ("body", "neck")):
+    _, role = roles(spec)
+    trunk = [p for p in spec["parts"] if not p.get("separate")
+             and (role[p["name"]] in ("body", "neck") or role[p["name"]] == "fin")]   # a fish's rear half rides its fin bones
+    surface = [p for p in spec["parts"] if p.get("separate") and role[p["name"]] in ("body", "neck", "fin")]
+    moves = []
+    for p in surface:   # on the skin (gills, eyes, fins): move out as far as the skin beneath moves
+        under = [q for q in trunk if abs(q["at"][2] - p["at"][2]) <= q["size"][2] / 2] or trunk
+        if not under:
+            continue
+        q = min(under, key=lambda q: abs(q["at"][2] - p["at"][2]))
+        dx, dy = p["at"][0] - q["at"][0], p["at"][1] - q["at"][1]
+        n = math.hypot(dx / (q["size"][0] / 2), dy / (q["size"][1] / 2)) or 1.0
+        moves.append((p, dx / n * (f - 1), dy / n * (f - 1)))
+    for p, mx, my in moves:
+        p["at"][0] += mx
+        p["at"][1] += my
+    for p in trunk:
         p["size"][0] *= f
         p["size"][1] *= f
     for p in spec["parts"]:   # legs keep reaching the body: widen their stance with it

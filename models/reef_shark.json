@@ -1,0 +1,566 @@
+{
+ "id": "reef_shark",
+ "name": "Blacktip reef shark (Carcharhinus melanopterus)",
+ "author": "Animundo team",
+ "gait": "walk",
+ "skin": {
+  "triangles": 1000
+ },
+ "colors": {
+  "back": "#7a8489",
+  "belly": "#e8e4da",
+  "fin": "#7a8489",
+  "tip": "#1f1d1c",
+  "dark": "#1f1d1c"
+ },
+ "bones": [
+  {
+   "name": "body",
+   "head": [
+    0,
+    0.2,
+    0.82
+   ],
+   "tail": [
+    0,
+    0.2,
+    0.25
+   ],
+   "role": "body"
+  },
+  {
+   "name": "tail_1",
+   "head": [
+    0,
+    0.2,
+    0.25
+   ],
+   "tail": [
+    0,
+    0.2,
+    -0.15
+   ],
+   "parent": "body",
+   "role": "fin",
+   "phase": 0.0,
+   "swing": 0.5
+  },
+  {
+   "name": "tail_2",
+   "head": [
+    0,
+    0.2,
+    -0.15
+   ],
+   "tail": [
+    0,
+    0.2,
+    -0.45
+   ],
+   "parent": "tail_1",
+   "role": "fin",
+   "phase": 0.12,
+   "swing": 0.65
+  },
+  {
+   "name": "tail_3",
+   "head": [
+    0,
+    0.2,
+    -0.45
+   ],
+   "tail": [
+    0,
+    0.25,
+    -0.8
+   ],
+   "parent": "tail_2",
+   "role": "fin",
+   "phase": 0.24,
+   "swing": 0.8
+  }
+ ],
+ "parts": [
+  {
+   "name": "snout",
+   "shape": "ball",
+   "size": [
+    0.16,
+    0.12,
+    0.26
+   ],
+   "at": [
+    0,
+    0.21,
+    0.7
+   ],
+   "color": "back",
+   "bone": "body"
+  },
+  {
+   "name": "snout_under",
+   "shape": "ball",
+   "size": [
+    0.13,
+    0.07,
+    0.22
+   ],
+   "at": [
+    0,
+    0.165,
+    0.68
+   ],
+   "color": "belly",
+   "bone": "body"
+  },
+  {
+   "name": "head",
+   "shape": "ball",
+   "size": [
+    0.24,
+    0.22,
+    0.46
+   ],
+   "at": [
+    0,
+    0.2,
+    0.52
+   ],
+   "color": "back",
+   "bone": "body"
+  },
+  {
+   "name": "chest",
+   "shape": "ball",
+   "size": [
+    0.27,
+    0.29,
+    0.66
+   ],
+   "at": [
+    0,
+    0.2,
+    0.24
+   ],
+   "color": "back",
+   "bone": "body"
+  },
+  {
+   "name": "belly_1",
+   "shape": "ball",
+   "size": [
+    0.24,
+    0.15,
+    0.62
+   ],
+   "at": [
+    0,
+    0.12,
+    0.36
+   ],
+   "color": "belly",
+   "bone": "body"
+  },
+  {
+   "name": "mid",
+   "shape": "ball",
+   "size": [
+    0.24,
+    0.26,
+    0.62
+   ],
+   "at": [
+    0,
+    0.2,
+    -0.04
+   ],
+   "color": "back",
+   "bone": "tail_1"
+  },
+  {
+   "name": "belly_2",
+   "shape": "ball",
+   "size": [
+    0.2,
+    0.12,
+    0.45
+   ],
+   "at": [
+    0,
+    0.13,
+    0.0
+   ],
+   "color": "belly",
+   "bone": "tail_1"
+  },
+  {
+   "name": "rear",
+   "shape": "ball",
+   "size": [
+    0.16,
+    0.18,
+    0.48
+   ],
+   "at": [
+    0,
+    0.205,
+    -0.3
+   ],
+   "color": "back",
+   "bone": "tail_2"
+  },
+  {
+   "name": "belly_3",
+   "shape": "ball",
+   "size": [
+    0.12,
+    0.08,
+    0.3
+   ],
+   "at": [
+    0,
+    0.16,
+    -0.3
+   ],
+   "color": "belly",
+   "bone": "tail_2"
+  },
+  {
+   "name": "stalk",
+   "shape": "ball",
+   "size": [
+    0.08,
+    0.1,
+    0.3
+   ],
+   "at": [
+    0,
+    0.215,
+    -0.5
+   ],
+   "color": "back",
+   "bone": "tail_3"
+  },
+  {
+   "name": "dorsal",
+   "shape": "taper",
+   "size": [
+    0.025,
+    0.28,
+    0.26
+   ],
+   "at": [
+    0.0,
+    0.397,
+    0.004
+   ],
+   "rot": [
+    -30,
+    0,
+    0
+   ],
+   "color": "fin",
+   "bone": "tail_1",
+   "top": 0.12,
+   "separate": true
+  },
+  {
+   "name": "dorsal_tip",
+   "shape": "taper",
+   "size": [
+    0.028749999999999998,
+    0.084,
+    0.078
+   ],
+   "at": [
+    0.0,
+    0.484,
+    -0.046
+   ],
+   "rot": [
+    -30,
+    0,
+    0
+   ],
+   "color": "tip",
+   "bone": "tail_1",
+   "top": 0.1,
+   "separate": true
+  },
+  {
+   "name": "dorsal_2",
+   "shape": "taper",
+   "size": [
+    0.016,
+    0.07,
+    0.07
+   ],
+   "at": [
+    0.0,
+    0.293,
+    -0.436
+   ],
+   "rot": [
+    -35,
+    0,
+    0
+   ],
+   "color": "fin",
+   "bone": "tail_2",
+   "top": 0.12,
+   "separate": true
+  },
+  {
+   "name": "tail_top",
+   "shape": "taper",
+   "size": [
+    0.022,
+    0.44,
+    0.16
+   ],
+   "at": [
+    0.0,
+    0.341,
+    -0.744
+   ],
+   "rot": [
+    -55,
+    0,
+    0
+   ],
+   "color": "fin",
+   "bone": "tail_3",
+   "top": 0.12,
+   "separate": true
+  },
+  {
+   "name": "tail_top_tip",
+   "shape": "taper",
+   "size": [
+    0.025299999999999996,
+    0.132,
+    0.048
+   ],
+   "at": [
+    0.0,
+    0.432,
+    -0.874
+   ],
+   "rot": [
+    -55,
+    0,
+    0
+   ],
+   "color": "tip",
+   "bone": "tail_3",
+   "top": 0.1,
+   "separate": true
+  },
+  {
+   "name": "tail_low",
+   "shape": "taper",
+   "size": [
+    0.022,
+    0.22,
+    0.12
+   ],
+   "at": [
+    0.0,
+    0.15,
+    -0.672
+   ],
+   "rot": [
+    -125,
+    0,
+    0
+   ],
+   "color": "fin",
+   "bone": "tail_3",
+   "top": 0.12,
+   "separate": true
+  },
+  {
+   "name": "tail_low_tip",
+   "shape": "taper",
+   "size": [
+    0.025299999999999996,
+    0.066,
+    0.036
+   ],
+   "at": [
+    0.0,
+    0.104,
+    -0.737
+   ],
+   "rot": [
+    -125,
+    0,
+    0
+   ],
+   "color": "tip",
+   "bone": "tail_3",
+   "top": 0.1,
+   "separate": true
+  },
+  {
+   "name": "pectoral_l",
+   "shape": "ball",
+   "size": [
+    0.34,
+    0.025,
+    0.16
+   ],
+   "at": [
+    0.2,
+    0.11,
+    0.3
+   ],
+   "rot": [
+    0,
+    25,
+    -20
+   ],
+   "color": "fin",
+   "bone": "body",
+   "mirror": true,
+   "separate": true,
+   "detail": 0.6
+  },
+  {
+   "name": "pectoral_tip_l",
+   "shape": "ball",
+   "size": [
+    0.1,
+    0.028,
+    0.08
+   ],
+   "at": [
+    0.335,
+    0.055,
+    0.235
+   ],
+   "rot": [
+    0,
+    25,
+    -20
+   ],
+   "color": "tip",
+   "bone": "body",
+   "mirror": true,
+   "separate": true,
+   "detail": 0.5
+  },
+  {
+   "name": "pelvic_l",
+   "shape": "ball",
+   "size": [
+    0.1,
+    0.018,
+    0.06
+   ],
+   "at": [
+    0.06,
+    0.1,
+    -0.26
+   ],
+   "rot": [
+    0,
+    30,
+    -25
+   ],
+   "color": "fin",
+   "bone": "tail_2",
+   "mirror": true,
+   "separate": true,
+   "detail": 0.5
+  },
+  {
+   "name": "eye_l",
+   "shape": "ball",
+   "size": [
+    0.03,
+    0.03,
+    0.03
+   ],
+   "at": [
+    0.1,
+    0.235,
+    0.62
+   ],
+   "color": "dark",
+   "bone": "body",
+   "mirror": true,
+   "separate": true,
+   "detail": 0.5
+  },
+  {
+   "name": "gill_1_l",
+   "shape": "box",
+   "size": [
+    0.006,
+    0.08,
+    0.012
+   ],
+   "at": [
+    0.118,
+    0.195,
+    0.46
+   ],
+   "rot": [
+    -8,
+    0,
+    0
+   ],
+   "color": "dark",
+   "bone": "body",
+   "mirror": true,
+   "separate": true
+  },
+  {
+   "name": "gill_2_l",
+   "shape": "box",
+   "size": [
+    0.006,
+    0.08,
+    0.012
+   ],
+   "at": [
+    0.118,
+    0.195,
+    0.42
+   ],
+   "rot": [
+    -8,
+    0,
+    0
+   ],
+   "color": "dark",
+   "bone": "body",
+   "mirror": true,
+   "separate": true
+  },
+  {
+   "name": "gill_3_l",
+   "shape": "box",
+   "size": [
+    0.006,
+    0.08,
+    0.012
+   ],
+   "at": [
+    0.118,
+    0.195,
+    0.38
+   ],
+   "rot": [
+    -8,
+    0,
+    0
+   ],
+   "color": "dark",
+   "bone": "body",
+   "mirror": true,
+   "separate": true
+  }
+ ]
+}

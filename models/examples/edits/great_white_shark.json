@@ -1,0 +1,11 @@
+{
+ "reference": "reef_shark",
+ "id": "great_white_shark_example",
+ "name": "Great white shark (Carcharodon carcharias)",
+ "author": "Animundo team",
+ "length_m": 4.5,
+ "colors": {"back": "#6b7378", "fin": "#6b7378", "tip": "#4a5155"},
+ "body_girth": 1.35,
+ "head": 1.1,
+ "muzzle": 0.7
+}
