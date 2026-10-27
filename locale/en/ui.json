@@ -138,6 +138,8 @@
   "ui.new.mode_note": "You can't change this later. To play another way, make a new animal.",
   "ui.new.name_title": "What's your animal called?",
   "ui.new.name_note": "Only you see this name.",
+  "ui.new.name_dice": "Another name",
+  "ui.new.name_ideas": "Pip, Mossy, Bramble, Pebble, Sunny, Willow, Clover, Biscuit, Ziggy, Nutmeg, Puddle, Fern, Juniper, Maple, Sprout, Twig, Acorn, Comet, Pickle, Button, Bean, Hazel, Breezy, Dot, Skipper, Pepper, Misty, Rusty, Snowy, Berry, Tumble, Wiggles, Sparky, Echo, Flicker, Marble, Poppy, Scout, Sage, Toffee",
   "ui.new.start": "Start",
   "ui.new.start_baby": "Start as a baby",
   "ui.new.start_baby_sub": "Your family feeds you and shows you how to survive",

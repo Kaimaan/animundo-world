@@ -138,6 +138,8 @@
   "ui.new.mode_note": "Tätä ei voi muuttaa myöhemmin. Jos haluat pelata toisin, tee uusi eläin.",
   "ui.new.name_title": "Mikä eläimesi nimi on?",
   "ui.new.name_note": "Vain sinä näet tämän nimen.",
+  "ui.new.name_dice": "Toinen nimi",
+  "ui.new.name_ideas": "Pörrö, Hippu, Nappi, Tuikku, Sammal, Käpy, Pilvi, Usva, Myrsky, Tähti, Ruska, Nöpö, Höpö, Tassu, Vilkas, Lumi, Halla, Kipinä, Kanerva, Mustikka, Puolukka, Sisu, Tuuli, Sade, Kuura, Pähkinä, Nuppu, Hilla, Muru, Rusina, Viiru, Tiltu, Pikkis, Huurre, Varpu, Sipsi, Tupsu, Kaneli, Vilske, Sointu",
   "ui.new.start": "Aloita",
   "ui.new.start_baby": "Aloita poikasena",
   "ui.new.start_baby_sub": "Perheesi ruokkii sinua ja opettaa selviytymään",
