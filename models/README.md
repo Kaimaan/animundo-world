@@ -72,6 +72,13 @@ Don't start a new animal from nothing. Copy the existing model closest to it in 
 | Dragonflies | none | Two pairs of wings that beat apart |
 | Bats | none | Wings from the arms; night animals come later |
 
+**Adapting a reference in code:** `tools/adapt_model.py` makes a new spec from a reference and a short list of edits, so nobody has to keep 80 positions and sizes consistent by hand. It scales the reference to the real body length, stretches the legs to the real shoulder height, sets the tail's length, then applies edits to whole groups of parts (head, muzzle, ears, leg thickness, paws, body girth, tail width), moving positions and sizes together so parts keep overlapping. It also adds marks (`ear_tufts`, `ruff`, `tail_tip`) and repaints parts. The lynx from the fox: [`examples/edits/lynx.json`](examples/edits/lynx.json).
+
+```bash
+python3 tools/adapt_model.py models/fox.json models/examples/edits/lynx.json --out models/lynx.json
+tools/build_model.sh models/lynx.json
+```
+
 When a new animal is approved, it becomes the reference model for its kind: a steward adds it to this table when merging, and later animals of that kind start from it.
 
 ## The spec

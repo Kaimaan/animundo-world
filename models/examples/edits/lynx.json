@@ -1,0 +1,60 @@
+{
+ "reference": "fox",
+ "id": "lynx_example",
+ "name": "Eurasian lynx (Lynx lynx)",
+ "author": "Animundo team",
+ "length_m": 1.05,
+ "shoulder_m": 0.68,
+ "tail_m": 0.18,
+ "colors": {
+  "fur": "#8b7355",
+  "belly": "#f0e8d8",
+  "dark": "#2a2420"
+ },
+ "head": 1.15,
+ "muzzle": 0.6,
+ "ears": 0.85,
+ "leg_thickness": 1.35,
+ "paws": 1.6,
+ "body_girth": 1.1,
+ "tail_width": 0.8,
+ "marks": [
+  "ear_tufts",
+  "ruff",
+  "tail_tip"
+ ],
+ "repaint": [
+  {
+   "part": "fore_l",
+   "color": "fur"
+  },
+  {
+   "part": "shin_l",
+   "color": "fur"
+  },
+  {
+   "part": "wrist_l",
+   "color": "fur"
+  },
+  {
+   "part": "hock_l",
+   "color": "fur"
+  },
+  {
+   "part": "hand_l",
+   "color": "fur"
+  },
+  {
+   "part": "foot_l",
+   "color": "fur"
+  },
+  {
+   "part": "ear_l",
+   "color": "fur"
+  },
+  {
+   "part": "ear_in_l",
+   "color": "belly"
+  }
+ ]
+}

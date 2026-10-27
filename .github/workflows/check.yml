@@ -53,6 +53,10 @@ jobs:
         run: python3 tools/homes.py check
       - name: Check the animal list
         run: python3 tools/animal_list.py --check
+      - name: Adapt a reference model (the lynx from the fox)
+        run: |
+          python3 tools/adapt_model.py models/fox.json models/examples/edits/lynx.json --out /tmp/lynx_example.json
+          BUILD_OUT=/tmp tools/build_model.sh /tmp/lynx_example.json
       - name: Check animals and translations
         run: python3 tools/check_animals.py
       - name: One real species, one file
