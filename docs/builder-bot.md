@@ -1,6 +1,8 @@
 # The builder bot
 
-[Animundo Builder](https://github.com/Kaimaan/animundo-builder) builds a real place and its animals for a family who asked for it. When the family has played it and submits it, the builder bot opens a pull request here. A person reviews it like any other contribution; the bot can't approve or merge anything.
+[Animundo Builder](https://github.com/Kaimaan/animundo-builder) builds a real place and its animals for a family who asked for it. When the family has played it and submits it, a pull request comes here, and a person reviews it like any other contribution.
+
+**For now a person sends each submission on** with `builder submit` from their own GitHub account, so the pull requests come from the core team. The builder bot below is the plan for when there are more submissions than that; this repository is already ready for it.
 
 ## What the bot can do
 
