@@ -65,7 +65,7 @@ TABLE = [
     # northern forests and lakes
     ("lynx", "Eurasian lynx", "Lynx lynx", "fox", ["boreal_forest", "mountain"], None),
     ("wolf", "Grey wolf", "Canis lupus", "fox", ["boreal_forest", "tundra", "mountain"], None),
-    ("brown_bear", "Brown bear", "Ursus arctos", "fox", ["boreal_forest", "mountain"], None),
+    ("brown_bear", "Brown bear", "Ursus arctos", "brown_bear", ["boreal_forest", "mountain"], None),
     ("wolverine", "Wolverine", "Gulo gulo", "fox", ["boreal_forest", "tundra", "mountain"], None),
     ("pine_marten", "Pine marten", "Martes martes", "fox", ["boreal_forest"], None),
     ("otter", "Eurasian otter", "Lutra lutra", "fox", ["boreal_lake", "river"], None),
@@ -145,7 +145,7 @@ TABLE = [
     ("small_tortoiseshell", "Small tortoiseshell", "Aglais urticae", "peacock_butterfly", ["grassland"], None),
     # mountains, tundra and ice
     ("arctic_fox", "Arctic fox", "Vulpes lagopus", "fox", ["tundra", "ice"], None),
-    ("polar_bear", "Polar bear", "Ursus maritimus", "fox", ["ice", "sea"], None),
+    ("polar_bear", "Polar bear", "Ursus maritimus", "brown_bear", ["ice", "sea"], None),
     ("musk_ox", "Muskox", "Ovibos moschatus", "moose", ["tundra"], None),
     ("ibex", "Alpine ibex", "Capra ibex", "moose", ["mountain"], None),
     ("chamois", "Chamois", "Rupicapra rupicapra", "moose", ["mountain"], None),
@@ -240,8 +240,8 @@ TABLE = [
     ("giant_anteater", "Giant anteater", "Myrmecophaga tridactyla", "fox", ["grassland", "rainforest"], None),
     ("okapi", "Okapi", "Okapia johnstoni", "moose", ["rainforest"], None),
     ("red_panda", "Red panda", "Ailurus fulgens", "fox", ["forest", "mountain"], None),
-    ("giant_panda", "Giant panda", "Ailuropoda melanoleuca", "fox", ["forest", "mountain"], None),
-    ("sun_bear", "Sun bear", "Helarctos malayanus", "fox", ["rainforest"], None),
+    ("giant_panda", "Giant panda", "Ailuropoda melanoleuca", "brown_bear", ["forest", "mountain"], None),
+    ("sun_bear", "Sun bear", "Helarctos malayanus", "brown_bear", ["rainforest"], None),
     ("orangutan", "Bornean orangutan", "Pongo pygmaeus", None, ["rainforest"], "body_plan"),
     ("chimpanzee", "Chimpanzee", "Pan troglodytes", None, ["rainforest"], "body_plan"),
     ("gorilla", "Western gorilla", "Gorilla gorilla", None, ["rainforest"], "body_plan"),

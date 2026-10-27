@@ -46,7 +46,8 @@ Don't start a new animal from nothing. Copy the existing model closest to it in 
 | Wild boar, other heavy hoofed animals | `moose` | Short legs, low head, big snout |
 | Dog family: wolf, arctic fox | `fox` | Size, legs, tail, coat colours |
 | Weasel family: pine marten, otter, wolverine, badger | `fox` | Long low body, short legs; otter: swims like the seal |
-| Bear, lynx | `fox`, scaled up | Bear: heavy body, short tail, plantigrade feet; lynx: short tail, ear tufts |
+| Lynx | `fox`, scaled up | Short tail, ear tufts |
+| Bears: brown, polar, giant panda, sun bear | `brown_bear` | Size, snout length, ear size, colours. Its eye patches, shoulder band and chest mark are fur-coloured, ready to repaint (panda, sun bear) |
 | Hares and rabbits | `mountain_hare` | Ears, coat |
 | Squirrels | `squirrel`; gliders: `flying_squirrel` | Size, tail, colours |
 | Mice, voles, shrews, lemmings | `vole` | Size, tail, snout |

@@ -292,7 +292,7 @@
    "name": "Brown bear",
    "latin": "Ursus arctos",
    "gbif_key": 2433433,
-   "start_from": "fox",
+   "start_from": "brown_bear",
    "habitats": [
     "boreal_forest",
     "mountain"
@@ -1218,7 +1218,7 @@
    "name": "Polar bear",
    "latin": "Ursus maritimus",
    "gbif_key": 2433451,
-   "start_from": "fox",
+   "start_from": "brown_bear",
    "habitats": [
     "ice",
     "sea"
@@ -2257,7 +2257,7 @@
    "name": "Giant panda",
    "latin": "Ailuropoda melanoleuca",
    "gbif_key": 2433399,
-   "start_from": "fox",
+   "start_from": "brown_bear",
    "habitats": [
     "forest",
     "mountain"
@@ -2269,7 +2269,7 @@
    "name": "Sun bear",
    "latin": "Helarctos malayanus",
    "gbif_key": 2433403,
-   "start_from": "fox",
+   "start_from": "brown_bear",
    "habitats": [
     "rainforest"
    ],
