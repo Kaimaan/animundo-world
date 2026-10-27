@@ -54,6 +54,8 @@ jobs:
       - name: Check the animal list
         run: python3 tools/animal_list.py --check
       - name: Adapt reference models (every example in models/examples/edits)
+        env:
+          BLENDER: /home/runner/blender/blender
         run: |
           for edits in models/examples/edits/*.json; do
             ref=$(python3 -c "import json, sys; print(json.load(open(sys.argv[1]))['reference'])" "$edits")
