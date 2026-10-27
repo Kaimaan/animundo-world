@@ -83,6 +83,8 @@ def check(path):
     for key in ("name", "country", "description", "author"):
         if not isinstance(d.get(key), str) or not d.get(key).strip():
             err(f'"{key}" must be a non-empty text')
+    if "welcome" in d and not (isinstance(d["welcome"], str) and d["welcome"].strip() and len(d["welcome"]) <= 300):
+        err('"welcome" must be a non-empty text of at most 300 characters')
     # where the facts come from; required for new places once 0009's checks land
     src = d.get("sources")
     if src is not None and not (isinstance(src, list) and src and all(isinstance(x, str) and x.strip() for x in src)):

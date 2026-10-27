@@ -32,6 +32,10 @@
     "description": {
       "$ref": "#/$defs/text"
     },
+    "welcome": {
+      "description": "Optional: said once when a player starts a new animal here, after the season message. A builder place uses it for what to do first, e.g. \"This is a new world, and not many animals live here yet. Play as the lynx, and add more animals later. Go and find a mountain hare to eat!\"",
+      "$ref": "#/$defs/text"
+    },
     "author": {
       "$ref": "#/$defs/text"
     },
