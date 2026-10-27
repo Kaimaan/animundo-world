@@ -38,7 +38,7 @@ A person reviews the preview sheet in the pull request before it's merged. To ad
 
 ## Reference models: where to start
 
-Don't start a new animal from nothing. Copy the existing model closest to it in **body plan and way of moving**, then scale it to the real size and reshape it. A new model is done when it is as good as its reference model in the game's style and a child would recognise the species: close enough, never exact ([ART.md](../ART.md)), so stop at the first round that gets there; compare the two preview sheets side by side. The reference sheet or photos give proportions, colours and markings, not detail the builder can't make.
+Don't start a new animal from nothing. Copy the existing model closest to it in **body plan and way of moving**, then scale it to the real size and reshape it. A new model is done when it is as good as its reference model in the game's style and a child would recognise the species: simple, never realistic ([ART.md](../ART.md)), so stop at the first round that gets there; compare the two preview sheets side by side. The reference sheet or photos give proportions, colours and markings, not detail the builder can't make.
 
 | New animal | Start from | Change |
 |---|---|---|
