@@ -1,0 +1,26 @@
+{
+  "id": "umbrella_thorn",
+  "kind": "tree",
+  "author": "Animundo team",
+  "name": "Umbrella thorn acacia (Vachellia tortilis): example tree",
+  "latin": "Vachellia tortilis",
+  "trunk": {
+    "height": [
+      5,
+      7
+    ]
+  },
+  "crown": {
+    "shape": "umbrella",
+    "radius": 4.5,
+    "thickness": 2
+  },
+  "colors": {
+    "trunk": "#5e4a3a",
+    "leaves": "#7d9a48"
+  },
+  "on": [
+    "grass",
+    "sand"
+  ]
+}

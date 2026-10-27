@@ -28,7 +28,7 @@ for f in ART.md docs/animals-wanted.md docs/catalogue.md wanted.json \
 done
 rsync -a --delete --exclude "__pycache__" tools/blender/ "$GAME/tools/blender/"
 # built models, when this checkout has built them (never deleted: the game keeps its .import files)
-for f in assets/animals/*.glb assets/plants/*.glb; do
+for f in assets/animals/*.glb assets/plants/*.glb assets/trees/*.json; do
 	[ -f "$f" ] && mkdir -p "$GAME/$(dirname "$f")" && cp "$f" "$GAME/$f"
 done
 [ "$2" = "--stamp" ] && git rev-parse HEAD > "$GAME/.world-sync"

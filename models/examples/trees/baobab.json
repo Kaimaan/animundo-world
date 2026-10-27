@@ -1,0 +1,28 @@
+{
+  "id": "baobab",
+  "kind": "tree",
+  "author": "Animundo team",
+  "name": "African baobab (Adansonia digitata): example tree",
+  "latin": "Adansonia digitata",
+  "trunk": {
+    "height": [
+      6,
+      8
+    ],
+    "girth": 3
+  },
+  "crown": {
+    "shape": "round",
+    "radius": 3.5,
+    "squash": 2.2
+  },
+  "colors": {
+    "trunk": "#9b8a78",
+    "leaves": "#6f9a42",
+    "autumn": "#b8a24a"
+  },
+  "on": [
+    "grass",
+    "sand"
+  ]
+}

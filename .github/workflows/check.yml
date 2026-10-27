@@ -39,12 +39,12 @@ jobs:
       - name: Build models
         env:
           BLENDER: /home/runner/blender/blender
-        run: tools/build_model.sh models/*.json models/plants/*.json
+        run: tools/build_model.sh models/*.json models/plants/*.json $(ls models/trees/*.json 2>/dev/null)
       - name: Build the body-plan examples
         env:
           BLENDER: /home/runner/blender/blender
           BUILD_OUT: models/examples/previews
-        run: tools/build_model.sh models/examples/*.json
+        run: tools/build_model.sh models/examples/*.json models/examples/trees/*.json
       - name: Check places
         run: python3 tools/validate_region.py
       - name: Check against the schemas

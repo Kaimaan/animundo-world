@@ -95,6 +95,8 @@ def main():
     errors = []
     animals = files(args.root, "animals", skip=("archetypes.json",))
     plants = files(args.root, os.path.join("models", "plants"))
+    if os.path.isdir(os.path.join(args.root, "models", "trees")):   # trees are plants too: one species, one file across both
+        plants.update(files(args.root, os.path.join("models", "trees")))
     check("animal", animals, errors)
     check("plant", plants, errors)
     check_poison(args.root, plants, errors)

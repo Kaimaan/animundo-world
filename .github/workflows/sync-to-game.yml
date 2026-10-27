@@ -55,17 +55,17 @@ jobs:
           base=$(cat ../game/.world-sync)
           changed=$(git diff --name-only "$base" HEAD)
           if [ "${{ inputs.rebuild_all }}" = "true" ] || echo "$changed" | grep -q '^tools/blender/'; then
-            specs=$(ls models/*.json models/plants/*.json)
+            specs=$(ls models/*.json models/plants/*.json models/trees/*.json 2>/dev/null)
           else
             specs=$(for f in $changed; do
               case "$f" in
-                models/*.json) [ -f "$f" ] && echo "$f" ;;
+                models/*.json) [ -f "$f" ] && echo "$f" ;;   # animals, plants/ and trees/
                 animals/*.json) s="models/$(basename "$f")"; [ -f "$s" ] && echo "$s" ;;
               esac
             done | sort -u)
           fi
           # only plain spec names reach the build (a file name is never run as shell)
-          specs=$(printf '%s\n' $specs | grep -E '^models/(plants/)?[a-z][a-z0-9_]*\.json$' || true)
+          specs=$(printf '%s\n' $specs | grep -E '^models/(plants/|trees/)?[a-z][a-z0-9_]*\.json$' || true)
           echo "specs=$(echo $specs)" >> "$GITHUB_OUTPUT"
           echo "To build: ${specs:-nothing}"
 
@@ -90,7 +90,7 @@ jobs:
             curl -sL https://download.blender.org/release/Blender5.2/blender-5.2.2-linux-x64.tar.xz | tar -xJ -C ~/blender --strip-components=1
           fi
           tools/build_model.sh $SPECS
-          git checkout -- models/previews   # keep the reviewed preview sheets
+          git checkout -- models/previews $(ls -d models/trees/previews 2>/dev/null)   # keep the reviewed preview sheets
 
       - name: Copy into the game repo
         run: world/tools/export_to_game.sh "$GITHUB_WORKSPACE/game" --stamp
@@ -101,7 +101,7 @@ jobs:
           DEPLOY_KEY: ${{ secrets.GAME_DEPLOY_KEY }}
         run: |
           # the mirror paths only (decision 0013); anything else changed is refused
-          git add -A -- regions animals models locale assets/animals assets/plants ART.md wanted.json \
+          git add -A -- regions animals models locale assets/animals assets/plants $(ls -d assets/trees 2>/dev/null) ART.md wanted.json \
             docs/animals-wanted.md docs/catalogue.md tools/validate_region.py tools/build_model.sh \
             tools/catalogue.py tools/blender .world-sync
           outside=$(git diff --name-only; git ls-files --others --exclude-standard)

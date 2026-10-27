@@ -38,7 +38,7 @@ A person reviews the preview sheet in the pull request before it's merged. To ad
 
 ## Reference models: where to start
 
-Don't start a new animal from nothing. Copy the existing model closest to it in **body plan and way of moving**, then scale it to the real size and reshape it. A new model is done when it is as good as its reference model in the game's style and a child would recognise the species; compare the two preview sheets side by side. The reference sheet or photos give proportions, colours and markings, not detail the builder can't make.
+Don't start a new animal from nothing. Copy the existing model closest to it in **body plan and way of moving**, then scale it to the real size and reshape it. A new model is done when it is as good as its reference model in the game's style and a child would recognise the species: close enough, never exact ([ART.md](../ART.md)), so stop at the first round that gets there; compare the two preview sheets side by side. The reference sheet or photos give proportions, colours and markings, not detail the builder can't make.
 
 | New animal | Start from | Change |
 |---|---|---|
@@ -218,6 +218,33 @@ Sizes go from 0 (gone, tucked inside its root) to 1 (full size); seasons left ou
 
 ## Using the model in the game
 After building, set the `model` entry in `animals/<id>.json`: `"file": "res://assets/animals/<id>.glb"`, `"yaw": 0.0`, the `length` the build printed (so the model keeps its real size), and the clips by name, e.g. `"anims": {"idle": "idle", "walk": "walk", "run": "run", "eat": "eat", "sleep": "sleep"}`.
+
+## Trees
+Trees are made of blocks, like the land, so they're built differently from animals and plants. A tree spec, `models/trees/<id>.json`, says how tall the trunk is and what shape the crown has; `tools/build_model.sh models/trees/<id>.json` turns it into block templates (`assets/trees/<id>.json`, three heights, which the game stamps into the land) and a preview sheet (`models/trees/previews/<id>.png`, with a moose for scale) of exactly those blocks. A place uses the tree with `trees.mix[].shape` set to the spec's id; up to six spec trees per place, next to the game's own spruce, pine, birch, rowan and round trees.
+
+| Key | What it is |
+|---|---|
+| `trunk.height` | `[lowest, highest]` trunk in blocks (metres) |
+| `trunk.girth` | 1, 2 or 3 blocks wide (a baobab is 3) |
+| `trunk.lean` | blocks the top leans over (palms) |
+| `crown.shape` | `round`, `cone`, `column`, `umbrella` or `palm` |
+| `crown.radius`, `squash`, `height` | the crown's size; `squash` flattens a round crown |
+| `crown.thickness`, `branches` | an umbrella's flat crown and its forked branches |
+| `crown.fronds`, `length`, `droop` | a palm's leaves |
+| `colors` | `trunk`, `leaves`, and `autumn` for trees that drop their leaves (bare in winter) |
+| `on` | the ground it grows on: `grass`, `rock`, `sand` (default grass) |
+
+A tree must fit the game: at most 18 blocks tall and 8 blocks from the trunk to the crown's edge. Like every plant it has a `latin` name, a `taxon` (`tools/taxon.py`), `sources` and a field guide page in `locale/<lang>/plants.json`.
+
+| Trees | Crown | Start from |
+|---|---|---|
+| Firs, spruces, cedars | `cone` | the game's spruce |
+| Oaks, maples, beeches, limes; rainforest giants (girth 2, tall) | `round` | `examples/trees/baobab.json` with girth 1 or 2 |
+| Cypresses, poplars | `column` | `examples/trees/italian_cypress.json` |
+| Acacias, stone pines | `umbrella` | `examples/trees/umbrella_thorn.json` |
+| Palms | `palm` | `examples/trees/coconut_palm.json` |
+| Baobabs | `round`, girth 3 | `examples/trees/baobab.json` |
+| **Not possible yet:** mangroves (stilt roots in water), cacti, bamboo groves, trees taller than 18 m | | |
 
 ## Plants
 Plants are made the same way, from a spec in `models/plants/<id>.json`, and built with the same command:

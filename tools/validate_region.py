@@ -140,8 +140,16 @@ def check(path):
     trees = d.get("trees", {})
     num("trees", "density", 0, 0.05)
     for i, t in enumerate(trees.get("mix", [])):
-        if t.get("shape") not in TREE_SHAPES:
-            err(f'"trees.mix[{i}].shape" must be one of {sorted(TREE_SHAPES)}')
+        shape = t.get("shape")
+        if shape not in TREE_SHAPES:
+            # a tree from a spec: models/trees/<shape>.json, built into assets/trees/<shape>.json
+            spec_file = os.path.join(ROOT, "models", "trees", f"{shape}.json") if isinstance(shape, str) and re.match(r"^[a-z][a-z0-9_]*$", shape) else None
+            if not spec_file or not os.path.exists(spec_file):
+                err(f'"trees.mix[{i}].shape" must be one of {sorted(TREE_SHAPES)} or a tree spec in models/trees/')
+            elif not os.path.exists(os.path.join(ROOT, "assets", "trees", f"{shape}.json")):
+                err(f'"trees.mix[{i}]": build it first with tools/build_model.sh models/trees/{shape}.json')
+            elif t.get("plant", shape) != shape:
+                err(f'"trees.mix[{i}].plant" of a tree spec is the spec itself: leave it out or make it "{shape}"')
         if not isinstance(t.get("weight"), (int, float)) or t["weight"] <= 0:
             err(f'"trees.mix[{i}].weight" must be a positive number')
         for k in ("leaves", "trunk", "autumn"):

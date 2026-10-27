@@ -3,8 +3,8 @@
 
 A draft is a folder laid out like this repository, holding only what is new
 or changed: `regions/<id>.json`, `animals/<id>.json`, `models/<id>.json`,
-`models/plants/<id>.json`, built models in `assets/animals/` and
-`assets/plants/`, and `locale/<lang>/<file>.json` with only the new keys.
+`models/plants/<id>.json`, `models/trees/<id>.json`, built models in
+`assets/animals/`, `assets/plants/` and `assets/trees/`, and `locale/<lang>/<file>.json` with only the new keys.
 This is what the builder's agents write (animundo-builder), and what a person
 can put together by hand too.
 
@@ -49,7 +49,8 @@ import tempfile
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 CONTENT = [("regions", ".json"), ("animals", ".json"), ("models", ".json"), (os.path.join("models", "plants"), ".json"),
-           (os.path.join("assets", "animals"), ".glb"), (os.path.join("assets", "plants"), ".glb")]
+           (os.path.join("models", "trees"), ".json"), (os.path.join("assets", "animals"), ".glb"),
+           (os.path.join("assets", "plants"), ".glb"), (os.path.join("assets", "trees"), ".json")]
 SKIP_DIRS = {".git", ".venv", "__pycache__", "node_modules"}
 PROBLEM = re.compile(r"^(ERROR: |FAIL |\s+- )")
 

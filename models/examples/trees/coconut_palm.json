@@ -1,0 +1,28 @@
+{
+  "id": "coconut_palm",
+  "kind": "tree",
+  "author": "Animundo team",
+  "name": "Coconut palm (Cocos nucifera): example tree",
+  "latin": "Cocos nucifera",
+  "trunk": {
+    "height": [
+      8,
+      11
+    ],
+    "lean": 2
+  },
+  "crown": {
+    "shape": "palm",
+    "fronds": 8,
+    "length": 4,
+    "droop": 0.7
+  },
+  "colors": {
+    "trunk": "#8c7a5e",
+    "leaves": "#4f8f3c"
+  },
+  "on": [
+    "sand",
+    "grass"
+  ]
+}

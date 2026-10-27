@@ -1,0 +1,26 @@
+{
+  "id": "italian_cypress",
+  "kind": "tree",
+  "author": "Animundo team",
+  "name": "Italian cypress (Cupressus sempervirens): example tree",
+  "latin": "Cupressus sempervirens",
+  "trunk": {
+    "height": [
+      9,
+      12
+    ]
+  },
+  "crown": {
+    "shape": "column",
+    "radius": 1.8,
+    "height": 10
+  },
+  "colors": {
+    "trunk": "#6a4e38",
+    "leaves": "#2f5a36"
+  },
+  "on": [
+    "grass",
+    "rock"
+  ]
+}

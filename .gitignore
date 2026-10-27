@@ -2,9 +2,11 @@
 assets/animals/*.glb
 .DS_Store
 assets/plants/*.glb
+assets/trees/*.json
 
 # Python caches from running the tools
 __pycache__/
 
 # Body-plan examples are built for checking only
 models/examples/previews/*.glb
+models/examples/previews/*.json

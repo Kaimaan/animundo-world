@@ -39,8 +39,9 @@ jobs:
 
             // content only, and only data file types: a scene, script or workflow can never come in
             const isContent = f => /^(regions|animals)\/[a-z0-9_]+\.json$/.test(f)
-              || /^models\/(plants\/)?[a-z0-9_]+\.json$/.test(f)
+              || /^models\/(plants\/|trees\/)?[a-z0-9_]+\.json$/.test(f)
               || /^models\/previews\/(plants\/)?[a-z0-9_]+\.png$/.test(f)
+              || /^models\/trees\/previews\/[a-z0-9_]+\.png$/.test(f)
               || /^locale\/[a-z]{2,3}(-[A-Za-z]+)?\/(animals|food|plants|regions)\.json$/.test(f)   // menu text belongs to the game repo (decision 0013)
               || ['wanted.json', 'docs/catalogue.md', 'poisonous-plants.json'].includes(f);
             const files = await github.paginate(github.rest.pulls.listFiles, { owner, repo, pull_number: pr.number });

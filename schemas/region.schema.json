@@ -99,7 +99,7 @@
             "additionalProperties": false,
             "required": ["shape", "weight"],
             "properties": {
-              "shape": {"enum": ["spruce", "pine", "birch", "round", "rowan"]},
+              "shape": {"description": "A built-in shape (spruce, pine, birch, round, rowan) or the id of a tree spec in models/trees/ (validate_region.py checks it exists).", "type": "string", "pattern": "^[a-z][a-z0-9_]*$"},
               "weight": {"type": "number", "exclusiveMinimum": 0},
               "leaves": {"$ref": "#/$defs/colour"},
               "trunk": {"$ref": "#/$defs/colour"},
