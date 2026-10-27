@@ -22,13 +22,19 @@ The JSON:
     {"ok": true/false,
      "draft_files": ["regions/gb_cairngorms.json", ...],
      "results": [{"check": "schema", "status": "pass"/"fail"/"skip",
-                  "problems": ["..."], "reason": "why it was skipped"}, ...]}
+                  "problems": ["..."], "existing": ["..."],
+                  "reason": "why it was skipped"}, ...]}
 
 Checks: schema (only the draft's files; needs jsonschema), locale (the draft
 changes no existing text), taxa (one real species, one file), region (each of
 the draft's regions; needs the models built), animals (with food first,
 decision 0011), models (needs the models built). A skipped check doesn't make
 "ok" false; build the models (tools/build_model.sh) to run all of them.
+
+Only the draft's own problems count. The taxa, animals and models checks also
+run on the repository without the draft, and a problem that is already there
+(say, a plant model not built in this checkout) is listed under "existing"
+and doesn't fail the check.
 
 Exits 0 when ok, 1 when a check failed, 2 when the draft can't be read.
 """
@@ -103,9 +109,18 @@ def run(work, script, args):
     return p.returncode, problems, out
 
 
-def result(check, code, problems, out):
+def result(check, code, problems, out, base=None):
+    """One check's result. `base` is the same check's run without the draft."""
     if code == 0:
         return {"check": check, "status": "pass", "problems": []}
+    if base is not None and base[0] != 0 and base[1]:
+        known = set(base[1])
+        new = [p for p in problems if p not in known]
+        existing = [p for p in problems if p in known]
+        if problems and not new:
+            return {"check": check, "status": "pass", "problems": [], "existing": existing}
+        if new:
+            return {"check": check, "status": "fail", "problems": new, "existing": existing}
     return {"check": check, "status": "fail", "problems": problems or out.strip().splitlines()[-5:]}
 
 
@@ -123,6 +138,12 @@ def check(world, draft):
         root = os.path.join(work, "world")
         conflicts = overlay(world, draft, files, root)
         built = has_built_models(root)
+        plain = os.path.join(work, "plain")
+        shutil.copytree(world, plain, ignore=lambda d, names: [n for n in names if n in SKIP_DIRS])
+
+        def both(script, args):
+            return run(root, script, args), run(plain, script, args)
+
         results = [{"check": "locale", "status": "fail" if conflicts else "pass", "problems": conflicts}]
         schema_files = [rel for rel, kind in files if rel.endswith(".json")]
         try:
@@ -130,7 +151,8 @@ def check(world, draft):
             results.append(result("schema", *run(root, "check_schemas.py", schema_files)))
         except ImportError:
             results.append({"check": "schema", "status": "skip", "problems": [], "reason": "pip install jsonschema"})
-        results.append(result("taxa", *run(root, "check_taxa.py", [])))
+        draft_run, base = both("check_taxa.py", [])
+        results.append(result("taxa", *draft_run, base=base))
         regions = [os.path.join(root, rel) for rel, kind in files if rel.startswith("regions" + os.sep)]
         if not regions:
             results.append({"check": "region", "status": "skip", "problems": [], "reason": "the draft has no region"})
@@ -139,9 +161,11 @@ def check(world, draft):
                             "reason": "models not built: run tools/build_model.sh first"})
         else:
             results.append(result("region", *run(root, "validate_region.py", regions)))
-        results.append(result("animals", *run(root, "check_animals.py", [] if built else ["--no-built-models"])))
+        draft_run, base = both("check_animals.py", [] if built else ["--no-built-models"])
+        results.append(result("animals", *draft_run, base=base))
         if built:
-            results.append(result("models", *run(root, "check_models.py", [])))
+            draft_run, base = both("check_models.py", [])
+            results.append(result("models", *draft_run, base=base))
         else:
             results.append({"check": "models", "status": "skip", "problems": [],
                             "reason": "models not built: run tools/build_model.sh first"})
@@ -167,6 +191,8 @@ def main():
             print(f'{r["status"]:4}  {r["check"]}' + (f'  ({r["reason"]})' if r.get("reason") else ""))
             for p in r["problems"]:
                 print("      " + p)
+            if r.get("existing"):
+                print(f'      ({len(r["existing"])} problems already in the repository, not the draft\'s)')
         print("ok" if report["ok"] else "not ok")
     else:
         print(json.dumps(report, indent=2, ensure_ascii=False))

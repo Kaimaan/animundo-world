@@ -457,3 +457,8 @@ def main():
 
 
 main()
+# Leave without Blender's shutdown: on macOS, Blender 5.2.3 crashes while
+# stopping its threads after a headless run, and every crash opens a
+# "Blender quit unexpectedly" dialog. The build is already written.
+sys.stdout.flush()
+os._exit(0)
