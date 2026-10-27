@@ -125,6 +125,13 @@ def check(path):
         c = fw.get("cover")
         if not isinstance(c, (int, float)) or not 0 <= c <= 0.9:
             err('"ice.frozen_water.cover" must be a number from 0 to 0.9: swimmers must always find open water')
+    caves = d.get("caves", {})
+    if not isinstance(caves, dict):
+        err('"caves" must be an object')
+        caves = {}
+    num("caves", "amount", 0, 0.3)
+    if "entrances" in caves and not isinstance(caves["entrances"], bool):
+        err('"caves.entrances" must be true or false')
     edge = d.get("terrain", {}).get("edge")
     if edge is not None and edge not in EDGES:
         err(f'"terrain.edge" must be one of {sorted(EDGES)}')

@@ -1074,6 +1074,24 @@
     "schema": "fail",
     "validate_region": "fail"
    }
+  },
+  {
+   "name": "nuuksio_cave_riddled",
+   "why": "Caves are at most 0.3 of the rock: more would leave hills hollow.",
+   "edits": [
+    {
+     "file": "regions/fi_nuuksio.json",
+     "set": {
+      "/caves": {
+       "amount": 0.6
+      }
+     }
+    }
+   ],
+   "expect": {
+    "schema": "fail",
+    "validate_region": "fail"
+   }
   }
  ]
 }

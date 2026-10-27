@@ -712,6 +712,23 @@
           }
         }
       }
+    },
+    "caves": {
+      "description": "Optional caves under the hills: tunnels and chambers in the rock, dark inside, never beside water. Places without it have no caves.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "amount": {
+          "description": "How much of the rock under the hills is cave.",
+          "type": "number",
+          "minimum": 0,
+          "maximum": 0.3
+        },
+        "entrances": {
+          "description": "Caves open sideways where a slope drops away (default true).",
+          "type": "boolean"
+        }
+      }
     }
   },
   "allOf": [
