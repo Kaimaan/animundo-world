@@ -55,7 +55,7 @@ jobs:
           base=$(cat ../game/.world-sync)
           changed=$(git diff --name-only "$base" HEAD)
           if [ "${{ inputs.rebuild_all }}" = "true" ] || echo "$changed" | grep -q '^tools/blender/'; then
-            specs=$(ls models/*.json models/plants/*.json models/trees/*.json 2>/dev/null)
+            specs=$(ls models/*.json models/plants/*.json; ls models/trees/*.json 2>/dev/null || true)   # no tree specs yet is fine
           else
             specs=$(for f in $changed; do
               case "$f" in
