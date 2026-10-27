@@ -1,0 +1,459 @@
+{
+ "id": "common_crane",
+ "name": "Common crane (Grus grus)",
+ "author": "Animundo team",
+ "gait": "walk",
+ "fly_pitch": 0,
+ "colors": {
+  "grey": "#9ea3a6",
+  "dark": "#2e2d2c",
+  "white": "#e9e6df",
+  "red": "#b5302a",
+  "bill": "#7d7766",
+  "legs": "#3a3935",
+  "black": "#1c1a19"
+ },
+ "bones": [
+  {
+   "name": "body",
+   "head": [
+    0,
+    1.0,
+    -0.25
+   ],
+   "tail": [
+    0,
+    1.0,
+    0.2
+   ],
+   "role": "body"
+  },
+  {
+   "name": "neck",
+   "head": [
+    0,
+    1.06,
+    0.2
+   ],
+   "tail": [
+    0,
+    1.52,
+    0.3
+   ],
+   "parent": "body",
+   "role": "neck"
+  },
+  {
+   "name": "head",
+   "head": [
+    0,
+    1.52,
+    0.3
+   ],
+   "tail": [
+    0,
+    1.56,
+    0.5
+   ],
+   "parent": "neck",
+   "role": "head"
+  },
+  {
+   "name": "leg_l",
+   "head": [
+    0.07,
+    0.96,
+    0.0
+   ],
+   "tail": [
+    0.07,
+    0.0,
+    0.0
+   ],
+   "parent": "body",
+   "role": "leg",
+   "mirror": true
+  },
+  {
+   "name": "wing_l",
+   "head": [
+    0.1,
+    1.04,
+    0.05
+   ],
+   "tail": [
+    1.1,
+    1.04,
+    0.05
+   ],
+   "parent": "body",
+   "role": "wing",
+   "mirror": true,
+   "fold": [
+    -90,
+    10,
+    -80
+   ],
+   "fold_length": 0.6
+  }
+ ],
+ "parts": [
+  {
+   "name": "body",
+   "shape": "ball",
+   "size": [
+    0.26,
+    0.28,
+    0.5
+   ],
+   "at": [
+    0,
+    1.0,
+    -0.02
+   ],
+   "color": "grey",
+   "bone": "body"
+  },
+  {
+   "name": "breast",
+   "shape": "ball",
+   "size": [
+    0.22,
+    0.24,
+    0.24
+   ],
+   "at": [
+    0,
+    1.0,
+    0.14
+   ],
+   "color": "grey",
+   "bone": "body"
+  },
+  {
+   "name": "bustle",
+   "shape": "ball",
+   "size": [
+    0.22,
+    0.16,
+    0.26
+   ],
+   "at": [
+    0,
+    0.95,
+    -0.28
+   ],
+   "rot": [
+    20,
+    0,
+    0
+   ],
+   "color": "dark",
+   "bone": "body"
+  },
+  {
+   "name": "tail",
+   "shape": "ball",
+   "size": [
+    0.14,
+    0.06,
+    0.18
+   ],
+   "at": [
+    0,
+    1.0,
+    -0.34
+   ],
+   "color": "grey",
+   "bone": "body"
+  },
+  {
+   "name": "neck_1",
+   "shape": "ball",
+   "size": [
+    0.12,
+    0.13,
+    0.22
+   ],
+   "at": [
+    0.0,
+    1.106,
+    0.21
+   ],
+   "rot": [
+    -77.7,
+    0,
+    0
+   ],
+   "color": "grey",
+   "bone": "neck"
+  },
+  {
+   "name": "neck_2",
+   "shape": "ball",
+   "size": [
+    0.075,
+    0.085,
+    0.22
+   ],
+   "at": [
+    0.0,
+    1.267,
+    0.245
+   ],
+   "rot": [
+    -77.7,
+    0,
+    0
+   ],
+   "color": "dark",
+   "bone": "neck"
+  },
+  {
+   "name": "neck_3",
+   "shape": "ball",
+   "size": [
+    0.07,
+    0.08,
+    0.22
+   ],
+   "at": [
+    0.0,
+    1.428,
+    0.28
+   ],
+   "rot": [
+    -77.7,
+    0,
+    0
+   ],
+   "color": "dark",
+   "bone": "neck"
+  },
+  {
+   "name": "throat_stripe",
+   "shape": "ball",
+   "size": [
+    0.08,
+    0.06,
+    0.3
+   ],
+   "at": [
+    0,
+    1.336,
+    0.248
+   ],
+   "rot": [
+    -77.7,
+    0,
+    0
+   ],
+   "color": "white",
+   "bone": "neck"
+  },
+  {
+   "name": "head",
+   "shape": "ball",
+   "size": [
+    0.085,
+    0.09,
+    0.13
+   ],
+   "at": [
+    0,
+    1.57,
+    0.34
+   ],
+   "color": "dark",
+   "bone": "head"
+  },
+  {
+   "name": "cheek_l",
+   "shape": "ball",
+   "size": [
+    0.02,
+    0.05,
+    0.08
+   ],
+   "at": [
+    0.035,
+    1.565,
+    0.31
+   ],
+   "color": "white",
+   "bone": "head",
+   "mirror": true,
+   "separate": true,
+   "detail": 0.5
+  },
+  {
+   "name": "crown",
+   "shape": "ball",
+   "size": [
+    0.045,
+    0.02,
+    0.05
+   ],
+   "at": [
+    0,
+    1.612,
+    0.35
+   ],
+   "color": "red",
+   "bone": "head",
+   "separate": true,
+   "detail": 0.5
+  },
+  {
+   "name": "bill",
+   "shape": "cone",
+   "size": [
+    0.032,
+    0.13,
+    0.028
+   ],
+   "at": [
+    0,
+    1.56,
+    0.45
+   ],
+   "rot": [
+    90,
+    0,
+    0
+   ],
+   "color": "bill",
+   "bone": "head",
+   "separate": true,
+   "detail": 0.6
+  },
+  {
+   "name": "eye_l",
+   "shape": "ball",
+   "size": [
+    0.016,
+    0.016,
+    0.016
+   ],
+   "at": [
+    0.038,
+    1.585,
+    0.37
+   ],
+   "color": "black",
+   "bone": "head",
+   "mirror": true,
+   "separate": true,
+   "detail": 0.5
+  },
+  {
+   "name": "thigh_l",
+   "shape": "ball",
+   "size": [
+    0.06,
+    0.2,
+    0.07
+   ],
+   "at": [
+    0.07,
+    0.86,
+    0.0
+   ],
+   "color": "grey",
+   "bone": "leg_l",
+   "mirror": true
+  },
+  {
+   "name": "shin_l",
+   "shape": "cylinder",
+   "size": [
+    0.034,
+    0.4,
+    0.034
+   ],
+   "at": [
+    0.07,
+    0.6,
+    0.0
+   ],
+   "color": "legs",
+   "bone": "leg_l",
+   "mirror": true,
+   "detail": 0.5
+  },
+  {
+   "name": "shank_l",
+   "shape": "cylinder",
+   "size": [
+    0.03,
+    0.42,
+    0.03
+   ],
+   "at": [
+    0.07,
+    0.21,
+    0.0
+   ],
+   "color": "legs",
+   "bone": "leg_l",
+   "mirror": true,
+   "detail": 0.5
+  },
+  {
+   "name": "foot_l",
+   "shape": "ball",
+   "size": [
+    0.06,
+    0.02,
+    0.13
+   ],
+   "at": [
+    0.07,
+    0.01,
+    0.03
+   ],
+   "color": "legs",
+   "bone": "leg_l",
+   "mirror": true,
+   "detail": 0.5
+  },
+  {
+   "name": "wing_l",
+   "shape": "ball",
+   "size": [
+    0.95,
+    0.03,
+    0.22
+   ],
+   "at": [
+    0.56,
+    1.04,
+    0.0
+   ],
+   "color": "grey",
+   "bone": "wing_l",
+   "mirror": true,
+   "separate": true,
+   "detail": 0.6
+  },
+  {
+   "name": "wingtip_l",
+   "shape": "ball",
+   "size": [
+    0.32,
+    0.032,
+    0.15
+   ],
+   "at": [
+    0.95,
+    1.045,
+    -0.02
+   ],
+   "color": "dark",
+   "bone": "wing_l",
+   "mirror": true,
+   "separate": true,
+   "detail": 0.6
+  }
+ ]
+}

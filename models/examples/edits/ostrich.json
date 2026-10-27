@@ -1,0 +1,23 @@
+{
+ "reference": "common_crane",
+ "id": "ostrich_example",
+ "name": "Common ostrich (Struthio camelus)",
+ "author": "Animundo team",
+ "length_m": 2.0,
+ "shoulder_m": 1.5,
+ "colors": {"grey": "#2b2725", "dark": "#2b2725", "white": "#e9e6df", "red": "#c9a38c", "bill": "#c9a38c", "legs": "#c9a38c"},
+ "drop": ["wing_l"],
+ "head": 1.2,
+ "neck": 1.3,
+ "body_girth": 1.5,
+ "leg_thickness": 1.6,
+ "repaint": [
+  {"part": "neck_1", "color": "red"},
+  {"part": "neck_2", "color": "red"},
+  {"part": "neck_3", "color": "red"},
+  {"part": "throat_stripe", "color": "red"},
+  {"part": "head", "color": "red"},
+  {"part": "bustle", "color": "white"},
+  {"part": "tail", "color": "white"}
+ ]
+}

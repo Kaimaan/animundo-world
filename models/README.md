@@ -57,7 +57,7 @@ Don't start a new animal from nothing. Copy the existing model closest to it in 
 | Songbirds, woodpeckers | `great_tit`, `chaffinch` | Size, beak, colours; woodpecker: stiff tail, chisel beak |
 | Ducks, geese, swans | `mallard` | Size, neck length, bill |
 | Grouse: ptarmigan, black grouse, capercaillie | `mallard`, reshaped | Small head, short neck, short tail fan, feathered feet; walks more than it flies |
-| Wading birds: crane, heron | `mallard`, reshaped | Long legs, long neck and bill |
+| Long-legged birds: cranes, herons, storks, flamingo; ostrich and emu | `common_crane` | *Looks like:* a grey bird on long thin dark legs, a horizontal body with a dark drooping bustle over the tail, an upright black neck with a white stripe, a small dark head with a white cheek and a red crown, a short pointed bill. Change: size, neck length (`neck`), colours; flightless birds: `drop: ["wing_l"]`. Example: [ostrich](examples/edits/ostrich.json) |
 | Long fish: pike, salmon, trout | `pike` | Body depth, fins, colours |
 | Perch-shaped and deep-bodied fish | `perch`, `bream`, `roach` | Body depth, fins, colours |
 | Reef fish: clownfish, tangs, parrotfish, butterflyfish | `perch` or `bream`, reshaped | Bright colours and bands; tangs and butterflyfish are deep and flat like a bream. On a reef place's sandy floor among corals |

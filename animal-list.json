@@ -897,7 +897,7 @@
    "name": "Common crane",
    "latin": "Grus grus",
    "gbif_key": 2474950,
-   "start_from": "mallard",
+   "start_from": "common_crane",
    "habitats": [
     "wetland",
     "grassland"
@@ -909,7 +909,7 @@
    "name": "Grey heron",
    "latin": "Ardea cinerea",
    "gbif_key": 9797180,
-   "start_from": "mallard",
+   "start_from": "common_crane",
    "habitats": [
     "boreal_lake",
     "river",
@@ -922,7 +922,7 @@
    "name": "White stork",
    "latin": "Ciconia ciconia",
    "gbif_key": 2481912,
-   "start_from": "mallard",
+   "start_from": "common_crane",
    "habitats": [
     "wetland",
     "grassland"
@@ -1991,13 +1991,12 @@
    "name": "Common ostrich",
    "latin": "Struthio camelus",
    "gbif_key": 2495150,
-   "start_from": null,
+   "start_from": "common_crane",
    "habitats": [
     "savanna",
     "desert"
    ],
-   "can_make": false,
-   "not_yet": "body_plan"
+   "can_make": true
   },
   {
    "id": "bison",
@@ -2074,12 +2073,11 @@
    "name": "Emu",
    "latin": "Dromaius novaehollandiae",
    "gbif_key": 2495134,
-   "start_from": null,
+   "start_from": "common_crane",
    "habitats": [
     "grassland"
    ],
-   "can_make": false,
-   "not_yet": "body_plan"
+   "can_make": true
   },
   {
    "id": "horse",
@@ -2385,7 +2383,7 @@
    "name": "Greater flamingo",
    "latin": "Phoenicopterus roseus",
    "gbif_key": 4352332,
-   "start_from": "mallard",
+   "start_from": "common_crane",
    "habitats": [
     "wetland",
     "lake"
