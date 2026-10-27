@@ -16,8 +16,10 @@ Rules:
 - no two animal files, and no two plant specs, have the same gbif_key, unless
   the others are a stage_of the one (young_perch is a stage of perch);
 - a stage_of names an animal file of the same taxon that is not a stage itself;
-- every entry in poisonous-plants.json has a name and a gbif_key, and no
-  place's ground cover marks a plant of that taxon as food.
+- every entry in poisonous-plants.json has a name and a gbif_key, and a
+  place's ground cover may mark a plant of that taxon as food (animals really
+  eat some: Kai, 2026-10-27) only when the plant warns people in
+  locale/en/plants.json (`plant.<id>.warning` and `plant.<id>.about_safety`).
 
 Exits non-zero and lists every problem.
 """
@@ -78,14 +80,25 @@ def check_poison(root, plants, errors):
             errors.append(f"poisonous-plants.json: an entry needs a name and a gbif_key: {e}")
             continue
         poison[e["gbif_key"]] = e["name"]
+    texts = {}
+    plant_text = os.path.join(root, "locale", "en", "plants.json")
+    if os.path.isfile(plant_text):
+        with open(plant_text, encoding="utf-8") as fh:
+            texts = json.load(fh)
     regions = files(root, "regions")
     for rid, r in regions.items():
         gc = r.get("ground_cover", {}) if isinstance(r.get("ground_cover"), dict) else {}
         for p in gc.get("plants", []):
             model = p.get("model")
             key = plants.get(model, {}).get("taxon", {}).get("gbif_key")
-            if p.get("food") and key in poison:
-                errors.append(f'region {rid}: {model} ({poison[key]}) is poisonous, so it can\'t be food')
+            if not p.get("food") or key not in poison:
+                continue
+            # food for animals is fine; people must be told never to eat it
+            missing = [k for k in ("warning", "about_safety")
+                       if not str(texts.get(f"plant.{model}.{k}", "")).strip()]
+            if missing:
+                errors.append(f'region {rid}: {model} ({poison[key]}) is poisonous, so as food it needs '
+                              f'plant.{model}.{" and plant.{model}.".join(missing)} in locale/en/plants.json')
 
 
 def main():

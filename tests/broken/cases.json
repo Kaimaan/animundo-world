@@ -1040,7 +1040,34 @@
   },
   {
    "name": "nuuksio_poisonous_food",
-   "why": "A plant on poisonous-plants.json can never be food (spec 07).",
+   "why": "A poisonous plant may be food only when it warns people (plant.<id>.warning and about_safety); here the warning is gone.",
+   "edits": [
+    {
+     "file": "regions/fi_nuuksio.json",
+     "set": {
+      "/ground_cover/plants/3/food": "mushrooms"
+     }
+    },
+    {
+     "file": "locale/en/plants.json",
+     "delete": [
+      "/plant.fly_agaric.warning"
+     ]
+    },
+    {
+     "file": "locale/fi/plants.json",
+     "delete": [
+      "/plant.fly_agaric.warning"
+     ]
+    }
+   ],
+   "expect": {
+    "check_taxa": "fail"
+   }
+  },
+  {
+   "name": "nuuksio_poisonous_food_warned",
+   "why": "A poisonous plant animals eat stays in the game when it warns people (Kai, 2026-10-27).",
    "edits": [
     {
      "file": "regions/fi_nuuksio.json",
@@ -1049,9 +1076,7 @@
      }
     }
    ],
-   "expect": {
-    "check_taxa": "fail"
-   }
+   "expect": {}
   },
   {
    "name": "saimaa_frozen_shut",

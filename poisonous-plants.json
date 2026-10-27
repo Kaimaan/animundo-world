@@ -1,5 +1,5 @@
 {
-  "about": "Plants and fungi that are poisonous to people. No place may mark one as food, and the game shows them with a look-but-don't-pick warning. Matched by GBIF taxon ID (tools/taxon.py). Anyone may propose an addition in a pull request; entries are never removed, and the gate closes a pull request that takes one out.",
+  "about": "Plants and fungi that are poisonous to people. A place may mark one as food when animals really eat it, but then the plant must warn people (plant.<id>.warning and about_safety in locale/en/plants.json); the game shows them with a look-but-don't-pick warning. Matched by GBIF taxon ID (tools/taxon.py). Anyone may propose an addition in a pull request; entries are never removed, and the gate closes a pull request that takes one out.",
   "plants": [
     {"name": "Amanita muscaria", "gbif_key": 8168319, "why": "fly agaric: very poisonous to people"},
     {"name": "Anemone nemorosa", "gbif_key": 3033263, "why": "wood anemone: poisonous if eaten"},
