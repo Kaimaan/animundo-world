@@ -107,6 +107,24 @@ def check(path):
     num("terrain", "rock_ridges", 0, 1)
     num("terrain", "rock_above", 6, 28)
     num("terrain", "lakes", 0, 1)
+    ice = d.get("ice", {})
+    if not isinstance(ice, dict):
+        err('"ice" must be an object')
+        ice = {}
+    num("ice", "glacier_above", 6, 28)
+    for k, lo, hi in (("amount", 0, 0.3), ("height", 1, 8)):
+        v = ice.get("icebergs", {}).get(k)
+        if v is not None and (not isinstance(v, (int, float)) or not lo <= v <= hi):
+            err(f'"ice.icebergs.{k}" must be a number from {lo} to {hi}')
+    fw = ice.get("frozen_water")
+    if fw is not None:
+        when = r"^((0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])|(spring|summer|autumn|winter)([+-][0-9]{1,3})?)$"
+        for k in ("from", "until"):
+            if not (isinstance(fw.get(k), str) and re.match(when, fw[k])):
+                err(f'"ice.frozen_water.{k}" must be a date like "12-01" or a season mark like "winter+10"')
+        c = fw.get("cover")
+        if not isinstance(c, (int, float)) or not 0 <= c <= 0.9:
+            err('"ice.frozen_water.cover" must be a number from 0 to 0.9: swimmers must always find open water')
     edge = d.get("terrain", {}).get("edge")
     if edge is not None and edge not in EDGES:
         err(f'"terrain.edge" must be one of {sorted(EDGES)}')

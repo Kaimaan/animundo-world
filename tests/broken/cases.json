@@ -1052,6 +1052,28 @@
    "expect": {
     "check_taxa": "fail"
    }
+  },
+  {
+   "name": "saimaa_frozen_shut",
+   "why": "Frozen water must leave open water for swimmers: cover is at most 0.9.",
+   "edits": [
+    {
+     "file": "regions/fi_saimaa.json",
+     "set": {
+      "/ice": {
+       "frozen_water": {
+        "from": "12-01",
+        "until": "04-15",
+        "cover": 1.0
+       }
+      }
+     }
+    }
+   ],
+   "expect": {
+    "schema": "fail",
+    "validate_region": "fail"
+   }
   }
  ]
 }
