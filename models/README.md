@@ -16,7 +16,7 @@ tools/build_model.sh models/squirrel.json
 Follow the [art guide](../ART.md): real species, real size, flat natural colours, simple shapes.
 
 ## The quick way: ask your AI assistant
-> I want to add an animal model to the Animundo game. Read `ART.md`, `models/README.md` and `models/squirrel.json` as the example.
+> I want to add an animal model to the Animundo game. Read `ART.md`, `models/README.md` and the reference model for its body type (the table under [Reference models](#reference-models-where-to-start)) as the example.
 > Make a model spec for a **[ANIMAL]**, using its real size in metres, body proportions and colours.
 > Build it with `tools/build_model.sh models/<id>.json`, look at the preview sheet, and fix whatever looks wrong
 > (floating parts, gaps, wrong proportions, odd poses). Repeat until it looks right.
@@ -35,6 +35,39 @@ A person reviews the preview sheet in the pull request before it's merged. To ad
 | A row of balls looks like beads | Use more balls that overlap more, with `smooth: true`. |
 | A pose looks odd (e.g. legs through the body) | Lower that bone's `swing`, or move the bone's `head` to the joint. |
 | Wrong colour in a coat | Change the coat in `animals/<id>.json`; no rebuild is needed for the game. |
+
+## Reference models: where to start
+
+Don't start a new animal from nothing. Copy the existing model closest to it in **body plan and way of moving**, then scale it to the real size and reshape it. A new model is done when it is as good as its reference model in the game's style and a child would recognise the species; compare the two preview sheets side by side. The reference sheet or photos give proportions, colours and markings, not detail the builder can't make.
+
+| New animal | Start from | Change |
+|---|---|---|
+| Deer: red deer, roe deer, reindeer | `moose` | Lighter body and legs, antler shape; reindeer: heavier coat, both sexes carry antlers |
+| Wild boar, other heavy hoofed animals | `moose` | Short legs, low head, big snout |
+| Dog family: wolf, arctic fox | `fox` | Size, legs, tail, coat colours |
+| Weasel family: pine marten, otter, wolverine, badger | `fox` | Long low body, short legs; otter: swims like the seal |
+| Bear, lynx | `fox`, scaled up | Bear: heavy body, short tail, plantigrade feet; lynx: short tail, ear tufts |
+| Hares and rabbits | `mountain_hare` | Ears, coat |
+| Squirrels | `squirrel`; gliders: `flying_squirrel` | Size, tail, colours |
+| Mice, voles, shrews, lemmings | `vole` | Size, tail, snout |
+| Seals | `saimaa_seal` | Size, head, coat pattern |
+| Birds of prey, owls | `kestrel` | Size, wing length, beak; owls: big round head, short tail (night animals come later) |
+| Songbirds, woodpeckers | `great_tit`, `chaffinch` | Size, beak, colours; woodpecker: stiff tail, chisel beak |
+| Ducks, geese, swans | `mallard` | Size, neck length, bill |
+| Grouse: ptarmigan, black grouse, capercaillie | `mallard`, reshaped | Small head, short neck, short tail fan, feathered feet; walks more than it flies |
+| Wading birds: crane, heron | `mallard`, reshaped | Long legs, long neck and bill |
+| Long fish: pike, salmon, trout | `pike` | Body depth, fins, colours |
+| Perch-shaped and deep-bodied fish | `perch`, `bream`, `roach` | Body depth, fins, colours |
+| Frogs and toads | `frog` | Skin, colours |
+| Lizards | `lizard` | Size, colours |
+| Bees, bumblebees, wasps | `bee` | Size, bands |
+| **Not possible yet** | | |
+| Snakes, slow worm | none | Needs legless crawling in the builder |
+| Whales, dolphins | none | Swim with up-and-down tail beats and a flat fluke (fish beat side to side), and need open sea; the pike or seal won't do |
+| Butterflies, dragonflies | none | Need broad flapping insect wings (the bee only buzzes) |
+| Bats | none | Wings from the arms; night animals come later |
+
+When a new animal is approved, it becomes the reference model for its kind: add it to this table (the builder does this in its pull request), and later animals of that kind start from it.
 
 ## The spec
 Positions are in the game's coordinates, in **metres**, with the animal standing on the ground at `y = 0` and facing forward:
