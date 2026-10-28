@@ -77,6 +77,7 @@
   "ui.dig_tip": "Look down while digging to dig deeper, or up to dig upwards.",
   "ui.map_edge": "This is the edge of the map for now. More of the world is coming!",
   "ui.border.unexplored": "Nobody has explored past here yet. Explorers are coming to make it!",
+  "ui.border.safe": "Explorers in Survival and Wild can go further. Choose one of them to help make this land!",
   "ui.area.coming_soon": "Coming soon",
   "ui.area.through_mist": "New land through the mist: {name}",
   "ui.area.go": "Go to the new land",

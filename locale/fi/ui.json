@@ -77,6 +77,7 @@
   "ui.dig_tip": "Katso alas kaivaessasi, niin kaivat syvemmälle. Katso ylös, niin kaivat ylöspäin.",
   "ui.map_edge": "Tässä on kartan reuna toistaiseksi. Lisää maailmaa on tulossa!",
   "ui.border.unexplored": "Kukaan ei ole vielä tutkinut tätä pidemmälle. Tutkimusmatkailijat ovat tulossa tekemään sen!",
+  "ui.border.safe": "Tutkijat pelitavoissa Selviytyminen ja Villi pääsevät pidemmälle. Valitse jompikumpi, niin autat tekemään tätä maata!",
   "ui.area.coming_soon": "Tulossa pian",
   "ui.area.through_mist": "Uutta maata sumun takana: {name}",
   "ui.area.go": "Mene uuteen maahan",
