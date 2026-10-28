@@ -308,6 +308,21 @@ def check(path):
                 v = pl.get(k)
                 if not isinstance(v, (int, float)) or not 0 <= v <= 1:
                     err(f'"places[{i}].{k}" must be a number from 0 to 1 (or use "at": "highest")')
+    # named start spots for links like ?place=fi_nuuksio&animal=fox&at=mist (never coordinates in a link)
+    spots = d.get("start_spots", {})
+    if not isinstance(spots, dict):
+        err('"start_spots" must be {name: {x, z, facing}}')
+        spots = {}
+    for name, spot in spots.items():
+        if not re.match(r"^[a-z][a-z0-9_]*$", name) or not isinstance(spot, dict):
+            err(f'"start_spots.{name}" must be a lowercase name with {{x, z, facing}}')
+            continue
+        for k in ("x", "z"):
+            v = spot.get(k)
+            if not isinstance(v, (int, float)) or not 0 <= v <= 1:
+                err(f'"start_spots.{name}.{k}" must be a number from 0 to 1')
+        if spot.get("facing", "north") not in ("north", "east", "south", "west"):
+            err(f'"start_spots.{name}.facing" must be north, east, south or west')
     for k in ("reeds", "lilies", "pondweed"):
         num("lake_life", k, 0, 1)
     for i, f in enumerate(d.get("fish", [])):

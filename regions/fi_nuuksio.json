@@ -325,6 +325,9 @@
       "islands": 0
     }
   ],
+  "start_spots": {
+    "mist": {"x": 0.5, "z": 0.22, "facing": "north", "about": "a minute's walk from the mist at the north side (the judges' start link, ?at=mist)"}
+  },
   "places": [
     {
       "name": "Haukankallio",
