@@ -386,9 +386,15 @@ def tail_length(spec, target):
 
 
 def tail_width(spec, f):
+    """Thins or thickens the tail across its line, never along it: a vole's tail parts are turned to
+    lie along z, so scaling local x and y shortened them into loose dashes behind a capybara."""
     for p in group(spec, ("tail",)):
-        p["size"][0] *= f
-        p["size"][1] *= f
+        b = bone(spec, p["bone"]) if p.get("bone") else None
+        d = [b["tail"][i] - b["head"][i] for i in range(3)] if b else None
+        along = long_axis(p, d) if d and any(d) else long_axis(p)
+        for i in range(3):
+            if i != along:
+                p["size"][i] *= f
 
 
 def add_marks(spec, marks, edits=None):
