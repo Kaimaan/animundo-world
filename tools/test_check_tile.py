@@ -47,6 +47,15 @@ def broken(good):
     t["edges"]["n"][20] = 40
     cases.append(("edge over the world's height", "edges", t))
     t = copy.deepcopy(good)
+    t["height"] = 64
+    cases.append(("64 blocks tall on low land", "edges", t))
+    t = copy.deepcopy(good)
+    t["level"] = 40
+    cases.append(("a level over the tile's height", "edges", t))
+    t = copy.deepcopy(good)
+    t["level"] = 6
+    cases.append(("a land cell under the water level", "edges", t))
+    t = copy.deepcopy(good)
     t["edges"]["n"][0] = t["edges"]["w"][64] + 1
     cases.append(("corner that doesn't match", "edges", t))
     t = copy.deepcopy(good)

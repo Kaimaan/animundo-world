@@ -10,6 +10,8 @@
   "grid_north": -24.6,
   "habitat": "boreal_forest",
   "ecoregion": 717,
+  "level": 15,
+  "height": 32,
   "home": "boreal_forest",
   "seed": 2843117,
   "water": 0.18,

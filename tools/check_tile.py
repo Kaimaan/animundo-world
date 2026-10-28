@@ -21,8 +21,10 @@ regions/<place>.json itself. Then:
   food     food first (decision 0011, check_animals.py's rule): every animal
            finds all its food in the home, and every hunter some prey
   edges    65 samples a side, whole blocks, the corners agree (n[0] == w[64],
-           n[64] == e[64], s[0] == w[0], s[64] == e[0]) and every sample is
-           inside the land's limits: above 0 and under terrain.height
+           n[64] == e[64], s[0] == w[0], s[64] == e[0]); every sample and the
+           cell's level are above 0 and under the tile's own height; the height
+           is 64 when the level or a sample is above 28, else 32; the level is
+           above the shared water level (8) on land and under it at sea
 
 A group file (8 x 8 cells) checks each tile, and also that each tile is in
 the group's cells and that neighbours in the group share their sides exactly
@@ -58,6 +60,9 @@ GRIDS = {"ease2_n25": "n", "ease2_s25": "s"}
 SAMPLES = 65        # one every 16 m along a 1,024 m side
 TILE_SIZE = 1024    # metres in the game
 SIDES = ("n", "e", "s", "w")
+WATER_LEVEL = 8     # one water level for every home on the grid (spec/02 Part 1)
+TALL_ABOVE = 28     # a tile is 64 blocks tall when its level or an edge sample is above this (spec/04)
+SEA = ("sea", "open_ocean")
 CODE_ONLY = ("habitat", "ecoregion", "home", "seed", "water", "species")
 
 
@@ -89,6 +94,10 @@ def tile_problems(t):
     if not (isinstance(c, dict) and isinstance(c.get("lat"), (int, float)) and -90 <= c["lat"] <= 90
             and isinstance(c.get("lon"), (int, float)) and -180 <= c["lon"] <= 180):
         out.append('"center" must be {"lat", "lon"}')
+    if not is_int(t.get("level")):
+        out.append('"level" must be the cell\'s ground level in whole blocks')
+    if t.get("height") not in (32, 64):
+        out.append('"height" must be 32 or 64')
     if not (isinstance(t.get("grid_north"), (int, float)) and -180 <= t["grid_north"] <= 180):
         out.append('"grid_north" must be degrees from -180 to 180')
     kind = t.get("kind")
@@ -197,11 +206,12 @@ def food_problems(rid, region, content):
     return checker.errors
 
 
-def edge_problems(edges, region):
+def edge_problems(t):
+    edges = t.get("edges")
     if not isinstance(edges, dict) or set(edges) != set(SIDES):
         return ['"edges" must have exactly "n", "e", "s" and "w"']
     out = []
-    height = region.get("terrain", {}).get("height", 32) if region else 32
+    height = t["height"] if t.get("height") in (32, 64) else 32
     for side in SIDES:
         e = edges[side]
         if not isinstance(e, list) or len(e) != SAMPLES:
@@ -212,13 +222,27 @@ def edge_problems(edges, region):
             continue
         bad = [i for i, v in enumerate(e) if not 0 < v < height]
         if bad:
-            out.append(f'"edges.{side}" leaves the land\'s limits (above 0, under the height {height}) at '
+            out.append(f'"edges.{side}" leaves the land\'s limits (above 0, under the tile\'s height {height}) at '
                        + ", ".join(f"[{i}] = {e[i]}" for i in bad[:5]) + (" ..." if len(bad) > 5 else ""))
     if out:
         return out
     for a, i, b, j in (("n", 0, "w", 64), ("n", 64, "e", 64), ("s", 0, "w", 0), ("s", 64, "e", 0)):
         if edges[a][i] != edges[b][j]:
             out.append(f'corners don\'t agree: {a}[{i}] is {edges[a][i]} but {b}[{j}] is {edges[b][j]}')
+    level = t.get("level")
+    if not is_int(level):
+        return out
+    if not 0 < level < height:
+        out.append(f'"level" {level} is outside the land\'s limits (above 0, under the tile\'s height {height})')
+    tall = level > TALL_ABOVE or any(v > TALL_ABOVE for side in SIDES for v in edges[side])
+    if tall and height != 64:
+        out.append(f'"height" must be 64: the level or an edge sample is above {TALL_ABOVE}')
+    elif not tall and height != 32:
+        out.append(f'"height" must be 32: nothing here is above {TALL_ABOVE}')
+    if t.get("kind") == "code" and t.get("habitat") in SEA and level >= WATER_LEVEL:
+        out.append(f'"level" {level} of a sea cell must be under the water level {WATER_LEVEL}')
+    elif t.get("kind") == "code" and t.get("habitat") not in SEA and level <= WATER_LEVEL:
+        out.append(f'"level" {level} of a land cell must be above the water level {WATER_LEVEL}')
     return out
 
 
@@ -229,18 +253,18 @@ def check_tile(t):
     results = [result("tile", shape)]
     if shape:
         return results + [skip(c, "the tile's fields are wrong") for c in ("animals", "region", "food")] + \
-            ([result("edges", edge_problems(t.get("edges"), None))] if isinstance(t, dict) else [])
+            ([result("edges", edge_problems(t))] if isinstance(t, dict) else [])
     results.append(result("animals", animal_problems(t, content)))
     region, why = region_of(t)
     if region is None:
-        return results + [result("region", [why]), skip("food", "no region"), result("edges", edge_problems(t["edges"], None))]
+        return results + [result("region", [why]), skip("food", "no region"), result("edges", edge_problems(t))]
     plants = os.path.join(ROOT, "assets", "plants")
     if os.path.isdir(plants) and any(f.endswith(".glb") for f in os.listdir(plants)):
         results.append(result("region", homes.region_problems(region)))
     else:
         results.append(skip("region", "models not built: run tools/build_model.sh first"))
     results.append(result("food", food_problems(region["id"], region, content)))
-    results.append(result("edges", edge_problems(t["edges"], region)))
+    results.append(result("edges", edge_problems(t)))
     return results
 
 
