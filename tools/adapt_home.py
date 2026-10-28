@@ -125,8 +125,7 @@ def adapt(base, c):
     terrain = home.setdefault("terrain", {})
     for k in ("water_level", "height", "seabed"):
         terrain.pop(k, None)
-    if tall != HEIGHT:
-        terrain["height"] = tall
+    terrain["height"] = tall   # always stated: 32, or 64 for mountains (a tile on the grid is one or the other)
     terrain.update({"base_height": base_height, "relief": relief, "frequency": land["frequency"],
                     "rock_ridges": land["rock_ridges"]})
     terrain["lakes"] = wet["lakes"]

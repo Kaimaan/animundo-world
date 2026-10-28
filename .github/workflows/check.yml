@@ -70,6 +70,8 @@ jobs:
           for h in homes/examples/*.json; do
             python3 tools/adapt_home.py homes/boreal_forest.json "$h" --check --out /tmp/home.json || exit 1
           done
+      - name: Example homes have one water level and their height
+        run: python3 tools/test_adapt_home.py
       - name: Check animals and translations
         run: python3 tools/check_animals.py
       - name: One real species, one file
