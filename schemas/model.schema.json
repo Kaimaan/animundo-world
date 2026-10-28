@@ -61,9 +61,9 @@
               "parent": {"description": "A bone defined above it, or root (the default).", "type": "string"},
               "role": {
                 "description": "ROLES in tools/blender/build_model.py.",
-                "enum": ["body", "head", "neck", "leg", "tail", "ear", "wing", "fin", "jaw", "none"]
+                "enum": ["body", "head", "neck", "leg", "tail", "ear", "wing", "fin", "jaw", "spine", "none"]
               },
-              "phase": {"type": "number", "minimum": 0, "maximum": 1},
+              "phase": {"description": "Where in the swing this bone starts (0 to 1). Spine bones may go past 1: the wave grows tailward.", "type": "number", "minimum": 0, "maximum": 4},
               "swing": {"type": "number"},
               "mirror": {"description": "Adds a right-side copy; the name must end in _l.", "type": "boolean"},
               "separate": {"type": "boolean"},
@@ -104,7 +104,9 @@
         "sleep_legs": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "number"}},
         "fly_pitch": {"type": "number"},
         "fly_legs": {"type": "number"},
-        "wingbeat": {"enum": ["buzz"]}
+        "wingbeat": {"enum": ["buzz"]},
+        "undulate": {"description": "How spine bones wave: side (snakes, eels) or up (whales).", "enum": ["side", "up"]},
+        "swims": {"description": "A swim clip without fins (a whale's flukes, a swimming snake).", "type": "boolean"}
       }
     },
     "plant_model": {
