@@ -1,0 +1,71 @@
+{
+ "base": "boreal_forest",
+ "caves": "none",
+ "description": "Hot flat sand with tall date palms growing around a small desert pool.",
+ "flowers": [],
+ "food": [
+  {
+   "kind": "berries",
+   "names": [
+    "date"
+   ]
+  },
+  {
+   "kind": "browse",
+   "names": [
+    "desert scrub"
+   ]
+  },
+  {
+   "kind": "insects",
+   "names": [
+    "grasshopper"
+   ]
+  }
+ ],
+ "grass": "none",
+ "ice": "none",
+ "land": "flat",
+ "palette": {
+  "dirt": "#a67c4e",
+  "ground_dry": "#e3c07f",
+  "ground_high": "#d9ae6b",
+  "ground_lush": "#b89a55",
+  "rock": "#c2a173",
+  "sand": "#f0d99a",
+  "water_deep": "#204e54",
+  "water_shallow": "#5d9a90"
+ },
+ "plants": [],
+ "seabed": "mud",
+ "trees": {
+  "density": "sparse",
+  "mix": [
+   {
+    "autumn": null,
+    "food": "berries",
+    "leaves": "#5e8f3e",
+    "shape": "pine",
+    "trunk": "#7d5f3f",
+    "weight": 100
+   }
+  ]
+ },
+ "water": "pools",
+ "water_life": {
+  "lilies": "none",
+  "pondweed": "none",
+  "reeds": "some"
+ },
+ "water_name": "Small desert pool",
+ "wetness": "dry",
+ "id": "desert",
+ "tropical": false,
+ "sources": [
+  "https://en.wikipedia.org/wiki/Fennec_fox",
+  "https://www.nationalgeographic.com/animals/mammals/facts/fennec-fox",
+  "https://animaldiversity.org/accounts/Vulpes_zerda/",
+  "https://animals.sandiegozoo.org/animals/fennec-fox",
+  "GBIF.org"
+ ]
+}

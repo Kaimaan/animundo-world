@@ -1,0 +1,66 @@
+{
+ "base": "boreal_forest",
+ "caves": "none",
+ "description": "Flat open tundra with no tall trees and low bushes and grasses around many still pools.",
+ "flowers": [],
+ "food": [
+  {
+   "kind": "grass",
+   "names": [
+    "water sedge",
+    "tundra grasses"
+   ]
+  },
+  {
+   "kind": "browse",
+   "names": [
+    "arctic willow",
+    "dwarf birch"
+   ]
+  }
+ ],
+ "grass": "lush",
+ "ice": "frozen_in_winter",
+ "land": "flat",
+ "palette": {
+  "dirt": "#5a4a3a",
+  "ground_dry": "#a3a06b",
+  "ground_high": "#8a8f7a",
+  "ground_lush": "#7a8a44",
+  "rock": "#8d8d8f",
+  "sand": "#c8bf9e",
+  "water_deep": "#27454e",
+  "water_shallow": "#5f8a86"
+ },
+ "plants": [
+  {
+   "model": "cottongrass"
+  },
+  {
+   "model": "reindeer_lichen"
+  },
+  {
+   "model": "peat_moss"
+  }
+ ],
+ "seabed": "mud",
+ "trees": {
+  "density": "none",
+  "mix": []
+ },
+ "water": "pools",
+ "water_life": {
+  "lilies": "none",
+  "pondweed": "some",
+  "reeds": "some"
+ },
+ "water_name": "Tundra pools",
+ "wetness": "very_wet",
+ "id": "tundra",
+ "tropical": false,
+ "sources": [
+  "https://animaldiversity.org/accounts/Ovibos_moschatus/",
+  "https://home.nps.gov/bela/learn/nature/muskox.htm",
+  "GBIF.org"
+ ]
+}

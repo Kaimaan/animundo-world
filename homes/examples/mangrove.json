@@ -1,0 +1,73 @@
+{
+ "base": "boreal_forest",
+ "caves": "none",
+ "description": "Flat muddy banks with grey mangrove and paperbark trees along a wide tidal river.",
+ "flowers": [],
+ "food": [
+  {
+   "kind": "grass",
+   "names": [
+    "river grass"
+   ]
+  },
+  {
+   "kind": "insects",
+   "names": [
+    "insects"
+   ]
+  }
+ ],
+ "grass": "some",
+ "ice": "none",
+ "land": "flat",
+ "palette": {
+  "dirt": "#5b4a38",
+  "ground_dry": "#8a7d5a",
+  "ground_high": "#6f8a4f",
+  "ground_lush": "#5d7f3e",
+  "rock": "#8d8177",
+  "sand": "#b9a888",
+  "water_deep": "#23483e",
+  "water_shallow": "#5f7f6f"
+ },
+ "plants": [],
+ "seabed": "mud",
+ "trees": {
+  "density": "dense",
+  "mix": [
+   {
+    "autumn": null,
+    "food": null,
+    "leaves": "#6f8f6a",
+    "shape": "round",
+    "trunk": "#6e5d4d",
+    "weight": 60
+   },
+   {
+    "autumn": null,
+    "food": null,
+    "leaves": "#4e7d46",
+    "shape": "birch",
+    "trunk": "#e5dcc8",
+    "weight": 40
+   }
+  ]
+ },
+ "water": "river",
+ "water_life": {
+  "lilies": "none",
+  "pondweed": "none",
+  "reeds": "some"
+ },
+ "water_name": "Wide tidal river",
+ "wetness": "very_wet",
+ "id": "mangrove",
+ "tropical": true,
+ "sources": [
+  "https://animaldiversity.org/accounts/Crocodylus_porosus/",
+  "https://en.wikipedia.org/wiki/Saltwater_crocodile",
+  "https://en.wikipedia.org/wiki/Barramundi",
+  "https://en.wikipedia.org/wiki/Wild_boar",
+  "GBIF.org"
+ ]
+}

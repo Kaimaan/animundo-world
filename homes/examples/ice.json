@@ -1,0 +1,50 @@
+{
+ "base": "boreal_forest",
+ "caves": "none",
+ "description": "A flat frozen sea of ice and snow with a rocky shore and cold sea water and no trees.",
+ "flowers": [],
+ "food": [
+  {
+   "kind": "water_plants",
+   "names": [
+    "seaweed"
+   ]
+  }
+ ],
+ "grass": "none",
+ "ice": "polar",
+ "land": "flat",
+ "palette": {
+  "dirt": "#6e6a63",
+  "ground_dry": "#d7dee3",
+  "ground_high": "#ffffff",
+  "ground_lush": "#eef3f6",
+  "rock": "#7d8287",
+  "sand": "#b8b4a8",
+  "water_deep": "#12394e",
+  "water_shallow": "#6b9aa8"
+ },
+ "plants": [],
+ "seabed": "mud",
+ "trees": {
+  "density": "none",
+  "mix": []
+ },
+ "water": "sea",
+ "water_life": {
+  "lilies": "none",
+  "pondweed": "none",
+  "reeds": "none"
+ },
+ "water_name": "Cold sea",
+ "wetness": "dry",
+ "id": "ice",
+ "tropical": false,
+ "sources": [
+  "https://npolar.no/en/?p=30663",
+  "https://ielc.libguides.com/sdzg/factsheets/polarbear/characteristics",
+  "https://www.thoughtco.com/what-do-polar-bears-eat-2291919",
+  "https://zooologist.com/do-polar-bears-hibernate/",
+  "GBIF.org"
+ ]
+}

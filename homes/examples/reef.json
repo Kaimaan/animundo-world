@@ -1,0 +1,64 @@
+{
+ "base": "boreal_forest",
+ "caves": "none",
+ "description": "Flat white sand islands with no trees in a warm clear blue sea full of coral.",
+ "flowers": [],
+ "food": [
+  {
+   "kind": "water_plants",
+   "names": [
+    "algae"
+   ]
+  },
+  {
+   "kind": "water_bugs",
+   "names": [
+    "zooplankton",
+    "tiny shrimp"
+   ]
+  },
+  {
+   "kind": "bottom_bugs",
+   "names": [
+    "marine worms"
+   ]
+  }
+ ],
+ "grass": "none",
+ "ice": "none",
+ "land": "flat",
+ "palette": {
+  "dirt": "#cbb98a",
+  "ground_dry": "#e3d5a5",
+  "ground_high": "#e9e0c2",
+  "ground_lush": "#6fb86a",
+  "rock": "#d5cfc0",
+  "sand": "#f7efda",
+  "water_deep": "#0e4d7a",
+  "water_shallow": "#2ec4b6"
+ },
+ "plants": [],
+ "seabed": "sand",
+ "trees": {
+  "density": "none",
+  "mix": []
+ },
+ "water": "sea",
+ "water_life": {
+  "lilies": "none",
+  "pondweed": "none",
+  "reeds": "none"
+ },
+ "water_name": "Warm shallow sea",
+ "wetness": "dry",
+ "id": "reef",
+ "tropical": true,
+ "sources": [
+  "https://animaldiversity.org/accounts/Amphiprion_percula/",
+  "https://en.wikipedia.org/wiki/Orange_clownfish",
+  "https://aqua.org/explore/animals/percula-clownfish",
+  "https://australian.museum/learn/animals/fishes/eastern-clown-anemonefish-amphiprion-percula/",
+  "https://reeflings.com/encyclopedia/percula-clownfish",
+  "GBIF.org"
+ ]
+}

@@ -1,0 +1,60 @@
+{
+ "base": "boreal_forest",
+ "caves": "none",
+ "description": "Green rocky hills with sandy beaches and a few small trees beside the cold wide sea.",
+ "flowers": [],
+ "food": [
+  {
+   "kind": "water_plants",
+   "names": [
+    "kelp",
+    "wrack"
+   ]
+  }
+ ],
+ "grass": "some",
+ "ice": "none",
+ "land": "hilly",
+ "palette": {
+  "dirt": "#6b5138",
+  "ground_dry": "#8aa056",
+  "ground_high": "#7a8f60",
+  "ground_lush": "#5d8f3f",
+  "rock": "#8b8d89",
+  "sand": "#d6c69a",
+  "water_deep": "#20495e",
+  "water_shallow": "#4e8381"
+ },
+ "plants": [],
+ "seabed": "mud",
+ "trees": {
+  "density": "sparse",
+  "mix": [
+   {
+    "autumn": "#c9a13b",
+    "food": "browse",
+    "leaves": "#4f7d34",
+    "shape": "round",
+    "trunk": "#6a4a33",
+    "weight": 100
+   }
+  ]
+ },
+ "water": "sea",
+ "water_life": {
+  "lilies": "none",
+  "pondweed": "many",
+  "reeds": "some"
+ },
+ "water_name": "Grey open sea",
+ "wetness": "wet",
+ "id": "sea",
+ "tropical": false,
+ "sources": [
+  "https://www.mammal.org.uk",
+  "https://en.wikipedia.org",
+  "https://wildlifeonline.me.uk",
+  "https://ceredigion.gov.uk",
+  "GBIF.org"
+ ]
+}

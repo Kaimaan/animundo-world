@@ -1,0 +1,96 @@
+{
+ "base": "boreal_forest",
+ "caves": "none",
+ "description": "High rocky mountains with bright green meadows, a few larch trees and a cold clear stream.",
+ "flowers": [
+  {
+   "color": "#f2f0e6",
+   "name": "edelweiss"
+  },
+  {
+   "color": "#3a6fd8",
+   "name": "alpine gentian"
+  },
+  {
+   "color": "#9a6ac8",
+   "name": "alpine aster"
+  }
+ ],
+ "food": [
+  {
+   "kind": "grass",
+   "names": [
+    "alpine fescue",
+    "wavy hair grass",
+    "matgrass"
+   ]
+  },
+  {
+   "kind": "browse",
+   "names": [
+    "larch shoots",
+    "juniper twigs",
+    "bilberry leaves",
+    "alpine herbs"
+   ]
+  }
+ ],
+ "grass": "lush",
+ "ice": "glaciers",
+ "land": "mountains",
+ "palette": {
+  "dirt": "#6b5540",
+  "ground_dry": "#a8a05e",
+  "ground_high": "#8d9380",
+  "ground_lush": "#6aa84f",
+  "rock": "#a3a3a3",
+  "sand": "#d3c5a0",
+  "water_deep": "#204d5e",
+  "water_shallow": "#4f9aa0"
+ },
+ "plants": [
+  {
+   "model": "juniper"
+  },
+  {
+   "model": "bilberry"
+  },
+  {
+   "model": "wavy_hair_grass"
+  },
+  {
+   "model": "white_clover"
+  }
+ ],
+ "seabed": "mud",
+ "trees": {
+  "density": "sparse",
+  "mix": [
+   {
+    "autumn": "#e8b83a",
+    "food": "browse",
+    "leaves": "#7fb255",
+    "shape": "pine",
+    "trunk": "#6b4f3a",
+    "weight": 100
+   }
+  ]
+ },
+ "water": "river",
+ "water_life": {
+  "lilies": "none",
+  "pondweed": "none",
+  "reeds": "none"
+ },
+ "water_name": "Cold mountain stream",
+ "wetness": "dry",
+ "id": "mountain",
+ "tropical": false,
+ "sources": [
+  "https://en.wikipedia.org/wiki/Alpine_ibex",
+  "https://animaldiversity.org/accounts/Capra_ibex/",
+  "https://www.ultimateungulate.com/Artiodactyla/Capra_ibex.html",
+  "https://alpineibex.com/",
+  "GBIF.org"
+ ]
+}
