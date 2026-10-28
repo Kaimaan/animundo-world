@@ -2,16 +2,16 @@
 
 A **home** is the land of one habitat, ready to copy: terrain, trees, ground plants, water, food kinds and fish, with no name, no center and no animals. Animundo Builder's animal-first build (a grown-up picks an animal, then a spot where it lives) copies the home that fits the animal, names it and centres it on the spot, then adds the animal, its food and its neighbours.
 
-| Home | Habitat in `animal-list.json` | Based on |
-|---|---|---|
-| `boreal_forest.json` | `boreal_forest` | `regions/fi_nuuksio.json` |
-| `boreal_lake.json` | `boreal_lake` | `regions/fi_saimaa.json` |
-| `tundra.json` | `tundra` | `examples/tundra.json` on `boreal_forest.json` (`adapt_home.py`) |
-| `rainforest.json` | `rainforest` | `examples/rainforest.json` on `boreal_forest.json` |
-| `savanna.json` | `savanna` | `examples/savanna.json` on `boreal_forest.json` |
-| `sea.json` | `sea` | `examples/sea.json` on `boreal_forest.json` |
+| Home | Habitat in `animal-list.json` | RESOLVE ecoregions | Based on |
+|---|---|---|---|
+| `boreal_forest.json` | `boreal_forest` | 717 Scandinavian and Russian taiga | `regions/fi_nuuksio.json` |
+| `boreal_lake.json` | `boreal_lake` | 717 Scandinavian and Russian taiga (the lakes) | `regions/fi_saimaa.json` |
+| `tundra.json` | `tundra` | 780 Scandinavian montane birch forest and grasslands (the Lapland fells) | `examples/tundra.json` on `boreal_forest.json` (`adapt_home.py`) |
+| `rainforest.json` | `rainforest` | 483 Napo moist forests (Yasuní) | `examples/rainforest.json` on `boreal_forest.json` |
+| `savanna.json` | `savanna` | 57 Southern Acacia-Commiphora bushlands and thickets (the Serengeti) | `examples/savanna.json` on `boreal_forest.json` |
+| `sea.json` | `sea` | 651 Celtic broadleaf forests (the Welsh coast) | `examples/sea.json` on `boreal_forest.json` |
 
-A home is a region file with two extra fields, `based_on` and `about` (a note for builders); its `description` is what players read. Make a region from one with:
+A home is a region file with three extra fields: `ecoregions`, the [RESOLVE Ecoregions 2017](https://ecoregions.appspot.com) ids (`ECO_ID`, CC BY 4.0) it stands for; `based_on`, the home (or place) it was adapted from; and `about`, a note for builders. Its `description` is what players read. On the tile grid (Proposal 0038) a cell is built from the home that lists its ecoregion; `boreal_forest` and `boreal_lake` share the taiga, and the cell's lake share picks. A new ecoregion gets its own home, adapted from the nearest one. Make a region from one with:
 
 ```bash
 python3 tools/homes.py make boreal_forest --id fi_lynx_forest --name "Lynx forest" --country Finland --lat 61.2 --lon 26.9

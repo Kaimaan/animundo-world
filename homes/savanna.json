@@ -9,7 +9,10 @@
   "description": "A flat sunny grassland with a few flat-topped thorn trees and muddy seasonal pools.",
   "about": "Home template made by tools/adapt_home.py from boreal_forest.",
   "author": "Animundo team",
-  "based_on": "fi_nuuksio",
+  "based_on": "boreal_forest",
+  "ecoregions": [
+    57
+  ],
   "terrain": {
     "size": 2048,
     "base_height": 10,

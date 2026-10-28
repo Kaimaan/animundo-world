@@ -10,6 +10,9 @@
   "about": "Home template. boreal forest of spruce, pine and birch on rolling rocky ground, with small lakes, bogs and streams. Based on Nuuksio. The builder copies it for an animal whose home is a northern forest, then names it, sets its center and adds the animal, its food and its neighbours.",
   "author": "Animundo team",
   "based_on": "fi_nuuksio",
+  "ecoregions": [
+    717
+  ],
   "terrain": {
     "size": 2048,
     "base_height": 9,

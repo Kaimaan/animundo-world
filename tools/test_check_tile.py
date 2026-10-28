@@ -3,7 +3,7 @@
 Also: a hand-made place with a tile grid section (Proposal 0038) still passes.
 
 tests/tiles/n_412_301.json is a tile next to Nuuksio from the boreal forest
-home; it must pass. Each broken copy changes one thing and must fail exactly
+home; it must pass, and so must the same tile with a valid blend. Each broken copy changes one thing and must fail exactly
 the check named for it. A group file of the good tile and its east
 neighbour passes when their shared side matches and fails "neighbours" when
 it doesn't. Nuuksio and Saimaa with a "grid" section and an open edge pass
@@ -62,7 +62,25 @@ def broken(good):
     t["home"] = t["habitat"] = "desert"
     t["requires"]["homes"] = ["desert"]
     cases.append(("a home that doesn't exist", ["animals", "region"], t))
+    t = copy.deepcopy(good)
+    t["ecoregion"] = 780   # the fell birch forest: the tundra home's, not boreal_forest's
+    cases.append(("a home that doesn't list the tile's ecoregion", "animals", t))
+    t = copy.deepcopy(good)
+    t["blend"] = {"home": "tundra", "share": 0.3}
+    cases.append(("a blend requires doesn't list", "animals", t))
+    t = copy.deepcopy(good)
+    t["blend"] = {"home": "tundra", "share": 0.7}
+    t["requires"]["homes"].append("tundra")
+    cases.append(("a blend over half the cell", "tile", t))
     return cases
+
+
+def blended(good):
+    """The good tile on the taiga's edge with the fell birch forest: a valid blend."""
+    t = copy.deepcopy(good)
+    t["blend"] = {"home": "tundra", "share": 0.3}
+    t["requires"]["homes"].append("tundra")
+    return t
 
 
 def neighbour(good):
@@ -126,6 +144,9 @@ def main():
             code, r = report(t, tmp, f"broken{i}")
             if code != 1 or failed(r["results"]) != (check if isinstance(check, list) else [check]):
                 errors.append(f"{name}: should fail exactly {check}, failed {failed(r['results'])} (exit {code})")
+        code, r = report(blended(good), tmp, "blend")
+        if code != 0 or failed(r["results"]):
+            errors.append(f"a valid blend failed: {[x for x in r['results'] if x['status'] == 'fail']}")
         east = neighbour(good)
         group = {"format": 1, "grid": "ease2_n25", "group": [51, 37], "version": 1,
                  "tiles": {"n_412_301": good, "n_413_301": east}, "blocked": {"n_414_301": {"reason": "no_home", "habitat": "tundra"}}}
@@ -136,7 +157,7 @@ def main():
         code, r = report(group, tmp, "group_bad")
         if code != 1 or failed(r["results"]) != ["neighbours"]:
             errors.append(f"a group whose shared side doesn't match should fail neighbours, failed {failed(r['results'])}")
-        ran = 3 + len(cases)
+        ran = 4 + len(cases)
     ran += grid_sections(errors)
     for e in errors:
         print("ERROR: " + e, file=sys.stderr)

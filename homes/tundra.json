@@ -9,7 +9,10 @@
   "description": "Flat open tundra with no tall trees and low bushes and grasses around many still pools.",
   "about": "Home template made by tools/adapt_home.py from boreal_forest.",
   "author": "Animundo team",
-  "based_on": "fi_nuuksio",
+  "based_on": "boreal_forest",
+  "ecoregions": [
+    780
+  ],
   "terrain": {
     "size": 2048,
     "base_height": 10,

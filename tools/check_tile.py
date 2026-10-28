@@ -11,9 +11,11 @@ and centred on it, with the tile's seed and animals, 1,024 m square and with
 an open edge. A "place" tile is a cell of a hand-made place, so its region is
 regions/<place>.json itself. Then:
 
-  tile     the tile's own fields (format, id, kind, seed, water, species, requires)
-  animals  every animal is in animals/, the playable ones are playable, and
-           requires lists the home and every animal
+  tile     the tile's own fields (format, id, kind, ecoregion, blend, seed, water,
+           species, requires)
+  animals  the home lists the tile's ecoregion, a blend's home exists, every
+           animal is in animals/, the playable ones are playable, and requires
+           lists every home and animal
   region   validate_region.py and the region schema on the made region
            (needs the models built, like check_draft.py)
   food     food first (decision 0011, check_animals.py's rule): every animal
@@ -56,7 +58,7 @@ GRIDS = {"ease2_n25": "n", "ease2_s25": "s"}
 SAMPLES = 65        # one every 16 m along a 1,024 m side
 TILE_SIZE = 1024    # metres in the game
 SIDES = ("n", "e", "s", "w")
-CODE_ONLY = ("habitat", "home", "seed", "water", "species")
+CODE_ONLY = ("habitat", "ecoregion", "home", "seed", "water", "species")
 
 
 def is_int(v):
@@ -94,6 +96,15 @@ def tile_problems(t):
         for key in CODE_ONLY:
             if key not in t:
                 out.append(f'a code tile needs "{key}"')
+        if not (is_int(t.get("ecoregion")) and t["ecoregion"] >= 1):
+            out.append('"ecoregion" must be a RESOLVE 2017 ecoregion id')
+        if "blend" in t:
+            b = t["blend"]
+            if not (isinstance(b, dict) and set(b) == {"home", "share"} and isinstance(b["home"], str) and b["home"]
+                    and isinstance(b["share"], (int, float)) and not isinstance(b["share"], bool)):
+                out.append('"blend" must be {"home", "share"}')
+            elif not 0.1 <= b["share"] <= 0.5:
+                out.append('"blend.share" must be from 0.1 to 0.5: the second ecoregion\'s share of the cell')
         if not (is_int(t.get("seed")) and 0 <= t["seed"] < 2 ** 31):
             out.append('"seed" must be a 31-bit whole number')
         if not (isinstance(t.get("water"), (int, float)) and 0 <= t["water"] <= 1):
@@ -152,10 +163,20 @@ def animal_problems(t, content):
             out.append(f'"requires.animals": there is no animals/{a}.json')
     if t["kind"] != "code":
         return out
-    if t["home"] != t["habitat"]:
-        out.append(f'"home" is "{t["home"]}" but "habitat" is "{t["habitat"]}": a tile is built from its habitat\'s home')
-    if t["home"] not in req["homes"]:
-        out.append(f'"requires.homes" must list the tile\'s home "{t["home"]}"')
+    if t["home"] in homes.homes() and t["ecoregion"] not in homes.load(t["home"]).get("ecoregions", []):
+        out.append(f'homes/{t["home"]}.json doesn\'t list the tile\'s ecoregion {t["ecoregion"]}: '
+                   'a tile is built from its ecoregion\'s home')
+    used = [t["home"]]
+    if "blend" in t:
+        b = t["blend"]["home"]
+        used.append(b)
+        if b == t["home"]:
+            out.append('"blend.home" is the tile\'s own home: leave "blend" out')
+        elif b not in homes.homes():
+            out.append(f'"blend.home": there is no homes/{b}.json')
+    for h in used:
+        if h not in req["homes"]:
+            out.append(f'"requires.homes" must list "{h}"')
     for role in ("playable", "prey", "predators"):
         for a in t["species"][role]:
             if not content.exists(a):

@@ -9,7 +9,10 @@
   "description": "Flat muddy rainforest with huge green leafy trees beside a slow brown river.",
   "about": "Home template made by tools/adapt_home.py from boreal_forest.",
   "author": "Animundo team",
-  "based_on": "fi_nuuksio",
+  "based_on": "boreal_forest",
+  "ecoregions": [
+    483
+  ],
   "terrain": {
     "size": 2048,
     "base_height": 10,

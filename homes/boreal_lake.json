@@ -10,6 +10,9 @@
   "about": "Home template. a big freshwater lake with wooded islands and rocky shores in the northern forest. Based on Saimaa. The builder copies it for an animal whose home is a northern lake, then names it, sets its center and adds the animal, its food and its neighbours.",
   "author": "Animundo team",
   "based_on": "fi_saimaa",
+  "ecoregions": [
+    717
+  ],
   "terrain": {
     "size": 1024,
     "base_height": 12,
