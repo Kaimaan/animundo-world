@@ -31,7 +31,9 @@ import validate_region  # noqa: E402
 # fields a home has that a region doesn't: notes for builders, not players
 HOME_ONLY = ("based_on", "about")
 # a spot to check each home at: where it was based on
-CHECK_AT = {"boreal_forest": (60.3, 24.53), "boreal_lake": (62.12, 28.51)}
+CHECK_AT = {"boreal_forest": (60.3, 24.53), "boreal_lake": (62.12, 28.51),
+            # Proposal 0038's lab spots: Pallas, Yasuní, the Serengeti, Pembrokeshire
+            "tundra": (68.4, 23.6), "rainforest": (-1.0, -75.5), "savanna": (-2.33, 34.83), "sea": (52.0, -4.5)}
 
 
 def homes():
@@ -60,6 +62,11 @@ def problems(habitat):
     lat, lon = CHECK_AT.get(habitat, (60.3, 24.53))
     region = make(habitat, f"fi_home_{habitat}", "Home check", "Finland", lat, lon)
     region["animals"]["playable"] = ["fox"]
+    return region_problems(region)
+
+
+def region_problems(region):
+    """validate_region.py's problems for a made region, then the region schema's."""
     with tempfile.TemporaryDirectory() as tmp:
         path = os.path.join(tmp, region["id"] + ".json")
         with open(path, "w", encoding="utf-8") as f:

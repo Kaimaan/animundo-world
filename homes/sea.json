@@ -1,0 +1,140 @@
+{
+  "id": "sea",
+  "name": "Sea home",
+  "country": "",
+  "center": {
+    "lat": 0,
+    "lon": 0
+  },
+  "description": "Green rocky hills with sandy beaches and a few small trees beside the cold wide sea.",
+  "about": "Home template made by tools/adapt_home.py from boreal_forest.",
+  "author": "Animundo team",
+  "based_on": "fi_nuuksio",
+  "terrain": {
+    "size": 2048,
+    "base_height": 17,
+    "relief": 10,
+    "frequency": 0.04,
+    "rock_ridges": 0.4,
+    "rock_above": 30,
+    "lakes": 0.15,
+    "edge": "lake",
+    "seed": 1811587497,
+    "height": 40,
+    "water_level": 16
+  },
+  "palette": {
+    "ground_lush": "#5d8f3f",
+    "ground_dry": "#8aa056",
+    "ground_high": "#7a8f60",
+    "dirt": "#6b5138",
+    "rock": "#8b8d89",
+    "sand": "#d6c69a",
+    "water_deep": "#20495e",
+    "water_shallow": "#4e8381",
+    "ground_autumn": "#8aa056",
+    "snow": "#eef2f6",
+    "heath_autumn": "#8aa056"
+  },
+  "sky": {
+    "day": "#8fc6ea",
+    "horizon": "#eef2ec",
+    "dusk": "#f2a07a",
+    "night": "#141a3a",
+    "sun": "#ffe8c4"
+  },
+  "trees": {
+    "density": 0.004,
+    "mix": [
+      {
+        "shape": "round",
+        "weight": 100,
+        "leaves": "#4f7d34",
+        "trunk": "#6a4a33",
+        "food": "browse",
+        "autumn": "#c9a13b"
+      }
+    ]
+  },
+  "ground_cover": {
+    "grass": 0.15,
+    "flowers": 0.0,
+    "flower_colors": [],
+    "flower_names": [],
+    "stones": 0.04,
+    "plants": []
+  },
+  "lakes": [
+    {
+      "name": "Grey open sea",
+      "x": 0.5,
+      "z": 0.36,
+      "length": 1.5,
+      "width": 0.2,
+      "angle": 0,
+      "depth": 12,
+      "islands": 2
+    }
+  ],
+  "places": [],
+  "lake_life": {
+    "reeds": 0.0,
+    "lilies": 0.0,
+    "pondweed": 0.35
+  },
+  "food": [
+    {
+      "kind": "water_plants",
+      "weight": 8,
+      "names": [
+        "kelp",
+        "wrack"
+      ]
+    }
+  ],
+  "fish": [],
+  "migrants": [],
+  "animals": {
+    "playable": [],
+    "predators": [],
+    "prey": []
+  },
+  "sources": [
+    "https://www.mammal.org.uk",
+    "https://en.wikipedia.org",
+    "https://wildlifeonline.me.uk",
+    "https://ceredigion.gov.uk",
+    "GBIF.org"
+  ],
+  "bogs": [
+    {
+      "x": 0.3,
+      "z": 0.62,
+      "radius": 55,
+      "name": "Pool"
+    }
+  ],
+  "streams": [
+    {
+      "width": 4,
+      "points": [
+        [
+          0.18,
+          0.7
+        ],
+        [
+          0.27,
+          0.6
+        ],
+        [
+          0.33,
+          0.55
+        ],
+        [
+          0.42,
+          0.5
+        ]
+      ]
+    }
+  ]
+}

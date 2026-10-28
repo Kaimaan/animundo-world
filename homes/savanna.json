@@ -1,0 +1,127 @@
+{
+  "id": "savanna",
+  "name": "Savanna home",
+  "country": "",
+  "center": {
+    "lat": 0,
+    "lon": 0
+  },
+  "description": "A flat sunny grassland with a few flat-topped thorn trees and muddy seasonal pools.",
+  "about": "Home template made by tools/adapt_home.py from boreal_forest.",
+  "author": "Animundo team",
+  "based_on": "fi_nuuksio",
+  "terrain": {
+    "size": 2048,
+    "base_height": 10,
+    "relief": 4,
+    "frequency": 0.02,
+    "rock_ridges": 0.0,
+    "rock_above": 17,
+    "lakes": 0.03,
+    "edge": "none",
+    "seed": 1811587497
+  },
+  "palette": {
+    "ground_lush": "#7d9b3f",
+    "ground_dry": "#c8b15e",
+    "ground_high": "#a89e6a",
+    "dirt": "#7a5a3e",
+    "rock": "#8a817a",
+    "sand": "#d3c092",
+    "water_deep": "#3d4f3f",
+    "water_shallow": "#7a8a6a",
+    "ground_autumn": "#c8b15e",
+    "snow": "#eef2f6",
+    "heath_autumn": "#c8b15e"
+  },
+  "sky": {
+    "day": "#8fc6ea",
+    "horizon": "#eef2ec",
+    "dusk": "#f2a07a",
+    "night": "#141a3a",
+    "sun": "#ffe8c4"
+  },
+  "trees": {
+    "density": 0.004,
+    "mix": [
+      {
+        "shape": "umbrella_thorn",
+        "weight": 100,
+        "leaves": "#7d9a48",
+        "trunk": "#5e4a3a",
+        "food": "browse"
+      }
+    ]
+  },
+  "ground_cover": {
+    "grass": 0.3,
+    "flowers": 0.0,
+    "flower_colors": [],
+    "flower_names": [],
+    "stones": 0.04,
+    "plants": []
+  },
+  "lakes": [],
+  "places": [],
+  "lake_life": {
+    "reeds": 0.15,
+    "lilies": 0.0,
+    "pondweed": 0.0
+  },
+  "food": [
+    {
+      "kind": "grass",
+      "amount": 10,
+      "names": [
+        "red oat grass",
+        "buffalo grass",
+        "star grass"
+      ]
+    },
+    {
+      "kind": "browse",
+      "weight": 12,
+      "names": [
+        "umbrella thorn",
+        "whistling thorn",
+        "small thorn bushes"
+      ]
+    },
+    {
+      "kind": "carrion",
+      "weight": 4,
+      "names": [
+        "wildebeest remains",
+        "zebra remains",
+        "gazelle remains"
+      ]
+    }
+  ],
+  "fish": [],
+  "migrants": [],
+  "animals": {
+    "playable": [],
+    "predators": [],
+    "prey": []
+  },
+  "sources": [
+    "ielc.libguides.com - African and Asian Lions Fact Sheet",
+    "eol.org - African Lion articles",
+    "masaimarawildlife.org - Panthera Leo"
+  ],
+  "bogs": [
+    {
+      "x": 0.3,
+      "z": 0.62,
+      "radius": 55,
+      "name": "Muddy water holes"
+    },
+    {
+      "x": 0.66,
+      "z": 0.4,
+      "radius": 45,
+      "name": "Pool"
+    }
+  ],
+  "streams": []
+}

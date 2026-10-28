@@ -1,0 +1,191 @@
+{
+  "id": "tundra",
+  "name": "Tundra home",
+  "country": "",
+  "center": {
+    "lat": 0,
+    "lon": 0
+  },
+  "description": "Flat open tundra with no tall trees and low bushes and grasses around many still pools.",
+  "about": "Home template made by tools/adapt_home.py from boreal_forest.",
+  "author": "Animundo team",
+  "based_on": "fi_nuuksio",
+  "terrain": {
+    "size": 2048,
+    "base_height": 10,
+    "relief": 4,
+    "frequency": 0.02,
+    "rock_ridges": 0.0,
+    "rock_above": 17,
+    "lakes": 0.3,
+    "edge": "none",
+    "seed": 1811587497
+  },
+  "palette": {
+    "ground_lush": "#7a8a44",
+    "ground_dry": "#a3a06b",
+    "ground_high": "#8a8f7a",
+    "dirt": "#5a4a3a",
+    "rock": "#8d8d8f",
+    "sand": "#c8bf9e",
+    "water_deep": "#27454e",
+    "water_shallow": "#5f8a86",
+    "ground_autumn": "#a3a06b",
+    "snow": "#eef2f6",
+    "heath_autumn": "#a3a06b"
+  },
+  "sky": {
+    "day": "#8fc6ea",
+    "horizon": "#eef2ec",
+    "dusk": "#f2a07a",
+    "night": "#141a3a",
+    "sun": "#ffe8c4"
+  },
+  "trees": {
+    "density": 0.0,
+    "mix": []
+  },
+  "ground_cover": {
+    "grass": 0.3,
+    "flowers": 0.0,
+    "flower_colors": [],
+    "flower_names": [],
+    "stones": 0.04,
+    "plants": [
+      {
+        "model": "cottongrass",
+        "density": 0.15,
+        "habitat": "bog"
+      },
+      {
+        "model": "reindeer_lichen",
+        "density": 0.03,
+        "on": [
+          "rock"
+        ]
+      },
+      {
+        "model": "peat_moss",
+        "density": 0.7,
+        "habitat": "bog"
+      }
+    ]
+  },
+  "lakes": [],
+  "places": [],
+  "lake_life": {
+    "reeds": 0.15,
+    "lilies": 0.0,
+    "pondweed": 0.15
+  },
+  "food": [
+    {
+      "kind": "grass",
+      "amount": 10,
+      "names": [
+        "water sedge",
+        "tundra grasses"
+      ]
+    },
+    {
+      "kind": "browse",
+      "weight": 12,
+      "names": [
+        "arctic willow",
+        "dwarf birch"
+      ]
+    }
+  ],
+  "fish": [],
+  "migrants": [],
+  "animals": {
+    "playable": [],
+    "predators": [],
+    "prey": []
+  },
+  "sources": [
+    "https://animaldiversity.org/accounts/Ovibos_moschatus/",
+    "https://home.nps.gov/bela/learn/nature/muskox.htm",
+    "GBIF.org"
+  ],
+  "bogs": [
+    {
+      "x": 0.3,
+      "z": 0.62,
+      "radius": 55,
+      "name": "Tundra pools"
+    },
+    {
+      "x": 0.66,
+      "z": 0.4,
+      "radius": 45,
+      "name": "Pool"
+    },
+    {
+      "x": 0.3,
+      "z": 0.62,
+      "radius": 55,
+      "name": "Pool"
+    },
+    {
+      "x": 0.66,
+      "z": 0.4,
+      "radius": 45,
+      "name": "Pool"
+    }
+  ],
+  "streams": [
+    {
+      "width": 4,
+      "points": [
+        [
+          0.18,
+          0.7
+        ],
+        [
+          0.27,
+          0.6
+        ],
+        [
+          0.33,
+          0.55
+        ],
+        [
+          0.42,
+          0.5
+        ]
+      ]
+    },
+    {
+      "width": 4,
+      "points": [
+        [
+          0.62,
+          0.22
+        ],
+        [
+          0.58,
+          0.32
+        ],
+        [
+          0.62,
+          0.42
+        ],
+        [
+          0.72,
+          0.48
+        ]
+      ]
+    }
+  ],
+  "seasons": {
+    "snow": true
+  },
+  "ice": {
+    "frozen_water": {
+      "from": "winter",
+      "until": "spring+20",
+      "cover": 0.7
+    }
+  }
+}

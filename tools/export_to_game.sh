@@ -16,6 +16,9 @@ for d in regions animals; do
 done
 rsync -a --delete --include '*/' --include '*.json' --include '*.png' --include '*.md' --include '.gdignore' \
 	--exclude '*' models/ "$GAME/models/"
+# homes, which the game builds code-made tiles from (Proposal 0038); not homes/examples/
+mkdir -p "$GAME/homes"
+rsync -a --delete --include '*.json' --exclude '*' homes/ "$GAME/homes/"
 # content text only: menu text (ui, loading, seasons, languages.json) belongs to the game repo
 for f in locale/*/animals.json locale/*/food.json locale/*/plants.json locale/*/regions.json; do
 	[ -f "$f" ] || continue

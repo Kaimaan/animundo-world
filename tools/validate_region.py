@@ -17,7 +17,8 @@ TREE_SHAPES = {"spruce", "pine", "birch", "round", "rowan"}
 PLANT_FOOD_KINDS = {"berries", "mushrooms", "clover", "browse"}  # food from ground-cover plants (not nectar yet)
 FOOD_KINDS = {"clover", "carrot", "berries", "insects", "water_bugs", "browse", "water_plants", "cones", "bottom_bugs", "seeds",
               "grass", "bark", "carrion"}
-EDGES = {"lake", "none"}
+EDGES = {"lake", "none", "open"}   # open: no sea at the edge, the land meets the tiles around it (0038)
+GRIDS = {"ease2_n25", "ease2_s25"}   # the tile grids (0038): 720 x 720 cells of 25 km
 MIGRANT_KINDS = {"geese", "cranes"}  # flocks the game can draw (scripts/migrants.gd)
 PLANT_GROUND = {"grass", "rock", "sand", "seabed"}   # seabed: under water (corals, sea grass)
 HEX = re.compile(r"^#[0-9a-fA-F]{6}$")
@@ -147,6 +148,19 @@ def check(path):
     edge = d.get("terrain", {}).get("edge")
     if edge is not None and edge not in EDGES:
         err(f'"terrain.edge" must be one of {sorted(EDGES)}')
+
+    # a hand-made place on the tile grid: the cells it fills, {"grid": "ease2_n25", "tiles": [[col, row], ...]}
+    if "grid" in d:
+        g = d["grid"]
+        tiles = g.get("tiles") if isinstance(g, dict) else None
+        if not isinstance(g, dict) or set(g) != {"grid", "tiles"} or g.get("grid") not in GRIDS:
+            err(f'"grid" must be {{"grid": one of {sorted(GRIDS)}, "tiles": [[col, row], ...]}}')
+        elif not (isinstance(tiles, list) and tiles and all(
+                isinstance(t, list) and len(t) == 2 and all(isinstance(v, int) and not isinstance(v, bool) and 0 <= v <= 719 for v in t)
+                for t in tiles)):
+            err('"grid.tiles" must be a list of [col, row] cells, each from 0 to 719')
+        elif len({tuple(t) for t in tiles}) != len(tiles):
+            err('"grid.tiles" lists a cell twice')
 
     for section in ("palette", "sky"):
         for k, v in d.get(section, {}).items():

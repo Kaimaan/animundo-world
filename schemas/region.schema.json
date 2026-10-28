@@ -52,6 +52,38 @@
         "$ref": "#/$defs/text"
       }
     },
+    "grid": {
+      "description": "Optional: the tile grid cells this hand-made place fills (Proposal 0038), e.g. {\"grid\": \"ease2_n25\", \"tiles\": [[412, 301], [413, 301]]}.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "grid",
+        "tiles"
+      ],
+      "properties": {
+        "grid": {
+          "enum": [
+            "ease2_n25",
+            "ease2_s25"
+          ]
+        },
+        "tiles": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 719
+            }
+          }
+        }
+      }
+    },
     "center": {
       "type": "object",
       "additionalProperties": false,
@@ -112,9 +144,11 @@
           "maximum": 1
         },
         "edge": {
+          "description": "What is at the edge of the land: lake (water all round), none, or open (no sea at the edge: the land meets the tiles around it, for a place on the tile grid).",
           "enum": [
             "lake",
-            "none"
+            "none",
+            "open"
           ]
         },
         "seed": {

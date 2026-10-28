@@ -1,0 +1,174 @@
+{
+  "id": "rainforest",
+  "name": "Rainforest home",
+  "country": "",
+  "center": {
+    "lat": 0,
+    "lon": 0
+  },
+  "description": "Flat muddy rainforest with huge green leafy trees beside a slow brown river.",
+  "about": "Home template made by tools/adapt_home.py from boreal_forest.",
+  "author": "Animundo team",
+  "based_on": "fi_nuuksio",
+  "terrain": {
+    "size": 2048,
+    "base_height": 10,
+    "relief": 4,
+    "frequency": 0.02,
+    "rock_ridges": 0.0,
+    "rock_above": 17,
+    "lakes": 0.3,
+    "edge": "none",
+    "seed": 1811587497
+  },
+  "palette": {
+    "ground_lush": "#2f7d2c",
+    "ground_dry": "#6f9a3f",
+    "ground_high": "#2a6b2e",
+    "dirt": "#5e422e",
+    "rock": "#7d7a72",
+    "sand": "#c2ad85",
+    "water_deep": "#3f4a2c",
+    "water_shallow": "#7a7e5e",
+    "ground_autumn": "#6f9a3f",
+    "snow": "#eef2f6",
+    "heath_autumn": "#6f9a3f"
+  },
+  "sky": {
+    "day": "#8fc6ea",
+    "horizon": "#eef2ec",
+    "dusk": "#f2a07a",
+    "night": "#141a3a",
+    "sun": "#ffe8c4"
+  },
+  "trees": {
+    "density": 0.03,
+    "mix": [
+      {
+        "shape": "round",
+        "weight": 55,
+        "leaves": "#2e8b3d",
+        "trunk": "#8d857a",
+        "food": "browse"
+      },
+      {
+        "shape": "round",
+        "weight": 45,
+        "leaves": "#1f6f2f",
+        "trunk": "#5f4632"
+      }
+    ]
+  },
+  "ground_cover": {
+    "grass": 0.15,
+    "flowers": 0.0,
+    "flower_colors": [],
+    "flower_names": [],
+    "stones": 0.04,
+    "plants": []
+  },
+  "lakes": [
+    {
+      "name": "Slow river",
+      "x": 0.5,
+      "z": 0.3,
+      "length": 1.4,
+      "width": 0.05,
+      "angle": 8,
+      "depth": 4,
+      "islands": 1
+    }
+  ],
+  "places": [],
+  "lake_life": {
+    "reeds": 0.15,
+    "lilies": 0.35,
+    "pondweed": 0.15
+  },
+  "food": [
+    {
+      "kind": "browse",
+      "weight": 12,
+      "names": [
+        "kapok leaves"
+      ]
+    },
+    {
+      "kind": "water_plants",
+      "weight": 8,
+      "names": [
+        "water lettuce"
+      ]
+    }
+  ],
+  "fish": [],
+  "migrants": [],
+  "animals": {
+    "playable": [],
+    "predators": [],
+    "prey": []
+  },
+  "sources": [
+    "https://a-z-animals.com/animals/green-anaconda/",
+    "https://en.wikipedia.org/wiki/Green_anaconda",
+    "https://www.seaworld.org/animals/facts/reptiles/green-anaconda"
+  ],
+  "bogs": [
+    {
+      "x": 0.3,
+      "z": 0.62,
+      "radius": 55,
+      "name": "Pool"
+    },
+    {
+      "x": 0.66,
+      "z": 0.4,
+      "radius": 45,
+      "name": "Pool"
+    }
+  ],
+  "streams": [
+    {
+      "width": 4,
+      "points": [
+        [
+          0.18,
+          0.7
+        ],
+        [
+          0.27,
+          0.6
+        ],
+        [
+          0.33,
+          0.55
+        ],
+        [
+          0.42,
+          0.5
+        ]
+      ]
+    },
+    {
+      "width": 4,
+      "points": [
+        [
+          0.62,
+          0.22
+        ],
+        [
+          0.58,
+          0.32
+        ],
+        [
+          0.62,
+          0.42
+        ],
+        [
+          0.72,
+          0.48
+        ]
+      ]
+    }
+  ]
+}

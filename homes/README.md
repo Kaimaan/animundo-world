@@ -6,12 +6,18 @@ A **home** is the land of one habitat, ready to copy: terrain, trees, ground pla
 |---|---|---|
 | `boreal_forest.json` | `boreal_forest` | `regions/fi_nuuksio.json` |
 | `boreal_lake.json` | `boreal_lake` | `regions/fi_saimaa.json` |
+| `tundra.json` | `tundra` | `examples/tundra.json` on `boreal_forest.json` (`adapt_home.py`) |
+| `rainforest.json` | `rainforest` | `examples/rainforest.json` on `boreal_forest.json` |
+| `savanna.json` | `savanna` | `examples/savanna.json` on `boreal_forest.json` |
+| `sea.json` | `sea` | `examples/sea.json` on `boreal_forest.json` |
 
 A home is a region file with two extra fields, `based_on` and `about` (a note for builders); its `description` is what players read. Make a region from one with:
 
 ```bash
 python3 tools/homes.py make boreal_forest --id fi_lynx_forest --name "Lynx forest" --country Finland --lat 61.2 --lon 26.9
 ```
+
+The four from the examples were looked at in the game at Proposal 0038's lab spots and approved by Kai (2026-10-28). Animundo Builder's tile maker builds code-made tiles from these homes and checks each with `python3 tools/check_tile.py <tile.json>`.
 
 `python3 tools/homes.py check` makes every home at a sample spot and runs the region checks on it (CI runs it too).
 

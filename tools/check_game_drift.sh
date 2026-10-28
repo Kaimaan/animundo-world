@@ -20,9 +20,10 @@ matches() {
 	"$tmp/w/tools/export_to_game.sh" "$tmp/g" > /dev/null
 	: > "$REPORT"
 	( cd "$tmp/g" && find . -type f ! -name '*.glb' | sed 's|^\./||' ) | while read -r f; do
+		case "$f" in homes/*) [ -d "$GAME/homes" ] || continue ;; esac   # the game has no homes until their first sync
 		cmp -s "$tmp/g/$f" "$GAME/$f" || echo "  $f" >> "$REPORT"
 	done
-	for d in regions animals models; do
+	for d in regions animals models $(cd "$GAME" && ls -d homes 2>/dev/null); do
 		( cd "$GAME" && find "$d" -type f ! -name '*.import' ) | while read -r f; do
 			[ -f "$tmp/g/$f" ] || echo "  $f (only in the game repo)" >> "$REPORT"
 		done

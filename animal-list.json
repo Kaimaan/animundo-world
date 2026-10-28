@@ -20,7 +20,11 @@
  ],
  "homes": [
   "boreal_forest",
-  "boreal_lake"
+  "boreal_lake",
+  "rainforest",
+  "savanna",
+  "sea",
+  "tundra"
  ],
  "not_yet": {
   "bats": "Bats fly with their arms, and night animals come later.",
