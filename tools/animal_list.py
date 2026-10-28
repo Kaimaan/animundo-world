@@ -4,7 +4,8 @@
 Animal first (spec 04, inbox #40): the builder's first screen asks "Which animal
 would you like to be?" and matches the typed text, in the browser, against this
 list. Each entry says what we start its model from (a reference model from the
-table in models/README.md), the habitats it lives in (each one a home in
+table in models/README.md), which game animal's file the maker starts its
+animal file from (`file_from`), the habitats it lives in (each one a home in
 homes/ once that home exists), and whether we can make it yet.
 
 The table below is the source. This tool writes animal-list.json from it:
@@ -283,6 +284,18 @@ TABLE = [
 ]
 
 REFERENCES_ELSEWHERE = {"grass_snake", "harbour_porpoise", "peacock_butterfly"}  # models/examples/
+# The game animal whose file the maker shows as its example, when the model's
+# reference is a model only (no animals/<start>.json): the closest way of life.
+FILE_FROM = {
+    "horse": "moose", "brown_bear": "fox", "common_crane": "mallard",
+    "emperor_penguin": "mallard", "reef_shark": "pike", "grass_snake": "lizard",
+    "harbour_porpoise": "saimaa_seal", "peacock_butterfly": "bee",
+}
+
+
+def file_from(start, lib):
+    """The example animal file for a model started from `start`."""
+    return start if start in lib else FILE_FROM.get(start)
 
 
 def library():
@@ -326,7 +339,8 @@ def entries(resolve):
             if problem:
                 problems.append(problem)
         entry = {"id": animal_id, "name": name, "latin": latin, "gbif_key": key,
-                 "start_from": start, "habitats": habitats, "can_make": not_yet is None}
+                 "start_from": start, "file_from": file_from(start, lib),
+                 "habitats": habitats, "can_make": not_yet is None}
         if not_yet:
             entry["not_yet"] = not_yet
         if in_library:
@@ -338,6 +352,7 @@ def entries(resolve):
 def table_problems():
     """Offline rules for the table itself."""
     problems, ids, keys = [], set(), {}
+    lib = library()
     models = {os.path.basename(p)[:-5] for p in glob.glob(os.path.join(ROOT, "models", "*.json"))}
     for animal_id, name, latin, start, habitats, not_yet in TABLE:
         if animal_id in ids:
@@ -353,6 +368,8 @@ def table_problems():
             problems.append(f"{animal_id}: unknown reason {not_yet}")
         if not_yet is None and start not in models | REFERENCES_ELSEWHERE:
             problems.append(f"{animal_id}: start_from {start} is not a reference model")
+        if not_yet is None and file_from(start, lib) is None:
+            problems.append(f"{animal_id}: no game animal file to start from for {start} (add it to FILE_FROM)")
     return problems
 
 
