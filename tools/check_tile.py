@@ -13,7 +13,7 @@ regions/<place>.json itself. Then:
 
   tile     the tile's own fields (format, id, kind, ecoregion, blend, seed, water,
            species, requires)
-  animals  the home lists the tile's ecoregion, a blend's home exists, every
+  animals  the home lists the tile's ecoregion and has its habitat, a blend's home exists, every
            animal is in animals/, the playable ones are playable, and requires
            lists every home and animal
   region   validate_region.py and the region schema on the made region
@@ -172,9 +172,13 @@ def animal_problems(t, content):
             out.append(f'"requires.animals": there is no animals/{a}.json')
     if t["kind"] != "code":
         return out
-    if t["home"] in homes.homes() and t["ecoregion"] not in homes.load(t["home"]).get("ecoregions", []):
-        out.append(f'homes/{t["home"]}.json doesn\'t list the tile\'s ecoregion {t["ecoregion"]}: '
-                   'a tile is built from its ecoregion\'s home')
+    if t["home"] in homes.homes():
+        home = homes.load(t["home"])
+        if t["ecoregion"] not in home.get("ecoregions", []):
+            out.append(f'homes/{t["home"]}.json doesn\'t list the tile\'s ecoregion {t["ecoregion"]}: '
+                       'a tile is built from its ecoregion\'s home')
+        if home.get("habitat") != t["habitat"]:
+            out.append(f'homes/{t["home"]}.json is a {home.get("habitat")} home, but the tile is {t["habitat"]}')
     used = [t["home"]]
     if "blend" in t:
         b = t["blend"]["home"]

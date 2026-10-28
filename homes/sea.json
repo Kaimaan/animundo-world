@@ -13,6 +13,7 @@
   "ecoregions": [
     651
   ],
+  "habitat": "sea",
   "terrain": {
     "size": 2048,
     "base_height": 17,

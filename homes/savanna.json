@@ -13,6 +13,7 @@
   "ecoregions": [
     57
   ],
+  "habitat": "savanna",
   "terrain": {
     "size": 2048,
     "base_height": 10,

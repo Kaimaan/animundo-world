@@ -11,7 +11,7 @@ A **home** is the land of one habitat, ready to copy: terrain, trees, ground pla
 | `savanna.json` | `savanna` | 57 Southern Acacia-Commiphora bushlands and thickets (the Serengeti) | `examples/savanna.json` on `boreal_forest.json` |
 | `sea.json` | `sea` | 651 Celtic broadleaf forests (the Welsh coast) | `examples/sea.json` on `boreal_forest.json` |
 
-A home is a region file with three extra fields: `ecoregions`, the [RESOLVE Ecoregions 2017](https://ecoregions.appspot.com) ids (`ECO_ID`, CC BY 4.0) it stands for; `based_on`, the home (or place) it was adapted from; and `about`, a note for builders. Its `description` is what players read. On the tile grid (Proposal 0038) a cell is built from the home that lists its ecoregion; `boreal_forest` and `boreal_lake` share the taiga, and the cell's lake share picks. A new ecoregion gets its own home, adapted from the nearest one. Make a region from one with:
+A home is a region file with four extra fields: `ecoregions`, the [RESOLVE Ecoregions 2017](https://ecoregions.appspot.com) ids (`ECO_ID`, CC BY 4.0) it stands for; `habitat`, its habitat id in `animal-list.json`; `based_on`, the home (or place) it was adapted from; and `about`, a note for builders. Its `description` is what players read. On the tile grid (Proposal 0038) a cell is built from the home that lists its ecoregion and has its habitat: `boreal_forest` and `boreal_lake` share the taiga, and the sea home stands for the Welsh coast's cells, not its inland ones. A new ecoregion gets its own home, adapted from the nearest one. Make a region from one with:
 
 ```bash
 python3 tools/homes.py make boreal_forest --id fi_lynx_forest --name "Lynx forest" --country Finland --lat 61.2 --lon 26.9

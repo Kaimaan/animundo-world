@@ -29,7 +29,7 @@ sys.path.insert(0, HERE)
 import validate_region  # noqa: E402
 
 # fields a home has that a region doesn't: notes for builders, not players
-HOME_ONLY = ("based_on", "about", "ecoregions")
+HOME_ONLY = ("based_on", "about", "ecoregions", "habitat")
 # a spot to check each home at: where it was based on
 CHECK_AT = {"boreal_forest": (60.3, 24.53), "boreal_lake": (62.12, 28.51),
             # Proposal 0038's lab spots: Pallas, Yasuní, the Serengeti, Pembrokeshire
@@ -66,13 +66,16 @@ def problems(habitat):
 
 
 def home_problems(habitat):
-    """A home's own fields: the RESOLVE ecoregions it stands for and the home or place it was adapted from."""
+    """A home's own fields: the RESOLVE ecoregions and habitat it stands for, and the home or place it was adapted from."""
     home = load(habitat)
     out = []
     eco = home.get("ecoregions")
     if not (isinstance(eco, list) and eco and all(isinstance(e, int) and not isinstance(e, bool) and 1 <= e <= 999 for e in eco)
             and len(set(eco)) == len(eco)):
         out.append('"ecoregions" must list the RESOLVE 2017 ecoregion ids (ECO_ID) this home stands for')
+    habitats = json.load(open(os.path.join(ROOT, "animal-list.json"), encoding="utf-8"))["habitats"]
+    if home.get("habitat") not in habitats:
+        out.append(f'"habitat" must be one of animal-list.json\'s habitats: {habitats}')
     if not (isinstance(home.get("based_on"), str) and home["based_on"]):
         out.append('"based_on" must name the home (or place) it was adapted from')
     return out

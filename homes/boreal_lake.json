@@ -13,6 +13,7 @@
   "ecoregions": [
     717
   ],
+  "habitat": "boreal_lake",
   "terrain": {
     "size": 1024,
     "base_height": 12,

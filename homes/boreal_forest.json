@@ -13,6 +13,7 @@
   "ecoregions": [
     717
   ],
+  "habitat": "boreal_forest",
   "terrain": {
     "size": 2048,
     "base_height": 9,

@@ -75,6 +75,9 @@ def broken(good):
     t["ecoregion"] = 780   # the fell birch forest: the tundra home's, not boreal_forest's
     cases.append(("a home that doesn't list the tile's ecoregion", "animals", t))
     t = copy.deepcopy(good)
+    t["habitat"] = "boreal_lake"   # boreal_forest and boreal_lake share the taiga: the habitat picks
+    cases.append(("a home of another habitat", "animals", t))
+    t = copy.deepcopy(good)
     t["blend"] = {"home": "tundra", "share": 0.3}
     cases.append(("a blend requires doesn't list", "animals", t))
     t = copy.deepcopy(good)

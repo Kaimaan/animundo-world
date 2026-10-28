@@ -103,6 +103,7 @@ def adapt(base, c):
     home["about"] = f"Home template made by tools/adapt_home.py from {base['id']}."
     home["based_on"] = base["id"]   # the home it was adapted from
     home["ecoregions"] = list(c.get("ecoregions", []))   # the RESOLVE ecoregions it stands for, set when it joins homes/
+    home["habitat"] = c.get("habitat", c["id"])   # a tile uses the home that lists its ecoregion and has its habitat
 
     land_kind = c.get("land", "rolling")
     land = pick(LAND, land_kind, "land")
@@ -258,7 +259,7 @@ def main():
         import os, tempfile
         sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
         import validate_region
-        region = {k: v for k, v in home.items() if k not in ("about", "based_on", "ecoregions")}
+        region = {k: v for k, v in home.items() if k not in ("about", "based_on", "ecoregions", "habitat")}
         region.update({"id": "xx_check_" + home["id"], "name": "Check", "country": "Check",
                        "center": {"lat": -3.0 if choices.get("tropical") else 61.0, "lon": 26.0},
                        "animals": {"playable": ["fox"], "predators": [], "prey": []}})

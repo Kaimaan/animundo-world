@@ -13,6 +13,7 @@
   "ecoregions": [
     483
   ],
+  "habitat": "rainforest",
   "terrain": {
     "size": 2048,
     "base_height": 10,
