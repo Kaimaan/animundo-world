@@ -194,7 +194,7 @@
   "ui.guide.young": "Poikaset",
   "ui.guide.fact": "Tiesitkö?",
   "ui.devices.button": "Pelaa toisella laitteella",
-  "ui.devices.intro": "Eläimesi voivat asua yhtä aikaa puhelimessa ja tabletissa. Hae koodi yhdellä laitteella. Avaa toisella laitteella Omat eläimet, napauta Pelaa toisella laitteella ja kirjoita koodi.",
+  "ui.devices.intro": "Eläimesi voivat asua yhtä aikaa puhelimessa ja tabletissa. Hae koodi yhdellä laitteella. Napauta toisella laitteella aloitusruudun Pelaa toisella laitteella ja kirjoita koodi.",
   "ui.devices.get_code": "Hae koodi",
   "ui.devices.have_code": "Minulla on koodi",
   "ui.devices.wait": "Hetki vain…",
