@@ -37,7 +37,7 @@
     "ui": {
       "description": "Menus and general messages (owned by the game repository).",
       "type": "object",
-      "propertyNames": {"pattern": "^(ui|country)(\\.[A-Za-z0-9_]+)+$"},
+      "propertyNames": {"pattern": "^(ui|country|sticker)(\\.[A-Za-z0-9_]+)+$"},
       "additionalProperties": {"$ref": "#/$defs/message"}
     },
     "loading": {
