@@ -358,6 +358,7 @@
   "ui.location.unsupported": "This animal cannot start in that place.",
   "ui.place.not_here": "This place isn't here right now.",
   "ui.draft.not_opened": "We couldn't open that place. Try again from the builder.",
+  "ui.address.not_playable": "We couldn't start that animal there.",
   "ui.briefing.shelter.shore": "Rest on a dry shore or rock.",
   "ui.location.finland": "Finland",
   "ui.new.free_choices": "Your free animals: {used}/{limit}",
