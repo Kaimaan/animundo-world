@@ -16,16 +16,14 @@
   "habitat": "sea",
   "terrain": {
     "size": 2048,
-    "base_height": 17,
+    "base_height": 9,
     "relief": 10,
     "frequency": 0.04,
     "rock_ridges": 0.4,
-    "rock_above": 30,
+    "rock_above": 22,
     "lakes": 0.15,
     "edge": "lake",
-    "seed": 1811587497,
-    "height": 40,
-    "water_level": 16
+    "seed": 1811587497
   },
   "palette": {
     "ground_lush": "#5d8f3f",
@@ -76,7 +74,7 @@
       "length": 1.5,
       "width": 0.2,
       "angle": 0,
-      "depth": 12,
+      "depth": 7,
       "islands": 2
     }
   ],

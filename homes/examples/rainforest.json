@@ -59,6 +59,7 @@
  "water_name": "Slow river",
  "wetness": "very_wet",
  "id": "rainforest",
+ "ecoregions": [483],
  "tropical": true,
  "sources": [
   "https://a-z-animals.com/animals/green-anaconda/",

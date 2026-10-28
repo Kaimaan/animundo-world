@@ -73,6 +73,9 @@ def home_problems(habitat):
     if not (isinstance(eco, list) and eco and all(isinstance(e, int) and not isinstance(e, bool) and 1 <= e <= 999 for e in eco)
             and len(set(eco)) == len(eco)):
         out.append('"ecoregions" must list the RESOLVE 2017 ecoregion ids (ECO_ID) this home stands for')
+    if home.get("terrain", {}).get("water_level", 8) != 8:
+        out.append('"terrain.water_level" must be 8: every home on the tile grid has one water level, so a shared edge is '
+                   'water or land on both sides alike. Make the sea deep with lower ground')
     habitats = json.load(open(os.path.join(ROOT, "animal-list.json"), encoding="utf-8"))["habitats"]
     if home.get("habitat") not in habitats:
         out.append(f'"habitat" must be one of animal-list.json\'s habitats: {habitats}')

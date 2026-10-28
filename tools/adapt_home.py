@@ -46,10 +46,9 @@ import os
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-WATER = 8      # the game's default water level and height (terrain.water_level, terrain.height)
+WATER = 8      # the one water level for every home (tiles on the grid meet at it) and the default height
 HEIGHT = 32
-SEA = 16       # a sea home's water level: deep enough for seals, sharks and dolphins
-SEA_HEIGHT = 40
+SEA_DEPTH = 7  # a sea bay's depth: the deepest water level 8 allows, deep enough for seals, sharks and dolphins
 TALL = 64      # a mountain home's height
 
 LAND = {   # above the water level: the lowest ground is base_height, the highest base_height + relief
@@ -119,8 +118,8 @@ def adapt(base, c):
     seabed = c.get("seabed", "mud")
     if seabed not in ("mud", "sand"):
         raise ValueError(f"seabed must be mud or sand, not {seabed!r}")
-    level = SEA if water == "sea" else WATER
-    tall = TALL if land_kind == "mountains" else SEA_HEIGHT if water == "sea" else HEIGHT
+    level = WATER   # the sea is deep because its floor is low, not because its water is high
+    tall = TALL if land_kind == "mountains" else HEIGHT
     base_height = level + land["base"]
     relief = min(land["relief"], tall - 12 - base_height - 1)   # the game keeps 12 blocks of sky over the land
     terrain = home.setdefault("terrain", {})
@@ -128,8 +127,6 @@ def adapt(base, c):
         terrain.pop(k, None)
     if tall != HEIGHT:
         terrain["height"] = tall
-    if level != WATER:
-        terrain["water_level"] = level
     terrain.update({"base_height": base_height, "relief": relief, "frequency": land["frequency"],
                     "rock_ridges": land["rock_ridges"]})
     terrain["lakes"] = wet["lakes"]
@@ -150,7 +147,7 @@ def adapt(base, c):
                           "angle": -10, "depth": 6, "islands": 3}]   # the land in the middle stays dry
     elif water == "sea":   # a deep bay across the map, its shore about 80 m from the middle: swimmers start in it
         home["lakes"] = [{"name": name, "x": 0.5, "z": 0.36, "length": 1.5, "width": 0.2,
-                          "angle": 0, "depth": 12, "islands": 0 if ice == "polar" else 2}]   # icebergs, not grass islets
+                          "angle": 0, "depth": SEA_DEPTH, "islands": 0 if ice == "polar" else 2}]   # icebergs, not grass islets
     else:
         home["lakes"] = []
     bogs = wet["bogs"] + (2 if water == "pools" else 0)

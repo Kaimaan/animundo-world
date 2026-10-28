@@ -49,6 +49,7 @@
  "water_name": "Grey open sea",
  "wetness": "wet",
  "id": "sea",
+ "ecoregions": [651],
  "tropical": false,
  "sources": [
   "https://www.mammal.org.uk",

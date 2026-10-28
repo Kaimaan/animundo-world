@@ -63,6 +63,7 @@
  "water_name": "Muddy water holes",
  "wetness": "dry",
  "id": "savanna",
+ "ecoregions": [57],
  "tropical": true,
  "sources": [
   "ielc.libguides.com - African and Asian Lions Fact Sheet",
