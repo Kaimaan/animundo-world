@@ -53,6 +53,8 @@ jobs:
         run: python3 tools/homes.py check
       - name: Check the animal list
         run: python3 tools/animal_list.py --check
+      - name: Check the place list
+        run: python3 tools/places.py --check
       - name: Adapt reference models (every example in models/examples/edits)
         env:
           BLENDER: /home/runner/blender/blender

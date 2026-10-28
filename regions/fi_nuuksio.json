@@ -2,6 +2,7 @@
   "id": "fi_nuuksio",
   "name": "Nuuksio National Park",
   "country": "Finland",
+  "wikidata": "Q1815268",
   "center": {
     "lat": 60.3007,
     "lon": 24.5263

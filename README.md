@@ -16,6 +16,7 @@ Places can also be built by [Animundo Builder](https://github.com/Kaimaan/animun
 | [`locale/`](locale/) | All text in every language |
 | [`homes/`](homes/README.md) | Home templates: the land of one habitat, copied when a family asks for an animal |
 | [`animal-list.json`](tools/animal_list.py) | The animals a family can ask for in Animundo Builder, with GBIF IDs, starting models and habitats |
+| [`places.json`](tools/places.py) | The game's built places for Animundo Builder: names in English and Finnish, centre, Wikidata id and animals, from `regions/` |
 | [`docs/animals-wanted.md`](docs/animals-wanted.md) | Animals and foods the game needs next |
 
 ## How to add something

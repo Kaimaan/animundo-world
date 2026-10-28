@@ -29,6 +29,11 @@
     "country": {
       "$ref": "#/$defs/text"
     },
+    "wikidata": {
+      "description": "Optional: the place's Wikidata item id, e.g. \"Q1815268\" for Nuuksio National Park. Animundo Builder counts a place a grown-up picks from its list as this built place when the ids match (tools/places.py, places.json).",
+      "type": "string",
+      "pattern": "^Q[1-9][0-9]*$"
+    },
     "description": {
       "$ref": "#/$defs/text"
     },

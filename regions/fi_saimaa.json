@@ -2,6 +2,7 @@
   "id": "fi_saimaa",
   "name": "Lake Saimaa – Linnansaari",
   "country": "Finland",
+  "wikidata": "Q1826934",
   "center": {
     "lat": 62.115,
     "lon": 28.508
