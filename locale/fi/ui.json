@@ -76,6 +76,7 @@
   "ui.cant_dig": "Tähän ei voi kaivaa. Kaiva pehmeään maahan: multaan, nurmeen tai hiekkaan.",
   "ui.dig_tip": "Katso alas kaivaessasi, niin kaivat syvemmälle. Katso ylös, niin kaivat ylöspäin.",
   "ui.map_edge": "Tässä on kartan reuna toistaiseksi. Lisää maailmaa on tulossa!",
+  "ui.border.unexplored": "Kukaan ei ole vielä tutkinut tätä pidemmälle. Tutkimusmatkailijat ovat tulossa tekemään sen!",
   "ui.hint.sleeping": "Nukut... herää napauttamalla Herää",
   "ui.hint.food_nearby": "Ruokaa lähellä ({food}): napauta Syö",
   "ui.hint.pounce": "Loikkaa nyt: napauta Loikkaa!",

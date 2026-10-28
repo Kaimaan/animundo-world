@@ -76,6 +76,7 @@
   "ui.cant_dig": "Can't dig here. Dig into soft earth: dirt, grass or sand.",
   "ui.dig_tip": "Look down while digging to dig deeper, or up to dig upwards.",
   "ui.map_edge": "This is the edge of the map for now. More of the world is coming!",
+  "ui.border.unexplored": "Nobody has explored past here yet. Explorers are coming to make it!",
   "ui.hint.sleeping": "Sleeping... tap Wake up to wake",
   "ui.hint.food_nearby": "Food nearby ({food}): tap Eat",
   "ui.hint.pounce": "Pounce now: tap Pounce!",
