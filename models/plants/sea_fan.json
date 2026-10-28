@@ -1,15 +1,23 @@
 {
   "id": "sea_fan",
-  "name": "Common sea fan (Gorgonia ventalina): example coral",
+  "name": "Common sea fan",
   "latin": "Gorgonia ventalina",
+  "taxon": {
+    "gbif_key": 5185376,
+    "rank": "SPECIES",
+    "name": "Gorgonia ventalina"
+  },
   "author": "Animundo team",
   "kind": "bush",
   "year": {
     "leaves": "evergreen",
-    "notes": "A flat purple fan of fine branches, up to 1.8 m tall, held across the current to catch food from the water."
+    "flowers": "none: sea fans are animals",
+    "fruit": "none",
+    "notes": "A soft coral: a flat purple fan of fine branches up to about 1.8 m tall, held across the current so its tiny polyps catch food from the water. Sways in the waves. On Caribbean reefs."
   },
   "sources": [
-    "example"
+    "https://en.wikipedia.org/wiki/Gorgonia_ventalina",
+    "https://www.gbif.org/species/5185376"
   ],
   "colors": {
     "stalk": "#6b3f6e",

@@ -2,8 +2,13 @@
   "id": "baobab",
   "kind": "tree",
   "author": "Animundo team",
-  "name": "African baobab (Adansonia digitata): example tree",
+  "name": "African baobab",
   "latin": "Adansonia digitata",
+  "taxon": {
+    "gbif_key": 5406695,
+    "rank": "SPECIES",
+    "name": "Adansonia digitata"
+  },
   "trunk": {
     "height": [
       6,
@@ -24,5 +29,9 @@
   "on": [
     "grass",
     "sand"
+  ],
+  "sources": [
+    "https://en.wikipedia.org/wiki/Adansonia_digitata",
+    "https://www.gbif.org/species/5406695"
   ]
 }

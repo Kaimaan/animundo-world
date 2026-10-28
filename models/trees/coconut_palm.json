@@ -2,8 +2,13 @@
   "id": "coconut_palm",
   "kind": "tree",
   "author": "Animundo team",
-  "name": "Coconut palm (Cocos nucifera): example tree",
+  "name": "Coconut palm",
   "latin": "Cocos nucifera",
+  "taxon": {
+    "gbif_key": 2735117,
+    "rank": "SPECIES",
+    "name": "Cocos nucifera"
+  },
   "trunk": {
     "height": [
       8,
@@ -24,5 +29,9 @@
   "on": [
     "sand",
     "grass"
+  ],
+  "sources": [
+    "https://en.wikipedia.org/wiki/Cocos_nucifera",
+    "https://www.gbif.org/species/2735117"
   ]
 }

@@ -1,0 +1,76 @@
+{
+ "base": "boreal_forest",
+ "caves": "none",
+ "description": "Flat white sand islands in a warm clear sea, with coral reefs on the sandy floor.",
+ "flowers": [],
+ "food": [
+  {
+   "kind": "water_plants",
+   "names": [
+    "algae"
+   ]
+  },
+  {
+   "kind": "water_bugs",
+   "names": [
+    "zooplankton",
+    "tiny shrimp"
+   ]
+  },
+  {
+   "kind": "bottom_bugs",
+   "names": [
+    "marine worms"
+   ]
+  }
+ ],
+ "grass": "none",
+ "ice": "none",
+ "land": "flat",
+ "palette": {
+  "dirt": "#cbb98a",
+  "ground_dry": "#e3d5a5",
+  "ground_high": "#e9e0c2",
+  "ground_lush": "#6fb86a",
+  "rock": "#d5cfc0",
+  "sand": "#f7efda",
+  "water_deep": "#0e4d7a",
+  "water_shallow": "#2ec4b6"
+ },
+ "plants": [
+  {
+   "model": "staghorn_coral",
+   "on": "seabed"
+  },
+  {
+   "model": "brain_coral",
+   "on": "seabed"
+  },
+  {
+   "model": "sea_fan",
+   "on": "seabed"
+  }
+ ],
+ "seabed": "sand",
+ "trees": {
+  "density": "none",
+  "mix": []
+ },
+ "water": "sea",
+ "water_life": {
+  "lilies": "none",
+  "pondweed": "none",
+  "reeds": "none"
+ },
+ "water_name": "Warm coral sea",
+ "wetness": "dry",
+ "id": "reef_caribbean",
+ "tropical": true,
+ "sources": [
+  "https://en.wikipedia.org/wiki/Acropora_cervicornis",
+  "https://en.wikipedia.org/wiki/Diploria_labyrinthiformis",
+  "https://en.wikipedia.org/wiki/Gorgonia_ventalina",
+  "GBIF.org"
+ ],
+ "about": "Written by hand from the AI's reef (reef.json) for a Caribbean reef, where these three corals grow."
+}

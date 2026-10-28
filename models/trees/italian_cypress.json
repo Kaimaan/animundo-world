@@ -2,8 +2,13 @@
   "id": "italian_cypress",
   "kind": "tree",
   "author": "Animundo team",
-  "name": "Italian cypress (Cupressus sempervirens): example tree",
+  "name": "Italian cypress",
   "latin": "Cupressus sempervirens",
+  "taxon": {
+    "gbif_key": 2684030,
+    "rank": "SPECIES",
+    "name": "Cupressus sempervirens"
+  },
   "trunk": {
     "height": [
       9,
@@ -22,5 +27,9 @@
   "on": [
     "grass",
     "rock"
+  ],
+  "sources": [
+    "https://en.wikipedia.org/wiki/Cupressus_sempervirens",
+    "https://www.gbif.org/species/2684030"
   ]
 }

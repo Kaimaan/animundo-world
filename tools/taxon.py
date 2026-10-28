@@ -29,7 +29,7 @@ import urllib.request
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 API = "https://api.gbif.org/v1/species/match"
 RANKS = ["SPECIES", "SUBSPECIES"]
-# Lichens and mushrooms are fungi, so a plant spec may be either.
+# Lichens and mushrooms are fungi, so a plant spec may be either; so may a coral (see resolve).
 KINGDOMS = {"animal": ["Animalia"], "plant": ["Plantae", "Fungi"]}
 
 
@@ -46,7 +46,9 @@ def resolve(name, what="animal"):
         m = json.load(r)
     if m.get("matchType") != "EXACT":
         raise NeedsPerson(f'"{name}": no exact match in GBIF ({m.get("matchType", "NONE")})')
-    if m.get("kingdom") not in KINGDOMS[what]:
+    # corals and sea fans are animals, but they are scenery built as plant specs (models/README.md)
+    coral = what == "plant" and m.get("kingdom") == "Animalia" and m.get("phylum") == "Cnidaria"
+    if m.get("kingdom") not in KINGDOMS[what] and not coral:
         raise NeedsPerson(f'"{name}": GBIF has it in {m.get("kingdom")}, not {" or ".join(KINGDOMS[what])}')
     if m.get("rank") not in RANKS:
         raise NeedsPerson(f'"{name}": GBIF matched a {str(m.get("rank")).lower()}, not a species or subspecies')

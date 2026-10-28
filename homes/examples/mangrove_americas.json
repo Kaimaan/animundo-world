@@ -1,0 +1,72 @@
+{
+ "base": "boreal_forest",
+ "caves": "none",
+ "description": "Flat muddy shores where mangrove trees stand on their stilt roots in the shallow sea.",
+ "flowers": [],
+ "food": [
+  {
+   "kind": "grass",
+   "names": [
+    "river grass"
+   ]
+  },
+  {
+   "kind": "insects",
+   "names": [
+    "insects"
+   ]
+  }
+ ],
+ "grass": "some",
+ "ice": "none",
+ "land": "flat",
+ "palette": {
+  "dirt": "#5b4a38",
+  "ground_dry": "#8a7d5a",
+  "ground_high": "#6f8a4f",
+  "ground_lush": "#5d7f3e",
+  "rock": "#8d8177",
+  "sand": "#b9a888",
+  "water_deep": "#23483e",
+  "water_shallow": "#5f7f6f"
+ },
+ "plants": [],
+ "seabed": "mud",
+ "trees": {
+  "density": "dense",
+  "mix": [
+   {
+    "autumn": null,
+    "food": null,
+    "leaves": "#3f7a3a",
+    "shape": "red_mangrove",
+    "trunk": "#6b5440",
+    "weight": 80
+   },
+   {
+    "autumn": null,
+    "food": "browse",
+    "leaves": "#4f7d46",
+    "shape": "round",
+    "trunk": "#5e4a3a",
+    "weight": 20
+   }
+  ]
+ },
+ "water": "sea",
+ "water_life": {
+  "lilies": "none",
+  "pondweed": "none",
+  "reeds": "some"
+ },
+ "water_name": "Shallow muddy bay",
+ "wetness": "very_wet",
+ "id": "mangrove_americas",
+ "tropical": true,
+ "sources": [
+  "https://en.wikipedia.org/wiki/Rhizophora_mangle",
+  "https://www.gbif.org/species/3086528",
+  "GBIF.org"
+ ],
+ "about": "Written by hand from the AI's mangrove (mangrove.json) for an American coast, where the red mangrove grows."
+}

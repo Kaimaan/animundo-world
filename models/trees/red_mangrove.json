@@ -2,8 +2,13 @@
   "id": "red_mangrove",
   "kind": "tree",
   "author": "Animundo team",
-  "name": "Red mangrove (Rhizophora mangle): example tree",
+  "name": "Red mangrove",
   "latin": "Rhizophora mangle",
+  "taxon": {
+    "gbif_key": 3086528,
+    "rank": "SPECIES",
+    "name": "Rhizophora mangle"
+  },
   "trunk": {
     "height": [
       6,
@@ -27,5 +32,9 @@
   "on": [
     "water",
     "sand"
+  ],
+  "sources": [
+    "https://en.wikipedia.org/wiki/Rhizophora_mangle",
+    "https://www.gbif.org/species/3086528"
   ]
 }

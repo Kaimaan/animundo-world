@@ -1,15 +1,24 @@
 {
   "id": "staghorn_coral",
-  "name": "Staghorn coral (Acropora cervicornis): example coral",
+  "name": "Staghorn coral",
   "latin": "Acropora cervicornis",
+  "taxon": {
+    "gbif_key": 5184681,
+    "rank": "SPECIES",
+    "name": "Acropora cervicornis"
+  },
   "author": "Animundo team",
   "kind": "bush",
   "year": {
     "leaves": "evergreen",
-    "notes": "Branches like a stag's antlers, up to 2 m across. Grows in shallow, warm, clear water on reefs."
+    "flowers": "none: corals are animals",
+    "fruit": "none: once a year, a few nights after the August full moon, it lets eggs and sperm drift up into the sea",
+    "notes": "Branches like a stag's antlers, up to 2 m across, light brown with pale tips. Grows fast, up to 20 cm a year, in shallow, warm, clear water on Caribbean reefs. Fish shelter between the branches. Critically endangered."
   },
   "sources": [
-    "example"
+    "https://en.wikipedia.org/wiki/Acropora_cervicornis",
+    "https://www.fisheries.noaa.gov/species/staghorn-coral",
+    "https://www.gbif.org/species/5184681"
   ],
   "colors": {
     "base": "#b98a5e",

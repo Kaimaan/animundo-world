@@ -63,7 +63,7 @@ Don't start a new animal from nothing. Copy the existing model closest to it in 
 | Sharks | `reef_shark` | *Looks like:* a smooth grey torpedo with a white belly, a tall swept-back triangular dorsal fin, a tail with a long upper lobe, big swept-back side fins, three gill slits, black fin tips (colour `tip`). Change: size, `body_girth`, colours (`tip` like `fin` for sharks without black tips); the `hammer` mark for hammerheads. Up to about 3 m in most places; longer sharks only in deep-sea places. Examples: [great white](examples/edits/great_white_shark.json), [hammerhead](examples/edits/hammerhead.json) |
 | Perch-shaped and deep-bodied fish | `perch`, `bream`, `roach` | Body depth, fins, colours |
 | Reef fish: clownfish, tangs, parrotfish, butterflyfish | `perch` or `bream`, reshaped | Bright colours and bands; tangs and butterflyfish are deep and flat like a bream. On a reef place's sandy floor among corals |
-| Corals, sea fans, sea grass | `examples/plants/` (staghorn coral, brain coral, sea fan) | Plant specs that grow `on: ["seabed"]`, see [Corals and sea grass](#corals-and-sea-grass); build them 1–2 m across, like real reef corals |
+| Corals, sea fans, sea grass | `plants/staghorn_coral`, `plants/brain_coral`, `plants/sea_fan` | Plant specs that grow `on: ["seabed"]`, see [Corals and sea grass](#corals-and-sea-grass); build them 1–2 m across, like real reef corals |
 | Frogs and toads | `frog` | Skin, colours |
 | Lizards | `lizard` | Size, colours |
 | Bees, bumblebees, wasps | `bee` | Size, bands |
@@ -254,12 +254,12 @@ A tree must fit the game: at most 18 blocks tall and 8 blocks from the trunk to 
 | Trees | Crown | Start from |
 |---|---|---|
 | Firs, spruces, cedars | `cone` | the game's spruce |
-| Oaks, maples, beeches, limes; rainforest giants (girth 2, tall) | `round` | `examples/trees/baobab.json` with girth 1 or 2 |
-| Cypresses, poplars | `column` | `examples/trees/italian_cypress.json` |
-| Acacias, stone pines | `umbrella` | `examples/trees/umbrella_thorn.json` |
-| Palms | `palm` | `examples/trees/coconut_palm.json` |
-| Baobabs | `round`, girth 3 | `examples/trees/baobab.json` |
-| Mangroves | `round`, stilt roots, `on: ["water", "sand"]` | `examples/trees/red_mangrove.json` |
+| Oaks, maples, beeches, limes; rainforest giants (girth 2, tall) | `round` | `trees/baobab.json` with girth 1 or 2 |
+| Cypresses, poplars | `column` | `trees/italian_cypress.json` |
+| Acacias, stone pines | `umbrella` | `trees/umbrella_thorn.json` |
+| Palms | `palm` | `trees/coconut_palm.json` |
+| Baobabs | `round`, girth 3 | `trees/baobab.json` |
+| Mangroves | `round`, stilt roots, `on: ["water", "sand"]` | `trees/red_mangrove.json` |
 | **Not possible yet:** cacti, bamboo groves, trees taller than 18 m | | |
 
 ## Plants
@@ -299,4 +299,4 @@ Parts take the same fields as an animal's (no `bone`), plus:
 To grow it in a region, add it to the region file's `ground_cover.plants` (see [CONTRIBUTING.md](../CONTRIBUTING.md)) and run `godot --headless --import` and `godot --headless --script tools/check_models.gd`. The game reads the spec (`scripts/plant_model.gd`) to recolour the plant and leave out parts for the season. It finds parts by their order in the spec, so rebuild after adding, removing or reordering parts.
 
 ### Corals and sea grass
-Corals are animals, but in the game they are scenery on the sea floor, built like plants: a plant spec with `"kind": "bush"`, evergreen, and a region uses it in `ground_cover.plants` with `"on": ["seabed"]`, so it grows under the water (on a sandy floor with `terrain.seabed: "sand"`). Keep them simple: a branching coral is a few cones from a base, a brain coral a squashed ball with a ridge or two, a sea fan a flat upright ball on a stalk. Examples: [examples/plants/](examples/plants/) (staghorn coral, brain coral, sea fan), previews in `examples/previews/`.
+Corals are animals, but in the game they are scenery on the sea floor, built like plants: a plant spec with `"kind": "bush"`, evergreen, and a region uses it in `ground_cover.plants` with `"on": ["seabed"]`, so it grows under the water (on a sandy floor with `terrain.seabed: "sand"`). Keep them simple: a branching coral is a few cones from a base, a brain coral a squashed ball with a ridge or two, a sea fan a flat upright ball on a stalk. In the library: [staghorn coral](plants/staghorn_coral.json), [brain coral](plants/brain_coral.json) and [sea fan](plants/sea_fan.json), all three from Caribbean reefs. Their `taxon` is an animal's: `tools/taxon.py --plant` accepts corals (GBIF's phylum Cnidaria).

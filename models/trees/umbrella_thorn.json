@@ -2,8 +2,13 @@
   "id": "umbrella_thorn",
   "kind": "tree",
   "author": "Animundo team",
-  "name": "Umbrella thorn acacia (Vachellia tortilis): example tree",
+  "name": "Umbrella thorn acacia",
   "latin": "Vachellia tortilis",
+  "taxon": {
+    "gbif_key": 3974700,
+    "rank": "SPECIES",
+    "name": "Vachellia tortilis"
+  },
   "trunk": {
     "height": [
       5,
@@ -22,5 +27,9 @@
   "on": [
     "grass",
     "sand"
+  ],
+  "sources": [
+    "https://en.wikipedia.org/wiki/Vachellia_tortilis",
+    "https://www.gbif.org/species/3974700"
   ]
 }

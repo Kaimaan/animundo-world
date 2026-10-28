@@ -188,7 +188,7 @@ python3 tools/check_animals.py
 ## Adding plants
 A plant is one data file, `models/plants/<id>.json`: its looks and its year. Blender builds it into the model the game uses, plus a preview sheet ([models/README.md](models/README.md#plants)). The game scatters it on the ground of the places that list it, and it changes through the year by itself. A plant needs no code.
 
-Plants can be bushes, dwarf shrubs, ferns, flowers, grasses, mosses or mushrooms. **Trees aren't plant specs yet:** they are still built in code, because animals climb them and hide in them. Ask before starting a tree.
+Plants can be bushes, dwarf shrubs, ferns, flowers, grasses, mosses or mushrooms. **Trees** are specs of their own in `models/trees/` (see [models/README.md](models/README.md#trees)): the red mangrove, African baobab, coconut palm, Italian cypress and umbrella thorn so far. The northern forest's spruce, pine, birch and rowan are still built in code, because animals climb them and hide in them. Ask before starting a tree.
 
 ### The rules
 Every plant must follow these rules. The checks run on every pull request and stop it if a rule they can test is broken. A reviewer checks the rest.

@@ -165,9 +165,12 @@ class Catalogue:
                                       self.wanted_rows("plants", self.plants, [self.named, lambda w: w.get("place"), lambda w: w.get("feeds"), lambda w: w.get("needs")]))]
 
         # trees
-        rows = [[f"`{t}`", ", ".join(rid for rid, r in self.regions.items() if any(m.get("shape") == t for m in r.get("trees", {}).get("mix", []))),
-                 "made in code"] for t in trees]
-        s += ["## Trees", "", "Trees are still made in code, because animals climb them and hide in them. Ask the core team before starting one.", "",
+        specs = sorted(f[:-5] for f in os.listdir(os.path.join(ROOT, "models", "trees")) if f.endswith(".json")) \
+            if os.path.isdir(os.path.join(ROOT, "models", "trees")) else []
+        trees = sorted(set(trees) | set(specs))
+        rows = [[f"`{t}`", ", ".join(rid for rid, r in self.regions.items() if any(m.get("shape") == t for m in r.get("trees", {}).get("mix", []))) or "nowhere yet",
+                 f"[spec](../models/trees/{t}.json), [preview](../models/trees/previews/{t}.png)" if t in specs else "made in code"] for t in trees]
+        s += ["## Trees", "", "Trees from specs are in `models/trees/`. The northern forest's spruce, pine, birch and rowan are still made in code, because animals climb them and hide in them. Ask the core team before starting one.", "",
               "### Have", "", table(["Shape", "Grows in", "How"], rows),
               "### Wanted", "", table(["Tree", "Place", "Feeds", "Needs", "Status"],
                                       self.wanted_rows("trees", {t: 1 for t in trees}, [self.named, lambda w: w.get("place"), lambda w: w.get("feeds"), lambda w: w.get("needs")]))]

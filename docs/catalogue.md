@@ -7,7 +7,7 @@ How to add each kind of thing: [CONTRIBUTING.md](../CONTRIBUTING.md). How it sho
 |  | Have | Wanted | In progress |
 |---|---|---|---|
 | Animals | 20 | 0 | 0 |
-| Plants | 22 | 0 | 0 |
+| Plants | 25 | 0 | 0 |
 | Trees | 5 | 0 | 0 |
 | Foods | 13 | 0 | 0 |
 
@@ -52,6 +52,7 @@ How to add each kind of thing: [CONTRIBUTING.md](../CONTRIBUTING.md). How it sho
 |---|---|---|---|---|
 | **Bilberry** (*Vaccinium myrtillus*) | bush | fi_nuuksio, fi_saimaa | deciduous | [preview](../models/previews/plants/bilberry.png) |
 | **Bracken** (*Pteridium aquilinum*) | bush | fi_nuuksio, fi_saimaa | deciduous | [preview](../models/previews/plants/bracken.png) |
+| **Grooved brain coral** (*Diploria labyrinthiformis*) | bush | nowhere yet | evergreen | [preview](../models/previews/plants/brain_coral.png) |
 | **Chanterelle** (*Cantharellus cibarius*) | ground | fi_nuuksio, fi_saimaa | deciduous | [preview](../models/previews/plants/chanterelle.png) |
 | **Hare’s-tail cottongrass** (*Eriophorum vaginatum*) | ground | fi_nuuksio, fi_saimaa | evergreen | [preview](../models/previews/plants/cottongrass.png) |
 | **Crowberry** (*Empetrum nigrum*) | bush | fi_nuuksio, fi_saimaa | evergreen | [preview](../models/previews/plants/crowberry.png) |
@@ -67,7 +68,9 @@ How to add each kind of thing: [CONTRIBUTING.md](../CONTRIBUTING.md). How it sho
 | **Red clover** (*Trifolium pratense*) | ground | fi_nuuksio, fi_saimaa | deciduous | [preview](../models/previews/plants/red_clover.png) |
 | **Red-stemmed feathermoss** (*Pleurozium schreberi*) | ground | fi_nuuksio, fi_saimaa | evergreen | [preview](../models/previews/plants/red_stemmed_feathermoss.png) |
 | **Reindeer lichen** (*Cladonia rangiferina*) | ground | fi_nuuksio, fi_saimaa | evergreen | [preview](../models/previews/plants/reindeer_lichen.png) |
+| **Common sea fan** (*Gorgonia ventalina*) | bush | nowhere yet | evergreen | [preview](../models/previews/plants/sea_fan.png) |
 | **Spiny wood fern** (*Dryopteris carthusiana*) | bush | fi_nuuksio, fi_saimaa | deciduous | [preview](../models/previews/plants/spiny_wood_fern.png) |
+| **Staghorn coral** (*Acropora cervicornis*) | bush | nowhere yet | evergreen | [preview](../models/previews/plants/staghorn_coral.png) |
 | **Wavy hair-grass** (*Avenella flexuosa*) | ground | fi_nuuksio, fi_saimaa | evergreen | [preview](../models/previews/plants/wavy_hair_grass.png) |
 | **White clover** (*Trifolium repens*) | ground | fi_nuuksio, fi_saimaa | deciduous | [preview](../models/previews/plants/white_clover.png) |
 | **Wild raspberry** (*Rubus idaeus*) | bush | fi_nuuksio, fi_saimaa | deciduous | [preview](../models/previews/plants/wild_raspberry.png) |
@@ -82,17 +85,22 @@ How to add each kind of thing: [CONTRIBUTING.md](../CONTRIBUTING.md). How it sho
 
 ## Trees
 
-Trees are still made in code, because animals climb them and hide in them. Ask the core team before starting one.
+Trees from specs are in `models/trees/`. The northern forest's spruce, pine, birch and rowan are still made in code, because animals climb them and hide in them. Ask the core team before starting one.
 
 ### Have
 
 | Shape | Grows in | How |
 |---|---|---|
+| `baobab` | nowhere yet | [spec](../models/trees/baobab.json), [preview](../models/trees/previews/baobab.png) |
 | `birch` | fi_nuuksio, fi_saimaa | made in code |
+| `coconut_palm` | nowhere yet | [spec](../models/trees/coconut_palm.json), [preview](../models/trees/previews/coconut_palm.png) |
+| `italian_cypress` | nowhere yet | [spec](../models/trees/italian_cypress.json), [preview](../models/trees/previews/italian_cypress.png) |
 | `pine` | fi_nuuksio, fi_saimaa | made in code |
+| `red_mangrove` | nowhere yet | [spec](../models/trees/red_mangrove.json), [preview](../models/trees/previews/red_mangrove.png) |
 | `round` | fi_nuuksio, fi_saimaa | made in code |
 | `rowan` | fi_nuuksio, fi_saimaa | made in code |
 | `spruce` | fi_nuuksio, fi_saimaa | made in code |
+| `umbrella_thorn` | nowhere yet | [spec](../models/trees/umbrella_thorn.json), [preview](../models/trees/previews/umbrella_thorn.png) |
 
 ### Wanted
 

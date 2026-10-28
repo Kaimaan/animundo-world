@@ -1,6 +1,6 @@
 {
  "base": "boreal_forest",
- "description": "A flat sunny grassland with a few flat-topped trees and muddy seasonal pools.",
+ "description": "A flat sunny grassland with a few flat-topped thorn trees and muddy seasonal pools.",
  "flowers": [],
  "food": [
   {
@@ -47,9 +47,9 @@
    {
     "autumn": null,
     "food": "browse",
-    "leaves": "#6f9040",
-    "shape": "round",
-    "trunk": "#6b4e35",
+    "leaves": "#7d9a48",
+    "shape": "umbrella_thorn",
+    "trunk": "#5e4a3a",
     "weight": 100
    }
   ]
