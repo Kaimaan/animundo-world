@@ -1,0 +1,271 @@
+{
+  "id": "herring_gull",
+  "name": "Herring gull",
+  "author": "Animundo Builder",
+  "gait": "walk",
+  "fly_pitch": 0,
+  "colors": {
+    "brown": "#B8BEC4",
+    "light": "#FFFFFF",
+    "dark": "#2B2B2B",
+    "bill": "#E8C229",
+    "blue": "#111111",
+    "pink": "#E8AFAF"
+  },
+  "bones": [
+    {
+      "name": "body",
+      "head": [
+        0.0,
+        0.149,
+        -0.1118
+      ],
+      "tail": [
+        0.0,
+        0.149,
+        0.1304
+      ],
+      "role": "body"
+    },
+    {
+      "name": "head",
+      "head": [
+        0.0,
+        0.2235,
+        0.1211
+      ],
+      "tail": [
+        0.0,
+        0.2747,
+        0.2235
+      ],
+      "parent": "body",
+      "role": "head"
+    },
+    {
+      "name": "leg_l",
+      "head": [
+        0.0587,
+        0.1211,
+        0.0
+      ],
+      "tail": [
+        0.0587,
+        0.0,
+        0.0
+      ],
+      "parent": "body",
+      "role": "leg",
+      "mirror": true
+    },
+    {
+      "name": "wing_l",
+      "head": [
+        0.0838,
+        0.1863,
+        0.0
+      ],
+      "tail": [
+        0.3818,
+        0.1863,
+        0.0
+      ],
+      "parent": "body",
+      "role": "wing",
+      "mirror": true,
+      "fold": [
+        -90,
+        10,
+        -80
+      ],
+      "fold_length": 0.65
+    }
+  ],
+  "parts": [
+    {
+      "name": "body",
+      "shape": "ball",
+      "size": [
+        0.1928,
+        0.1844,
+        0.3725
+      ],
+      "at": [
+        0.0,
+        0.1863,
+        -0.0186
+      ],
+      "color": "brown",
+      "bone": "body"
+    },
+    {
+      "name": "breast",
+      "shape": "ball",
+      "size": [
+        0.176,
+        0.1928,
+        0.1956
+      ],
+      "at": [
+        0.0,
+        0.1956,
+        0.0931
+      ],
+      "color": "light",
+      "bone": "body"
+    },
+    {
+      "name": "neck",
+      "shape": "ball",
+      "size": [
+        0.0838,
+        0.1509,
+        0.0931
+      ],
+      "at": [
+        0.0,
+        0.2701,
+        0.1304
+      ],
+      "color": "light",
+      "bone": "body"
+    },
+    {
+      "name": "head",
+      "shape": "ball",
+      "size": [
+        0.1229,
+        0.1229,
+        0.1537
+      ],
+      "at": [
+        0.0,
+        0.3362,
+        0.1825
+      ],
+      "color": "light",
+      "bone": "head"
+    },
+    {
+      "name": "bill",
+      "shape": "ball",
+      "size": [
+        0.0666,
+        0.0359,
+        0.1758
+      ],
+      "at": [
+        0.0,
+        0.3208,
+        0.3196
+      ],
+      "color": "bill",
+      "bone": "head",
+      "separate": true
+    },
+    {
+      "name": "eye_l",
+      "shape": "ball",
+      "size": [
+        0.0143,
+        0.0143,
+        0.0143
+      ],
+      "at": [
+        0.0563,
+        0.3516,
+        0.2133
+      ],
+      "color": "dark",
+      "bone": "head",
+      "separate": true,
+      "mirror": true
+    },
+    {
+      "name": "tail",
+      "shape": "ball",
+      "size": [
+        0.1006,
+        0.0419,
+        0.1304
+      ],
+      "at": [
+        0.0,
+        0.2142,
+        -0.2235
+      ],
+      "color": "light",
+      "bone": "body"
+    },
+    {
+      "name": "foot_l",
+      "shape": "ball",
+      "size": [
+        0.0872,
+        0.0279,
+        0.1073
+      ],
+      "at": [
+        0.0587,
+        0.014,
+        0.0233
+      ],
+      "color": "light",
+      "bone": "leg_l",
+      "mirror": true
+    },
+    {
+      "name": "leg_l",
+      "shape": "ball",
+      "size": [
+        0.0279,
+        0.1211,
+        0.0279
+      ],
+      "at": [
+        0.0587,
+        0.0698,
+        0.0
+      ],
+      "color": "light",
+      "bone": "leg_l",
+      "mirror": true
+    },
+    {
+      "name": "wing_l",
+      "shape": "ball",
+      "size": [
+        0.3166,
+        0.0233,
+        0.1676
+      ],
+      "at": [
+        0.2235,
+        0.1863,
+        0.0
+      ],
+      "color": "brown",
+      "bone": "wing_l",
+      "mirror": true,
+      "separate": true
+    },
+    {
+      "name": "mirror_l",
+      "shape": "ball",
+      "size": [
+        0.1118,
+        0.0251,
+        0.0652
+      ],
+      "at": [
+        0.2794,
+        0.2002,
+        -0.0326
+      ],
+      "color": "blue",
+      "bone": "wing_l",
+      "mirror": true,
+      "separate": true
+    }
+  ]
+}

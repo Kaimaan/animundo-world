@@ -1,0 +1,185 @@
+{
+  "id": "sea_717",
+  "name": "Sea 717 home",
+  "country": "",
+  "center": {
+    "lat": 0,
+    "lon": 0
+  },
+  "description": "Low pale granite skerries and rocky headlands with narrow sandy coves and scattered groves of pine, birch and alder beside the cold grey northern brackish sea.",
+  "about": "Home template made by tools/adapt_home.py from sea.",
+  "author": "Animundo team",
+  "based_on": "sea",
+  "ecoregions": [
+    717
+  ],
+  "habitat": "sea",
+  "terrain": {
+    "size": 2048,
+    "base_height": 9,
+    "relief": 10,
+    "frequency": 0.04,
+    "rock_ridges": 0.4,
+    "rock_above": 22,
+    "lakes": 0.03,
+    "edge": "lake",
+    "seed": 1811587497,
+    "height": 32
+  },
+  "palette": {
+    "ground_lush": "#648a4a",
+    "ground_dry": "#8ea268",
+    "ground_high": "#8a9a80",
+    "dirt": "#6e5b44",
+    "rock": "#a6a19e",
+    "sand": "#d4c6a0",
+    "water_deep": "#1e3f52",
+    "water_shallow": "#5f8284",
+    "ground_autumn": "#8ea268",
+    "snow": "#eef2f6",
+    "heath_autumn": "#8ea268"
+  },
+  "sky": {
+    "day": "#8fc6ea",
+    "horizon": "#eef2ec",
+    "dusk": "#f2a07a",
+    "night": "#141a3a",
+    "sun": "#ffe8c4"
+  },
+  "trees": {
+    "density": 0.014,
+    "mix": [
+      {
+        "shape": "pine",
+        "weight": 35,
+        "leaves": "#365e2e",
+        "trunk": "#6a3e2b",
+        "food": "seeds",
+        "autumn": "#365e2e"
+      },
+      {
+        "shape": "birch",
+        "weight": 30,
+        "leaves": "#6b8e3e",
+        "trunk": "#e7e5e0",
+        "food": "seeds",
+        "autumn": "#d2b03a"
+      },
+      {
+        "shape": "round",
+        "weight": 20,
+        "leaves": "#4e7a36",
+        "trunk": "#4a3a2f",
+        "food": "seeds",
+        "autumn": "#b9973f"
+      },
+      {
+        "shape": "rowan",
+        "weight": 15,
+        "leaves": "#5e8a3d",
+        "trunk": "#5a4030",
+        "food": "berries",
+        "autumn": "#a85a2a"
+      }
+    ]
+  },
+  "ground_cover": {
+    "grass": 0.15,
+    "flowers": 0.0,
+    "flower_colors": [],
+    "flower_names": [],
+    "stones": 0.04,
+    "plants": [
+      {
+        "model": "juniper",
+        "density": 0.08
+      }
+    ]
+  },
+  "lakes": [
+    {
+      "name": "none",
+      "x": 0.5,
+      "z": 0.36,
+      "length": 1.5,
+      "width": 0.2,
+      "angle": 0,
+      "depth": 7,
+      "islands": 2
+    }
+  ],
+  "places": [],
+  "lake_life": {
+    "reeds": 0.0,
+    "lilies": 0.0,
+    "pondweed": 0.15
+  },
+  "food": [
+    {
+      "kind": "seeds",
+      "weight": 10,
+      "names": [
+        "Scots pine"
+      ]
+    },
+    {
+      "kind": "berries",
+      "weight": 10,
+      "names": [
+        "bird cherry"
+      ]
+    },
+    {
+      "kind": "bottom_bugs",
+      "weight": 10,
+      "names": [
+        "blue mussel"
+      ]
+    },
+    {
+      "kind": "water_plants",
+      "weight": 8,
+      "names": [
+        "lake_pondweed",
+        "reeds"
+      ]
+    },
+    {
+      "kind": "browse",
+      "weight": 10,
+      "names": []
+    },
+    {
+      "kind": "grass",
+      "weight": 10,
+      "names": []
+    }
+  ],
+  "fish": [],
+  "migrants": [],
+  "animals": {
+    "playable": [],
+    "predators": [],
+    "prey": []
+  },
+  "sources": [
+    "https://classic.nationalparks.fi/vallisaari-nature",
+    "https://www.hel.fi-areas-in-helsinki-trees",
+    "https://itameri.fi-blue-mussel-communities",
+    "https://ostsee-life.nabu.de-baltic-sea-life",
+    "https://en-academic.com-herring",
+    "GBIF.org"
+  ],
+  "bogs": [],
+  "streams": [],
+  "seasons": {
+    "snow": true
+  },
+  "ice": {
+    "frozen_water": {
+      "from": "winter",
+      "until": "spring+20",
+      "cover": 0.7
+    }
+  }
+}

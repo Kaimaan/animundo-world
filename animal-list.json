@@ -24,6 +24,7 @@
   "rainforest",
   "savanna",
   "sea",
+  "sea_717",
   "tundra"
  ],
  "not_yet": {
@@ -1034,7 +1035,8 @@
     "sea",
     "boreal_lake"
    ],
-   "can_make": true
+   "can_make": true,
+   "in_library": "herring_gull"
   },
   {
    "id": "kingfisher",

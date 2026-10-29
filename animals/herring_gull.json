@@ -1,0 +1,85 @@
+{
+  "archetype": "bird",
+  "latin": "Larus argentatus",
+  "taxon": {
+    "gbif_key": 2481139,
+    "rank": "SPECIES",
+    "name": "Larus argentatus"
+  },
+  "playable": true,
+  "color": "#B8BEC4",
+  "tags": [
+    "bird"
+  ],
+  "diet": [
+    "bottom_bugs"
+  ],
+  "hunts": [],
+  "dark_vision": 0.3,
+  "walk": 1.6,
+  "fly": 13.0,
+  "sprint": 12.0,
+  "jump": 3.5,
+  "box": [
+    0.32,
+    0.34,
+    0.44
+  ],
+  "cam_height": 0.5,
+  "cam_dist": 3.0,
+  "digs": false,
+  "territorial": false,
+  "surface_swimmer": true,
+  "swim_speed": 2.0,
+  "spawn": "water",
+  "rain_chill": 0.1,
+  "shelter": "shore",
+  "model": {
+    "file": "res://assets/animals/herring_gull.glb",
+    "length": 0.233,
+    "yaw": 0.0,
+    "anims": {
+      "idle": "idle",
+      "walk": "walk",
+      "run": "run",
+      "eat": "eat",
+      "sleep": "sleep",
+      "fly": "fly"
+    }
+  },
+  "text": {
+    "title": "Herring Gull",
+    "menu_sub": "Soar over the sea and rest on rocks.",
+    "menu_wild": "Stay with the group near the water.",
+    "intro": "Walk and run on the shore. Hold Fly to lift into the air and soar.",
+    "hungry": "Look for berries on the ground.",
+    "no_food": "No food nearby. Try by the shore.",
+    "chased": "A predator! Fly up or run away.",
+    "about_looks": "A large gull with a pale grey back and white belly. Its wings have black tips with white spots, its legs are pink and its yellow bill has a red spot.",
+    "about_food": "It eats fish and crabs at the shore, and insects and berries inland.",
+    "about_home": "It lives by the sea and by lakes. It nests in big groups near water and rests on flat ground and on rocks.",
+    "about_winter": "Most fly south for the winter and come back in spring.",
+    "about_young": "Chicks are born in spring. They stay close to the soft nest.",
+    "about_fact": "It can float on the water and soar high in the wind."
+  },
+  "year": {
+    "winter": "migrates",
+    "migration": {
+      "leaves": "10-15",
+      "returns": "03-20"
+    },
+    "shelter": "It nests in big groups near water. It rests on flat ground and on rocks.",
+    "young": "Chicks are born in spring. They stay close to the soft nest.",
+    "food": {
+      "spring": "Through the year it eats fish and crabs and insects and berries.",
+      "summer": "Through the year it eats fish and crabs and insects and berries.",
+      "autumn": "Through the year it eats fish and crabs and insects and berries.",
+      "winter": "Through the year it eats fish and crabs and insects and berries."
+    },
+    "notes": "Pale grey back with black wingtips with white spots. Rests on flat ground and rocks."
+  },
+  "sources": [
+    "https://www.rspb.org.uk",
+    "https://jungledragon.com"
+  ]
+}
