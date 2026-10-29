@@ -63,18 +63,14 @@
     "about_fact": "It can float on the water and soar high in the wind."
   },
   "year": {
-    "winter": "migrates",
-    "migration": {
-      "leaves": "10-15",
-      "returns": "03-20"
-    },
+    "winter": "active",
     "shelter": "It nests in big groups near water. It rests on flat ground and on rocks.",
     "young": "Chicks are born in spring. They stay close to the soft nest.",
     "food": {
-      "spring": "Through the year it eats fish and crabs and insects and berries.",
-      "summer": "Through the year it eats fish and crabs and insects and berries.",
-      "autumn": "Through the year it eats fish and crabs and insects and berries.",
-      "winter": "Through the year it eats fish and crabs and insects and berries."
+      "spring": "All year it eats fish, mussels and crabs, and scraps it finds on the shore.",
+      "summer": "All year it eats fish, mussels and crabs, and scraps it finds on the shore.",
+      "autumn": "All year it eats fish, mussels and crabs, and scraps it finds on the shore.",
+      "winter": "All year it eats fish, mussels and crabs, and scraps it finds on the shore."
     },
     "notes": "Pale grey back with black wingtips with white spots. Rests on flat ground and rocks."
   },
