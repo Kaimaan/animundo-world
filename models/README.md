@@ -51,7 +51,7 @@ Don't start a new animal from nothing. Copy the existing model closest to it in 
 | Bears: brown, polar, giant panda, sun bear | `brown_bear` | *Looks like:* a heavy brown body with a shoulder hump, a big round head, small round ears, a short pale snout, thick legs with flat paws, a stub tail. Change: size, snout length, ear size, colours. Its eye patches, shoulder band and chest mark are fur-coloured, ready to repaint (panda, sun bear) |
 | Hares and rabbits | `mountain_hare` | Ears, coat |
 | Squirrels | `squirrel`; gliders: `flying_squirrel` | Size, tail, colours |
-| Mice, voles, shrews, lemmings | `vole` | Size, tail, snout |
+| Mice, voles, shrews, lemmings; hedgehogs | `vole` | Size, tail, snout; hedgehogs: the `spines` mark (colour `spine`). Example: [hedgehog](examples/edits/hedgehog.json) |
 | Seals | `saimaa_seal` | Size, head, coat pattern |
 | Birds of prey, owls | `kestrel` | Size, wing length, beak; owls: big round head, short tail (night animals come later) |
 | Songbirds, woodpeckers | `great_tit`, `chaffinch` | Size, beak, colours; woodpecker: stiff tail, chisel beak |
@@ -76,14 +76,14 @@ Don't start a new animal from nothing. Copy the existing model closest to it in 
 | Dragonflies | none | Two pairs of wings that beat apart |
 | Bats | none | Wings from the arms; night animals come later |
 
-**Adapting a reference in code:** `tools/adapt_model.py` makes a new spec from a reference and a short list of edits, so nobody has to keep 80 positions and sizes consistent by hand. It scales the reference to the real body length, stretches the legs to the real shoulder height, sets the tail's length, then applies edits to whole groups of parts (head, muzzle, ears, leg thickness, paws, body girth, tail width), moving positions and sizes together so parts keep overlapping. It also stretches the neck (`neck`, the head moves with it) and the mane (`mane`), removes parts (`drop`: a part, a group such as `mane`, or a bone such as `antlers`), reshapes a bird's bill (`bill` for its length, `bill_depth` for its height), adds marks (`ear_tufts`, `ruff`, `tail_tip`, `horns` with `horn_m` and `horn_curve`, `stripes`, `spots`, `hammer`) and repaints parts. A reference can carry fur-coloured parts for its kind's marks, ready to repaint: the brown bear's eye patches and shoulder band make the panda. The lynx from the fox: [`examples/edits/lynx.json`](examples/edits/lynx.json); every file in [`examples/edits/`](examples/edits/) is built in CI.
+**Adapting a reference in code:** `tools/adapt_model.py` makes a new spec from a reference and a short list of edits, so nobody has to keep 80 positions and sizes consistent by hand. It scales the reference to the real body length, stretches the legs to the real shoulder height (not for an animal on its back legs, such as a kangaroo, whose legs keep their proportion), sets the tail's length, then applies edits to whole groups of parts (head, muzzle, ears, leg thickness, paws, body girth, tail width), moving positions and sizes together so parts keep overlapping. It also stretches the neck (`neck`, the head moves with it) and the mane (`mane`), removes parts (`drop`: a part, a group such as `mane`, or a bone such as `antlers`), reshapes a bird's bill (`bill` for its length, `bill_depth` for its height), adds marks (`ear_tufts`, `ruff`, `tail_tip`, `horns` with `horn_m` and `horn_curve`, `stripes`, `spots`, `hammer`, `spines`) and repaints parts. A reference can carry fur-coloured parts for its kind's marks, ready to repaint: the brown bear's eye patches and shoulder band make the panda. The lynx from the fox: [`examples/edits/lynx.json`](examples/edits/lynx.json); every file in [`examples/edits/`](examples/edits/) is built in CI.
 
 ```bash
 python3 tools/adapt_model.py models/fox.json models/examples/edits/lynx.json --out models/lynx.json
 tools/build_model.sh models/lynx.json
 ```
 
-When a new animal is approved, it becomes the reference model for its kind: a steward adds it to this table when merging, and later animals of that kind start from it.
+An animal whose closest reference is still a different body plan (a kangaroo from the hare, an anteater from the fox) is marked `"shape": "new"` in [`animal-list.json`](../tools/animal_list.py): the builder writes its spec freely from that reference, then this tool sizes it with the sourced numbers only (D19). When a new animal is approved, it becomes the reference model for its kind: a steward adds it to this table when merging, and later animals of that kind start from it.
 
 ## The spec
 Positions are in the game's coordinates, in **metres**, with the animal standing on the ground at `y = 0` and facing forward:

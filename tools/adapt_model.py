@@ -16,8 +16,9 @@ The edits file (every key but `id` and `name` is optional):
     {
       "id": "lynx", "name": "Eurasian lynx (Lynx lynx)", "author": "...",
       "length_m": 1.05,        # nose to rump, without the tail (an upright bird: its height): scales everything
-      "shoulder_m": 0.68,      # top of the back at the shoulders: sets the legs' length
-      "tail_m": 0.18,          # the tail's length: shortens or lengthens it; 0 removes it
+      "shoulder_m": 0.68,      # top of the back at the shoulders: sets the legs' length (skipped for an
+                               # animal on its back legs, a kangaroo: its legs keep their proportion)
+      "tail_m": 0.18,          # the tail's reach from its base: shortens or lengthens it; 0 removes it
       "colors": {"fur": "#8b7355", "belly": "#f0e8d8", "dark": "#2a2420"},
       "head": 1.1,             # the head, whole, about the neck joint
       "muzzle": 0.6,           # the face's length in front of the eyes
@@ -39,7 +40,8 @@ The edits file (every key but `id` and `name` is optional):
 
 Marks: ear_tufts, ruff, tail_tip, horns (a pair on the skull, colour `horn` or
 `dark`), stripes (bands around the body and neck, colour `dark`), spots (patches on the body
-and neck, colour `spot` or `dark`), hammer (a hammerhead shark's head, the eyes at its ends).
+and neck, colour `spot` or `dark`), hammer (a hammerhead shark's head, the eyes at its ends),
+spines (a hedgehog's coat of spikes over the back and sides, colour `spine` or `dark`).
 
 Factors are clamped to 0.4-2.5 (bill_depth to 4), so an edit can't break the body plan. Prints the
 new spec, or writes it with --out. Then build it: tools/build_model.sh.
@@ -50,7 +52,7 @@ import json
 import math
 import sys
 
-MARKS = ("ear_tufts", "ruff", "tail_tip", "horns", "stripes", "hammer", "spots")
+MARKS = ("ear_tufts", "ruff", "tail_tip", "horns", "stripes", "hammer", "spots", "spines")
 FACTORS = ("head", "muzzle", "ears", "leg_thickness", "paws", "body_girth", "tail_width", "neck", "mane",
            "bill", "bill_depth")
 
@@ -77,6 +79,24 @@ def upright(spec):
     dy = abs(b["tail"][1] - b["head"][1])
     dz = math.hypot(b["tail"][2] - b["head"][2], b["tail"][0] - b["head"][0])
     return math.degrees(math.atan2(dy, dz)) > 60
+
+
+def on_back_legs(spec):
+    """Stands on its back legs, the front ones off the ground (a kangaroo, a meerkat): its legs
+    shouldn't be stretched to a shoulder height, which means its standing height for such an animal."""
+    lows = []
+    for b in spec["bones"]:
+        if b.get("role") != "leg":
+            continue
+        mine = [p["at"][1] - p["size"][1] / 2 for p in spec["parts"] if p.get("bone") == b["name"]]
+        if mine:
+            lows.append((b["head"][2], min(mine)))
+    if len(lows) < 2:
+        return False
+    tall = max(p["at"][1] + p["size"][1] / 2 for p in spec["parts"])
+    ground = [z for z, low in lows if low < tall * 0.05]
+    lifted = [z for z, low in lows if low >= tall * 0.15]
+    return bool(ground) and bool(lifted) and min(lifted) > max(ground)   # the lifted legs are the front ones
 
 
 def body_length(spec):
@@ -352,37 +372,43 @@ def dist(a, b):
 
 
 def tail_length(spec, target):
+    """Set the tail's reach from its base. Parts that start beyond the new length are cut, then what's
+    left is stretched or shrunk along its own line to reach exactly that far. Cutting whole parts alone
+    stopped a lab kangaroo's three-ball tail at 72-82 cm of a sourced 100 (2026-10-29), and stretching
+    was capped at 2.5 times."""
     tail = tail_parts(spec)
     base = tail_base(spec)
     if not tail or base is None:
         return
-    reach = lambda p: dist(p["at"], base) + max(p["size"]) / 2
-    now = max(reach(p) for p in tail)
-    if now <= 0:
+    def half(p):   # half the part's extent along the line from the base
+        u = [p["at"][i] - base[i] for i in range(3)]
+        n = math.sqrt(sum(c * c for c in u))
+        return p["size"][long_axis(p, [c / n for c in u] if n else None)] / 2
+    reach = lambda p: dist(p["at"], base) + half(p)
+    if max(reach(p) for p in tail) <= 0:
         return
     if target < 0.02:   # no tail to speak of (a capybara): remove it
         drop(spec, [b["name"] for b in spec["bones"] if b.get("role") == "tail"])
         return
-    if target < now:   # keep the parts that fit
-        keep = [p for p in tail if reach(p) <= target + 0.02] or tail[:1]
-        cut = {p["name"] for p in tail if p not in keep}
+    keep = [p for p in tail if dist(p["at"], base) - half(p) < target * 0.8] or tail[:1]
+    cut = {p["name"] for p in tail if p not in keep}
+    if cut:
         spec["parts"] = [p for p in spec["parts"] if p["name"] not in cut]
         used = {p.get("bone") for p in spec["parts"]}
         for b in reversed([b for b in spec["bones"] if b.get("role") == "tail"]):
             children = [c for c in spec["bones"] if c.get("parent") == b["name"]]
             if b["name"] not in used and not children:
                 spec["bones"].remove(b)
-    else:   # stretch the tail along its own line, about its base
-        f = min(2.5, target / now)
-        for p in tail:
-            u = [p["at"][i] - base[i] for i in range(3)]
-            n = math.sqrt(sum(c * c for c in u)) or 1.0
-            p["at"] = [base[i] + u[i] * f for i in range(3)]
-            p["size"][long_axis(p, [c / n for c in u])] *= f
-        for b in spec["bones"]:
-            if b.get("role") == "tail":
-                for k in ("head", "tail"):
-                    b[k] = [base[i] + (b[k][i] - base[i]) * f for i in range(3)]
+    f = max(0.1, min(8.0, target / max(reach(p) for p in keep)))
+    for p in keep:   # along its own line, about its base: the parts keep overlapping
+        u = [p["at"][i] - base[i] for i in range(3)]
+        n = math.sqrt(sum(c * c for c in u)) or 1.0
+        p["size"][long_axis(p, [c / n for c in u])] *= f
+        p["at"] = [base[i] + u[i] * f for i in range(3)]
+    for b in spec["bones"]:
+        if b.get("role") == "tail":
+            for k in ("head", "tail"):
+                b[k] = [base[i] + (b[k][i] - base[i]) * f for i in range(3)]
 
 
 def tail_width(spec, f):
@@ -428,6 +454,8 @@ def add_marks(spec, marks, edits=None):
             add_spots(spec)
         elif mark == "hammer":
             add_hammer(spec)
+        elif mark == "spines":
+            add_spines(spec)
 
 
 def melt_limit(spec):
@@ -585,6 +613,54 @@ def add_spots(spec):
         skin["triangles"] = max(skin.get("triangles", 1000), 1400)
 
 
+def add_spines(spec):
+    """A hedgehog's spines: rows of thin cones over the back and sides, from the shoulders to the
+    rump, each leaning back along the body. Each one stands on the outermost skin under it, found by
+    walking out from the body's centre line through every trunk part, so none floats or hides inside."""
+    color = "spine" if "spine" in spec["colors"] else "dark"
+    _, role = roles(spec)
+    trunk = [p for p in spec["parts"] if not p.get("separate") and p["shape"] == "ball"
+             and role[p["name"]] == "body" and not p["name"].startswith("belly")]
+    if not trunk:
+        raise ValueError("spines: the reference has no body parts")
+    z0 = min(p["at"][2] - p["size"][2] / 2 for p in trunk)
+    z1 = max(p["at"][2] + p["size"][2] / 2 for p in trunk)
+    y0 = sum(p["at"][1] for p in trunk) / len(trunk)
+    reach = max(max(p["size"]) for p in trunk)
+    length = (z1 - z0) * 0.17
+    width = length * 0.32
+    def skin(z, a):
+        """The outermost point of the trunk from (0, y0, z) outwards at angle a (0 is the left side)."""
+        d = [math.cos(a), math.sin(a), 0.0]
+        last = None
+        for k in range(1, 101):
+            pt = [d[0] * reach * k / 100, y0 + d[1] * reach * k / 100, z]
+            if any(inside(q, pt) for q in trunk):
+                last = pt
+        return last, d
+    spines, rows = [], 8
+    for r in range(rows):
+        z = z0 + (z1 - z0) * (0.1 + 0.82 * r / (rows - 1))
+        count = 9 if r % 2 else 8
+        for i in range(count):
+            a = math.radians(5 + 170 * (i + 0.5) / count)
+            at, d = skin(z, a)
+            if at is None:
+                continue
+            lean = [d[0], d[1], -0.6]   # back along the body, like stroked fur
+            n = math.sqrt(sum(c * c for c in lean))
+            lean = [c / n for c in lean]
+            spines.append({"name": f"spine_{len(spines) + 1}", "shape": "cone",
+                           "size": [round(width, 4), round(length, 4), round(width, 4)],
+                           "at": [at[j] + lean[j] * length * 0.3 for j in range(3)], "rot": facing(lean),
+                           "color": color, "bone": "body" if any(b["name"] == "body" for b in spec["bones"])
+                           else trunk[0]["bone"], "separate": True, "detail": 0.4})
+    spec["parts"] += spines
+    skin_opts = spec.setdefault("skin", {})
+    if isinstance(skin_opts, dict):   # a few triangles each, on top of the body's own: a playable animal's budget
+        skin_opts["triangles"] = min(1000, max(skin_opts.get("triangles", 1000), 500 + 6 * len(spines)))
+
+
 def add_stripes(spec):
     """Dark bands around the body and neck: thin rings, a little proud of the skin, kept as their
     own pieces like a fish's bars (the skin is too coarse to carry narrow bands). The parts along
@@ -692,7 +768,7 @@ def adapt(ref, edits):
         mane(spec, clamp(edits["mane"]))
     if "body_girth" in edits:
         body_girth(spec, clamp(edits["body_girth"]))
-    if "shoulder_m" in edits:
+    if "shoulder_m" in edits and not on_back_legs(spec):   # an upright animal is sized by length_m alone
         legs_to(spec, float(edits["shoulder_m"]))
     if "leg_thickness" in edits:
         leg_thickness(spec, clamp(edits["leg_thickness"]))

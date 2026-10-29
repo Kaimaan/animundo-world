@@ -5,7 +5,8 @@ Animal first (spec 04, inbox #40): the builder's first screen asks "Which animal
 would you like to be?" and matches the typed text, in the browser, against this
 list. Each entry says what we start its model from (a reference model from the
 table in models/README.md), which game animal's file the maker starts its
-animal file from (`file_from`), the habitats it lives in (each one a home in
+animal file from (`file_from`), `"shape": "new"` when that model is only the
+closest start and the builder writes a new body plan from it (D19), the habitats it lives in (each one a home in
 homes/ once that home exists), and whether we can make it yet.
 
 The table below is the source. This tool writes animal-list.json from it:
@@ -293,6 +294,22 @@ FILE_FROM = {
 }
 
 
+# D19: kinds whose start model is a poor match (a different body plan, not just another size or coat).
+# The builder makes these with its free spec loop from `start_from` as the closest model ("shape": "new"),
+# once per kind; the approved model then becomes the kind's reference. The rest keep the edits call.
+# The hedgehog isn't here: the vole's body is right, and it gets the `spines` mark from the edits.
+NEW_SHAPE = {
+    "kangaroo", "jerboa",            # upright on long back legs, a heavy tail
+    "giant_anteater",                # a long tube snout, a huge tail
+    "meerkat",                       # stands upright
+    "beaver",                        # a flat paddle tail
+    "tapir",                         # a short trunk
+    "walrus", "narwhal",             # tusks
+    "grey_heron", "flamingo",        # a dagger bill, a bent bill
+    "toucan", "hummingbird", "peacock", "roadrunner",
+}
+
+
 def file_from(start, lib):
     """The example animal file for a model started from `start`."""
     return start if start in lib else FILE_FROM.get(start)
@@ -343,6 +360,8 @@ def entries(resolve):
                  "habitats": habitats, "can_make": not_yet is None}
         if not_yet:
             entry["not_yet"] = not_yet
+        if animal_id in NEW_SHAPE:
+            entry["shape"] = "new"
         if in_library:
             entry["in_library"] = in_library
         out.append(entry)
@@ -370,6 +389,11 @@ def table_problems():
             problems.append(f"{animal_id}: start_from {start} is not a reference model")
         if not_yet is None and file_from(start, lib) is None:
             problems.append(f"{animal_id}: no game animal file to start from for {start} (add it to FILE_FROM)")
+    for animal_id in sorted(NEW_SHAPE - ids):
+        problems.append(f"{animal_id}: in NEW_SHAPE but not in the table")
+    for animal_id, _, _, start, _, not_yet in TABLE:
+        if animal_id in NEW_SHAPE and (not_yet is not None or animal_id == start):
+            problems.append(f"{animal_id}: shape new needs an animal we can make, started from another model")
     return problems
 
 
