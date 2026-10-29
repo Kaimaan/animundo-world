@@ -792,6 +792,48 @@
           "type": "boolean"
         }
       }
+    },
+    "start_spots": {
+      "description": "Optional named start spots for links like ?place=fi_nuuksio&animal=fox&at=mist, so a link never holds coordinates. Each name maps to a spot on the map.",
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[a-z][a-z0-9_]*$"
+      },
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "x",
+          "z"
+        ],
+        "properties": {
+          "x": {
+            "description": "Across the map, 0 (west) to 1 (east).",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "z": {
+            "description": "Down the map, 0 (north) to 1 (south).",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "facing": {
+            "description": "Which side the animal faces at the start (default north).",
+            "enum": [
+              "north",
+              "east",
+              "south",
+              "west"
+            ]
+          },
+          "about": {
+            "description": "A note for people: where the spot is and what it's for.",
+            "type": "string"
+          }
+        }
+      }
     }
   },
   "allOf": [
