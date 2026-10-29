@@ -1711,14 +1711,14 @@
    "name": "Giant manta ray",
    "latin": "Mobula birostris",
    "gbif_key": 9548142,
-   "start_from": null,
-   "file_from": null,
+   "start_from": "reef_shark",
+   "file_from": "pike",
    "habitats": [
     "sea",
     "reef"
    ],
-   "can_make": false,
-   "not_yet": "body_plan"
+   "can_make": true,
+   "shape": "new"
   },
   {
    "id": "atlantic_cod",
@@ -1877,14 +1877,14 @@
    "name": "Green sea turtle",
    "latin": "Chelonia mydas",
    "gbif_key": 2442225,
-   "start_from": null,
-   "file_from": null,
+   "start_from": "lizard",
+   "file_from": "lizard",
    "habitats": [
     "sea",
     "reef"
    ],
-   "can_make": false,
-   "not_yet": "body_plan"
+   "can_make": true,
+   "shape": "new"
   },
   {
    "id": "clownfish",

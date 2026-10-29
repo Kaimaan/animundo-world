@@ -37,7 +37,20 @@
   "water_deep": "#0e4d7a",
   "water_shallow": "#2ec4b6"
  },
- "plants": [],
+ "plants": [
+  {
+   "model": "branching_staghorn_coral",
+   "on": "seabed"
+  },
+  {
+   "model": "closed_brain_coral",
+   "on": "seabed"
+  },
+  {
+   "model": "giant_sea_fan",
+   "on": "seabed"
+  }
+ ],
  "seabed": "sand",
  "trees": {
   "density": "none",
@@ -59,6 +72,9 @@
   "https://aqua.org/explore/animals/percula-clownfish",
   "https://australian.museum/learn/animals/fishes/eastern-clown-anemonefish-amphiprion-percula/",
   "https://reeflings.com/encyclopedia/percula-clownfish",
+  "https://en.wikipedia.org/wiki/Acropora_muricata",
+  "https://en.wikipedia.org/wiki/Platygyra_daedalea",
+  "https://en.wikipedia.org/wiki/Annella_mollis",
   "GBIF.org"
  ]
 }

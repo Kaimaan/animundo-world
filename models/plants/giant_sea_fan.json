@@ -1,0 +1,60 @@
+{
+  "id": "giant_sea_fan",
+  "name": "Giant sea fan",
+  "latin": "Annella mollis",
+  "taxon": {
+    "gbif_key": 5841658,
+    "rank": "SPECIES",
+    "name": "Annella mollis"
+  },
+  "author": "Animundo team",
+  "kind": "bush",
+  "year": {
+    "leaves": "evergreen",
+    "flowers": "none: sea fans are animals",
+    "fruit": "none",
+    "notes": "A soft coral: a flat net of fine red-brown or orange branches, up to about 3 m wide, held across the current so its tiny polyps catch food from the water. On reef slopes of the Great Barrier Reef and the Indo-Pacific."
+  },
+  "sources": [
+    "https://en.wikipedia.org/wiki/Annella_mollis",
+    "https://www.gbif.org/species/5841658"
+  ],
+  "colors": {
+    "stalk": "#6e3a24",
+    "fan": "#c0623a"
+  },
+  "parts": [
+    {
+      "name": "stalk",
+      "shape": "cylinder",
+      "size": [
+        0.04,
+        0.12,
+        0.04
+      ],
+      "at": [
+        0,
+        0.06,
+        0
+      ],
+      "color": "stalk",
+      "detail": 0.4
+    },
+    {
+      "name": "fan",
+      "shape": "ball",
+      "size": [
+        0.7,
+        0.62,
+        0.04
+      ],
+      "at": [
+        0,
+        0.42,
+        0
+      ],
+      "color": "fan",
+      "detail": 0.5
+    }
+  ]
+}

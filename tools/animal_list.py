@@ -179,7 +179,7 @@ TABLE = [
     ("great_white_shark", "Great white shark", "Carcharodon carcharias", "reef_shark", ["sea"], None),
     ("hammerhead", "Scalloped hammerhead", "Sphyrna lewini", "reef_shark", ["sea", "reef"], None),
     ("whale_shark", "Whale shark", "Rhincodon typus", "pike", ["sea"], "great_whales"),
-    ("manta_ray", "Giant manta ray", "Mobula birostris", None, ["sea", "reef"], "body_plan"),
+    ("manta_ray", "Giant manta ray", "Mobula birostris", "reef_shark", ["sea", "reef"], None),
     ("atlantic_cod", "Atlantic cod", "Gadus morhua", "pike", ["sea"], None),
     ("herring", "Atlantic herring", "Clupea harengus", "roach", ["sea"], None),
     ("mackerel", "Atlantic mackerel", "Scomber scombrus", "pike", ["sea"], None),
@@ -192,7 +192,7 @@ TABLE = [
     ("crab", "Shore crab", "Carcinus maenas", None, ["sea"], "body_plan"),
     ("lobster", "European lobster", "Homarus gammarus", None, ["sea"], "body_plan"),
     ("seahorse", "Long-snouted seahorse", "Hippocampus guttulatus", None, ["sea", "reef"], "body_plan"),
-    ("green_sea_turtle", "Green sea turtle", "Chelonia mydas", None, ["sea", "reef"], "body_plan"),
+    ("green_sea_turtle", "Green sea turtle", "Chelonia mydas", "lizard", ["sea", "reef"], None),
     # coral reefs
     ("clownfish", "Orange clownfish", "Amphiprion percula", "perch", ["reef"], None),
     ("blue_tang", "Blue tang", "Paracanthurus hepatus", "bream", ["reef"], None),
@@ -307,6 +307,8 @@ NEW_SHAPE = {
     "walrus", "narwhal",             # tusks
     "grey_heron", "flamingo",        # a dagger bill, a bent bill
     "toucan", "hummingbird", "peacock", "roadrunner",
+    "green_sea_turtle",              # a shell and four flippers
+    "manta_ray",                     # a flat diamond with wing-like fins
 }
 
 

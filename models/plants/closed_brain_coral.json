@@ -1,0 +1,69 @@
+{
+  "id": "closed_brain_coral",
+  "name": "Closed brain coral",
+  "latin": "Platygyra daedalea",
+  "taxon": {
+    "gbif_key": 5184733,
+    "rank": "SPECIES",
+    "name": "Platygyra daedalea"
+  },
+  "author": "Animundo team",
+  "kind": "bush",
+  "year": {
+    "leaves": "evergreen",
+    "flowers": "none: corals are animals",
+    "fruit": "none: it spawns once a year in late spring",
+    "notes": "A round dome up to about 1.5 m wide with long winding grooves like a brain, often green or brown walls with paler valleys. Common on the Great Barrier Reef and across the Indo-Pacific, from shallow water down to about 30 m. Grows slowly."
+  },
+  "sources": [
+    "https://en.wikipedia.org/wiki/Platygyra_daedalea",
+    "https://www.gbif.org/species/5184733"
+  ],
+  "colors": {
+    "body": "#7f8f4e",
+    "groove": "#5a4a2c"
+  },
+  "parts": [
+    {
+      "name": "dome",
+      "shape": "ball",
+      "size": [
+        0.6,
+        0.36,
+        0.6
+      ],
+      "at": [
+        0,
+        0.15,
+        0
+      ],
+      "color": "body",
+      "detail": 0.6
+    },
+    {
+      "name": "ridge",
+      "shape": "ball",
+      "size": [
+        0.08,
+        0.05,
+        0.5
+      ],
+      "at": [
+        0.0,
+        0.31,
+        0
+      ],
+      "rot": [
+        0,
+        0,
+        0
+      ],
+      "color": "groove",
+      "detail": 0.4,
+      "around": 3,
+      "turn": 0,
+      "jitter": 0.3,
+      "seed": "ridge"
+    }
+  ]
+}

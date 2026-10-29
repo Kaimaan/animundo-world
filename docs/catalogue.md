@@ -7,7 +7,7 @@ How to add each kind of thing: [CONTRIBUTING.md](../CONTRIBUTING.md). How it sho
 |  | Have | Wanted | In progress |
 |---|---|---|---|
 | Animals | 20 | 0 | 0 |
-| Plants | 25 | 0 | 0 |
+| Plants | 28 | 0 | 0 |
 | Trees | 5 | 0 | 0 |
 | Foods | 13 | 0 | 0 |
 
@@ -53,11 +53,14 @@ How to add each kind of thing: [CONTRIBUTING.md](../CONTRIBUTING.md). How it sho
 | **Bilberry** (*Vaccinium myrtillus*) | bush | fi_nuuksio, fi_saimaa | deciduous | [preview](../models/previews/plants/bilberry.png) |
 | **Bracken** (*Pteridium aquilinum*) | bush | fi_nuuksio, fi_saimaa | deciduous | [preview](../models/previews/plants/bracken.png) |
 | **Grooved brain coral** (*Diploria labyrinthiformis*) | bush | nowhere yet | evergreen | [preview](../models/previews/plants/brain_coral.png) |
+| **Branching staghorn coral** (*Acropora muricata*) | bush | nowhere yet | evergreen | [preview](../models/previews/plants/branching_staghorn_coral.png) |
 | **Chanterelle** (*Cantharellus cibarius*) | ground | fi_nuuksio, fi_saimaa | deciduous | [preview](../models/previews/plants/chanterelle.png) |
+| **Closed brain coral** (*Platygyra daedalea*) | bush | nowhere yet | evergreen | [preview](../models/previews/plants/closed_brain_coral.png) |
 | **Hare’s-tail cottongrass** (*Eriophorum vaginatum*) | ground | fi_nuuksio, fi_saimaa | evergreen | [preview](../models/previews/plants/cottongrass.png) |
 | **Crowberry** (*Empetrum nigrum*) | bush | fi_nuuksio, fi_saimaa | evergreen | [preview](../models/previews/plants/crowberry.png) |
 | **Fireweed** (*Chamaenerion angustifolium*) | bush | fi_nuuksio, fi_saimaa | deciduous | [preview](../models/previews/plants/fireweed.png) |
 | **Fly agaric** (*Amanita muscaria*) | bush | fi_nuuksio, fi_saimaa | deciduous | [preview](../models/previews/plants/fly_agaric.png) |
+| **Giant sea fan** (*Annella mollis*) | bush | nowhere yet | evergreen | [preview](../models/previews/plants/giant_sea_fan.png) |
 | **Goat willow** (*Salix caprea*) | bush | fi_nuuksio, fi_saimaa | deciduous | [preview](../models/previews/plants/goat_willow.png) |
 | **Heather** (*Calluna vulgaris*) | bush | fi_nuuksio, fi_saimaa | evergreen | [preview](../models/previews/plants/heather.png) |
 | **Juniper** (*Juniperus communis*) | bush | fi_nuuksio, fi_saimaa | evergreen | [preview](../models/previews/plants/juniper.png) |
