@@ -2,9 +2,14 @@
 """Map animals: where the game's world map shows animals worth exploring for.
 
 Proposal 0038 section 4: zoomed in a lot, the map shows animals where they
-live, as silhouettes until the child has met them. Not every animal: only the
-ones in PICKS below, the most striking from animal-list.json, each at up to
-three real spots far apart.
+live, as silhouettes until the child has met them. Only animals a child can
+play (`in_library` in animal-list.json), the most striking first (FIRST).
+
+Nearby matters most: an animal seen in the tiles round a built place makes a
+child want to walk there. So each animal gets up to NEAR spots within NEAR_KM
+of every built place (places.json), NEAR_APART_KM apart, never in the place's
+own tile; then up to FAR spots further away, the best one in each of its top
+countries, FAR_APART_KM apart. Nearby spots come first in the file.
 
 Spots come from GBIF records (human observations, no geospatial issues),
 fetched per top country so they spread over the animal's range. A record only
@@ -14,12 +19,11 @@ never finer (0038: "never finer than one tile"); GBIF blurs sensitive species
 itself.
 
     python3 tools/map_animals.py           # fetch from GBIF (needs network), write map-animals.json
-    python3 tools/map_animals.py --check   # offline: the file matches PICKS, the list and the Finnish names
+    python3 tools/map_animals.py --check   # offline: the file matches the playable animals
 
 The habitat grid is the builder's (`data/habitat-grid` in animundo-builder,
 RESOLVE Ecoregions 2017 CC BY 4.0, Natural Earth, ETOPO 2022), read only.
-English names come from animal-list.json; Finnish names are in
-locale/fi/animals.json as `animal.<id>.map_name`.
+The game names them with their own animal text (`animal.<id>.title`).
 """
 import argparse
 import gzip
@@ -35,29 +39,24 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.join(HERE, "..")
 OUT = os.path.join(ROOT, "map-animals.json")
 LIST = os.path.join(ROOT, "animal-list.json")
-FI = os.path.join(ROOT, "locale", "fi", "animals.json")
 GRID = os.path.join(ROOT, "..", "animundo-builder", "data", "habitat-grid")
 API = "https://api.gbif.org/v1/occurrence/search"
 
-# The animals the map shows, most striking first. Only ones we can make
-# (`can_make` in animal-list.json): an animal on the map should be one a
-# child could some day play or meet.
-PICKS = [
-    "polar_bear", "arctic_fox", "walrus", "narwhal", "beluga", "reindeer", "musk_ox",
-    "wolverine", "lynx", "wolf", "brown_bear", "moose", "beaver", "otter", "saimaa_seal",
-    "snowy_owl", "puffin", "snow_leopard", "ibex", "marmot", "emperor_penguin",
-    "king_penguin", "sea_otter", "lion", "cheetah", "giraffe", "zebra", "hippo", "rhino",
-    "meerkat", "ostrich", "flamingo", "kangaroo", "emu", "wombat", "tiger", "giant_panda",
-    "red_panda", "jaguar", "toucan", "scarlet_macaw", "capybara", "bison", "camel",
-    "fennec_fox", "komodo_dragon", "green_sea_turtle", "clownfish", "manta_ray",
-    "crocodile", "okapi", "harpy_eagle",
+# The playable animals the map shows first, most striking first; every
+# other playable animal follows in the list's order.
+FIRST = [
+    "fox", "moose", "saimaa_seal", "mountain_hare", "flying_squirrel", "herring_gull",
+    "kestrel", "pike", "mallard", "squirrel", "frog",
 ]
 # Records that aren't the animal living wild there, by country code or tile:
 # GBIF files dingoes under the wolf, emus are farmed outside Australia, and
 # single walruses visited the Netherlands and Wales.
-NOT_IN = {"wolf": ["AU", "n_164_281"], "emu": ["US", "NZ"], "walrus": ["NL", "GB"]}
-SPOTS = 3            # at most this many spots per animal
-APART_KM = 1500.0    # spots at least this far apart
+NOT_IN = {}
+NEAR = 6             # spots round each built place, per animal
+NEAR_KM = 300.0      # how far round a built place counts as near
+NEAR_APART_KM = 60.0
+FAR = 3              # spots further away, per animal, one per country
+FAR_APART_KM = 500.0
 MIN_RECORDS = 3      # a cell needs this many matching records to be a spot
 COUNTRIES = 6        # records are fetched from this many top countries
 PER_COUNTRY = 300    # GBIF's largest page
@@ -215,7 +214,7 @@ BASE = {
 
 
 def records(key, skip=()):
-    """[(lat, lon)] for a GBIF taxon key, spread over its top countries."""
+    """[(lat, lon, country)] for a GBIF taxon key, from its top countries, most records first."""
     top = _get({**BASE, "taxonKey": key, "limit": 0, "facet": "country", "facetLimit": COUNTRIES + len(skip)})
     out = []
     counts = [c for c in (top.get("facets") or [{}])[0].get("counts", []) if c["name"] not in skip]
@@ -223,26 +222,80 @@ def records(key, skip=()):
         page = _get({**BASE, "taxonKey": key, "country": c["name"], "limit": PER_COUNTRY})
         for r in page.get("results", []):
             if "decimalLatitude" in r and "decimalLongitude" in r:
-                out.append((r["decimalLatitude"], r["decimalLongitude"]))
+                out.append((r["decimalLatitude"], r["decimalLongitude"], c["name"]))
         time.sleep(0.2)
     return out
 
 
-def spots(points, habitats, grid, skip=()):
-    """Up to SPOTS tile centres with the most matching records, APART_KM apart."""
+def records_near(key, place):
+    """[(lat, lon, "")] for a GBIF taxon key within NEAR_KM of a place."""
+    out = []
+    for offset in (0, PER_COUNTRY):
+        page = _get({**BASE, "taxonKey": key, "limit": PER_COUNTRY, "offset": offset,
+                     "geoDistance": "%s,%s,%dkm" % (place[0], place[1], NEAR_KM)})
+        for r in page.get("results", []):
+            if "decimalLatitude" in r and "decimalLongitude" in r:
+                out.append((r["decimalLatitude"], r["decimalLongitude"], ""))
+        time.sleep(0.2)
+        if page.get("endOfRecords", True):
+            break
+    return out
+
+
+def near_spots(points, habitats, grid, place, chosen):
+    """Up to NEAR tile centres round `place` with the most matching records,
+    NEAR_APART_KM from each other and from `chosen`, not in the place's tile."""
+    own = tile_id(cell(*place))
     counts = {}
-    for lat, lon in points:
+    for lat, lon, _ in points:
         c = cell(lat, lon)
-        if tile_id(c) not in skip and grid.fits(c, habitats):
+        if tile_id(c) != own and grid.fits(c, habitats):
             counts[c] = counts.get(c, 0) + 1
-    chosen = []
+    out = []
     for c, n in sorted(counts.items(), key=lambda kv: (-kv[1], kv[0])):
-        if n < MIN_RECORDS or len(chosen) >= SPOTS:
+        if n < MIN_RECORDS or len(out) >= NEAR:
             break
         ll = centre(c)
-        if all(km(ll, (s["lat"], s["lon"])) >= APART_KM for s in chosen):
-            chosen.append({"tile": tile_id(c), "lat": ll[0], "lon": ll[1]})
+        if km(ll, place) <= NEAR_KM and all(km(ll, (s["lat"], s["lon"])) >= NEAR_APART_KM for s in chosen + out):
+            out.append({"tile": tile_id(c), "lat": ll[0], "lon": ll[1]})
+    return out
+
+
+def spots(points, habitats, grid, skip=(), places=()):
+    """The tile centre with the most matching records in each country, the
+    countries with most records first, FAR_APART_KM apart, up to FAR, and
+    beyond NEAR_KM of every built place (those are near spots)."""
+    counts = {}   # country -> {cell: records}
+    order = []
+    for lat, lon, country in points:
+        c = cell(lat, lon)
+        if country not in order:
+            order.append(country)
+        if tile_id(c) not in skip and grid.fits(c, habitats):
+            counts.setdefault(country, {})
+            counts[country][c] = counts[country].get(c, 0) + 1
+    chosen = []
+    for country in order:
+        for c, n in sorted(counts.get(country, {}).items(), key=lambda kv: (-kv[1], kv[0])):
+            if n < MIN_RECORDS or len(chosen) >= FAR:
+                break
+            ll = centre(c)
+            if all(km(ll, pl) > NEAR_KM for pl in places) and all(km(ll, (s["lat"], s["lon"])) >= FAR_APART_KM for s in chosen):
+                chosen.append({"tile": tile_id(c), "lat": ll[0], "lon": ll[1]})
+                break
     return chosen
+
+
+def picks(listed):
+    """The playable animals, FIRST first."""
+    rest = [i for i, a in listed.items() if a.get("in_library") and i not in FIRST]
+    return [i for i in FIRST if i in listed] + rest
+
+
+def load_places():
+    """(lat, lon) of every built place."""
+    with open(os.path.join(ROOT, "places.json"), encoding="utf-8") as f:
+        return [(p["center"]["lat"], p["center"]["lon"]) for p in json.load(f)["places"]]
 
 
 def load_list():
@@ -253,29 +306,23 @@ def load_list():
 def check():
     problems = []
     listed = load_list()
-    with open(FI, encoding="utf-8") as f:
-        fi = json.load(f)
+    PICKS = picks(listed)
     if not os.path.exists(OUT):
         return ["map-animals.json is missing: run tools/map_animals.py"]
     with open(OUT, encoding="utf-8") as f:
         data = json.load(f)
     ids = [a["id"] for a in data.get("animals", [])]
-    for p in PICKS:
-        a = listed.get(p)
-        if a is None:
-            problems.append("%s is in PICKS but not in animal-list.json" % p)
-        elif not a.get("can_make"):
-            problems.append("%s can't be made yet, so it isn't a map animal" % p)
-        if ("animal.%s.map_name" % p) not in fi:
-            problems.append("locale/fi/animals.json has no animal.%s.map_name" % p)
+    for p in FIRST:
+        if not listed.get(p, {}).get("in_library"):
+            problems.append("%s is in FIRST but isn't a playable animal" % p)
     for a in data.get("animals", []):
         if a["id"] not in PICKS:
-            problems.append("%s is in map-animals.json but not in PICKS: run the tool again" % a["id"])
+            problems.append("%s is in map-animals.json but isn't a playable animal: run the tool again" % a["id"])
             continue
         if a.get("name") != listed.get(a["id"], {}).get("name"):
             problems.append("%s: name differs from animal-list.json: run the tool again" % a["id"])
-        if not a.get("spots") or len(a["spots"]) > SPOTS:
-            problems.append("%s: needs 1 to %d spots" % (a["id"], SPOTS))
+        if not a.get("spots") or len(a["spots"]) > NEAR * len(load_places()) + FAR:
+            problems.append("%s: needs 1 to %d spots" % (a["id"], NEAR * len(load_places()) + FAR))
         for s in a.get("spots", []):
             c = cell(s["lat"], s["lon"])
             if tile_id(c) != s["tile"] or centre(c) != (s["lat"], s["lon"]):
@@ -298,26 +345,31 @@ def main():
             print("map-animals: " + p)
         sys.exit(1 if problems else 0)
     listed = load_list()
+    places = load_places()
     grid = Habitats(args.grid)
     old = {}
     if args.only and os.path.exists(OUT):
         with open(OUT, encoding="utf-8") as f:
             old = {a["id"]: a for a in json.load(f)["animals"]}
     out = []
-    for p in PICKS:
+    for p in picks(listed):
         a = listed[p]
         if args.only and p not in args.only:
             if p in old:
                 out.append(old[p])
             continue
+        found = []
+        for place in places:
+            found += near_spots(records_near(a["gbif_key"], place), a["habitats"], grid, place, found)
+        near = len(found)
         pts = records(a["gbif_key"], NOT_IN.get(p, ()))
-        found = spots(pts, a["habitats"], grid, NOT_IN.get(p, ()))
-        print("%-18s %4d records, %d spots %s" % (p, len(pts), len(found), " ".join(s["tile"] for s in found)))
+        found += spots(pts, a["habitats"], grid, NOT_IN.get(p, ()), places)
+        print("%-18s %d near, %d far" % (p, near, len(found) - near))
         if found:
-            out.append({"id": p, "name": a["name"], "in_library": a.get("in_library"), "spots": found})
+            out.append({"id": p, "name": a["name"], "spots": found})
     data = {
         "about": "Animals the game's world map shows where they live (Proposal 0038 section 4). "
-                 "Written by tools/map_animals.py from GBIF records and the habitat grid; edit PICKS there.",
+                 "Written by tools/map_animals.py from GBIF records and the habitat grid; edit FIRST there.",
         "credit": "Spots: GBIF.org occurrence records; habitats: RESOLVE Ecoregions 2017 (Dinerstein et al. 2017), CC BY 4.0.",
         "animals": out,
     }
