@@ -326,7 +326,10 @@
     }
   ],
   "start_spots": {
-    "mist": {"x": 0.5, "z": 0.22, "facing": "north", "about": "a minute's walk from the mist at the north side (the judges' start link, ?at=mist)"}
+    "mist": {"x":  0.5, "z":  0.22, "facing":  "north", "about":  "a minute's walk from the mist at the north side (the judges' start link, ?at=mist)"},
+    "east": {"x":  0.85, "z":  0.5, "facing":  "east", "about":  "near the east side, for testing the border there (?at=east)"},
+    "south": {"x":  0.5, "z":  0.85, "facing":  "south", "about":  "near the south side, for testing the border there (?at=south)"},
+    "west": {"x":  0.15, "z":  0.5, "facing":  "west", "about":  "near the west side, for testing the border there (?at=west)"}
   },
   "places": [
     {
