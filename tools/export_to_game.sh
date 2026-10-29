@@ -19,6 +19,9 @@ rsync -a --delete --include '*/' --include '*.json' --include '*.png' --include 
 # homes, which the game builds code-made tiles from (Proposal 0038); not homes/examples/
 mkdir -p "$GAME/homes"
 rsync -a --delete --include '*.json' --exclude '*' homes/ "$GAME/homes/"
+# the animals the game's world map shows (tools/map_animals.py)
+mkdir -p "$GAME/assets/world"
+cp map-animals.json "$GAME/assets/world/map-animals.json"
 # content text only: menu text (ui, loading, seasons, languages.json) belongs to the game repo
 for f in locale/*/animals.json locale/*/food.json locale/*/plants.json locale/*/regions.json; do
 	[ -f "$f" ] || continue

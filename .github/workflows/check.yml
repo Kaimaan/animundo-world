@@ -55,6 +55,8 @@ jobs:
         run: python3 tools/animal_list.py --check
       - name: Check the place list
         run: python3 tools/places.py --check
+      - name: Map animals match the list and have Finnish names
+        run: python3 tools/map_animals.py --check
       - name: Adapt reference models (every example in models/examples/edits)
         env:
           BLENDER: /home/runner/blender/blender

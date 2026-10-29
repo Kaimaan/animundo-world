@@ -1,0 +1,988 @@
+{
+ "about": "Animals the game's world map shows where they live (Proposal 0038 section 4). Written by tools/map_animals.py from GBIF records and the habitat grid; edit PICKS there.",
+ "credit": "Spots: GBIF.org occurrence records; habitats: RESOLVE Ecoregions 2017 (Dinerstein et al. 2017), CC BY 4.0.",
+ "animals": [
+  {
+   "id": "polar_bear",
+   "name": "Polar bear",
+   "in_library": null,
+   "spots": [
+    {
+     "tile": "n_359_276",
+     "lat": 71.22,
+     "lon": -179.657
+    },
+    {
+     "tile": "n_280_350",
+     "lat": 71.999,
+     "lon": -96.814
+    },
+    {
+     "tile": "n_353_423",
+     "lat": 75.673,
+     "lon": -5.845
+    }
+   ]
+  },
+  {
+   "id": "arctic_fox",
+   "name": "Arctic fox",
+   "in_library": null,
+   "spots": [
+    {
+     "tile": "n_335_217",
+     "lat": 57.156,
+     "lon": -170.245
+    },
+    {
+     "tile": "n_374_410",
+     "lat": 78.218,
+     "lon": 16.02
+    },
+    {
+     "tile": "n_314_462",
+     "lat": 64.678,
+     "lon": -23.937
+    }
+   ]
+  },
+  {
+   "id": "walrus",
+   "name": "Walrus",
+   "in_library": null,
+   "spots": [
+    {
+     "tile": "n_347_267",
+     "lat": 68.981,
+     "lon": -172.304
+    },
+    {
+     "tile": "n_268_376",
+     "lat": 69.064,
+     "lon": -79.778
+    },
+    {
+     "tile": "n_374_410",
+     "lat": 78.218,
+     "lon": 16.02
+    }
+   ]
+  },
+  {
+   "id": "narwhal",
+   "name": "Narwhal",
+   "in_library": null,
+   "spots": [
+    {
+     "tile": "n_227_364",
+     "lat": 59.957,
+     "lon": -88.055
+    },
+    {
+     "tile": "n_285_378",
+     "lat": 72.748,
+     "lon": -76.054
+    },
+    {
+     "tile": "n_373_395",
+     "lat": 81.491,
+     "lon": 20.821
+    }
+   ]
+  },
+  {
+   "id": "beluga",
+   "name": "Beluga whale",
+   "in_library": null,
+   "spots": [
+    {
+     "tile": "n_305_233",
+     "lat": 58.756,
+     "lon": -156.692
+    },
+    {
+     "tile": "n_188_423",
+     "lat": 48.073,
+     "lon": -69.682
+    },
+    {
+     "tile": "n_373_410",
+     "lat": 78.278,
+     "lon": 14.967
+    }
+   ]
+  },
+  {
+   "id": "reindeer",
+   "name": "Reindeer (caribou)",
+   "in_library": null,
+   "spots": [
+    {
+     "tile": "n_374_410",
+     "lat": 78.218,
+     "lon": 16.02
+    },
+    {
+     "tile": "n_381_479",
+     "lat": 62.541,
+     "lon": 10.199
+    },
+    {
+     "tile": "n_300_260",
+     "lat": 63.806,
+     "lon": -149.121
+    }
+   ]
+  },
+  {
+   "id": "musk_ox",
+   "name": "Muskox",
+   "in_library": null,
+   "spots": [
+    {
+     "tile": "n_380_480",
+     "lat": 62.354,
+     "lon": 9.655
+    },
+    {
+     "tile": "n_281_424",
+     "lat": 67.095,
+     "lon": -50.592
+    },
+    {
+     "tile": "n_311_279",
+     "lat": 68.835,
+     "lon": -148.932
+    }
+   ]
+  },
+  {
+   "id": "wolverine",
+   "name": "Wolverine",
+   "in_library": null,
+   "spots": [
+    {
+     "tile": "n_388_477",
+     "lat": 62.66,
+     "lon": 13.634
+    },
+    {
+     "tile": "n_454_426",
+     "lat": 63.894,
+     "lon": 54.866
+    },
+    {
+     "tile": "n_294_252",
+     "lat": 61.509,
+     "lon": -148.646
+    }
+   ]
+  },
+  {
+   "id": "lynx",
+   "name": "Eurasian lynx",
+   "in_library": null,
+   "spots": [
+    {
+     "tile": "n_416_466",
+     "lat": 62.74,
+     "lon": 27.947
+    },
+    {
+     "tile": "n_389_546",
+     "lat": 46.64,
+     "lon": 8.988
+    }
+   ]
+  },
+  {
+   "id": "wolf",
+   "name": "Grey wolf",
+   "in_library": null,
+   "spots": [
+    {
+     "tile": "n_381_483",
+     "lat": 61.631,
+     "lon": 9.876
+    },
+    {
+     "tile": "n_176_292",
+     "lat": 45.013,
+     "lon": -110.196
+    },
+    {
+     "tile": "n_383_555",
+     "lat": 44.675,
+     "lon": 6.854
+    }
+   ]
+  },
+  {
+   "id": "brown_bear",
+   "name": "Brown bear",
+   "in_library": null,
+   "spots": [
+    {
+     "tile": "n_358_564",
+     "lat": 42.816,
+     "lon": -0.42
+    },
+    {
+     "tile": "n_384_469",
+     "lat": 64.663,
+     "lon": 12.612
+    },
+    {
+     "tile": "n_175_290",
+     "lat": 44.614,
+     "lon": -110.641
+    }
+   ]
+  },
+  {
+   "id": "moose",
+   "name": "Moose",
+   "in_library": "moose",
+   "spots": [
+    {
+     "tile": "n_396_452",
+     "lat": 67.589,
+     "lon": 21.534
+    },
+    {
+     "tile": "n_467_448",
+     "lat": 58.406,
+     "lon": 50.537
+    },
+    {
+     "tile": "n_296_250",
+     "lat": 61.348,
+     "lon": -149.89
+    }
+   ]
+  },
+  {
+   "id": "beaver",
+   "name": "Eurasian beaver",
+   "in_library": null,
+   "spots": [
+    {
+     "tile": "n_375_523",
+     "lat": 52.529,
+     "lon": 5.416
+    }
+   ]
+  },
+  {
+   "id": "otter",
+   "name": "Eurasian otter",
+   "in_library": null,
+   "spots": [
+    {
+     "tile": "n_381_476",
+     "lat": 63.222,
+     "lon": 10.456
+    }
+   ]
+  },
+  {
+   "id": "saimaa_seal",
+   "name": "Saimaa ringed seal",
+   "in_library": "saimaa_seal",
+   "spots": [
+    {
+     "tile": "n_418_468",
+     "lat": 62.115,
+     "lon": 28.332
+    }
+   ]
+  },
+  {
+   "id": "snowy_owl",
+   "name": "Snowy owl",
+   "in_library": null,
+   "spots": [
+    {
+     "tile": "n_326_283",
+     "lat": 71.217,
+     "lon": -156.351
+    },
+    {
+     "tile": "n_387_467",
+     "lat": 64.95,
+     "lon": 14.349
+    }
+   ]
+  },
+  {
+   "id": "puffin",
+   "name": "Atlantic puffin",
+   "in_library": null,
+   "spots": [
+    {
+     "tile": "n_176_434",
+     "lat": 44.397,
+     "lon": -67.903
+    },
+    {
+     "tile": "n_359_517",
+     "lat": 54.122,
+     "lon": -0.182
+    },
+    {
+     "tile": "n_319_470",
+     "lat": 63.402,
+     "lon": -20.129
+    }
+   ]
+  },
+  {
+   "id": "snow_leopard",
+   "name": "Snow leopard",
+   "in_library": null,
+   "spots": [
+    {
+     "tile": "n_544_351",
+     "lat": 47.635,
+     "lon": 92.638
+    },
+    {
+     "tile": "n_596_409",
+     "lat": 33.52,
+     "lon": 78.179
+    },
+    {
+     "tile": "n_603_335",
+     "lat": 32.725,
+     "lon": 95.746
+    }
+   ]
+  },
+  {
+   "id": "ibex",
+   "name": "Alpine ibex",
+   "in_library": null,
+   "spots": [
+    {
+     "tile": "n_392_543",
+     "lat": 47.235,
+     "lon": 10.044
+    }
+   ]
+  },
+  {
+   "id": "marmot",
+   "name": "Alpine marmot",
+   "in_library": null,
+   "spots": [
+    {
+     "tile": "n_384_549",
+     "lat": 46.092,
+     "lon": 7.367
+    }
+   ]
+  },
+  {
+   "id": "emperor_penguin",
+   "name": "Emperor penguin",
+   "in_library": null,
+   "spots": [
+    {
+     "tile": "s_275_327",
+     "lat": -69.62,
+     "lon": -68.962
+    },
+    {
+     "tile": "s_372_412",
+     "lat": -77.896,
+     "lon": 166.608
+    },
+    {
+     "tile": "s_212_299",
+     "lat": -53.667,
+     "lon": -67.698
+    }
+   ]
+  },
+  {
+   "id": "king_penguin",
+   "name": "King penguin",
+   "in_library": null,
+   "spots": [
+    {
+     "tile": "s_515_314",
+     "lat": -53.053,
+     "lon": 73.69
+    },
+    {
+     "tile": "s_415_505",
+     "lat": -54.541,
+     "lon": 159.121
+    },
+    {
+     "tile": "s_212_275",
+     "lat": -51.16,
+     "lon": -60.192
+    }
+   ]
+  },
+  {
+   "id": "sea_otter",
+   "name": "Sea otter",
+   "in_library": null,
+   "spots": [
+    {
+     "tile": "n_215_255",
+     "lat": 49.167,
+     "lon": -125.874
+    },
+    {
+     "tile": "n_158_239",
+     "lat": 35.263,
+     "lon": -120.88
+    },
+    {
+     "tile": "n_473_192",
+     "lat": 43.349,
+     "lon": 145.878
+    }
+   ]
+  },
+  {
+   "id": "lion",
+   "name": "Lion",
+   "in_library": null,
+   "spots": [
+    {
+     "tile": "n_368_682",
+     "lat": 11.511,
+     "lon": 1.51
+    },
+    {
+     "tile": "s_487_088",
+     "lat": -17.974,
+     "lon": 25.155
+    },
+    {
+     "tile": "s_564_069",
+     "lat": -1.629,
+     "lon": 35.144
+    }
+   ]
+  },
+  {
+   "id": "cheetah",
+   "name": "Cheetah",
+   "in_library": null,
+   "spots": [
+    {
+     "tile": "s_564_068",
+     "lat": -1.371,
+     "lon": 35.051
+    },
+    {
+     "tile": "n_368_683",
+     "lat": 11.219,
+     "lon": 1.505
+    },
+    {
+     "tile": "s_446_075",
+     "lat": -18.695,
+     "lon": 16.911
+    }
+   ]
+  },
+  {
+   "id": "giraffe",
+   "name": "Giraffe",
+   "in_library": null,
+   "spots": [
+    {
+     "tile": "s_571_069",
+     "lat": -0.339,
+     "lon": 36.057
+    },
+    {
+     "tile": "n_375_676",
+     "lat": 13.173,
+     "lon": 2.804
+    },
+    {
+     "tile": "n_470_665",
+     "lat": 10.851,
+     "lon": 19.885
+    }
+   ]
+  },
+  {
+   "id": "zebra",
+   "name": "Plains zebra",
+   "in_library": null,
+   "spots": [
+    {
+     "tile": "s_563_074",
+     "lat": -3.087,
+     "lon": 35.481
+    },
+    {
+     "tile": "s_490_089",
+     "lat": -17.866,
+     "lon": 25.755
+    },
+    {
+     "tile": "s_465_142",
+     "lat": -33.492,
+     "lon": 25.876
+    }
+   ]
+  },
+  {
+   "id": "hippo",
+   "name": "Hippopotamus",
+   "in_library": null,
+   "spots": [
+    {
+     "tile": "s_561_070",
+     "lat": -2.427,
+     "lon": 34.839
+    },
+    {
+     "tile": "s_487_088",
+     "lat": -17.974,
+     "lon": 25.155
+    }
+   ]
+  },
+  {
+   "id": "rhino",
+   "name": "White rhinoceros",
+   "in_library": null,
+   "spots": [
+    {
+     "tile": "n_548_661",
+     "lat": 1.53,
+     "lon": 32.014
+    },
+    {
+     "tile": "s_487_106",
+     "lat": -22.43,
+     "lon": 26.701
+    }
+   ]
+  },
+  {
+   "id": "meerkat",
+   "name": "Meerkat",
+   "in_library": null,
+   "spots": [
+    {
+     "tile": "s_483_096",
+     "lat": -20.45,
+     "lon": 25.112
+    }
+   ]
+  },
+  {
+   "id": "ostrich",
+   "name": "Common ostrich",
+   "in_library": null,
+   "spots": [
+    {
+     "tile": "s_573_075",
+     "lat": -1.491,
+     "lon": 36.886
+    },
+    {
+     "tile": "s_495_096",
+     "lat": -18.989,
+     "lon": 27.214
+    },
+    {
+     "tile": "s_454_132",
+     "lat": -32.309,
+     "lon": 22.557
+    }
+   ]
+  },
+  {
+   "id": "flamingo",
+   "name": "Greater flamingo",
+   "in_library": null,
+   "spots": [
+    {
+     "tile": "n_626_448",
+     "lat": 23.228,
+     "lon": 71.63
+    }
+   ]
+  },
+  {
+   "id": "kangaroo",
+   "name": "Red kangaroo",
+   "in_library": null,
+   "spots": [
+    {
+     "tile": "s_504_550",
+     "lat": -34.164,
+     "lon": 142.819
+    },
+    {
+     "tile": "s_588_477",
+     "lat": -29.564,
+     "lon": 117.213
+    }
+   ]
+  },
+  {
+   "id": "emu",
+   "name": "Emu",
+   "in_library": null,
+   "spots": [
+    {
+     "tile": "s_499_551",
+     "lat": -34.72,
+     "lon": 143.928
+    },
+    {
+     "tile": "s_576_461",
+     "lat": -34.162,
+     "lon": 115.118
+    }
+   ]
+  },
+  {
+   "id": "wombat",
+   "name": "Common wombat",
+   "in_library": null,
+   "spots": [
+    {
+     "tile": "s_477_533",
+     "lat": -41.576,
+     "lon": 145.893
+    }
+   ]
+  },
+  {
+   "id": "tiger",
+   "name": "Tiger",
+   "in_library": null,
+   "spots": [
+    {
+     "tile": "n_612_409",
+     "lat": 29.469,
+     "lon": 78.908
+    },
+    {
+     "tile": "n_485_226",
+     "lat": 47.989,
+     "lon": 136.769
+    },
+    {
+     "tile": "n_671_437",
+     "lat": 11.981,
+     "lon": 76.029
+    }
+   ]
+  },
+  {
+   "id": "giant_panda",
+   "name": "Giant panda",
+   "in_library": null,
+   "spots": [
+    {
+     "tile": "n_603_303",
+     "lat": 31.375,
+     "lon": 103.063
+    }
+   ]
+  },
+  {
+   "id": "red_panda",
+   "name": "Red panda",
+   "in_library": null,
+   "spots": [
+    {
+     "tile": "n_626_368",
+     "lat": 27.017,
+     "lon": 88.173
+    }
+   ]
+  },
+  {
+   "id": "jaguar",
+   "name": "Jaguar",
+   "in_library": null,
+   "spots": [
+    {
+     "tile": "s_012_272",
+     "lat": -0.653,
+     "lon": -75.867
+    },
+    {
+     "tile": "n_081_568",
+     "lat": 3.926,
+     "lon": -53.18
+    },
+    {
+     "tile": "n_063_365",
+     "lat": 18.919,
+     "lon": -88.937
+    }
+   ]
+  },
+  {
+   "id": "toucan",
+   "name": "Toco toucan",
+   "in_library": null,
+   "spots": [
+    {
+     "tile": "n_072_538",
+     "lat": 6.826,
+     "lon": -58.165
+    },
+    {
+     "tile": "s_138_202",
+     "lat": -25.649,
+     "lon": -54.585
+    },
+    {
+     "tile": "s_078_228",
+     "lat": -14.943,
+     "lon": -64.961
+    }
+   ]
+  },
+  {
+   "id": "scarlet_macaw",
+   "name": "Scarlet macaw",
+   "in_library": null,
+   "spots": [
+    {
+     "tile": "s_011_275",
+     "lat": -0.574,
+     "lon": -76.371
+    },
+    {
+     "tile": "s_062_248",
+     "lat": -12.934,
+     "lon": -69.455
+    },
+    {
+     "tile": "s_056_184",
+     "lat": -3.092,
+     "lon": -59.961
+    }
+   ]
+  },
+  {
+   "id": "capybara",
+   "name": "Capybara",
+   "in_library": null,
+   "spots": [
+    {
+     "tile": "s_078_228",
+     "lat": -14.943,
+     "lon": -64.961
+    },
+    {
+     "tile": "s_149_166",
+     "lat": -21.84,
+     "lon": -47.41
+    },
+    {
+     "tile": "s_154_236",
+     "lat": -33.998,
+     "lon": -58.995
+    }
+   ]
+  },
+  {
+   "id": "bison",
+   "name": "American bison",
+   "in_library": null,
+   "spots": [
+    {
+     "tile": "n_212_297",
+     "lat": 53.485,
+     "lon": -112.964
+    },
+    {
+     "tile": "n_105_394",
+     "lat": 29.593,
+     "lon": -82.28
+    },
+    {
+     "tile": "n_150_304",
+     "lat": 39.797,
+     "lon": -104.838
+    }
+   ]
+  },
+  {
+   "id": "camel",
+   "name": "Dromedary",
+   "in_library": null,
+   "spots": [
+    {
+     "tile": "n_504_566",
+     "lat": 30.839,
+     "lon": 34.983
+    },
+    {
+     "tile": "n_342_610",
+     "lat": 31.079,
+     "lon": -3.996
+    },
+    {
+     "tile": "n_585_513",
+     "lat": 25.383,
+     "lon": 55.757
+    }
+   ]
+  },
+  {
+   "id": "fennec_fox",
+   "name": "Fennec fox",
+   "in_library": null,
+   "spots": [
+    {
+     "tile": "n_506_569",
+     "lat": 29.903,
+     "lon": 34.964
+    },
+    {
+     "tile": "n_342_609",
+     "lat": 31.337,
+     "lon": -4.012
+    },
+    {
+     "tile": "n_287_638",
+     "lat": 21.333,
+     "lon": -14.592
+    }
+   ]
+  },
+  {
+   "id": "komodo_dragon",
+   "name": "Komodo dragon",
+   "in_library": null,
+   "spots": [
+    {
+     "tile": "s_649_523",
+     "lat": -8.603,
+     "lon": 119.456
+    }
+   ]
+  },
+  {
+   "id": "green_sea_turtle",
+   "name": "Green sea turtle",
+   "in_library": null,
+   "spots": [
+    {
+     "tile": "n_605_216",
+     "lat": 22.265,
+     "lon": 120.307
+    },
+    {
+     "tile": "s_002_358",
+     "lat": -0.921,
+     "lon": -89.76
+    },
+    {
+     "tile": "s_163_158",
+     "lat": -23.055,
+     "lon": -44.28
+    }
+   ]
+  },
+  {
+   "id": "clownfish",
+   "name": "Orange clownfish",
+   "in_library": null,
+   "spots": [
+    {
+     "tile": "s_530_612",
+     "lat": -16.649,
+     "lon": 145.971
+    },
+    {
+     "tile": "n_508_577",
+     "lat": 27.882,
+     "lon": 34.324
+    },
+    {
+     "tile": "s_472_671",
+     "lat": -8.986,
+     "lon": 160.143
+    }
+   ]
+  },
+  {
+   "id": "manta_ray",
+   "name": "Giant manta ray",
+   "in_library": null,
+   "spots": [
+    {
+     "tile": "n_086_564",
+     "lat": 5.888,
+     "lon": -53.214
+    },
+    {
+     "tile": "n_103_402",
+     "lat": 28.765,
+     "lon": -80.592
+    },
+    {
+     "tile": "s_649_524",
+     "lat": -8.456,
+     "lon": 119.606
+    }
+   ]
+  },
+  {
+   "id": "crocodile",
+   "name": "Saltwater crocodile",
+   "in_library": null,
+   "spots": [
+    {
+     "tile": "n_705_275",
+     "lat": 1.496,
+     "lon": 103.743
+    },
+    {
+     "tile": "n_661_197",
+     "lat": 5.582,
+     "lon": 118.323
+    },
+    {
+     "tile": "s_533_611",
+     "lat": -16.405,
+     "lon": 145.4
+    }
+   ]
+  },
+  {
+   "id": "harpy_eagle",
+   "name": "Harpy eagle",
+   "in_library": null,
+   "spots": [
+    {
+     "tile": "n_062_538",
+     "lat": 4.221,
+     "lon": -59.036
+    },
+    {
+     "tile": "n_033_431",
+     "lat": 8.078,
+     "lon": -77.648
+    },
+    {
+     "tile": "s_062_248",
+     "lat": -12.934,
+     "lon": -69.455
+    }
+   ]
+  }
+ ]
+}
