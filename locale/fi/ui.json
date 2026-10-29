@@ -382,7 +382,7 @@
   "ui.location.none": "Sopivaa paikkaa ei ole saatavilla tänä vuodenaikana.",
   "ui.location.unsupported": "Tämä eläin ei voi aloittaa tässä paikassa.",
   "ui.place.not_here": "Tähän paikkaan ei pääse juuri nyt.",
-  "ui.draft.not_opened": "Sitä paikkaa ei saatu auki. Kokeile uudelleen rakennussivulta.",
+  "ui.preview.not_opened": "Sitä paikkaa ei saatu auki.",
   "ui.address.not_playable": "Sitä eläintä ei voitu aloittaa siellä.",
   "ui.tile.title": "Testimaa {id}",
   "ui.briefing.shelter.shore": "Lepää kuivalla rannalla tai kivellä.",

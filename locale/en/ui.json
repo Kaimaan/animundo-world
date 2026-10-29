@@ -382,7 +382,7 @@
   "ui.location.none": "No suitable place is available this season.",
   "ui.location.unsupported": "This animal cannot start in that place.",
   "ui.place.not_here": "This place isn't here right now.",
-  "ui.draft.not_opened": "We couldn't open that place. Try again from the builder.",
+  "ui.preview.not_opened": "We couldn't open that place.",
   "ui.address.not_playable": "We couldn't start that animal there.",
   "ui.tile.title": "Test land {id}",
   "ui.briefing.shelter.shore": "Rest on a dry shore or rock.",
