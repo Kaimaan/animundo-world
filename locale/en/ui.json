@@ -88,6 +88,7 @@
   "ui.area.welcome": "New land! {name}",
   "ui.area.found": "Your {animal} found new land: {name}!",
   "ui.area.found_any": "You found new land: {name}!",
+  "ui.area.new_animals": "New animals live in {name} now: {animals}!",
   "ui.area.judge_ready": "Your new land is ready. Only you can see it until we've checked it.",
   "ui.area.judge_open": "Open it",
   "ui.hint.sleeping": "Sleeping... tap Wake up to wake",

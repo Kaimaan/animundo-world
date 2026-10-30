@@ -88,6 +88,7 @@
   "ui.area.welcome": "Uutta maata! {name}",
   "ui.area.found": "Uutta maata: {name}! Sen löysi {animal}.",
   "ui.area.found_any": "Löysit uutta maata: {name}!",
+  "ui.area.new_animals": "Paikassa {name} asuu nyt uusia eläimiä: {animals}!",
   "ui.area.judge_ready": "Uusi maasi on valmis. Vain sinä näet sen, kunnes olemme tarkistaneet sen.",
   "ui.area.judge_open": "Avaa se",
   "ui.hint.sleeping": "Nukut... herää napauttamalla Herää",
