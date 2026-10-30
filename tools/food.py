@@ -118,12 +118,31 @@ def derive(d):
     for kind, rule in RULES["kinds"].items():
         if rule["from"] == "small_life" and when.get(rule.get("when"), False):
             _add(made, kind, written.get(kind, {}).get("names", []), "small_life")
-    # large animals leave carrion
+    # large animals leave carrion; with "or": "small_life", large animals the place doesn't list die there too
+    carrion = RULES["kinds"].get("carrion", {})
+    if carrion.get("or") == "small_life" and when.get(carrion.get("when"), False):
+        _add(made, "carrion", written.get("carrion", {}).get("names", []), "small_life")
     for a in animals_of(d):
         tags = ANIMALS.get(a, {}).get("tags", [])
         if any(t in RULES["large_animals"] for t in tags):
             _add(made, "carrion", [a.replace("_", " ") + " remains"], a)
     return made, notes
+
+
+def as_food(made):
+    """Worked-out food as a region's `food` list, with the rules' weights (a region file's shape)."""
+    out = []
+    for kind, e in made.items():
+        rule = RULES["kinds"].get(kind, {})
+        if "amount" not in rule and "weight" not in rule:
+            continue   # eaten off the plant itself (mushrooms), never scattered or listed
+        f = {"kind": kind, "names": e["names"]}
+        if "amount" in rule:
+            f["amount"] = rule["amount"]
+        else:
+            f["weight"] = rule.get("weight", 0)
+        out.append(f)
+    return out
 
 
 def report(path):

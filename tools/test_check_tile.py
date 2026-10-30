@@ -84,7 +84,43 @@ def broken(good):
     t["blend"] = {"home": "tundra", "share": 0.7}
     t["requires"]["homes"].append("tundra")
     cases.append(("a blend over half the cell", "tile", t))
+    t = with_plants(good)
+    t["plants"]["cover"].append({"id": "kelp", "density": 0.1})
+    t["requires"]["plants"].append("kelp")
+    cases.append(("a plant the library doesn't have", "tile", t))
+    t = with_plants(good)
+    t["requires"]["trees"].remove("birch")
+    cases.append(("requires misses a tree", "tile", t))
+    t = with_plants(good)
+    t["plants"]["cover"] = [{"id": "heather", "density": 0.1}] * 25
+    cases.append(("over 24 ground plants", "tile", t))
+    t = with_plants(good)
+    t["plants"]["cover"] = [{"id": "bilberry", "density": 1.0}, {"id": "white_clover", "density": 0.01}]
+    cases.append(("over the triangle budget", "region", t))
+    t = with_plants(good)
+    t["plants"]["trees"] = [{"id": "scots_pine", "share": 1.0}]
+    t["requires"]["trees"] = ["scots_pine"]
+    t["plants"]["cover"] = [{"id": "wavy_hair_grass", "density": 0.06}]
+    t["requires"]["plants"] = ["wavy_hair_grass"]
+    t["species"] = {"playable": ["moose"], "prey": [], "predators": []}
+    t["requires"]["animals"] = ["moose"]
+    cases.append(("the moose's browse and berries aren't on the tile", "food", t))
+    t = copy.deepcopy(good)
+    t["biome"] = "tundra"
+    cases.append(("biome and home disagree", "tile", t))
     return cases
+
+
+def with_plants(good):
+    """The good tile on its biome under its old name, with its own plants (0043)."""
+    t = copy.deepcopy(good)
+    t["biome"] = t.pop("home")
+    t["requires"]["biomes"] = t["requires"].pop("homes")
+    t["plants"] = {"trees": [{"id": "norway_spruce", "share": 0.5}, {"id": "birch", "share": 0.5}],
+                   "cover": [{"id": "bilberry", "density": 0.2}, {"id": "heather", "density": 0.05}, {"id": "white_clover", "density": 0.01}], "water": []}
+    t["requires"]["plants"] = ["bilberry", "heather", "white_clover"]
+    t["requires"]["trees"] = ["norway_spruce", "birch"]
+    return t
 
 
 def blended(good):
@@ -159,6 +195,9 @@ def main():
         code, r = report(blended(good), tmp, "blend")
         if code != 0 or failed(r["results"]):
             errors.append(f"a valid blend failed: {[x for x in r['results'] if x['status'] == 'fail']}")
+        code, r = report(with_plants(good), tmp, "plants")
+        if code != 0 or failed(r["results"]):
+            errors.append(f"a tile with its biome and own plants failed: {[x for x in r['results'] if x['status'] == 'fail']}")
         east = neighbour(good)
         group = {"format": 1, "grid": "ease2_n25", "group": [51, 37], "version": 1,
                  "tiles": {"n_412_301": good, "n_413_301": east}, "blocked": {"n_414_301": {"reason": "no_home", "habitat": "tundra"}}}
@@ -169,7 +208,7 @@ def main():
         code, r = report(group, tmp, "group_bad")
         if code != 1 or failed(r["results"]) != ["neighbours"]:
             errors.append(f"a group whose shared side doesn't match should fail neighbours, failed {failed(r['results'])}")
-        ran = 4 + len(cases)
+        ran = 5 + len(cases)
     ran += grid_sections(errors)
     for e in errors:
         print("ERROR: " + e, file=sys.stderr)

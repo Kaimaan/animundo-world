@@ -7,4 +7,4 @@ python3 tools/food.py derive homes/sea_717.json   # the worked-out food
 python3 tools/food.py report                       # where every home's and region's written food disagrees
 ```
 
-Homes and regions still have their written `food` while the layers move in; the report shows where it has drifted from what's there. It fails only when an animal can't find its food (decision 0011). CI runs it.
+The game works a tile's food out with the same rules (`scripts/tile_layers.gd`, which reads the mirrored `food/rules.json`), and `tools/check_tile.py` checks a tile's animals against it, with the tile's own `plants` (`tools/layers.py`). Homes and regions still have their written `food` while the layers move in; the report shows where it has drifted from what's there. It fails only when an animal can't find its food (decision 0011). CI runs it.
