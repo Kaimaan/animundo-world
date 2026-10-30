@@ -162,7 +162,8 @@ def check(world, draft):
                             "reason": "models not built: run tools/build_model.sh first"})
         else:
             results.append(result("region", *run(root, "validate_region.py", regions)))
-        draft_run, base = both("check_animals.py", [] if built else ["--no-built-models"])
+        # the builder writes English only; Finnish is added when the draft is reviewed
+        draft_run, base = both("check_animals.py", ["--finnish-later"] + ([] if built else ["--no-built-models"]))
         results.append(result("animals", *draft_run, base=base))
         if built:
             draft_run, base = both("check_models.py", [])

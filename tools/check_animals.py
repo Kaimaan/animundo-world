@@ -10,9 +10,13 @@ Usage:
     python3 tools/check_animals.py --strict       # translation gaps are errors too
     python3 tools/check_animals.py --root DIR     # another checkout (also the game's)
     python3 tools/check_animals.py --no-built-models
+    python3 tools/check_animals.py --finnish-later # a draft: its animals' Finnish comes at review
 
 Exits non-zero and lists every problem; translation gaps are only warnings
-(a language can be partly done) unless --strict is given.
+(a language can be partly done) unless --strict is given. The exception is
+Finnish for animals: the game's content is in English and Finnish, so a
+missing Finnish animal text is an error, unless --finnish-later is given
+(the builder writes English only and the reviewer adds the Finnish).
 
 Two checks need more than content files. A model file must exist in
 assets/animals/, which tools/build_model.sh builds (--no-built-models skips
@@ -177,13 +181,13 @@ class Checker:
         self.warnings = []
         self._cache = {}
 
-    def run(self, strict):
+    def run(self, strict, finnish_later=False):
         ids = self.c.list_ids()
         for a in ids:
             self.check_animal(a, ids)
         self.check_regions()
         self.check_code_keys()
-        self.check_translations(strict)
+        self.check_translations(strict, finnish_later)
         return ids
 
     # --- one animal ---
@@ -376,7 +380,7 @@ class Checker:
                     if key not in known:
                         self.errors.append(f'scripts/{f} uses "{key}" but locale/en has no such key')
 
-    def check_translations(self, strict):
+    def check_translations(self, strict, finnish_later=False):
         en = self.messages("en")
         for lang in self.c.languages():
             if lang == "en":
@@ -387,7 +391,7 @@ class Checker:
                 if key not in tr:
                     missing += 1
                     # an animal comes with English and Finnish text (CONTRIBUTING.md)
-                    if strict or (lang == "fi" and key.startswith(("animal.", "archetype."))):
+                    if strict or (lang == "fi" and not finnish_later and key.startswith(("animal.", "archetype."))):
                         self.errors.append(f'{lang}: missing "{key}"')
                 elif placeholders(en[key]) != placeholders(tr[key]):
                     self.errors.append(f'{lang}: "{key}" must use the placeholders {gd(placeholders(en[key]))}')
@@ -433,9 +437,11 @@ def main():
     ap.add_argument("--root", default=os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
     ap.add_argument("--strict", action="store_true", help="translation gaps are errors")
     ap.add_argument("--no-built-models", action="store_true", help="don't look for the built .glb files")
+    ap.add_argument("--finnish-later", action="store_true",
+                    help="missing Finnish animal text is a warning (a draft; the reviewer adds it)")
     args = ap.parse_args()
     ch = Checker(os.path.abspath(args.root), built_models=not args.no_built_models)
-    ids = ch.run(args.strict)
+    ids = ch.run(args.strict, args.finnish_later)
     for w in ch.warnings:
         print("warning:", w)
     for e in ch.errors:
