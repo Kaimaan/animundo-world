@@ -2,7 +2,7 @@
 """Check a tile (Proposal 0038) the way the world checks a place.
 
 A tile is a 25 km cell of the world's tile grid, made by Animundo Builder's
-tile maker from a home, a seed and the animals GBIF has there (the game
+tile maker from a biome (a home before game proposal 0043; `biome` and `home` are both read), a seed and the animals GBIF has there (the game
 repo's docs/hackathon/spec/02-data-contracts.md, section 2). The tile maker
 calls this on every tile and never publishes one that fails.
 
@@ -19,7 +19,11 @@ regions/<place>.json itself. Then:
   region   validate_region.py and the region schema on the made region
            (needs the models built, like check_draft.py)
   food     food first (decision 0011, check_animals.py's rule): every animal
-           finds all its food in the home, and every hunter some prey
+           finds all its food in the food worked out from the tile's plants, water
+           and animals (tools/food.py, 0043), and every hunter some prey
+  plants   (in tile) the tile's own `plants`: library ids, at most 24 cover and water
+           plants and 6 trees, listed in requires; the region check then holds
+           them to the 100 triangles per m² budget
   edges    65 samples a side, whole blocks, the corners agree (n[0] == w[64],
            n[64] == e[64], s[0] == w[0], s[64] == e[0]); every sample and the
            cell's level are above 0 and under the tile's own height; the height
@@ -53,7 +57,9 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, ".."))
 sys.path.insert(0, HERE)
 import check_animals  # noqa: E402
+import food  # noqa: E402
 import homes  # noqa: E402
+import layers  # noqa: E402
 
 TILE_ID = re.compile(r"^([ns])_([0-9]{3})_([0-9]{3})$")
 GRIDS = {"ease2_n25": "n", "ease2_s25": "s"}
@@ -157,7 +163,10 @@ def region_of(t):
     terrain["seed"] = t["seed"]
     terrain["size"] = TILE_SIZE
     terrain["edge"] = "open"
+    if isinstance(t.get("plants"), dict):
+        layers.use_plants(region, t["plants"])
     region["animals"] = {k: list(t["species"][k]) for k in ("playable", "prey", "predators")}
+    region["food"] = food.as_food(food.derive(region)[0])   # worked out, as the game does (0043)
     return region, None
 
 
@@ -250,10 +259,54 @@ def edge_problems(t):
     return out
 
 
+def as_home(t):
+    """The tile with its biome as `home` (0043: tiles name a biome, `home` is its old name, both read)."""
+    if not isinstance(t, dict):
+        return t, []
+    t, out = dict(t), []
+    for key, owner in (("biome", t), ("biome", t.get("blend"))):
+        if isinstance(owner, dict) and "biome" in owner:
+            if "home" in owner and owner["home"] != owner["biome"]:
+                out.append(f'"biome" {owner["biome"]!r} and "home" {owner["home"]!r} must be the same')
+            if owner is t:
+                t["home"] = t.pop("biome")
+            else:
+                b = dict(owner)
+                b["home"] = b.pop("biome")
+                t["blend"] = b
+    req = t.get("requires")
+    if isinstance(req, dict) and "biomes" in req:
+        req = dict(req)
+        req["homes"] = sorted(set(req.get("homes", [])) | set(req.pop("biomes")))
+        t["requires"] = req
+    return t, out
+
+
+def plant_problems(t):
+    """The tile's own plants (0043): library ids, the phone's limits, and requires lists them."""
+    if "plants" not in t:
+        return []
+    out = layers.problems(t["plants"])
+    if out:
+        return out
+    plants, trees = layers.ids(t["plants"])
+    req = t.get("requires", {})
+    for p in plants:
+        if p not in req.get("plants", []):
+            out.append(f'"requires.plants" must list "{p}"')
+    for p in trees:
+        if p not in req.get("trees", []):
+            out.append(f'"requires.trees" must list "{p}"')
+    return out
+
+
 def check_tile(t):
     """[results] for one tile."""
     content = check_animals.Content(ROOT)
-    shape = tile_problems(t) if isinstance(t, dict) else ["a tile must be an object"]
+    t, named = as_home(t)
+    if named:
+        return [result("tile", named)]
+    shape = (tile_problems(t) + plant_problems(t)) if isinstance(t, dict) else ["a tile must be an object"]
     results = [result("tile", shape)]
     if shape:
         return results + [skip(c, "the tile's fields are wrong") for c in ("animals", "region", "food")] + \

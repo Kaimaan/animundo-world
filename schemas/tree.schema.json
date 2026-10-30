@@ -2,10 +2,11 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/Kaimaan/animundo-world/schemas/tree.schema.json",
   "title": "Tree spec",
-  "description": "models/trees/<id>.json: a tree built from blocks by tools/blender/build_tree.py (tools/tree_shape.py). A region uses it with trees.mix[].shape = its id.",
+  "description": "models/trees/<id>.json: one real tree species. Either built from blocks by tools/blender/build_tree.py (tools/tree_shape.py; a region uses it with trees.mix[].shape = its id), or drawn by the game in one of its own shapes (game_shape; a region uses it with trees.mix[].plant = its id). Proposal 0043.",
   "type": "object",
   "additionalProperties": false,
-  "required": ["id", "name", "author", "latin", "taxon", "sources", "kind", "trunk", "crown", "colors"],
+  "required": ["id", "name", "author", "latin", "taxon", "sources", "kind", "colors"],
+  "oneOf": [{"required": ["trunk", "crown"], "not": {"required": ["game_shape"]}}, {"required": ["game_shape"], "not": {"anyOf": [{"required": ["trunk"]}, {"required": ["crown"]}]}}],
   "properties": {
     "id": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"},
     "status": {"enum": ["draft", "reviewed", "released"]},
@@ -15,6 +16,8 @@
     "taxon": {"type": "object", "required": ["gbif_key", "rank", "name"], "properties": {"gbif_key": {"type": "integer"}, "rank": {"type": "string"}, "name": {"type": "string"}}},
     "sources": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
     "kind": {"const": "tree"},
+    "game_shape": {"description": "Drawn by the game in this shape (animals climb and hide in these), not built from blocks.", "enum": ["spruce", "pine", "birch", "round", "rowan"]},
+    "grows": {"$ref": "https://github.com/Kaimaan/animundo-world/schemas/model.schema.json#/$defs/grows"},
     "trunk": {
       "type": "object", "additionalProperties": false, "required": ["height"],
       "properties": {

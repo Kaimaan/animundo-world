@@ -1,0 +1,32 @@
+{
+  "id": "norway_spruce",
+  "kind": "tree",
+  "author": "Animundo team",
+  "name": "Norway spruce",
+  "latin": "Picea abies",
+  "taxon": {
+    "gbif_key": 5284884,
+    "rank": "SPECIES",
+    "name": "Picea abies"
+  },
+  "game_shape": "spruce",
+  "colors": {
+    "trunk": "#5b4433",
+    "leaves": "#2c5846"
+  },
+  "grows": {
+    "food": "cones",
+    "names": [
+      "spruce cones"
+    ],
+    "more_food": {
+      "seeds": [
+        "spruce seeds"
+      ]
+    }
+  },
+  "sources": [
+    "https://en.wikipedia.org/wiki/Picea_abies",
+    "https://www.gbif.org/species/5284884"
+  ]
+}

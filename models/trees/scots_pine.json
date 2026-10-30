@@ -1,0 +1,32 @@
+{
+  "id": "scots_pine",
+  "kind": "tree",
+  "author": "Animundo team",
+  "name": "Scots pine",
+  "latin": "Pinus sylvestris",
+  "taxon": {
+    "gbif_key": 5285637,
+    "rank": "SPECIES",
+    "name": "Pinus sylvestris"
+  },
+  "game_shape": "pine",
+  "colors": {
+    "trunk": "#b0703f",
+    "leaves": "#4f7d40"
+  },
+  "grows": {
+    "food": "cones",
+    "names": [
+      "pine cones"
+    ],
+    "more_food": {
+      "seeds": [
+        "pine seeds"
+      ]
+    }
+  },
+  "sources": [
+    "https://en.wikipedia.org/wiki/Pinus_sylvestris",
+    "https://www.gbif.org/species/5285637"
+  ]
+}

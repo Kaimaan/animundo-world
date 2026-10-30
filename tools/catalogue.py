@@ -165,8 +165,10 @@ class Catalogue:
                                       self.wanted_rows("plants", self.plants, [self.named, lambda w: w.get("place"), lambda w: w.get("feeds"), lambda w: w.get("needs")]))]
 
         # trees
-        specs = sorted(f[:-5] for f in os.listdir(os.path.join(ROOT, "models", "trees")) if f.endswith(".json")) \
-            if os.path.isdir(os.path.join(ROOT, "models", "trees")) else []
+        tree_dir = os.path.join(ROOT, "models", "trees")
+        specs = sorted(f[:-5] for f in os.listdir(tree_dir) if f.endswith(".json")
+                       and "game_shape" not in json.load(open(os.path.join(tree_dir, f), encoding="utf-8"))) \
+            if os.path.isdir(tree_dir) else []   # built from blocks; game_shape species are drawn in code
         trees = sorted(set(trees) | set(specs))
         rows = [[f"`{t}`", ", ".join(rid for rid, r in self.regions.items() if any(m.get("shape") == t for m in r.get("trees", {}).get("mix", []))) or "nowhere yet",
                  f"[spec](../models/trees/{t}.json), [preview](../models/trees/previews/{t}.png)" if t in specs else "made in code"] for t in trees]

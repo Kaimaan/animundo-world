@@ -11,6 +11,7 @@
     "fruit": "A small nodding head of tiny green seeds in June; ants carry the seeds away.",
     "notes": "10-25 cm tall, with three deeply cut leaves in a ring halfway up the stem. Grows in white carpets in leafy groves and herb-rich spruce forest, flowering before the trees come into leaf; the leaves wither by midsummer and the plant waits underground until next spring. Poisonous if eaten."
   },
+  "grows": {"density": 0.02, "near_trees": 6},
   "sources": ["https://en.wikipedia.org/wiki/Anemone_nemorosa"],
   "colors": {
     "stem": "#7a5a50",

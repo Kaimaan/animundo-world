@@ -11,6 +11,7 @@
     "fruit": "A mushroom: comes up from July to October, most of all in August and September, often after warm rain.",
     "notes": "Grows with spruce, pine and birch. A thick pale stem with a fine white net near the top, and a brown, bun-like cap with a spongy underside instead of gills. A favourite of people, squirrels and slugs."
   },
+  "grows": {"density": 0.005, "near_trees": 4, "food": "mushrooms", "names": ["porcini"], "amount": 25},
   "sources": [
     "https://en.wikipedia.org/wiki/Boletus_edulis",
     "https://luontoportti.com/en/t/2387/cep"

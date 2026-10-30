@@ -11,6 +11,7 @@
     "fruit": "Round berry-cones on the female bushes. They take two years to ripen, from green to blue-black with a pale bloom, so green and blue ones hang together all year.",
     "notes": "A spiky evergreen shrub 1-3 m tall, often narrow like a column, with sharp needles in threes, grey-green with a white stripe on top. Turns a little bronze in hard winters. Grows on dry rocky pine heath, sunny slopes and old pastures. Thrushes and other birds eat the berry-cones and spread the seeds."
   },
+  "grows": {"density": 0.005, "on": ["grass", "rock"]},
   "sources": ["https://en.wikipedia.org/wiki/Juniperus_communis"],
   "colors": {
     "trunk": "#6b4e3a",

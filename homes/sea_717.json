@@ -51,6 +51,7 @@
     "mix": [
       {
         "shape": "pine",
+        "plant": "scots_pine",
         "weight": 35,
         "leaves": "#365e2e",
         "trunk": "#6a3e2b",
@@ -59,6 +60,7 @@
       },
       {
         "shape": "birch",
+        "plant": "birch",
         "weight": 30,
         "leaves": "#6b8e3e",
         "trunk": "#e7e5e0",
@@ -75,6 +77,7 @@
       },
       {
         "shape": "rowan",
+        "plant": "rowan",
         "weight": 15,
         "leaves": "#5e8a3d",
         "trunk": "#5a4030",
@@ -119,14 +122,16 @@
       "kind": "seeds",
       "weight": 10,
       "names": [
-        "Scots pine"
+        "pine seeds",
+        "birch seeds",
+        "alder seeds"
       ]
     },
     {
       "kind": "berries",
       "weight": 10,
       "names": [
-        "bird cherry"
+        "rowan berries"
       ]
     },
     {
@@ -140,19 +145,25 @@
       "kind": "water_plants",
       "weight": 8,
       "names": [
-        "lake_pondweed",
+        "pondweed",
         "reeds"
       ]
     },
     {
       "kind": "browse",
       "weight": 10,
-      "names": []
+      "names": [
+        "birch twigs",
+        "rowan leaves"
+      ]
     },
     {
       "kind": "grass",
       "weight": 10,
-      "names": []
+      "names": [
+        "red fescue",
+        "couch grass"
+      ]
     }
   ],
   "fish": [],

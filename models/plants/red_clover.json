@@ -11,6 +11,7 @@
     "fruit": "Tiny seed pods hidden in the brown, dried flower heads.",
     "notes": "Leaves of three leaflets, often with a pale V-shaped mark. 20-40 cm tall. Grows in meadows, on roadsides and around old farms, not inside the forest. Leaves come up in late April and die back after the first hard frosts. Bumblebees drink from its long flowers; hares and voles eat the leaves."
   },
+  "grows": {"density": 0.006, "food": "clover", "names": ["red clover"], "amount": 15},
   "sources": ["https://en.wikipedia.org/wiki/Trifolium_pratense"],
   "colors": {
     "stem": "#5f8c3e",

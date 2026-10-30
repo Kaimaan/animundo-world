@@ -15,6 +15,7 @@
     "fruit": "none: once a year, a few nights after a full moon in late spring, it lets eggs and sperm drift up into the sea",
     "notes": "Branches like a deer's antlers, up to several metres across, brown or cream with pale blue or purple tips. One of the commonest corals on the Great Barrier Reef and other Indo-Pacific reefs, in shallow, warm, clear water. Fish shelter between the branches."
   },
+  "grows": {"density": 0.08, "on": ["seabed"]},
   "sources": [
     "https://en.wikipedia.org/wiki/Acropora_muricata",
     "https://www.aims.gov.au/",

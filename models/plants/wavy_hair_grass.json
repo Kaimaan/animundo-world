@@ -11,6 +11,7 @@
     "fruit": "Tiny seeds; the dry stalks stand into the autumn.",
     "notes": "The commonest grass of dry forest floor in Finland: fine, hair-thin leaves in loose tufts, bright green, staying green under the snow. Grows in pine and spruce forest, clearings and rocky slopes. Hares, voles and moose graze it."
   },
+  "grows": {"density": 0.06, "near_trees": 8},
   "sources": ["https://en.wikipedia.org/wiki/Avenella_flexuosa"],
   "colors": {
     "blade": "#6e8f45",

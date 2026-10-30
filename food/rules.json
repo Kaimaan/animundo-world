@@ -1,0 +1,33 @@
+{
+  "about": "When each food kind is on a tile, and where its names come from (game proposal 0043, layer 4). The game, the builder and tools/food.py read this file; nobody writes a tile's food by hand. Weights are how often scattered food is of that kind, from Nuuksio; amount is how filling a helping is for food that is part of the land (grass, bark).",
+  "large_animals": ["large_mammal", "seal"],
+  "kinds": {
+    "berries":      {"from": "plants", "weight": 30},
+    "mushrooms":    {"from": "plants", "about": "eaten off the plant itself, so never listed or scattered"},
+    "clover":       {"from": "plants", "weight": 38},
+    "carrot":       {"from": "plants", "weight": 10},
+    "cones":        {"from": "plants", "weight": 10},
+    "seeds":        {"from": "plants", "weight": 12},
+    "browse":       {"from": "plants", "weight": 12},
+    "water_plants": {"from": "plants", "or": "lake_life", "weight": 8},
+    "grass":        {"from": "grass", "amount": 10},
+    "bark":         {"from": "bark", "amount": 15},
+    "insects":      {"from": "small_life", "when": "land", "weight": 15},
+    "water_bugs":   {"from": "small_life", "when": "fresh_water", "weight": 15},
+    "bottom_bugs":  {"from": "small_life", "when": "water", "weight": 8},
+    "carrion":      {"from": "large_animals", "or": "small_life", "when": "land", "weight": 4}
+  },
+  "from": {
+    "plants": "a tree or plant here gives it (its grows.food or grows.more_food, or the place's own entry); names are those plants' food names",
+    "lake_life": "the place has pondweed or water lilies (lake_life above 0); names come from small life until those plants are in the library",
+    "grass": "ground_cover.grass is above 0; names from the land style (until phase 2: the biome)",
+    "bark": "a tree here has grows.bark; names are \"<tree> bark\"",
+    "small_life": "names from the biome's small_life (until phase 2: the written food)",
+    "large_animals": "an animal here has one of the large_animals tags; names are \"<animal> remains\". With \"or\": \"small_life\", carrion is on all land (large animals the tile doesn't list die there too), named from the biome's small life when no large animal is listed"
+  },
+  "when": {
+    "land": "always, except all-ice land",
+    "fresh_water": "lakes, streams, bogs or terrain.lakes above 0, on a habitat that isn't sea",
+    "water": "any water: fresh water, or a sea habitat or sea edge"
+  }
+}

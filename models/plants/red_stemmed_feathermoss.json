@@ -11,6 +11,7 @@
     "fruit": "Rarely makes spore capsules; it spreads by growing along the ground.",
     "notes": "Feathery, yellow-green shoots with red stems, growing in soft carpets a few centimetres deep. One of the commonest mosses of Finnish forests: it covers the floor under spruce and pine, together with bilberry and lingonberry. Green all year, under the snow in winter. Squirrels and birds line their nests with it."
   },
+  "grows": {"density": 0.05, "near_trees": 6},
   "sources": ["https://en.wikipedia.org/wiki/Pleurozium_schreberi"],
   "colors": {
     "moss": "#8a9e3c",

@@ -11,6 +11,7 @@
     "fruit": "none",
     "notes": "A loose ring of 5-10 light green, finely cut fronds, 30-80 cm long, rising from one point and arching outwards. The stalks have pale brown scales. New fronds unroll in May; most turn yellow-brown in late autumn and wither under the snow, though a few stay green through a mild winter. Grows in damp spruce forest and on shady, mossy ground."
   },
+  "grows": {"density": 0.015, "near_trees": 5},
   "sources": ["https://en.wikipedia.org/wiki/Dryopteris_carthusiana"],
   "colors": {
     "frond": "#6a9a42",

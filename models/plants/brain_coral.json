@@ -15,6 +15,7 @@
     "fruit": "none: it spawns once a year in summer",
     "notes": "A round dome up to 2 m wide, yellow-brown, with deep winding grooves like a brain. Grows slowly, a few millimetres a year, on Caribbean reefs from shallow water down to about 40 m."
   },
+  "grows": {"density": 0.08, "on": ["seabed"]},
   "sources": [
     "https://en.wikipedia.org/wiki/Diploria_labyrinthiformis",
     "https://www.gbif.org/species/2260167"

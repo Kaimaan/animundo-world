@@ -51,6 +51,10 @@ jobs:
         run: python3 tools/check_schemas.py
       - name: Check the home templates
         run: python3 tools/homes.py check
+      - name: Food is worked out from what grows and lives there (game proposal 0043)
+        run: python3 tools/food.py report
+      - name: Food tests
+        run: python3 tools/test_food.py
       - name: Check the animal list
         run: python3 tools/animal_list.py --check
       - name: Check the place list

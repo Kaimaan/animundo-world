@@ -15,6 +15,7 @@
     "fruit": "none: once a year, a few nights after the August full moon, it lets eggs and sperm drift up into the sea",
     "notes": "Branches like a stag's antlers, up to 2 m across, light brown with pale tips. Grows fast, up to 20 cm a year, in shallow, warm, clear water on Caribbean reefs. Fish shelter between the branches. Critically endangered."
   },
+  "grows": {"density": 0.08, "on": ["seabed"]},
   "sources": [
     "https://en.wikipedia.org/wiki/Acropora_cervicornis",
     "https://www.fisheries.noaa.gov/species/staghorn-coral",

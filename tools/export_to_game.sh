@@ -19,6 +19,9 @@ rsync -a --delete --include '*/' --include '*.json' --include '*.png' --include 
 # homes, which the game builds code-made tiles from (Proposal 0038); not homes/examples/
 mkdir -p "$GAME/homes"
 rsync -a --delete --include '*.json' --exclude '*' homes/ "$GAME/homes/"
+# the food rules, which the game works a tile's food out from (game proposal 0043)
+mkdir -p "$GAME/food"
+cp food/rules.json "$GAME/food/rules.json"
 # the animals the game's world map shows (tools/map_animals.py)
 mkdir -p "$GAME/assets/world"
 cp map-animals.json "$GAME/assets/world/map-animals.json"

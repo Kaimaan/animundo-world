@@ -11,8 +11,9 @@ BLENDER="${BLENDER:-$(command -v blender || echo /Applications/Blender.app/Conte
 status=0
 for spec in "$@"; do
 	case "$spec" in
+		*trees/*) grep -q '"game_shape"' "$spec" && { echo "BUILT $spec: drawn by the game (game_shape), nothing to build"; continue; }
+			script=tools/blender/build_tree.py ;;
 		*plants/*) script=tools/blender/build_plant.py ;;
-		*trees/*) script=tools/blender/build_tree.py ;;
 		*) script=tools/blender/build_model.py ;;
 	esac
 	out=$("$BLENDER" -b --factory-startup -P "$script" -- "$spec" 2>&1)
