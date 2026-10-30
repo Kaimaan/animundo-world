@@ -20,8 +20,10 @@ rsync -a --delete --include '*/' --include '*.json' --include '*.png' --include 
 mkdir -p "$GAME/homes"
 rsync -a --delete --include '*.json' --exclude '*' homes/ "$GAME/homes/"
 # the food rules, which the game works a tile's food out from (game proposal 0043)
-mkdir -p "$GAME/food"
-cp food/rules.json "$GAME/food/rules.json"
+if [ -f food/rules.json ]; then   # (older commits, which the drift check exports too, have none)
+	mkdir -p "$GAME/food"
+	cp food/rules.json "$GAME/food/rules.json"
+fi
 # the animals the game's world map shows (tools/map_animals.py)
 mkdir -p "$GAME/assets/world"
 cp map-animals.json "$GAME/assets/world/map-animals.json"
