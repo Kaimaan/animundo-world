@@ -948,7 +948,23 @@
     }
    ],
    "expect": {
+    "check_animals": "fail",
     "check_taxa": "fail"
+   }
+  },
+  {
+   "name": "herring_gull_without_finnish_name",
+   "why": "An animal comes with English and Finnish text, or the Finnish game shows it in English.",
+   "edits": [
+    {
+     "file": "locale/fi/animals.json",
+     "delete": [
+      "/animal.herring_gull.title"
+     ]
+    }
+   ],
+   "expect": {
+    "check_animals": "fail"
    }
   },
   {

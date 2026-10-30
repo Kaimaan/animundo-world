@@ -3,8 +3,9 @@
 
 tests/drafts/good/ is a new place (Saimaa's habitat under a new id) with its
 Finnish name; it must pass every check that runs. tests/drafts/bad/ copies the
-fox as "red_fox" and changes one of the game's own texts; it must fail the
-species check and the text check, and nothing else.
+fox as "red_fox" with no Finnish and changes one of the game's own texts; it
+must fail the species check, the text check and the animal check (an animal
+comes with Finnish), and nothing else.
 
 Usage: python3 tools/test_check_draft.py
 """
@@ -31,8 +32,8 @@ def main():
         errors.append(f"the good draft failed: {failed} {[r['problems'] for r in good['results'] if r['status'] == 'fail']}")
     code, bad = report("bad")
     failed = sorted(r["check"] for r in bad["results"] if r["status"] == "fail")
-    if code != 1 or failed != ["locale", "taxa"]:
-        errors.append(f"the bad draft should fail exactly locale and taxa, failed {failed} (exit {code})")
+    if code != 1 or failed != ["animals", "locale", "taxa"]:
+        errors.append(f"the bad draft should fail exactly animals, locale and taxa, failed {failed} (exit {code})")
     for e in errors:
         print("ERROR: " + e, file=sys.stderr)
     ran = [r["check"] for r in good["results"] if r["status"] != "skip"]
