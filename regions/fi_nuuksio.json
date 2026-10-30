@@ -7,6 +7,7 @@
     "lat": 60.3007,
     "lon": 24.5263
   },
+  "grid": {"grid": "ease2_n25", "tiles": [[413, 478], [414, 478], [413, 479], [414, 479]]},
   "land": "boreal",
   "description": "Boreal forest of spruce, Scots pine and birch on rolling granite bedrock, dotted with small dark lakes. Home of the Siberian flying squirrel. Local travel-test layout: named lakes are simplified and reduced in size, with compressed distances; this is not a geographic reconstruction.",
   "author": "Animundo team",
@@ -238,10 +239,10 @@
     }
   ],
   "start_spots": {
-    "mist": {"x": 0.5, "z": 0.22, "facing": "north", "about": "a minute's walk from the mist at the north side (the judges' start link, ?at=mist)"},
-    "east": {"x": 0.85, "z": 0.5, "facing": "east", "about": "near the east side, for testing the border there (?at=east)"},
-    "south": {"x": 0.5, "z": 0.85, "facing": "south", "about": "near the south side, for testing the border there (?at=south)"},
-    "west": {"x": 0.15, "z": 0.5, "facing": "west", "about": "near the west side, for testing the border there (?at=west)"}
+    "mist": {"x": 0.75, "z": 0.22, "facing": "north", "about": "a minute's walk from the mist at the north side (the judges' start link, ?at=mist)"},
+    "east": {"x": 0.85, "z": 0.75, "facing": "east", "about": "near the east side, for testing the border there (?at=east)"},
+    "south": {"x": 0.75, "z": 0.85, "facing": "south", "about": "near the south side, for testing the border there (?at=south)"},
+    "west": {"x": 0.15, "z": 0.75, "facing": "west", "about": "near the west side, for testing the border there (?at=west)"}
   },
   "places": [
     {

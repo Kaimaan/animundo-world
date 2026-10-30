@@ -7,6 +7,7 @@
     "lat": 62.115,
     "lon": 28.508
   },
+  "grid": {"grid": "ease2_n25", "tiles": [[418, 468]]},
   "land": "boreal",
   "description": "A compact, stylised 1 km Linnansaari-inspired archipelago in Lake Saimaa: wooded islands, rocky shores and connected freshwater. This is a playable habitat sample, not a geographic reconstruction or the full national park. No sensitive real seal resting or breeding locations are reproduced.",
   "author": "Animundo team",
