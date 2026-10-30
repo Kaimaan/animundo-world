@@ -11,6 +11,7 @@
     "fruit": "Red berries ripen from mid-July to late August; each berry is made of many small round drupelets.",
     "notes": "Upright canes about 1–2 m tall with small prickles; leaves of three to five leaflets, whitish underneath. A cane grows leaves in its first year and flowers and fruits in its second, then dies. Leaves turn yellow and fall in October; the brown canes stand through the winter. Grows in clearings, along forest edges and on old fields."
   },
+  "grows": {"density": 0.025, "near_trees": 10, "food": {"kind": "berries", "part": "berry"}, "names": ["wild raspberries"], "amount": 15},
   "sources": ["https://en.wikipedia.org/wiki/Rubus_idaeus"],
   "colors": {
     "cane": "#7a6c48",

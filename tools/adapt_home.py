@@ -86,9 +86,18 @@ def hex_ok(value, what):
 
 
 def tree_specs():
-    """Trees from specs in the library (models/trees/), drawn as well as the built-in shapes."""
+    """Trees built from specs in the library (models/trees/), drawn as well as the built-in shapes.
+    A species the game draws in one of its own shapes (game_shape) isn't a shape of its own."""
     folder = os.path.join(ROOT, "models", "trees")
-    return {f[:-5] for f in os.listdir(folder) if f.endswith(".json")} if os.path.isdir(folder) else set()
+    if not os.path.isdir(folder):
+        return set()
+    out = set()
+    for f in os.listdir(folder):
+        if f.endswith(".json"):
+            with open(os.path.join(folder, f), encoding="utf-8") as fh:
+                if "game_shape" not in json.load(fh):
+                    out.add(f[:-5])
+    return out
 
 
 def adapt(base, c):

@@ -28,6 +28,7 @@
     "grass",
     "sand"
   ],
+  "grows": {"food": "browse", "names": ["umbrella thorn leaves"]},
   "sources": [
     "https://en.wikipedia.org/wiki/Vachellia_tortilis",
     "https://www.gbif.org/species/3974700"

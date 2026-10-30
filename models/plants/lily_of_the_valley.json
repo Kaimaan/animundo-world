@@ -11,6 +11,7 @@
     "fruit": "Round red berries in August and September. Very poisonous.",
     "notes": "Two broad, upright, oval leaves wrapped round each other at the base, 15-25 cm tall, yellowing in autumn. Spreads by underground stems into patches in dry leafy groves, on forest edges and rocky slopes. Finland's national flower. Every part of it is poisonous to people and pets."
   },
+  "grows": {"density": 0.01, "near_trees": 8},
   "sources": ["https://en.wikipedia.org/wiki/Convallaria_majalis"],
   "colors": {
     "leaf": "#3f7f3e",

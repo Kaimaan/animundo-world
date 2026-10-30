@@ -1,0 +1,34 @@
+{
+  "id": "rowan",
+  "kind": "tree",
+  "author": "Animundo team",
+  "name": "Rowan",
+  "latin": "Sorbus aucuparia",
+  "taxon": {
+    "gbif_key": 3012167,
+    "rank": "SPECIES",
+    "name": "Sorbus aucuparia"
+  },
+  "game_shape": "rowan",
+  "colors": {
+    "trunk": "#5a4030",
+    "leaves": "#5f8a3a",
+    "autumn": "#c23b22"
+  },
+  "grows": {
+    "food": "browse",
+    "names": [
+      "rowan leaves"
+    ],
+    "bark": true,
+    "more_food": {
+      "berries": [
+        "rowan berries"
+      ]
+    }
+  },
+  "sources": [
+    "https://en.wikipedia.org/wiki/Sorbus_aucuparia",
+    "https://www.gbif.org/species/3012167"
+  ]
+}

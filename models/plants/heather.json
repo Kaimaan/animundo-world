@@ -11,6 +11,7 @@
     "fruit": "Tiny dry capsules among the dead flowers; nothing an animal eats.",
     "notes": "Tiny scale-like leaves pressed along the shoots, dark grey-green, browner in winter. Grows on dry, poor ground: rocky hilltops and open pine heath. Bumblebees and other bees drink from its flowers in late summer."
   },
+  "grows": {"density": 0.1, "on": ["grass", "rock"]},
   "sources": ["https://en.wikipedia.org/wiki/Calluna"],
   "colors": {
     "wood": "#6a4b36",

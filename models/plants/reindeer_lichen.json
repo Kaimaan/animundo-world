@@ -11,6 +11,7 @@
     "fruit": "none: a lichen spreads by breaking into pieces.",
     "notes": "Pale grey-green cushions 5-10 cm high, made of many fine branches like tiny antlers. Grows very slowly, a few millimetres a year, on dry rocky pine hilltops and sandy heath. The same all year: crisp and brittle when dry, soft after rain. The main winter food of reindeer in Lapland, but not in Nuuksio, where there are no reindeer."
   },
+  "grows": {"density": 0.03, "on": ["rock"]},
   "sources": ["https://en.wikipedia.org/wiki/Cladonia_rangiferina"],
   "colors": {
     "lichen": "#d3d6c2",

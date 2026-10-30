@@ -15,6 +15,7 @@
     "fruit": "none",
     "notes": "A soft coral: a flat net of fine red-brown or orange branches, up to about 3 m wide, held across the current so its tiny polyps catch food from the water. On reef slopes of the Great Barrier Reef and the Indo-Pacific."
   },
+  "grows": {"density": 0.08, "on": ["seabed"]},
   "sources": [
     "https://en.wikipedia.org/wiki/Annella_mollis",
     "https://www.gbif.org/species/5841658"

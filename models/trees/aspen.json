@@ -1,0 +1,29 @@
+{
+  "id": "aspen",
+  "kind": "tree",
+  "author": "Animundo team",
+  "name": "Aspen",
+  "latin": "Populus tremula",
+  "taxon": {
+    "gbif_key": 3040249,
+    "rank": "SPECIES",
+    "name": "Populus tremula"
+  },
+  "game_shape": "round",
+  "colors": {
+    "trunk": "#6b4a33",
+    "leaves": "#5f8f3a",
+    "autumn": "#d9772f"
+  },
+  "grows": {
+    "food": "browse",
+    "names": [
+      "aspen shoots"
+    ],
+    "bark": true
+  },
+  "sources": [
+    "https://en.wikipedia.org/wiki/Populus_tremula",
+    "https://www.gbif.org/species/3040249"
+  ]
+}

@@ -11,6 +11,7 @@
     "fruit": "A mushroom: the red caps come up from August to October, most of all in September, and are gone after the first hard frosts.",
     "notes": "Grows with birch, spruce and pine. The red cap is spotted with white warts. Very poisonous to people. Red squirrels and some slugs eat it. A great one to teach: look, don't pick."
   },
+  "grows": {"density": 0.006, "near_trees": 4},
   "sources": [
     "https://en.wikipedia.org/wiki/Amanita_muscaria",
     "https://luontoportti.com/en/t/2416/fly-agaric"

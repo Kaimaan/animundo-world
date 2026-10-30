@@ -1,0 +1,34 @@
+{
+  "id": "birch",
+  "kind": "tree",
+  "author": "Animundo team",
+  "name": "Silver birch",
+  "latin": "Betula pendula",
+  "taxon": {
+    "gbif_key": 5331916,
+    "rank": "SPECIES",
+    "name": "Betula pendula"
+  },
+  "game_shape": "birch",
+  "colors": {
+    "trunk": "#ece6da",
+    "leaves": "#9cc35a",
+    "autumn": "#e8c13a"
+  },
+  "grows": {
+    "food": "browse",
+    "names": [
+      "birch leaves and twigs"
+    ],
+    "bark": true,
+    "more_food": {
+      "seeds": [
+        "birch seeds"
+      ]
+    }
+  },
+  "sources": [
+    "https://en.wikipedia.org/wiki/Betula_pendula",
+    "https://www.gbif.org/species/5331916"
+  ]
+}

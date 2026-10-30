@@ -11,6 +11,7 @@
     "fruit": "Blue-black berries ripen from mid-July into September.",
     "notes": "Leaves turn red in autumn and fall. The angular stems stay green all winter, under the snow. Grows as a carpet in shady spruce and pine forest."
   },
+  "grows": {"density": 0.22, "near_trees": 5, "food": {"kind": "berries", "part": "berry"}, "names": ["bilberries"], "amount": 15},
   "sources": ["https://en.wikipedia.org/wiki/Vaccinium_myrtillus"],
   "colors": {
     "stem": "#5e9a3a",

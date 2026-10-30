@@ -15,6 +15,7 @@
     "fruit": "none",
     "notes": "A soft coral: a flat purple fan of fine branches up to about 1.8 m tall, held across the current so its tiny polyps catch food from the water. Sways in the waves. On Caribbean reefs."
   },
+  "grows": {"density": 0.08, "on": ["seabed"]},
   "sources": [
     "https://en.wikipedia.org/wiki/Gorgonia_ventalina",
     "https://www.gbif.org/species/5185376"

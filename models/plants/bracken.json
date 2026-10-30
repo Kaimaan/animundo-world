@@ -11,6 +11,7 @@
     "fruit": "none",
     "notes": "Each frond grows alone from a creeping underground stem: a tall stalk with a broad, flat, triangular blade held out sideways, up to a metre high. The fronds come up curled like a fist in late May, unroll in June, turn rusty brown after the autumn frosts and lie flat under the snow. Grows in patches in spruce and mixed forest and on forest edges. Poisonous to eat raw."
   },
+  "grows": {"density": 0.03, "near_trees": 8},
   "sources": ["https://en.wikipedia.org/wiki/Pteridium_aquilinum"],
   "colors": {
     "stalk": "#6a7a3a",

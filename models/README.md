@@ -282,6 +282,7 @@ A plant spec is like an animal spec without bones. It has `id`, `name`, `author`
 |---|---|
 | `kind` | `ground` for small ground cover drawn thousands of times (under 50 faces), or `bush` (under 300 faces). The build stops if the plant is over budget. |
 | `seasons` | Optional colour changes by season, like an animal's coat: `{"autumn": {"leaf": "#c4493a"}}`. They blend in over three weeks, by the region's own season dates. |
+| `grows` | How it grows wherever it's listed (game proposal 0043): `density` (copies per m² where it's common), `on` (grass, rock, sand, seabed), `habitat` (forest or bog), `near_trees` (metres), the `food` kind it is (`"mushrooms"`, or `{"kind": "berries", "part": "berry"}` while that part shows), the `names` an animal is told it ate, and `amount`. A place's own entry overrides any of them; a tile lists only the plant's id. Tree specs (`models/trees/`) have it too, plus `bark` (animals gnaw it) and `more_food` (a spruce gives cones and seeds). |
 
 Parts take the same fields as an animal's (no `bone`), plus:
 

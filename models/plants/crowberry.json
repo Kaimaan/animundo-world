@@ -11,6 +11,7 @@
     "fruit": "Shiny black berries ripen from late July and stay on the plant over winter, under the snow, into the next spring.",
     "notes": "A low creeping mat, rarely taller than 15 cm, with short needle-like leaves crowded on reddish-brown stems; a little bronze in winter. Grows on rocky hilltops, dry pine heath and bogs, often with heather and lingonberry."
   },
+  "grows": {"density": 0.04, "on": ["grass", "rock"], "food": {"kind": "berries", "part": "berry"}, "names": ["crowberries"], "amount": 10},
   "sources": ["https://en.wikipedia.org/wiki/Empetrum_nigrum"],
   "colors": {
     "needles": "#2f5a34",

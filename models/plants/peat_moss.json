@@ -11,6 +11,7 @@
     "fruit": "none; reproduces by spores",
     "notes": "Grows in bogs. Simplified clump."
   },
+  "grows": {"density": 0.7, "habitat": "bog"},
   "sources": [
     "https://laji.fi/taxon/MX.44030"
   ],

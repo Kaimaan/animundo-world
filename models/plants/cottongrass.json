@@ -11,6 +11,7 @@
     "fruit": "White cottony seed heads in early summer.",
     "notes": "Grows in bogs. Simplified clump."
   },
+  "grows": {"density": 0.15, "habitat": "bog"},
   "sources": [
     "https://www.luopioistenkasvisto.fi/Sivut/Kasvilajit/Tupasvilla.html"
   ],

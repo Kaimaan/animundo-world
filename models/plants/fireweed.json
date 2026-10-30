@@ -11,6 +11,7 @@
     "fruit": "Long thin pods split open in late summer and autumn and let out white, fluffy seeds that blow away in the wind.",
     "notes": "One straight stem 0.5-1.5 m tall with long, narrow leaves all the way up; the leaves turn red in autumn. The plant dies back in winter, but the dry stems often stand above the snow. Grows in large patches on clearings, burnt ground, roadsides and forest edges. Bumblebees drink from it all summer; hares and moose eat the leaves."
   },
+  "grows": {"density": 0.008},
   "sources": ["https://en.wikipedia.org/wiki/Chamaenerion_angustifolium"],
   "colors": {
     "stem": "#6b7a45",

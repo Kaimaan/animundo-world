@@ -11,6 +11,7 @@
     "fruit": "A mushroom: egg-yellow, funnel-shaped, usually in small groups. Comes up from July to early October, most of all in August.",
     "notes": "3-8 cm across, with blunt, branching ridges instead of gills running down the stem, and a faint smell of apricots. Grows in mossy spruce and mixed forest, living together with the trees' roots. A favourite of Finnish mushroom pickers; slugs and squirrels eat it too."
   },
+  "grows": {"density": 0.005, "near_trees": 4, "food": "mushrooms", "names": ["chanterelles"], "amount": 20},
   "sources": ["https://en.wikipedia.org/wiki/Cantharellus_cibarius"],
   "colors": {
     "cap": "#eab43e"

@@ -11,6 +11,7 @@
     "fruit": "Bright red berries ripen from late August into September and stay on the plant over winter, under the snow.",
     "notes": "Glossy, leathery dark green leaves all year, a little bronze in winter. Lower than bilberry and stiffer. Grows in dry pine forest and on heaths and rocky slopes."
   },
+  "grows": {"density": 0.09, "near_trees": 8, "food": {"kind": "berries", "part": "berry"}, "names": ["lingonberries"], "amount": 15},
   "sources": ["https://en.wikipedia.org/wiki/Vaccinium_vitis-idaea"],
   "colors": {
     "stem": "#5e5a34",

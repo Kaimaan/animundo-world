@@ -11,6 +11,7 @@
     "fruit": "Tiny seed pods in the brown, drooping flower heads.",
     "notes": "Creeps along the ground and roots as it goes; leaves of three round leaflets, often with a pale band, about 10 cm high. Grows on lawns, paths, roadsides and meadows, wherever the grass is kept short. Bees drink from it; hares, voles and deer eat the leaves."
   },
+  "grows": {"density": 0.008, "food": "clover", "names": ["white clover"], "amount": 15},
   "sources": ["https://en.wikipedia.org/wiki/Trifolium_repens"],
   "colors": {
     "stem": "#6f9a4a",
