@@ -386,7 +386,8 @@ class Checker:
             for key in en:
                 if key not in tr:
                     missing += 1
-                    if strict:
+                    # an animal comes with English and Finnish text (CONTRIBUTING.md)
+                    if strict or (lang == "fi" and key.startswith(("animal.", "archetype."))):
                         self.errors.append(f'{lang}: missing "{key}"')
                 elif placeholders(en[key]) != placeholders(tr[key]):
                     self.errors.append(f'{lang}: "{key}" must use the placeholders {gd(placeholders(en[key]))}')

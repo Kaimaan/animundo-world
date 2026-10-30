@@ -560,5 +560,18 @@
   "animal.ladybird.map_name": "Seitsenpistepirkko",
   "animal.ant.map_name": "Kekomuurahainen",
   "animal.spider.map_name": "Ristihämähäkki",
-  "animal.snail.map_name": "Viinitarhakotilo"
+  "animal.snail.map_name": "Viinitarhakotilo",
+  "animal.herring_gull.title": "Harmaalokki",
+  "animal.herring_gull.menu_sub": "Liitele meren yllä ja lepää kallioilla.",
+  "animal.herring_gull.menu_wild": "Pysy parven kanssa veden lähellä.",
+  "animal.herring_gull.intro": "Kävele ja juokse rannalla. Pidä lentopainike painettuna noustaksesi ilmaan ja liitele.",
+  "animal.herring_gull.hungry": "Etsi matoja ja kotiloita matalasta vedestä.",
+  "animal.herring_gull.no_food": "Ei ruokaa lähellä. Etsi rannan matalasta vedestä.",
+  "animal.herring_gull.chased": "Saalistaja! Lennä ylös tai juokse pakoon.",
+  "animal.herring_gull.about_looks": "Iso lokki, jolla on vaaleanharmaa selkä ja valkoinen vatsa. Siipien kärjet ovat mustat ja niissä on valkoisia täpliä. Jalat ovat vaaleanpunaiset, ja keltaisessa nokassa on punainen täplä.",
+  "animal.herring_gull.about_food": "Se syö kalaa, simpukoita ja rapuja sekä rannalta löytämiään ruoantähteitä.",
+  "animal.herring_gull.about_home": "Se elää meren ja järvien rannoilla. Se pesii suurissa yhdyskunnissa veden lähellä ja lepää tasaisella maalla ja kallioilla.",
+  "animal.herring_gull.about_winter": "Se pysyy täällä koko vuoden. Talvella monet kerääntyvät satamiin.",
+  "animal.herring_gull.about_young": "Poikaset kuoriutuvat keväällä. Ne pysyvät lähellä pehmeää pesää.",
+  "animal.herring_gull.about_fact": "Se voi kellua veden pinnalla ja liidellä korkealla tuulessa."
 }
