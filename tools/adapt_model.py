@@ -39,7 +39,9 @@ The edits file (every key but `id` and `name` is optional):
     }
 
 Marks: ear_tufts, ruff, tail_tip, horns (a pair on the skull, colour `horn` or
-`dark`), stripes (bands around the body and neck, colour `dark`), spots (patches on the body
+`dark`), stripes (many thin rings around the body and neck, colour `dark`), bands (a few wide rings
+around the body, evenly spaced from behind the head to the tail: a clownfish's three white bars;
+`"bands": 1-5` and `"band_color"`, the name of a colour, default `band` or `dark`), spots (patches on the body
 and neck, colour `spot` or `dark`), hammer (a hammerhead shark's head, the eyes at its ends),
 spines (a hedgehog's coat of spikes over the back and sides, colour `spine` or `dark`).
 
@@ -52,7 +54,7 @@ import json
 import math
 import sys
 
-MARKS = ("ear_tufts", "ruff", "tail_tip", "horns", "stripes", "hammer", "spots", "spines")
+MARKS = ("ear_tufts", "ruff", "tail_tip", "horns", "stripes", "bands", "hammer", "spots", "spines")
 FACTORS = ("head", "muzzle", "ears", "leg_thickness", "paws", "body_girth", "tail_width", "neck", "mane",
            "bill", "bill_depth")
 
@@ -450,6 +452,9 @@ def add_marks(spec, marks, edits=None):
             add_horns(spec, float(edits.get("horn_m", 0)), float(edits.get("horn_curve", 30)))
         elif mark == "stripes":
             add_stripes(spec)
+        elif mark == "bands":
+            color = edits.get("band_color") or ("band" if "band" in spec["colors"] else "dark")
+            add_stripes(spec, bands=int(edits.get("bands", 3)), color=color)
         elif mark == "spots":
             add_spots(spec)
         elif mark == "hammer":
@@ -661,14 +666,27 @@ def add_spines(spec):
         skin_opts["triangles"] = min(1000, max(skin_opts.get("triangles", 1000), 500 + 6 * len(spines)))
 
 
-def add_stripes(spec):
+def add_stripes(spec, bands=None, color="dark"):
     """Dark bands around the body and neck: thin rings, a little proud of the skin, kept as their
     own pieces like a fish's bars (the skin is too coarse to carry narrow bands). The parts along
-    each run (the trunk, the neck) share a grid; each ring spans every part it cuts through."""
-    if "dark" not in spec["colors"]:
-        raise ValueError("stripes need a colour named dark")
+    each run (the trunk, the neck) share a grid; each ring spans every part it cuts through.
+    With `bands` (1-5): that many wide rings on the body alone, evenly spaced between the head's
+    back and the tail, in `color` (a clownfish's white bars)."""
+    if color not in spec["colors"]:
+        raise ValueError(f"stripes need a colour named {color}")
     _, role = roles(spec)
-    period = body_length(spec) / 16
+    length = body_length(spec)
+    period = length / 16
+    if bands is not None:
+        bands = max(1, min(5, bands))
+        # the body's own run along z, nose (the far end from the tail) to rump
+        zs = [q["at"][2] + sgn * q["size"][2] / 2 for q in spec["parts"] if role[q["name"]] == "body"
+              for sgn in (-1, 1)]
+        tails = [q["at"][2] for q in spec["parts"] if role[q["name"]] == "tail"]
+        lo, hi = min(zs), max(zs)
+        nose, rump = (lo, hi) if tails and sum(tails) / len(tails) > (lo + hi) / 2 else (hi, lo)
+        period = abs(rump - nose) / (bands + 1)
+        stations = [nose + (rump - nose) * (j + 1) / (bands + 1) for j in range(bands)]
     line = {}
     for b in spec["bones"]:
         d = [b["tail"][i] - b["head"][i] for i in range(3)]
@@ -678,6 +696,8 @@ def add_stripes(spec):
     for p in spec["parts"]:
         if p.get("separate") or role[p["name"]] not in ("body", "neck") or p["name"].startswith(("mane", "belly")):
             continue
+        if bands is not None and role[p["name"]] != "body":
+            continue
         ax = long_axis(p, line[p["bone"]])
         e = [0, 0, 0]
         e[ax] = 1
@@ -685,8 +705,16 @@ def add_stripes(spec):
         half = p["size"][ax] / 2
         c = sum(p["at"][i] * u[i] for i in range(3))
         run = (role[p["name"]], tuple(round(x, 1) for x in u))
-        for k in range(math.ceil((c - half * 0.85) / period), math.floor((c + half * 0.85) / period) + 1):
-            t = k * period - c
+        if bands is not None:
+            if abs(u[2]) < 0.5:
+                continue
+            ks = [(k, (z - p["at"][2]) / u[2]) for k, z in enumerate(stations)]
+        else:
+            ks = [(k, k * period - c) for k in
+                  range(math.ceil((c - half * 0.85) / period), math.floor((c + half * 0.85) / period) + 1)]
+        for k, t in ks:
+            if abs(t) > half * 0.92:
+                continue
             s = math.sqrt(max(0.0, 1 - (t / half) ** 2)) if p["shape"] == "ball" else 1.0
             if s >= 0.6:
                 cuts.setdefault((run, k), []).append((p, ax, u, t, s))
@@ -719,10 +747,10 @@ def add_stripes(spec):
         if ax != 2 or yaw or roll:
             continue
         n += 1
-        spec["parts"].append({"name": f"stripe_{n}", "shape": "cylinder",
-                              "size": [size[0] * 1.02, period * 0.42, size[1] * 1.02],
+        spec["parts"].append({"name": f"{'band' if bands else 'stripe'}_{n}", "shape": "cylinder",
+                              "size": [size[0] * 1.02, (length * 0.07 if bands else period * 0.42), size[1] * 1.02],
                               "at": [centre[i] + shift[i] for i in range(3)], "rot": [pitch + 90, 0, 0],
-                              "color": "dark", "bone": p0["bone"], "separate": True})
+                              "color": color, "bone": p0["bone"], "separate": True})
     skin = spec.setdefault("skin", {})
     if isinstance(skin, dict):   # the rings take about 30 triangles each: a large animal's budget
         skin["triangles"] = max(skin.get("triangles", 1000), 1500)

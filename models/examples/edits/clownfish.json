@@ -1,0 +1,23 @@
+{
+ "reference": "perch",
+ "id": "clownfish",
+ "name": "Clownfish",
+ "length_m": 0.09,
+ "body_girth": 1.2,
+ "colors": {
+  "body": "#f26a1b",
+  "belly": "#f58a3c",
+  "fin": "#f26a1b",
+  "band": "#ffffff",
+  "back": "#f26a1b",
+  "side": "#f26a1b",
+  "bar": "#f26a1b",
+  "fin_red": "#f26a1b",
+  "fin_pale": "#f26a1b"
+ },
+ "marks": [
+  "bands"
+ ],
+ "bands": 3,
+ "band_color": "band"
+}

@@ -86,6 +86,18 @@ def main():
     if h["skin"]["triangles"] > 1000:
         errors.append(f"hedgehog: skin.triangles {h['skin']['triangles']} is over a playable animal's 1000")
 
+    # a clownfish from the perch has three wide white bands, evenly spaced, nose to tail
+    edits = load("models", "examples", "edits", "clownfish.json")
+    edits.pop("reference")
+    c = adapt_model.adapt(load("models", "perch.json"), edits)
+    bands = sorted((p for p in c["parts"] if p["name"].startswith("band")), key=lambda p: p["at"][2])
+    if len(bands) != 3 or any(p["color"] != "band" for p in bands):
+        errors.append(f"clownfish: {len(bands)} bands, should be 3 in colour band")
+    elif not bands[0]["at"][2] < bands[1]["at"][2] < bands[2]["at"][2]:
+        errors.append("clownfish: bands should sit one behind another along the body")
+    if any(p["name"].startswith("stripe") for p in c["parts"]):
+        errors.append("clownfish: bands must not add thin stripes")
+
     for e in errors:
         print("ERROR: " + e, file=sys.stderr)
     print("adapt_model: sizes and marks as expected" if not errors else f"{len(errors)} problems")
