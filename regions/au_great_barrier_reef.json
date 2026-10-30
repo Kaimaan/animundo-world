@@ -130,14 +130,14 @@
       },
       {
         "model": "dugong_grass",
-        "density": 0.08,
+        "density": 0.25,
         "on": [
           "seabed"
         ]
       },
       {
         "model": "paddle_grass",
-        "density": 0.08,
+        "density": 0.25,
         "on": [
           "seabed"
         ]
@@ -154,7 +154,7 @@
   "lake_life": {
     "reeds": 0.0,
     "lilies": 0.0,
-    "pondweed": 0.35
+    "pondweed": 0.0
   },
   "fish": [
     {

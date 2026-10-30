@@ -16,30 +16,27 @@
   "digs": false,
   "territorial": false,
   "box": [
-    1.1,
-    0.35,
-    0.85
+    0.8,
+    0.4,
+    1.1
   ],
   "flee_speed": 3.0,
   "food_value": 50,
   "model": {
     "file": "res://assets/animals/green_sea_turtle.glb",
-    "length": 1.2,
+    "length": 1.0,
     "yaw": 0.0,
     "anims": {
       "idle": "idle",
       "walk": "walk",
       "run": "run",
       "eat": "eat",
-      "sleep": "sleep"
+      "sleep": "sleep",
+      "fly": "swim"
     }
   },
   "year": {
-    "winter": "migrates",
-    "migration": {
-      "leaves": "09-01",
-      "returns": "05-01"
-    },
+    "winter": "active",
     "shelter": "It rests in shallow lagoons near coral reefs. It shelters under ledges in seagrass beds.",
     "young": "Babies are born on sandy beaches and crawl to the sea. They drift in the open sea and then live near shore.",
     "food": {
@@ -47,7 +44,8 @@
       "summer": "Seagrass and seaweed. Young ones also eat jellyfish.",
       "autumn": "Seagrass and seaweed. Young ones also eat jellyfish.",
       "winter": "Seagrass and seaweed. Young ones also eat jellyfish."
-    }
+    },
+    "notes": "Green turtles live on the Great Barrier Reef all year; the water stays warm."
   },
   "text": {
     "title": "Green sea turtle",
@@ -68,5 +66,24 @@
     "https://www.fws.gov",
     "https://www.nationalgeographic.com"
   ],
-  "playable": true
+  "playable": true,
+  "breath": 300,
+  "buttons": {
+    "jump": "up",
+    "dig": "down",
+    "sprint": "fast"
+  },
+  "cam_dist": 4.0,
+  "cam_height": 0.8,
+  "diving_mammal": true,
+  "hunts": [],
+  "jump": 2.0,
+  "rain_chill": 0.0,
+  "shelter": "deep_water",
+  "spawn": "water",
+  "sprint": 1.0,
+  "swim_speed": 2.6,
+  "swim_sprint_speed": 4.2,
+  "walk": 0.4,
+  "water_chill": 0
 }
