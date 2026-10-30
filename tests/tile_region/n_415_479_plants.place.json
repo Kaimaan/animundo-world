@@ -1,0 +1,544 @@
+{
+ "center": {
+  "lat": 60.15,
+  "lon": 24.91
+ },
+ "description": "Low pale granite skerries and rocky headlands with narrow sandy coves and scattered groves of pine, birch and alder beside the cold grey northern brackish sea.",
+ "ecoregions": [
+  717
+ ],
+ "habitat": "sea",
+ "land": "boreal",
+ "terrain": {
+  "base_height": 9,
+  "relief": 10,
+  "frequency": 0.04,
+  "rock_ridges": 0.4,
+  "rock_above": 22,
+  "size": 1024,
+  "lakes": 0.0,
+  "edge": "open",
+  "seed": 1702148877,
+  "height": 32,
+  "water_level": 8
+ },
+ "palette": {
+  "ground_lush": "#648a4a",
+  "ground_dry": "#8ea268",
+  "ground_high": "#8a9a80",
+  "dirt": "#6e5b44",
+  "rock": "#a6a19e",
+  "sand": "#d4c6a0",
+  "water_deep": "#1e3f52",
+  "water_shallow": "#5f8284",
+  "ground_autumn": "#8ea268",
+  "snow": "#eef2f6",
+  "heath_autumn": "#8ea268"
+ },
+ "trees": {
+  "density": 0.014,
+  "mix": [
+   {
+    "weight": 50.0,
+    "shape": "pine",
+    "plant": "scots_pine",
+    "trunk": "#b0703f",
+    "leaves": "#4f7d40",
+    "food": "cones"
+   },
+   {
+    "weight": 35.0,
+    "shape": "birch",
+    "plant": "birch",
+    "trunk": "#ece6da",
+    "leaves": "#9cc35a",
+    "autumn": "#e8c13a",
+    "food": "browse"
+   },
+   {
+    "weight": 15.0,
+    "shape": "rowan",
+    "plant": "rowan",
+    "leaves": "#5f8a3a",
+    "autumn": "#c23b22",
+    "food": "browse"
+   }
+  ]
+ },
+ "ground_cover": {
+  "grass": 0.15,
+  "flowers": 0.0,
+  "flower_colors": [],
+  "flower_names": [],
+  "stones": 0.04,
+  "plants": [
+   {
+    "model": "juniper",
+    "density": 0.06,
+    "on": [
+     "grass",
+     "rock"
+    ]
+   },
+   {
+    "model": "crowberry",
+    "density": 0.04,
+    "on": [
+     "grass",
+     "rock"
+    ],
+    "food": {
+     "kind": "berries",
+     "part": "berry"
+    },
+    "names": [
+     "crowberries"
+    ],
+    "amount": 10
+   },
+   {
+    "model": "heather",
+    "density": 0.05,
+    "on": [
+     "grass",
+     "rock"
+    ]
+   },
+   {
+    "model": "reindeer_lichen",
+    "density": 0.03,
+    "on": [
+     "rock"
+    ]
+   },
+   {
+    "model": "wavy_hair_grass",
+    "density": 0.06,
+    "near_trees": 8
+   },
+   {
+    "model": "fireweed",
+    "density": 0.008
+   }
+  ]
+ },
+ "small_life": {
+  "bottom_bugs": [
+   "blue mussel"
+  ],
+  "water_plants": [
+   "pondweed",
+   "reeds"
+  ],
+  "grass": [
+   "red fescue",
+   "couch grass"
+  ]
+ },
+ "lakes": [
+  {
+   "name": "Suomenlahti",
+   "x": 0.5,
+   "z": 0.36,
+   "length": 1.5,
+   "width": 0.2,
+   "angle": 0,
+   "depth": 7,
+   "islands": 2
+  }
+ ],
+ "places": [],
+ "lake_life": {
+  "reeds": 0.0,
+  "lilies": 0.0,
+  "pondweed": 0.15
+ },
+ "fish": [],
+ "migrants": [],
+ "animals": {
+  "playable": [
+   "herring_gull"
+  ],
+  "prey": [],
+  "predators": []
+ },
+ "sources": [
+  "https://classic.nationalparks.fi/vallisaari-nature",
+  "https://www.hel.fi-areas-in-helsinki-trees",
+  "https://itameri.fi-blue-mussel-communities",
+  "https://ostsee-life.nabu.de-baltic-sea-life",
+  "https://en-academic.com-herring",
+  "GBIF.org"
+ ],
+ "bogs": [],
+ "streams": [],
+ "ice": {
+  "frozen_water": {
+   "from": "winter",
+   "until": "spring+20",
+   "cover": 0.7
+  }
+ },
+ "sky": {
+  "day": "#8fc6ea",
+  "horizon": "#eef2ec",
+  "dusk": "#f2a07a",
+  "night": "#141a3a",
+  "sun": "#ffe8c4"
+ },
+ "seasons": {
+  "snow": true
+ },
+ "food": [
+  {
+   "kind": "berries",
+   "names": [
+    "crowberries",
+    "rowan berries"
+   ],
+   "weight": 0
+  },
+  {
+   "kind": "cones",
+   "names": [
+    "pine cones"
+   ],
+   "weight": 0
+  },
+  {
+   "kind": "seeds",
+   "names": [
+    "pine seeds",
+    "birch seeds"
+   ],
+   "weight": 0
+  },
+  {
+   "kind": "browse",
+   "names": [
+    "birch leaves and twigs",
+    "rowan leaves"
+   ],
+   "weight": 0
+  },
+  {
+   "kind": "bark",
+   "names": [
+    "birch bark",
+    "rowan bark"
+   ],
+   "amount": 15
+  },
+  {
+   "kind": "water_plants",
+   "names": [
+    "pondweed",
+    "reeds"
+   ],
+   "weight": 0
+  },
+  {
+   "kind": "grass",
+   "names": [
+    "red fescue",
+    "couch grass"
+   ],
+   "amount": 10
+  },
+  {
+   "kind": "insects",
+   "names": [],
+   "weight": 0
+  },
+  {
+   "kind": "bottom_bugs",
+   "names": [
+    "blue mussel"
+   ],
+   "weight": 8
+  },
+  {
+   "kind": "carrion",
+   "names": [],
+   "weight": 0
+  }
+ ],
+ "level": 5,
+ "edges": {
+  "n": [
+   9,
+   10,
+   10,
+   10,
+   10,
+   9,
+   9,
+   9,
+   9,
+   9,
+   9,
+   9,
+   9,
+   9,
+   9,
+   9,
+   9,
+   9,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   6,
+   6,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8
+  ],
+  "e": [
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   4,
+   4,
+   4,
+   4,
+   4,
+   4,
+   4,
+   4,
+   4,
+   4,
+   4,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8
+  ],
+  "s": [
+   8,
+   8,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5
+  ],
+  "w": [
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   9,
+   9,
+   9,
+   9,
+   9,
+   9,
+   9,
+   9,
+   9,
+   9,
+   9,
+   9,
+   9,
+   9,
+   9,
+   9,
+   9,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   9,
+   9,
+   9,
+   9,
+   9,
+   9,
+   9,
+   9
+  ]
+ },
+ "coast": [
+  "11111",
+  "11111",
+  "01100",
+  "00000",
+  "00000"
+ ]
+}

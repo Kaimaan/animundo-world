@@ -92,6 +92,8 @@ jobs:
         run: python3 tools/test_check_draft.py
       - name: A tile is checked like a place
         run: python3 tools/test_check_tile.py
+      - name: One converter makes a tile's place, as the game does (golden places)
+        run: python3 tools/test_tile_region.py
       - name: The checks catch broken content
         run: python3 tools/test_broken.py
       - name: Catalogue is up to date

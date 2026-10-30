@@ -1,0 +1,1020 @@
+{
+ "center": {
+  "lat": 60.03,
+  "lon": 24.34
+ },
+ "description": "A northern forest of spruce, pine and birch on rocky hills, with small lakes, bogs and streams.",
+ "ecoregions": [
+  717
+ ],
+ "habitat": "boreal_forest",
+ "land": "boreal",
+ "terrain": {
+  "base_height": 9,
+  "relief": 12,
+  "frequency": 0.04,
+  "rock_ridges": 0.4,
+  "rock_above": 18,
+  "size": 1024,
+  "lakes": 0.0,
+  "edge": "open",
+  "seed": 1043172102,
+  "height": 32,
+  "water_level": 8
+ },
+ "seasons": {
+  "snow": true,
+  "spring": "04-05",
+  "summer": "05-25",
+  "autumn": "09-20",
+  "winter": "11-25"
+ },
+ "trees": {
+  "density": 0.02,
+  "mix": [
+   {
+    "weight": 42.6,
+    "shape": "spruce",
+    "plant": "norway_spruce",
+    "trunk": "#5b4433",
+    "leaves": "#2c5846",
+    "food": "cones"
+   },
+   {
+    "weight": 27.700000000000003,
+    "shape": "pine",
+    "plant": "scots_pine",
+    "trunk": "#b0703f",
+    "leaves": "#4f7d40",
+    "food": "cones"
+   },
+   {
+    "weight": 19.8,
+    "shape": "birch",
+    "plant": "birch",
+    "trunk": "#ece6da",
+    "leaves": "#9cc35a",
+    "autumn": "#e8c13a",
+    "food": "browse"
+   },
+   {
+    "weight": 5.0,
+    "shape": "round",
+    "plant": "aspen",
+    "trunk": "#6b4a33",
+    "leaves": "#5f8f3a",
+    "autumn": "#d9772f",
+    "food": "browse"
+   },
+   {
+    "weight": 5.0,
+    "shape": "rowan",
+    "plant": "rowan",
+    "leaves": "#5f8a3a",
+    "autumn": "#c23b22",
+    "food": "browse"
+   }
+  ]
+ },
+ "ground_cover": {
+  "grass": 0.18,
+  "flowers": 0.04,
+  "flower_colors": [
+   "#f5f3ea",
+   "#b48ac4",
+   "#4b5fa0",
+   "#f2d64a"
+  ],
+  "flower_names": [
+   "oxeye daisy",
+   "heather",
+   "harebell",
+   "tormentil"
+  ],
+  "stones": 0.04,
+  "plants": [
+   {
+    "model": "bilberry",
+    "density": 0.22,
+    "near_trees": 5,
+    "food": {
+     "kind": "berries",
+     "part": "berry"
+    },
+    "names": [
+     "bilberries"
+    ],
+    "amount": 15
+   },
+   {
+    "model": "lingonberry",
+    "density": 0.09,
+    "near_trees": 8,
+    "food": {
+     "kind": "berries",
+     "part": "berry"
+    },
+    "names": [
+     "lingonberries"
+    ],
+    "amount": 15
+   },
+   {
+    "model": "heather",
+    "density": 0.1,
+    "on": [
+     "grass",
+     "rock"
+    ]
+   },
+   {
+    "model": "fly_agaric",
+    "density": 0.006,
+    "near_trees": 4
+   },
+   {
+    "model": "porcini",
+    "density": 0.005,
+    "near_trees": 4,
+    "food": "mushrooms",
+    "names": [
+     "porcini"
+    ],
+    "amount": 25
+   },
+   {
+    "model": "wild_raspberry",
+    "density": 0.025,
+    "near_trees": 10,
+    "food": {
+     "kind": "berries",
+     "part": "berry"
+    },
+    "names": [
+     "wild raspberries"
+    ],
+    "amount": 15
+   },
+   {
+    "model": "crowberry",
+    "density": 0.04,
+    "on": [
+     "grass",
+     "rock"
+    ],
+    "food": {
+     "kind": "berries",
+     "part": "berry"
+    },
+    "names": [
+     "crowberries"
+    ],
+    "amount": 10
+   },
+   {
+    "model": "wavy_hair_grass",
+    "density": 0.06,
+    "near_trees": 8
+   },
+   {
+    "model": "red_stemmed_feathermoss",
+    "density": 0.05,
+    "near_trees": 6
+   },
+   {
+    "model": "bracken",
+    "density": 0.03,
+    "near_trees": 8
+   },
+   {
+    "model": "reindeer_lichen",
+    "density": 0.03,
+    "on": [
+     "rock"
+    ]
+   },
+   {
+    "model": "wood_anemone",
+    "density": 0.02,
+    "near_trees": 6
+   },
+   {
+    "model": "spiny_wood_fern",
+    "density": 0.015,
+    "near_trees": 5
+   },
+   {
+    "model": "lily_of_the_valley",
+    "density": 0.01,
+    "near_trees": 8
+   },
+   {
+    "model": "white_clover",
+    "density": 0.008,
+    "food": "clover",
+    "names": [
+     "white clover"
+    ],
+    "amount": 15
+   },
+   {
+    "model": "red_clover",
+    "density": 0.006,
+    "food": "clover",
+    "names": [
+     "red clover"
+    ],
+    "amount": 15
+   },
+   {
+    "model": "fireweed",
+    "density": 0.008
+   },
+   {
+    "model": "juniper",
+    "density": 0.005,
+    "on": [
+     "grass",
+     "rock"
+    ]
+   },
+   {
+    "model": "chanterelle",
+    "density": 0.005,
+    "near_trees": 4,
+    "food": "mushrooms",
+    "names": [
+     "chanterelles"
+    ],
+    "amount": 20
+   },
+   {
+    "model": "goat_willow",
+    "density": 0.003
+   },
+   {
+    "model": "peat_moss",
+    "density": 0.7,
+    "habitat": "bog"
+   },
+   {
+    "model": "cottongrass",
+    "density": 0.15,
+    "habitat": "bog"
+   }
+  ]
+ },
+ "plants": {
+  "trees": [
+   {
+    "id": "norway_spruce",
+    "share": 0.426
+   },
+   {
+    "id": "scots_pine",
+    "share": 0.277
+   },
+   {
+    "id": "birch",
+    "share": 0.198
+   },
+   {
+    "id": "aspen",
+    "share": 0.05
+   },
+   {
+    "id": "rowan",
+    "share": 0.05
+   }
+  ],
+  "cover": [
+   {
+    "id": "bilberry",
+    "density": 0.22
+   },
+   {
+    "id": "lingonberry",
+    "density": 0.09
+   },
+   {
+    "id": "heather",
+    "density": 0.1
+   },
+   {
+    "id": "fly_agaric",
+    "density": 0.006
+   },
+   {
+    "id": "porcini",
+    "density": 0.005
+   },
+   {
+    "id": "wild_raspberry",
+    "density": 0.025
+   },
+   {
+    "id": "crowberry",
+    "density": 0.04
+   },
+   {
+    "id": "wavy_hair_grass",
+    "density": 0.06
+   },
+   {
+    "id": "red_stemmed_feathermoss",
+    "density": 0.05
+   },
+   {
+    "id": "bracken",
+    "density": 0.03
+   },
+   {
+    "id": "reindeer_lichen",
+    "density": 0.03
+   },
+   {
+    "id": "wood_anemone",
+    "density": 0.02
+   },
+   {
+    "id": "spiny_wood_fern",
+    "density": 0.015
+   },
+   {
+    "id": "lily_of_the_valley",
+    "density": 0.01
+   },
+   {
+    "id": "white_clover",
+    "density": 0.008
+   },
+   {
+    "id": "red_clover",
+    "density": 0.006
+   },
+   {
+    "id": "fireweed",
+    "density": 0.008
+   },
+   {
+    "id": "juniper",
+    "density": 0.005
+   },
+   {
+    "id": "chanterelle",
+    "density": 0.005
+   },
+   {
+    "id": "goat_willow",
+    "density": 0.003
+   },
+   {
+    "id": "peat_moss",
+    "density": 0.7
+   },
+   {
+    "id": "cottongrass",
+    "density": 0.15
+   }
+  ]
+ },
+ "small_life": {
+  "grass": [
+   "wavy hair-grass",
+   "common bent",
+   "sheep's fescue",
+   "dandelion leaves",
+   "yarrow"
+  ],
+  "carrion": [
+   "roe deer remains",
+   "white-tailed deer remains"
+  ],
+  "insects": [
+   "ground beetle",
+   "dung beetle",
+   "click beetle"
+  ],
+  "water_bugs": [
+   "mayfly larvae",
+   "caddisfly larvae",
+   "water boatmen"
+  ],
+  "water_plants": [
+   "pondweed",
+   "water lily leaves",
+   "water horsetail"
+  ],
+  "bottom_bugs": [
+   "bloodworms",
+   "pond snails"
+  ]
+ },
+ "lakes": [
+  {
+   "name": "Long lake",
+   "x": 0.4,
+   "z": 0.5,
+   "length": 0.125,
+   "width": 0.02125,
+   "angle": 80,
+   "depth": 7,
+   "islands": 2,
+   "wreck": true
+  },
+  {
+   "name": "Round lake",
+   "x": 0.24,
+   "z": 0.67,
+   "length": 0.22,
+   "width": 0.11,
+   "angle": 55,
+   "depth": 7,
+   "islands": 1
+  },
+  {
+   "name": "Hidden lake",
+   "x": 0.59,
+   "z": 0.33,
+   "length": 0.17,
+   "width": 0.09,
+   "angle": 20,
+   "depth": 6,
+   "islands": 0
+  },
+  {
+   "name": "Narrow lake",
+   "x": 0.73,
+   "z": 0.49,
+   "length": 0.3,
+   "width": 0.065,
+   "angle": 85,
+   "depth": 7,
+   "islands": 0
+  }
+ ],
+ "places": [],
+ "lake_life": {
+  "reeds": 0.35,
+  "lilies": 0.15,
+  "pondweed": 0.1
+ },
+ "fish": [
+  {
+   "kind": "roach",
+   "count": 12
+  },
+  {
+   "kind": "young_roach",
+   "count": 10
+  },
+  {
+   "kind": "young_perch",
+   "count": 6
+  },
+  {
+   "kind": "perch",
+   "count": 5
+  },
+  {
+   "kind": "bream",
+   "count": 4
+  },
+  {
+   "kind": "pike",
+   "count": 2
+  }
+ ],
+ "migrants": [
+  {
+   "kind": "geese",
+   "names": [
+    "barnacle goose",
+    "bean goose"
+   ],
+   "south": [
+    "09-20",
+    "10-25"
+   ],
+   "north": [
+    "05-08",
+    "05-31"
+   ]
+  },
+  {
+   "kind": "cranes",
+   "names": [
+    "common crane"
+   ],
+   "south": [
+    "08-25",
+    "10-05"
+   ],
+   "north": [
+    "04-01",
+    "04-30"
+   ]
+  }
+ ],
+ "animals": {
+  "playable": [
+   "frog",
+   "fox",
+   "moose",
+   "mountain_hare",
+   "squirrel",
+   "flying_squirrel",
+   "chaffinch",
+   "bee",
+   "kestrel",
+   "great_tit"
+  ],
+  "prey": [
+   "frog",
+   "mountain_hare",
+   "squirrel",
+   "flying_squirrel",
+   "vole",
+   "chaffinch",
+   "lizard",
+   "kestrel",
+   "great_tit"
+  ],
+  "predators": [
+   "fox",
+   "kestrel"
+  ]
+ },
+ "sources": [
+  "https://uuvi.fi/en/area/kattilajarvi-recreation-area/",
+  "https://www.nuuksiolakeland.fi/kartat",
+  "https://www.doria.fi/bitstream/handle/10024/134954/UUSra17_2008%20Selvitys%20Espoon%20j%C3%A4rvien%20tilasta_ElinaOinonen.pdf"
+ ],
+ "bogs": [
+  {
+   "name": "Forest bog",
+   "x": 0.48,
+   "z": 0.58,
+   "radius": 60
+  },
+  {
+   "name": "Lakeside bog",
+   "x": 0.6,
+   "z": 0.43,
+   "radius": 45
+  }
+ ],
+ "streams": [
+  {
+   "width": 4,
+   "points": [
+    [
+     0.24,
+     0.67
+    ],
+    [
+     0.32,
+     0.58
+    ],
+    [
+     0.35,
+     0.54
+    ],
+    [
+     0.4,
+     0.5
+    ]
+   ]
+  },
+  {
+   "width": 5,
+   "points": [
+    [
+     0.59,
+     0.33
+    ],
+    [
+     0.56,
+     0.39
+    ],
+    [
+     0.61,
+     0.45
+    ],
+    [
+     0.73,
+     0.49
+    ]
+   ]
+  }
+ ],
+ "palette": {
+  "ground_lush": "#5f9445",
+  "ground_dry": "#93a65a",
+  "ground_high": "#8c9a78",
+  "dirt": "#6e5640",
+  "rock": "#a89c97",
+  "sand": "#cfc2a0",
+  "water_deep": "#1f4654",
+  "water_shallow": "#3d6f73",
+  "ground_autumn": "#a59a5e",
+  "snow": "#eef2f6",
+  "heath_autumn": "#b04a32"
+ },
+ "sky": {
+  "day": "#8fc6ea",
+  "horizon": "#eef2ec",
+  "dusk": "#f2a07a",
+  "night": "#141a3a",
+  "sun": "#ffe8c4"
+ },
+ "food": [
+  {
+   "kind": "berries",
+   "names": [
+    "bilberries",
+    "lingonberries",
+    "wild raspberries",
+    "crowberries",
+    "rowan berries"
+   ],
+   "weight": 30
+  },
+  {
+   "kind": "clover",
+   "names": [
+    "white clover",
+    "red clover"
+   ],
+   "weight": 38
+  },
+  {
+   "kind": "cones",
+   "names": [
+    "spruce cones",
+    "pine cones"
+   ],
+   "weight": 10
+  },
+  {
+   "kind": "seeds",
+   "names": [
+    "spruce seeds",
+    "pine seeds",
+    "birch seeds"
+   ],
+   "weight": 12
+  },
+  {
+   "kind": "browse",
+   "names": [
+    "birch leaves and twigs",
+    "aspen shoots",
+    "rowan leaves"
+   ],
+   "weight": 12
+  },
+  {
+   "kind": "bark",
+   "names": [
+    "birch bark",
+    "aspen bark",
+    "rowan bark"
+   ],
+   "amount": 15
+  },
+  {
+   "kind": "water_plants",
+   "names": [
+    "pondweed",
+    "water lily leaves",
+    "water horsetail"
+   ],
+   "weight": 8
+  },
+  {
+   "kind": "grass",
+   "names": [
+    "wavy hair-grass",
+    "common bent",
+    "sheep's fescue",
+    "dandelion leaves",
+    "yarrow"
+   ],
+   "amount": 10
+  },
+  {
+   "kind": "insects",
+   "names": [
+    "ground beetle",
+    "dung beetle",
+    "click beetle"
+   ],
+   "weight": 15
+  },
+  {
+   "kind": "water_bugs",
+   "names": [
+    "mayfly larvae",
+    "caddisfly larvae",
+    "water boatmen"
+   ],
+   "weight": 0
+  },
+  {
+   "kind": "bottom_bugs",
+   "names": [
+    "bloodworms",
+    "pond snails"
+   ],
+   "weight": 0
+  },
+  {
+   "kind": "carrion",
+   "names": [
+    "roe deer remains",
+    "white-tailed deer remains",
+    "moose remains"
+   ],
+   "weight": 4
+  }
+ ],
+ "level": 10,
+ "edges": {
+  "n": [
+   10,
+   10,
+   10,
+   10,
+   10,
+   10,
+   10,
+   10,
+   10,
+   10,
+   10,
+   10,
+   10,
+   10,
+   10,
+   10,
+   10,
+   10,
+   10,
+   10,
+   10,
+   10,
+   10,
+   10,
+   10,
+   10,
+   10,
+   10,
+   10,
+   10,
+   10,
+   10,
+   10,
+   10,
+   9,
+   9,
+   9,
+   9,
+   9,
+   9,
+   9,
+   9,
+   9,
+   9,
+   9,
+   9,
+   9,
+   9,
+   9,
+   9,
+   9,
+   9,
+   9,
+   9,
+   9,
+   9,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8
+  ],
+  "e": [
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   7,
+   7,
+   7,
+   8,
+   8,
+   8
+  ],
+  "s": [
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8
+  ],
+  "w": [
+   6,
+   6,
+   6,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   7,
+   8,
+   8,
+   8,
+   8,
+   8,
+   9,
+   9,
+   9,
+   9,
+   10,
+   10,
+   10,
+   10,
+   11,
+   11,
+   11,
+   11,
+   11,
+   12,
+   12,
+   12,
+   12,
+   12,
+   12,
+   12,
+   12,
+   12,
+   12,
+   12,
+   12,
+   12,
+   12,
+   12,
+   12,
+   12,
+   12,
+   12,
+   11,
+   11,
+   11,
+   11,
+   11,
+   11,
+   11,
+   11,
+   11,
+   11,
+   11,
+   10,
+   10,
+   10,
+   10,
+   10,
+   10,
+   10
+  ]
+ },
+ "coast": [
+  "11111",
+  "11111",
+  "11000",
+  "10000",
+  "00000"
+ ]
+}

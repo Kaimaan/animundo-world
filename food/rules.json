@@ -28,6 +28,6 @@
   "when": {
     "land": "always, except all-ice land",
     "fresh_water": "lakes, streams, bogs or terrain.lakes above 0, on a habitat that isn't sea",
-    "water": "any water: fresh water, or a sea habitat or sea edge"
+    "water": "any water: fresh water, a sea habitat, or a tile with a coast"
   }
 }

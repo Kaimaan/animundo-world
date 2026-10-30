@@ -90,7 +90,7 @@ def use_plants(region, plants):
     """The tile's `plants` over the biome's region, in place."""
     if isinstance(plants.get("trees"), list):
         trees = region.setdefault("trees", {})
-        trees["mix"] = [e for e in (tree_entry(p["id"], p["share"]) for p in plants["trees"]) if e]
+        trees["mix"] = [e for e in (tree_entry(p.get("id"), float(p.get("share", 0))) for p in plants["trees"]) if e]
         if "tree_density" in plants:
             trees["density"] = plants["tree_density"]
     if isinstance(plants.get("cover"), list) or isinstance(plants.get("water"), list):
@@ -100,7 +100,7 @@ def use_plants(region, plants):
                 or ("seabed" not in p.get("on", []) and not isinstance(plants.get("cover"), list))]
         for part in ("cover", "water"):
             for p in plants.get(part, []) or []:
-                e = plant_entry(p["id"], p["density"])
+                e = plant_entry(p.get("id"), p.get("density"))
                 if e:
                     if part == "water":
                         e.setdefault("on", ["seabed"])
@@ -143,5 +143,6 @@ def resolve(region):
     if isinstance(region.get("plants"), dict):
         use_plants(out, region["plants"])
     if "food" not in region:
-        out["food"] = food.as_food(food.derive(out)[0])
+        # weighed as the game does; a place with no animals yet (a biome, a home) keeps every weight
+        out["food"] = food.worked_out(out) if food.animals_of(out) else food.as_food(food.derive(out)[0])
     return out

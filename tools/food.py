@@ -115,7 +115,7 @@ def derive(d):
     terrain = d.get("terrain", {})
     fresh = habitat != "sea" and (bool(d.get("lakes")) or bool(d.get("streams")) or bool(d.get("bogs"))
                                   or float(terrain.get("lakes", 0)) > 0)
-    water = fresh or habitat == "sea" or terrain.get("edge") == "lake"
+    water = fresh or habitat == "sea" or "coast" in d   # a coast: a tile's mask of where its land is
     when = {"land": True, "fresh_water": fresh, "water": water}
     for kind, rule in RULES["kinds"].items():
         if rule["from"] == "small_life" and when.get(rule.get("when"), False):
@@ -131,8 +131,16 @@ def derive(d):
     return made, notes
 
 
-def as_food(made):
-    """Worked-out food as a region's `food` list, with the rules' weights (a region file's shape)."""
+def eaten(d):
+    """The food kinds the animals here eat (animals not in animals/ eat nothing)."""
+    return {k for a in animals_of(d) for k in ANIMALS.get(a, {}).get("diet", []) or []}
+
+
+def as_food(made, d=None):
+    """Worked-out food as a region's `food` list, with the rules' weights (a region file's shape).
+    With the place `d`, a kind no animal there eats gets weight 0, as in the game
+    (scripts/tile_layers.gd food()): it isn't scattered, but a visitor still finds it."""
+    wanted = eaten(d) if d is not None else None
     out = []
     for kind, e in made.items():
         rule = RULES["kinds"].get(kind, {})
@@ -142,7 +150,7 @@ def as_food(made):
         if "amount" in rule:
             f["amount"] = rule["amount"]
         else:
-            f["weight"] = rule.get("weight", 0)
+            f["weight"] = rule.get("weight", 0) if wanted is None or kind in wanted else 0
         out.append(f)
     return out
 
@@ -177,6 +185,11 @@ def report(path):
     for what, detail in lines:
         print(f"          {what}: {detail}")
     return not bad
+
+
+def worked_out(d):
+    """A place's `food` list, worked out the way the game does (scripts/tile_layers.gd food())."""
+    return as_food(derive(d)[0], d)
 
 
 def main(argv):

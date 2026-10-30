@@ -6,9 +6,9 @@ tile maker from a biome (a home before game proposal 0043; `biome` and `home` ar
 repo's docs/hackathon/spec/02-data-contracts.md, section 2). The tile maker
 calls this on every tile and never publishes one that fails.
 
-The tile becomes a region: its home (homes/<home>.json) named after the tile
-and centred on it, with the tile's seed and animals, 1,024 m square and with
-an open edge. A "place" tile is a cell of a hand-made place, so its region is
+The tile becomes a region exactly as the game builds it (tools/tile_region.py,
+the one converter: its biome, blend, plants, seed, lakes, animals and food),
+named after the tile. A "place" tile is a cell of a hand-made place, so its region is
 regions/<place>.json itself. Then:
 
   tile     the tile's own fields (format, id, kind, ecoregion, blend, seed, water,
@@ -60,6 +60,7 @@ import check_animals  # noqa: E402
 import food  # noqa: E402
 import homes  # noqa: E402
 import layers  # noqa: E402
+import tile_region  # noqa: E402
 
 TILE_ID = re.compile(r"^([ns])_([0-9]{3})_([0-9]{3})$")
 GRIDS = {"ease2_n25": "n", "ease2_s25": "s"}
@@ -69,6 +70,9 @@ SIDES = ("n", "e", "s", "w")
 WATER_LEVEL = 8     # one water level for every home on the grid (spec/02 Part 1)
 TALL_ABOVE = 28     # a tile is 64 blocks tall when its level or an edge sample is above this (spec/04)
 SEA = ("sea", "open_ocean")
+# a tile's place fields the game reads but a region file doesn't have (its biome's
+# land and plants are already worked into the place, so the region check mustn't redo them)
+GAME_ONLY = ("level", "edges", "coast", "ecoregions", "habitat", "land", "plants")
 CODE_ONLY = ("habitat", "ecoregion", "home", "seed", "water", "species")
 
 
@@ -149,24 +153,21 @@ def tile_problems(t):
 
 
 def region_of(t):
-    """The region the game builds for this tile, or (None, why)."""
+    """The region the game builds for this tile (tools/tile_region.py, the one
+    converter), named so the region checks take it, or (None, why)."""
     if t["kind"] == "place":
         path = os.path.join(ROOT, "regions", t["place"] + ".json")
         if not os.path.isfile(path):
             return None, f'"place": there is no regions/{t["place"]}.json'
         with open(path, encoding="utf-8") as f:
             return json.load(f), None
-    if t["home"] not in homes.homes():
-        return None, f'"home": there is no homes/{t["home"]}.json'
-    region = homes.make(t["home"], "tl_" + t["id"], "Tile " + t["id"], "(tile)", t["center"]["lat"], t["center"]["lon"])
-    terrain = region.setdefault("terrain", {})
-    terrain["seed"] = t["seed"]
-    terrain["size"] = TILE_SIZE
-    terrain["edge"] = "open"
-    if isinstance(t.get("plants"), dict):
-        layers.use_plants(region, t["plants"])
-    region["animals"] = {k: list(t["species"][k]) for k in ("playable", "prey", "predators")}
-    region["food"] = food.as_food(food.derive(region)[0])   # worked out, as the game does (0043)
+    for owner, key in ((t, '"home"'), (t.get("blend"), '"blend.home"')):
+        if isinstance(owner, dict) and tile_region.biome_file(owner["home"]) is None:
+            return None, f'{key}: there is no biomes/{owner["home"]}.json or homes/{owner["home"]}.json'
+    made = tile_region.place(t)
+    region = {"id": "tl_" + t["id"], "name": "Tile " + t["id"], "country": "(tile)",
+              "author": tile_region.read_biome(t["home"]).get("author", "Animundo team")}
+    region.update({k: v for k, v in made.items() if k not in GAME_ONLY})
     return region, None
 
 

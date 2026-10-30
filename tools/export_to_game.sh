@@ -31,6 +31,11 @@ if [ -f food/rules.json ]; then   # (older commits, which the drift check export
 	mkdir -p "$GAME/food"
 	cp food/rules.json "$GAME/food/rules.json"
 fi
+# the converter's golden tiles and places, which the game is checked against (tools/check_tile_region.gd)
+if [ -d tests/tile_region ]; then   # (older commits have none)
+	mkdir -p "$GAME/tests/tile_region"
+	rsync -a --delete --include '*.json' --include '.gdignore' --exclude '*' tests/tile_region/ "$GAME/tests/tile_region/"
+fi
 # the animals the game's world map shows (tools/map_animals.py)
 mkdir -p "$GAME/assets/world"
 cp map-animals.json "$GAME/assets/world/map-animals.json"
