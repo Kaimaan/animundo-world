@@ -1,0 +1,76 @@
+{
+  "archetype": "fish",
+  "latin": "Carcharhinus melanopterus",
+  "taxon": {
+    "gbif_key": 2417981,
+    "rank": "SPECIES",
+    "name": "Carcharhinus melanopterus"
+  },
+  "playable": true,
+  "color": "#8a7d6b",
+  "dark_vision": 0.45,
+  "tags": [
+    "fish",
+    "big_fish"
+  ],
+  "hunts": [
+    "small_fish"
+  ],
+  "walk": 2.8,
+  "sprint": 7.5,
+  "lurk": 0.5,
+  "jump": 0.0,
+  "box": [
+    0.7,
+    0.4,
+    0.7
+  ],
+  "cam_height": 0.5,
+  "cam_dist": 4.0,
+  "model": {
+    "file": "res://assets/animals/reef_shark.glb",
+    "length": 2.209,
+    "yaw": 0.0,
+    "anims": {
+      "idle": "idle",
+      "fly": "swim"
+    }
+  },
+  "text": {
+    "title": "Reef shark",
+    "nearby": "A reef shark swims nearby, slow and calm.",
+    "chasing": "A reef shark is after you! Hide in the corals!",
+    "bite": "A reef shark bit you! Swim for cover!",
+    "caught_you": "A reef shark caught you.",
+    "play_as": "Play as a reef shark",
+    "menu_sub": "Swim over the warm reef, look for small fish, rest in shallow water.",
+    "menu_wild": "Nothing on the reef hunts a big reef shark.",
+    "intro": "Up and Down to swim deeper. Swim slowly over the reef to look for food!",
+    "safe_tag": "Tag, you got it! In Safe mode a reef shark never goes hungry.",
+    "hungry": "You are hungry. Swim slowly over the reef and look for food!",
+    "no_food": "No food here. Swim to another part of the reef.",
+    "about_looks": "Grey-brown on top and white below, with black tips on all fins and a white band along the side.",
+    "about_food": "Small fish, squid, octopus and shrimp.",
+    "about_home": "Lives in warm shallow water near coral. Pups rest in calm lagoons and among mangrove roots.",
+    "about_winter": "Stays active all year. The water stays warm, so it keeps swimming and eating.",
+    "about_young": "Pups are born live in shallow water. Two to five pups are born at a time and swim on their own.",
+    "about_fact": "Each fin has a black tip. The first back fin has a black tip edged in white."
+  },
+  "year": {
+    "winter": "active",
+    "shelter": "It swims in warm shallow water near coral. Pups rest in calm lagoons and among mangrove roots.",
+    "young": "Pups are born live in shallow water. Two to five pups are born at a time and swim on their own.",
+    "food": {
+      "spring": "Small fish like mullet, squid, octopus and shrimp.",
+      "summer": "Small fish like mullet, squid, octopus and shrimp.",
+      "autumn": "Small fish like mullet, squid, octopus and shrimp.",
+      "winter": "Small fish like mullet, squid, octopus and shrimp."
+    },
+    "notes": ""
+  },
+  "sources": [
+    "https://en.wikipedia.org/wiki/Blacktip_reef_shark",
+    "https://sharkguardian.org/blacktip-reef-shark/"
+  ],
+  "diet": []
+}

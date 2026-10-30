@@ -2,6 +2,39 @@
   "about": "The game's built places, for Animundo Builder. Written by tools/places.py from regions/; edit the regions.",
   "places": [
     {
+      "id": "au_great_barrier_reef",
+      "name": {
+        "en": "Great Barrier Reef – Green Island",
+        "fi": "Iso valliriutta – Vihreä saari"
+      },
+      "country": "AU",
+      "center": {
+        "lat": -16.759,
+        "lon": 145.973
+      },
+      "wikidata": "Q7343",
+      "animals": {
+        "playable": [
+          "clownfish",
+          "blue_tang",
+          "butterflyfish",
+          "lionfish",
+          "green_sea_turtle",
+          "reef_shark",
+          "bottlenose_dolphin"
+        ],
+        "predators": [
+          "reef_shark",
+          "lionfish"
+        ],
+        "prey": [
+          "clownfish",
+          "blue_tang",
+          "butterflyfish"
+        ]
+      }
+    },
+    {
       "id": "fi_nuuksio",
       "name": {
         "en": "Nuuksio National Park",

@@ -1,0 +1,94 @@
+{
+  "archetype": "land_mammal",
+  "latin": "Tursiops truncatus",
+  "taxon": {
+    "gbif_key": 2440447,
+    "rank": "SPECIES",
+    "name": "Tursiops truncatus"
+  },
+  "playable": true,
+  "color": "#808080",
+  "tags": [
+    "mammal",
+    "large_mammal"
+  ],
+  "diet": [],
+  "hunts": [
+    "small_fish"
+  ],
+  "digs": false,
+  "diving_mammal": true,
+  "walk": 0.6,
+  "sprint": 1.0,
+  "swim_speed": 4.5,
+  "swim_sprint_speed": 7.5,
+  "jump": 3.5,
+  "breath": 120,
+  "rain_chill": 0.05,
+  "water_chill": 0,
+  "shelter": "deep_water",
+  "spawn": "water",
+  "box": [
+    0.8,
+    0.8,
+    2.0
+  ],
+  "cam_height": 0.9,
+  "cam_dist": 5.5,
+  "buttons": {
+    "jump": "up",
+    "dig": "down",
+    "sprint": "fast"
+  },
+  "model": {
+    "file": "res://assets/animals/bottlenose_dolphin.glb",
+    "length": 2.183,
+    "yaw": 0.0,
+    "anims": {
+      "idle": "idle",
+      "walk": "walk",
+      "run": "run",
+      "eat": "eat",
+      "sleep": "sleep",
+      "fly": "swim"
+    }
+  },
+  "text": {
+    "title": "Bottlenose dolphin",
+    "menu_sub": "Swim in a pod and come up for air.",
+    "menu_wild": "Find fish and breathe at the surface.",
+    "intro": "Swim in the sea. Hold Down to dive, Up to come up. Breathe at the surface.",
+    "hungry": "Look in the water for small fish.",
+    "no_food": "No fish within reach. Swim on.",
+    "caught": "A fish! +{food} food",
+    "night_hint": "Find calm water to rest.",
+    "too_exposed": "Find calm open water before resting.",
+    "sheltered": "You can rest here in the water.",
+    "out_of_water": "You need water. Wiggle back to the sea.",
+    "about_looks": "A stocky grey dolphin with a white belly, a short blunt beak and a tall curved fin on its back. Adults are about 3 metres long.",
+    "about_food": "It eats fish, squid, shrimp and eels. In this game you catch small fish.",
+    "about_home": "It lives in the sea in groups called pods. Pods swim in warm coastal waters.",
+    "about_winter": "It stays active all year. It does not sleep through winter and does not travel away.",
+    "about_young": "One calf is born in the water at a time. The calf stays close to its mother and drinks her milk.",
+    "about_fact": "Pods often have about 15 dolphins. They swim and surface together.",
+    "bite": "A dolphin snapped at you! Swim for cover!",
+    "caught_you": "A dolphin caught you.",
+    "safe_tag": "Tag, you got it! In Safe mode a dolphin never goes hungry."
+  },
+  "year": {
+    "winter": "active",
+    "shelter": "It lives in the sea in groups called pods. Pods often have about 15 dolphins and swim in warm coastal waters.",
+    "young": "Calves are born in the water, usually one calf at a time. The calf stays close to its mother and drinks her milk.",
+    "food": {
+      "spring": "It eats fish, squid, shrimp and eels through the year.",
+      "summer": "It eats fish, squid, shrimp and eels through the year.",
+      "autumn": "It eats fish, squid, shrimp and eels through the year.",
+      "winter": "It eats fish, squid, shrimp and eels through the year."
+    },
+    "notes": "Air-breathing sea resident. Playable dive budget is compressed for the game. No hibernation, migration or shore rest in the first version."
+  },
+  "sources": [
+    "https://en.wikipedia.org/wiki/Common_bottlenose_dolphin",
+    "https://www.nps.gov/chis/learn/nature/bottlenose-dolphin.htm"
+  ]
+}

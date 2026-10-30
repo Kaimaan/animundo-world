@@ -1,0 +1,61 @@
+{
+  "archetype": "fish",
+  "latin": "Paracanthurus hepatus",
+  "taxon": {
+    "gbif_key": 2379534,
+    "rank": "SPECIES",
+    "name": "Paracanthurus hepatus"
+  },
+  "dark_vision": 0.65,
+  "tags": [
+    "fish",
+    "small_fish"
+  ],
+  "diet": [
+    "water_plants"
+  ],
+  "walk": 0.8,
+  "sprint": 2.0,
+  "model": {
+    "file": "res://assets/animals/blue_tang.glb",
+    "length": 0.315,
+    "yaw": 0.0,
+    "anims": {
+      "idle": "idle",
+      "fly": "swim"
+    }
+  },
+  "text": {
+    "title": "Blue tang",
+    "nearby": "A royal blue tang with a yellow tail swims by the coral.",
+    "about_looks": "A flat round fish. Its body is royal blue with a black mark across it. Its tail and belly are bright yellow.",
+    "about_food": "Mostly marine algae. It scrapes and nibbles algae from rock and coral. It also sips tiny plankton as it swims.",
+    "about_home": "Lives on the reef near branching coral. At night it rests in coral heads and small cracks.",
+    "about_winter": "Stays active all year. It swims and eats through every season.",
+    "about_young": "Babies are born from tiny floating eggs. They drift in the water, then settle on the reef as little yellow fish.",
+    "about_fact": "It scrapes algae from the reef with small teeth.",
+    "menu_sub": "Swim the warm reef in a bright blue group and graze algae off the coral.",
+    "menu_wild": "Bigger fish hunt on the reef.",
+    "hungry": "You're hungry. Look for algae growing on the coral and rocks.",
+    "no_food": "Nothing to eat here. Look for algae on the coral and rocks."
+  },
+  "year": {
+    "winter": "active",
+    "shelter": "It stays near branching coral. At night it rests in coral heads and small cracks.",
+    "young": "Young are born from tiny floating eggs. They drift as larvae and then settle on the reef as small yellow fish.",
+    "food": {
+      "spring": "Marine algae and filamentous algae from rock and coral, and a little zooplankton.",
+      "summer": "Marine algae and filamentous algae from rock and coral, and a little zooplankton.",
+      "autumn": "Marine algae and filamentous algae from rock and coral, and a little zooplankton.",
+      "winter": "Marine algae and filamentous algae from rock and coral, and a little zooplankton."
+    },
+    "notes": ""
+  },
+  "sources": [
+    "National Geographic – Blue tang, facts and photos",
+    "ThoughtCo – Blue Tang Facts: Habitat, Diet, Behavior",
+    "LiveScience – Facts About Regal Blue Tangs",
+    "Ocean Info – Blue Tang (Paracanthurus hepatus)"
+  ],
+  "playable": true
+}

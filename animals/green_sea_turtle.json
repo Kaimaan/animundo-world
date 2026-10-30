@@ -1,0 +1,72 @@
+{
+  "archetype": "reptile",
+  "latin": "Chelonia mydas",
+  "taxon": {
+    "gbif_key": 2442225,
+    "rank": "SPECIES",
+    "name": "Chelonia mydas"
+  },
+  "color": "#7A5A3A",
+  "tags": [
+    "reptile"
+  ],
+  "diet": [
+    "water_plants"
+  ],
+  "digs": false,
+  "territorial": false,
+  "box": [
+    1.1,
+    0.35,
+    0.85
+  ],
+  "flee_speed": 3.0,
+  "food_value": 50,
+  "model": {
+    "file": "res://assets/animals/green_sea_turtle.glb",
+    "length": 1.2,
+    "yaw": 0.0,
+    "anims": {
+      "idle": "idle",
+      "walk": "walk",
+      "run": "run",
+      "eat": "eat",
+      "sleep": "sleep"
+    }
+  },
+  "year": {
+    "winter": "migrates",
+    "migration": {
+      "leaves": "09-01",
+      "returns": "05-01"
+    },
+    "shelter": "It rests in shallow lagoons near coral reefs. It shelters under ledges in seagrass beds.",
+    "young": "Babies are born on sandy beaches and crawl to the sea. They drift in the open sea and then live near shore.",
+    "food": {
+      "spring": "Seagrass and seaweed. Young ones also eat jellyfish.",
+      "summer": "Seagrass and seaweed. Young ones also eat jellyfish.",
+      "autumn": "Seagrass and seaweed. Young ones also eat jellyfish.",
+      "winter": "Seagrass and seaweed. Young ones also eat jellyfish."
+    }
+  },
+  "text": {
+    "title": "Green sea turtle",
+    "caught": "A sea turtle! +{food} food",
+    "stalk_hint": "A sea turtle! Get close quietly, then tap Pounce before it swims away.",
+    "about_looks": "A big sea turtle with a smooth oval brown shell and a creamy white belly. It has four pairs of plates on its shell and one pair of scales between its eyes.",
+    "about_food": "Seagrass and seaweed. Young ones also eat jellyfish and sponges.",
+    "about_home": "Lives in the sea near coral reefs and seagrass beds. It rests in shallow lagoons under ledges.",
+    "about_winter": "The water on the reef stays warm, so it swims and eats all year.",
+    "about_young": "Babies are born on sandy beaches and crawl to the sea. They drift in the open sea and then live near shore.",
+    "about_fact": "It grows to about 120 centimetres long. It grazes on seagrass each day in shallow water.",
+    "menu_sub": "Glide over the reef, graze seagrass and come up to breathe.",
+    "menu_wild": "Sharks swim on the reef, but a grown turtle's shell keeps it safe.",
+    "hungry": "You're hungry. Look for seagrass and algae on the sandy floor.",
+    "no_food": "Nothing to eat here. Look for seagrass meadows on the sand."
+  },
+  "sources": [
+    "https://www.fws.gov",
+    "https://www.nationalgeographic.com"
+  ],
+  "playable": true
+}

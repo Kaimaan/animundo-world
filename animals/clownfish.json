@@ -1,0 +1,74 @@
+{
+  "archetype": "fish",
+  "latin": "Amphiprion percula",
+  "taxon": {
+    "gbif_key": 5212094,
+    "rank": "SPECIES",
+    "name": "Amphiprion percula"
+  },
+  "playable": true,
+  "color": "#FF7F00",
+  "tags": [
+    "fish",
+    "small_fish"
+  ],
+  "diet": [
+    "water_plants"
+  ],
+  "hunts": [],
+  "digs": false,
+  "territorial": false,
+  "dark_vision": 0.5,
+  "walk": 1.5,
+  "sprint": 3.0,
+  "jump": 0.0,
+  "box": [
+    0.15,
+    0.12,
+    0.15
+  ],
+  "cam_height": 0.15,
+  "cam_dist": 1.2,
+  "model": {
+    "file": "res://assets/animals/clownfish.glb",
+    "length": 0.126,
+    "yaw": 0.0,
+    "anims": {
+      "idle": "idle",
+      "fly": "swim"
+    }
+  },
+  "text": {
+    "title": "Clownfish",
+    "caught": "A bright clownfish! +{food} food",
+    "safe_tag": "Tag, you got it! In Safe mode clownfish nibble algae.",
+    "bite": "A clownfish nipped at you! Swim away!",
+    "caught_you": "A bigger fish caught you.",
+    "menu_sub": "Swim the warm reef, nibble algae, rest in your anemone.",
+    "menu_wild": "Bigger fish swim on the reef.",
+    "night_hint": "It's night. Rest among the soft arms of your anemone.",
+    "intro": "Up and Down to swim. Nibble the algae and tiny animals drifting nearby.",
+    "hungry": "You're hungry. Look for algae and tiny drifting animals near your anemone.",
+    "no_food": "Nothing to eat here. Look for algae and tiny drifting animals near your anemone.",
+    "about_looks": "Bright orange with three white bars across its body. The white bars have black edges.",
+    "about_food": "Nibbles algae and tiny animals that drift in the water.",
+    "about_home": "Lives among the soft arms of its anemone on the reef.",
+    "about_winter": "Stays awake all year and stays close to its anemone.",
+    "about_young": "Babies are born near the anemone. The father stays close and fans the eggs.",
+    "about_fact": "The father fans the eggs to keep them clean."
+  },
+  "year": {
+    "winter": "active",
+    "shelter": "It stays among the soft arms of its anemone. The anemone is its home.",
+    "young": "Babies are born near the anemone. The father stays close and fans the eggs.",
+    "food": {
+      "spring": "Algae, zooplankton, worms and tiny crustaceans.",
+      "summer": "Algae, zooplankton, worms and tiny crustaceans.",
+      "autumn": "Algae, zooplankton, worms and tiny crustaceans.",
+      "winter": "Algae, zooplankton, worms and tiny crustaceans."
+    }
+  },
+  "sources": [
+    "https://en.wikipedia.org/wiki/Orange_clownfish"
+  ]
+}

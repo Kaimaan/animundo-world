@@ -1,0 +1,421 @@
+{
+  "id": "green_sea_turtle",
+  "name": "Green sea turtle (Chelonia mydas)",
+  "author": "Animundo Builder",
+  "gait": "walk",
+  "sleep_drop": 0.85,
+  "sleep_legs": [
+    20,
+    -20
+  ],
+  "skin": {
+    "triangles": 1000
+  },
+  "colors": {
+    "shell": "#7A5A3A",
+    "belly": "#EFE3CF",
+    "plate": "#5E4430",
+    "dark": "#2A1F1A"
+  },
+  "bones": [
+    {
+      "name": "body",
+      "head": [
+        0,
+        0.28,
+        -0.35
+      ],
+      "tail": [
+        0,
+        0.3,
+        0.35
+      ],
+      "role": "body",
+      "swing": 0.3
+    },
+    {
+      "name": "head",
+      "head": [
+        0,
+        0.28,
+        0.35
+      ],
+      "tail": [
+        0,
+        0.26,
+        0.6
+      ],
+      "parent": "body",
+      "role": "head"
+    },
+    {
+      "name": "leg_f_l",
+      "head": [
+        0.28,
+        0.22,
+        0.28
+      ],
+      "tail": [
+        0.28,
+        0.02,
+        0.28
+      ],
+      "parent": "body",
+      "role": "leg",
+      "phase": 0.0,
+      "swing": 0.8,
+      "mirror": true
+    },
+    {
+      "name": "leg_b_l",
+      "head": [
+        0.25,
+        0.2,
+        -0.28
+      ],
+      "tail": [
+        0.25,
+        0.02,
+        -0.28
+      ],
+      "parent": "body",
+      "role": "leg",
+      "phase": 0.5,
+      "swing": 0.8,
+      "mirror": true
+    },
+    {
+      "name": "tail_1",
+      "head": [
+        0,
+        0.24,
+        -0.35
+      ],
+      "tail": [
+        0,
+        0.18,
+        -0.55
+      ],
+      "parent": "body",
+      "role": "tail",
+      "phase": 0.0,
+      "swing": 0.3
+    }
+  ],
+  "parts": [
+    {
+      "name": "shell",
+      "shape": "ball",
+      "size": [
+        0.64,
+        0.3,
+        0.9
+      ],
+      "at": [
+        0,
+        0.33,
+        -0.02
+      ],
+      "color": "shell",
+      "bone": "body"
+    },
+    {
+      "name": "belly",
+      "shape": "ball",
+      "size": [
+        0.52,
+        0.2,
+        0.78
+      ],
+      "at": [
+        0,
+        0.18,
+        0.0
+      ],
+      "color": "belly",
+      "bone": "body"
+    },
+    {
+      "name": "neck",
+      "shape": "ball",
+      "size": [
+        0.17,
+        0.13,
+        0.2
+      ],
+      "at": [
+        0,
+        0.26,
+        0.38
+      ],
+      "color": "shell",
+      "bone": "head"
+    },
+    {
+      "name": "head",
+      "shape": "ball",
+      "size": [
+        0.19,
+        0.15,
+        0.2
+      ],
+      "at": [
+        0,
+        0.27,
+        0.5
+      ],
+      "color": "shell",
+      "bone": "head"
+    },
+    {
+      "name": "snout",
+      "shape": "ball",
+      "size": [
+        0.13,
+        0.1,
+        0.1
+      ],
+      "at": [
+        0,
+        0.25,
+        0.6
+      ],
+      "color": "shell",
+      "bone": "head"
+    },
+    {
+      "name": "throat",
+      "shape": "ball",
+      "size": [
+        0.12,
+        0.06,
+        0.16
+      ],
+      "at": [
+        0,
+        0.19,
+        0.52
+      ],
+      "color": "belly",
+      "bone": "head"
+    },
+    {
+      "name": "eye_l",
+      "shape": "ball",
+      "size": [
+        0.04,
+        0.04,
+        0.04
+      ],
+      "at": [
+        0.095,
+        0.29,
+        0.54
+      ],
+      "color": "dark",
+      "bone": "head",
+      "mirror": true,
+      "separate": true,
+      "detail": 0.4
+    },
+    {
+      "name": "prefrontal_l",
+      "shape": "ball",
+      "size": [
+        0.06,
+        0.03,
+        0.1
+      ],
+      "at": [
+        0.04,
+        0.325,
+        0.54
+      ],
+      "color": "belly",
+      "bone": "head",
+      "mirror": true,
+      "separate": true,
+      "detail": 0.4
+    },
+    {
+      "name": "plate1_l",
+      "shape": "ball",
+      "size": [
+        0.1,
+        0.05,
+        0.2
+      ],
+      "at": [
+        0.26,
+        0.38,
+        0.22
+      ],
+      "color": "plate",
+      "bone": "body",
+      "mirror": true,
+      "separate": true,
+      "detail": 0.5
+    },
+    {
+      "name": "plate2_l",
+      "shape": "ball",
+      "size": [
+        0.1,
+        0.05,
+        0.2
+      ],
+      "at": [
+        0.26,
+        0.38,
+        0.06
+      ],
+      "color": "plate",
+      "bone": "body",
+      "mirror": true,
+      "separate": true,
+      "detail": 0.5
+    },
+    {
+      "name": "plate3_l",
+      "shape": "ball",
+      "size": [
+        0.1,
+        0.05,
+        0.2
+      ],
+      "at": [
+        0.26,
+        0.38,
+        -0.1
+      ],
+      "color": "plate",
+      "bone": "body",
+      "mirror": true,
+      "separate": true,
+      "detail": 0.5
+    },
+    {
+      "name": "plate4_l",
+      "shape": "ball",
+      "size": [
+        0.1,
+        0.05,
+        0.2
+      ],
+      "at": [
+        0.26,
+        0.38,
+        -0.26
+      ],
+      "color": "plate",
+      "bone": "body",
+      "mirror": true,
+      "separate": true,
+      "detail": 0.5
+    },
+    {
+      "name": "arm_f_l",
+      "shape": "ball",
+      "size": [
+        0.28,
+        0.12,
+        0.24
+      ],
+      "at": [
+        0.32,
+        0.12,
+        0.28
+      ],
+      "color": "shell",
+      "bone": "leg_f_l",
+      "mirror": true
+    },
+    {
+      "name": "paddle_f_l",
+      "shape": "taper",
+      "top": 0.55,
+      "size": [
+        0.06,
+        0.52,
+        0.24
+      ],
+      "at": [
+        0.58,
+        0.035,
+        0.3
+      ],
+      "rot": [
+        0,
+        0,
+        90
+      ],
+      "color": "shell",
+      "bone": "leg_f_l",
+      "mirror": true,
+      "detail": 0.6
+    },
+    {
+      "name": "thigh_b_l",
+      "shape": "ball",
+      "size": [
+        0.22,
+        0.1,
+        0.2
+      ],
+      "at": [
+        0.28,
+        0.1,
+        -0.3
+      ],
+      "color": "shell",
+      "bone": "leg_b_l",
+      "mirror": true
+    },
+    {
+      "name": "paddle_b_l",
+      "shape": "taper",
+      "top": 0.55,
+      "size": [
+        0.06,
+        0.34,
+        0.18
+      ],
+      "at": [
+        0.42,
+        0.03,
+        -0.36
+      ],
+      "rot": [
+        0,
+        -20,
+        90
+      ],
+      "color": "shell",
+      "bone": "leg_b_l",
+      "mirror": true,
+      "detail": 0.6
+    },
+    {
+      "name": "tail",
+      "shape": "taper",
+      "top": 0.4,
+      "size": [
+        0.08,
+        0.2,
+        0.07
+      ],
+      "at": [
+        0,
+        0.18,
+        -0.45
+      ],
+      "rot": [
+        -90,
+        0,
+        0
+      ],
+      "color": "shell",
+      "bone": "tail_1"
+    }
+  ]
+}

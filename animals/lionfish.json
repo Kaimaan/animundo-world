@@ -1,0 +1,70 @@
+{
+  "archetype": "fish",
+  "latin": "Pterois volitans",
+  "taxon": {
+    "gbif_key": 2334438,
+    "rank": "SPECIES",
+    "name": "Pterois volitans"
+  },
+  "playable": true,
+  "color": "#7A2E2B",
+  "tags": [
+    "fish"
+  ],
+  "diet": [
+    "water_bugs"
+  ],
+  "hunts": [
+    "small_fish"
+  ],
+  "dark_vision": 0.5,
+  "walk": 2.5,
+  "sprint": 5.0,
+  "jump": 0.0,
+  "box": [
+    0.38,
+    0.3,
+    0.25
+  ],
+  "cam_height": 0.25,
+  "cam_dist": 2.0,
+  "model": {
+    "file": "res://assets/animals/lionfish.glb",
+    "length": 0.432,
+    "yaw": 0.0,
+    "anims": {
+      "idle": "idle",
+      "fly": "swim"
+    }
+  },
+  "text": {
+    "title": "Lionfish",
+    "caught": "A lionfish! +{food} food",
+    "menu_sub": "Swim the warm reef and rest between corals.",
+    "menu_wild": "Small fish swim near the reef.",
+    "night_hint": "It's night. Rest still between corals.",
+    "intro": "Up and Down to swim. Rest under a ledge in the day.",
+    "hungry": "You're hungry. Look for small fish and shrimp near the corals.",
+    "no_food": "Nothing to eat here. Look near the corals for small fish.",
+    "about_looks": "Red-brown and white stripes cover its body. Its side fins open like fans and its back has long spines.",
+    "about_food": "Eats small fish, shrimp and crabs.",
+    "about_home": "Lives in warm reefs. In the day it sits still under a ledge between corals.",
+    "about_winter": "Stays active all year. It rests and hunts in warm water.",
+    "about_young": "Babies are born from tiny eggs in the water. They drift with the current.",
+    "about_fact": "It hovers still in the water with its fins spread.",
+    "bite": "A lionfish snapped at you! Swim for cover!",
+    "caught_you": "A lionfish caught you.",
+    "safe_tag": "Tag, you got it! In Safe mode a lionfish never goes hungry."
+  },
+  "year": {
+    "winter": "active",
+    "shelter": "In the day it sits still under a ledge. It rests between corals with fins spread.",
+    "young": "Babies are born from tiny eggs in the water. They drift with the current and hatch fast.",
+    "food": {
+      "spring": "Small fish, shrimp and crabs.",
+      "summer": "Small fish, shrimp and crabs.",
+      "autumn": "Small fish, shrimp and crabs.",
+      "winter": "Small fish, shrimp and crabs."
+    }
+  }
+}

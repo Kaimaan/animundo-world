@@ -1,0 +1,103 @@
+{
+  "id": "dugong_grass",
+  "name": "Dugong grass",
+  "latin": "Halodule uninervis",
+  "taxon": {
+    "gbif_key": 2864102,
+    "rank": "SPECIES",
+    "name": "Halodule uninervis"
+  },
+  "author": "Animundo Builder",
+  "kind": "ground",
+  "year": {
+    "leaves": "evergreen",
+    "flowers": "none",
+    "fruit": "none",
+    "notes": "Lives in warm shallow sea water. Makes soft green meadows on sand. Dugongs munch the leaves."
+  },
+  "grows": {
+    "density": 0.85,
+    "on": [
+      "seabed"
+    ]
+  },
+  "sources": [
+    "https://en.wikipedia.org/wiki/Halodule_uninervis",
+    "https://www.seagrasswatch.org/id-seagrass/"
+  ],
+  "colors": {
+    "stem": "#8a8f62",
+    "leaf": "#4fa845",
+    "leaf_dark": "#3a7d33"
+  },
+  "parts": [
+    {
+      "name": "rhizome",
+      "shape": "cylinder",
+      "size": [
+        0.008,
+        0.14,
+        0.008
+      ],
+      "at": [
+        0,
+        0.008,
+        0
+      ],
+      "rot": [
+        0,
+        0,
+        90
+      ],
+      "color": "stem",
+      "detail": 0.4
+    },
+    {
+      "name": "leaf_a",
+      "shape": "leaf",
+      "size": [
+        0.012,
+        0,
+        0.18
+      ],
+      "at": [
+        0,
+        0.095,
+        0.01
+      ],
+      "rot": [
+        -78,
+        0,
+        0
+      ],
+      "color": "leaf",
+      "around": 7,
+      "jitter": 0.6,
+      "detail": 0.5
+    },
+    {
+      "name": "leaf_b",
+      "shape": "leaf",
+      "size": [
+        0.01,
+        0,
+        0.14
+      ],
+      "at": [
+        0,
+        0.075,
+        0.005
+      ],
+      "rot": [
+        -80,
+        0,
+        0
+      ],
+      "color": "leaf_dark",
+      "around": 6,
+      "turn": 15,
+      "jitter": 0.6,
+      "detail": 0.5
+    }
+  ]
+}

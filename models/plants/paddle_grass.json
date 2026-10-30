@@ -1,0 +1,103 @@
+{
+  "id": "paddle_grass",
+  "name": "Paddle grass",
+  "latin": "Halophila ovalis",
+  "taxon": {
+    "gbif_key": 5329622,
+    "rank": "SPECIES",
+    "name": "Halophila ovalis"
+  },
+  "author": "Animundo Builder",
+  "kind": "ground",
+  "year": {
+    "leaves": "evergreen",
+    "flowers": "Tiny pale flowers open under the water in summer.",
+    "fruit": "Tiny round green fruits form at the leaf bases after flowers.",
+    "notes": "It lives under the sea on soft sand and stays green all year. Green turtles eat the leaves."
+  },
+  "grows": {
+    "density": 0.3,
+    "on": [
+      "seabed"
+    ]
+  },
+  "sources": [
+    "https://en.wikipedia.org/wiki/Halophila_ovalis",
+    "https://www.seagrasswatch.org/id-seagrass/"
+  ],
+  "colors": {
+    "stem": "#7fb069",
+    "leaf": "#4da74d",
+    "leaf_dark": "#3b8a44"
+  },
+  "parts": [
+    {
+      "name": "rhizome",
+      "shape": "cylinder",
+      "size": [
+        0.004,
+        0.11,
+        0.004
+      ],
+      "at": [
+        0,
+        0.002,
+        0
+      ],
+      "rot": [
+        90,
+        0,
+        0
+      ],
+      "color": "stem",
+      "detail": 0.4
+    },
+    {
+      "name": "leaf_low",
+      "shape": "leaf",
+      "size": [
+        0.02,
+        0,
+        0.032
+      ],
+      "at": [
+        0,
+        0.005,
+        0.015
+      ],
+      "rot": [
+        -10,
+        0,
+        0
+      ],
+      "color": "leaf_dark",
+      "around": 5,
+      "jitter": 0.6,
+      "detail": 0.5
+    },
+    {
+      "name": "leaf",
+      "shape": "leaf",
+      "size": [
+        0.018,
+        0,
+        0.028
+      ],
+      "at": [
+        0,
+        0.008,
+        0.01
+      ],
+      "rot": [
+        -18,
+        0,
+        0
+      ],
+      "color": "leaf",
+      "around": 6,
+      "turn": 18,
+      "jitter": 0.6,
+      "detail": 0.5
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "archetype": "fish",
+  "latin": "Chaetodon auriga",
+  "taxon": {
+    "gbif_key": 2385390,
+    "rank": "SPECIES",
+    "name": "Chaetodon auriga"
+  },
+  "dark_vision": 0.65,
+  "tags": [
+    "fish",
+    "small_fish"
+  ],
+  "diet": [
+    "water_plants"
+  ],
+  "walk": 0.8,
+  "sprint": 2.0,
+  "school": false,
+  "model": {
+    "file": "res://assets/animals/butterflyfish.glb",
+    "length": 0.263,
+    "yaw": 0.0,
+    "anims": {
+      "idle": "idle",
+      "fly": "swim"
+    }
+  },
+  "text": {
+    "title": "Butterflyfish",
+    "nearby": "A yellow butterflyfish swims by the coral.",
+    "about_looks": "A flat, bright yellow fish with a dark bar on its side. A long thread trails from its back fin.",
+    "about_food": "It eats coral polyps and tiny reef animals and soft green algae. It picks small bites from the reef.",
+    "about_home": "It lives by coral and rocks on the reef. It slips into cracks to rest.",
+    "about_winter": "It stays awake all year. It swims by the reef every day.",
+    "about_young": "Young are born from tiny eggs in the water. They drift in the water and then live near the reef.",
+    "about_fact": "The long thread on its back fin trails behind it as it swims.",
+    "menu_sub": "Flit between the corals and pick at algae and tiny animals.",
+    "menu_wild": "Bigger fish hunt on the reef.",
+    "hungry": "You're hungry. Look for algae and tiny animals on the coral.",
+    "no_food": "Nothing to eat here. Look for algae and tiny animals on the coral."
+  },
+  "year": {
+    "winter": "active",
+    "shelter": "It stays near coral and rocks. It slips into cracks to rest.",
+    "young": "Young are born from tiny eggs in the water. They drift and then live near the reef.",
+    "food": {
+      "spring": "Coral polyps and small reef animals and soft algae.",
+      "summer": "Coral polyps and small reef animals and soft algae.",
+      "autumn": "Coral polyps and small reef animals and soft algae.",
+      "winter": "Coral polyps and small reef animals and soft algae."
+    },
+    "notes": ""
+  },
+  "playable": true
+}
