@@ -2,7 +2,8 @@
 """adapt_home.py makes every example home with the numbers the tile grid needs.
 
 Every home has the one water level (8) and states its height, 32 or 64
-(Proposal 0038, T87). The special places keep what made them work in the
+(Proposal 0038, T87), except a deep sea home: 64 tall, its water at 40 and
+its sea 35 deep for whales (game decision 0045). The special places keep what made them work in the
 game: the mountain is 64 tall with bare rock, the polar ice home keeps its
 icebergs and frozen sea, and a sea home's bay is deep enough for swimmers.
 Builder tests replay these examples through the tool, so a change here
@@ -48,15 +49,20 @@ def main():
     for name in names:
         choices, home = make(name)
         t = home["terrain"]
-        if t.get("water_level", 8) != 8:
-            errors.append(f"{name}: water level {t['water_level']}, not the one water level 8")
-        want = 64 if choices.get("land") == "mountains" else 32
+        deep = choices.get("depth") == "deep"
+        level = adapt_home.DEEP_WATER if deep else 8
+        if t.get("water_level", 8) != level:
+            errors.append(f"{name}: water level {t.get('water_level', 8)}, not {level}")
+        if deep and t.get("sea_depth") != adapt_home.DEEP_SEA:
+            errors.append(f"{name}: a deep sea home needs sea_depth {adapt_home.DEEP_SEA}")
+        want = 64 if choices.get("land") == "mountains" or deep else 32
         if t.get("height") != want:
             errors.append(f"{name}: terrain.height is {t.get('height')}, should be {want}")
-        if t["base_height"] <= 8:
+        if t["base_height"] <= level:
             errors.append(f"{name}: the land's lowest ground ({t['base_height']}) isn't above the water")
-        if choices.get("water") == "sea" and not any(l.get("depth") == adapt_home.SEA_DEPTH for l in home["lakes"]):
-            errors.append(f"{name}: a sea home needs its {adapt_home.SEA_DEPTH}-block bay for swimmers")
+        bay = adapt_home.DEEP_SEA if deep else adapt_home.SEA_DEPTH
+        if choices.get("water") == "sea" and not any(l.get("depth") == bay for l in home["lakes"]):
+            errors.append(f"{name}: a sea home needs its {bay}-block bay for swimmers")
         if choices.get("ice") == "polar":
             ice = home.get("ice", {})
             if not (ice.get("icebergs") and ice.get("frozen_water") and ice.get("glacier_above")):

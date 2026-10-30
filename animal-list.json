@@ -29,7 +29,7 @@
  ],
  "not_yet": {
   "bats": "Bats fly with their arms, and night animals come later.",
-  "great_whales": "Great whales are bigger than any place's sea.",
+  "great_whales": "Great whales need a deep sea. It's coming.",
   "dragonflies": "Dragonflies beat two pairs of wings apart.",
   "body_plan": "Animundo can't make this kind of body yet."
  },
@@ -1628,10 +1628,10 @@
    "start_from": "harbour_porpoise",
    "file_from": "saimaa_seal",
    "habitats": [
-    "sea"
+    "sea",
+    "reef"
    ],
-   "can_make": false,
-   "not_yet": "great_whales"
+   "can_make": true
   },
   {
    "id": "sperm_whale",

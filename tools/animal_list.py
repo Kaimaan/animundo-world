@@ -38,7 +38,7 @@ HABITATS = {
 # why an animal can't be made yet: the web app has an English sentence for each
 NOT_YET = {
     "bats": "Bats fly with their arms, and night animals come later.",
-    "great_whales": "Great whales are bigger than any place's sea.",
+    "great_whales": "Great whales need a deep sea. It's coming.",
     "dragonflies": "Dragonflies beat two pairs of wings apart.",
     "body_plan": "Animundo can't make this kind of body yet.",
 }
@@ -172,7 +172,7 @@ TABLE = [
     ("beluga", "Beluga whale", "Delphinapterus leucas", "harbour_porpoise", ["sea", "ice"], None),
     ("narwhal", "Narwhal", "Monodon monoceros", "harbour_porpoise", ["sea", "ice"], None),
     ("blue_whale", "Blue whale", "Balaenoptera musculus", "harbour_porpoise", ["sea"], "great_whales"),
-    ("humpback_whale", "Humpback whale", "Megaptera novaeangliae", "harbour_porpoise", ["sea"], "great_whales"),
+    ("humpback_whale", "Humpback whale", "Megaptera novaeangliae", "harbour_porpoise", ["sea", "reef"], None),   # a deep reef home (decision 0045)
     ("sperm_whale", "Sperm whale", "Physeter macrocephalus", "harbour_porpoise", ["sea"], "great_whales"),
     ("sea_otter", "Sea otter", "Enhydra lutris", "fox", ["sea"], None),
     ("sea_lion", "California sea lion", "Zalophus californianus", "saimaa_seal", ["sea"], None),

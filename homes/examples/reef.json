@@ -52,6 +52,7 @@
   }
  ],
  "seabed": "sand",
+  "depth": "deep",
  "trees": {
   "density": "none",
   "mix": []

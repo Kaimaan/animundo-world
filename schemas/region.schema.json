@@ -188,6 +188,12 @@
           "minimum": 4,
           "maximum": 56
         },
+        "sea_depth": {
+          "description": "How deep a coastal tile's open sea gets, in blocks below the water (default 8). A deep sea home sets 35 with water_level 40 (game decision 0045).",
+          "type": "integer",
+          "minimum": 3,
+          "maximum": 55
+        },
         "seabed": {
           "description": "The ground under deep water: mud (default) or sand (warm seas, reefs).",
           "enum": [

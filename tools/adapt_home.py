@@ -23,6 +23,8 @@ The choices file (see homes/examples/ for whole ones):
       "ice": "none",                  # none | frozen_in_winter | glaciers | polar
       "caves": "none",                # none | some: caves under the hills
       "seabed": "mud",                # mud | sand: the floor of the deep water (sand for warm seas)
+      "depth": "shallow",             # shallow | deep: a sea home's water, 7 m, or about 35 m for whales
+                                      # (deep: a world twice as tall, its water higher; game decision 0045)
       "tropical": true,               # no seasons and no snow (near the equator)
       "palette": {"ground_lush": "#...", "ground_dry": "#...", "ground_high": "#...", "dirt": "#...",
                   "rock": "#...", "sand": "#...", "water_deep": "#...", "water_shallow": "#..."},
@@ -50,6 +52,8 @@ WATER = 8      # the one water level for every home (tiles on the grid meet at i
 HEIGHT = 32
 SEA_DEPTH = 7  # a sea bay's depth: the deepest water level 8 allows, deep enough for seals, sharks and dolphins
 TALL = 64      # a mountain home's height
+DEEP_WATER = 40   # a deep sea home's water level: the game lifts tile edges to meet it (game decision 0045)
+DEEP_SEA = 35     # its sea's depth: room for a 14 m humpback whale to dive
 
 LAND = {   # above the water level: the lowest ground is base_height, the highest base_height + relief
     "flat":      {"base": 2, "relief": 4,  "frequency": 0.02,  "rock_ridges": 0.0},
@@ -127,12 +131,18 @@ def adapt(base, c):
     seabed = c.get("seabed", "mud")
     if seabed not in ("mud", "sand"):
         raise ValueError(f"seabed must be mud or sand, not {seabed!r}")
-    level = WATER   # the sea is deep because its floor is low, not because its water is high
-    tall = TALL if land_kind == "mountains" else HEIGHT
+    depth = c.get("depth", "shallow")
+    if depth not in ("shallow", "deep"):
+        raise ValueError(f"depth must be shallow or deep, not {depth!r}")
+    if depth == "deep" and (water != "sea" or land_kind == "mountains"):
+        raise ValueError("depth deep is for a sea home that isn't mountains")
+    deep = depth == "deep"
+    level = DEEP_WATER if deep else WATER   # a shallow sea is deep because its floor is low; a deep one's water is higher too
+    tall = TALL if land_kind == "mountains" or deep else HEIGHT
     base_height = level + land["base"]
     relief = min(land["relief"], tall - 12 - base_height - 1)   # the game keeps 12 blocks of sky over the land
     terrain = home.setdefault("terrain", {})
-    for k in ("water_level", "height", "seabed"):
+    for k in ("water_level", "height", "seabed", "sea_depth"):
         terrain.pop(k, None)
     terrain["height"] = tall   # always stated: 32, or 64 for mountains (a tile on the grid is one or the other)
     terrain.update({"base_height": base_height, "relief": relief, "frequency": land["frequency"],
@@ -145,6 +155,9 @@ def adapt(base, c):
     terrain["edge"] = "lake" if water in ("lake", "sea") else "none"        # an island only by a lake or the sea
     if seabed == "sand":
         terrain["seabed"] = "sand"
+    if deep:
+        terrain["water_level"] = DEEP_WATER
+        terrain["sea_depth"] = DEEP_SEA   # coastal tiles' open sea floor, too
     name = c.get("water_name") or {"river": "The river", "lake": "The lake", "sea": "The sea",
                                     "pools": "Forest pool"}.get(water, "")
     if water == "river":   # a long river across the land, clear of the middle where animals start
@@ -155,7 +168,7 @@ def adapt(base, c):
                           "angle": -10, "depth": 6, "islands": 3}]   # the land in the middle stays dry
     elif water == "sea":   # a deep bay across the map, its shore about 80 m from the middle: swimmers start in it
         home["lakes"] = [{"name": name, "x": 0.5, "z": 0.36, "length": 1.5, "width": 0.2,
-                          "angle": 0, "depth": SEA_DEPTH, "islands": 0 if ice == "polar" else 2}]   # icebergs, not grass islets
+                          "angle": 0, "depth": DEEP_SEA if deep else SEA_DEPTH, "islands": 0 if ice == "polar" else 2}]   # icebergs, not grass islets
     else:
         home["lakes"] = []
     bogs = wet["bogs"] + (2 if water == "pools" else 0)
