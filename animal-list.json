@@ -1632,7 +1632,8 @@
     "sea",
     "reef"
    ],
-   "can_make": true
+   "can_make": true,
+   "shape": "new"
   },
   {
    "id": "sperm_whale",

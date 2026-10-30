@@ -309,6 +309,7 @@ NEW_SHAPE = {
     "toucan", "hummingbird", "peacock", "roadrunner",
     "green_sea_turtle",              # a shell and four flippers
     "manta_ray",                     # a flat diamond with wing-like fins
+    "humpback_whale",                # flippers a third of its length, a knobbly head
 }
 
 
