@@ -1127,6 +1127,36 @@
     "schema": "fail",
     "validate_region": "fail"
    }
+  },
+  {
+   "name": "nuuksio_lake_named_none",
+   "why": "A lake is always named; a placeholder like \"none\" fails (Kai, 2026-10-30).",
+   "edits": [
+    {
+     "file": "regions/fi_nuuksio.json",
+     "set": {
+      "/lakes/0/name": "none"
+     }
+    }
+   ],
+   "expect": {
+    "schema": "fail"
+   }
+  },
+  {
+   "name": "sea_biome_water_named_none",
+   "why": "Biomes are checked too: the Helsinki shore's sea was once named \"none\" and the game showed it.",
+   "edits": [
+    {
+     "file": "biomes/sea.json",
+     "set": {
+      "/lakes/0/name": "None "
+     }
+    }
+   ],
+   "expect": {
+    "schema": "fail"
+   }
   }
  ]
 }

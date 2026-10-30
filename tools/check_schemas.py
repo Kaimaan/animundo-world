@@ -10,10 +10,13 @@ Needs the jsonschema package (pip install jsonschema). Exits non-zero and lists
 every problem. Besides the schemas it checks the few rules that a JSON Schema
 can't express, all inside one file or between a model spec and its animal file:
 the id equals the file name, a part's colour and bone exist, mirrored names end
-in _l, and the bone and triangle budgets in ART.md. Everything else that needs
+in _l, and the bone and triangle budgets in ART.md. Biomes and homes are
+checked against the region schema too, as a place without a spot: their four
+home fields allowed, the id their own name and the country empty. Everything else that needs
 several files is checked by validate_region.py, check_animals.py and check_models.py.
 """
 import argparse
+import copy
 import json
 import os
 import re
@@ -34,9 +37,26 @@ def load_schemas():
     for name in NAMES:
         with open(os.path.join(SCHEMAS, name + ".schema.json"), encoding="utf-8") as f:
             schemas[name] = json.load(f)
+    schemas["home"] = home_schema(schemas["region"])
     registry = Registry().with_resources(
         (s["$id"], Resource.from_contents(s)) for s in schemas.values())
     return schemas, registry
+
+
+def home_schema(region):
+    """A biome or home is a region without a spot (homes/README.md): the same
+    rules (its lakes, bogs and places named, Kai 2026-10-30), plus its four home
+    fields; its id is its own name and it has no country yet."""
+    home = copy.deepcopy(region)
+    home["$id"] = region["$id"].replace("region.schema.json", "home.schema.json")
+    props = home["properties"]
+    props["id"] = {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"}
+    props["country"] = {"type": "string"}
+    props["ecoregions"] = {"type": "array", "items": {"type": "integer"}}
+    props["habitat"] = {"$ref": "#/$defs/text"}
+    props["based_on"] = {"type": "string"}
+    props["about"] = {"type": "string"}
+    return home
 
 
 def schema_for(rel):
@@ -61,12 +81,14 @@ def schema_for(rel):
         return "locale", name
     if rel == "wanted.json":
         return "wanted", None
+    if parts[0] in ("biomes", "homes") and len(parts) == 2:
+        return "home", None
     return None
 
 
 def content_files(root):
     out = ["wanted.json"]
-    for d in ("regions", "animals", "models", "models/plants", "models/trees", "locale"):
+    for d in ("regions", "biomes", "homes", "animals", "models", "models/plants", "models/trees", "locale"):
         if os.path.isdir(os.path.join(root, d)):
             out += [f"{d}/{f}" for f in sorted(os.listdir(os.path.join(root, d))) if f.endswith(".json")]
     for lang in sorted(os.listdir(os.path.join(root, "locale"))):
@@ -78,6 +100,13 @@ def content_files(root):
 def where(error):
     path = "".join(f"[{p}]" if isinstance(p, int) else f".{p}" for p in error.absolute_path)
     return path.lstrip(".") or "(top)"
+
+
+def message(error):
+    if error.validator == "not" and error.absolute_path and error.absolute_path[-1] == "name":
+        return (f"{error.instance!r} is a placeholder, not a name: a lake, bog or place "
+                "without a real name is left out (regions schema, $defs/name)")
+    return error.message
 
 
 def mirrored(name):
@@ -156,9 +185,9 @@ def check(root, rel, schemas, registry):
             return [f'no definition "{part}" in schemas/{name}.schema.json: is the file name right?']
         schema = {"$schema": schema["$schema"], "$ref": f'{schema["$id"]}#/$defs/{part}'}
     validator = Draft202012Validator(schema, registry=registry)
-    errors = [f"{where(e)}: {e.message}" for e in sorted(validator.iter_errors(d), key=lambda e: list(e.absolute_path))]
+    errors = [f"{where(e)}: {message(e)}" for e in sorted(validator.iter_errors(d), key=lambda e: list(e.absolute_path))]
     file_id = os.path.basename(rel)[:-5]
-    if name == "region" and isinstance(d, dict) and d.get("id") != file_id:
+    if name in ("region", "home") and isinstance(d, dict) and d.get("id") != file_id:
         errors.append(f'"id" must equal the file name ("{file_id}")')
     if name == "model" and isinstance(d, dict):
         errors += model_rules(root, rel, d, file_id)

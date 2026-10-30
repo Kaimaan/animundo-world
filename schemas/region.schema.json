@@ -24,7 +24,7 @@
       "$ref": "#/$defs/status"
     },
     "name": {
-      "$ref": "#/$defs/text"
+      "$ref": "#/$defs/name"
     },
     "country": {
       "$ref": "#/$defs/text"
@@ -452,7 +452,7 @@
         ],
         "properties": {
           "name": {
-            "$ref": "#/$defs/text"
+            "$ref": "#/$defs/name"
           },
           "x": {
             "type": "number",
@@ -516,7 +516,7 @@
         ],
         "properties": {
           "name": {
-            "$ref": "#/$defs/text"
+            "$ref": "#/$defs/name"
           },
           "at": {
             "const": "highest"
@@ -690,7 +690,7 @@
         ],
         "properties": {
           "name": {
-            "$ref": "#/$defs/text"
+            "$ref": "#/$defs/name"
           },
           "x": {
             "type": "number",
@@ -895,6 +895,14 @@
     "text": {
       "type": "string",
       "pattern": "\\S"
+    },
+    "name": {
+      "description": "A name players read: the place's, a lake's, a bog's or a landmark's. Never a placeholder: a lake, bog or place without a real name is left out (Kai, 2026-10-30; the builder once wrote \"none\" for the sea, and the game showed it on the map).",
+      "type": "string",
+      "pattern": "\\S",
+      "not": {
+        "pattern": "^\\s*([Nn][Oo][Nn][Ee]|[Nn][Uu][Ll][Ll]|[Nn][Ii][Ll]|[Uu][Nn][Kk][Nn][Oo][Ww][Nn]|[Uu][Nn][Nn][Aa][Mm][Ee][Dd]|[Nn]/?[Aa]|[Tt][Bb][Dd]|[Tt][Oo][Dd][Oo]|-+|\\?+)\\s*$"
+      }
     },
     "id": {
       "type": "string",

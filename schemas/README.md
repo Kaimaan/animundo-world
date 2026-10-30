@@ -4,7 +4,7 @@ Each content format has a JSON Schema here (draft 2020-12). The schemas describe
 
 | Schema | Describes | Built from |
 |---|---|---|
-| `region.schema.json` | `regions/<id>.json` | the region files, CONTRIBUTING.md, `tools/validate_region.py` |
+| `region.schema.json` | `regions/<id>.json`, and `biomes/<id>.json` and `homes/<id>.json` as places without a spot (their four home fields allowed, no country, the id their own name) | the region files, CONTRIBUTING.md, `tools/validate_region.py` |
 | `animal.schema.json` | `animals/<id>.json` | the animal files, `check_animals.gd`, the game's scripts |
 | `archetypes.schema.json` | `animals/archetypes.json` | the archetypes file, `species.gd` |
 | `model.schema.json` | `models/<id>.json` (`$defs/animal_model`) and `models/plants/<id>.json` (`$defs/plant_model`) | the specs, `tools/blender/build_model.py`, `build_plant.py`, `check_models.gd`, ART.md |
@@ -32,7 +32,7 @@ CI (`.github/workflows/check.yml`) runs all of them on every pull request, after
 
 A JSON Schema can only look at one file. So the work is split:
 
-- **The schemas** check the shape of one file: its keys, types, lists of allowed values and number ranges.
+- **The schemas** check the shape of one file: its keys, types, lists of allowed values and number ranges. Names players read (a place's, its lakes', bogs' and landmarks') are never a placeholder such as "none" or "unknown": a lake, bog or place without a real name is left out (`$defs/name`; Kai, 2026-10-30, after the builder named the Helsinki shore's sea "none" and the game showed it).
 - **`check_schemas.py`** also checks the rules inside one file that a schema can't express: the id equals the file name, a model part's colour and bone exist, mirrored names end in `_l`, an archetype extends another one in the same file, and the ART.md budgets that depend on the animal file (at most 16 bones; a model of an animal that isn't playable has at most 800 triangles).
 - **`validate_region.py`** checks a region against other files: its animals and plants exist and are built, the ground cover densities add up to 1 or less, and the plant triangle budget.
 - **`check_taxa.py`** checks that every animal file and plant spec says which real species it is (`taxon`, the GBIF ID of its accepted name, written by `tools/taxon.py`), that `latin` is that name, and that no two files are the same species unless one is a `stage_of` the other. It is new, not a port of a game checker, so the game's `.gd` checkers don't know these rules.
