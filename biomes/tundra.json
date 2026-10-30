@@ -1,0 +1,146 @@
+{
+  "id": "tundra",
+  "name": "Tundra home",
+  "country": "",
+  "center": {
+    "lat": 0,
+    "lon": 0
+  },
+  "description": "Flat open tundra with no tall trees and low bushes and grasses around many still pools.",
+  "about": "Home template made by tools/adapt_home.py from boreal_forest.",
+  "author": "Animundo team",
+  "based_on": "boreal_forest",
+  "ecoregions": [
+    780
+  ],
+  "habitat": "tundra",
+  "land": "tundra",
+  "terrain": {
+    "size": 2048,
+    "lakes": 0.3,
+    "edge": "none",
+    "seed": 1811587497
+  },
+  "trees": {
+    "density": 0.0,
+    "mix": []
+  },
+  "ground_cover": {
+    "grass": 0.3,
+    "flowers": 0.0,
+    "flower_colors": [],
+    "flower_names": [],
+    "stones": 0.04
+  },
+  "plants": {
+    "cover": [
+      {
+        "id": "cottongrass",
+        "density": 0.15
+      },
+      {
+        "id": "reindeer_lichen",
+        "density": 0.03
+      },
+      {
+        "id": "peat_moss",
+        "density": 0.7
+      }
+    ]
+  },
+  "small_life": {
+    "grass": [
+      "water sedge",
+      "tundra grasses"
+    ]
+  },
+  "lakes": [],
+  "places": [],
+  "lake_life": {
+    "reeds": 0.15,
+    "lilies": 0.0,
+    "pondweed": 0.15
+  },
+  "fish": [],
+  "migrants": [],
+  "animals": {
+    "playable": [],
+    "predators": [],
+    "prey": []
+  },
+  "sources": [
+    "https://animaldiversity.org/accounts/Ovibos_moschatus/",
+    "https://home.nps.gov/bela/learn/nature/muskox.htm",
+    "GBIF.org"
+  ],
+  "bogs": [
+    {
+      "x": 0.3,
+      "z": 0.62,
+      "radius": 55,
+      "name": "Tundra pools"
+    },
+    {
+      "x": 0.66,
+      "z": 0.4,
+      "radius": 45,
+      "name": "Pool"
+    },
+    {
+      "x": 0.3,
+      "z": 0.62,
+      "radius": 55,
+      "name": "Pool"
+    },
+    {
+      "x": 0.66,
+      "z": 0.4,
+      "radius": 45,
+      "name": "Pool"
+    }
+  ],
+  "streams": [
+    {
+      "width": 4,
+      "points": [
+        [
+          0.18,
+          0.7
+        ],
+        [
+          0.27,
+          0.6
+        ],
+        [
+          0.33,
+          0.55
+        ],
+        [
+          0.42,
+          0.5
+        ]
+      ]
+    },
+    {
+      "width": 4,
+      "points": [
+        [
+          0.62,
+          0.22
+        ],
+        [
+          0.58,
+          0.32
+        ],
+        [
+          0.62,
+          0.42
+        ],
+        [
+          0.72,
+          0.48
+        ]
+      ]
+    }
+  ]
+}

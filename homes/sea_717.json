@@ -15,12 +15,12 @@
   ],
   "habitat": "sea",
   "terrain": {
-    "size": 2048,
     "base_height": 9,
     "relief": 10,
     "frequency": 0.04,
     "rock_ridges": 0.4,
     "rock_above": 22,
+    "size": 2048,
     "lakes": 0.03,
     "edge": "lake",
     "seed": 1811587497,
@@ -45,6 +45,9 @@
     "dusk": "#f2a07a",
     "night": "#141a3a",
     "sun": "#ffe8c4"
+  },
+  "seasons": {
+    "snow": true
   },
   "trees": {
     "density": 0.014,
@@ -120,50 +123,74 @@
   "food": [
     {
       "kind": "seeds",
-      "weight": 10,
       "names": [
         "pine seeds",
-        "birch seeds",
-        "alder seeds"
-      ]
+        "birch seeds"
+      ],
+      "weight": 12
     },
     {
-      "kind": "berries",
-      "weight": 10,
+      "kind": "cones",
       "names": [
-        "rowan berries"
-      ]
-    },
-    {
-      "kind": "bottom_bugs",
-      "weight": 10,
-      "names": [
-        "blue mussel"
-      ]
-    },
-    {
-      "kind": "water_plants",
-      "weight": 8,
-      "names": [
-        "pondweed",
-        "reeds"
-      ]
+        "pine cones"
+      ],
+      "weight": 10
     },
     {
       "kind": "browse",
-      "weight": 10,
       "names": [
-        "birch twigs",
+        "birch leaves and twigs",
         "rowan leaves"
-      ]
+      ],
+      "weight": 12
+    },
+    {
+      "kind": "bark",
+      "names": [
+        "birch bark",
+        "rowan bark"
+      ],
+      "amount": 15
+    },
+    {
+      "kind": "berries",
+      "names": [
+        "rowan berries"
+      ],
+      "weight": 30
+    },
+    {
+      "kind": "water_plants",
+      "names": [
+        "pondweed",
+        "reeds"
+      ],
+      "weight": 8
     },
     {
       "kind": "grass",
-      "weight": 10,
       "names": [
         "red fescue",
         "couch grass"
-      ]
+      ],
+      "amount": 10
+    },
+    {
+      "kind": "insects",
+      "names": [],
+      "weight": 15
+    },
+    {
+      "kind": "bottom_bugs",
+      "names": [
+        "blue mussel"
+      ],
+      "weight": 8
+    },
+    {
+      "kind": "carrion",
+      "names": [],
+      "weight": 4
     }
   ],
   "fish": [],
@@ -183,9 +210,6 @@
   ],
   "bogs": [],
   "streams": [],
-  "seasons": {
-    "snow": true
-  },
   "ice": {
     "frozen_water": {
       "from": "winter",

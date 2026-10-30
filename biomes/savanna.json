@@ -1,0 +1,90 @@
+{
+  "id": "savanna",
+  "name": "Savanna home",
+  "country": "",
+  "center": {
+    "lat": 0,
+    "lon": 0
+  },
+  "description": "A flat sunny grassland with a few flat-topped thorn trees and muddy seasonal pools.",
+  "about": "Home template made by tools/adapt_home.py from boreal_forest.",
+  "author": "Animundo team",
+  "based_on": "boreal_forest",
+  "ecoregions": [
+    57
+  ],
+  "habitat": "savanna",
+  "land": "tropical_savanna",
+  "terrain": {
+    "size": 2048,
+    "lakes": 0.03,
+    "edge": "none",
+    "seed": 1811587497
+  },
+  "trees": {
+    "density": 0.004,
+    "mix": [
+      {
+        "shape": "umbrella_thorn",
+        "weight": 100,
+        "leaves": "#7d9a48",
+        "trunk": "#5e4a3a",
+        "food": "browse"
+      }
+    ]
+  },
+  "ground_cover": {
+    "grass": 0.3,
+    "flowers": 0.0,
+    "flower_colors": [],
+    "flower_names": [],
+    "stones": 0.04,
+    "plants": []
+  },
+  "small_life": {
+    "grass": [
+      "red oat grass",
+      "buffalo grass",
+      "star grass"
+    ],
+    "carrion": [
+      "wildebeest remains",
+      "zebra remains",
+      "gazelle remains"
+    ]
+  },
+  "lakes": [],
+  "places": [],
+  "lake_life": {
+    "reeds": 0.15,
+    "lilies": 0.0,
+    "pondweed": 0.0
+  },
+  "fish": [],
+  "migrants": [],
+  "animals": {
+    "playable": [],
+    "predators": [],
+    "prey": []
+  },
+  "sources": [
+    "ielc.libguides.com - African and Asian Lions Fact Sheet",
+    "eol.org - African Lion articles",
+    "masaimarawildlife.org - Panthera Leo"
+  ],
+  "bogs": [
+    {
+      "x": 0.3,
+      "z": 0.62,
+      "radius": 55,
+      "name": "Muddy water holes"
+    },
+    {
+      "x": 0.66,
+      "z": 0.4,
+      "radius": 45,
+      "name": "Pool"
+    }
+  ],
+  "streams": []
+}

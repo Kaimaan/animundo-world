@@ -15,12 +15,12 @@
   ],
   "habitat": "rainforest",
   "terrain": {
-    "size": 2048,
     "base_height": 10,
     "relief": 4,
     "frequency": 0.02,
     "rock_ridges": 0.0,
     "rock_above": 17,
+    "size": 2048,
     "lakes": 0.3,
     "edge": "none",
     "seed": 1811587497
@@ -92,17 +92,40 @@
   "food": [
     {
       "kind": "browse",
-      "weight": 12,
-      "names": [
-        "kapok leaves"
-      ]
+      "names": [],
+      "weight": 12
     },
     {
       "kind": "water_plants",
-      "weight": 8,
       "names": [
         "water lettuce"
-      ]
+      ],
+      "weight": 8
+    },
+    {
+      "kind": "grass",
+      "names": [],
+      "amount": 10
+    },
+    {
+      "kind": "insects",
+      "names": [],
+      "weight": 15
+    },
+    {
+      "kind": "water_bugs",
+      "names": [],
+      "weight": 15
+    },
+    {
+      "kind": "bottom_bugs",
+      "names": [],
+      "weight": 8
+    },
+    {
+      "kind": "carrion",
+      "names": [],
+      "weight": 4
     }
   ],
   "fish": [],

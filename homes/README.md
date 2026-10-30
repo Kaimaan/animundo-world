@@ -1,5 +1,7 @@
 # Homes
 
+**Homes are made from biomes now** (game proposal 0043, phase 3). A biome, `biomes/<id>.json`, is the same home in layers: a land style (`lands/<id>.json`: colours, sky, roughness), its plants by id from the library where every entry is one, and small-life names instead of a food list, because food is worked out (`food/rules.json`). `homes/<id>.json` is made from it by `python3 tools/biomes.py flatten`, for the tools and the builder that still read whole homes. **Edit the biome, never the home**; CI checks that homes/ is up to date. A new home made with `adapt_home.py` goes in homes/ as before, then becomes a biome with `python3 tools/biomes.py split <id> <land style>`. Which land style a grid cell takes is in `lands/index.json` (by its RESOLVE biome number).
+
 A **home** is the land of one habitat, ready to copy: terrain, trees, ground plants, water, food kinds and fish, with no name, no center and no animals. Animundo Builder's animal-first build (a grown-up picks an animal, then a spot where it lives) copies the home that fits the animal, names it and centres it on the spot, then adds the animal, its food and its neighbours.
 
 | Home | Habitat in `animal-list.json` | RESOLVE ecoregions | Based on |

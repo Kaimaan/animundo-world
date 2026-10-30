@@ -49,6 +49,8 @@ jobs:
         run: python3 tools/validate_region.py
       - name: Check against the schemas
         run: python3 tools/check_schemas.py
+      - name: homes/ is made from biomes/ (game proposal 0043)
+        run: python3 tools/biomes.py flatten --check
       - name: Check the home templates
         run: python3 tools/homes.py check
       - name: Food is worked out from what grows and lives there (game proposal 0043)

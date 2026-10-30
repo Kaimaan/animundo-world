@@ -20,6 +20,10 @@ rsync -a --delete --include '*/' --include '*.json' --include '*.png' --include 
 mkdir -p "$GAME/homes"
 rsync -a --delete --include '*.json' --exclude '*' homes/ "$GAME/homes/"
 # the food rules, which the game works a tile's food out from (game proposal 0043)
+if [ -d biomes ]; then   # biomes in layers (game proposal 0043); older commits have none
+	mkdir -p "$GAME/biomes"
+	rsync -a --delete --include '*.json' --exclude '*' biomes/ "$GAME/biomes/"
+fi
 if [ -d lands ]; then   # land styles (game proposal 0043); older commits have none
 	rsync -a --delete --include '*.json' --exclude '*' lands/ "$GAME/lands/"
 fi

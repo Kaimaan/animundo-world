@@ -15,12 +15,12 @@
   ],
   "habitat": "boreal_forest",
   "terrain": {
-    "size": 2048,
     "base_height": 9,
     "relief": 12,
     "frequency": 0.04,
     "rock_ridges": 0.4,
     "rock_above": 18,
+    "size": 2048,
     "lakes": 0.35,
     "edge": "lake",
     "seed": 1811587497
@@ -46,56 +46,56 @@
     "sun": "#ffe8c4"
   },
   "seasons": {
+    "snow": true,
     "spring": "04-05",
     "summer": "05-25",
     "autumn": "09-20",
-    "winter": "11-25",
-    "snow": true
+    "winter": "11-25"
   },
   "trees": {
     "density": 0.02,
     "mix": [
       {
+        "weight": 42.6,
         "shape": "spruce",
         "plant": "norway_spruce",
-        "food": "cones",
-        "weight": 43,
+        "trunk": "#5b4433",
         "leaves": "#2c5846",
-        "trunk": "#5b4433"
+        "food": "cones"
       },
       {
+        "weight": 27.700000000000003,
         "shape": "pine",
         "plant": "scots_pine",
-        "food": "cones",
-        "weight": 28,
+        "trunk": "#b0703f",
         "leaves": "#4f7d40",
-        "trunk": "#b0703f"
+        "food": "cones"
       },
       {
+        "weight": 19.8,
         "shape": "birch",
         "plant": "birch",
-        "food": "browse",
-        "weight": 20,
-        "leaves": "#9cc35a",
         "trunk": "#ece6da",
-        "autumn": "#e8c13a"
+        "leaves": "#9cc35a",
+        "autumn": "#e8c13a",
+        "food": "browse"
       },
       {
+        "weight": 5.0,
         "shape": "round",
         "plant": "aspen",
-        "food": "browse",
-        "weight": 5,
-        "leaves": "#5f8f3a",
         "trunk": "#6b4a33",
-        "autumn": "#d9772f"
+        "leaves": "#5f8f3a",
+        "autumn": "#d9772f",
+        "food": "browse"
       },
       {
+        "weight": 5.0,
         "shape": "rowan",
         "plant": "rowan",
-        "food": "browse",
-        "weight": 5,
         "leaves": "#5f8a3a",
-        "autumn": "#c23b22"
+        "autumn": "#c23b22",
+        "food": "browse"
       }
     ]
   },
@@ -338,112 +338,112 @@
   },
   "food": [
     {
+      "kind": "berries",
+      "names": [
+        "bilberries",
+        "lingonberries",
+        "wild raspberries",
+        "crowberries",
+        "rowan berries"
+      ],
+      "weight": 30
+    },
+    {
+      "kind": "clover",
+      "names": [
+        "white clover",
+        "red clover"
+      ],
+      "weight": 38
+    },
+    {
+      "kind": "cones",
+      "names": [
+        "spruce cones",
+        "pine cones"
+      ],
+      "weight": 10
+    },
+    {
+      "kind": "seeds",
+      "names": [
+        "spruce seeds",
+        "pine seeds",
+        "birch seeds"
+      ],
+      "weight": 12
+    },
+    {
+      "kind": "browse",
+      "names": [
+        "birch leaves and twigs",
+        "aspen shoots",
+        "rowan leaves"
+      ],
+      "weight": 12
+    },
+    {
+      "kind": "bark",
+      "names": [
+        "birch bark",
+        "aspen bark",
+        "rowan bark"
+      ],
+      "amount": 15
+    },
+    {
+      "kind": "water_plants",
+      "names": [
+        "pondweed",
+        "water lily leaves",
+        "water horsetail"
+      ],
+      "weight": 8
+    },
+    {
       "kind": "grass",
-      "amount": 10,
       "names": [
         "wavy hair-grass",
         "common bent",
         "sheep's fescue",
         "dandelion leaves",
         "yarrow"
-      ]
-    },
-    {
-      "kind": "bark",
-      "amount": 15,
-      "names": [
-        "birch bark",
-        "aspen bark",
-        "rowan bark"
-      ]
-    },
-    {
-      "kind": "carrion",
-      "weight": 4,
-      "names": [
-        "roe deer remains",
-        "white-tailed deer remains"
-      ]
-    },
-    {
-      "kind": "clover",
-      "weight": 38,
-      "names": [
-        "red clover",
-        "white clover"
-      ]
-    },
-    {
-      "kind": "berries",
-      "weight": 30,
-      "names": [
-        "bilberries",
-        "lingonberries",
-        "wild raspberries",
-        "crowberries"
-      ]
+      ],
+      "amount": 10
     },
     {
       "kind": "insects",
-      "weight": 15,
       "names": [
         "ground beetle",
         "dung beetle",
         "click beetle"
-      ]
+      ],
+      "weight": 15
     },
     {
       "kind": "water_bugs",
-      "weight": 15,
       "names": [
         "mayfly larvae",
         "caddisfly larvae",
         "water boatmen"
-      ]
-    },
-    {
-      "kind": "browse",
-      "weight": 12,
-      "names": [
-        "birch leaves and twigs",
-        "willow twigs",
-        "aspen shoots",
-        "rowan leaves"
-      ]
-    },
-    {
-      "kind": "water_plants",
-      "weight": 8,
-      "names": [
-        "pondweed",
-        "water lily leaves",
-        "water horsetail"
-      ]
-    },
-    {
-      "kind": "cones",
-      "weight": 10,
-      "names": [
-        "spruce cones",
-        "pine cones"
-      ]
+      ],
+      "weight": 15
     },
     {
       "kind": "bottom_bugs",
-      "weight": 8,
       "names": [
         "bloodworms",
         "pond snails"
-      ]
+      ],
+      "weight": 8
     },
     {
-      "kind": "seeds",
-      "weight": 12,
+      "kind": "carrion",
       "names": [
-        "spruce seeds",
-        "pine seeds",
-        "birch seeds"
-      ]
+        "roe deer remains",
+        "white-tailed deer remains"
+      ],
+      "weight": 4
     }
   ],
   "fish": [

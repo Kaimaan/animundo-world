@@ -15,12 +15,12 @@
   ],
   "habitat": "tundra",
   "terrain": {
-    "size": 2048,
     "base_height": 10,
     "relief": 4,
     "frequency": 0.02,
     "rock_ridges": 0.0,
     "rock_above": 17,
+    "size": 2048,
     "lakes": 0.3,
     "edge": "none",
     "seed": 1811587497
@@ -44,6 +44,9 @@
     "dusk": "#f2a07a",
     "night": "#141a3a",
     "sun": "#ffe8c4"
+  },
+  "seasons": {
+    "snow": true
   },
   "trees": {
     "density": 0.0,
@@ -84,20 +87,37 @@
   },
   "food": [
     {
+      "kind": "water_plants",
+      "names": [],
+      "weight": 8
+    },
+    {
       "kind": "grass",
-      "amount": 10,
       "names": [
         "water sedge",
         "tundra grasses"
-      ]
+      ],
+      "amount": 10
     },
     {
-      "kind": "browse",
-      "weight": 12,
-      "names": [
-        "arctic willow",
-        "dwarf birch"
-      ]
+      "kind": "insects",
+      "names": [],
+      "weight": 15
+    },
+    {
+      "kind": "water_bugs",
+      "names": [],
+      "weight": 15
+    },
+    {
+      "kind": "bottom_bugs",
+      "names": [],
+      "weight": 8
+    },
+    {
+      "kind": "carrion",
+      "names": [],
+      "weight": 4
     }
   ],
   "fish": [],
@@ -182,9 +202,6 @@
       ]
     }
   ],
-  "seasons": {
-    "snow": true
-  },
   "ice": {
     "frozen_water": {
       "from": "winter",

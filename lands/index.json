@@ -1,0 +1,25 @@
+{
+  "about": "Which land style a grid cell takes (game proposal 0043): the first entry whose RESOLVE biome number matches the cell's ecoregion's, and whose realms list its realm if it has any. A cell whose biome has none here has no land style yet.",
+  "styles": [
+    {
+      "land": "boreal",
+      "biome": 6
+    },
+    {
+      "land": "tundra",
+      "biome": 11
+    },
+    {
+      "land": "temperate_broadleaf",
+      "biome": 4
+    },
+    {
+      "land": "tropical_moist",
+      "biome": 1
+    },
+    {
+      "land": "tropical_savanna",
+      "biome": 7
+    }
+  ]
+}

@@ -1,0 +1,259 @@
+{
+  "id": "boreal_lake",
+  "name": "Northern lake home",
+  "country": "",
+  "center": {
+    "lat": 0,
+    "lon": 0
+  },
+  "description": "A big northern lake with wooded islands and rocky shores, in a forest of spruce, pine and birch.",
+  "about": "Home template. a big freshwater lake with wooded islands and rocky shores in the northern forest. Based on Saimaa. The builder copies it for an animal whose home is a northern lake, then names it, sets its center and adds the animal, its food and its neighbours.",
+  "author": "Animundo team",
+  "based_on": "fi_saimaa",
+  "ecoregions": [
+    717
+  ],
+  "habitat": "boreal_lake",
+  "land": "boreal",
+  "terrain": {
+    "size": 1024,
+    "base_height": 12,
+    "relief": 9,
+    "frequency": 0.015,
+    "rock_ridges": 0.25,
+    "rock_above": 13,
+    "lakes": 0.05,
+    "edge": "lake",
+    "seed": 6228508
+  },
+  "seasons": {
+    "spring": "04-15",
+    "summer": "06-01",
+    "autumn": "09-15",
+    "winter": "11-20"
+  },
+  "trees": {
+    "density": 0.014
+  },
+  "ground_cover": {
+    "grass": 0.18,
+    "flowers": 0.04,
+    "flower_colors": [
+      "#f5f3ea",
+      "#b48ac4",
+      "#4b5fa0",
+      "#f2d64a"
+    ],
+    "flower_names": [
+      "oxeye daisy",
+      "heather",
+      "harebell",
+      "tormentil"
+    ],
+    "stones": 0.04
+  },
+  "plants": {
+    "trees": [
+      {
+        "id": "norway_spruce",
+        "share": 0.426
+      },
+      {
+        "id": "scots_pine",
+        "share": 0.277
+      },
+      {
+        "id": "birch",
+        "share": 0.198
+      },
+      {
+        "id": "aspen",
+        "share": 0.05
+      },
+      {
+        "id": "rowan",
+        "share": 0.05
+      }
+    ],
+    "cover": [
+      {
+        "id": "bilberry",
+        "density": 0.22
+      },
+      {
+        "id": "lingonberry",
+        "density": 0.09
+      },
+      {
+        "id": "heather",
+        "density": 0.1
+      },
+      {
+        "id": "fly_agaric",
+        "density": 0.006
+      },
+      {
+        "id": "porcini",
+        "density": 0.005
+      },
+      {
+        "id": "wild_raspberry",
+        "density": 0.025
+      },
+      {
+        "id": "crowberry",
+        "density": 0.04
+      },
+      {
+        "id": "wavy_hair_grass",
+        "density": 0.06
+      },
+      {
+        "id": "red_stemmed_feathermoss",
+        "density": 0.05
+      },
+      {
+        "id": "bracken",
+        "density": 0.03
+      },
+      {
+        "id": "reindeer_lichen",
+        "density": 0.03
+      },
+      {
+        "id": "wood_anemone",
+        "density": 0.02
+      },
+      {
+        "id": "spiny_wood_fern",
+        "density": 0.015
+      },
+      {
+        "id": "lily_of_the_valley",
+        "density": 0.01
+      },
+      {
+        "id": "white_clover",
+        "density": 0.008
+      },
+      {
+        "id": "red_clover",
+        "density": 0.006
+      },
+      {
+        "id": "fireweed",
+        "density": 0.008
+      },
+      {
+        "id": "juniper",
+        "density": 0.005
+      },
+      {
+        "id": "chanterelle",
+        "density": 0.005
+      },
+      {
+        "id": "goat_willow",
+        "density": 0.003
+      },
+      {
+        "id": "peat_moss",
+        "density": 0.7
+      },
+      {
+        "id": "cottongrass",
+        "density": 0.15
+      }
+    ]
+  },
+  "small_life": {
+    "grass": [
+      "wavy hair-grass",
+      "common bent",
+      "sheep's fescue",
+      "dandelion leaves",
+      "yarrow"
+    ],
+    "carrion": [
+      "roe deer remains",
+      "white-tailed deer remains"
+    ],
+    "insects": [
+      "ground beetle",
+      "dung beetle",
+      "click beetle"
+    ],
+    "water_bugs": [
+      "mayfly larvae",
+      "caddisfly larvae",
+      "water boatmen"
+    ],
+    "water_plants": [
+      "pondweed",
+      "water lily leaves",
+      "water horsetail"
+    ],
+    "bottom_bugs": [
+      "bloodworms",
+      "pond snails"
+    ]
+  },
+  "lakes": [
+    {
+      "name": "The big lake",
+      "x": 0.5,
+      "z": 0.5,
+      "length": 1.25,
+      "width": 1.12,
+      "angle": -15,
+      "depth": 6,
+      "islands": 12,
+      "island_radius": [
+        24,
+        48
+      ]
+    }
+  ],
+  "places": [],
+  "lake_life": {
+    "reeds": 0.35,
+    "lilies": 0.15,
+    "pondweed": 0.1
+  },
+  "fish": [
+    {
+      "kind": "roach",
+      "count": 12
+    },
+    {
+      "kind": "perch",
+      "count": 10
+    },
+    {
+      "kind": "pike",
+      "count": 2
+    },
+    {
+      "kind": "young_roach",
+      "count": 8
+    },
+    {
+      "kind": "young_perch",
+      "count": 6
+    }
+  ],
+  "migrants": [],
+  "animals": {
+    "playable": [],
+    "predators": [],
+    "prey": []
+  },
+  "sources": [
+    "https://www.metsa.fi/suojelu-ja-hoito/lajien-suojelu/saimaannorppa/",
+    "https://www.luontoon.fi/en/destinations/linnansaari-national-park/nature",
+    "https://julkaisut.metsa.fi/wp-content/uploads/sites/2/2023/05/endangered_saimaaringedseal_2023.pdf",
+    "https://wwf.fi/luontolive/info/ukk/"
+  ],
+  "bogs": [],
+  "streams": []
+}

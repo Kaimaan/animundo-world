@@ -1,0 +1,37 @@
+{
+  "id": "temperate_broadleaf",
+  "about": "A land style (game proposal 0043): Temperate broadleaf and mixed forest, RESOLVE biome 4 in the Palearctic (the Welsh coast). A place, biome or tile that names it takes these colours and this roughness, unless it gives its own.",
+  "resolve": {
+    "biome": 4,
+    "realms": [
+      "Palearctic"
+    ]
+  },
+  "terrain": {
+    "base_height": 9,
+    "relief": 10,
+    "frequency": 0.04,
+    "rock_ridges": 0.4,
+    "rock_above": 22
+  },
+  "palette": {
+    "ground_lush": "#5d8f3f",
+    "ground_dry": "#8aa056",
+    "ground_high": "#7a8f60",
+    "dirt": "#6b5138",
+    "rock": "#8b8d89",
+    "sand": "#d6c69a",
+    "water_deep": "#20495e",
+    "water_shallow": "#4e8381",
+    "ground_autumn": "#8aa056",
+    "snow": "#eef2f6",
+    "heath_autumn": "#8aa056"
+  },
+  "sky": {
+    "day": "#8fc6ea",
+    "horizon": "#eef2ec",
+    "dusk": "#f2a07a",
+    "night": "#141a3a",
+    "sun": "#ffe8c4"
+  }
+}

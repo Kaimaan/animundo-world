@@ -101,7 +101,7 @@ jobs:
           DEPLOY_KEY: ${{ secrets.GAME_DEPLOY_KEY }}
         run: |
           # the mirror paths only (decision 0013); anything else changed is refused
-          git add -A -- regions animals models homes food lands locale assets/animals assets/plants $(ls -d assets/trees 2>/dev/null) assets/world/map-animals.json ART.md wanted.json \
+          git add -A -- regions animals models homes biomes food lands locale assets/animals assets/plants $(ls -d assets/trees 2>/dev/null) assets/world/map-animals.json ART.md wanted.json \
             docs/animals-wanted.md docs/catalogue.md tools/validate_region.py tools/build_model.sh \
             tools/catalogue.py tools/blender .world-sync
           outside=$(git diff --name-only; git ls-files --others --exclude-standard)

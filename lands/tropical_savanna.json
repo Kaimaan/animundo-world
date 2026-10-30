@@ -1,0 +1,37 @@
+{
+  "id": "tropical_savanna",
+  "about": "A land style (game proposal 0043): Tropical and subtropical grassland, savanna and shrubland, RESOLVE biome 7 in the Afrotropic (the Serengeti). A place, biome or tile that names it takes these colours and this roughness, unless it gives its own.",
+  "resolve": {
+    "biome": 7,
+    "realms": [
+      "Afrotropic"
+    ]
+  },
+  "terrain": {
+    "base_height": 10,
+    "relief": 4,
+    "frequency": 0.02,
+    "rock_ridges": 0.0,
+    "rock_above": 17
+  },
+  "palette": {
+    "ground_lush": "#7d9b3f",
+    "ground_dry": "#c8b15e",
+    "ground_high": "#a89e6a",
+    "dirt": "#7a5a3e",
+    "rock": "#8a817a",
+    "sand": "#d3c092",
+    "water_deep": "#3d4f3f",
+    "water_shallow": "#7a8a6a",
+    "ground_autumn": "#c8b15e",
+    "snow": "#eef2f6",
+    "heath_autumn": "#c8b15e"
+  },
+  "sky": {
+    "day": "#8fc6ea",
+    "horizon": "#eef2ec",
+    "dusk": "#f2a07a",
+    "night": "#141a3a",
+    "sun": "#ffe8c4"
+  }
+}

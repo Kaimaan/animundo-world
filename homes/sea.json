@@ -15,12 +15,12 @@
   ],
   "habitat": "sea",
   "terrain": {
-    "size": 2048,
     "base_height": 9,
     "relief": 10,
     "frequency": 0.04,
     "rock_ridges": 0.4,
     "rock_above": 22,
+    "size": 2048,
     "lakes": 0.15,
     "edge": "lake",
     "seed": 1811587497
@@ -86,12 +86,37 @@
   },
   "food": [
     {
+      "kind": "browse",
+      "names": [],
+      "weight": 12
+    },
+    {
       "kind": "water_plants",
-      "weight": 8,
       "names": [
         "kelp",
         "wrack"
-      ]
+      ],
+      "weight": 8
+    },
+    {
+      "kind": "grass",
+      "names": [],
+      "amount": 10
+    },
+    {
+      "kind": "insects",
+      "names": [],
+      "weight": 15
+    },
+    {
+      "kind": "bottom_bugs",
+      "names": [],
+      "weight": 8
+    },
+    {
+      "kind": "carrion",
+      "names": [],
+      "weight": 4
     }
   ],
   "fish": [],
