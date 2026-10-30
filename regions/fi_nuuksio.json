@@ -19,7 +19,7 @@
     "rock_ridges": 0.4,
     "rock_above": 18,
     "lakes": 0.35,
-    "edge": "lake",
+    "edge": "open",
     "seed": 1811587497
   },
   "seasons": {
