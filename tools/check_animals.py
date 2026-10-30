@@ -384,8 +384,9 @@ class Checker:
                 elif placeholders(en[key]) != placeholders(tr[key]):
                     self.errors.append(f'{lang}: "{key}" must use the placeholders {gd(placeholders(en[key]))}')
             for key in tr:
-                # food and region names are translated from the English in region files
-                if key not in en and not key.startswith(("food.", "flower.", "region.")):
+                # food and region names are translated from the English in region files,
+                # map animals' names from map-animals.json (tools/map_animals.py checks them)
+                if key not in en and not key.startswith(("food.", "flower.", "region.")) and not key.endswith(".map_name"):
                     self.errors.append(f'{lang}: "{key}" doesn\'t exist in English (typo, or removed?)')
             if missing > 0 and not strict:
                 self.warnings.append(f"{lang}: {missing} of {len(en)} texts not translated yet (shown in English)")
