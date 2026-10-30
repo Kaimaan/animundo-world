@@ -20,6 +20,9 @@ rsync -a --delete --include '*/' --include '*.json' --include '*.png' --include 
 mkdir -p "$GAME/homes"
 rsync -a --delete --include '*.json' --exclude '*' homes/ "$GAME/homes/"
 # the food rules, which the game works a tile's food out from (game proposal 0043)
+if [ -d lands ]; then   # land styles (game proposal 0043); older commits have none
+	rsync -a --delete --include '*.json' --exclude '*' lands/ "$GAME/lands/"
+fi
 if [ -f food/rules.json ]; then   # (older commits, which the drift check exports too, have none)
 	mkdir -p "$GAME/food"
 	cp food/rules.json "$GAME/food/rules.json"

@@ -6,7 +6,7 @@ How to add each kind of thing: [CONTRIBUTING.md](../CONTRIBUTING.md). How it sho
 
 |  | Have | Wanted | In progress |
 |---|---|---|---|
-| Animals | 20 | 0 | 0 |
+| Animals | 21 | 0 | 0 |
 | Plants | 28 | 0 | 0 |
 | Trees | 5 | 0 | 0 |
 | Foods | 13 | 0 | 0 |
@@ -24,6 +24,7 @@ How to add each kind of thing: [CONTRIBUTING.md](../CONTRIBUTING.md). How it sho
 | **Fox** (*Vulpes vulpes*) | fi_nuuksio, fi_saimaa | built from a spec [preview](../models/previews/fox.png) | yes | yes | yes |
 | **Common frog** (*Rana temporaria*) | fi_nuuksio, fi_saimaa | built from a spec [preview](../models/previews/frog.png) | yes | no | yes |
 | **Great tit** (*Parus major*) | fi_nuuksio, fi_saimaa | built from a spec [preview](../models/previews/great_tit.png) | yes | no | yes |
+| **Herring Gull** (*Larus argentatus*) | nowhere yet | built from a spec [preview](../models/previews/herring_gull.png) | yes | no | yes |
 | **Kestrel** (*Falco tinnunculus*) | fi_nuuksio | built from a spec [preview](../models/previews/kestrel.png) | yes | no | yes |
 | **Common lizard** (*Zootoca vivipara*) | fi_nuuksio | built from a spec [preview](../models/previews/lizard.png) | yes | no | yes |
 | **Mallard** (*Anas platyrhynchos*) | fi_nuuksio, fi_saimaa | built from a spec [preview](../models/previews/mallard.png) | yes | no | yes |
@@ -119,30 +120,30 @@ What animals find to eat. A food name marked "grows there" has a plant you can s
 
 | Food | Place | Real names | Eaten by |
 |---|---|---|---|
-| `grass` | fi_nuuksio | wavy hair-grass (grows there), common bent, sheep's fescue, dandelion leaves, yarrow | Mountain hare, Bank vole |
+| `berries` | fi_nuuksio | bilberries (grows there), lingonberries (grows there), wild raspberries (grows there), crowberries (grows there), rowan berries | Fox, Moose, Red squirrel, Bank vole |
+| `clover` | fi_nuuksio | white clover (grows there), red clover (grows there) | Mountain hare, Bank vole |
+| `cones` | fi_nuuksio | spruce cones, pine cones | Red squirrel |
+| `seeds` | fi_nuuksio | spruce seeds, pine seeds, birch seeds | Chaffinch, Great tit |
+| `browse` | fi_nuuksio | birch leaves and twigs, aspen shoots, rowan leaves | Siberian flying squirrel, Moose, Mountain hare |
 | `bark` | fi_nuuksio | birch bark, aspen bark, rowan bark | Mountain hare |
-| `carrion` | fi_nuuksio | roe deer remains, white-tailed deer remains | Fox |
-| `clover` | fi_nuuksio | red clover (grows there), white clover (grows there) | Mountain hare, Bank vole |
-| `berries` | fi_nuuksio | bilberries (grows there), lingonberries (grows there), wild raspberries (grows there), crowberries (grows there) | Fox, Moose, Red squirrel, Bank vole |
+| `water_plants` | fi_nuuksio | pondweed, water lily leaves, water horsetail | Mallard, Moose |
+| `grass` | fi_nuuksio | wavy hair-grass (grows there), common bent, sheep's fescue, dandelion leaves, yarrow | Mountain hare, Bank vole |
 | `insects` | fi_nuuksio | ground beetle, dung beetle, click beetle | Chaffinch, Fox, Common frog, Great tit, Kestrel, Common lizard |
 | `water_bugs` | fi_nuuksio | mayfly larvae, caddisfly larvae, water boatmen | Bream, Mallard, Perch, Roach, Young perch, Young roach |
-| `browse` | fi_nuuksio | birch leaves and twigs, willow twigs, aspen shoots, rowan leaves | Siberian flying squirrel, Moose, Mountain hare |
-| `water_plants` | fi_nuuksio | pondweed, water lily leaves, water horsetail | Mallard, Moose |
-| `cones` | fi_nuuksio | spruce cones, pine cones | Red squirrel |
-| `bottom_bugs` | fi_nuuksio | bloodworms, pond snails | Bream, Perch, Roach |
-| `seeds` | fi_nuuksio | spruce seeds, pine seeds, birch seeds | Chaffinch, Great tit |
-| `grass` | fi_saimaa | wavy hair-grass (grows there), common bent, sheep's fescue, dandelion leaves, yarrow | Mountain hare, Bank vole |
+| `bottom_bugs` | fi_nuuksio | bloodworms, pond snails | Bream, Herring Gull, Perch, Roach |
+| `carrion` | fi_nuuksio | roe deer remains, white-tailed deer remains, moose remains | Fox |
+| `berries` | fi_saimaa | bilberries (grows there), lingonberries (grows there), wild raspberries (grows there), crowberries (grows there), rowan berries | Fox, Moose, Red squirrel, Bank vole |
+| `clover` | fi_saimaa | white clover (grows there), red clover (grows there) | Mountain hare, Bank vole |
+| `cones` | fi_saimaa | spruce cones, pine cones | Red squirrel |
+| `seeds` | fi_saimaa | spruce seeds, pine seeds, birch seeds | Chaffinch, Great tit |
+| `browse` | fi_saimaa | birch leaves and twigs, aspen shoots, rowan leaves | Siberian flying squirrel, Moose, Mountain hare |
 | `bark` | fi_saimaa | birch bark, aspen bark, rowan bark | Mountain hare |
-| `carrion` | fi_saimaa | roe deer remains, white-tailed deer remains | Fox |
-| `clover` | fi_saimaa | red clover (grows there), white clover (grows there) | Mountain hare, Bank vole |
-| `berries` | fi_saimaa | bilberries (grows there), lingonberries (grows there), wild raspberries (grows there), crowberries (grows there) | Fox, Moose, Red squirrel, Bank vole |
+| `water_plants` | fi_saimaa | pondweed, water lily leaves, water horsetail | Mallard, Moose |
+| `grass` | fi_saimaa | wavy hair-grass (grows there), common bent, sheep's fescue, dandelion leaves, yarrow | Mountain hare, Bank vole |
 | `insects` | fi_saimaa | ground beetle, dung beetle, click beetle | Chaffinch, Fox, Common frog, Great tit, Kestrel, Common lizard |
 | `water_bugs` | fi_saimaa | mayfly larvae, caddisfly larvae, water boatmen | Bream, Mallard, Perch, Roach, Young perch, Young roach |
-| `browse` | fi_saimaa | birch leaves and twigs, willow twigs, aspen shoots, rowan leaves | Siberian flying squirrel, Moose, Mountain hare |
-| `water_plants` | fi_saimaa | pondweed, water lily leaves, water horsetail | Mallard, Moose |
-| `cones` | fi_saimaa | spruce cones, pine cones | Red squirrel |
-| `bottom_bugs` | fi_saimaa | bloodworms, pond snails | Bream, Perch, Roach |
-| `seeds` | fi_saimaa | spruce seeds, pine seeds, birch seeds | Chaffinch, Great tit |
+| `bottom_bugs` | fi_saimaa | bloodworms, pond snails | Bream, Herring Gull, Perch, Roach |
+| `carrion` | fi_saimaa | roe deer remains, white-tailed deer remains, moose remains | Fox |
 | `mushrooms` | fi_nuuksio | porcini (grows there), chanterelles (grows there) | Red squirrel |
 | `mushrooms` | fi_saimaa | porcini (grows there), chanterelles (grows there) | Red squirrel |
 

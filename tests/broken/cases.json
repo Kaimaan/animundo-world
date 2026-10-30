@@ -364,13 +364,21 @@
   },
   {
    "name": "region_no_cones",
-   "why": "Every diet food kind is in the region (decision 0011).",
+   "why": "Every diet food kind is in the region (decision 0011): with no spruce or pine, nothing makes cones.",
    "edits": [
     {
      "file": "regions/fi_nuuksio.json",
      "drop": {
-      "/food": {
-       "kind": "cones"
+      "/plants/trees": {
+       "id": "norway_spruce"
+      }
+     }
+    },
+    {
+     "file": "regions/fi_nuuksio.json",
+     "drop": {
+      "/plants/trees": {
+       "id": "scots_pine"
       }
      }
     }
@@ -765,7 +773,9 @@
     {
      "file": "regions/fi_nuuksio.json",
      "set": {
-      "/palette/rock": "grey"
+      "/palette": {
+       "rock": "grey"
+      }
      }
     }
    ],
@@ -1043,9 +1053,9 @@
    "why": "A poisonous plant may be food only when it warns people (plant.<id>.warning and about_safety); here the warning is gone.",
    "edits": [
     {
-     "file": "regions/fi_nuuksio.json",
+     "file": "models/plants/fly_agaric.json",
      "set": {
-      "/ground_cover/plants/3/food": "mushrooms"
+      "/grows/food": "mushrooms"
      }
     },
     {
@@ -1070,9 +1080,9 @@
    "why": "A poisonous plant animals eat stays in the game when it warns people (Kai, 2026-10-27).",
    "edits": [
     {
-     "file": "regions/fi_nuuksio.json",
+     "file": "models/plants/fly_agaric.json",
      "set": {
-      "/ground_cover/plants/3/food": "mushrooms"
+      "/grows/food": "mushrooms"
      }
     }
    ],

@@ -1,6 +1,6 @@
 {
   "about": "When each food kind is on a tile, and where its names come from (game proposal 0043, layer 4). The game, the builder and tools/food.py read this file; nobody writes a tile's food by hand. Weights are how often scattered food is of that kind, from Nuuksio; amount is how filling a helping is for food that is part of the land (grass, bark).",
-  "large_animals": ["large_mammal", "seal"],
+  "large_animals": ["large_mammal"],
   "kinds": {
     "berries":      {"from": "plants", "weight": 30},
     "mushrooms":    {"from": "plants", "about": "eaten off the plant itself, so never listed or scattered"},

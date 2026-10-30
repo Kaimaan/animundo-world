@@ -8,3 +8,5 @@ python3 tools/food.py report                       # where every home's and regi
 ```
 
 The game works a tile's food out with the same rules (`scripts/tile_layers.gd`, which reads the mirrored `food/rules.json`), and `tools/check_tile.py` checks a tile's animals against it, with the tile's own `plants` (`tools/layers.py`). Homes and regions still have their written `food` while the layers move in; the report shows where it has drifted from what's there. It fails only when an animal can't find its food (decision 0011). CI runs it.
+
+A hand-made place can be layered too ([`lands/`](../lands/), game proposal 0043): Nuuksio and Saimaa name the `boreal` land style, their `plants` by id and their `small_life` names, and write no colours, plant entries or food. `tools/layers.py` `resolve()` fills those in for every tool that reads a region, as the game does when it loads one.

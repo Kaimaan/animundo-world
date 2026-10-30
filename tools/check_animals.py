@@ -25,6 +25,13 @@ import os
 import re
 import sys
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+try:
+    from layers import resolve   # a layered place (game proposal 0043)
+except ImportError:   # the game repo's copy of this tool has no layers.py
+    def resolve(region):
+        return region
+
 REQUIRED_PLAYABLE = ["title", "menu_sub", "menu_wild", "night_hint", "too_exposed",
                      "sheltered", "hungry", "no_food", "rain_start", "rain_stop"]
 MODES = ["safe", "survival", "wild"]
@@ -153,7 +160,7 @@ class Content:
 
     def region(self, rid):
         data = read_json(os.path.join(self.root, "regions", rid + ".json"))
-        return data if isinstance(data, dict) else {}
+        return resolve(data) if isinstance(data, dict) else {}
 
     # --- I18n ---
     def languages(self):

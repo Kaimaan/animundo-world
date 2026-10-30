@@ -6,7 +6,7 @@
   "type": "object",
   "additionalProperties": false,
   "required": ["id", "name", "author", "latin", "taxon", "sources", "kind", "colors"],
-  "oneOf": [{"required": ["trunk", "crown"], "not": {"required": ["game_shape"]}}, {"required": ["game_shape"], "not": {"anyOf": [{"required": ["trunk"]}, {"required": ["crown"]}]}}],
+  "oneOf": [{"required": ["trunk", "crown"], "not": {"required": ["game_shape"]}, "properties": {"colors": {"required": ["trunk"]}}}, {"required": ["game_shape"], "not": {"anyOf": [{"required": ["trunk"]}, {"required": ["crown"]}]}}],
   "properties": {
     "id": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"},
     "status": {"enum": ["draft", "reviewed", "released"]},
@@ -43,7 +43,7 @@
       }
     },
     "colors": {
-      "type": "object", "additionalProperties": false, "required": ["trunk", "leaves"],
+      "description": "A game-drawn tree may leave out trunk: its shape shares the game's trunk colour with other trees.", "type": "object", "additionalProperties": false, "required": ["leaves"],
       "properties": {
         "trunk": {"type": "string", "pattern": "^#[0-9a-fA-F]{6}$"},
         "leaves": {"type": "string", "pattern": "^#[0-9a-fA-F]{6}$"},

@@ -52,6 +52,28 @@
         "$ref": "#/$defs/text"
       }
     },
+    "land": {
+      "description": "Optional (game proposal 0043): a land style in lands/<id>.json. Its colours, sky and roughness fill in whatever this file doesn't say.",
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*$"
+    },
+    "plants": {
+      "description": "Optional (game proposal 0043): the place's plants from the library, ids only, as a tile's (spec 02 \u00a72). Each part replaces trees.mix or ground_cover.plants; how each plant grows comes from its own file's grows.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "trees": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["id", "share"], "properties": {"id": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"}, "share": {"type": "number", "exclusiveMinimum": 0, "maximum": 1}}}},
+        "cover": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["id", "density"], "properties": {"id": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"}, "density": {"type": "number", "exclusiveMinimum": 0, "maximum": 1}}}},
+        "water": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["id", "density"], "properties": {"id": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"}, "density": {"type": "number", "exclusiveMinimum": 0, "maximum": 1}}}},
+        "tree_density": {"type": "number", "minimum": 0, "maximum": 1}
+      }
+    },
+    "small_life": {
+      "description": "Optional (game proposal 0043): names for the food that no plant or tree file gives (insects, water_bugs, bottom_bugs, carrion, grass, water_plants), when the place's food is worked out instead of written.",
+      "type": "object",
+      "propertyNames": {"enum": ["insects", "water_bugs", "bottom_bugs", "carrion", "grass", "water_plants"]},
+      "additionalProperties": {"type": "array", "items": {"$ref": "#/$defs/text"}}
+    },
     "grid": {
       "description": "Optional: the tile grid cells this hand-made place fills (Proposal 0038), e.g. {\"grid\": \"ease2_n25\", \"tiles\": [[412, 301], [413, 301]]}.",
       "type": "object",

@@ -16,6 +16,12 @@ import json
 import os
 import sys
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+try:
+    import layers   # a layered place (game proposal 0043)
+except ImportError:   # the game repo's copy of this tool has no layers.py
+    layers = type("layers", (), {"resolve": staticmethod(lambda r: r)})
+
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 OUT = os.path.join(ROOT, "docs", "catalogue.md")
 STATUS = {"wanted": "Wanted", "in_progress": "In progress", "check": "Check first", "later": "Later"}
@@ -58,7 +64,7 @@ def singular(name):
 
 class Catalogue:
     def __init__(self):
-        self.regions = {i: load("regions", i + ".json") for i in ids("regions")}
+        self.regions = {i: layers.resolve(load("regions", i + ".json")) for i in ids("regions")}
         self.animals = {i: load("animals", i + ".json") for i in ids("animals") if i != "archetypes"}
         self.plants = {i: load("models", "plants", i + ".json") for i in ids("models", "plants")}
         self.wanted = load("wanted.json")

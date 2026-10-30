@@ -3,7 +3,10 @@
 builds them (scripts/tile_layers.gd): the tile's own `plants`, library ids,
 replace the biome's trees and ground plants part by part, never merging.
 
-Used by tools/check_tile.py; tools/food.py then works out the tile's food."""
+Used by tools/check_tile.py; tools/food.py then works out the tile's food.
+resolve() does the same for a hand-made place or a biome that names a land
+style (lands/<id>.json), its plants and its small life instead of writing
+them out, so every tool that reads regions sees a full region."""
 import json
 import os
 
@@ -103,3 +106,42 @@ def use_plants(region, plants):
                         e.setdefault("on", ["seabed"])
                     keep.append(e)
         gc["plants"] = keep
+
+
+def land(lid):
+    path = os.path.join(ROOT, "lands", f"{lid}.json")
+    if not (isinstance(lid, str) and lid.isidentifier() and os.path.isfile(path)):
+        return None
+    with open(path, encoding="utf-8") as f:
+        return json.load(f)
+
+
+LAND_ONLY = ("id", "about", "resolve")
+
+
+def resolve(region):
+    """A full region from a layered one (a copy): the land style under the
+    region's own fields, its plants over its own, and its food worked out
+    when it doesn't write one. A region without `land` or `plants` comes back
+    as it is."""
+    if not isinstance(region, dict) or not ("land" in region or "plants" in region):
+        return region
+    import copy
+    import food   # here, because food.py reads the libraries when it loads
+    out = copy.deepcopy(region)
+    style = land(region.get("land")) if "land" in region else None
+    if style:
+        for k, v in style.items():
+            if k in LAND_ONLY:
+                continue
+            if isinstance(v, dict):
+                merged = dict(v)
+                merged.update(out.get(k, {}))
+                out[k] = merged
+            elif k not in out:
+                out[k] = v
+    if isinstance(region.get("plants"), dict):
+        use_plants(out, region["plants"])
+    if "food" not in region:
+        out["food"] = food.as_food(food.derive(out)[0])
+    return out

@@ -28,6 +28,13 @@ import json
 import os
 import sys
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+try:
+    from layers import resolve   # a layered place (game proposal 0043)
+except ImportError:   # a copy of this tool without layers.py
+    def resolve(region):
+        return region
+
 
 def files(root, folder, skip=()):
     d = os.path.join(root, folder)
@@ -87,6 +94,7 @@ def check_poison(root, plants, errors):
             texts = json.load(fh)
     regions = files(root, "regions")
     for rid, r in regions.items():
+        r = resolve(r)   # a layered place's plants, with their own food (game proposal 0043)
         gc = r.get("ground_cover", {}) if isinstance(r.get("ground_cover"), dict) else {}
         for p in gc.get("plants", []):
             model = p.get("model")

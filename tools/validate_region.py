@@ -13,6 +13,13 @@ import os
 import re
 import sys
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+try:
+    from layers import resolve   # a layered place (game proposal 0043)
+except ImportError:   # the game repo's copy of this tool has no layers.py
+    def resolve(region):
+        return region
+
 TREE_SHAPES = {"spruce", "pine", "birch", "round", "rowan"}
 PLANT_FOOD_KINDS = {"berries", "mushrooms", "clover", "browse"}  # food from ground-cover plants (not nectar yet)
 FOOD_KINDS = {"clover", "carrot", "berries", "insects", "water_bugs", "browse", "water_plants", "cones", "bottom_bugs", "seeds",
@@ -75,6 +82,7 @@ def check(path):
             d = json.load(f)
     except Exception as e:  # noqa: BLE001
         return [f"not valid JSON: {e}"]
+    d = resolve(d)   # a layered place: its land style, plants and food filled in (0043)
 
     file_id = os.path.splitext(os.path.basename(path))[0]
     if d.get("id") != file_id:

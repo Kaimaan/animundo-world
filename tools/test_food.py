@@ -6,16 +6,17 @@ import unittest
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import food  # noqa: E402
+import layers  # noqa: E402
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 
 
 class FoodTest(unittest.TestCase):
     def made(self, rel):
-        return food.derive(food.load(os.path.join(ROOT, rel)))[0]
+        return food.derive(layers.resolve(food.load(os.path.join(ROOT, rel))))[0]
 
     def test_nuuksio_animals_all_find_food(self):
-        d = food.load(os.path.join(ROOT, "regions", "fi_nuuksio.json"))
+        d = layers.resolve(food.load(os.path.join(ROOT, "regions", "fi_nuuksio.json")))
         made = food.derive(d)[0]
         for a in food.animals_of(d):
             for kind in food.ANIMALS[a].get("diet", []) or []:
@@ -44,3 +45,15 @@ class FoodTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class LayeredPlaceTest(unittest.TestCase):
+    def test_nuuksio_resolves_to_its_land_style_and_plants(self):
+        raw = food.load(os.path.join(ROOT, "regions", "fi_nuuksio.json"))
+        r = layers.resolve(raw)
+        self.assertNotIn("palette", raw)
+        self.assertEqual(r["palette"], layers.land("boreal")["palette"])
+        self.assertEqual([t["plant"] for t in r["trees"]["mix"]], ["norway_spruce", "scots_pine", "birch", "aspen", "rowan"])
+        self.assertEqual(r["ground_cover"]["plants"][0]["model"], "bilberry")
+        self.assertEqual(r["ground_cover"]["plants"][0]["food"], {"kind": "berries", "part": "berry"})
+        self.assertIn("ground beetle", {f["kind"]: f for f in r["food"]}["insects"]["names"])

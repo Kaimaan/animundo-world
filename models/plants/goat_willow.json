@@ -11,7 +11,7 @@
     "fruit": "The female catkins burst into white, fluffy seeds in late May and June.",
     "notes": "Here a shrub of 2-4 m with several grey-green stems; it can also grow into a small tree. Broad oval leaves, dark green above and grey and felty below; yellow in October, then they fall. Grows on forest edges, in clearings and on lake shores. Its catkins are the first food for bumblebee queens in spring; hares and moose eat its twigs and bark in winter."
   },
-  "grows": {"density": 0.003, "food": "browse", "names": ["willow twigs"]},
+  "grows": {"density": 0.003},
   "sources": ["https://en.wikipedia.org/wiki/Salix_caprea"],
   "colors": {
     "bark": "#6f6b55",

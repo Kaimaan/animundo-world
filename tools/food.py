@@ -79,6 +79,8 @@ def derive(d):
     """{kind: {kind, names, from}} for a place or home, and notes on what it couldn't place."""
     made, notes = {}, []
     written = {f.get("kind"): f for f in d.get("food", [])}
+    for kind, names in d.get("small_life", {}).items():   # a layered place's or biome's own names (0043)
+        written[kind] = {"kind": kind, "names": names}
     gc = d.get("ground_cover", {})
     # plants on the ground and the seabed
     for p in gc.get("plants", []):
@@ -147,13 +149,17 @@ def as_food(made):
 
 def report(path):
     d = load(path)
+    layered = "food" not in d   # a layered place: its food is worked out, so there's nothing to drift
+    if "land" in d or "plants" in d:
+        import layers
+        d = layers.resolve(d)
     made, notes = derive(d)
-    written = {f.get("kind"): f for f in d.get("food", [])}
+    written = {} if layered else {f.get("kind"): f for f in d.get("food", [])}
     lines = list(notes)
     for kind in written:
         if kind not in made:
             lines.append(("written, nothing makes it", f'{kind} ({", ".join(written[kind].get("names", [])) or "no names"})'))
-    for kind in made:
+    for kind in made if not layered else []:
         if kind not in written:
             lines.append(("made, not written", f'{kind} (from {", ".join(made[kind]["from"])})'))
     for kind, e in made.items():
@@ -175,7 +181,8 @@ def report(path):
 
 def main(argv):
     if len(argv) >= 2 and argv[0] == "derive":
-        made, notes = derive(load(argv[1]))
+        import layers
+        made, notes = derive(layers.resolve(load(argv[1])))
         print(json.dumps({"food": list(made.values()), "notes": [f"{a}: {b}" for a, b in notes]}, indent=2, ensure_ascii=False))
         return 0
     if argv and argv[0] == "report":
