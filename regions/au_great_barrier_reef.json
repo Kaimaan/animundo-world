@@ -76,26 +76,28 @@
   ],
   "author": "Animundo team (first version made by Animundo Builder on Muse Spark, reviewed by people)",
   "terrain": {
-    "height": 32,
-    "base_height": 10,
+    "height": 64,
+    "base_height": 42,
     "relief": 4,
     "frequency": 0.02,
     "rock_ridges": 0.0,
     "lakes": 0.03,
-    "rock_above": 17,
+    "rock_above": 49,
     "edge": "lake",
     "seabed": "sand",
+    "water_level": 40,
+    "sea_depth": 35,
     "seed": 3622710994
   },
   "lakes": [
     {
-      "name": "Warm clear sea",
+      "name": "Coral Sea",
       "x": 0.5,
       "z": 0.36,
       "length": 1.5,
       "width": 0.2,
       "angle": 0,
-      "depth": 7,
+      "depth": 35,
       "islands": 2
     }
   ],
