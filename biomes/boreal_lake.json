@@ -30,7 +30,8 @@
     "spring": "04-15",
     "summer": "06-01",
     "autumn": "09-15",
-    "winter": "11-20"
+    "winter": "11-20",
+    "snow": true
   },
   "trees": {
     "density": 0.014

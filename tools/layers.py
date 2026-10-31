@@ -117,17 +117,30 @@ def land(lid):
 
 
 LAND_ONLY = ("id", "about", "resolve")
+BIOME_NOTES = ("id", "name", "country", "about", "based_on", "author")
+
+
+def biome(bid):
+    path = os.path.join(ROOT, "biomes", f"{bid}.json")
+    if not (isinstance(bid, str) and bid.isidentifier() and os.path.isfile(path)):
+        return None
+    with open(path, encoding="utf-8") as f:
+        return json.load(f)
 
 
 def resolve(region):
     """A full region from a layered one (a copy): the land style under the
     region's own fields, its plants over its own, and its food worked out
-    when it doesn't write one. A region without `land` or `plants` comes back
-    as it is."""
-    if not isinstance(region, dict) or not ("land" in region or "plants" in region):
+    when it doesn't write one. A place that names a `biome` is built on it
+    as a tile is: the biome (itself resolved) under the place's own fields,
+    its geography, and its `species` as its animals. A region without
+    `biome`, `land` or `plants` comes back as it is."""
+    if not isinstance(region, dict) or not ("biome" in region or "land" in region or "plants" in region):
         return region
     import copy
     import food   # here, because food.py reads the libraries when it loads
+    if "biome" in region:
+        return _on_biome(region)
     out = copy.deepcopy(region)
     style = land(region.get("land")) if "land" in region else None
     if style:
@@ -145,4 +158,30 @@ def resolve(region):
     if "food" not in region:
         # weighed as the game does; a place with no animals yet (a biome, a home) keeps every weight
         out["food"] = food.worked_out(out) if food.animals_of(out) else food.as_food(food.derive(out)[0])
+    return out
+
+
+def _on_biome(region):
+    """A place on its biome, as the game's TileLayers.resolve builds it."""
+    import copy
+    import food
+    base = biome(region["biome"])
+    out = copy.deepcopy(resolve(base)) if base else {}
+    for k in BIOME_NOTES + ("food",):
+        out.pop(k, None)
+    for k, v in region.items():
+        if k == "species":
+            continue
+        if isinstance(v, dict) and isinstance(out.get(k), dict):
+            out[k].update(copy.deepcopy(v))
+        else:
+            out[k] = copy.deepcopy(v)
+    species = region.get("species", {})
+    out["animals"] = {k: list(species.get(k, [])) for k in ("playable", "prey", "predators")}
+    if "featured" in species:
+        out["animals"]["featured"] = list(species["featured"])
+    if isinstance(region.get("plants"), dict):
+        use_plants(out, region["plants"])
+    if "food" not in region:
+        out["food"] = food.worked_out(out)
     return out

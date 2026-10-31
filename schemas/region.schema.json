@@ -57,6 +57,15 @@
       "type": "string",
       "pattern": "^[a-z][a-z0-9_]*$"
     },
+    "biome": {
+      "description": "Optional (game proposal 0043): the biome in biomes/<id>.json this place is built on, as a tile is. Its land style, plants, small life, fish, migrants and seasons fill in whatever this file doesn't say; the place keeps its own geography, and names its animals in `species`.",
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*$"
+    },
+    "species": {
+      "description": "A place on a biome: its animals, as a tile's species (ids in animals/).",
+      "$ref": "#/properties/animals"
+    },
     "plants": {
       "description": "Optional (game proposal 0043): the place's plants from the library, ids only, as a tile's (spec 02 \u00a72). Each part replaces trees.mix or ground_cover.plants; how each plant grows comes from its own file's grows.",
       "type": "object",

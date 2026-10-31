@@ -48,7 +48,7 @@ def entries():
             problems.append(f"{stem}: no Finnish name (region.{stem}.name in locale/fi/regions.json)")
         if not region.get("wikidata"):
             problems.append(f"{stem}: no wikidata id")
-        animals = region.get("animals", {})
+        animals = region.get("species", region.get("animals", {}))   # a place on a biome names its species as a tile does
         out.append({
             "id": stem,
             "name": {"en": region["name"], "fi": fi_name},

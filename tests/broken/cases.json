@@ -353,7 +353,7 @@
     {
      "file": "regions/fi_nuuksio.json",
      "set": {
-      "/animals/playable/-": "wolf"
+      "/species/playable/-": "wolf"
      }
     }
    ],
@@ -364,10 +364,10 @@
   },
   {
    "name": "region_no_cones",
-   "why": "Every diet food kind is in the region (decision 0011): with no spruce or pine, nothing makes cones.",
+   "why": "Every diet food kind is in the region (decision 0011): with no spruce or pine in its biome, nothing in Nuuksio makes cones.",
    "edits": [
     {
-     "file": "regions/fi_nuuksio.json",
+     "file": "biomes/boreal_forest.json",
      "drop": {
       "/plants/trees": {
        "id": "norway_spruce"
@@ -375,7 +375,7 @@
      }
     },
     {
-     "file": "regions/fi_nuuksio.json",
+     "file": "biomes/boreal_forest.json",
      "drop": {
       "/plants/trees": {
        "id": "scots_pine"
@@ -394,7 +394,7 @@
     {
      "file": "regions/fi_nuuksio.json",
      "drop": {
-      "/animals/prey": "lizard"
+      "/species/prey": "lizard"
      }
     }
    ],
