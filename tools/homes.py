@@ -26,6 +26,7 @@ ROOT = os.path.join(HERE, "..")
 HOMES = os.path.join(ROOT, "homes")
 
 sys.path.insert(0, HERE)
+import adapt_home  # noqa: E402
 import validate_region  # noqa: E402
 
 # fields a home has that a region doesn't: notes for builders, not players
@@ -77,9 +78,13 @@ def home_problems(habitat):
     if not open_sea and not (isinstance(eco, list) and eco and all(isinstance(e, int) and not isinstance(e, bool) and 1 <= e <= 999 for e in eco)
             and len(set(eco)) == len(eco)):
         out.append('"ecoregions" must list the RESOLVE 2017 ecoregion ids (ECO_ID) this home stands for')
-    if home.get("terrain", {}).get("water_level", 8) != 8:
+    terrain = home.get("terrain", {})
+    deep = (home.get("habitat") == "sea" and terrain.get("water_level") == adapt_home.DEEP_WATER
+            and terrain.get("height") == 64 and terrain.get("sea_depth") == adapt_home.DEEP_SEA)
+    if terrain.get("water_level", 8) != 8 and not deep:   # a deep sea home (game decision 0045): the game lifts its tile's edges by 32, so they still meet
         out.append('"terrain.water_level" must be 8: every home on the tile grid has one water level, so a shared edge is '
-                   'water or land on both sides alike. Make the sea deep with lower ground')
+                   'water or land on both sides alike. Make the sea deep with lower ground, or make a sea home '
+                   f'deep as adapt_home.py does (height 64, water_level {adapt_home.DEEP_WATER}, sea_depth {adapt_home.DEEP_SEA})')
     habitats = json.load(open(os.path.join(ROOT, "animal-list.json"), encoding="utf-8"))["habitats"]
     if home.get("habitat") not in habitats + [OPEN_OCEAN]:
         out.append(f'"habitat" must be one of animal-list.json\'s habitats: {habitats}')

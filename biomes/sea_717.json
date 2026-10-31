@@ -18,11 +18,14 @@
   "terrain": {
     "size": 2048,
     "relief": 10,
-    "rock_above": 22,
+    "base_height": 41,
+    "rock_above": 54,
     "lakes": 0.03,
     "edge": "lake",
     "seed": 1811587497,
-    "height": 32
+    "height": 64,
+    "water_level": 40,
+    "sea_depth": 35
   },
   "palette": {
     "ground_lush": "#648a4a",
@@ -110,7 +113,7 @@
       "length": 1.5,
       "width": 0.2,
       "angle": 0,
-      "depth": 7,
+      "depth": 35,
       "islands": 2
     }
   ],

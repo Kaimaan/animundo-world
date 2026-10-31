@@ -13,7 +13,8 @@ place children get:
            country, about, based_on, author) dropped
   tile     centre; terrain seed, size 1,024, an open edge, lakes scaled by the
            tile's `water` (the biome's lakes stand for 10% water, at most
-           0.6); a grid tile's level, height and the shared water level 8;
+           0.6); a grid tile's level, height and the shared water level 8
+           (a deep sea biome keeps its water and is at least its height);
            edges; coast
   blend    the second biome mixed in by its share (at most 0.5): tree mix and
            density, ground plants, palette and sky colours
@@ -117,8 +118,11 @@ def place(tile, biome=None, blend=None, biomes=None):
     terrain["edge"] = "open"
     terrain["lakes"] = min(float(terrain.get("lakes", 0.2)) * float(tile.get("water", HOME_WATER)) / HOME_WATER, MAX_LAKES)
     if "level" in tile:   # a grid tile: its own height, around its real level
-        terrain["height"] = int(tile.get("height", 32))
-        terrain["water_level"] = WATER_LEVEL
+        if int(terrain.get("water_level", WATER_LEVEL)) > WATER_LEVEL:   # a deep sea biome (game decision 0045) keeps its water; the game lifts the edges to meet it
+            terrain["height"] = max(int(tile.get("height", 32)), int(terrain.get("height", 32)))
+        else:
+            terrain["height"] = int(tile.get("height", 32))
+            terrain["water_level"] = WATER_LEVEL
         d["level"] = tile["level"]
     d["terrain"] = terrain
     d["edges"] = copy.deepcopy(tile.get("edges", {}))

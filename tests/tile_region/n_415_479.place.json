@@ -10,17 +10,18 @@
  "habitat": "sea",
  "land": "boreal",
  "terrain": {
-  "base_height": 9,
+  "base_height": 41,
   "relief": 10,
   "frequency": 0.04,
   "rock_ridges": 0.4,
-  "rock_above": 22,
+  "rock_above": 54,
   "size": 1024,
   "lakes": 0.0,
   "edge": "open",
   "seed": 1702148877,
-  "height": 32,
-  "water_level": 8
+  "height": 64,
+  "water_level": 40,
+  "sea_depth": 35
  },
  "palette": {
   "ground_lush": "#648a4a",
@@ -109,7 +110,7 @@
    "length": 1.5,
    "width": 0.2,
    "angle": 0,
-   "depth": 7,
+   "depth": 35,
    "islands": 2
   }
  ],
