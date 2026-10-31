@@ -73,9 +73,9 @@
       "night_hint": "It's night. Swim down to deep water to rest.",
       "too_exposed": "Too exposed to rest! Swim down to deep water first.",
       "sheltered": "You're resting safely in deep water.",
-      "rain_start": "Raindrops patter on the lake surface above.",
-      "rain_stop": "The rain has stopped. The lake goes still.",
-      "out_of_water": "Fish need water! Back into the lake you go."
+      "rain_start": "Raindrops patter on the water above.",
+      "rain_stop": "The rain has stopped. The water goes still.",
+      "out_of_water": "Fish need water! Back into the water you go."
     }
   },
   "insect": {
