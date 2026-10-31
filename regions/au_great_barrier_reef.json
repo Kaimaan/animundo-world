@@ -17,55 +17,6 @@
     ]
   },
   "description": "A compact, stylised 1 km reef near Green Island off Cairns: warm shallow sea, sandy floor, coral and seagrass. A playable habitat sample, not a map of the reef.",
-  "food": [
-    {
-      "kind": "water_bugs",
-      "names": [
-        "zooplankton",
-        "tiny shrimp"
-      ]
-    },
-    {
-      "kind": "water_plants",
-      "names": [
-        "seagrass",
-        "algae"
-      ]
-    }
-  ],
-  "land": "flat",
-  "palette": {
-    "dirt": "#d1c08e",
-    "ground_dry": "#e8d9a8",
-    "ground_high": "#f2ead0",
-    "ground_lush": "#5fb86e",
-    "rock": "#cfc8b8",
-    "sand": "#faf3e0",
-    "water_deep": "#0b4f8a",
-    "water_shallow": "#2ec4b6",
-    "ground_autumn": "#e8d9a8",
-    "heath_autumn": "#e8d9a8"
-  },
-  "plants": {
-    "water": [
-      {
-        "id": "branching_staghorn_coral",
-        "density": 0.08
-      },
-      {
-        "id": "closed_brain_coral",
-        "density": 0.08
-      },
-      {
-        "id": "giant_sea_fan",
-        "density": 0.08
-      }
-    ]
-  },
-  "trees": {
-    "density": 0.0,
-    "mix": []
-  },
   "sources": [
     "https://private-scuba.com",
     "https://oceanrafting.com.au",
@@ -76,109 +27,41 @@
   ],
   "author": "Animundo team (first version made by Animundo Builder on Muse Spark, reviewed by people)",
   "terrain": {
-    "height": 64,
-    "base_height": 42,
-    "relief": 4,
-    "frequency": 0.02,
-    "rock_ridges": 0.0,
-    "lakes": 0.03,
-    "rock_above": 49,
-    "edge": "lake",
-    "seabed": "sand",
-    "water_level": 40,
-    "sea_depth": 35,
+    "size": 1024,
+    "edge": "open",
     "seed": 3622710994
   },
   "lakes": [
     {
       "name": "Coral Sea",
       "x": 0.5,
-      "z": 0.36,
+      "z": 0.5,
+      "length": 1.5,
+      "width": 1.5,
+      "angle": 0,
+      "depth": 6,
+      "islands": 1,
+      "island_radius": [
+        70,
+        80
+      ]
+    },
+    {
+      "name": "Coral Sea",
+      "x": 0.9,
+      "z": 0.5,
       "length": 1.5,
       "width": 0.2,
-      "angle": 0,
+      "angle": 90,
       "depth": 35,
-      "islands": 2
+      "islands": 0
     }
   ],
   "bogs": [],
   "streams": [],
-  "ground_cover": {
-    "grass": 0.0,
-    "flowers": 0.0,
-    "flower_colors": [],
-    "flower_names": [],
-    "plants": [
-      {
-        "model": "branching_staghorn_coral",
-        "density": 0.08,
-        "on": [
-          "seabed"
-        ]
-      },
-      {
-        "model": "closed_brain_coral",
-        "density": 0.08,
-        "on": [
-          "seabed"
-        ]
-      },
-      {
-        "model": "giant_sea_fan",
-        "density": 0.08,
-        "on": [
-          "seabed"
-        ]
-      },
-      {
-        "model": "dugong_grass",
-        "density": 0.25,
-        "on": [
-          "seabed"
-        ]
-      },
-      {
-        "model": "paddle_grass",
-        "density": 0.25,
-        "on": [
-          "seabed"
-        ]
-      },
-      {
-        "model": "halimeda",
-        "density": 0.08,
-        "on": [
-          "seabed"
-        ]
-      }
-    ]
-  },
-  "lake_life": {
-    "reeds": 0.0,
-    "lilies": 0.0,
-    "pondweed": 0.0
-  },
-  "fish": [
-    {
-      "kind": "clownfish",
-      "count": 6
-    },
-    {
-      "kind": "blue_tang",
-      "count": 5
-    },
-    {
-      "kind": "butterflyfish",
-      "count": 5
-    },
-    {
-      "kind": "lionfish",
-      "count": 2
-    }
-  ],
-  "migrants": [],
   "places": [],
-  "animals": {
+  "biome": "coral_reef",
+  "species": {
     "playable": [
       "clownfish",
       "blue_tang",

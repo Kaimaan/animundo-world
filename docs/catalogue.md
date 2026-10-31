@@ -66,17 +66,17 @@ How to add each kind of thing: [CONTRIBUTING.md](../CONTRIBUTING.md). How it sho
 | **Closed brain coral** (*Platygyra daedalea*) | bush | au_great_barrier_reef | evergreen | [preview](../models/previews/plants/closed_brain_coral.png) |
 | **Hare’s-tail cottongrass** (*Eriophorum vaginatum*) | ground | fi_nuuksio, fi_saimaa | evergreen | [preview](../models/previews/plants/cottongrass.png) |
 | **Crowberry** (*Empetrum nigrum*) | bush | fi_nuuksio, fi_saimaa | evergreen | [preview](../models/previews/plants/crowberry.png) |
-| **Dugong grass** (*Halodule uninervis*) | ground | nowhere yet | evergreen | [preview](../models/previews/plants/dugong_grass.png) |
+| **Dugong grass** (*Halodule uninervis*) | ground | au_great_barrier_reef | evergreen | [preview](../models/previews/plants/dugong_grass.png) |
 | **Fireweed** (*Chamaenerion angustifolium*) | bush | fi_nuuksio, fi_saimaa | deciduous | [preview](../models/previews/plants/fireweed.png) |
 | **Fly agaric** (*Amanita muscaria*) | bush | fi_nuuksio, fi_saimaa | deciduous | [preview](../models/previews/plants/fly_agaric.png) |
 | **Giant sea fan** (*Annella mollis*) | bush | au_great_barrier_reef | evergreen | [preview](../models/previews/plants/giant_sea_fan.png) |
 | **Goat willow** (*Salix caprea*) | bush | fi_nuuksio, fi_saimaa | deciduous | [preview](../models/previews/plants/goat_willow.png) |
-| **Halimeda** (*Halimeda opuntia*) | bush | nowhere yet | evergreen | [preview](../models/previews/plants/halimeda.png) |
+| **Halimeda** (*Halimeda opuntia*) | bush | au_great_barrier_reef | evergreen | [preview](../models/previews/plants/halimeda.png) |
 | **Heather** (*Calluna vulgaris*) | bush | fi_nuuksio, fi_saimaa | evergreen | [preview](../models/previews/plants/heather.png) |
 | **Juniper** (*Juniperus communis*) | bush | fi_nuuksio, fi_saimaa | evergreen | [preview](../models/previews/plants/juniper.png) |
 | **Lily of the valley** (*Convallaria majalis*) | ground | fi_nuuksio, fi_saimaa | deciduous | [preview](../models/previews/plants/lily_of_the_valley.png) |
 | **Lingonberry** (*Vaccinium vitis-idaea*) | bush | fi_nuuksio, fi_saimaa | evergreen | [preview](../models/previews/plants/lingonberry.png) |
-| **Paddle grass** (*Halophila ovalis*) | ground | nowhere yet | evergreen | [preview](../models/previews/plants/paddle_grass.png) |
+| **Paddle grass** (*Halophila ovalis*) | ground | au_great_barrier_reef | evergreen | [preview](../models/previews/plants/paddle_grass.png) |
 | **Flat-topped bog moss** (*Sphagnum angustifolium*) | ground | fi_nuuksio, fi_saimaa | evergreen | [preview](../models/previews/plants/peat_moss.png) |
 | **Porcini** (*Boletus edulis*) | bush | fi_nuuksio, fi_saimaa | deciduous | [preview](../models/previews/plants/porcini.png) |
 | **Red clover** (*Trifolium pratense*) | ground | fi_nuuksio, fi_saimaa | deciduous | [preview](../models/previews/plants/red_clover.png) |
@@ -130,8 +130,10 @@ What animals find to eat. A food name marked "grows there" has a plant you can s
 
 | Food | Place | Real names | Eaten by |
 |---|---|---|---|
-| `water_bugs` | au_great_barrier_reef | zooplankton, tiny shrimp | Bream, Lionfish, Mallard, Perch, Roach, Young perch, Young roach |
-| `water_plants` | au_great_barrier_reef | seagrass, algae | Blue tang, Butterflyfish, Clownfish, Green sea turtle, Mallard, Moose |
+| `water_plants` | au_great_barrier_reef | dugong grass (grows there), paddle weed, halimeda algae | Blue tang, Butterflyfish, Clownfish, Green sea turtle, Mallard, Moose |
+| `insects` | au_great_barrier_reef |  | Chaffinch, Fox, Common frog, Great tit, Kestrel, Common lizard |
+| `bottom_bugs` | au_great_barrier_reef | tiny shrimp, small crabs | Bream, Herring Gull, Lionfish, Perch, Roach |
+| `carrion` | au_great_barrier_reef | bottlenose dolphin remains | Fox |
 | `berries` | fi_nuuksio | bilberries (grows there), lingonberries (grows there), wild raspberries (grows there), crowberries (grows there), rowan berries | Fox, Moose, Red squirrel, Bank vole |
 | `clover` | fi_nuuksio | white clover (grows there), red clover (grows there) | Mountain hare, Bank vole |
 | `cones` | fi_nuuksio | spruce cones, pine cones | Red squirrel |
@@ -141,8 +143,8 @@ What animals find to eat. A food name marked "grows there" has a plant you can s
 | `water_plants` | fi_nuuksio | pondweed, water lily leaves, water horsetail | Blue tang, Butterflyfish, Clownfish, Green sea turtle, Mallard, Moose |
 | `grass` | fi_nuuksio | wavy hair-grass (grows there), common bent, sheep's fescue, dandelion leaves, yarrow | Mountain hare, Bank vole |
 | `insects` | fi_nuuksio | ground beetle, dung beetle, click beetle | Chaffinch, Fox, Common frog, Great tit, Kestrel, Common lizard |
-| `water_bugs` | fi_nuuksio | mayfly larvae, caddisfly larvae, water boatmen | Bream, Lionfish, Mallard, Perch, Roach, Young perch, Young roach |
-| `bottom_bugs` | fi_nuuksio | bloodworms, pond snails | Bream, Herring Gull, Perch, Roach |
+| `water_bugs` | fi_nuuksio | mayfly larvae, caddisfly larvae, water boatmen | Bream, Mallard, Perch, Roach, Young perch, Young roach |
+| `bottom_bugs` | fi_nuuksio | bloodworms, pond snails | Bream, Herring Gull, Lionfish, Perch, Roach |
 | `carrion` | fi_nuuksio | roe deer remains, white-tailed deer remains, moose remains | Fox |
 | `berries` | fi_saimaa | bilberries (grows there), lingonberries (grows there), wild raspberries (grows there), crowberries (grows there), rowan berries | Fox, Moose, Red squirrel, Bank vole |
 | `clover` | fi_saimaa | white clover (grows there), red clover (grows there) | Mountain hare, Bank vole |
@@ -153,8 +155,8 @@ What animals find to eat. A food name marked "grows there" has a plant you can s
 | `water_plants` | fi_saimaa | pondweed, water lily leaves, water horsetail | Blue tang, Butterflyfish, Clownfish, Green sea turtle, Mallard, Moose |
 | `grass` | fi_saimaa | wavy hair-grass (grows there), common bent, sheep's fescue, dandelion leaves, yarrow | Mountain hare, Bank vole |
 | `insects` | fi_saimaa | ground beetle, dung beetle, click beetle | Chaffinch, Fox, Common frog, Great tit, Kestrel, Common lizard |
-| `water_bugs` | fi_saimaa | mayfly larvae, caddisfly larvae, water boatmen | Bream, Lionfish, Mallard, Perch, Roach, Young perch, Young roach |
-| `bottom_bugs` | fi_saimaa | bloodworms, pond snails | Bream, Herring Gull, Perch, Roach |
+| `water_bugs` | fi_saimaa | mayfly larvae, caddisfly larvae, water boatmen | Bream, Mallard, Perch, Roach, Young perch, Young roach |
+| `bottom_bugs` | fi_saimaa | bloodworms, pond snails | Bream, Herring Gull, Lionfish, Perch, Roach |
 | `carrion` | fi_saimaa | roe deer remains, white-tailed deer remains, moose remains | Fox |
 | `mushrooms` | fi_nuuksio | porcini (grows there), chanterelles (grows there) | Red squirrel |
 | `mushrooms` | fi_saimaa | porcini (grows there), chanterelles (grows there) | Red squirrel |

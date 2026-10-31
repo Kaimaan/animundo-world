@@ -65,5 +65,12 @@
   "food.red fescue": "punanata",
   "food.reeds": "järviruoko",
   "food.rowan berries": "pihlajanmarjat",
-  "food.umbrella thorn leaves": "sateenvarjoakaasian lehdet"
+  "food.umbrella thorn leaves": "sateenvarjoakaasian lehdet",
+  "food.dugong grass": "dugonginruoho",
+  "food.paddle weed": "lapameriruoho",
+  "food.halimeda algae": "halimeda-levä",
+  "food.tiny shrimp": "pienet katkaravut",
+  "food.small crabs": "pienet taskuravut",
+  "food.seagrass": "meriruoho",
+  "food.algae": "levä"
 }

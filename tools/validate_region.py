@@ -18,10 +18,17 @@ try:
     from layers import resolve   # a layered place (game proposal 0043)
 except ImportError:   # the game repo's copy of this tool has no layers.py
     def resolve(region):
-        return region
+        """Only a place's biome terrain (its water level and height), which its lakes' depths are checked against."""
+        path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "biomes", f"{region.get('biome')}.json")
+        if not (isinstance(region, dict) and "biome" in region and os.path.isfile(path)):
+            return region
+        with open(path, encoding="utf-8") as f:
+            terrain = dict(json.load(f).get("terrain", {}))
+        terrain.update(region.get("terrain", {}))
+        return dict(region, terrain=terrain)
 
 TREE_SHAPES = {"spruce", "pine", "birch", "round", "rowan"}
-PLANT_FOOD_KINDS = {"berries", "mushrooms", "clover", "browse"}  # food from ground-cover plants (not nectar yet)
+PLANT_FOOD_KINDS = {"berries", "mushrooms", "clover", "browse", "water_plants"}  # food from ground-cover plants (not nectar yet); water_plants: seagrass on the seabed
 FOOD_KINDS = {"clover", "carrot", "berries", "insects", "water_bugs", "browse", "water_plants", "cones", "bottom_bugs", "seeds",
               "grass", "bark", "carrion"}
 EDGES = {"lake", "none", "open"}   # open: no sea at the edge, the land meets the tiles around it (0038)

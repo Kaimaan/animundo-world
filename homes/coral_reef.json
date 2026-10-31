@@ -1,0 +1,199 @@
+{
+  "id": "coral_reef",
+  "name": "Coral reef home",
+  "country": "",
+  "center": {
+    "lat": 0,
+    "lon": 0
+  },
+  "description": "A warm, shallow tropical sea over a sandy floor, with coral, sea fans and seagrass.",
+  "about": "Biome. A warm shallow tropical sea: coral, sea fans and seagrass on sand, deep water (decision 0045). Based on the Great Barrier Reef at Green Island. A place or tile names it as its biome and adds its own water's name and its animals.",
+  "author": "Animundo team",
+  "based_on": "au_great_barrier_reef",
+  "ecoregions": [
+    150
+  ],
+  "habitat": "sea",
+  "terrain": {
+    "base_height": 42,
+    "relief": 4,
+    "frequency": 0.02,
+    "rock_ridges": 0.0,
+    "rock_above": 49,
+    "size": 1024,
+    "height": 64,
+    "lakes": 0.03,
+    "edge": "lake",
+    "seabed": "sand",
+    "water_level": 40,
+    "sea_depth": 35,
+    "seed": 3622710994
+  },
+  "palette": {
+    "ground_lush": "#5fb86e",
+    "ground_dry": "#e8d9a8",
+    "ground_high": "#f2ead0",
+    "dirt": "#d1c08e",
+    "rock": "#cfc8b8",
+    "sand": "#faf3e0",
+    "water_deep": "#0b4f8a",
+    "water_shallow": "#2ec4b6",
+    "ground_autumn": "#e8d9a8",
+    "snow": "#eef2f6",
+    "heath_autumn": "#e8d9a8"
+  },
+  "sky": {
+    "day": "#8fc6ea",
+    "horizon": "#eef2ec",
+    "dusk": "#f2a07a",
+    "night": "#141a3a",
+    "sun": "#ffe8c4"
+  },
+  "trees": {
+    "density": 0.0,
+    "mix": []
+  },
+  "ground_cover": {
+    "grass": 0.0,
+    "flowers": 0.0,
+    "flower_colors": [],
+    "flower_names": [],
+    "plants": [
+      {
+        "model": "branching_staghorn_coral",
+        "density": 0.08,
+        "on": [
+          "seabed"
+        ]
+      },
+      {
+        "model": "closed_brain_coral",
+        "density": 0.08,
+        "on": [
+          "seabed"
+        ]
+      },
+      {
+        "model": "giant_sea_fan",
+        "density": 0.08,
+        "on": [
+          "seabed"
+        ]
+      },
+      {
+        "model": "dugong_grass",
+        "density": 0.25,
+        "on": [
+          "seabed"
+        ],
+        "food": "water_plants",
+        "names": [
+          "dugong grass"
+        ]
+      },
+      {
+        "model": "paddle_grass",
+        "density": 0.25,
+        "on": [
+          "seabed"
+        ],
+        "food": "water_plants",
+        "names": [
+          "paddle weed"
+        ]
+      },
+      {
+        "model": "halimeda",
+        "density": 0.08,
+        "on": [
+          "seabed"
+        ],
+        "food": "water_plants",
+        "names": [
+          "halimeda algae"
+        ]
+      }
+    ]
+  },
+  "lakes": [
+    {
+      "name": "Coral Sea",
+      "x": 0.5,
+      "z": 0.36,
+      "length": 1.5,
+      "width": 0.2,
+      "angle": 0,
+      "depth": 35,
+      "islands": 2
+    }
+  ],
+  "places": [],
+  "lake_life": {
+    "reeds": 0.0,
+    "lilies": 0.0,
+    "pondweed": 0.0
+  },
+  "food": [
+    {
+      "kind": "water_plants",
+      "names": [
+        "dugong grass",
+        "paddle weed",
+        "halimeda algae"
+      ],
+      "weight": 8
+    },
+    {
+      "kind": "insects",
+      "names": [],
+      "weight": 15
+    },
+    {
+      "kind": "bottom_bugs",
+      "names": [
+        "tiny shrimp",
+        "small crabs"
+      ],
+      "weight": 8
+    },
+    {
+      "kind": "carrion",
+      "names": [],
+      "weight": 4
+    }
+  ],
+  "fish": [
+    {
+      "kind": "clownfish",
+      "count": 6
+    },
+    {
+      "kind": "blue_tang",
+      "count": 5
+    },
+    {
+      "kind": "butterflyfish",
+      "count": 5
+    },
+    {
+      "kind": "lionfish",
+      "count": 2
+    }
+  ],
+  "migrants": [],
+  "animals": {
+    "playable": [],
+    "predators": [],
+    "prey": []
+  },
+  "sources": [
+    "https://private-scuba.com",
+    "https://oceanrafting.com.au",
+    "https://reefguide.org",
+    "https://poseidonsweb.com",
+    "https://phys.org",
+    "GBIF.org"
+  ],
+  "bogs": [],
+  "streams": []
+}
