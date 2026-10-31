@@ -800,6 +800,25 @@
    }
   },
   {
+   "name": "place_on_biome_writes_animals",
+   "why": "A place on a biome names its animals in species, as a tile does; an animals list beside it would be ignored (game proposal 0043).",
+   "edits": [
+    {
+     "file": "regions/fi_nuuksio.json",
+     "set": {
+      "/animals": {
+       "playable": [
+        "fox"
+       ]
+      }
+     }
+    }
+   ],
+   "expect": {
+    "validate_region": "fail"
+   }
+  },
+  {
    "name": "region_status",
    "why": "status is draft, reviewed or released.",
    "edits": [

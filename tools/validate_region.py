@@ -82,6 +82,13 @@ def check(path):
             d = json.load(f)
     except Exception as e:  # noqa: BLE001
         return [f"not valid JSON: {e}"]
+    if isinstance(d, dict) and "biome" in d:   # a place on a biome, as a tile (0043)
+        if "animals" in d:
+            err('"animals": a place on a biome names its animals in "species", as a tile does')
+        if not isinstance(d.get("species"), dict):
+            err('"species" must list the place\'s animals ({"playable", "prey", "predators"})')
+        if not os.path.isfile(os.path.join(ROOT, "biomes", f"{d['biome']}.json")):
+            err(f'"biome": there is no biomes/{d["biome"]}.json')
     d = resolve(d)   # a layered place: its land style, plants and food filled in (0043)
 
     file_id = os.path.splitext(os.path.basename(path))[0]
