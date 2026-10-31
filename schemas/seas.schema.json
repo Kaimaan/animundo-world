@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Kaimaan/animundo-world/schemas/seas.schema.json",
+  "title": "Sea names",
+  "description": "seas/names.json (game proposal 0047): every sea's real name, from Natural Earth's marine areas, with the Finnish from Wikidata. An open-sea tile is named after the sea at its centre.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["about", "source", "fi_source", "seas"],
+  "properties": {
+    "about": {"type": "string"},
+    "source": {"type": "string"},
+    "fi_source": {"type": "string"},
+    "seas": {
+      "type": "object",
+      "propertyNames": {"pattern": "^[a-z0-9][a-z0-9_]*$"},
+      "additionalProperties": {"$ref": "#/$defs/sea"}
+    }
+  },
+  "$defs": {
+    "name": {
+      "description": "A real name: never empty or a placeholder.",
+      "type": "string",
+      "minLength": 1,
+      "not": {"pattern": "^\\s*([Nn]one|[Nn]ull|[Uu]nknown|[Uu]nnamed)\\s*$"}
+    },
+    "sea": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["en", "ne_ids", "kind"],
+      "properties": {
+        "en": {"$ref": "#/$defs/name"},
+        "fi": {"$ref": "#/$defs/name"},
+        "ne_ids": {"description": "Natural Earth's ne_id of each marine area with this name.", "type": "array", "minItems": 1, "items": {"type": "integer"}},
+        "kind": {"description": "Natural Earth's featurecla: sea, gulf, bay, strait...", "type": "string", "minLength": 1},
+        "wikidata": {"type": "string", "pattern": "^Q[0-9]+$"}
+      }
+    }
+  }
+}

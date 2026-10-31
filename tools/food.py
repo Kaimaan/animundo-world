@@ -113,9 +113,10 @@ def derive(d):
         _add(made, "grass", written.get("grass", {}).get("names", []), "grass")
     habitat = d.get("habitat", "")
     terrain = d.get("terrain", {})
-    fresh = habitat != "sea" and (bool(d.get("lakes")) or bool(d.get("streams")) or bool(d.get("bogs"))
+    sea = habitat in ("sea", "open_ocean")   # open_ocean: an open-sea tile (game proposal 0047)
+    fresh = not sea and (bool(d.get("lakes")) or bool(d.get("streams")) or bool(d.get("bogs"))
                                   or float(terrain.get("lakes", 0)) > 0)
-    water = fresh or habitat == "sea" or "coast" in d   # a coast: a tile's mask of where its land is
+    water = fresh or sea or "coast" in d   # a coast: a tile's mask of where its land is
     when = {"land": True, "fresh_water": fresh, "water": water}
     for kind, rule in RULES["kinds"].items():
         if rule["from"] == "small_life" and when.get(rule.get("when"), False):

@@ -12,8 +12,12 @@ named after the tile. A "place" tile is a cell of a hand-made place, so its regi
 regions/<place>.json itself. Then:
 
   tile     the tile's own fields (format, id, kind, ecoregion, blend, seed, water,
-           species, requires)
-  animals  the home lists the tile's ecoregion and has its habitat, a blend's home exists, every
+           species, requires); an open-sea tile (biome open_sea, game proposal
+           0047) has no land: no ecoregion, coast or blend, but its sea (`sea`,
+           in seas/names.json) and that sea's `name`, a land style `land` and
+           a `land_share` under 0.1
+  animals  the home lists the tile's ecoregion (not for the open sea) and has its habitat; an
+           open-sea tile's animals all live at sea (`open_sea`); a blend's home exists, every
            animal is in animals/, the playable ones are playable, and requires
            lists every home and animal
   region   validate_region.py and the region schema on the made region
@@ -70,9 +74,11 @@ SIDES = ("n", "e", "s", "w")
 WATER_LEVEL = 8     # one water level for every home on the grid (spec/02 Part 1)
 TALL_ABOVE = 28     # a tile is 64 blocks tall when its level or an edge sample is above this (spec/04)
 SEA = ("sea", "open_ocean")
+OPEN_SEA = "open_sea"   # the open sea's one biome (game proposal 0047)
+LAND_SHARE = 0.1        # an open-ocean cell has less land than this (spec/04)
 # a tile's place fields the game reads but a region file doesn't have (its biome's
 # land and plants are already worked into the place, so the region check mustn't redo them)
-GAME_ONLY = ("level", "edges", "coast", "ecoregions", "habitat", "land", "plants")
+GAME_ONLY = ("level", "edges", "coast", "ecoregions", "habitat", "land", "plants", "skerries")
 CODE_ONLY = ("habitat", "ecoregion", "home", "seed", "water", "species")
 
 
@@ -113,9 +119,11 @@ def tile_problems(t):
     kind = t.get("kind")
     if kind == "code":
         for key in CODE_ONLY:
-            if key not in t:
+            if key not in t and not (key == "ecoregion" and open_sea(t)):
                 out.append(f'a code tile needs "{key}"')
-        if not (is_int(t.get("ecoregion")) and t["ecoregion"] >= 1):
+        if open_sea(t):
+            out += open_sea_problems(t)
+        elif not (is_int(t.get("ecoregion")) and t["ecoregion"] >= 1):
             out.append('"ecoregion" must be a RESOLVE 2017 ecoregion id')
         if "blend" in t:
             b = t["blend"]
@@ -152,6 +160,43 @@ def tile_problems(t):
     return out
 
 
+def open_sea(t):
+    """An open-sea tile (game proposal 0047): a cell with no land to speak of,
+    made from the one open_sea biome."""
+    return t.get("home") == OPEN_SEA
+
+
+def sea_names():
+    with open(os.path.join(ROOT, "seas", "names.json"), encoding="utf-8") as f:
+        return json.load(f)["seas"]
+
+
+def open_sea_problems(t):
+    """An open-sea tile has no ecoregion and no coast; it names its sea (seas/names.json)
+    with that sea's own names, its land style (the nearest coast's) and its land share."""
+    out = []
+    if t.get("habitat") != "open_ocean":
+        out.append('an open-sea tile\'s "habitat" is "open_ocean"')
+    for key in ("ecoregion", "coast", "blend"):
+        if key in t:
+            out.append(f'an open-sea tile has no "{key}": no ecoregion covers the open sea, and it has no shore')
+    seas = sea_names()
+    sea = t.get("sea")
+    if sea not in seas:
+        out.append('"sea" must be a sea in seas/names.json: a cell no named sea covers isn\'t made')
+    else:
+        want = {k: seas[sea][k] for k in ("en", "fi") if k in seas[sea]}
+        if t.get("name") != want:
+            out.append(f'"name" must be the sea\'s own names from seas/names.json: {want}')
+    land = t.get("land")
+    if not (isinstance(land, str) and os.path.isfile(os.path.join(ROOT, "lands", f"{land}.json"))):
+        out.append('"land" must be a land style in lands/ (the nearest coast\'s)')
+    share = t.get("land_share", 0)
+    if not (isinstance(share, (int, float)) and not isinstance(share, bool) and 0 <= share <= LAND_SHARE):
+        out.append(f'"land_share" must be from 0 to {LAND_SHARE}: the real cell\'s land, which raises its skerries')
+    return out
+
+
 def region_of(t):
     """The region the game builds for this tile (tools/tile_region.py, the one
     converter), named so the region checks take it, or (None, why)."""
@@ -184,7 +229,7 @@ def animal_problems(t, content):
         return out
     if t["home"] in homes.homes():
         home = homes.load(t["home"])
-        if t["ecoregion"] not in home.get("ecoregions", []):
+        if not open_sea(t) and t["ecoregion"] not in home.get("ecoregions", []):
             out.append(f'homes/{t["home"]}.json doesn\'t list the tile\'s ecoregion {t["ecoregion"]}: '
                        'a tile is built from its ecoregion\'s home')
         if home.get("habitat") != t["habitat"]:
@@ -209,6 +254,8 @@ def animal_problems(t, content):
                 out.append(f'"requires.animals" must list "{a}"')
             if role == "playable" and not content.get_def(a).get("playable"):
                 out.append(f'"species.playable": {a} isn\'t a playable animal')
+            if open_sea(t) and not content.get_def(a).get("open_sea"):
+                out.append(f'"species.{role}": {a} doesn\'t live at sea (no "open_sea": true), so it isn\'t in an open-sea tile')
     return out
 
 

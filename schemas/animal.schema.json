@@ -75,6 +75,7 @@
     "school": {"type": "boolean"},
     "surface_swimmer": {"type": "boolean"},
     "diving_mammal": {"type": "boolean"},
+    "open_sea": {"description": "Lives out at sea, away from the shore (game proposal 0047): only these animals go into an open-sea tile or start a life in one. Set by us from the animal list's sea habitat and a look at the real animal (the Saimaa seal lives only in its lake, so it isn't).", "type": "boolean"},
     "min_depth": {"description": "Metres of water it needs: a whale starts and swims only where the sea is this deep (default 3).", "type": "integer", "minimum": 1, "maximum": 50},
     "spout": {"description": "How tall the spray it blows when it comes up to breathe is, in metres (whales).", "type": "number", "minimum": 0, "maximum": 10},
     "calf": {"description": "Met in the wild with a calf this size (0..1 of the mother's) at her side.", "type": "number", "exclusiveMinimum": 0, "maximum": 1},

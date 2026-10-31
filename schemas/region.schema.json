@@ -200,6 +200,12 @@
             "mud",
             "sand"
           ]
+        },
+        "skerries": {
+          "description": "An open-sea tile's small bare rock islands for each 1% of the real cell under land (game proposal 0047): the tile's land_share (0 to 0.1) times 100 times this, at most 12.",
+          "type": "number",
+          "minimum": 0,
+          "maximum": 3
         }
       }
     },

@@ -30,6 +30,7 @@
   "digs": false,
   "territorial": false,
   "surface_swimmer": true,
+  "open_sea": true,
   "swim_speed": 2.0,
   "spawn": "water",
   "rain_chill": 0.1,

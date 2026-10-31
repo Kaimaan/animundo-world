@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """check_tile.py says yes to a good tile and no to broken ones, for the right reasons.
-Also: a hand-made place with a tile grid section (Proposal 0038) still passes.
+Also: a hand-made place with a tile grid section (Proposal 0038) still passes,
+and an open-sea tile (game proposal 0047, tests/tile_region/n_415_480_open_sea)
+passes while a land animal, a seal of a lake, a sea with no real name, an
+ecoregion, too much land or ground above the water fail it.
 
 tests/tiles/n_412_301.json is a tile next to Nuuksio from the boreal forest
 home; it must pass, and so must the same tile with a valid blend. Each broken copy changes one thing and must fail exactly
@@ -21,6 +24,7 @@ import tempfile
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.join(HERE, "..")
 GOOD = os.path.join(ROOT, "tests", "tiles", "n_412_301.json")
+SEA = os.path.join(ROOT, "tests", "tile_region", "n_415_480_open_sea.tile.json")   # an open-sea tile (0047)
 sys.path.insert(0, HERE)
 import homes  # noqa: E402
 
@@ -108,6 +112,38 @@ def broken(good):
     t = copy.deepcopy(good)
     t["biome"] = "tundra"
     cases.append(("biome and home disagree", "tile", t))
+    return cases
+
+
+def broken_sea(sea):
+    """(name, the check it must fail, a broken open-sea tile), game proposal 0047."""
+    cases = []
+    t = copy.deepcopy(sea)
+    t["species"]["playable"].append("fox")
+    t["requires"]["animals"].append("fox")
+    cases.append(("a land animal at sea", ["animals", "food"], t))
+    t = copy.deepcopy(sea)
+    t["species"]["playable"] = ["saimaa_seal"]
+    t["requires"]["animals"] = ["saimaa_seal"]
+    cases.append(("the Saimaa seal at sea", ["animals", "food"], t))
+    t = copy.deepcopy(sea)
+    del t["sea"]
+    cases.append(("a sea with no name", "tile", t))
+    t = copy.deepcopy(sea)
+    t["name"] = {"en": "Open ocean south of Nuuksio"}
+    cases.append(("a made-up name", "tile", t))
+    t = copy.deepcopy(sea)
+    t["ecoregion"] = 717
+    cases.append(("an ecoregion at sea", "tile", t))
+    t = copy.deepcopy(sea)
+    t["land_share"] = 0.4
+    cases.append(("too much land for the open sea", "tile", t))
+    t = copy.deepcopy(sea)
+    t["land"] = "moon"
+    cases.append(("a land style that doesn't exist", "tile", t))
+    t = copy.deepcopy(sea)
+    t["level"] = 9
+    cases.append(("an open sea above the water", "edges", t))
     return cases
 
 
@@ -208,7 +244,17 @@ def main():
         code, r = report(group, tmp, "group_bad")
         if code != 1 or failed(r["results"]) != ["neighbours"]:
             errors.append(f"a group whose shared side doesn't match should fail neighbours, failed {failed(r['results'])}")
-        ran = 5 + len(cases)
+        with open(SEA, encoding="utf-8") as f:
+            sea = json.load(f)
+        code, r = report(sea, tmp, "sea")
+        if code != 0 or failed(r["results"]):
+            errors.append(f"the open-sea tile failed: {[x for x in r['results'] if x['status'] == 'fail']}")
+        sea_cases = broken_sea(sea)
+        for i, (name, check, t) in enumerate(sea_cases):
+            code, r = report(t, tmp, f"sea{i}")
+            if code != 1 or failed(r["results"]) != (check if isinstance(check, list) else [check]):
+                errors.append(f"{name}: should fail exactly {check}, failed {failed(r['results'])} (exit {code})")
+        ran = 6 + len(cases) + len(sea_cases)
     ran += grid_sections(errors)
     for e in errors:
         print("ERROR: " + e, file=sys.stderr)

@@ -1,0 +1,2506 @@
+{
+ "about": "Every sea's real name (game proposal 0047): Natural Earth's marine areas (ne_10m_geography_marine_polys, public domain), keyed by the English name as an id. en is Natural Earth's English name; fi is the Wikidata item's Finnish label (the item Natural Earth names), left out where Wikidata has none, and then the game shows the English. The tile maker names an open-sea tile after the marine area at its centre (ne_ids); a cell no marine area covers isn't made.",
+ "source": "naturalearth:ne_10m_geography_marine_polys:5.1.2",
+ "fi_source": "wikidata:labels:2026-10-31",
+ "seas": {
+  "adriatic_sea": {
+   "en": "Adriatic Sea",
+   "ne_ids": [
+    1159116607
+   ],
+   "kind": "sea",
+   "wikidata": "Q13924",
+   "fi": "Adrianmeri"
+  },
+  "aegean_sea": {
+   "en": "Aegean Sea",
+   "ne_ids": [
+    1159117123
+   ],
+   "kind": "sea",
+   "wikidata": "Q34575",
+   "fi": "Egeanmeri"
+  },
+  "albemarle_sound": {
+   "en": "Albemarle Sound",
+   "ne_ids": [
+    1159119313
+   ],
+   "kind": "sound",
+   "wikidata": "Q1441345"
+  },
+  "alboran_sea": {
+   "en": "Alboran Sea",
+   "ne_ids": [
+    1159118457
+   ],
+   "kind": "sea",
+   "wikidata": "Q199408",
+   "fi": "Alboráninmeri"
+  },
+  "amazon": {
+   "en": "Amazon",
+   "ne_ids": [
+    1159119967
+   ],
+   "kind": "river",
+   "wikidata": "Q3783",
+   "fi": "Amazon"
+  },
+  "amundsen_gulf": {
+   "en": "Amundsen Gulf",
+   "ne_ids": [
+    1159117223
+   ],
+   "kind": "gulf",
+   "wikidata": "Q1974744",
+   "fi": "Amundseninlahti"
+  },
+  "amundsen_sea": {
+   "en": "Amundsen Sea",
+   "ne_ids": [
+    1159116181
+   ],
+   "kind": "sea",
+   "wikidata": "Q72154",
+   "fi": "Amundseninmeri"
+  },
+  "andaman_sea": {
+   "en": "Andaman Sea",
+   "ne_ids": [
+    1159115987
+   ],
+   "kind": "sea",
+   "wikidata": "Q47632",
+   "fi": "Andamaanienmeri"
+  },
+  "antongil_bay": {
+   "en": "Antongil Bay",
+   "ne_ids": [
+    1159118761
+   ],
+   "kind": "bay",
+   "wikidata": "Q803725"
+  },
+  "arabian_sea": {
+   "en": "Arabian Sea",
+   "ne_ids": [
+    1159115343
+   ],
+   "kind": "sea",
+   "wikidata": "Q58705",
+   "fi": "Arabianmeri"
+  },
+  "arafura_sea": {
+   "en": "Arafura Sea",
+   "ne_ids": [
+    1159116081
+   ],
+   "kind": "sea",
+   "wikidata": "Q128880",
+   "fi": "Arafuranmeri"
+  },
+  "arctic_ocean": {
+   "en": "Arctic Ocean",
+   "ne_ids": [
+    1159115017
+   ],
+   "kind": "ocean",
+   "wikidata": "Q788",
+   "fi": "Pohjoinen jäämeri"
+  },
+  "atlantic_ocean": {
+   "en": "Atlantic Ocean",
+   "ne_ids": [
+    1159115057,
+    1159115149
+   ],
+   "kind": "ocean",
+   "wikidata": "Q97",
+   "fi": "Atlantin valtameri"
+  },
+  "bab_el_mandeb": {
+   "en": "Bab-el-Mandeb",
+   "ne_ids": [
+    1159118853
+   ],
+   "kind": "strait",
+   "wikidata": "Q83318",
+   "fi": "Bab el Mandeb"
+  },
+  "baffin_bay": {
+   "en": "Baffin Bay",
+   "ne_ids": [
+    1159115483
+   ],
+   "kind": "bay",
+   "wikidata": "Q37040",
+   "fi": "Baffininlahti"
+  },
+  "bahia_blanca": {
+   "en": "Bahía Blanca",
+   "ne_ids": [
+    1159118573
+   ],
+   "kind": "bay"
+  },
+  "bahia_grande": {
+   "en": "Bahía Grande",
+   "ne_ids": [
+    1159118629
+   ],
+   "kind": "bay"
+  },
+  "baia_de_sao_marcos": {
+   "en": "Baía de São Marcos",
+   "ne_ids": [
+    1159117597
+   ],
+   "kind": "bay",
+   "wikidata": "Q2060432"
+  },
+  "baird_inlet": {
+   "en": "Baird Inlet",
+   "ne_ids": [
+    1159119417
+   ],
+   "kind": "inlet",
+   "wikidata": "Q4848613"
+  },
+  "balearic_sea": {
+   "en": "Balearic Sea",
+   "ne_ids": [
+    1159117105
+   ],
+   "kind": "sea",
+   "wikidata": "Q200712",
+   "fi": "Baleaarienmeri"
+  },
+  "bali_sea": {
+   "en": "Bali Sea",
+   "ne_ids": [
+    1159120073
+   ],
+   "kind": "sea",
+   "wikidata": "Q277014",
+   "fi": "Balinmeri"
+  },
+  "bali_strait": {
+   "en": "Bali Strait",
+   "ne_ids": [
+    1159120135
+   ],
+   "kind": "strait",
+   "wikidata": "Q604492",
+   "fi": "Balinsalmi"
+  },
+  "baltic_sea": {
+   "en": "Baltic Sea",
+   "ne_ids": [
+    1159115831
+   ],
+   "kind": "sea",
+   "wikidata": "Q545",
+   "fi": "Itämeri"
+  },
+  "banda_sea": {
+   "en": "Banda Sea",
+   "ne_ids": [
+    1159115717
+   ],
+   "kind": "sea",
+   "wikidata": "Q171510",
+   "fi": "Bandanmeri"
+  },
+  "barents_sea": {
+   "en": "Barents Sea",
+   "ne_ids": [
+    1159115861
+   ],
+   "kind": "sea",
+   "wikidata": "Q45823",
+   "fi": "Barentsinmeri"
+  },
+  "bass_strait": {
+   "en": "Bass Strait",
+   "ne_ids": [
+    1159117373
+   ],
+   "kind": "strait",
+   "wikidata": "Q171846",
+   "fi": "Bassinsalmi"
+  },
+  "bathurst_inlet": {
+   "en": "Bathurst Inlet",
+   "ne_ids": [
+    1159119669
+   ],
+   "kind": "bay",
+   "wikidata": "Q810805"
+  },
+  "bay_of_bengal": {
+   "en": "Bay of Bengal",
+   "ne_ids": [
+    1159115253
+   ],
+   "kind": "bay",
+   "wikidata": "Q38684",
+   "fi": "Bengalinlahti"
+  },
+  "bay_of_biscay": {
+   "en": "Bay of Biscay",
+   "ne_ids": [
+    1159115749
+   ],
+   "kind": "bay",
+   "wikidata": "Q41573",
+   "fi": "Biskajanlahti"
+  },
+  "bay_of_campeche": {
+   "en": "Bay of Campeche",
+   "ne_ids": [
+    1159116059
+   ],
+   "kind": "bay",
+   "wikidata": "Q61304"
+  },
+  "bay_of_fundy": {
+   "en": "Bay of Fundy",
+   "ne_ids": [
+    1159116797
+   ],
+   "kind": "bay",
+   "wikidata": "Q181857",
+   "fi": "Fundynlahti"
+  },
+  "bay_of_mecklenburg": {
+   "en": "Bay of Mecklenburg",
+   "ne_ids": [
+    1159120643
+   ],
+   "kind": "bay",
+   "wikidata": "Q317006",
+   "fi": "Mecklenburginlahti"
+  },
+  "bay_of_plenty": {
+   "en": "Bay of Plenty",
+   "ne_ids": [
+    1159116643
+   ],
+   "kind": "bay",
+   "wikidata": "Q140290"
+  },
+  "beaufort_sea": {
+   "en": "Beaufort Sea",
+   "ne_ids": [
+    1159115359
+   ],
+   "kind": "sea",
+   "wikidata": "Q131274",
+   "fi": "Beaufortinmeri"
+  },
+  "bellingshausen_sea": {
+   "en": "Bellingshausen Sea",
+   "ne_ids": [
+    1159116169
+   ],
+   "kind": "sea",
+   "wikidata": "Q183455",
+   "fi": "Bellingshauseninmeri"
+  },
+  "bering_sea": {
+   "en": "Bering Sea",
+   "ne_ids": [
+    1159117319
+   ],
+   "kind": "sea",
+   "wikidata": "Q44725",
+   "fi": "Beringinmeri"
+  },
+  "bight_of_benin": {
+   "en": "Bight of Benin",
+   "ne_ids": [
+    1159118475
+   ],
+   "kind": "bay",
+   "wikidata": "Q47530",
+   "fi": "Benininlahti"
+  },
+  "bight_of_biafra": {
+   "en": "Bight of Biafra",
+   "ne_ids": [
+    1159118493
+   ],
+   "kind": "bay",
+   "wikidata": "Q999031",
+   "fi": "Bonnynlahti"
+  },
+  "bismarck_sea": {
+   "en": "Bismarck Sea",
+   "ne_ids": [
+    1159116735
+   ],
+   "kind": "sea",
+   "wikidata": "Q199436",
+   "fi": "Bismarckinmeri"
+  },
+  "black_sea": {
+   "en": "Black Sea",
+   "ne_ids": [
+    1159115171
+   ],
+   "kind": "sea",
+   "wikidata": "Q166",
+   "fi": "Mustameri"
+  },
+  "boca_grande": {
+   "en": "Boca Grande",
+   "ne_ids": [
+    1159117445
+   ],
+   "kind": "bay"
+  },
+  "bohai_sea": {
+   "en": "Bohai Sea",
+   "ne_ids": [
+    1159117171
+   ],
+   "kind": "sea",
+   "wikidata": "Q181969",
+   "fi": "Bohainmeri"
+  },
+  "bohol_sea": {
+   "en": "Bohol Sea",
+   "ne_ids": [
+    1159120253
+   ],
+   "kind": "sea",
+   "wikidata": "Q242326"
+  },
+  "boknafjord": {
+   "en": "Boknafjord",
+   "ne_ids": [
+    1159118943
+   ],
+   "kind": "fjord",
+   "wikidata": "Q225004",
+   "fi": "Boknavuono"
+  },
+  "bosporus": {
+   "en": "Bosporus",
+   "ne_ids": [
+    1159118835
+   ],
+   "kind": "strait",
+   "wikidata": "Q35958",
+   "fi": "Bosporinsalmi"
+  },
+  "bransfield_strait": {
+   "en": "Bransfield Strait",
+   "ne_ids": [
+    1159117561
+   ],
+   "kind": "strait",
+   "wikidata": "Q898839",
+   "fi": "Bransfieldinsalmi"
+  },
+  "bras_d_or_lake": {
+   "en": "Bras d'Or Lake",
+   "ne_ids": [
+    1159119983
+   ],
+   "kind": "lagoon",
+   "wikidata": "Q898989"
+  },
+  "bristol_bay": {
+   "en": "Bristol Bay",
+   "ne_ids": [
+    1159116991
+   ],
+   "kind": "bay",
+   "wikidata": "Q917872",
+   "fi": "Bristolinlahti"
+  },
+  "bristol_channel": {
+   "en": "Bristol Channel",
+   "ne_ids": [
+    1159115891
+   ],
+   "kind": "channel",
+   "wikidata": "Q188203",
+   "fi": "Bristolin kanaali"
+  },
+  "buli_bay": {
+   "en": "Buli Bay",
+   "ne_ids": [
+    1159120217
+   ],
+   "kind": "gulf"
+  },
+  "canal_do_norte": {
+   "en": "Canal do Norte",
+   "ne_ids": [
+    1159120591
+   ],
+   "kind": "channel"
+  },
+  "canal_do_sul": {
+   "en": "Canal do Sul",
+   "ne_ids": [
+    1159120573
+   ],
+   "kind": "channel"
+  },
+  "canal_perigoso": {
+   "en": "Canal Perigoso",
+   "ne_ids": [
+    1159120555
+   ],
+   "kind": "channel"
+  },
+  "caribbean_sea": {
+   "en": "Caribbean Sea",
+   "ne_ids": [
+    1159115379
+   ],
+   "kind": "sea",
+   "wikidata": "Q1247",
+   "fi": "Karibianmeri"
+  },
+  "caspian_sea": {
+   "en": "Caspian Sea",
+   "ne_ids": [
+    1159115461
+   ],
+   "kind": "sea",
+   "wikidata": "Q5484",
+   "fi": "Kaspianmeri"
+  },
+  "celebes_sea": {
+   "en": "Celebes Sea",
+   "ne_ids": [
+    1159115635
+   ],
+   "kind": "sea",
+   "wikidata": "Q19270",
+   "fi": "Celebesinmeri"
+  },
+  "ceram_sea": {
+   "en": "Ceram Sea",
+   "ne_ids": [
+    1159116897
+   ],
+   "kind": "sea",
+   "wikidata": "Q210855",
+   "fi": "Seraminmeri"
+  },
+  "chaunskaya_bay": {
+   "en": "Chaunskaya Bay",
+   "ne_ids": [
+    1159119047
+   ],
+   "kind": "bay",
+   "wikidata": "Q915250",
+   "fi": "Tšauninlahti"
+  },
+  "chesapeake_bay": {
+   "en": "Chesapeake Bay",
+   "ne_ids": [
+    1159117043
+   ],
+   "kind": "bay",
+   "wikidata": "Q216868",
+   "fi": "Chesapeakenlahti"
+  },
+  "chukchi_sea": {
+   "en": "Chukchi Sea",
+   "ne_ids": [
+    1159116037
+   ],
+   "kind": "sea",
+   "wikidata": "Q159252",
+   "fi": "Tšuktšimeri"
+  },
+  "columbia_river": {
+   "en": "Columbia River",
+   "ne_ids": [
+    1159120745
+   ],
+   "kind": "river",
+   "wikidata": "Q2251",
+   "fi": "Columbia"
+  },
+  "cook_strait": {
+   "en": "Cook Strait",
+   "ne_ids": [
+    1159118281
+   ],
+   "kind": "strait",
+   "wikidata": "Q5023",
+   "fi": "Cookinsalmi"
+  },
+  "coral_sea": {
+   "en": "Coral Sea",
+   "ne_ids": [
+    1159115219
+   ],
+   "kind": "sea",
+   "wikidata": "Q82931",
+   "fi": "Korallimeri"
+  },
+  "cordova_bay": {
+   "en": "Cordova Bay",
+   "ne_ids": [
+    1159120451
+   ],
+   "kind": "bay",
+   "wikidata": "Q5170043"
+  },
+  "cumberland_sound": {
+   "en": "Cumberland Sound",
+   "ne_ids": [
+    1159117615
+   ],
+   "kind": "sound",
+   "wikidata": "Q938327"
+  },
+  "dampier_strait": {
+   "en": "Dampier Strait",
+   "ne_ids": [
+    1159120201
+   ],
+   "kind": "strait",
+   "wikidata": "Q3233971"
+  },
+  "dardanelles": {
+   "en": "Dardanelles",
+   "ne_ids": [
+    1159119155
+   ],
+   "kind": "channel",
+   "wikidata": "Q6514",
+   "fi": "Dardanellit"
+  },
+  "darnley_bay": {
+   "en": "Darnley Bay",
+   "ne_ids": [
+    1159119511
+   ],
+   "kind": "bay",
+   "wikidata": "Q1166530"
+  },
+  "davao_gulf": {
+   "en": "Davao Gulf",
+   "ne_ids": [
+    1159120091
+   ],
+   "kind": "gulf",
+   "wikidata": "Q1536317"
+  },
+  "davis_sea": {
+   "en": "Davis Sea",
+   "ne_ids": [
+    1159118715
+   ],
+   "kind": "sea",
+   "wikidata": "Q509321"
+  },
+  "davis_strait": {
+   "en": "Davis Strait",
+   "ne_ids": [
+    1159116205
+   ],
+   "kind": "strait",
+   "wikidata": "Q189262",
+   "fi": "Davisinsalmi"
+  },
+  "delaware_bay": {
+   "en": "Delaware Bay",
+   "ne_ids": [
+    1159119271
+   ],
+   "kind": "bay",
+   "wikidata": "Q738808",
+   "fi": "Delawarenlahti"
+  },
+  "denmark_strait": {
+   "en": "Denmark Strait",
+   "ne_ids": [
+    1159119235
+   ],
+   "kind": "strait",
+   "wikidata": "Q152058",
+   "fi": "Tanskansalmi"
+  },
+  "disko_bay": {
+   "en": "Disko Bay",
+   "ne_ids": [
+    1159117651
+   ],
+   "kind": "bay",
+   "wikidata": "Q1135227"
+  },
+  "dixon_entrance": {
+   "en": "Dixon Entrance",
+   "ne_ids": [
+    1159117409
+   ],
+   "kind": "channel",
+   "wikidata": "Q1231779",
+   "fi": "Dixon Entrance"
+  },
+  "dmitry_laptev_strait": {
+   "en": "Dmitry Laptev Strait",
+   "ne_ids": [
+    1159118213
+   ],
+   "kind": "strait",
+   "wikidata": "Q1149827"
+  },
+  "drake_passage": {
+   "en": "Drake Passage",
+   "ne_ids": [
+    1159116269
+   ],
+   "kind": "channel",
+   "wikidata": "Q143650",
+   "fi": "Drakensalmi"
+  },
+  "east_china_sea": {
+   "en": "East China Sea",
+   "ne_ids": [
+    1159116027
+   ],
+   "kind": "sea",
+   "wikidata": "Q45341",
+   "fi": "Itä-Kiinan meri"
+  },
+  "east_korea_bay": {
+   "en": "East Korea Bay",
+   "ne_ids": [
+    1159118247
+   ],
+   "kind": "bay",
+   "wikidata": "Q52060"
+  },
+  "east_siberian_sea": {
+   "en": "East Siberian Sea",
+   "ne_ids": [
+    1159117337
+   ],
+   "kind": "sea",
+   "wikidata": "Q163434",
+   "fi": "Itä-Siperian meri"
+  },
+  "eclipse_sound": {
+   "en": "Eclipse Sound",
+   "ne_ids": [
+    1159119813
+   ],
+   "kind": "sound",
+   "wikidata": "Q5333028"
+  },
+  "english_channel": {
+   "en": "English Channel",
+   "ne_ids": [
+    1159116535
+   ],
+   "kind": "channel",
+   "wikidata": "Q34640",
+   "fi": "Englannin kanaali"
+  },
+  "flores_sea": {
+   "en": "Flores Sea",
+   "ne_ids": [
+    1159120167
+   ],
+   "kind": "sea",
+   "wikidata": "Q150370",
+   "fi": "Floresinmeri"
+  },
+  "florida_strait": {
+   "en": "Florida Strait",
+   "ne_ids": [
+    1159116625
+   ],
+   "kind": "strait",
+   "wikidata": "Q232912",
+   "fi": "Floridansalmi"
+  },
+  "foxe_basin": {
+   "en": "Foxe Basin",
+   "ne_ids": [
+    1159118111
+   ],
+   "kind": "bay",
+   "wikidata": "Q845217"
+  },
+  "franklin_bay": {
+   "en": "Franklin Bay",
+   "ne_ids": [
+    1159117391
+   ],
+   "kind": "bay",
+   "wikidata": "Q5491299"
+  },
+  "frobisher_bay": {
+   "en": "Frobisher Bay",
+   "ne_ids": [
+    1159117633
+   ],
+   "kind": "bay",
+   "wikidata": "Q1004067"
+  },
+  "fury_and_hecla_strait": {
+   "en": "Fury and Hecla Strait",
+   "ne_ids": [
+    1159119761
+   ],
+   "kind": "strait",
+   "wikidata": "Q691945"
+  },
+  "garabogazkol": {
+   "en": "Garabogazköl",
+   "ne_ids": [
+    1159119095
+   ],
+   "kind": "bay",
+   "wikidata": "Q239379",
+   "fi": "Garabogazköl"
+  },
+  "geographe_bay": {
+   "en": "Geographe Bay",
+   "ne_ids": [
+    1159118321
+   ],
+   "kind": "bay",
+   "wikidata": "Q1503116"
+  },
+  "george_vi_sound": {
+   "en": "George VI Sound",
+   "ne_ids": [
+    1159119885
+   ],
+   "kind": "sound",
+   "wikidata": "Q2831049",
+   "fi": "Sarmiento"
+  },
+  "goldsmith_channel": {
+   "en": "Goldsmith Channel",
+   "ne_ids": [
+    1159119707
+   ],
+   "kind": "channel",
+   "wikidata": "Q1550455"
+  },
+  "great_australian_bight": {
+   "en": "Great Australian Bight",
+   "ne_ids": [
+    1159116315
+   ],
+   "kind": "gulf",
+   "wikidata": "Q186733",
+   "fi": "Iso Australianlahti"
+  },
+  "great_barrier_reef": {
+   "en": "Great Barrier Reef",
+   "ne_ids": [
+    1159117285,
+    1159117285
+   ],
+   "kind": "reef",
+   "wikidata": "Q7343",
+   "fi": "Iso Valliriutta"
+  },
+  "greenland_sea": {
+   "en": "Greenland Sea",
+   "ne_ids": [
+    1159115695
+   ],
+   "kind": "sea",
+   "wikidata": "Q132868",
+   "fi": "Grönlanninmeri"
+  },
+  "guba_gusinaya": {
+   "en": "Guba Gusinaya",
+   "ne_ids": [
+    1159120055
+   ],
+   "kind": "bay"
+  },
+  "gulf_of_aden": {
+   "en": "Gulf of Aden",
+   "ne_ids": [
+    1159116333
+   ],
+   "kind": "gulf",
+   "wikidata": "Q41837",
+   "fi": "Adeninlahti"
+  },
+  "gulf_of_alaska": {
+   "en": "Gulf of Alaska",
+   "ne_ids": [
+    1159115503
+   ],
+   "kind": "gulf",
+   "wikidata": "Q180531",
+   "fi": "Alaskanlahti"
+  },
+  "gulf_of_anadyr": {
+   "en": "Gulf of Anadyr",
+   "ne_ids": [
+    1159120779
+   ],
+   "kind": "gulf",
+   "wikidata": "Q483824",
+   "fi": "Anadyrinlahti"
+  },
+  "gulf_of_aqaba": {
+   "en": "Gulf of Aqaba",
+   "ne_ids": [
+    1159119199
+   ],
+   "kind": "gulf",
+   "wikidata": "Q81611",
+   "fi": "Akabanlahti"
+  },
+  "gulf_of_boothia": {
+   "en": "Gulf of Boothia",
+   "ne_ids": [
+    1159118085
+   ],
+   "kind": "gulf",
+   "wikidata": "Q919520"
+  },
+  "gulf_of_bothnia": {
+   "en": "Gulf of Bothnia",
+   "ne_ids": [
+    1159116589
+   ],
+   "kind": "gulf",
+   "wikidata": "Q122574",
+   "fi": "Pohjanlahti"
+  },
+  "gulf_of_california": {
+   "en": "Gulf of California",
+   "ne_ids": [
+    1159116479
+   ],
+   "kind": "gulf",
+   "wikidata": "Q132811",
+   "fi": "Kalifornianlahti"
+  },
+  "gulf_of_carpentaria": {
+   "en": "Gulf of Carpentaria",
+   "ne_ids": [
+    1159116451
+   ],
+   "kind": "gulf",
+   "wikidata": "Q180844",
+   "fi": "Carpentarianlahti"
+  },
+  "gulf_of_corcovado": {
+   "en": "Gulf of Corcovado",
+   "ne_ids": [
+    1159117489
+   ],
+   "kind": "gulf",
+   "wikidata": "Q2328243"
+  },
+  "gulf_of_finland": {
+   "en": "Gulf of Finland",
+   "ne_ids": [
+    1159116517
+   ],
+   "kind": "gulf",
+   "wikidata": "Q14686",
+   "fi": "Suomenlahti"
+  },
+  "gulf_of_gabes": {
+   "en": "Gulf of Gabès",
+   "ne_ids": [
+    1159117973
+   ],
+   "kind": "gulf",
+   "wikidata": "Q323760",
+   "fi": "Vähä-Syrtti"
+  },
+  "gulf_of_guayaquil": {
+   "en": "Gulf of Guayaquil",
+   "ne_ids": [
+    1159118151
+   ],
+   "kind": "gulf",
+   "wikidata": "Q1138929"
+  },
+  "gulf_of_guinea": {
+   "en": "Gulf of Guinea",
+   "ne_ids": [
+    1159115791
+   ],
+   "kind": "gulf",
+   "wikidata": "Q41430",
+   "fi": "Guineanlahti"
+  },
+  "gulf_of_honduras": {
+   "en": "Gulf of Honduras",
+   "ne_ids": [
+    1159116553
+   ],
+   "kind": "gulf",
+   "wikidata": "Q795608"
+  },
+  "gulf_of_khambhat": {
+   "en": "Gulf of Khambhat",
+   "ne_ids": [
+    1159117827
+   ],
+   "kind": "gulf",
+   "wikidata": "Q654010",
+   "fi": "Khambatinlahti"
+  },
+  "gulf_of_kutch": {
+   "en": "Gulf of Kutch",
+   "ne_ids": [
+    1159117185
+   ],
+   "kind": "gulf",
+   "wikidata": "Q844917",
+   "fi": "Kutchinlahti"
+  },
+  "gulf_of_lion": {
+   "en": "Gulf of Lion",
+   "ne_ids": [
+    1159116571
+   ],
+   "kind": "gulf",
+   "wikidata": "Q210118"
+  },
+  "gulf_of_maine": {
+   "en": "Gulf of Maine",
+   "ne_ids": [
+    1159117021
+   ],
+   "kind": "gulf",
+   "wikidata": "Q876470",
+   "fi": "Mainenlahti"
+  },
+  "gulf_of_mannar": {
+   "en": "Gulf of Mannar",
+   "ne_ids": [
+    1159117135
+   ],
+   "kind": "gulf",
+   "wikidata": "Q622811",
+   "fi": "Mannarinlahti"
+  },
+  "gulf_of_martaban": {
+   "en": "Gulf of Martaban",
+   "ne_ids": [
+    1159118975
+   ],
+   "kind": "gulf",
+   "wikidata": "Q138708"
+  },
+  "gulf_of_masirah": {
+   "en": "Gulf of Masirah",
+   "ne_ids": [
+    1159118175
+   ],
+   "kind": "gulf"
+  },
+  "gulf_of_mexico": {
+   "en": "Gulf of Mexico",
+   "ne_ids": [
+    1159115399
+   ],
+   "kind": "gulf",
+   "wikidata": "Q12630",
+   "fi": "Meksikonlahti"
+  },
+  "gulf_of_ob": {
+   "en": "Gulf of Ob",
+   "ne_ids": [
+    1159119119
+   ],
+   "kind": "gulf",
+   "wikidata": "Q745945",
+   "fi": "Obinlahti"
+  },
+  "gulf_of_oman": {
+   "en": "Gulf of Oman",
+   "ne_ids": [
+    1159116359
+   ],
+   "kind": "gulf",
+   "wikidata": "Q79948",
+   "fi": "Omaninlahti"
+  },
+  "gulf_of_panama": {
+   "en": "Gulf of Panama",
+   "ne_ids": [
+    1159117203
+   ],
+   "kind": "gulf",
+   "wikidata": "Q645012",
+   "fi": "Panamanlahti"
+  },
+  "gulf_of_papua": {
+   "en": "Gulf of Papua",
+   "ne_ids": [
+    1159118329
+   ],
+   "kind": "gulf",
+   "wikidata": "Q1254743",
+   "fi": "Papuanlahti"
+  },
+  "gulf_of_penas": {
+   "en": "Gulf of Penas",
+   "ne_ids": [
+    1159118589
+   ],
+   "kind": "gulf",
+   "wikidata": "Q1536356"
+  },
+  "gulf_of_riga": {
+   "en": "Gulf of Riga",
+   "ne_ids": [
+    1159118365
+   ],
+   "kind": "gulf",
+   "wikidata": "Q174731",
+   "fi": "Riianlahti"
+  },
+  "gulf_of_saint_lawrence": {
+   "en": "Gulf of Saint Lawrence",
+   "ne_ids": [
+    1159116715
+   ],
+   "kind": "gulf",
+   "wikidata": "Q169523",
+   "fi": "Saint Lawrencen lahti"
+  },
+  "gulf_of_sidra": {
+   "en": "Gulf of Sidra",
+   "ne_ids": [
+    1159118407
+   ],
+   "kind": "gulf",
+   "wikidata": "Q187274",
+   "fi": "Iso-Syrtti"
+  },
+  "gulf_of_suez": {
+   "en": "Gulf of Suez",
+   "ne_ids": [
+    1159119103
+   ],
+   "kind": "gulf",
+   "wikidata": "Q168277",
+   "fi": "Suezinlahti"
+  },
+  "gulf_of_tehuantepec": {
+   "en": "Gulf of Tehuantepec",
+   "ne_ids": [
+    1159118133
+   ],
+   "kind": "gulf",
+   "wikidata": "Q2272405",
+   "fi": "Tehuantepecinlahti"
+  },
+  "gulf_of_thailand": {
+   "en": "Gulf of Thailand",
+   "ne_ids": [
+    1159116123
+   ],
+   "kind": "gulf",
+   "wikidata": "Q131217",
+   "fi": "Siaminlahti"
+  },
+  "gulf_of_tomini": {
+   "en": "Gulf of Tomini",
+   "ne_ids": [
+    1159120147
+   ],
+   "kind": "gulf",
+   "wikidata": "Q1507546",
+   "fi": "Tomininlahti"
+  },
+  "gulf_of_tonkin": {
+   "en": "Gulf of Tonkin",
+   "ne_ids": [
+    1159116787
+   ],
+   "kind": "gulf",
+   "wikidata": "Q212428",
+   "fi": "Tonkininlahti"
+  },
+  "gulf_of_uraba": {
+   "en": "Gulf of Urabá",
+   "ne_ids": [
+    1159118877
+   ],
+   "kind": "gulf",
+   "wikidata": "Q761784"
+  },
+  "gulf_st_vincent": {
+   "en": "Gulf St Vincent",
+   "ne_ids": [
+    1159118871
+   ],
+   "kind": "gulf",
+   "wikidata": "Q1323629"
+  },
+  "hadley_bay": {
+   "en": "Hadley Bay",
+   "ne_ids": [
+    1159119663
+   ],
+   "kind": "bay"
+  },
+  "hall_basin": {
+   "en": "Hall Basin",
+   "ne_ids": [
+    1159119831
+   ],
+   "kind": "gulf",
+   "wikidata": "Q1457158",
+   "fi": "Hall Basin"
+  },
+  "halmahera_sea": {
+   "en": "Halmahera Sea",
+   "ne_ids": [
+    1159120109
+   ],
+   "kind": "sea",
+   "wikidata": "Q212083",
+   "fi": "Halmaheranmeri"
+  },
+  "hamilton_inlet": {
+   "en": "Hamilton Inlet",
+   "ne_ids": [
+    1159117665
+   ],
+   "kind": "bay"
+  },
+  "hangzhouwan": {
+   "en": "Hangzhouwan",
+   "ne_ids": [
+    1159118783
+   ],
+   "kind": "bay",
+   "wikidata": "Q700024"
+  },
+  "hecate_strait": {
+   "en": "Hecate Strait",
+   "ne_ids": [
+    1159120441
+   ],
+   "kind": "strait",
+   "wikidata": "Q1592911",
+   "fi": "Hecatensalmi"
+  },
+  "hudson_bay": {
+   "en": "Hudson Bay",
+   "ne_ids": [
+    1159115441
+   ],
+   "kind": "bay",
+   "wikidata": "Q3040",
+   "fi": "Hudsoninlahti"
+  },
+  "hudson_strait": {
+   "en": "Hudson Strait",
+   "ne_ids": [
+    1159116501
+   ],
+   "kind": "strait",
+   "wikidata": "Q207702",
+   "fi": "Hudsoninsalmi"
+  },
+  "husky_lakes": {
+   "en": "Husky Lakes",
+   "ne_ids": [
+    1159119455
+   ],
+   "kind": "lagoon",
+   "wikidata": "Q22423345"
+  },
+  "indian_ocean": {
+   "en": "Indian Ocean",
+   "ne_ids": [
+    1159115123
+   ],
+   "kind": "ocean",
+   "wikidata": "Q1239",
+   "fi": "Intian valtameri"
+  },
+  "inutil_bay": {
+   "en": "Inútil Bay",
+   "ne_ids": [
+    1159119925
+   ],
+   "kind": "bay",
+   "wikidata": "Q750763"
+  },
+  "ionian_sea": {
+   "en": "Ionian Sea",
+   "ne_ids": [
+    1159116697
+   ],
+   "kind": "sea",
+   "wikidata": "Q37495",
+   "fi": "Joonianmeri"
+  },
+  "irish_sea": {
+   "en": "Irish Sea",
+   "ne_ids": [
+    1159115935
+   ],
+   "kind": "sea",
+   "wikidata": "Q41735",
+   "fi": "Irlanninmeri"
+  },
+  "james_bay": {
+   "en": "James Bay",
+   "ne_ids": [
+    1159116431
+   ],
+   "kind": "bay",
+   "wikidata": "Q223810",
+   "fi": "Jamesinlahti"
+  },
+  "java_sea": {
+   "en": "Java Sea",
+   "ne_ids": [
+    1159115959
+   ],
+   "kind": "sea",
+   "wikidata": "Q49364",
+   "fi": "Jaavanmeri"
+  },
+  "jones_sound": {
+   "en": "Jones Sound",
+   "ne_ids": [
+    1159119795
+   ],
+   "kind": "sound",
+   "wikidata": "Q1703405"
+  },
+  "joseph_bonaparte_gulf": {
+   "en": "Joseph Bonaparte Gulf",
+   "ne_ids": [
+    1159118959
+   ],
+   "kind": "gulf",
+   "wikidata": "Q1706655"
+  },
+  "kaliningrad": {
+   "en": "Kaliningrad",
+   "ne_ids": [
+    1159120003
+   ],
+   "kind": "lagoon"
+  },
+  "kamchatka_gulf": {
+   "en": "Kamchatka Gulf",
+   "ne_ids": [
+    1159118817
+   ],
+   "kind": "gulf",
+   "wikidata": "Q2450069"
+  },
+  "kane_basin": {
+   "en": "Kane Basin",
+   "ne_ids": [
+    1159118099
+   ],
+   "kind": "bay",
+   "wikidata": "Q1510928",
+   "fi": "Kanen allas"
+  },
+  "kao_bay": {
+   "en": "Kao Bay",
+   "ne_ids": [
+    1159120235
+   ],
+   "kind": "gulf"
+  },
+  "kara_sea": {
+   "en": "Kara Sea",
+   "ne_ids": [
+    1159116231
+   ],
+   "kind": "sea",
+   "wikidata": "Q33629",
+   "fi": "Karanmeri"
+  },
+  "kara_strait": {
+   "en": "Kara Strait",
+   "ne_ids": [
+    1159117755
+   ],
+   "kind": "strait"
+  },
+  "karaginsky_gulf": {
+   "en": "Karaginsky Gulf",
+   "ne_ids": [
+    1159118803
+   ],
+   "kind": "gulf",
+   "wikidata": "Q2391874"
+  },
+  "kattegat": {
+   "en": "Kattegat",
+   "ne_ids": [
+    1159117819
+   ],
+   "kind": "sea",
+   "wikidata": "Q131716",
+   "fi": "Kattegat"
+  },
+  "kennedy_channel": {
+   "en": "Kennedy Channel",
+   "ne_ids": [
+    1159120519
+   ],
+   "kind": "channel",
+   "wikidata": "Q908591",
+   "fi": "Kennedyn kanaali"
+  },
+  "khatanga_gulf": {
+   "en": "Khatanga Gulf",
+   "ne_ids": [
+    1159119075
+   ],
+   "kind": "gulf",
+   "wikidata": "Q939905",
+   "fi": "Hatanganlahti"
+  },
+  "korea_strait": {
+   "en": "Korea Strait",
+   "ne_ids": [
+    1159116907
+   ],
+   "kind": "strait",
+   "wikidata": "Q52052",
+   "fi": "Koreansalmi"
+  },
+  "kotzebue_sound": {
+   "en": "Kotzebue Sound",
+   "ne_ids": [
+    1159118029
+   ],
+   "kind": "sound",
+   "wikidata": "Q943234",
+   "fi": "Kotzebue Sound"
+  },
+  "kronotsky_gulf": {
+   "en": "Kronotsky Gulf",
+   "ne_ids": [
+    1159117867
+   ],
+   "kind": "gulf",
+   "wikidata": "Q2326240"
+  },
+  "la_perouse_strait": {
+   "en": "La Pérouse Strait",
+   "ne_ids": [
+    1159118231
+   ],
+   "kind": "strait",
+   "wikidata": "Q208054",
+   "fi": "La Pérousen salmi"
+  },
+  "labrador_sea": {
+   "en": "Labrador Sea",
+   "ne_ids": [
+    1159115419
+   ],
+   "kind": "sea",
+   "wikidata": "Q184189",
+   "fi": "Labradorinmeri"
+  },
+  "laccadive_sea": {
+   "en": "Laccadive Sea",
+   "ne_ids": [
+    1159116143
+   ],
+   "kind": "sea",
+   "wikidata": "Q544914",
+   "fi": "Lakkadiivienmeri"
+  },
+  "lake_maracaibo": {
+   "en": "Lake Maracaibo",
+   "ne_ids": [
+    1159119215
+   ],
+   "kind": "lagoon",
+   "wikidata": "Q182137",
+   "fi": "Maracaibojärvi"
+  },
+  "lake_mogotoyevo": {
+   "en": "Lake Mogotoyevo",
+   "ne_ids": [
+    1159120037
+   ],
+   "kind": "lagoon",
+   "wikidata": "Q2639916",
+   "fi": "Mogotojevo"
+  },
+  "lake_pontchartrain": {
+   "en": "Lake Pontchartrain",
+   "ne_ids": [
+    1159119471
+   ],
+   "kind": "lagoon",
+   "wikidata": "Q1331750"
+  },
+  "laptev_sea": {
+   "en": "Laptev Sea",
+   "ne_ids": [
+    1159116253
+   ],
+   "kind": "sea",
+   "wikidata": "Q7988",
+   "fi": "Laptevinmeri"
+  },
+  "leyte_gulf": {
+   "en": "Leyte Gulf",
+   "ne_ids": [
+    1159120375
+   ],
+   "kind": "gulf",
+   "wikidata": "Q240753"
+  },
+  "liddon_gulf": {
+   "en": "Liddon Gulf",
+   "ne_ids": [
+    1159119625
+   ],
+   "kind": "gulf",
+   "wikidata": "Q6543624"
+  },
+  "ligurian_sea": {
+   "en": "Ligurian Sea",
+   "ne_ids": [
+    1159118439
+   ],
+   "kind": "sea",
+   "wikidata": "Q42820",
+   "fi": "Ligurianmeri"
+  },
+  "lincoln_sea": {
+   "en": "Lincoln Sea",
+   "ne_ids": [
+    1159117355
+   ],
+   "kind": "sea",
+   "wikidata": "Q243125",
+   "fi": "Lincolninmeri"
+  },
+  "long_island_sound": {
+   "en": "Long Island Sound",
+   "ne_ids": [
+    1159119293
+   ],
+   "kind": "sound",
+   "wikidata": "Q867460"
+  },
+  "lutzow_holm_bay": {
+   "en": "Lützow-Holm Bay",
+   "ne_ids": [
+    1159118743
+   ],
+   "kind": "bay",
+   "wikidata": "Q156123"
+  },
+  "luzon_strait": {
+   "en": "Luzon Strait",
+   "ne_ids": [
+    1159115729
+   ],
+   "kind": "strait",
+   "wikidata": "Q908741",
+   "fi": "Luzoninsalmi"
+  },
+  "m_clure_strait": {
+   "en": "M'Clure Strait",
+   "ne_ids": [
+    1159117427
+   ],
+   "kind": "strait",
+   "wikidata": "Q1135336",
+   "fi": "McClurensalmi"
+  },
+  "mackenzie_bay": {
+   "en": "Mackenzie Bay",
+   "ne_ids": [
+    1159117989
+   ],
+   "kind": "bay",
+   "wikidata": "Q4275770"
+  },
+  "makassar_strait": {
+   "en": "Makassar Strait",
+   "ne_ids": [
+    1159116881
+   ],
+   "kind": "strait",
+   "wikidata": "Q194477",
+   "fi": "Makassarinsalmi"
+  },
+  "maputo_bay": {
+   "en": "Maputo Bay",
+   "ne_ids": [
+    1159118905
+   ],
+   "kind": "bay",
+   "wikidata": "Q1134899",
+   "fi": "Maputonlahti"
+  },
+  "marajo_bay": {
+   "en": "Marajó Bay",
+   "ne_ids": [
+    1159117463
+   ],
+   "kind": "bay"
+  },
+  "marguerite_bay": {
+   "en": "Marguerite Bay",
+   "ne_ids": [
+    1159118651
+   ],
+   "kind": "bay",
+   "wikidata": "Q141727"
+  },
+  "massachusetts_bay": {
+   "en": "Massachusetts Bay",
+   "ne_ids": [
+    1159119247
+   ],
+   "kind": "bay",
+   "wikidata": "Q959127"
+  },
+  "matochkin_strait": {
+   "en": "Matochkin Strait",
+   "ne_ids": [
+    1159120015
+   ],
+   "kind": "strait",
+   "wikidata": "Q908356",
+   "fi": "Matotškin Šar"
+  },
+  "mcmurdo_sound": {
+   "en": "McMurdo Sound",
+   "ne_ids": [
+    1159117579
+   ],
+   "kind": "sound",
+   "wikidata": "Q1056751"
+  },
+  "mediterranean_sea": {
+   "en": "Mediterranean Sea",
+   "ne_ids": [
+    1159115321
+   ],
+   "kind": "sea",
+   "wikidata": "Q4918",
+   "fi": "Välimeri"
+  },
+  "melville_bay": {
+   "en": "Melville Bay",
+   "ne_ids": [
+    1159116999
+   ],
+   "kind": "bay",
+   "wikidata": "Q2336534"
+  },
+  "minto_inlet": {
+   "en": "Minto Inlet",
+   "ne_ids": [
+    1159119565
+   ],
+   "kind": "sound"
+  },
+  "molucca_sea": {
+   "en": "Molucca Sea",
+   "ne_ids": [
+    1159116731
+   ],
+   "kind": "sea",
+   "wikidata": "Q185291",
+   "fi": "Molukkienmeri"
+  },
+  "monterey_bay": {
+   "en": "Monterey Bay",
+   "ne_ids": [
+    1159120705
+   ],
+   "kind": "bay",
+   "wikidata": "Q584588",
+   "fi": "Montereynlahti"
+  },
+  "mozambique_channel": {
+   "en": "Mozambique Channel",
+   "ne_ids": [
+    1159115771
+   ],
+   "kind": "channel",
+   "wikidata": "Q165100",
+   "fi": "Mosambikin kanaali"
+  },
+  "murchison_sound": {
+   "en": "Murchison Sound",
+   "ne_ids": [
+    1159120493
+   ],
+   "kind": "sound"
+  },
+  "north_sea": {
+   "en": "North Sea",
+   "ne_ids": [
+    1159115879
+   ],
+   "kind": "sea",
+   "wikidata": "Q1693",
+   "fi": "Pohjanmeri"
+  },
+  "northwest_passage": {
+   "en": "Northwest Passage",
+   "ne_ids": [
+    1159116661
+   ],
+   "kind": "channel",
+   "wikidata": "Q81136",
+   "fi": "Luoteisväylä"
+  },
+  "norton_sound": {
+   "en": "Norton Sound",
+   "ne_ids": [
+    1159118005
+   ],
+   "kind": "sound",
+   "wikidata": "Q1973692",
+   "fi": "Nortoninlahti"
+  },
+  "norwegian_sea": {
+   "en": "Norwegian Sea",
+   "ne_ids": [
+    1159115675
+   ],
+   "kind": "sea",
+   "wikidata": "Q47545",
+   "fi": "Norjanmeri"
+  },
+  "olenyok_gulf": {
+   "en": "Olenyok Gulf",
+   "ne_ids": [
+    1159118351
+   ],
+   "kind": "gulf"
+  },
+  "pacific_ocean": {
+   "en": "Pacific Ocean",
+   "ne_ids": [
+    1159115079,
+    1159115099
+   ],
+   "kind": "ocean",
+   "wikidata": "Q98",
+   "fi": "Tyynimeri"
+  },
+  "palk_strait": {
+   "en": "Palk Strait",
+   "ne_ids": [
+    1159117845
+   ],
+   "kind": "strait",
+   "wikidata": "Q186299",
+   "fi": "Palkinsalmi"
+  },
+  "pamlico_sound": {
+   "en": "Pamlico Sound",
+   "ne_ids": [
+    1159119327
+   ],
+   "kind": "sound",
+   "wikidata": "Q2033236"
+  },
+  "patos_lagoon": {
+   "en": "Patos Lagoon",
+   "ne_ids": [
+    1159119943
+   ],
+   "kind": "lagoon"
+  },
+  "peacock_sound": {
+   "en": "Peacock Sound",
+   "ne_ids": [
+    1159119867
+   ],
+   "kind": "sound",
+   "wikidata": "Q1618810"
+  },
+  "persian_gulf": {
+   "en": "Persian Gulf",
+   "ne_ids": [
+    1159115597
+   ],
+   "kind": "gulf",
+   "wikidata": "Q34675",
+   "fi": "Persianlahti"
+  },
+  "philippine_sea": {
+   "en": "Philippine Sea",
+   "ne_ids": [
+    1159115197
+   ],
+   "kind": "sea",
+   "wikidata": "Q159183",
+   "fi": "Filippiinienmeri"
+  },
+  "porpoise_bay": {
+   "en": "Porpoise Bay",
+   "ne_ids": [
+    1159118705
+   ],
+   "kind": "bay",
+   "wikidata": "Q7230362"
+  },
+  "prince_albert_sound": {
+   "en": "Prince Albert Sound",
+   "ne_ids": [
+    1159119599
+   ],
+   "kind": "sound",
+   "wikidata": "Q7243787"
+  },
+  "prince_of_wales_strait": {
+   "en": "Prince of Wales Strait",
+   "ne_ids": [
+    1159119555
+   ],
+   "kind": "strait",
+   "wikidata": "Q156271"
+  },
+  "prince_william_sound": {
+   "en": "Prince William Sound",
+   "ne_ids": [
+    1159118537
+   ],
+   "kind": "sound",
+   "wikidata": "Q631282",
+   "fi": "Prince William Sound"
+  },
+  "prydz_bay": {
+   "en": "Prydz Bay",
+   "ne_ids": [
+    1159118669
+   ],
+   "kind": "bay",
+   "wikidata": "Q156116"
+  },
+  "qiongzhou_strait": {
+   "en": "Qiongzhou Strait",
+   "ne_ids": [
+    1159118261
+   ],
+   "kind": "strait",
+   "wikidata": "Q1075679"
+  },
+  "queen_charlotte_sound": {
+   "en": "Queen Charlotte Sound",
+   "ne_ids": [
+    1159116679
+   ],
+   "kind": "sound",
+   "wikidata": "Q2565098",
+   "fi": "Kuningatar Charlotten salmi"
+  },
+  "queen_charlotte_strait": {
+   "en": "Queen Charlotte Strait",
+   "ne_ids": [
+    1159119407
+   ],
+   "kind": "strait",
+   "wikidata": "Q1796011"
+  },
+  "ragay_gulf": {
+   "en": "Ragay Gulf",
+   "ne_ids": [
+    1159120315
+   ],
+   "kind": "gulf"
+  },
+  "red_sea": {
+   "en": "Red Sea",
+   "ne_ids": [
+    1159115521
+   ],
+   "kind": "sea",
+   "wikidata": "Q23406",
+   "fi": "Punainenmeri"
+  },
+  "resund": {
+   "en": "Øresund",
+   "ne_ids": [
+    1159120609
+   ],
+   "kind": "sound",
+   "wikidata": "Q104662",
+   "fi": "Juutinrauma"
+  },
+  "richard_collinson_inlet": {
+   "en": "Richard Collinson Inlet",
+   "ne_ids": [
+    1159119583
+   ],
+   "kind": "bay",
+   "wikidata": "Q7324843"
+  },
+  "rio_de_la_plata": {
+   "en": "Río de la Plata",
+   "ne_ids": [
+    1159116815
+   ],
+   "kind": "gulf",
+   "wikidata": "Q35827",
+   "fi": "Río de la Plata"
+  },
+  "robeson_channel": {
+   "en": "Robeson Channel",
+   "ne_ids": [
+    1159120501
+   ],
+   "kind": "channel",
+   "wikidata": "Q1152327",
+   "fi": "Robesonin kanaali"
+  },
+  "ronne_entrance": {
+   "en": "Ronne Entrance",
+   "ne_ids": [
+    1159117543
+   ],
+   "kind": "channel",
+   "wikidata": "Q281730"
+  },
+  "ross_sea": {
+   "en": "Ross Sea",
+   "ne_ids": [
+    1159115615
+   ],
+   "kind": "sea",
+   "wikidata": "Q164466",
+   "fi": "Rossinmeri"
+  },
+  "saint_lawrence_river": {
+   "en": "Saint Lawrence River",
+   "ne_ids": [
+    1159119037
+   ],
+   "kind": "channel",
+   "wikidata": "Q134750",
+   "fi": "Saint Lawrence"
+  },
+  "sakhalin_gulf": {
+   "en": "Sakhalin Gulf",
+   "ne_ids": [
+    1159118989
+   ],
+   "kind": "gulf",
+   "wikidata": "Q715484"
+  },
+  "salish_sea": {
+   "en": "Salish Sea",
+   "ne_ids": [
+    1159120759
+   ],
+   "kind": "sea",
+   "wikidata": "Q2097617"
+  },
+  "samar_sea": {
+   "en": "Samar Sea",
+   "ne_ids": [
+    1159120335
+   ],
+   "kind": "sea",
+   "wikidata": "Q392623"
+  },
+  "san_francisco_bay": {
+   "en": "San Francisco Bay",
+   "ne_ids": [
+    1159120685
+   ],
+   "kind": "bay",
+   "wikidata": "Q232264",
+   "fi": "San Franciscon lahti"
+  },
+  "san_jorge_gulf": {
+   "en": "San Jorge Gulf",
+   "ne_ids": [
+    1159117077
+   ],
+   "kind": "gulf",
+   "wikidata": "Q1536292"
+  },
+  "san_matias_gulf": {
+   "en": "San Matías Gulf",
+   "ne_ids": [
+    1159117475
+   ],
+   "kind": "gulf",
+   "wikidata": "Q1459954"
+  },
+  "sargasso_sea": {
+   "en": "Sargasso Sea",
+   "ne_ids": [
+    1159120667
+   ],
+   "kind": "sea",
+   "wikidata": "Q169274",
+   "fi": "Sargassomeri"
+  },
+  "savu_sea": {
+   "en": "Savu Sea",
+   "ne_ids": [
+    1159120417
+   ],
+   "kind": "sea",
+   "wikidata": "Q193465",
+   "fi": "Savunmeri"
+  },
+  "scoresby_sound": {
+   "en": "Scoresby Sound",
+   "ne_ids": [
+    1159119013
+   ],
+   "kind": "fjord",
+   "wikidata": "Q426453",
+   "fi": "Scoresbynsalmi"
+  },
+  "scotia_sea": {
+   "en": "Scotia Sea",
+   "ne_ids": [
+    1159115811
+   ],
+   "kind": "sea",
+   "wikidata": "Q204703",
+   "fi": "Scotianmeri"
+  },
+  "sea_of_azov": {
+   "en": "Sea of Azov",
+   "ne_ids": [
+    1159116409
+   ],
+   "kind": "sea",
+   "wikidata": "Q35000",
+   "fi": "Asovanmeri"
+  },
+  "sea_of_crete": {
+   "en": "Sea of Crete",
+   "ne_ids": [
+    1159118425
+   ],
+   "kind": "sea",
+   "wikidata": "Q193149",
+   "fi": "Kreetanmeri"
+  },
+  "sea_of_japan": {
+   "en": "Sea of Japan",
+   "ne_ids": [
+    1159115305
+   ],
+   "kind": "sea",
+   "wikidata": "Q27092",
+   "fi": "Japaninmeri"
+  },
+  "sea_of_marmara": {
+   "en": "Sea of Marmara",
+   "ne_ids": [
+    1159119181
+   ],
+   "kind": "sea",
+   "wikidata": "Q35367",
+   "fi": "Marmaranmeri"
+  },
+  "sea_of_okhotsk": {
+   "en": "Sea of Okhotsk",
+   "ne_ids": [
+    1159115541
+   ],
+   "kind": "sea",
+   "wikidata": "Q41602",
+   "fi": "Ohotanmeri"
+  },
+  "sea_of_the_hebrides": {
+   "en": "Sea of the Hebrides",
+   "ne_ids": [
+    1159115921
+   ],
+   "kind": "sea",
+   "wikidata": "Q1971856",
+   "fi": "Hebridien meri"
+  },
+  "seno_otway": {
+   "en": "Seno Otway",
+   "ne_ids": [
+    1159119915
+   ],
+   "kind": "sound",
+   "wikidata": "Q4169149"
+  },
+  "seno_skyring": {
+   "en": "Seno Skyring",
+   "ne_ids": [
+    1159119901
+   ],
+   "kind": "sound",
+   "wikidata": "Q7450889"
+  },
+  "seto_inland_sea": {
+   "en": "Seto Inland Sea",
+   "ne_ids": [
+    1159116927
+   ],
+   "kind": "sea",
+   "wikidata": "Q231312",
+   "fi": "Seton sisämeri"
+  },
+  "shark_bay": {
+   "en": "Shark Bay",
+   "ne_ids": [
+    1159117955
+   ],
+   "kind": "bay",
+   "wikidata": "Q217487",
+   "fi": "Shark Bay"
+  },
+  "shelikhov_gulf": {
+   "en": "Shelikhov Gulf",
+   "ne_ids": [
+    1159117159
+   ],
+   "kind": "gulf",
+   "wikidata": "Q639399"
+  },
+  "sherman_basin": {
+   "en": "Sherman Basin",
+   "ne_ids": [
+    1159119727
+   ],
+   "kind": "bay"
+  },
+  "sibuyan_sea": {
+   "en": "Sibuyan Sea",
+   "ne_ids": [
+    1159120183
+   ],
+   "kind": "sea",
+   "wikidata": "Q594834",
+   "fi": "Sibuyaninmeri"
+  },
+  "singapore_strait": {
+   "en": "Singapore Strait",
+   "ne_ids": [
+    1159116861
+   ],
+   "kind": "strait",
+   "wikidata": "Q205655",
+   "fi": "Singaporensalmi"
+  },
+  "skagerrak": {
+   "en": "Skagerrak",
+   "ne_ids": [
+    1159117723
+   ],
+   "kind": "fjord",
+   "wikidata": "Q1695",
+   "fi": "Skagerrak"
+  },
+  "smith_sound": {
+   "en": "Smith Sound",
+   "ne_ids": [
+    1159119367
+   ],
+   "kind": "sound",
+   "wikidata": "Q7545320"
+  },
+  "sognefjord": {
+   "en": "Sognefjord",
+   "ne_ids": [
+    1159117781
+   ],
+   "kind": "fjord",
+   "wikidata": "Q208495",
+   "fi": "Sognevuono"
+  },
+  "solomon_sea": {
+   "en": "Solomon Sea",
+   "ne_ids": [
+    1159116767
+   ],
+   "kind": "sea",
+   "wikidata": "Q199479",
+   "fi": "Salomonmeri"
+  },
+  "south_china_sea": {
+   "en": "South China Sea",
+   "ne_ids": [
+    1159115273
+   ],
+   "kind": "sea",
+   "wikidata": "Q37660",
+   "fi": "Etelä-Kiinan meri"
+  },
+  "southern_ocean": {
+   "en": "Southern Ocean",
+   "ne_ids": [
+    1159115037
+   ],
+   "kind": "ocean",
+   "wikidata": "Q7354",
+   "fi": "Eteläinen jäämeri"
+  },
+  "st_helena_bay": {
+   "en": "St. Helena Bay",
+   "ne_ids": [
+    1159118925
+   ],
+   "kind": "bay"
+  },
+  "storfjorden": {
+   "en": "Storfjorden",
+   "ne_ids": [
+    1159117683
+   ],
+   "kind": "fjord",
+   "wikidata": "Q2097444"
+  },
+  "strait_of_belle_isle": {
+   "en": "Strait of Belle Isle",
+   "ne_ids": [
+    1159118511
+   ],
+   "kind": "strait",
+   "wikidata": "Q815831"
+  },
+  "strait_of_gibraltar": {
+   "en": "Strait of Gibraltar",
+   "ne_ids": [
+    1159117067
+   ],
+   "kind": "strait",
+   "wikidata": "Q36124",
+   "fi": "Gibraltarinsalmi"
+  },
+  "strait_of_magellan": {
+   "en": "Strait of Magellan",
+   "ne_ids": [
+    1159118553
+   ],
+   "kind": "strait",
+   "wikidata": "Q48365",
+   "fi": "Magalhãesinsalmi"
+  },
+  "strait_of_malacca": {
+   "en": "Strait of Malacca",
+   "ne_ids": [
+    1159116835
+   ],
+   "kind": "strait",
+   "wikidata": "Q48359",
+   "fi": "Malakansalmi"
+  },
+  "strait_of_tartary": {
+   "en": "Strait of Tartary",
+   "ne_ids": [
+    1159117937
+   ],
+   "kind": "strait",
+   "wikidata": "Q110802",
+   "fi": "Tatariansalmi"
+  },
+  "sulu_sea": {
+   "en": "Sulu Sea",
+   "ne_ids": [
+    1159115655
+   ],
+   "kind": "sea",
+   "wikidata": "Q160194",
+   "fi": "Sulunmeri"
+  },
+  "sulzberger_bay": {
+   "en": "Sulzberger Bay",
+   "ne_ids": [
+    1159117531
+   ],
+   "kind": "bay",
+   "wikidata": "Q281737"
+  },
+  "surigao_strait": {
+   "en": "Surigao Strait",
+   "ne_ids": [
+    1159120289
+   ],
+   "kind": "strait",
+   "wikidata": "Q1632248"
+  },
+  "szczecin_lagoon": {
+   "en": "Szczecin Lagoon",
+   "ne_ids": [
+    1159119491
+   ],
+   "kind": "lagoon"
+  },
+  "taiwan_strait": {
+   "en": "Taiwan Strait",
+   "ne_ids": [
+    1159116947
+   ],
+   "kind": "strait",
+   "wikidata": "Q127031",
+   "fi": "Taiwaninsalmi"
+  },
+  "tasman_sea": {
+   "en": "Tasman Sea",
+   "ne_ids": [
+    1159115233
+   ],
+   "kind": "sea",
+   "wikidata": "Q33254",
+   "fi": "Tasmaninmeri"
+  },
+  "tayabas_bay": {
+   "en": "Tayabas Bay",
+   "ne_ids": [
+    1159120353
+   ],
+   "kind": "bay",
+   "wikidata": "Q999060"
+  },
+  "tikahtnu_inlet": {
+   "en": "Tikahtnu Inlet",
+   "ne_ids": [
+    1159116967
+   ],
+   "kind": "bay",
+   "wikidata": "Q1129590",
+   "fi": "Cook Inlet"
+  },
+  "timor_sea": {
+   "en": "Timor Sea",
+   "ne_ids": [
+    1159116101
+   ],
+   "kind": "sea",
+   "wikidata": "Q131418",
+   "fi": "Timorinmeri"
+  },
+  "torres_strait": {
+   "en": "Torres Strait",
+   "ne_ids": [
+    1159118303
+   ],
+   "kind": "strait",
+   "wikidata": "Q179188",
+   "fi": "Torresinsalmi"
+  },
+  "trondheimsfjord": {
+   "en": "Trondheimsfjord",
+   "ne_ids": [
+    1159117797
+   ],
+   "kind": "fjord",
+   "wikidata": "Q279579",
+   "fi": "Trondheiminvuono"
+  },
+  "tsugaru_strait": {
+   "en": "Tsugaru Strait",
+   "ne_ids": [
+    1159117919
+   ],
+   "kind": "strait",
+   "wikidata": "Q271521",
+   "fi": "Tsugarunsalmi"
+  },
+  "tyrrhenian_sea": {
+   "en": "Tyrrhenian Sea",
+   "ne_ids": [
+    1159116377
+   ],
+   "kind": "sea",
+   "wikidata": "Q38882",
+   "fi": "Tyrrhenanmeri"
+  },
+  "uchiura_bay": {
+   "en": "Uchiura Bay",
+   "ne_ids": [
+    1159117901
+   ],
+   "kind": "bay",
+   "wikidata": "Q1036267"
+  },
+  "uda_gulf": {
+   "en": "Uda Gulf",
+   "ne_ids": [
+    1159117883
+   ],
+   "kind": "bay",
+   "wikidata": "Q1141758"
+  },
+  "ungava_bay": {
+   "en": "Ungava Bay",
+   "ne_ids": [
+    1159117265
+   ],
+   "kind": "bay",
+   "wikidata": "Q1165951",
+   "fi": "Ungavanlahti"
+  },
+  "uummannaq_fjord": {
+   "en": "Uummannaq fjord",
+   "ne_ids": [
+    1159119849
+   ],
+   "kind": "fjord",
+   "wikidata": "Q384323"
+  },
+  "vestfjorden": {
+   "en": "Vestfjorden",
+   "ne_ids": [
+    1159117697
+   ],
+   "kind": "fjord",
+   "wikidata": "Q1753121",
+   "fi": "Länsivuono"
+  },
+  "vilkitsky_strait": {
+   "en": "Vilkitsky Strait",
+   "ne_ids": [
+    1159117771
+   ],
+   "kind": "strait"
+  },
+  "vincennes_bay": {
+   "en": "Vincennes Bay",
+   "ne_ids": [
+    1159118683
+   ],
+   "kind": "bay",
+   "wikidata": "Q281808"
+  },
+  "visayan_sea": {
+   "en": "Visayan Sea",
+   "ne_ids": [
+    1159120401
+   ],
+   "kind": "sea",
+   "wikidata": "Q474708",
+   "fi": "Visayaninmeri"
+  },
+  "viscount_melville_sound": {
+   "en": "Viscount Melville Sound",
+   "ne_ids": [
+    1159117247
+   ],
+   "kind": "sound",
+   "wikidata": "Q5605258",
+   "fi": "Melvillensalmi"
+  },
+  "wadden_sea": {
+   "en": "Wadden Sea",
+   "ne_ids": [
+    1159118385
+   ],
+   "kind": "lagoon",
+   "wikidata": "Q26080",
+   "fi": "Vattimeri"
+  },
+  "wager_bay": {
+   "en": "Wager Bay",
+   "ne_ids": [
+    1159119745
+   ],
+   "kind": "bay",
+   "wikidata": "Q2539134"
+  },
+  "weddell_sea": {
+   "en": "Weddell Sea",
+   "ne_ids": [
+    1159115579
+   ],
+   "kind": "sea",
+   "wikidata": "Q173343",
+   "fi": "Weddellinmeri"
+  },
+  "white_sea": {
+   "en": "White Sea",
+   "ne_ids": [
+    1159116395
+   ],
+   "kind": "sea",
+   "wikidata": "Q44133",
+   "fi": "Vienanmeri"
+  },
+  "wrigley_gulf": {
+   "en": "Wrigley Gulf",
+   "ne_ids": [
+    1159117505
+   ],
+   "kind": "gulf",
+   "wikidata": "Q281638"
+  },
+  "wynniatt_bay": {
+   "en": "Wynniatt Bay",
+   "ne_ids": [
+    1159119635
+   ],
+   "kind": "bay",
+   "wikidata": "Q8040226"
+  },
+  "yana_bay": {
+   "en": "Yana Bay",
+   "ne_ids": [
+    1159118193
+   ],
+   "kind": "gulf",
+   "wikidata": "Q2363133"
+  },
+  "yangtze": {
+   "en": "Yangtze",
+   "ne_ids": [
+    1159120729
+   ],
+   "kind": "river",
+   "wikidata": "Q5413",
+   "fi": "Jangtse"
+  },
+  "yellow_sea": {
+   "en": "Yellow Sea",
+   "ne_ids": [
+    1159115999
+   ],
+   "kind": "sea",
+   "wikidata": "Q37960",
+   "fi": "Keltainenmeri"
+  },
+  "yenisei_gulf": {
+   "en": "Yenisei Gulf",
+   "ne_ids": [
+    1159119141
+   ],
+   "kind": "gulf",
+   "wikidata": "Q1338198",
+   "fi": "Jeniseinlahti"
+  },
+  "yucatan_channel": {
+   "en": "Yucatán Channel",
+   "ne_ids": [
+    1159117301
+   ],
+   "kind": "channel",
+   "wikidata": "Q193260",
+   "fi": "Jukatanin kanaali"
+  }
+ }
+}

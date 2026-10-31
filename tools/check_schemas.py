@@ -27,7 +27,7 @@ from referencing import Registry, Resource
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SCHEMAS = os.path.join(HERE, "..", "schemas")
-NAMES = ["region", "animal", "archetypes", "model", "tree", "locale", "wanted"]
+NAMES = ["region", "animal", "archetypes", "model", "tree", "locale", "wanted", "seas"]
 MAX_BONES = 16             # ART.md: up to 16 bones
 MAX_WILDLIFE_TRIANGLES = 800  # ART.md: wildlife that is never played, 400 to 800
 
@@ -81,13 +81,15 @@ def schema_for(rel):
         return "locale", name
     if rel == "wanted.json":
         return "wanted", None
+    if rel == "seas/names.json":
+        return "seas", None
     if parts[0] in ("biomes", "homes") and len(parts) == 2:
         return "home", None
     return None
 
 
 def content_files(root):
-    out = ["wanted.json"]
+    out = ["wanted.json", "seas/names.json"]
     for d in ("regions", "biomes", "homes", "animals", "models", "models/plants", "models/trees", "locale"):
         if os.path.isdir(os.path.join(root, d)):
             out += [f"{d}/{f}" for f in sorted(os.listdir(os.path.join(root, d))) if f.endswith(".json")]

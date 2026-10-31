@@ -1,0 +1,67 @@
+{
+  "id": "open_sea",
+  "name": "Open sea",
+  "country": "",
+  "center": {
+    "lat": 0,
+    "lon": 0
+  },
+  "description": "Open sea far from the shore: a shallow seabed of mud and stones, a few bare rock skerries where seals haul out and gulls rest, and the sea's own fish and birds.",
+  "about": "Biome for every open-ocean cell (game proposal 0047): no trees, ground plants, lakes, bogs or streams. One biome serves every sea: the tile gives its land style (`land`, the nearest coast's), its name (the sea's, from seas/names.json), its animals and its land share, which sets how many skerries rise. The land style below is only the default.",
+  "author": "Animundo team",
+  "based_on": "sea",
+  "ecoregions": [],
+  "habitat": "open_ocean",
+  "land": "boreal",
+  "terrain": {
+    "size": 1024,
+    "base_height": 4,
+    "relief": 2,
+    "frequency": 0.012,
+    "rock_ridges": 0,
+    "rock_above": 28,
+    "lakes": 0,
+    "edge": "open",
+    "seed": 4700047,
+    "seabed": "mud",
+    "skerries": 1.5
+  },
+  "trees": {
+    "density": 0,
+    "mix": []
+  },
+  "ground_cover": {
+    "grass": 0,
+    "flowers": 0,
+    "flower_colors": [],
+    "flower_names": [],
+    "stones": 0.05,
+    "plants": []
+  },
+  "small_life": {
+    "bottom_bugs": [
+      "blue mussel",
+      "sea snails"
+    ]
+  },
+  "lakes": [],
+  "bogs": [],
+  "streams": [],
+  "places": [],
+  "lake_life": {
+    "reeds": 0,
+    "lilies": 0,
+    "pondweed": 0
+  },
+  "fish": [],
+  "migrants": [],
+  "animals": {
+    "playable": [],
+    "predators": [],
+    "prey": []
+  },
+  "sources": [
+    "https://www.naturalearthdata.com/downloads/10m-physical-vectors/10m-geography-marine-polys/",
+    "https://www.wikidata.org/wiki/Q14686"
+  ]
+}

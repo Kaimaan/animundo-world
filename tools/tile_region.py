@@ -20,6 +20,9 @@ place children get:
   plants   the tile's own trees, cover and water plants, each part replacing
            the biome's (layers.use_plants)
   animals  the tile's species lists
+  open sea an open-sea tile (biome open_sea, game proposal 0047): its own land
+           style (`land`), skerries (`skerries`, how many) from its
+           `land_share`, and its fish as shoals in the open water
   food     worked out from the plants, water and animals (food.worked_out):
            mushrooms from the forest floor's plants, berries, bark, grass...,
            weight 0 for a kind no animal here eats
@@ -62,6 +65,9 @@ HOME_WATER = 0.1     # the share of a real cell under lakes a biome's terrain.la
 MAX_LAKES = 0.6
 WATER_LEVEL = 8      # every biome on the grid shares one water level (spec 02 Part 1)
 BIOME_NOTES = ("id", "name", "country", "about", "based_on", "author")
+OPEN_SEA = "open_sea"   # the biome of every open-ocean cell (game proposal 0047)
+MAX_SKERRIES = 12
+SHOAL = 8            # fish of a schooling kind in an open-sea tile; others come in twos
 GOLDEN = os.path.join(ROOT, "tests", "tile_region")
 
 
@@ -98,6 +104,8 @@ def place(tile, biome=None, blend=None, biomes=None):
         biome = read_biome(biome_of(tile), biomes)
     if blend is None and isinstance(tile.get("blend"), dict):
         blend = read_biome(biome_of(tile["blend"]), biomes)
+    if isinstance(tile.get("land"), str) and tile["land"]:   # the tile's own land style (an open sea's: its nearest coast's)
+        biome = dict(biome, land=tile["land"])
     d = copy.deepcopy(layers.resolve(biome))   # a biome in layers (0043): its land style, plants, food
     blend = layers.resolve(blend) if blend else {}
     for k in BIOME_NOTES:
@@ -122,8 +130,28 @@ def place(tile, biome=None, blend=None, biomes=None):
         layers.use_plants(d, tile["plants"])
     species = tile.get("species", {})
     d["animals"] = {k: list(species.get(k, [])) for k in ("playable", "prey", "predators")}
+    if biome_of(tile) == OPEN_SEA:
+        _open_sea(d, tile)
     d["food"] = food.worked_out(d)   # from the plants, water and animals (0043)
     return d
+
+
+def _open_sea(d, tile):
+    """An open-sea tile (0047, Tile._open_sea): skerries from the real cell's land
+    share, and the tile's fish as shoals in the open water."""
+    per = float(d["terrain"].get("skerries", 0.0))
+    d["skerries"] = min(int(math.floor(float(tile.get("land_share", 0.0)) * 100.0 * per + 0.5)), MAX_SKERRIES)   # roundi
+    fish = []
+    for kind in d["animals"]["playable"] + d["animals"]["prey"]:
+        own = _animal(kind)
+        if own.get("archetype") == "fish" and kind not in [f["kind"] for f in fish]:
+            fish.append({"kind": kind, "count": SHOAL if own.get("school") else 2})
+    d["fish"] = fish
+
+
+def _animal(kind):
+    path = os.path.join(ROOT, "animals", kind + ".json")
+    return load(path) if os.path.isfile(path) else {}
 
 
 def _lerp(a, b, t):
