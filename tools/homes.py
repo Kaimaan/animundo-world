@@ -79,7 +79,7 @@ def home_problems(habitat):
             and len(set(eco)) == len(eco)):
         out.append('"ecoregions" must list the RESOLVE 2017 ecoregion ids (ECO_ID) this home stands for')
     terrain = home.get("terrain", {})
-    deep = (home.get("habitat") == "sea" and terrain.get("water_level") == adapt_home.DEEP_WATER
+    deep = (home.get("habitat") in ("sea", "open_ocean") and terrain.get("water_level") == adapt_home.DEEP_WATER
             and terrain.get("height") == 64 and terrain.get("sea_depth") == adapt_home.DEEP_SEA)
     if terrain.get("water_level", 8) != 8 and not deep:   # a deep sea home (game decision 0045): the game lifts its tile's edges by 32, so they still meet
         out.append('"terrain.water_level" must be 8: every home on the tile grid has one water level, so a shared edge is '

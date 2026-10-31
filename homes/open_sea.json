@@ -13,17 +13,20 @@
   "ecoregions": [],
   "habitat": "open_ocean",
   "terrain": {
-    "base_height": 4,
+    "base_height": 36,
     "relief": 2,
     "frequency": 0.012,
     "rock_ridges": 0,
-    "rock_above": 28,
+    "rock_above": 60,
     "size": 1024,
     "lakes": 0,
     "edge": "open",
     "seed": 4700047,
     "seabed": "mud",
-    "skerries": 1.5
+    "skerries": 1.5,
+    "height": 64,
+    "water_level": 40,
+    "sea_depth": 35
   },
   "palette": {
     "ground_lush": "#5f9445",
