@@ -55,7 +55,6 @@
   "ui.map.close": "Sulje napauttamalla karttaa",
   "ui.map.zoom": "Nipistä tai paina − nähdäksesi koko maailman",
   "ui.map.unexplored": "Eläimesi ei ole vielä tutkinut himmeitä paikkoja",
-  "ui.map.nobody_yet": "Täällä ei ole vielä käynyt kukaan",
   "ui.map.open_sea": "Avomerta",
   "ui.map.pin_hint": "Pidä painettuna kartalla, niin saat siihen merkin",
   "ui.map.pin_remove": "Pidä painettuna merkin päällä, niin se poistuu",

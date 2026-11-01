@@ -55,7 +55,6 @@
   "ui.map.close": "Tap the map to close",
   "ui.map.zoom": "Pinch or tap − to see the whole world",
   "ui.map.unexplored": "Your animal hasn't explored the dim parts yet",
-  "ui.map.nobody_yet": "Nobody's been here yet",
   "ui.map.open_sea": "Open sea",
   "ui.map.pin_hint": "Hold on the map to put a pin there",
   "ui.map.pin_remove": "Hold on the pin to take it away",
