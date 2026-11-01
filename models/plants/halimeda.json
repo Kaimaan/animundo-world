@@ -18,6 +18,7 @@
   "grows": {
     "density": 0.3,
     "on": [
+      "reef",
       "seabed"
     ],
     "food": "water_plants",

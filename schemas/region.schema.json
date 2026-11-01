@@ -206,6 +206,12 @@
           "minimum": 3,
           "maximum": 55
         },
+        "reef": {
+          "description": "How much of the deep sea floor is coral rock, rising 2-4 blocks from the sand with sand channels between (0 none, the default; 0.35 a coral reef). Plants \"on\": [\"reef\"] grow on it.",
+          "type": "number",
+          "minimum": 0,
+          "maximum": 0.9
+        },
         "seabed": {
           "description": "The ground under deep water: mud (default) or sand (warm seas, reefs).",
           "enum": [
@@ -238,6 +244,10 @@
           "$ref": "#/$defs/colour"
         },
         "rock": {
+          "$ref": "#/$defs/colour"
+        },
+        "reef_rock": {
+          "description": "The coral rock of terrain.reef, under the water.",
           "$ref": "#/$defs/colour"
         },
         "sand": {
@@ -419,7 +429,8 @@
                     "grass",
                     "rock",
                     "sand",
-                    "seabed"
+                    "seabed",
+                    "reef"
                   ]
                 }
               },

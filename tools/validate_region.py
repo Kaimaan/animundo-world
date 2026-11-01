@@ -34,7 +34,7 @@ FOOD_KINDS = {"clover", "carrot", "berries", "insects", "water_bugs", "browse", 
 EDGES = {"lake", "none", "open"}   # open: no sea at the edge, the land meets the tiles around it (0038)
 GRIDS = {"z10": 1023, "ease2_n25": 719, "ease2_s25": 719}   # the tile grids and their last col/row: web-map zoom 10 (0051), old EASE-Grid 2.0 (0038)
 MIGRANT_KINDS = {"geese", "cranes"}  # flocks the game can draw (scripts/migrants.gd)
-PLANT_GROUND = {"grass", "rock", "sand", "seabed"}   # seabed: under water (corals, sea grass)
+PLANT_GROUND = {"grass", "rock", "sand", "seabed", "reef"}   # seabed: under water (sea grass); reef: on coral rock (corals)
 HEX = re.compile(r"^#[0-9a-fA-F]{6}$")
 ID = re.compile(r"^[a-z]{2}_[a-z0-9_]+$")
 
@@ -286,7 +286,11 @@ def check(path):
             if not isinstance(pl.get("names", []), list):
                 err(f'"ground_cover.plants[{i}].names" must be a list of the food names the player is told')
     total = sum(gc.get(k, 0) for k in ("grass", "flowers", "stones"))
-    total += sum(pl.get("density", 0) for pl in plants if pl.get("habitat", "forest") == "forest" and isinstance(pl.get("density"), (int, float)))
+    reef_only = lambda pl: set(pl.get("on", ["grass"]) or ["grass"]) == {"reef"}   # corals share the coral rock, not the ground
+    total += sum(pl.get("density", 0) for pl in plants if pl.get("habitat", "forest") == "forest" and not reef_only(pl) and isinstance(pl.get("density"), (int, float)))
+    reef_total = sum(pl.get("density", 0) for pl in plants if "reef" in (pl.get("on") or []) and isinstance(pl.get("density"), (int, float)))
+    if reef_total > 1:
+        err('Plant densities "on" the reef must add up to 1 or less')
     bog_total = sum(pl.get("density", 0) for pl in plants if pl.get("habitat") == "bog" and isinstance(pl.get("density"), (int, float)))
     if bog_total > 1:
         err('Bog plant densities must add up to 1 or less')

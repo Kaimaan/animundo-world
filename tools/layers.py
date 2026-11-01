@@ -95,9 +95,10 @@ def use_plants(region, plants):
             trees["density"] = plants["tree_density"]
     if isinstance(plants.get("cover"), list) or isinstance(plants.get("water"), list):
         gc = region.setdefault("ground_cover", {})
+        under = lambda p: "seabed" in p.get("on", []) or "reef" in p.get("on", [])
         keep = [p for p in gc.get("plants", [])
-                if ("seabed" in p.get("on", []) and not isinstance(plants.get("water"), list))
-                or ("seabed" not in p.get("on", []) and not isinstance(plants.get("cover"), list))]
+                if (under(p) and not isinstance(plants.get("water"), list))
+                or (not under(p) and not isinstance(plants.get("cover"), list))]
         for part in ("cover", "water"):
             for p in plants.get(part, []) or []:
                 e = plant_entry(p.get("id"), p.get("density"))

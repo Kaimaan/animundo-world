@@ -27,7 +27,8 @@
     "seabed": "sand",
     "water_level": 40,
     "sea_depth": 35,
-    "seed": 3622710994
+    "seed": 3622710994,
+    "reef": 0.35
   },
   "palette": {
     "ground_lush": "#5fb86e",
@@ -40,7 +41,8 @@
     "water_shallow": "#2ec4b6",
     "ground_autumn": "#e8d9a8",
     "snow": "#eef2f6",
-    "heath_autumn": "#e8d9a8"
+    "heath_autumn": "#e8d9a8",
+    "reef_rock": "#d98a7e"
   },
   "sky": {
     "day": "#8fc6ea",
@@ -61,23 +63,35 @@
     "plants": [
       {
         "model": "branching_staghorn_coral",
-        "density": 0.08,
+        "density": 0.24,
         "on": [
-          "seabed"
+          "reef"
         ]
       },
       {
         "model": "closed_brain_coral",
-        "density": 0.08,
+        "density": 0.2,
         "on": [
-          "seabed"
+          "reef"
         ]
       },
       {
         "model": "giant_sea_fan",
+        "density": 0.18,
+        "on": [
+          "reef"
+        ]
+      },
+      {
+        "model": "halimeda",
         "density": 0.08,
         "on": [
+          "reef",
           "seabed"
+        ],
+        "food": "water_plants",
+        "names": [
+          "halimeda algae"
         ]
       },
       {
@@ -100,17 +114,6 @@
         "food": "water_plants",
         "names": [
           "paddle weed"
-        ]
-      },
-      {
-        "model": "halimeda",
-        "density": 0.08,
-        "on": [
-          "seabed"
-        ],
-        "food": "water_plants",
-        "names": [
-          "halimeda algae"
         ]
       }
     ]
@@ -137,9 +140,9 @@
     {
       "kind": "water_plants",
       "names": [
+        "halimeda algae",
         "dugong grass",
-        "paddle weed",
-        "halimeda algae"
+        "paddle weed"
       ],
       "weight": 8
     },

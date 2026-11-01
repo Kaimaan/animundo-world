@@ -115,7 +115,7 @@
       "additionalProperties": false,
       "properties": {
         "density": {"description": "Copies per m² of the ground it grows on, where it's common.", "type": "number", "minimum": 0, "maximum": 1},
-        "on": {"description": "The ground it grows on.", "type": "array", "minItems": 1, "items": {"enum": ["grass", "rock", "sand", "seabed"]}},
+        "on": {"description": "The ground it grows on.", "type": "array", "minItems": 1, "items": {"enum": ["grass", "rock", "sand", "seabed", "reef"]}},
         "habitat": {"description": "forest (anywhere on land) or bog (only in bogs).", "enum": ["forest", "bog"]},
         "near_trees": {"description": "Grows only within this many metres of a tree (0: anywhere).", "type": "number", "minimum": 0, "maximum": 32},
         "food": {

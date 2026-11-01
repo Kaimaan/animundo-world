@@ -28,7 +28,8 @@
     "seabed": "sand",
     "water_level": 40,
     "sea_depth": 35,
-    "seed": 3622710994
+    "seed": 3622710994,
+    "reef": 0.35
   },
   "palette": {
     "dirt": "#d1c08e",
@@ -40,7 +41,8 @@
     "water_deep": "#0b4f8a",
     "water_shallow": "#2ec4b6",
     "ground_autumn": "#e8d9a8",
-    "heath_autumn": "#e8d9a8"
+    "heath_autumn": "#e8d9a8",
+    "reef_rock": "#d98a7e"
   },
   "trees": {
     "density": 0.0
@@ -57,14 +59,18 @@
     "water": [
       {
         "id": "branching_staghorn_coral",
-        "density": 0.08
+        "density": 0.24
       },
       {
         "id": "closed_brain_coral",
-        "density": 0.08
+        "density": 0.2
       },
       {
         "id": "giant_sea_fan",
+        "density": 0.18
+      },
+      {
+        "id": "halimeda",
         "density": 0.08
       },
       {
@@ -74,10 +80,6 @@
       {
         "id": "paddle_grass",
         "density": 0.25
-      },
-      {
-        "id": "halimeda",
-        "density": 0.08
       }
     ]
   },
