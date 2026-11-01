@@ -9,8 +9,8 @@
       },
       "country": "AU",
       "center": {
-        "lat": -16.759,
-        "lon": 145.973
+        "lat": -16.8045,
+        "lon": 146.0742
       },
       "wikidata": "Q7343",
       "animals": {
@@ -42,8 +42,8 @@
       },
       "country": "FI",
       "center": {
-        "lat": 60.3007,
-        "lon": 24.5263
+        "lat": 60.2398,
+        "lon": 24.6094
       },
       "wikidata": "Q1815268",
       "animals": {
@@ -84,8 +84,8 @@
       },
       "country": "FI",
       "center": {
-        "lat": 62.115,
-        "lon": 28.508
+        "lat": 62.186,
+        "lon": 28.6523
       },
       "wikidata": "Q1826934",
       "animals": {
