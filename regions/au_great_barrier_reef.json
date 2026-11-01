@@ -4,15 +4,15 @@
   "country": "Australia",
   "wikidata": "Q7343",
   "center": {
-    "lat": -16.759,
-    "lon": 145.973
+    "lat": -16.8045,
+    "lon": 146.0742
   },
   "grid": {
-    "grid": "ease2_s25",
+    "grid": "z10",
     "tiles": [
       [
-        530,
-        612
+        927,
+        560
       ]
     ]
   },

@@ -66,8 +66,10 @@ import homes  # noqa: E402
 import layers  # noqa: E402
 import tile_region  # noqa: E402
 
-TILE_ID = re.compile(r"^([ns])_([0-9]{3})_([0-9]{3})$")
-GRIDS = {"ease2_n25": "n", "ease2_s25": "s"}
+# the web-map grid at zoom 10 (game decision 0051), and the old EASE-Grid 2.0 grids
+TILE_ID = re.compile(r"^(?:([ns])_([0-9]{3})_([0-9]{3})|(z10)_([0-9]{4})_([0-9]{4}))$")
+GRIDS = {"z10": "z10", "ease2_n25": "n", "ease2_s25": "s"}
+GROUPS = {"z10": 127, "ease2_n25": 89, "ease2_s25": 89}   # the last group col and row
 SAMPLES = 65        # one every 16 m along a 1,024 m side
 TILE_SIZE = 1024    # metres in the game
 SIDES = ("n", "e", "s", "w")
@@ -103,7 +105,7 @@ def tile_problems(t):
     if t.get("format") != 1:
         out.append('"format" must be 1')
     if not (isinstance(t.get("id"), str) and TILE_ID.match(t["id"])):
-        out.append('"id" must be like "n_412_301"')
+        out.append('"id" must be like "z10_0581_0295"')
     if not (is_int(t.get("version")) and t["version"] >= 1):
         out.append('"version" must be a whole number from 1')
     c = t.get("center")
@@ -114,7 +116,10 @@ def tile_problems(t):
         out.append('"level" must be the cell\'s ground level in whole blocks')
     if t.get("height") not in (32, 64):
         out.append('"height" must be 32 or 64')
-    if not (isinstance(t.get("grid_north"), (int, float)) and -180 <= t["grid_north"] <= 180):
+    if isinstance(t.get("id"), str) and t["id"].startswith("z10_"):
+        if t.get("grid_north", 0) != 0:
+            out.append('a z10 tile is north-up: "grid_north" is 0 or left out')
+    elif not (isinstance(t.get("grid_north"), (int, float)) and -180 <= t["grid_north"] <= 180):
         out.append('"grid_north" must be degrees from -180 to 180')
     kind = t.get("kind")
     if kind == "code":
@@ -375,6 +380,8 @@ def check_tile(t):
 
 def cell(tile_id):
     m = TILE_ID.match(tile_id)
+    if m.group(4):
+        return m.group(4), int(m.group(5)), int(m.group(6))
     return m.group(1), int(m.group(2)), int(m.group(3))
 
 
@@ -387,8 +394,9 @@ def check_group(g):
     if grid not in GRIDS:
         probs.append(f'"grid" must be one of {sorted(GRIDS)}')
     group = g.get("group")
-    if not (isinstance(group, list) and len(group) == 2 and all(is_int(v) and 0 <= v <= 89 for v in group)):
-        probs.append('"group" must be [gcol, grow], each from 0 to 89')
+    last = GROUPS.get(grid, 89)
+    if not (isinstance(group, list) and len(group) == 2 and all(is_int(v) and 0 <= v <= last for v in group)):
+        probs.append(f'"group" must be [gcol, grow], each from 0 to {last}')
         group = None
     tiles = g.get("tiles") if isinstance(g.get("tiles"), dict) else {}
     blocked = g.get("blocked") if isinstance(g.get("blocked"), dict) else {}

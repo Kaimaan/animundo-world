@@ -4,15 +4,15 @@
   "country": "Finland",
   "wikidata": "Q1826934",
   "center": {
-    "lat": 62.115,
-    "lon": 28.508
+    "lat": 62.186,
+    "lon": 28.6523
   },
   "grid": {
-    "grid": "ease2_n25",
+    "grid": "z10",
     "tiles": [
       [
-        418,
-        468
+        593,
+        284
       ]
     ]
   },

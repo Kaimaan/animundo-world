@@ -84,7 +84,7 @@
       "additionalProperties": {"type": "array", "items": {"$ref": "#/$defs/text"}}
     },
     "grid": {
-      "description": "Optional: the tile grid cells this hand-made place fills (Proposal 0038), e.g. {\"grid\": \"ease2_n25\", \"tiles\": [[412, 301], [413, 301]]}.",
+      "description": "Optional: the tile grid cells this hand-made place fills (Proposal 0038), e.g. {\"grid\": \"z10\", \"tiles\": [[581, 295], [582, 295]]}: web-map tiles at zoom 10, [x, y] (game decision 0051). The old EASE-Grid 2.0 grids are still read.",
       "type": "object",
       "additionalProperties": false,
       "required": [
@@ -94,6 +94,7 @@
       "properties": {
         "grid": {
           "enum": [
+            "z10",
             "ease2_n25",
             "ease2_s25"
           ]
@@ -109,7 +110,7 @@
             "items": {
               "type": "integer",
               "minimum": 0,
-              "maximum": 719
+              "maximum": 1023
             }
           }
         }
