@@ -5,6 +5,7 @@ Each content format has a JSON Schema here (draft 2020-12). The schemas describe
 | Schema | Describes | Built from |
 |---|---|---|
 | `region.schema.json` | `regions/<id>.json`, and `biomes/<id>.json` and `homes/<id>.json` as places without a spot (their four home fields allowed, no country, the id their own name) | the region files, CONTRIBUTING.md, `tools/validate_region.py` |
+| `place.schema.json` | `places/<id>.json`: a named place over ordinary tiles (game decision 0057) | the place files, spec 02 §2a |
 | `animal.schema.json` | `animals/<id>.json` | the animal files, `check_animals.gd`, the game's scripts |
 | `archetypes.schema.json` | `animals/archetypes.json` | the archetypes file, `species.gd` |
 | `model.schema.json` | `models/<id>.json` (`$defs/animal_model`) and `models/plants/<id>.json` (`$defs/plant_model`) | the specs, `tools/blender/build_model.py`, `build_plant.py`, `check_models.gd`, ART.md |

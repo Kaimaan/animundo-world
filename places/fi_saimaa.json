@@ -1,0 +1,55 @@
+{
+ "id": "fi_saimaa",
+ "name": {
+  "en": "Lake Saimaa – Linnansaari",
+  "fi": "Saimaa – Linnansaari"
+ },
+ "wikidata": "Q1826934",
+ "country": "Finland",
+ "center": {
+  "lat": 62.186,
+  "lon": 28.6523
+ },
+ "tiles": [
+  [
+   593,
+   284
+  ]
+ ],
+ "species": {
+  "playable": [
+   "saimaa_seal",
+   "perch",
+   "pike",
+   "mallard",
+   "moose",
+   "mountain_hare",
+   "squirrel",
+   "fox",
+   "great_tit"
+  ],
+  "predators": [
+   "fox"
+  ],
+  "prey": [
+   "mountain_hare",
+   "vole",
+   "mallard",
+   "great_tit",
+   "frog"
+  ],
+  "featured": [
+   "saimaa_seal"
+  ]
+ },
+ "points": [
+  {
+   "kind": "start",
+   "id": "default",
+   "lat": 62.186,
+   "lon": 28.6523,
+   "facing": "north"
+  }
+ ],
+ "live": false
+}

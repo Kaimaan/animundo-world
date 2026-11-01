@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Kaimaan/animundo-world/schemas/place.schema.json",
+  "title": "Place",
+  "description": "places/<id>.json (game decision 0057, spec 02 §2a): a named place over ordinary web-map tiles. It has no land of its own: a name, its tiles, its animals and points at real latitude and longitude. While `live` is false the game still plays the place's region file.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "name", "tiles", "species", "points", "live"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^[a-z]{2}_[a-z0-9_]+$"},
+    "name": {"$ref": "#/$defs/name"},
+    "wikidata": {"type": "string", "pattern": "^(Q[0-9]+)?$"},
+    "country": {"type": "string"},
+    "center": {"$ref": "#/$defs/at"},
+    "tiles": {"type": "array", "minItems": 1, "items": {"type": "array", "prefixItems": [{"type": "integer", "minimum": 0, "maximum": 1023}, {"type": "integer", "minimum": 0, "maximum": 1023}], "items": false}},
+    "species": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["playable"],
+      "properties": {
+        "playable": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+        "predators": {"type": "array", "items": {"type": "string"}},
+        "prey": {"type": "array", "items": {"type": "string"}},
+        "featured": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "points": {"type": "array", "items": {"$ref": "#/$defs/point"}},
+    "live": {"type": "boolean", "description": "true: the game plays the place as its tiles with this layer; false: still its region file (until Kai has played it, inbox #205)"}
+  },
+  "$defs": {
+    "name": {"type": "object", "additionalProperties": false, "required": ["en", "fi"], "properties": {"en": {"type": "string", "minLength": 1}, "fi": {"type": "string", "minLength": 1}}},
+    "at": {"type": "object", "additionalProperties": false, "required": ["lat", "lon"], "properties": {"lat": {"type": "number", "minimum": -85, "maximum": 85}, "lon": {"type": "number", "minimum": -180, "maximum": 180}}},
+    "point": {
+      "oneOf": [
+        {"type": "object", "additionalProperties": false, "required": ["kind", "id", "lat", "lon"],
+         "properties": {"kind": {"const": "start"}, "id": {"type": "string"}, "lat": {"type": "number"}, "lon": {"type": "number"}, "facing": {"enum": ["north", "east", "south", "west"]}}},
+        {"type": "object", "additionalProperties": false, "required": ["kind", "name", "lat", "lon"],
+         "properties": {"kind": {"const": "landmark"}, "name": {"$ref": "#/$defs/name"}, "lat": {"type": "number"}, "lon": {"type": "number"}}},
+        {"type": "object", "additionalProperties": false, "required": ["kind", "name", "at", "tile"],
+         "properties": {"kind": {"const": "landmark"}, "name": {"$ref": "#/$defs/name"}, "at": {"const": "highest"}, "tile": {"type": "array", "prefixItems": [{"type": "integer"}, {"type": "integer"}], "items": false}}},
+        {"type": "object", "additionalProperties": false, "required": ["kind", "name", "lat", "lon", "length_m", "width_m"],
+         "properties": {"kind": {"const": "lake"}, "name": {"$ref": "#/$defs/name"}, "lat": {"type": "number"}, "lon": {"type": "number"},
+                        "length_m": {"type": "number", "exclusiveMinimum": 0}, "width_m": {"type": "number", "exclusiveMinimum": 0},
+                        "angle": {"type": "number"}, "depth": {"type": "number", "minimum": 2}}}
+      ]
+    }
+  }
+}

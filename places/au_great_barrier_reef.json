@@ -1,0 +1,49 @@
+{
+ "id": "au_great_barrier_reef",
+ "name": {
+  "en": "Great Barrier Reef – Green Island",
+  "fi": "Iso valliriutta – Vihreä saari"
+ },
+ "wikidata": "Q7343",
+ "country": "Australia",
+ "center": {
+  "lat": -16.8045,
+  "lon": 146.0742
+ },
+ "tiles": [
+  [
+   927,
+   560
+  ]
+ ],
+ "species": {
+  "playable": [
+   "clownfish",
+   "blue_tang",
+   "butterflyfish",
+   "lionfish",
+   "green_sea_turtle",
+   "reef_shark",
+   "bottlenose_dolphin"
+  ],
+  "predators": [
+   "reef_shark",
+   "lionfish"
+  ],
+  "prey": [
+   "clownfish",
+   "blue_tang",
+   "butterflyfish"
+  ]
+ },
+ "points": [
+  {
+   "kind": "start",
+   "id": "default",
+   "lat": -16.8045,
+   "lon": 146.0742,
+   "facing": "north"
+  }
+ ],
+ "live": false
+}

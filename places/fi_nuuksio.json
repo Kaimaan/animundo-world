@@ -1,0 +1,134 @@
+{
+ "id": "fi_nuuksio",
+ "name": {
+  "en": "Nuuksio National Park",
+  "fi": "Nuuksion kansallispuisto"
+ },
+ "wikidata": "Q1815268",
+ "country": "Finland",
+ "center": {
+  "lat": 60.2398,
+  "lon": 24.6094
+ },
+ "tiles": [
+  [
+   581,
+   295
+  ],
+  [
+   582,
+   295
+  ],
+  [
+   581,
+   296
+  ],
+  [
+   582,
+   296
+  ]
+ ],
+ "species": {
+  "playable": [
+   "moose",
+   "mountain_hare",
+   "squirrel",
+   "fox",
+   "kestrel",
+   "perch",
+   "pike",
+   "bee",
+   "chaffinch",
+   "flying_squirrel",
+   "mallard",
+   "great_tit",
+   "frog"
+  ],
+  "predators": [
+   "fox"
+  ],
+  "prey": [
+   "mountain_hare",
+   "vole",
+   "frog",
+   "lizard",
+   "chaffinch",
+   "mallard",
+   "great_tit"
+  ]
+ },
+ "points": [
+  {
+   "kind": "start",
+   "id": "mist",
+   "lat": 60.33739,
+   "lon": 24.78516,
+   "facing": "north"
+  },
+  {
+   "kind": "landmark",
+   "name": {
+    "en": "Haukankallio",
+    "fi": "Haukankallio"
+   },
+   "at": "highest",
+   "tile": [
+    581,
+    295
+   ]
+  },
+  {
+   "kind": "lake",
+   "name": {
+    "en": "Pitkäjärvi",
+    "fi": "Pitkäjärvi"
+   },
+   "lat": 60.23981,
+   "lon": 24.53906,
+   "length_m": 4860.0,
+   "width_m": 830.0,
+   "angle": 80,
+   "depth": 7
+  },
+  {
+   "kind": "lake",
+   "name": {
+    "en": "Siikajärvi",
+    "fi": "Siikajärvi"
+   },
+   "lat": 60.18043,
+   "lon": 24.42656,
+   "length_m": 8550.0,
+   "width_m": 4270.0,
+   "angle": 55,
+   "depth": 7
+  },
+  {
+   "kind": "lake",
+   "name": {
+    "en": "Kattilajärvi",
+    "fi": "Kattilajärvi"
+   },
+   "lat": 60.29909,
+   "lon": 24.67266,
+   "length_m": 6600.0,
+   "width_m": 3500.0,
+   "angle": 20,
+   "depth": 6
+  },
+  {
+   "kind": "lake",
+   "name": {
+    "en": "Velskolan Pitkäjärvi",
+    "fi": "Velskolan Pitkäjärvi"
+   },
+   "lat": 60.2433,
+   "lon": 24.77109,
+   "length_m": 11660.0,
+   "width_m": 2530.0,
+   "angle": 85,
+   "depth": 7
+  }
+ ],
+ "live": false
+}

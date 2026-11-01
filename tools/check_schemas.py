@@ -27,7 +27,7 @@ from referencing import Registry, Resource
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SCHEMAS = os.path.join(HERE, "..", "schemas")
-NAMES = ["region", "animal", "archetypes", "model", "tree", "locale", "wanted", "seas"]
+NAMES = ["region", "animal", "archetypes", "model", "tree", "locale", "wanted", "seas", "place"]
 MAX_BONES = 16             # ART.md: up to 16 bones
 MAX_WILDLIFE_TRIANGLES = 800  # ART.md: wildlife that is never played, 400 to 800
 
@@ -67,6 +67,8 @@ def schema_for(rel):
         return None
     if parts[0] == "regions" and len(parts) == 2:
         return "region", None
+    if parts[0] == "places" and len(parts) == 2:
+        return "place", None
     if parts[0] == "animals" and len(parts) == 2:
         return ("archetypes", None) if name == "archetypes" else ("animal", None)
     if parts[0] == "models" and len(parts) == 2:
@@ -90,7 +92,7 @@ def schema_for(rel):
 
 def content_files(root):
     out = ["wanted.json", "seas/names.json"]
-    for d in ("regions", "biomes", "homes", "animals", "models", "models/plants", "models/trees", "locale"):
+    for d in ("regions", "places", "biomes", "homes", "animals", "models", "models/plants", "models/trees", "locale"):
         if os.path.isdir(os.path.join(root, d)):
             out += [f"{d}/{f}" for f in sorted(os.listdir(os.path.join(root, d))) if f.endswith(".json")]
     for lang in sorted(os.listdir(os.path.join(root, "locale"))):
