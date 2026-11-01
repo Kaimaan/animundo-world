@@ -35,11 +35,8 @@ Everything should follow the [art guide](ART.md), so the game looks like one wor
 - Use a nickname, never a child's full name.
 - Pull requests change content only: `regions/`, `animals/`, `models/`, `locale/`, plus claiming a row in `wanted.json`. Changes elsewhere are closed automatically.
 - At most two open pull requests per person.
-- Sign off every commit (`git commit -s`): see [Licence](#licence).
 
 ## Licence
 
-- **Content** (places, animals, models, preview sheets, text): [CC BY 4.0](LICENSE). Anyone may reuse it, with credit to "Animundo and its contributors".
-- **Tools and workflows** (`tools/`, `.github/`): [MIT](LICENSE-CODE).
-- **Contributing:** every commit carries a `Signed-off-by:` line, which means you agree to the [Developer Certificate of Origin](https://developercertificate.org): you have the right to send it, and it is shared under these licences. The gate closes pull requests with commits that aren't signed off.
-- Facts come from the sources cited in each file; map data from OpenStreetMap is © OpenStreetMap contributors, under the [ODbL](https://opendatacommons.org/licenses/odbl/).
+- © Animundo. All rights reserved. The repository is public so anyone can read it; it is not open source. Versions published before 2026-11-01 stay under the licences they were published with (content CC BY 4.0, tools MIT).
+- Facts come from the sources cited in each file; map data from OpenStreetMap is © OpenStreetMap contributors, under the [ODbL](https://opendatacommons.org/licenses/odbl/); habitats come from RESOLVE Ecoregions 2017 (Dinerstein et al. 2017), under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).

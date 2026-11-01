@@ -69,7 +69,7 @@ Playing it needs the game repository, so the core team plays your place for you 
 
 ## Send it in (pull request)
 1. Fork the repository on GitHub.
-2. Add your region file and commit it with a sign-off: `git commit -s` (it adds `Signed-off-by: your name`). That says you agree to the [Developer Certificate of Origin](https://developercertificate.org) and that your work is shared under [CC BY 4.0](LICENSE).
+2. Add your region file and commit it.
 3. Open a pull request. Include a screenshot and one line about why you love the place.
 
 ## Adding animals
