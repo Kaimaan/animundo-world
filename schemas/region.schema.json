@@ -44,6 +44,10 @@
     "author": {
       "$ref": "#/$defs/text"
     },
+    "retired": {
+      "description": "A biome the builder no longer picks for new or remade tiles; tiles already published with it still load (game decision 0054: boreal_lake gave way to boreal_lakeland).",
+      "type": "boolean"
+    },
     "sources": {
       "description": "Where the facts come from: links or book titles.",
       "type": "array",
@@ -182,6 +186,22 @@
           "type": "number",
           "minimum": 0,
           "maximum": 1
+        },
+        "water_cover": {
+          "description": "A lakeland biome (game decision 0054): on a grid tile the ponds cover the real cell's water share (10-85% of the tile), so the water runs on across tiles; terrain.lakes is then worked out by the game.",
+          "type": "boolean"
+        },
+        "pond_depth": {
+          "description": "How deep the ponds cut, in blocks (default 7; 16 with water_cover).",
+          "type": "number",
+          "minimum": 2,
+          "maximum": 24
+        },
+        "pond_frequency": {
+          "description": "How big the ponds are: smaller is bigger (default 0.03; a lakeland 0.004).",
+          "type": "number",
+          "minimum": 0.002,
+          "maximum": 0.1
         },
         "edge": {
           "description": "What is at the edge of the land: lake (water all round), none, or open (no sea at the edge: the land meets the tiles around it, for a place on the tile grid).",

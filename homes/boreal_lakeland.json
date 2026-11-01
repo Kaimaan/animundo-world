@@ -1,0 +1,445 @@
+{
+  "id": "boreal_lakeland",
+  "name": "Northern lakeland",
+  "country": "",
+  "center": {
+    "lat": 0,
+    "lon": 0
+  },
+  "description": "A northern lakeland: lakes, sounds and wooded islands that run on from tile to tile, in a forest of spruce, pine and birch.",
+  "about": "Biome for boreal cells with lakes (game decision 0054). Based on Saimaa. Its water is ponds that cover as much of the tile as the real cell's lakes and run on into the next tile, with wooded islands between; no named lake. It replaces boreal_lake for grid tiles.",
+  "author": "Animundo team",
+  "based_on": "fi_saimaa",
+  "ecoregions": [
+    717
+  ],
+  "habitat": "boreal_lake",
+  "terrain": {
+    "base_height": 12,
+    "relief": 9,
+    "frequency": 0.015,
+    "rock_ridges": 0.1,
+    "rock_above": 18,
+    "size": 1024,
+    "lakes": 0.05,
+    "edge": "lake",
+    "seed": 6228508,
+    "water_cover": true,
+    "pond_depth": 16,
+    "pond_frequency": 0.004
+  },
+  "palette": {
+    "ground_lush": "#5f9445",
+    "ground_dry": "#93a65a",
+    "ground_high": "#8c9a78",
+    "dirt": "#6e5640",
+    "rock": "#a89c97",
+    "sand": "#cfc2a0",
+    "water_deep": "#1f4654",
+    "water_shallow": "#3d6f73",
+    "ground_autumn": "#a59a5e",
+    "snow": "#eef2f6",
+    "heath_autumn": "#b04a32"
+  },
+  "sky": {
+    "day": "#8fc6ea",
+    "horizon": "#eef2ec",
+    "dusk": "#f2a07a",
+    "night": "#141a3a",
+    "sun": "#ffe8c4"
+  },
+  "seasons": {
+    "snow": true,
+    "spring": "04-15",
+    "summer": "06-01",
+    "autumn": "09-15",
+    "winter": "11-20"
+  },
+  "trees": {
+    "density": 0.014,
+    "mix": [
+      {
+        "weight": 42.6,
+        "shape": "spruce",
+        "plant": "norway_spruce",
+        "trunk": "#5b4433",
+        "leaves": "#2c5846",
+        "food": "cones"
+      },
+      {
+        "weight": 27.700000000000003,
+        "shape": "pine",
+        "plant": "scots_pine",
+        "trunk": "#b0703f",
+        "leaves": "#4f7d40",
+        "food": "cones"
+      },
+      {
+        "weight": 19.8,
+        "shape": "birch",
+        "plant": "birch",
+        "trunk": "#ece6da",
+        "leaves": "#9cc35a",
+        "autumn": "#e8c13a",
+        "food": "browse"
+      },
+      {
+        "weight": 5.0,
+        "shape": "round",
+        "plant": "aspen",
+        "trunk": "#6b4a33",
+        "leaves": "#5f8f3a",
+        "autumn": "#d9772f",
+        "food": "browse"
+      },
+      {
+        "weight": 5.0,
+        "shape": "rowan",
+        "plant": "rowan",
+        "leaves": "#5f8a3a",
+        "autumn": "#c23b22",
+        "food": "browse"
+      }
+    ]
+  },
+  "ground_cover": {
+    "grass": 0.18,
+    "flowers": 0.04,
+    "flower_colors": [
+      "#f5f3ea",
+      "#b48ac4",
+      "#4b5fa0",
+      "#f2d64a"
+    ],
+    "flower_names": [
+      "oxeye daisy",
+      "heather",
+      "harebell",
+      "tormentil"
+    ],
+    "stones": 0.04,
+    "plants": [
+      {
+        "model": "bilberry",
+        "density": 0.22,
+        "near_trees": 5,
+        "food": {
+          "kind": "berries",
+          "part": "berry"
+        },
+        "names": [
+          "bilberries"
+        ],
+        "amount": 15
+      },
+      {
+        "model": "lingonberry",
+        "density": 0.09,
+        "near_trees": 8,
+        "food": {
+          "kind": "berries",
+          "part": "berry"
+        },
+        "names": [
+          "lingonberries"
+        ],
+        "amount": 15
+      },
+      {
+        "model": "heather",
+        "density": 0.1,
+        "on": [
+          "grass",
+          "rock"
+        ]
+      },
+      {
+        "model": "fly_agaric",
+        "density": 0.006,
+        "near_trees": 4
+      },
+      {
+        "model": "porcini",
+        "density": 0.005,
+        "near_trees": 4,
+        "food": "mushrooms",
+        "names": [
+          "porcini"
+        ],
+        "amount": 25
+      },
+      {
+        "model": "wild_raspberry",
+        "density": 0.025,
+        "near_trees": 10,
+        "food": {
+          "kind": "berries",
+          "part": "berry"
+        },
+        "names": [
+          "wild raspberries"
+        ],
+        "amount": 15
+      },
+      {
+        "model": "crowberry",
+        "density": 0.04,
+        "on": [
+          "grass",
+          "rock"
+        ],
+        "food": {
+          "kind": "berries",
+          "part": "berry"
+        },
+        "names": [
+          "crowberries"
+        ],
+        "amount": 10
+      },
+      {
+        "model": "wavy_hair_grass",
+        "density": 0.06,
+        "near_trees": 8
+      },
+      {
+        "model": "red_stemmed_feathermoss",
+        "density": 0.05,
+        "near_trees": 6
+      },
+      {
+        "model": "bracken",
+        "density": 0.03,
+        "near_trees": 8
+      },
+      {
+        "model": "reindeer_lichen",
+        "density": 0.03,
+        "on": [
+          "rock"
+        ]
+      },
+      {
+        "model": "wood_anemone",
+        "density": 0.02,
+        "near_trees": 6
+      },
+      {
+        "model": "spiny_wood_fern",
+        "density": 0.015,
+        "near_trees": 5
+      },
+      {
+        "model": "lily_of_the_valley",
+        "density": 0.01,
+        "near_trees": 8
+      },
+      {
+        "model": "white_clover",
+        "density": 0.008,
+        "food": "clover",
+        "names": [
+          "white clover"
+        ],
+        "amount": 15
+      },
+      {
+        "model": "red_clover",
+        "density": 0.006,
+        "food": "clover",
+        "names": [
+          "red clover"
+        ],
+        "amount": 15
+      },
+      {
+        "model": "fireweed",
+        "density": 0.008
+      },
+      {
+        "model": "juniper",
+        "density": 0.005,
+        "on": [
+          "grass",
+          "rock"
+        ]
+      },
+      {
+        "model": "chanterelle",
+        "density": 0.005,
+        "near_trees": 4,
+        "food": "mushrooms",
+        "names": [
+          "chanterelles"
+        ],
+        "amount": 20
+      },
+      {
+        "model": "goat_willow",
+        "density": 0.003
+      },
+      {
+        "model": "peat_moss",
+        "density": 0.7,
+        "habitat": "bog"
+      },
+      {
+        "model": "cottongrass",
+        "density": 0.15,
+        "habitat": "bog"
+      }
+    ]
+  },
+  "places": [],
+  "lake_life": {
+    "reeds": 0.35,
+    "lilies": 0.15,
+    "pondweed": 0.1
+  },
+  "food": [
+    {
+      "kind": "berries",
+      "names": [
+        "bilberries",
+        "lingonberries",
+        "wild raspberries",
+        "crowberries",
+        "rowan berries"
+      ],
+      "weight": 30
+    },
+    {
+      "kind": "clover",
+      "names": [
+        "white clover",
+        "red clover"
+      ],
+      "weight": 38
+    },
+    {
+      "kind": "cones",
+      "names": [
+        "spruce cones",
+        "pine cones"
+      ],
+      "weight": 10
+    },
+    {
+      "kind": "seeds",
+      "names": [
+        "spruce seeds",
+        "pine seeds",
+        "birch seeds"
+      ],
+      "weight": 12
+    },
+    {
+      "kind": "browse",
+      "names": [
+        "birch leaves and twigs",
+        "aspen shoots",
+        "rowan leaves"
+      ],
+      "weight": 12
+    },
+    {
+      "kind": "bark",
+      "names": [
+        "birch bark",
+        "aspen bark",
+        "rowan bark"
+      ],
+      "amount": 15
+    },
+    {
+      "kind": "water_plants",
+      "names": [
+        "pondweed",
+        "water lily leaves",
+        "water horsetail"
+      ],
+      "weight": 8
+    },
+    {
+      "kind": "grass",
+      "names": [
+        "wavy hair-grass",
+        "common bent",
+        "sheep's fescue",
+        "dandelion leaves",
+        "yarrow"
+      ],
+      "amount": 10
+    },
+    {
+      "kind": "insects",
+      "names": [
+        "ground beetle",
+        "dung beetle",
+        "click beetle"
+      ],
+      "weight": 15
+    },
+    {
+      "kind": "water_bugs",
+      "names": [
+        "mayfly larvae",
+        "caddisfly larvae",
+        "water boatmen"
+      ],
+      "weight": 15
+    },
+    {
+      "kind": "bottom_bugs",
+      "names": [
+        "bloodworms",
+        "pond snails"
+      ],
+      "weight": 8
+    },
+    {
+      "kind": "carrion",
+      "names": [
+        "roe deer remains",
+        "white-tailed deer remains"
+      ],
+      "weight": 4
+    }
+  ],
+  "fish": [
+    {
+      "kind": "roach",
+      "count": 12
+    },
+    {
+      "kind": "perch",
+      "count": 10
+    },
+    {
+      "kind": "pike",
+      "count": 2
+    },
+    {
+      "kind": "young_roach",
+      "count": 8
+    },
+    {
+      "kind": "young_perch",
+      "count": 6
+    }
+  ],
+  "migrants": [],
+  "animals": {
+    "playable": [],
+    "predators": [],
+    "prey": []
+  },
+  "sources": [
+    "https://www.metsa.fi/suojelu-ja-hoito/lajien-suojelu/saimaannorppa/",
+    "https://www.luontoon.fi/en/destinations/linnansaari-national-park/nature",
+    "https://julkaisut.metsa.fi/wp-content/uploads/sites/2/2023/05/endangered_saimaaringedseal_2023.pdf",
+    "https://wwf.fi/luontolive/info/ukk/"
+  ],
+  "bogs": [],
+  "streams": []
+}
