@@ -221,7 +221,7 @@ def region_of(t):
     return region, None
 
 
-def animal_problems(t, content):
+def animal_problems(t, content, published=False):
     out = []
     req = t["requires"]
     for h in req["homes"]:
@@ -239,6 +239,8 @@ def animal_problems(t, content):
                        'a tile is built from its ecoregion\'s home')
         if home.get("habitat") != t["habitat"]:
             out.append(f'homes/{t["home"]}.json is a {home.get("habitat")} home, but the tile is {t["habitat"]}')
+        if not published and home.get("retired"):
+            out.append(f'homes/{t["home"]}.json is retired: new and remade tiles build on its replacement')
     used = [t["home"]]
     if "blend" in t:
         b = t["blend"]["home"]
@@ -247,6 +249,8 @@ def animal_problems(t, content):
             out.append('"blend.home" is the tile\'s own home: leave "blend" out')
         elif b not in homes.homes():
             out.append(f'"blend.home": there is no homes/{b}.json')
+        elif not published and homes.load(b).get("retired"):
+            out.append(f'"blend.home": homes/{b}.json is retired: new and remade tiles build on its replacement')
     for h in used:
         if h not in req["homes"]:
             out.append(f'"requires.homes" must list "{h}"')
@@ -353,8 +357,8 @@ def plant_problems(t):
     return out
 
 
-def check_tile(t):
-    """[results] for one tile."""
+def check_tile(t, published=False):
+    """[results] for one tile. Published tiles keep retired biomes (game 0054)."""
     content = check_animals.Content(ROOT)
     t, named = as_home(t)
     if named:
@@ -364,7 +368,7 @@ def check_tile(t):
     if shape:
         return results + [skip(c, "the tile's fields are wrong") for c in ("animals", "region", "food")] + \
             ([result("edges", edge_problems(t))] if isinstance(t, dict) else [])
-    results.append(result("animals", animal_problems(t, content)))
+    results.append(result("animals", animal_problems(t, content, published)))
     region, why = region_of(t)
     if region is None:
         return results + [result("region", [why]), skip("food", "no region"), result("edges", edge_problems(t))]
@@ -431,7 +435,7 @@ def check_group(g):
 
     per_tile = []
     for tid in sorted(tiles):
-        res = check_tile(tiles[tid])
+        res = check_tile(tiles[tid], published=True)
         per_tile.append({"tile": tid, "ok": all(r["status"] != "fail" for r in res), "results": res})
     return out, per_tile
 

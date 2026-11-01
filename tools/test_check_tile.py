@@ -112,6 +112,10 @@ def broken(good):
     t = copy.deepcopy(good)
     t["biome"] = "tundra"
     cases.append(("biome and home disagree", "tile", t))
+    t = copy.deepcopy(good)   # game 0054: the lake tile's old biome is retired
+    t["home"] = t["habitat"] = "boreal_lake"
+    t["requires"]["homes"] = ["boreal_lake"]
+    cases.append(("a home that is retired", "animals", t))
     return cases
 
 
@@ -244,6 +248,14 @@ def main():
         code, r = report(group, tmp, "group_bad")
         if code != 1 or failed(r["results"]) != ["neighbours"]:
             errors.append(f"a group whose shared side doesn't match should fail neighbours, failed {failed(r['results'])}")
+        old = copy.deepcopy(good)   # game 0054: an already-published version keeps its retired biome
+        old["home"] = old["habitat"] = "boreal_lake"
+        old["requires"]["homes"] = ["boreal_lake"]
+        group_old = {"format": 1, "grid": "ease2_n25", "group": [51, 37], "version": 1,
+                     "tiles": {"n_412_301": old}, "blocked": {}}
+        code, r = report(group_old, tmp, "group_retired")
+        if code != 0 or not r["ok"]:
+            errors.append(f"a published tile on a retired biome failed: {r['results']} {[(t['tile'], failed(t['results'])) for t in r['tiles']]}")
         with open(SEA, encoding="utf-8") as f:
             sea = json.load(f)
         code, r = report(sea, tmp, "sea")
