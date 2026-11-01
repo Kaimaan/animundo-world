@@ -37,6 +37,7 @@ Name it `<country code>_<place>.json`, all lowercase, for example `ke_masai_mara
 | `terrain.rock_above` (6–28) | Land higher than this is bare rock. |
 | `terrain.lakes` (0–1) | How many lakes or ponds. |
 | `terrain.water_cover`, `terrain.pond_depth` (2–24), `terrain.pond_frequency` (0.002–0.1) | A lakeland biome (game decision 0054, `boreal_lakeland`): with `water_cover: true` a grid tile's ponds cover as much of it as the real cell's lakes (10–85%) and run on into the next tile, so it needs no named lake. `pond_depth` is how deep the ponds cut (default 7, 16 with `water_cover`); `pond_frequency` how big they are (smaller is bigger; default 0.03, a lakeland 0.004). |
+| `terrain.bog_cover` (0–0.9) | A grid tile's bogs (game decision 0056, `boreal_taiga`): flat bog on some of its ponds' shores, mixed into the next tile like the ponds. 0.5 is about 3% of a tile. A biome for grid tiles uses this instead of named `bogs`. |
 | `terrain.edge` | `"lake"` puts water around the edge of the map. |
 | `terrain.seabed` | `"sand"` for a sandy bottom under deep water (warm seas, coral reefs); the default is mud. |
 | `terrain.seed` (any whole number) | Fixes the shape of the land, so the region is the same place in every game and for friends playing together. Try a few numbers and keep the one that looks best. Leave it out to get new land each game. |

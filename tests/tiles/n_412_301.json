@@ -12,7 +12,7 @@
   "ecoregion": 717,
   "level": 15,
   "height": 32,
-  "home": "boreal_forest",
+  "home": "boreal_taiga",
   "seed": 2843117,
   "water": 0.18,
   "species": {
@@ -39,7 +39,7 @@
   "landmarks": [],
   "requires": {
     "homes": [
-      "boreal_forest"
+      "boreal_taiga"
     ],
     "animals": [
       "fox",

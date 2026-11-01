@@ -203,6 +203,12 @@
           "minimum": 0.002,
           "maximum": 0.1
         },
+        "bog_cover": {
+          "description": "A grid tile's bogs (game decision 0056): how many of its ponds' shores are flat bog, 0 none to 0.9 most (boreal_taiga 0.5, about 3% of a tile). Bogs grow bog plants.",
+          "type": "number",
+          "minimum": 0,
+          "maximum": 0.9
+        },
         "edge": {
           "description": "What is at the edge of the land: lake (water all round), none, or open (no sea at the edge: the land meets the tiles around it, for a place on the tile grid).",
           "enum": [
