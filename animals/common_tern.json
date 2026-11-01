@@ -12,7 +12,10 @@
     "bird",
     "small_bird"
   ],
-  "diet": [],
+  "diet": [
+    "bottom_bugs",
+    "insects"
+  ],
   "hunts": [],
   "dark_vision": 0.25,
   "walk": 1.4,
@@ -73,7 +76,8 @@
   "swim_speed": 2.0,
   "spawn": "water",
   "rain_chill": 0.1,
-  "shelter": "leaves",
+  "open_sea": true,
+  "shelter": "shore",
   "sources": [
     "https://jungledragon.com/common-tern",
     "https://www.rspb.org.uk/birds-and-wildlife/common-tern",
