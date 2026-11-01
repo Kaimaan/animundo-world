@@ -1635,7 +1635,8 @@
     "reef"
    ],
    "can_make": true,
-   "shape": "new"
+   "shape": "new",
+   "in_library": "humpback_whale"
   },
   {
    "id": "sperm_whale",

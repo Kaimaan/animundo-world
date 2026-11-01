@@ -1,0 +1,103 @@
+{
+  "archetype": "land_mammal",
+  "latin": "Megaptera novaeangliae",
+  "taxon": {
+    "gbif_key": 5220086,
+    "rank": "SPECIES",
+    "name": "Megaptera novaeangliae"
+  },
+  "playable": true,
+  "color": "#637e8f",
+  "tags": [
+    "mammal",
+    "large_mammal"
+  ],
+  "diet": [],
+  "hunts": [
+    "small_fish"
+  ],
+  "digs": false,
+  "diving_mammal": true,
+  "walk": 0.5,
+  "sprint": 0.8,
+  "swim_speed": 3,
+  "swim_sprint_speed": 5,
+  "jump": 1.0,
+  "breath": 90,
+  "rain_chill": 0,
+  "water_chill": 0,
+  "dark_vision": 0.5,
+  "shelter": "deep_water",
+  "spawn": "water",
+  "box": [
+    3.5,
+    3.2,
+    13.8
+  ],
+  "cam_height": 3,
+  "cam_dist": 22,
+  "buttons": {
+    "jump": "up",
+    "dig": "down",
+    "sprint": "fast"
+  },
+  "model": {
+    "file": "res://assets/animals/humpback_whale.glb",
+    "length": 9.4,
+    "yaw": 0.0,
+    "anims": {
+      "idle": "idle",
+      "walk": "walk",
+      "run": "run",
+      "eat": "eat",
+      "sleep": "sleep",
+      "fly": "swim"
+    }
+  },
+  "text": {
+    "title": "Humpback whale",
+    "menu_sub": "Swim in the open sea and come up to breathe.",
+    "menu_wild": "Breathe at the top and rest near it.",
+    "intro": "Swim in the open sea. Come up to the top to breathe. Rest near the top of the water.",
+    "hungry": "You hardly eat on the reef, living on your fat. If you get hungry, gulp small fish.",
+    "no_food": "No small fish within reach. Swim on and look again.",
+    "night_hint": "Rest near the top of the water.",
+    "sheltered": "You can rest here in the water.",
+    "out_of_water": "You stay in the water.",
+    "about_looks": "A very big blue-grey whale with a pale belly and very long white flippers. It is about 14 metres long.",
+    "about_food": "Krill and small schooling fish in cold seas. On the warm reef it hardly eats and lives on its fat.",
+    "about_home": "Swims in the open sea and near reefs. It rests near the top of the water.",
+    "about_winter": "Swims far between cold feeding waters and warm winter waters.",
+    "about_young": "Calves are born in warm shallow water in winter. They stay close to their mothers.",
+    "about_fact": "Its long flippers are about one-third of its body. Each whale has its own black and white pattern underneath its tail.",
+    "rain_start": "It's raining on the sea. A whale doesn't mind.",
+    "caught": "A mouthful of fish! +{food} food",
+    "safe_tag": "Tag, you got it! In Safe mode a whale never goes hungry.",
+    "bite": "A huge whale gulped right next to you! Swim away!",
+    "caught_you": "A whale swallowed you in a mouthful of water."
+  },
+  "year": {
+    "winter": "migrates",
+    "shelter": "Rests near the top of the water. Swims in the open sea and near reefs.",
+    "young": "Calves are born in warm shallow water in winter. They stay close to their mothers.",
+    "food": {
+      "spring": "Krill in Antarctica.",
+      "summer": "Hardly eats on the reef; lives on its blubber.",
+      "autumn": "Hardly eats on the reef; lives on its blubber.",
+      "winter": "Krill in Antarctica."
+    },
+    "notes": "On the Great Barrier Reef from June to November to have calves; feeds on krill in Antarctica the rest of the year.",
+    "migration": {
+      "leaves": "11-30",
+      "returns": "06-01"
+    }
+  },
+  "sources": [
+    "https://en.wikipedia.org/wiki/Humpback_whale",
+    "https://adfg.alaska.gov/index.cfm?adfg=humpbackwhale.main"
+  ],
+  "min_depth": 15,
+  "spout": 3,
+  "calf": 0.3,
+  "metabolism": 0.2
+}
