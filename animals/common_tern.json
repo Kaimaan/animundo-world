@@ -1,0 +1,83 @@
+{
+  "archetype": "bird",
+  "latin": "Sterna hirundo",
+  "taxon": {
+    "gbif_key": 9367409,
+    "rank": "SPECIES",
+    "name": "Sterna hirundo"
+  },
+  "playable": true,
+  "color": "#C2C6CC",
+  "tags": [
+    "bird",
+    "small_bird"
+  ],
+  "diet": [],
+  "hunts": [],
+  "dark_vision": 0.25,
+  "walk": 1.4,
+  "fly": 7.0,
+  "sprint": 10.0,
+  "jump": 4.0,
+  "box": [
+    0.3,
+    0.32,
+    0.4
+  ],
+  "cam_height": 0.35,
+  "cam_dist": 2.2,
+  "model": {
+    "file": "res://assets/animals/common_tern.glb",
+    "length": 0.126,
+    "yaw": 0.0,
+    "anims": {
+      "idle": "idle",
+      "walk": "walk",
+      "run": "run",
+      "eat": "eat",
+      "sleep": "sleep",
+      "fly": "fly"
+    }
+  },
+  "text": {
+    "title": "Common Tern",
+    "menu_sub": "Fly over calm water and dip down to catch food.",
+    "menu_wild": "There is no hunter here now.",
+    "intro": "Steer to walk and swim. Hold Fly to take off.",
+    "hungry": "Look for small insects in the air and near water.",
+    "no_food": "No food nearby. Fly over the water.",
+    "chased": "Fly away fast over the water.",
+    "about_looks": "A pale grey and white bird with a black cap and a deeply forked tail. It has a red bill with a black tip.",
+    "about_food": "Small fish and small sea animals. Here it eats aquatic insects.",
+    "about_home": "Lakes and the sea. It rests on low sand near calm water, close to other terns.",
+    "about_winter": "It migrates away for winter.",
+    "about_young": "Chicks are born far to the north in spring. They stay near the nest and eat small fish.",
+    "about_fact": "It dives down to catch food near the top of the water."
+  },
+  "year": {
+    "winter": "migrates",
+    "migration": {
+      "leaves": "09-01",
+      "returns": "05-01"
+    },
+    "shelter": "It rests on low sand near calm water. It sits close with other terns.",
+    "young": "Chicks are born far to the north in spring. They stay near the nest and eat small fish.",
+    "food": {
+      "spring": "Through the year it eats small fish and small sea animals.",
+      "summer": "Through the year it eats small fish and small sea animals.",
+      "autumn": "Through the year it eats small fish and small sea animals.",
+      "winter": "Through the year it eats small fish and small sea animals."
+    }
+  },
+  "surface_swimmer": true,
+  "swim_speed": 2.0,
+  "spawn": "water",
+  "rain_chill": 0.1,
+  "shelter": "leaves",
+  "sources": [
+    "https://jungledragon.com/common-tern",
+    "https://www.rspb.org.uk/birds-and-wildlife/common-tern",
+    "https://www.tn.gov/twra/common-tern",
+    "https://aussieanimals.com/common-tern/"
+  ]
+}

@@ -1024,7 +1024,8 @@
     "boreal_lake",
     "sea"
    ],
-   "can_make": true
+   "can_make": true,
+   "in_library": "common_tern"
   },
   {
    "id": "herring_gull",
