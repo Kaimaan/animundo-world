@@ -6,7 +6,7 @@ How to add each kind of thing: [CONTRIBUTING.md](../CONTRIBUTING.md). How it sho
 
 |  | Have | Wanted | In progress |
 |---|---|---|---|
-| Animals | 28 | 0 | 0 |
+| Animals | 29 | 0 | 0 |
 | Plants | 31 | 0 | 0 |
 | Trees | 5 | 0 | 0 |
 | Foods | 13 | 0 | 0 |
@@ -30,6 +30,7 @@ How to add each kind of thing: [CONTRIBUTING.md](../CONTRIBUTING.md). How it sho
 | **Great tit** (*Parus major*) | fi_nuuksio, fi_saimaa | built from a spec [preview](../models/previews/great_tit.png) | yes | no | yes |
 | **Green sea turtle** (*Chelonia mydas*) | au_great_barrier_reef | built from a spec [preview](../models/previews/green_sea_turtle.png) | yes | no | yes |
 | **Herring Gull** (*Larus argentatus*) | nowhere yet | built from a spec [preview](../models/previews/herring_gull.png) | yes | no | yes |
+| **Humpback whale** (*Megaptera novaeangliae*) | nowhere yet | built from a spec [preview](../models/previews/humpback_whale.png) | yes | no | yes |
 | **Kestrel** (*Falco tinnunculus*) | fi_nuuksio | built from a spec [preview](../models/previews/kestrel.png) | yes | no | yes |
 | **Lionfish** (*Pterois volitans*) | au_great_barrier_reef | built from a spec [preview](../models/previews/lionfish.png) | yes | no | yes |
 | **Common lizard** (*Zootoca vivipara*) | fi_nuuksio | built from a spec [preview](../models/previews/lizard.png) | yes | no | yes |
@@ -130,7 +131,7 @@ What animals find to eat. A food name marked "grows there" has a plant you can s
 
 | Food | Place | Real names | Eaten by |
 |---|---|---|---|
-| `water_plants` | au_great_barrier_reef | dugong grass (grows there), paddle weed, halimeda algae | Blue tang, Butterflyfish, Clownfish, Green sea turtle, Mallard, Moose |
+| `water_plants` | au_great_barrier_reef | halimeda algae, dugong grass (grows there), paddle weed | Blue tang, Butterflyfish, Clownfish, Green sea turtle, Mallard, Moose |
 | `insects` | au_great_barrier_reef |  | Chaffinch, Fox, Common frog, Great tit, Kestrel, Common lizard |
 | `bottom_bugs` | au_great_barrier_reef | tiny shrimp, small crabs | Bream, Herring Gull, Lionfish, Perch, Roach |
 | `carrion` | au_great_barrier_reef | bottlenose dolphin remains | Fox |
