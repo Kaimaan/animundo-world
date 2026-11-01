@@ -114,7 +114,9 @@
             }
           }
         }
-      }
+      },
+      "if": {"properties": {"grid": {"enum": ["ease2_n25", "ease2_s25"]}}},
+      "then": {"properties": {"tiles": {"items": {"items": {"maximum": 719}}}}}
     },
     "center": {
       "type": "object",
