@@ -18,7 +18,8 @@
   ],
   "walk": 2.8,
   "sprint": 7.5,
-  "lurk": 0.5,
+  "lurk": 1.2,
+  "keeps_swimming": true,
   "jump": 0.0,
   "box": [
     0.7,

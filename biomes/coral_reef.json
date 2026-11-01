@@ -127,6 +127,10 @@
     {
       "kind": "lionfish",
       "count": 2
+    },
+    {
+      "kind": "reef_shark",
+      "count": 1
     }
   ],
   "migrants": [],

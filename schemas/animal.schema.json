@@ -76,6 +76,7 @@
     "surface_swimmer": {"type": "boolean"},
     "diving_mammal": {"type": "boolean"},
     "rests_on_bottom": {"description": "A diving swimmer that stays down under water instead of floating up when the player lets go (a sea turtle grazing seagrass): it holds its depth while swimming and settles to the bottom when still, and comes up only when its breath runs low. Seals leave it off and float up to breathe.", "type": "boolean"},
+    "keeps_swimming": {"description": "Breathes only while swimming, like most big sharks: it never stops, and rests by circling slowly. \"lurk\" is how fast it cruises when let go.", "type": "boolean"},
     "open_sea": {"description": "Lives out at sea, away from the shore (game proposal 0047): only these animals go into an open-sea tile or start a life in one. Set by us from the animal list's sea habitat and a look at the real animal (the Saimaa seal lives only in its lake, so it isn't).", "type": "boolean"},
     "min_depth": {"description": "Metres of water it needs: a whale starts and swims only where the sea is this deep (default 3).", "type": "integer", "minimum": 1, "maximum": 50},
     "spout": {"description": "How tall the spray it blows when it comes up to breathe is, in metres (whales).", "type": "number", "minimum": 0, "maximum": 10},
