@@ -63,21 +63,21 @@
     "plants": [
       {
         "model": "branching_staghorn_coral",
-        "density": 0.24,
+        "density": 0.34,
         "on": [
           "reef"
         ]
       },
       {
         "model": "closed_brain_coral",
-        "density": 0.2,
+        "density": 0.3,
         "on": [
           "reef"
         ]
       },
       {
         "model": "giant_sea_fan",
-        "density": 0.18,
+        "density": 0.26,
         "on": [
           "reef"
         ]

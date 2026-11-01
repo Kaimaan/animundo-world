@@ -59,15 +59,15 @@
     "water": [
       {
         "id": "branching_staghorn_coral",
-        "density": 0.24
+        "density": 0.34
       },
       {
         "id": "closed_brain_coral",
-        "density": 0.2
+        "density": 0.3
       },
       {
         "id": "giant_sea_fan",
-        "density": 0.18
+        "density": 0.26
       },
       {
         "id": "halimeda",
