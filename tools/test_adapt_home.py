@@ -69,6 +69,10 @@ def main():
                 errors.append(f"{name}: polar ice needs icebergs, frozen water and glaciers: {ice}")
             elif ice["glacier_above"] > t["height"] - 4:
                 errors.append(f"{name}: glaciers above {ice['glacier_above']} don't fit under the height {t['height']}")
+        kept = {p.get("model"): p for p in home.get("ground_cover", {}).get("plants", [])}
+        for p in choices.get("plants", []):
+            if p.get("on") in ("seabed", "reef") and kept.get(p["model"], {}).get("on") != [p["on"]]:
+                errors.append(f"{name}: {p['model']} lost its on:{p['on']}")
         for p in region_problems(home):
             errors.append(f"{name}: {p}")
     for e in errors:

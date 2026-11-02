@@ -40,19 +40,19 @@
  "plants": [
   {
    "model": "branching_staghorn_coral",
-   "on": "seabed"
+   "on": "reef"
   },
   {
    "model": "closed_brain_coral",
-   "on": "seabed"
+   "on": "reef"
   },
   {
    "model": "giant_sea_fan",
-   "on": "seabed"
+   "on": "reef"
   }
  ],
  "seabed": "sand",
-  "depth": "deep",
+ "depth": "deep",
  "trees": {
   "density": "none",
   "mix": []

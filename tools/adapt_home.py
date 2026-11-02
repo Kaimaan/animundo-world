@@ -231,8 +231,8 @@ def adapt(base, c):
     plants = []
     for p in c.get("plants", []):
         plant = copy.deepcopy(kept.get(p["model"], {"model": p["model"], "density": 0.08}))
-        if p.get("on") == "seabed":   # corals and sea grass grow under the water
-            plant["on"] = ["seabed"]
+        if p.get("on") in ("seabed", "reef"):   # corals and sea grass grow under the water
+            plant["on"] = [p["on"]]
         plants.append(plant)
     ground["plants"] = plants
 
