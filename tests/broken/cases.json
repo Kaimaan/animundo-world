@@ -364,7 +364,7 @@
   },
   {
    "name": "region_no_cones",
-   "why": "Every diet food kind is in the region (decision 0011): with no spruce or pine in its biome, nothing in Nuuksio makes cones.",
+   "why": "A missing food is a gap, not a failure (game decision 0061): with no spruce or pine in its biome nothing in Nuuksio makes cones, and the animals that eat cones still eat their other foods.",
    "edits": [
     {
      "file": "biomes/boreal_forest.json",
@@ -384,12 +384,12 @@
     }
    ],
    "expect": {
-    "check_animals": "fail"
+    "check_animals": "pass"
    }
   },
   {
    "name": "region_no_lizard",
-   "why": "Every hunts tag belongs to another animal in the region.",
+   "why": "A missing prey is a gap, not a failure (game decision 0061): with no lizard its hunters still find other food.",
    "edits": [
     {
      "file": "regions/fi_nuuksio.json",
@@ -399,7 +399,7 @@
     }
    ],
    "expect": {
-    "check_animals": "fail"
+    "check_animals": "pass"
    }
   },
   {
