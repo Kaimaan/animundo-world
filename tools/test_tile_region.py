@@ -66,5 +66,11 @@ for n in ("n_414_478", "n_414_480"):
     food = [r for r in check_tile.check_tile(tile) if r["check"] == "food"][0]
     check(food["status"] == "pass", f"{n}: its food check fails: {food['problems']}")
 
+# a taiga tile in a dry cell still has its ponds (Tile.cover_lakes), so its fish find water bugs (z10_0583_0295)
+dry = tile_region.place({"biome": "boreal_taiga", "seed": 1, "water": 0.0,
+                         "species": {"playable": ["fox"], "prey": ["roach", "perch"], "predators": ["fox"]}})
+check(dry["terrain"]["lakes"] > 0, "a dry taiga tile has no ponds")
+check({"water_bugs", "bottom_bugs"} <= {f["kind"] for f in dry["food"]}, "a dry taiga tile's fish have no water bugs")
+
 print(f"tile region test: {len(names)} golden tiles, {len(errors)} errors")
 sys.exit(1 if errors else 0)

@@ -64,6 +64,13 @@ import layers  # noqa: E402
 SIZE = 1024          # metres a side (Tile.SIZE)
 HOME_WATER = 0.1     # the share of a real cell under lakes a biome's terrain.lakes stands for
 MAX_LAKES = 0.6
+# A biome with terrain.water_cover (lakeland 0054, taiga 0056): its ponds cover the
+# real cell's water share, between MIN_COVER and MAX_COVER (Tile.cover_lakes):
+# [terrain.lakes, share of the tile under water], measured on Saimaa's tiles
+COVER = [[0.3, 0.01], [0.4, 0.06], [0.5, 0.19], [0.6, 0.37], [0.7, 0.56], [0.8, 0.73], [0.9, 0.86], [1.0, 0.92]]
+COVER_DEPTH = 16
+MIN_COVER = 0.1
+MAX_COVER = 0.85
 WATER_LEVEL = 8      # every biome on the grid shares one water level (spec 02 Part 1)
 BIOME_NOTES = ("id", "name", "country", "about", "based_on", "author", "retired")
 OPEN_SEA = "open_sea"   # the biome of every open-ocean cell (game proposal 0047)
@@ -116,7 +123,12 @@ def place(tile, biome=None, blend=None, biomes=None):
     terrain["seed"] = int(tile.get("seed", 0))
     terrain["size"] = SIZE
     terrain["edge"] = "open"
-    terrain["lakes"] = min(float(terrain.get("lakes", 0.2)) * float(tile.get("water", HOME_WATER)) / HOME_WATER, MAX_LAKES)
+    water = float(tile.get("water", HOME_WATER))
+    if terrain.get("water_cover", False):   # always a pond, even in a dry cell, as in the game
+        terrain["lakes"] = cover_lakes(water)
+        terrain["pond_depth"] = terrain.get("pond_depth", COVER_DEPTH)
+    else:
+        terrain["lakes"] = min(float(terrain.get("lakes", 0.2)) * water / HOME_WATER, MAX_LAKES)
     if "level" in tile:   # a grid tile: its own height, around its real level
         if int(terrain.get("water_level", WATER_LEVEL)) > WATER_LEVEL:   # a deep sea biome (game decision 0045) keeps its water; the game lifts the edges to meet it
             terrain["height"] = max(int(tile.get("height", 32)), int(terrain.get("height", 32)))
@@ -138,6 +150,15 @@ def place(tile, biome=None, blend=None, biomes=None):
         _open_sea(d, tile)
     d["food"] = food.worked_out(d)   # from the plants, water and animals (0043)
     return d
+
+
+def cover_lakes(water):
+    """terrain.lakes for a water_cover biome's tile (Tile.cover_lakes, with no real lakes drawn)."""
+    w = min(max(water, MIN_COVER), MAX_COVER)
+    for (l0, w0), (l1, w1) in zip(COVER, COVER[1:]):
+        if w <= w1:
+            return l0 + (l1 - l0) * (w - w0) / (w1 - w0)
+    return COVER[-1][0]
 
 
 def _open_sea(d, tile):
