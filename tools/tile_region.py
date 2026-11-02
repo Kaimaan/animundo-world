@@ -76,6 +76,7 @@ BIOME_NOTES = ("id", "name", "country", "about", "based_on", "author", "retired"
 OPEN_SEA = "open_sea"   # the biome of every open-ocean cell (game proposal 0047)
 MAX_SKERRIES = 12
 SHOAL = 8            # fish of a schooling kind in an open-sea tile; others come in twos
+MIN_SEA_DEPTH = 6.0  # a deep sea biome on a coastal sea cell: the floor stays at the cell's own depth, at least this (game Tile.MIN_SEA_DEPTH)
 GOLDEN = os.path.join(ROOT, "tests", "tile_region")
 
 
@@ -132,6 +133,8 @@ def place(tile, biome=None, blend=None, biomes=None):
     if "level" in tile:   # a grid tile: its own height, around its real level
         if int(terrain.get("water_level", WATER_LEVEL)) > WATER_LEVEL:   # a deep sea biome (game decision 0045) keeps its water; the game lifts the edges to meet it
             terrain["height"] = max(int(tile.get("height", 32)), int(terrain.get("height", 32)))
+            if tile.get("habitat", "") != "open_ocean" and "sea_depth" in terrain:   # only open ocean sinks to the biome's deep sea
+                terrain["sea_depth"] = min(max(WATER_LEVEL - float(tile["level"]), MIN_SEA_DEPTH), float(terrain["sea_depth"]))
         else:
             terrain["height"] = int(tile.get("height", 32))
             terrain["water_level"] = WATER_LEVEL

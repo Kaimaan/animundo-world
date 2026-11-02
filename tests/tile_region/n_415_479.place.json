@@ -21,7 +21,7 @@
   "seed": 1702148877,
   "height": 64,
   "water_level": 40,
-  "sea_depth": 35
+  "sea_depth": 6.0
  },
  "palette": {
   "ground_lush": "#648a4a",
