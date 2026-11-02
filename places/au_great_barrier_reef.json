@@ -24,11 +24,13 @@
    "lionfish",
    "green_sea_turtle",
    "reef_shark",
-   "bottlenose_dolphin"
+   "bottlenose_dolphin",
+   "hammerhead"
   ],
   "predators": [
    "reef_shark",
-   "lionfish"
+   "lionfish",
+   "hammerhead"
   ],
   "prey": [
    "clownfish",
