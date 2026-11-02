@@ -22,9 +22,10 @@ regions/<place>.json itself. Then:
            lists every home and animal
   region   validate_region.py and the region schema on the made region
            (needs the models built, like check_draft.py)
-  food     food first (decision 0011, check_animals.py's rule): every animal
-           finds all its food in the food worked out from the tile's plants, water
-           and animals (tools/food.py, 0043), and every hunter some prey
+  food     every animal has a diet or hunts (decision 0011). What an animal
+           can't find in the food worked out from the tile's plants, water and
+           animals (tools/food.py, 0043) is listed in the result's "gaps": content
+           to build, never a failure (game decision 0061, food.eats_here())
   plants   (in tile) the tile's own `plants`: library ids, at most 24 cover and water
            plants and 6 trees, listed in requires; the region check then holds
            them to the 100 triangles per m² budget
@@ -45,7 +46,8 @@ Usage:
 The JSON, for one tile:
     {"ok": true/false, "tile": "n_412_301",
      "results": [{"check": "food", "status": "pass"/"fail"/"skip",
-                  "problems": ["..."], "reason": "why it was skipped"}, ...]}
+                  "problems": ["..."], "reason": "why it was skipped",
+                  "gaps": ["..."], "eats_nothing": [animal ids] (food only)}, ...]}
 For a group file, "results" holds the group's own checks and "tiles" one
 {"tile", "ok", "results"} per tile. A skipped check doesn't make "ok" false.
 
@@ -269,11 +271,13 @@ def animal_problems(t, content, published=False):
 
 
 def food_problems(rid, region, content):
+    """(problems, gaps): an animal that eats nothing fails; what animals can't
+    find here is a gap (decision 0061)."""
     checker = check_animals.Checker(ROOT, built_models=False)
     checker.c = content
     content.region = lambda _rid: region
     checker.check_food_web(rid)
-    return checker.errors
+    return checker.errors, checker.warnings, [a for _rid, a in checker.eats_nothing]
 
 
 def edge_problems(t):
@@ -377,7 +381,8 @@ def check_tile(t, published=False):
         results.append(result("region", homes.region_problems(region)))
     else:
         results.append(skip("region", "models not built: run tools/build_model.sh first"))
-    results.append(result("food", food_problems(region["id"], region, content)))
+    problems, gaps, eats_nothing = food_problems(region["id"], region, content)
+    results.append({**result("food", problems), "gaps": gaps, "eats_nothing": eats_nothing})
     results.append(result("edges", edge_problems(t)))
     return results
 

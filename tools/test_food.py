@@ -11,17 +11,29 @@ import layers  # noqa: E402
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 
 
+class EatsRuleTest(unittest.TestCase):
+    """food/eats-cases.json: the cases every copy of the food rule runs (0061)."""
+
+    def test_cases(self):
+        cases = food.load(os.path.join(ROOT, "food", "eats-cases.json"))["cases"]
+        for c in cases:
+            args = (c["diet"], c["hunts"], set(c["food"]), set(c["prey_tags"]))
+            self.assertEqual(food.eats_here(*args), c["eats"], c["name"])
+            self.assertEqual(food.food_gaps(*args), c["gaps"], c["name"])
+
+
 class FoodTest(unittest.TestCase):
     def made(self, rel):
         return food.derive(layers.resolve(food.load(os.path.join(ROOT, rel))))[0]
 
-    def test_nuuksio_animals_all_find_food(self):
+    def test_nuuksio_animals_all_eat_something(self):
         d = layers.resolve(food.load(os.path.join(ROOT, "regions", "fi_nuuksio.json")))
-        made = food.derive(d)[0]
-        for a in food.animals_of(d):
-            for kind in food.ANIMALS[a].get("diet", []) or []:
-                if kind != "nectar":
-                    self.assertIn(kind, made, f"{a} eats {kind}")
+        made = set(food.derive(d)[0]) | {"nectar"}
+        living = food.animals_of(d)
+        for a in living:
+            tags = {t for b in living if b != a for t in food.ANIMALS.get(b, {}).get("tags", []) or []}
+            spec = food.ANIMALS[a]
+            self.assertTrue(food.eats_here(spec.get("diet"), spec.get("hunts"), made, tags), f"{a} eats nothing in Nuuksio")
 
     def test_food_names_come_from_the_plants(self):
         made = self.made("regions/fi_nuuksio.json")

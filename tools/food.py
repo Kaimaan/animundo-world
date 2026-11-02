@@ -17,9 +17,10 @@ The report lists, per file:
   made, not written           a kind this place makes that `food` leaves out
   names nothing here gives    plant food names that no plant or tree here has
   tree with no species        a trees.mix entry with no `plant`, so its food has no names
-  animal can't eat            an animal here whose diet kind the worked-out food lacks
-Exit status 1 only for "animal can't eat" (the rule of decision 0011); the rest
-is information while the layers move in.
+  gap                         a diet kind an animal here can't find in the worked-out
+                              food: content to build, never a reason to leave it out
+                              (game decision 0061, eats_here() and food_gaps() below)
+Exit status 0: all of it is information.
 """
 import glob
 import json
@@ -73,6 +74,19 @@ def animals_of(d):
             if i not in ids:
                 ids.append(i)
     return ids
+
+
+def eats_here(diet, hunts, food, prey_tags):
+    """The food rule (game decision 0061): any diet kind in the food, or any
+    hunted tag on another animal living there. food/eats-cases.json holds the
+    cases every copy of the rule (game, world, builder) must agree on."""
+    return any(k in food for k in diet or []) or any(t in prey_tags for t in hunts or [])
+
+
+def food_gaps(diet, hunts, food, prey_tags):
+    """What an animal can't find here: {"diet": [...], "hunts": [...]} (0061)."""
+    return {"diet": [k for k in diet or [] if k not in food],
+            "hunts": [t for t in hunts or [] if t not in prey_tags]}
 
 
 def derive(d):
@@ -176,16 +190,14 @@ def report(path):
             stray = [n for n in written[kind].get("names", []) if n not in e["names"]]
             if stray:
                 lines.append(("names nothing here gives", f'{kind}: {", ".join(stray)}'))
-    bad = False
     for a in animals_of(d):
         for kind in ANIMALS.get(a, {}).get("diet", []) or []:
             if kind != "nectar" and kind not in made:
-                lines.append(("animal can't eat", f"{a}: {kind}"))
-                bad = True
-    print(f"{'problem' if bad else 'ok':7} {os.path.relpath(path, ROOT)}")
+                lines.append(("gap", f"{a}: {kind}"))
+    print(f"{'notes' if lines else 'ok':7} {os.path.relpath(path, ROOT)}")
     for what, detail in lines:
         print(f"          {what}: {detail}")
-    return not bad
+    return True
 
 
 def worked_out(d):

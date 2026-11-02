@@ -1,0 +1,15 @@
+{
+  "about": "The food rule (game decision 0061): an animal eats on a tile when ANY of its diet kinds is in the tile's food, or ANY tag it hunts belongs to another animal living there. Gaps are the diet kinds and hunted tags it can't find there: a content to-do list, never a reason to leave it out. 'food' is the tile's worked-out food kinds (nectar when flowers bloom); 'prey_tags' are the tags of the other animals living there. Every copy of the rule runs these cases: tools/food.py (test_food.py), the game's TileLayers (tools/check_food_rule.gd) and the builder.",
+  "cases": [
+    {"name": "hare with three of its four foods", "diet": ["grass", "clover", "browse", "bark"], "hunts": [], "food": ["grass", "browse", "bark", "berries"], "prey_tags": [], "eats": true, "gaps": {"diet": ["clover"], "hunts": []}},
+    {"name": "hare with one food", "diet": ["grass", "clover", "browse", "bark"], "hunts": [], "food": ["bark"], "prey_tags": [], "eats": true, "gaps": {"diet": ["grass", "clover", "browse"], "hunts": []}},
+    {"name": "hare with none of its foods", "diet": ["grass", "clover", "browse", "bark"], "hunts": [], "food": ["berries", "insects"], "prey_tags": [], "eats": false, "gaps": {"diet": ["grass", "clover", "browse", "bark"], "hunts": []}},
+    {"name": "a specialist needs its one food", "diet": ["nectar"], "hunts": [], "food": ["berries", "grass"], "prey_tags": [], "eats": false, "gaps": {"diet": ["nectar"], "hunts": []}},
+    {"name": "a specialist with its one food", "diet": ["nectar"], "hunts": [], "food": ["nectar"], "prey_tags": [], "eats": true, "gaps": {"diet": [], "hunts": []}},
+    {"name": "a fox eats prey when no berries grow", "diet": ["berries", "insects"], "hunts": ["small_mammal"], "food": [], "prey_tags": ["small_mammal"], "eats": true, "gaps": {"diet": ["berries", "insects"], "hunts": []}},
+    {"name": "a fox eats berries when no prey lives there", "diet": ["berries", "insects"], "hunts": ["small_mammal"], "food": ["berries"], "prey_tags": ["fish"], "eats": true, "gaps": {"diet": ["insects"], "hunts": ["small_mammal"]}},
+    {"name": "a hunter with one of its two prey", "diet": [], "hunts": ["small_mammal", "small_bird"], "food": ["berries"], "prey_tags": ["small_bird", "fish"], "eats": true, "gaps": {"diet": [], "hunts": ["small_mammal"]}},
+    {"name": "a hunter with no prey", "diet": [], "hunts": ["small_mammal"], "food": ["berries", "grass"], "prey_tags": ["fish"], "eats": false, "gaps": {"diet": [], "hunts": ["small_mammal"]}},
+    {"name": "an animal that eats nothing (an error in its file, not a gap)", "diet": [], "hunts": [], "food": ["grass"], "prey_tags": ["small_mammal"], "eats": false, "gaps": {"diet": [], "hunts": []}}
+  ]
+}

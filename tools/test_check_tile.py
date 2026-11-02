@@ -46,7 +46,7 @@ def broken(good):
     cases = []
     t = copy.deepcopy(good)   # the fox alone: it hunts, and nothing there is its prey
     t["species"] = {"playable": ["fox"], "prey": [], "predators": []}
-    cases.append(("animal without its food", "food", t))
+    cases.append(("animal without its food", "gaps", t))
     t = copy.deepcopy(good)
     t["edges"]["n"][20] = 40
     cases.append(("edge over the world's height", "edges", t))
@@ -108,7 +108,7 @@ def broken(good):
     t["requires"]["plants"] = ["wavy_hair_grass"]
     t["species"] = {"playable": ["moose"], "prey": [], "predators": []}
     t["requires"]["animals"] = ["moose"]
-    cases.append(("the moose's browse and berries aren't on the tile", "food", t))
+    cases.append(("the moose's browse and berries aren't on the tile", "gaps", t))
     t = copy.deepcopy(good)
     t["biome"] = "tundra"
     cases.append(("biome and home disagree", "tile", t))
@@ -125,11 +125,11 @@ def broken_sea(sea):
     t = copy.deepcopy(sea)
     t["species"]["playable"].append("fox")
     t["requires"]["animals"].append("fox")
-    cases.append(("a land animal at sea", ["animals", "food"], t))
+    cases.append(("a land animal at sea", "animals", t))
     t = copy.deepcopy(sea)
     t["species"]["playable"] = ["saimaa_seal"]
     t["requires"]["animals"] = ["saimaa_seal"]
-    cases.append(("the Saimaa seal at sea", ["animals", "food"], t))
+    cases.append(("the Saimaa seal at sea", "animals", t))
     t = copy.deepcopy(sea)
     del t["sea"]
     cases.append(("a sea with no name", "tile", t))
@@ -230,6 +230,11 @@ def main():
         cases = broken(good)
         for i, (name, check, t) in enumerate(cases):
             code, r = report(t, tmp, f"broken{i}")
+            if check == "gaps":   # decision 0061: missing food is a gap, the tile passes
+                food = next((x for x in r["results"] if x["check"] == "food"), {})
+                if code != 0 or failed(r["results"]) or not food.get("gaps"):
+                    errors.append(f"{name}: should pass with food gaps, failed {failed(r['results'])}, gaps {food.get('gaps')} (exit {code})")
+                continue
             if code != 1 or failed(r["results"]) != (check if isinstance(check, list) else [check]):
                 errors.append(f"{name}: should fail exactly {check}, failed {failed(r['results'])} (exit {code})")
         code, r = report(blended(good), tmp, "blend")

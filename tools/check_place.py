@@ -22,9 +22,11 @@ checkout that already has the job's new animals and plants in it.
            shark can't live in a taiga pond however many fish it finds
   laid     each tile with the place laid over it (its animals joined to the
            tile's, as the game's Places.lay does) passes check_tile.py:
-           animals, region and food (every animal finds all its food there,
-           every hunter some prey)
-  playable every playable animal is on at least one tile it passes on
+           animals, region and food (what an animal can't find there is a
+           gap, not a failure: game decision 0061)
+  playable at least one tile passes, and every playable animal eats something
+           (any of its diet, or any prey) on at least one of them: a player
+           only starts where their animal can eat (0061)
 
 Usage:
     python3 tools/check_place.py PLACE.json TILE_OR_GROUP.json [...]
@@ -233,7 +235,15 @@ def check(place, tiles):
         return results, per_tile
     results.append(result("laid", [f"{t['tile']} fails with the place laid over it" for t in per_tile if not t["ok"]]))
     good = [t for t in per_tile if t["ok"]]
-    results.append(result("playable", [] if good else ["no tile of the place passes, so no animal can play there"]))
+    if not good:
+        results.append(result("playable", ["no tile of the place passes, so no animal can play there"]))
+        return results, per_tile
+    hungry = []
+    for a in place["species"].get("playable", []):
+        fed = [t for t in good if a not in next((r.get("eats_nothing", []) for r in t["results"] if r["check"] == "food"), [])]
+        if not fed:
+            hungry.append(f"{a} finds none of its food on any of the place's tiles, so no one can start as it here (decision 0061)")
+    results.append(result("playable", hungry))
     return results, per_tile
 
 

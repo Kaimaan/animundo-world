@@ -30,6 +30,7 @@ import re
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import food as food_rule  # noqa: E402  the food rule (decision 0061)
 try:
     from layers import resolve   # a layered place (game proposal 0043)
 except ImportError:   # the game repo's copy of this tool has no layers.py
@@ -179,6 +180,7 @@ class Checker:
         self.built_models = built_models
         self.errors = []
         self.warnings = []
+        self.eats_nothing = []   # (region, animal): finds none of its food there (decision 0061)
         self._cache = {}
 
     def run(self, strict, finnish_later=False):
@@ -326,8 +328,11 @@ class Checker:
             self.check_food_web(rid)
 
     def check_food_web(self, rid):
-        """Food first (decision 0011): every animal in a region must find all its food there."""
+        """Every animal has a diet or hunts (0011); what an animal living in a
+        region can't find there is a gap to build, a warning, never an error
+        (game decision 0061, tools/food.py eats_here() and food_gaps())."""
         err = self.errors.append
+        warn = self.warnings.append
         r = self.c.region(rid)
         lists = r.get("animals", {}) if isinstance(r.get("animals", {}), dict) else {}
         living = {}
@@ -356,14 +361,16 @@ class Checker:
             diet = d.get("diet", [])
             hunts = d.get("hunts", [])
             if not diet and not hunts:
-                err(f"{a} in {rid} eats nothing: give it a diet or hunts (food first, decision 0011)")
-            for k in diet:
-                if k not in kinds:
-                    err(f'{a} in {rid} eats "{k}", but the region has no such food. Add it to the region\'s food first (decision 0011)')
-            for tag in hunts:
-                prey = [b for b in living if b != a and self.c.exists(b) and tag in self.c.get_def(b).get("tags", [])]
-                if not prey:
-                    err(f'{a} in {rid} hunts "{tag}", but no animal there has that tag. Add its prey to the region first (decision 0011)')
+                err(f"{a} in {rid} eats nothing: give it a diet or hunts (decision 0011)")
+                continue
+            prey_tags = {t for b in living if b != a and self.c.exists(b) for t in self.c.get_def(b).get("tags", [])}
+            gaps = food_rule.food_gaps(diet, hunts, kinds, prey_tags)
+            missing = [f'"{k}"' for k in gaps["diet"]] + [f'prey "{t}"' for t in gaps["hunts"]]
+            if not food_rule.eats_here(diet, hunts, kinds, prey_tags):
+                self.eats_nothing.append((rid, a))
+                warn(f"{a} in {rid} finds none of its food yet: {', '.join(missing)} (a gap to build, decision 0061)")
+            elif missing:
+                warn(f"{a} in {rid} gap: no {', '.join(missing)} here (decision 0061)")
 
     # --- text ---
     def check_code_keys(self):
