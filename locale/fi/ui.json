@@ -74,6 +74,7 @@
   "ui.morning": "Hyvää huomenta! Aika etsiä aamiaista.",
   "ui.wake": "Heräät.",
   "ui.not_tired": "Et ole vielä väsynyt. Lepää, kun yö tulee.",
+  "ui.too_tired_to_fly": "Liian väsynyt lentämään. Nuku, niin jaksat taas.",
   "ui.sleeping": "Zzz... nukut aamuun asti",
   "ui.ate": "Nam, {food}! +{amount} ruokaa",
   "ui.pounce_missed": "Ohi meni! Mene vähän lähemmäs ennen kuin loikkaat.",

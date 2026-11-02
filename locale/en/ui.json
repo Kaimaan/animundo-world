@@ -74,6 +74,7 @@
   "ui.morning": "Good morning! Time to find breakfast.",
   "ui.wake": "You wake up.",
   "ui.not_tired": "Not tired yet. Rest when night falls.",
+  "ui.too_tired_to_fly": "Too tired to fly. Sleep to get your energy back.",
   "ui.sleeping": "Zzz... sleeping until morning",
   "ui.ate": "Delicious {food}! +{amount} food",
   "ui.pounce_missed": "Missed! Get a little closer before you pounce.",
