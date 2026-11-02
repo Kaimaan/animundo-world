@@ -31,6 +31,9 @@ if [ -f food/rules.json ]; then   # (older commits, which the drift check export
 	mkdir -p "$GAME/food"
 	cp food/rules.json "$GAME/food/rules.json"
 fi
+if [ -f food/eats-cases.json ]; then   # the food rule's cases, run by the game's tools/check_food_rule.gd (0061)
+	cp food/eats-cases.json "$GAME/food/eats-cases.json"
+fi
 # the converter's golden tiles and places, which the game is checked against (tools/check_tile_region.gd)
 if [ -d tests/tile_region ]; then   # (older commits have none)
 	mkdir -p "$GAME/tests/tile_region"
