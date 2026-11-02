@@ -1,47 +1,62 @@
 #!/bin/sh
 # Fails if someone changed this repository's content inside the game repo
 # instead of here. The sync would overwrite their work, so it stops instead.
-# The game's copy must match this repo at the last sync (the game's .world-sync),
-# or at the commit being synced now (someone ran export_to_game.sh and committed it).
+# Each file in the game's copy must match this repo at the last sync (the game's
+# .world-sync) or at the commit being synced now (someone copied it by hand from
+# here, or ran export_to_game.sh and committed it). Only a file that matches
+# neither is someone's work the sync would lose.
 #   tools/check_game_drift.sh ../animundo
 set -e
 GAME="$(cd "${1:?usage: tools/check_game_drift.sh <path to game repo>}" && pwd)"
 cd "$(dirname "$0")/.."
 BASE=$(cat "$GAME/.world-sync")
-REPORT=$(mktemp)
+TMP=$(mktemp -d)
+REPORT="$TMP/report"
+: > "$REPORT"
 
-# Does the game's copy match this repo at commit $1? Lists the differences in $REPORT.
+# Exports this repo at commit $1 into $TMP/$2.
 # Always exports with today's export script, so old commits are compared the same way.
-matches() {
-	tmp=$(mktemp -d)
-	git worktree add -q --detach "$tmp/w" "$1"
-	cp tools/export_to_game.sh "$tmp/w/tools/export_to_game.sh"
-	mkdir -p "$tmp/g/tools" "$tmp/g/docs"
-	"$tmp/w/tools/export_to_game.sh" "$tmp/g" > /dev/null
-	: > "$REPORT"
-	( cd "$tmp/g" && find . -type f ! -name '*.glb' | sed 's|^\./||' ) | while read -r f; do
-		case "$f" in homes/*) [ -d "$GAME/homes" ] || continue ;; esac   # the game has no homes until their first sync
-		cmp -s "$tmp/g/$f" "$GAME/$f" || echo "  $f" >> "$REPORT"
-	done
-	for d in regions animals models $(cd "$GAME" && ls -d homes 2>/dev/null); do
-		( cd "$GAME" && find "$d" -type f ! -name '*.import' ) | while read -r f; do
-			[ -f "$tmp/g/$f" ] || echo "  $f (only in the game repo)" >> "$REPORT"
-		done
-	done
-	git worktree remove --force "$tmp/w"
-	rm -rf "$tmp"
-	[ ! -s "$REPORT" ]
+export_at() {
+	git worktree add -q --detach "$TMP/w" "$1"
+	cp tools/export_to_game.sh "$TMP/w/tools/export_to_game.sh"
+	mkdir -p "$TMP/$2/tools" "$TMP/$2/docs"
+	"$TMP/w/tools/export_to_game.sh" "$TMP/$2" > /dev/null
+	git worktree remove --force "$TMP/w"
 }
+export_at "$BASE" base
+export_at HEAD head
 
-if matches "$BASE"; then
+# Is the game's file $1 the same as in the export at $2 (both missing counts)?
+same() {
+	if [ -f "$GAME/$1" ]; then cmp -s "$TMP/$2/$1" "$GAME/$1"
+	else [ ! -f "$TMP/$2/$1" ]; fi
+}
+{
+	( cd "$TMP/base" && find . -type f ! -name '*.glb' )
+	( cd "$TMP/head" && find . -type f ! -name '*.glb' )
+	for d in regions animals models $(cd "$GAME" && ls -d homes places 2>/dev/null); do
+		( cd "$GAME" && find "$d" -type f ! -name '*.import' )
+	done
+} | sed 's|^\./||' | sort -u | while read -r f; do
+	case "$f" in   # the game has no homes or places until their first sync
+		homes/*) [ -d "$GAME/homes" ] || continue ;;
+		places/*) [ -d "$GAME/places" ] || continue ;;
+	esac
+	same "$f" base || same "$f" head || {
+		if [ -f "$GAME/$f" ] && [ ! -f "$TMP/base/$f" ] && [ ! -f "$TMP/head/$f" ]; then
+			echo "  $f (only in the game repo)"
+		else
+			echo "  $f"
+		fi
+	} >> "$REPORT"
+done
+
+if [ ! -s "$REPORT" ]; then
 	echo "No content was changed in the game repo since the last sync ($BASE)."
-	exit 0
-fi
-cp "$REPORT" "$REPORT.base"
-if matches HEAD; then
-	echo "The game repo already has this commit's content."
+	rm -rf "$TMP"
 	exit 0
 fi
 echo "::error::Content was changed in the game repo instead of in animundo-world. Move these changes to animundo-world, then undo them in the game repo:"
-cat "$REPORT.base"
+cat "$REPORT"
+rm -rf "$TMP"
 exit 1
