@@ -2,7 +2,8 @@
  "id": "au_great_barrier_reef",
  "name": {
   "en": "Great Barrier Reef – Green Island",
-  "fi": "Iso valliriutta – Vihreä saari"
+  "fi": "Iso valliriutta – Vihreä saari",
+  "fi_gen": "Ison Valliriutan – Green Islandin"
  },
  "wikidata": "Q7343",
  "country": "Australia",

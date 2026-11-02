@@ -2,7 +2,8 @@
  "id": "fi_nuuksio",
  "name": {
   "en": "Nuuksio National Park",
-  "fi": "Nuuksion kansallispuisto"
+  "fi": "Nuuksion kansallispuisto",
+  "fi_gen": "Nuuksion kansallispuiston"
  },
  "wikidata": "Q1815268",
  "country": "Finland",

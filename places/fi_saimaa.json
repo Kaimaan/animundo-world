@@ -2,7 +2,8 @@
  "id": "fi_saimaa",
  "name": {
   "en": "Lake Saimaa – Linnansaari",
-  "fi": "Saimaa – Linnansaari"
+  "fi": "Saimaa – Linnansaari",
+  "fi_gen": "Saimaan – Linnansaaren"
  },
  "wikidata": "Q1826934",
  "country": "Finland",
