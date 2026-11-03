@@ -148,7 +148,10 @@ def place(tile, biome=None, blend=None, biomes=None):
     mask = reef_mask(tile)
     if mask:   # where the real reef is (the tile's terrain.reef_mask, builder #255): it stands for the biome's flat terrain.reef
         d["reef_mask"] = copy.deepcopy(tile["terrain"]["reef_mask"])
-        terrain["reef"] = sum(mask) / len(mask)
+        total = 0.0
+        for v in mask:   # added one by one as the game does: Python 3.12's sum() rounds differently
+            total += v
+        terrain["reef"] = total / len(mask)
     if blend:
         _blend(d, blend, min(max(float(tile.get("blend", {}).get("share", 0.0)), 0.0), 0.5))
     if isinstance(tile.get("plants"), dict):   # the tile's own plants over the biome's (0043)
