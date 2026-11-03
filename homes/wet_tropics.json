@@ -1,0 +1,200 @@
+{
+  "id": "wet_tropics",
+  "name": "Wet Tropics rainforest",
+  "country": "AU",
+  "center": {
+    "lat": -16.5,
+    "lon": 145.4
+  },
+  "description": "Queensland's Wet Tropics: steep green ranges behind a narrow coastal plain, under a tall closed rainforest of many kinds of tree, with strangler figs, feather and fan palms, vines and clear rocky creeks.",
+  "about": "Biome for the Queensland tropical rain forests ecoregion (RESOLVE 150, Australasia), made so the land beside the Great Barrier Reef place can be built (the coast tile west of it was blocked with no home). Complex mesophyll vine forest: a tall, closed canopy of hundreds of tree species with none dominant, strangler figs, and layers of Alexandra palm (Archontophoenix alexandrae) and fan palm (Licuala ramsayi) in the lowlands. Ranges rise from the coast to Bartle Frere (1,622 m); 1,200 to 8,000 mm of rain a year, wettest November to April. Not a flood plain: no ponds running across tiles, only creeks and a few small lakes. Trees are written out (shape and colour) until their species are made; the palm layer is drawn with the palm shape. The coconut palm grows only on the beaches, so it isn't listed. Animals come from each tile's survey (game decision 0064). Tropics: no seasons yet (the wet season can come later).",
+  "author": "Animundo team",
+  "based_on": "rainforest",
+  "ecoregions": [
+    150
+  ],
+  "habitat": "rainforest",
+  "terrain": {
+    "base_height": 11,
+    "relief": 10,
+    "frequency": 0.02,
+    "rock_ridges": 0.1,
+    "rock_above": 24,
+    "size": 2048,
+    "lakes": 0.04,
+    "edge": "open",
+    "seed": 1586016150
+  },
+  "palette": {
+    "ground_lush": "#2f7d2c",
+    "ground_dry": "#6f9a3f",
+    "ground_high": "#2a6b2e",
+    "dirt": "#5e422e",
+    "rock": "#7d7a72",
+    "sand": "#c2ad85",
+    "water_deep": "#2c5a5a",
+    "water_shallow": "#5e8f82",
+    "ground_autumn": "#6f9a3f",
+    "snow": "#eef2f6",
+    "heath_autumn": "#6f9a3f"
+  },
+  "sky": {
+    "day": "#8fc6ea",
+    "horizon": "#eef2ec",
+    "dusk": "#f2a07a",
+    "night": "#141a3a",
+    "sun": "#ffe8c4"
+  },
+  "trees": {
+    "density": 0.04,
+    "mix": [
+      {
+        "shape": "round",
+        "weight": 28,
+        "leaves": "#1f5a2a",
+        "trunk": "#8a8070"
+      },
+      {
+        "shape": "round",
+        "weight": 22,
+        "leaves": "#2c7232",
+        "trunk": "#a39a88",
+        "food": "browse"
+      },
+      {
+        "shape": "round",
+        "weight": 12,
+        "leaves": "#3b8538",
+        "trunk": "#6e6152",
+        "food": "berries"
+      },
+      {
+        "shape": "round",
+        "weight": 10,
+        "leaves": "#265f2c",
+        "trunk": "#c0b49c",
+        "food": "berries"
+      },
+      {
+        "shape": "coconut_palm",
+        "weight": 14,
+        "leaves": "#3f7f34",
+        "trunk": "#7a6e5c",
+        "food": "berries"
+      },
+      {
+        "shape": "round",
+        "weight": 14,
+        "leaves": "#4a8a3c",
+        "trunk": "#5c4f40"
+      }
+    ]
+  },
+  "ground_cover": {
+    "grass": 0.05,
+    "flowers": 0.02,
+    "flower_colors": [
+      "#f2efe4",
+      "#f2c230",
+      "#e46a8c"
+    ],
+    "flower_names": [
+      "native ginger",
+      "golden penda",
+      "satinash blossom"
+    ],
+    "stones": 0.02,
+    "plants": []
+  },
+  "lakes": [],
+  "places": [],
+  "lake_life": {
+    "reeds": 0.3,
+    "lilies": 0.2,
+    "pondweed": 0.2
+  },
+  "food": [
+    {
+      "kind": "browse",
+      "names": [],
+      "weight": 12
+    },
+    {
+      "kind": "berries",
+      "names": [],
+      "weight": 30
+    },
+    {
+      "kind": "water_plants",
+      "names": [
+        "ribbon weed",
+        "water lily leaves",
+        "creek moss"
+      ],
+      "weight": 8
+    },
+    {
+      "kind": "grass",
+      "names": [
+        "native ginger leaves",
+        "fern fiddleheads",
+        "blady grass"
+      ],
+      "amount": 10
+    },
+    {
+      "kind": "insects",
+      "names": [
+        "green tree ants",
+        "termites",
+        "stick insects",
+        "birdwing caterpillars",
+        "beetle grubs"
+      ],
+      "weight": 15
+    },
+    {
+      "kind": "water_bugs",
+      "names": [
+        "dragonfly nymphs",
+        "mayfly nymphs",
+        "water striders"
+      ],
+      "weight": 15
+    },
+    {
+      "kind": "bottom_bugs",
+      "names": [
+        "freshwater prawns",
+        "spiny crayfish",
+        "freshwater snails"
+      ],
+      "weight": 8
+    },
+    {
+      "kind": "carrion",
+      "names": [
+        "wallaby remains",
+        "fish remains"
+      ],
+      "weight": 4
+    }
+  ],
+  "fish": [],
+  "migrants": [],
+  "animals": {
+    "playable": [],
+    "predators": [],
+    "prey": []
+  },
+  "sources": [
+    "https://en.wikipedia.org/wiki/Queensland_tropical_rain_forests",
+    "https://www.oneearth.org/ecoregions/queensland-tropical-rainforests",
+    "https://www.agriculture.gov.au/sites/default/files/documents/mvg1-nvis-rainforests-and-vine-thickets.pdf",
+    "https://www.legislation.gov.au/F2021L01597/asmade/text",
+    "https://apps.des.qld.gov.au/regional-ecosystems/details/?re=7.12.2",
+    "https://www.missionbeachcassowaries.com/uploads/5/9/8/7/5987112/cassowary_foodtrees.pdf"
+  ],
+  "bogs": [],
+  "streams": []
+}
