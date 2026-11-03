@@ -154,6 +154,26 @@ class Catalogue:
              table(["Tile", "Animal"], [[tid, title(a)] for tid, a in sorted(hungry)]) if hungry else "_None._\n"]
         return s
 
+    def kept_section(self):
+        """Biome plants the published tiles drop (game decision 0062): one row a plant."""
+        tiles = published_tiles.tiles()
+        lost, why = {}, {}
+        for tid, t in sorted(tiles.items()):
+            if not isinstance(t.get("plants"), dict):
+                continue
+            reasons = {e.get("id"): e.get("why") for e in t["plants"].get("left_out", []) or [] if isinstance(e, dict)}
+            for _, pid in layers.biome_missing(t["plants"], t.get("biome") or t.get("home")):
+                lost.setdefault(pid, []).append(tid)
+                if pid in reasons:
+                    why.setdefault(pid, []).append(f"{tid}: {reasons[pid]}")
+        rows = [[f"`{pid}`", len(ts), "; ".join(why.get(pid, [])) or "none: fixed on the tile's next remake", ", ".join(ts)]
+                for pid, ts in sorted(lost.items(), key=lambda e: (-len(e[1]), e[0]))]
+        return ["### Biome plants the tiles drop", "",
+                "A tile keeps its biome's plants (game decision 0062): its survey changes how many there are or adds "
+                "local ones, but a plant is left out only with a reason. Tiles made before 0062 dropped what their "
+                "survey didn't pick, which causes many of the gaps above; each is fixed on its next remake.", "",
+                table(["Plant", "Tiles", "Reason", "Where"], rows) if rows else "_None._\n"]
+
     # --- the page ------------------------------------------------------------------
 
     def page(self):
@@ -246,7 +266,7 @@ class Catalogue:
                                       self.wanted_rows("foods", {}, [self.named, lambda w: w.get("feeds"), lambda w: w.get("needs")]))]
 
         if check_tile:
-            s += self.gaps_section()
+            s += self.gaps_section() + self.kept_section()
 
         # core team
         s += ["## Core team work", "", "Code changes that more content depends on. These are for the core team; "

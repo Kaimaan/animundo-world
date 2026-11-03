@@ -52,8 +52,8 @@ def tree_entry(tid, share):
 
 def problems(plants):
     """What's wrong with a tile's `plants` (spec 02 §2), as messages."""
-    if not isinstance(plants, dict) or set(plants) - {"trees", "cover", "water", "tree_density"}:
-        return ['"plants" must be {"trees", "cover", "water"} (each optional)']
+    if not isinstance(plants, dict) or set(plants) - {"trees", "cover", "water", "tree_density", "left_out"}:
+        return ['"plants" must be {"trees", "cover", "water", "left_out"} (each optional)']
     out = []
     for part, folder, amount in (("trees", "trees", "share"), ("cover", "plants", "density"), ("water", "plants", "density")):
         items = plants.get(part, [])
@@ -78,6 +78,18 @@ def problems(plants):
     if ground > MAX_GROUND:
         out.append(f'"plants" has {ground} cover and water plants; at most {MAX_GROUND} (a cheap phone builds each one)')
     return out
+
+
+def biome_missing(plants, bid):
+    """The biome's plants a tile's `plants` drops (game decision 0062), as
+    [(part, id)]: on each part the tile lists (trees, cover, water), the
+    biome's ids that are on no part of the tile. A part the tile doesn't list
+    stays the biome's (use_plants), so it drops nothing. `left_out` isn't read."""
+    b = (biome(bid) or {}).get("plants") or {}
+    have = {p.get("id") for k in ("trees", "cover", "water") for p in plants.get(k, []) or [] if isinstance(p, dict)}
+    return [(part, p["id"]) for part in ("trees", "cover", "water")
+            if isinstance(plants.get(part), list)
+            for p in b.get(part, []) or [] if isinstance(p, dict) and p.get("id") not in have]
 
 
 def ids(plants):

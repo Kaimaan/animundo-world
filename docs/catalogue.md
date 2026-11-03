@@ -184,6 +184,24 @@ An animal that finds none of its food on a tile. A player can't start as it ther
 
 _None._
 
+### Biome plants the tiles drop
+
+A tile keeps its biome's plants (game decision 0062): its survey changes how many there are or adds local ones, but a plant is left out only with a reason. Tiles made before 0062 dropped what their survey didn't pick, which causes many of the gaps above; each is fixed on its next remake.
+
+| Plant | Tiles | Reason | Where |
+|---|---|---|---|
+| `red_clover` | 9 | none: fixed on the tile's next remake | z10_0581_0294, z10_0581_0297, z10_0582_0291, z10_0582_0293, z10_0582_0294, z10_0583_0296, z10_0592_0284, z10_0593_0283, z10_0593_0285 |
+| `white_clover` | 9 | none: fixed on the tile's next remake | z10_0581_0294, z10_0581_0297, z10_0582_0291, z10_0582_0293, z10_0582_0294, z10_0583_0296, z10_0592_0284, z10_0593_0283, z10_0593_0285 |
+| `cottongrass` | 8 | none: fixed on the tile's next remake | z10_0579_0295, z10_0580_0296, z10_0581_0297, z10_0582_0291, z10_0582_0293, z10_0582_0294, z10_0583_0296, z10_0593_0283 |
+| `goat_willow` | 8 | none: fixed on the tile's next remake | z10_0580_0296, z10_0581_0293, z10_0581_0294, z10_0581_0297, z10_0582_0293, z10_0583_0296, z10_0592_0284, z10_0593_0285 |
+| `peat_moss` | 7 | none: fixed on the tile's next remake | z10_0579_0295, z10_0580_0296, z10_0581_0297, z10_0582_0291, z10_0582_0293, z10_0582_0294, z10_0583_0296 |
+| `reindeer_lichen` | 7 | none: fixed on the tile's next remake | z10_0579_0295, z10_0580_0295, z10_0580_0296, z10_0582_0291, z10_0582_0292, z10_0582_0293, z10_0593_0283 |
+| `spiny_wood_fern` | 4 | none: fixed on the tile's next remake | z10_0581_0297, z10_0582_0294, z10_0592_0284, z10_0593_0283 |
+| `bracken` | 3 | none: fixed on the tile's next remake | z10_0581_0297, z10_0592_0284, z10_0593_0283 |
+| `chanterelle` | 1 | none: fixed on the tile's next remake | z10_0581_0297 |
+| `fly_agaric` | 1 | none: fixed on the tile's next remake | z10_0581_0297 |
+| `porcini` | 1 | none: fixed on the tile's next remake | z10_0581_0297 |
+
 ## Core team work
 
 Code changes that more content depends on. These are for the core team; the data and models they unlock can be made before they're done.

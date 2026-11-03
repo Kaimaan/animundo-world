@@ -11,6 +11,10 @@ the check named for it. A group file of the good tile and its east
 neighbour passes when their shared side matches and fails "neighbours" when
 it doesn't. Nuuksio and Saimaa with a "grid" section and an open edge pass
 validate_region.py and the region schema; a wrong grid section fails.
+A tile made under game decision 0062 (it writes `plants.left_out`) passes
+with all its biome's plants, or with one left out for a reason, and fails a
+biome plant dropped without one, an empty reason, a leave-out the biome
+hasn't got and a density under 0.001.
 
 Usage: python3 tools/test_check_tile.py
 """
@@ -116,6 +120,19 @@ def broken(good):
     t["home"] = t["habitat"] = "boreal_lake"
     t["requires"]["homes"] = ["boreal_lake"]
     cases.append(("a home that is retired", "animals", t))
+    t = kept(good)   # game 0062: a tile that writes left_out keeps its biome's plants
+    drop(t, "white_clover")
+    cases.append(("a biome plant dropped without a reason", "tile", t))
+    t = kept(good)
+    drop(t, "white_clover")
+    t["plants"]["left_out"] = [{"id": "white_clover", "why": " "}]
+    cases.append(("a biome plant left out with no reason", "tile", t))
+    t = kept(good)
+    t["plants"]["left_out"] = [{"id": "kelp", "why": "grows in the sea"}]
+    cases.append(("left out a plant the biome hasn't got", "tile", t))
+    t = kept(good)
+    t["plants"]["cover"][0]["density"] = 0.0005
+    cases.append(("a density under 0.001", "tile", t))
     return cases
 
 
@@ -161,6 +178,24 @@ def with_plants(good):
     t["requires"]["plants"] = ["bilberry", "heather", "white_clover"]
     t["requires"]["trees"] = ["norway_spruce", "birch"]
     return t
+
+
+def kept(good):
+    """The good tile made under game 0062: its biome's plants, nothing left out."""
+    t = copy.deepcopy(good)
+    with open(os.path.join(ROOT, "biomes", t["home"] + ".json"), encoding="utf-8") as f:
+        b = json.load(f)["plants"]
+    t["plants"] = {k: copy.deepcopy(b.get(k, [])) for k in ("trees", "cover", "water")}
+    t["plants"]["left_out"] = []
+    t["requires"]["plants"] = [p["id"] for k in ("cover", "water") for p in t["plants"][k]]
+    t["requires"]["trees"] = [p["id"] for p in t["plants"]["trees"]]
+    return t
+
+
+def drop(t, pid):
+    """`t` without the plant `pid` on its cover."""
+    t["plants"]["cover"] = [p for p in t["plants"]["cover"] if p["id"] != pid]
+    t["requires"]["plants"].remove(pid)
 
 
 def blended(good):
@@ -243,6 +278,15 @@ def main():
         code, r = report(with_plants(good), tmp, "plants")
         if code != 0 or failed(r["results"]):
             errors.append(f"a tile with its biome and own plants failed: {[x for x in r['results'] if x['status'] == 'fail']}")
+        t = kept(good)
+        code, r = report(t, tmp, "kept")
+        if code != 0 or failed(r["results"]):
+            errors.append(f"a tile that keeps its biome's plants failed: {[x for x in r['results'] if x['status'] == 'fail']}")
+        drop(t, "white_clover")
+        t["plants"]["left_out"] = [{"id": "white_clover", "why": "test: no clover here"}]
+        code, r = report(t, tmp, "left_out")
+        if code != 0 or failed(r["results"]):
+            errors.append(f"a biome plant left out with a reason failed: {[x for x in r['results'] if x['status'] == 'fail']}")
         east = neighbour(good)
         group = {"format": 1, "grid": "ease2_n25", "group": [51, 37], "version": 1,
                  "tiles": {"n_412_301": good, "n_413_301": east}, "blocked": {"n_414_301": {"reason": "no_home", "habitat": "tundra"}}}
@@ -271,7 +315,7 @@ def main():
             code, r = report(t, tmp, f"sea{i}")
             if code != 1 or failed(r["results"]) != (check if isinstance(check, list) else [check]):
                 errors.append(f"{name}: should fail exactly {check}, failed {failed(r['results'])} (exit {code})")
-        ran = 6 + len(cases) + len(sea_cases)
+        ran = 8 + len(cases) + len(sea_cases)
     ran += grid_sections(errors)
     for e in errors:
         print("ERROR: " + e, file=sys.stderr)

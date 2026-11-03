@@ -28,7 +28,10 @@ regions/<place>.json itself. Then:
            to build, never a failure (game decision 0061, food.eats_here())
   plants   (in tile) the tile's own `plants`: library ids, at most 24 cover and water
            plants and 6 trees, listed in requires; the region check then holds
-           them to the 100 triangles per m² budget
+           them to the 100 triangles per m² budget. A tile that writes
+           `plants.left_out` (game decision 0062) keeps its biome's plants: each
+           is on the tile or in `left_out` with a reason ("why"), and no
+           density or share is under 0.001
   edges    65 samples a side, whole blocks, the corners agree (n[0] == w[64],
            n[64] == e[64], s[0] == w[0], s[64] == e[0]); every sample and the
            cell's level are above 0 and under the tile's own height; the height
@@ -377,6 +380,39 @@ def plant_problems(t):
     for p in trees:
         if p not in req.get("trees", []):
             out.append(f'"requires.trees" must list "{p}"')
+    if "left_out" in t["plants"]:
+        out += kept_problems(t["plants"], t.get("home"))
+    return out
+
+
+def kept_problems(plants, bid):
+    """A tile made under game decision 0062 (it writes `plants.left_out`) keeps
+    its biome's plants: each is on the tile or in `left_out` with a reason, and
+    a density or share is at least 0.001. Tiles made before have no `left_out`
+    and are held to none of this until they are remade."""
+    left = plants["left_out"]
+    if not (isinstance(left, list) and all(isinstance(e, dict) and set(e) == {"id", "why"} for e in left)):
+        return ['"plants.left_out" must be a list of {"id", "why"}']
+    out = []
+    on_tile = set(sum(layers.ids(plants), []))
+    b = (layers.biome(bid) or {}).get("plants") or {}
+    in_biome = {p.get("id") for k in ("trees", "cover", "water") for p in b.get(k, []) or [] if isinstance(p, dict)}
+    reasons = {}
+    for e in left:
+        if not (isinstance(e["why"], str) and e["why"].strip()):
+            out.append(f'"plants.left_out": {e["id"]} needs a reason ("why")')
+        if e["id"] not in in_biome:
+            out.append(f'"plants.left_out": {e["id"]} isn\'t one of the biome {bid}\'s plants')
+        if e["id"] in on_tile:
+            out.append(f'"plants.left_out": {e["id"]} is on the tile')
+        reasons[e["id"]] = e["why"]
+    for part, pid in layers.biome_missing(plants, bid):
+        if pid not in reasons:
+            out.append(f'"plants.{part}" drops the biome {bid}\'s {pid}: keep it, or say why in "plants.left_out" (game 0062)')
+    for part, amount in (("trees", "share"), ("cover", "density"), ("water", "density")):
+        for p in plants.get(part, []) or []:
+            if p[amount] < 0.001:
+                out.append(f'"plants.{part}": {p["id"]} has {amount} {p[amount]}; at least 0.001 (game 0062)')
     return out
 
 
