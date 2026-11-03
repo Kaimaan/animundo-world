@@ -26,7 +26,7 @@
   "swim_sprint_speed": 7.5,
   "jump": 3.5,
   "breath": 120,
-  "rain_chill": 0.05,
+  "rain_chill": 0,
   "water_chill": 0,
   "shelter": "deep_water",
   "spawn": "water",
@@ -75,7 +75,8 @@
     "about_fact": "Pods often have about 15 dolphins. They swim and surface together.",
     "bite": "A dolphin snapped at you! Swim for cover!",
     "caught_you": "A dolphin caught you.",
-    "safe_tag": "Tag, you got it! In Safe mode a dolphin never goes hungry."
+    "safe_tag": "Tag, you got it! In Safe mode a dolphin never goes hungry.",
+    "rain_start": "It's raining on the sea. Dive down where the water is calm."
   },
   "year": {
     "winter": "active",

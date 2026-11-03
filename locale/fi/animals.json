@@ -715,5 +715,8 @@
   "animal.humpback_whale.caught": "Suullinen kalaa! +{food} ruokaa",
   "animal.humpback_whale.safe_tag": "Hippa, sait sen! Turvallisessa tilassa valaalla ei ole koskaan nälkä.",
   "animal.humpback_whale.bite": "Valtava valas hotkaisi aivan vieressäsi! Ui pois!",
-  "animal.humpback_whale.caught_you": "Valas nielaisi sinut suullisen vettä mukana."
+  "animal.humpback_whale.caught_you": "Valas nielaisi sinut suullisen vettä mukana.",
+  "animal.bottlenose_dolphin.rain_start": "Merelle sataa. Sukella alas, missä vesi on tyyntä.",
+  "animal.green_sea_turtle.rain_start": "Merelle sataa. Veden alla et tunne sitä.",
+  "animal.saimaa_seal.rain_start": "Järvelle sataa. Norppa on märkä joka tapauksessa: ui eteenpäin."
 }

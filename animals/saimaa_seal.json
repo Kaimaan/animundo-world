@@ -69,7 +69,8 @@
     "about_fact": "Its ring pattern stays recognisable through life. Observe wild seals from a distance and leave resting places undisturbed.",
     "safe_tag": "Tag! The fish swims away unharmed.",
     "bite": "A seal caught up with you!",
-    "caught_you": "The seal caught you."
+    "caught_you": "The seal caught you.",
+    "rain_start": "It's raining on the lake. A seal is wet anyway: swim on."
   },
   "year": {
     "winter": "active",
