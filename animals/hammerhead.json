@@ -1,0 +1,78 @@
+{
+ "archetype": "fish",
+ "latin": "Sphyrna lewini",
+ "taxon": {
+  "gbif_key": 2418789,
+  "rank": "SPECIES",
+  "name": "Sphyrna lewini"
+ },
+ "playable": true,
+ "color": "#8a8d91",
+ "dark_vision": 0.5,
+ "tags": [
+  "fish",
+  "big_fish"
+ ],
+ "hunts": [
+  "small_fish"
+ ],
+ "walk": 2.6,
+ "sprint": 8.0,
+ "lurk": 0.5,
+ "jump": 0.0,
+ "keeps_swimming": true,
+ "box": [
+  1.2,
+  0.6,
+  0.7
+ ],
+ "cam_height": 1.0,
+ "cam_dist": 7.5,
+ "model": {
+  "file": "res://assets/animals/hammerhead.glb",
+  "length": 2.572,
+  "yaw": 0.0,
+  "anims": {
+   "idle": "idle",
+   "fly": "swim"
+  }
+ },
+ "text": {
+  "title": "Scalloped hammerhead",
+  "nearby": "A scalloped hammerhead swims nearby with its wide hammer head.",
+  "chasing": "A scalloped hammerhead swims close by!",
+  "bite": "A scalloped hammerhead bumped you! Keep swimming!",
+  "caught_you": "A scalloped hammerhead caught you.",
+  "play_as": "Play as a hammerhead",
+  "menu_sub": "Cruise over the reef, look for small fish, rest in warm shallow bays.",
+  "menu_wild": "You are big and strong. Little fish hide when you swim near.",
+  "intro": "Up and Down to swim deeper. Swim slowly and look for food!",
+  "safe_tag": "Tag, you got it! In Safe mode a hammerhead never goes hungry.",
+  "hungry": "You are hungry. Swim over the reef and look for food!",
+  "no_food": "No food here. Swim to another part of the reef.",
+  "about_looks": "Grey-brown on top and white below, with a wide hammer head that has a scalloped front edge and a dent in the middle.",
+  "about_food": "Small schooling fish like sardines, and also squid, octopus and shrimp.",
+  "about_home": "Lives in warm seas near reefs and in open blue water. Pups and young sharks stay in shallow bays and mangroves.",
+  "about_winter": "Keeps swimming all year. The water stays warm, so it swims and eats all the time.",
+  "about_young": "Pups are born live in the warm season. A mother has twelve to forty-one pups and they swim on their own.",
+  "about_fact": "Its wide hammer head helps it see and smell all around."
+ },
+ "year": {
+  "winter": "active",
+  "shelter": "Pups and young sharks stay in shallow bays and mangroves. Adults cruise over reefs and open blue water.",
+  "young": "Pups are born live in the warm season. A mother has twelve to forty-one pups.",
+  "food": {
+   "spring": "Schooling fish like sardines, and squid, octopus and shrimp. More squid in deep water at night.",
+   "summer": "Schooling fish like sardines, and squid, octopus and shrimp. More squid in deep water at night.",
+   "autumn": "Schooling fish like sardines, and squid, octopus and shrimp. More squid in deep water at night.",
+   "winter": "Schooling fish like sardines, and squid, octopus and shrimp. More squid in deep water at night."
+  },
+  "notes": ""
+ },
+ "sources": [
+  "https://www.fishbase.mnhn.fr/summary/Sphyrna-lewini.html",
+  "https://www.marylandbiodiversity.com/view/1957",
+  "https://www.sharks.org/scalloped-hammerhead-shark-sphyrna-lewini"
+ ],
+ "diet": []
+}

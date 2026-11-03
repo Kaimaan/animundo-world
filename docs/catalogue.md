@@ -6,7 +6,7 @@ How to add each kind of thing: [CONTRIBUTING.md](../CONTRIBUTING.md). How it sho
 
 |  | Have | Wanted | In progress |
 |---|---|---|---|
-| Animals | 30 | 0 | 0 |
+| Animals | 31 | 0 | 0 |
 | Plants | 31 | 0 | 0 |
 | Trees | 5 | 0 | 0 |
 | Foods | 13 | 0 | 0 |
@@ -30,6 +30,7 @@ How to add each kind of thing: [CONTRIBUTING.md](../CONTRIBUTING.md). How it sho
 | **Common frog** (*Rana temporaria*) | fi_nuuksio, fi_saimaa | built from a spec [preview](../models/previews/frog.png) | yes | no | yes |
 | **Great tit** (*Parus major*) | fi_nuuksio, fi_saimaa | built from a spec [preview](../models/previews/great_tit.png) | yes | no | yes |
 | **Green sea turtle** (*Chelonia mydas*) | au_great_barrier_reef | built from a spec [preview](../models/previews/green_sea_turtle.png) | yes | no | yes |
+| **Scalloped hammerhead** (*Sphyrna lewini*) | nowhere yet | built from a spec [preview](../models/previews/hammerhead.png) | yes | no | yes |
 | **Herring Gull** (*Larus argentatus*) | nowhere yet | built from a spec [preview](../models/previews/herring_gull.png) | yes | no | yes |
 | **Humpback whale** (*Megaptera novaeangliae*) | nowhere yet | built from a spec [preview](../models/previews/humpback_whale.png) | yes | no | yes |
 | **Kestrel** (*Falco tinnunculus*) | fi_nuuksio | built from a spec [preview](../models/previews/kestrel.png) | yes | no | yes |
