@@ -85,7 +85,7 @@ OPEN_SEA = "open_sea"   # the open sea's one biome (game proposal 0047)
 LAND_SHARE = 0.1        # an open-ocean cell has less land than this (spec/04)
 # a tile's place fields the game reads but a region file doesn't have (its biome's
 # land and plants are already worked into the place, so the region check mustn't redo them)
-GAME_ONLY = ("level", "edges", "coast", "ecoregions", "habitat", "land", "plants", "skerries")
+GAME_ONLY = ("level", "edges", "coast", "reef_mask", "ecoregions", "habitat", "land", "plants", "skerries")
 CODE_ONLY = ("habitat", "ecoregion", "home", "seed", "water", "species")
 
 

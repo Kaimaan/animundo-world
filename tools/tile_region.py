@@ -74,6 +74,8 @@ MAX_COVER = 0.85
 WATER_LEVEL = 8      # every biome on the grid shares one water level (spec 02 Part 1)
 BIOME_NOTES = ("id", "name", "country", "about", "based_on", "author", "retired")
 OPEN_SEA = "open_sea"   # the biome of every open-ocean cell (game proposal 0047)
+REEF_CELLS = 16   # a terrain.reef_mask's cells a side (builder #255, TileSides.REEF_CELLS)
+REEF_BIOME = "coral_reef"   # whose corals grow on another tile's reef_mask patches (Tile.REEF_BIOME)
 MAX_SKERRIES = 12
 SHOAL = 8            # fish of a schooling kind in an open-sea tile; others come in twos
 MIN_SEA_DEPTH = 6.0  # a deep sea biome on a coastal sea cell: the floor stays at the cell's own depth, at least this (game Tile.MIN_SEA_DEPTH)
@@ -143,16 +145,33 @@ def place(tile, biome=None, blend=None, biomes=None):
     d["edges"] = copy.deepcopy(tile.get("edges", {}))
     if "coast" in tile:   # where a coastal cell's land is
         d["coast"] = copy.deepcopy(tile["coast"])
+    mask = reef_mask(tile)
+    if mask:   # where the real reef is (the tile's terrain.reef_mask, builder #255): it stands for the biome's flat terrain.reef
+        d["reef_mask"] = copy.deepcopy(tile["terrain"]["reef_mask"])
+        terrain["reef"] = sum(mask) / len(mask)
     if blend:
         _blend(d, blend, min(max(float(tile.get("blend", {}).get("share", 0.0)), 0.0), 0.5))
     if isinstance(tile.get("plants"), dict):   # the tile's own plants over the biome's (0043)
         layers.use_plants(d, tile["plants"])
+    if mask:
+        _reef_plants(d)
     species = tile.get("species", {})
     d["animals"] = {k: list(species.get(k, [])) for k in ("playable", "prey", "predators")}
     if biome_of(tile) == OPEN_SEA:
         _open_sea(d, tile)
     d["food"] = food.worked_out(d)   # from the plants, water and animals (0043)
     return d
+
+
+def reef_mask(tile):
+    """A tile's terrain.reef_mask (16 x 16 reef shares, row by row from the
+    north side) as shares up to 0.9 (TileSides.reef_mask), or [] without one."""
+    cells = tile.get("terrain", {}).get("reef_mask") if isinstance(tile.get("terrain"), dict) else None
+    if not isinstance(cells, list) or len(cells) != REEF_CELLS * REEF_CELLS:
+        return []
+    if not all(isinstance(v, (int, float)) and not isinstance(v, bool) for v in cells):
+        return []
+    return [min(max(float(v), 0.0), 0.9) for v in cells]
 
 
 def cover_lakes(water):
@@ -162,6 +181,25 @@ def cover_lakes(water):
         if w <= w1:
             return l0 + (l1 - l0) * (w - w0) / (w1 - w0)
     return COVER[-1][0]
+
+
+def _reef_plants(d):
+    """A tile with reef in its reef_mask and no plants of its own on reef rock
+    (Tile._reef_plants): the coral_reef biome's reef-rock corals grow on its
+    patches of reef rock, and only there, with that biome's reef-rock colour."""
+    if float(d["terrain"].get("reef", 0.0)) <= 0.0:
+        return
+    cover = d.setdefault("ground_cover", {})
+    plants = cover.setdefault("plants", [])
+    if any("reef" in p.get("on", []) for p in plants):
+        return
+    biome = layers.resolve(read_biome(REEF_BIOME))
+    for p in biome.get("ground_cover", {}).get("plants", []):
+        if "reef" in p.get("on", []):
+            plants.append(dict(copy.deepcopy(p), on=["reef"]))   # not its sandy seabed: that's all of an open sea
+    palette = d.setdefault("palette", {})
+    if "reef_rock" not in palette and "reef_rock" in biome.get("palette", {}):
+        palette["reef_rock"] = biome["palette"]["reef_rock"]
 
 
 def _open_sea(d, tile):
