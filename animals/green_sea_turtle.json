@@ -7,6 +7,7 @@
     "name": "Chelonia mydas"
   },
   "color": "#7A5A3A",
+  "open_sea": true,
   "tags": [
     "reptile"
   ],

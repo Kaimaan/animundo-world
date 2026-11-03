@@ -8,6 +8,7 @@
   },
   "playable": true,
   "color": "#637e8f",
+  "open_sea": true,
   "tags": [
     "mammal",
     "large_mammal"
