@@ -16,7 +16,9 @@ regions/<place>.json itself. Then:
            0047) has no land: no ecoregion, coast or blend, but its sea (`sea`,
            in seas/names.json) and that sea's `name`, a land style `land` and
            a `land_share` under 0.1
-  animals  the home lists the tile's ecoregion (not for the open sea) and has its habitat; an
+  animals  the home fits the tile's ecoregion (not for the open sea): it lists it, or no home
+           of the tile's habitat lists it and the home's land style is the ecoregion's kind in its
+           realm (lands/ecoregions.json + lands/index.json, game proposal 013); the home has its habitat; an
            open-sea tile's animals all live at sea (`open_sea`); a blend's home exists, every
            animal is in animals/, the playable ones are playable, and requires
            lists every home and the tile's own animals. The tile's animals are
@@ -229,6 +231,53 @@ def region_of(t):
     return region, None
 
 
+def _json(path):
+    with open(path, encoding="utf-8") as f:
+        return json.load(f)
+
+
+_KIND = {}
+
+
+def ecoregion(eco):
+    """An ecoregion's RESOLVE biome number, realm and name (lands/ecoregions.json), or {}."""
+    if not _KIND:
+        _KIND["eco"] = _json(os.path.join(ROOT, "lands", "ecoregions.json"))["ecoregions"]
+        _KIND["styles"] = _json(os.path.join(ROOT, "lands", "index.json"))["styles"]
+    return _KIND["eco"].get(str(eco), {})
+
+
+def ecoregion_style(eco):
+    """The land style of an ecoregion's kind (its RESOLVE biome in lands/index.json), or None."""
+    e = ecoregion(eco)
+    for s in _KIND["styles"]:
+        if s.get("biome") == e.get("biome") and (not s.get("realms") or e.get("realm") in s["realms"]):
+            return s["land"]
+    return None
+
+
+def home_fits(t, home_id, home):
+    """Whether a home may build the tile's ecoregion (game proposal 013): a home
+    that lists it, or, when no home of the tile's habitat lists it, a home of
+    that habitat whose land style is the ecoregion's kind and whose own
+    ecoregions are in the ecoregion's realm. So a place's biome serves its
+    kind of land in its own realm (Mamirauá's rainforest the Neotropics,
+    Finland's taiga boreal Eurasia), an ecoregion's own biome still wins, and
+    another realm waits for a place of its own."""
+    eco = t["ecoregion"]
+    listed = home.get("ecoregions", [])
+    if eco in listed:
+        return True
+    if any(eco in homes.load(h).get("ecoregions", []) and homes.load(h).get("habitat") == t["habitat"]
+           for h in homes.homes() if h != home_id):
+        return False
+    source = os.path.join(ROOT, "biomes", home_id + ".json")
+    land = _json(source).get("land") if os.path.isfile(source) else None
+    realm = ecoregion(eco).get("realm")
+    return (land is not None and land == ecoregion_style(eco)
+            and realm is not None and realm in {ecoregion(e).get("realm") for e in listed})
+
+
 def animal_problems(t, content, published=False):
     out = []
     req = t["requires"]
@@ -242,9 +291,10 @@ def animal_problems(t, content, published=False):
         return out
     if t["home"] in homes.homes():
         home = homes.load(t["home"])
-        if not open_sea(t) and t["ecoregion"] not in home.get("ecoregions", []):
-            out.append(f'homes/{t["home"]}.json doesn\'t list the tile\'s ecoregion {t["ecoregion"]}: '
-                       'a tile is built from its ecoregion\'s home')
+        if not open_sea(t) and not home_fits(t, t["home"], home):
+            out.append(f'homes/{t["home"]}.json doesn\'t fit the tile\'s ecoregion {t["ecoregion"]}: '
+                       'a tile is built from a home that lists its ecoregion, or, when no home of its habitat '
+                       'lists it, from one of the ecoregion\'s kind in its realm (lands/ecoregions.json)')
         if home.get("habitat") != t["habitat"]:
             out.append(f'homes/{t["home"]}.json is a {home.get("habitat")} home, but the tile is {t["habitat"]}')
         if not published and home.get("retired"):

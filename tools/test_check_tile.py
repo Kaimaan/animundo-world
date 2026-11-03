@@ -107,6 +107,12 @@ def broken(good):
     t["ecoregion"] = 780   # the fell birch forest: the tundra home's, not boreal_forest's
     cases.append(("a home that doesn't list the tile's ecoregion", "animals", t))
     t = copy.deepcopy(good)
+    t["ecoregion"] = 9999   # no such ecoregion: no kind to fit by (game proposal 013)
+    cases.append(("an ecoregion of no known kind", "animals", t))
+    t = copy.deepcopy(good)
+    t["ecoregion"] = 370   # Central Canadian Shield forests: boreal, but Nearctic waits for a place of its own
+    cases.append(("an ecoregion of its home's kind in another realm", "animals", t))
+    t = copy.deepcopy(good)
     t["habitat"] = "boreal_lake"   # boreal_forest and boreal_lake share the taiga: the habitat picks
     cases.append(("a home of another habitat", "animals", t))
     t = copy.deepcopy(good)
@@ -335,6 +341,11 @@ def main():
         code, r = report(group, tmp, "group_bad")
         if code != 1 or failed(r["results"]) != ["neighbours"]:
             errors.append(f"a group whose shared side doesn't match should fail neighbours, failed {failed(r['results'])}")
+        t = copy.deepcopy(good)   # game proposal 013: a boreal Eurasian ecoregion no home lists builds from a boreal home of its realm
+        t["ecoregion"] = 718
+        code, r = report(t, tmp, "kind")
+        if code != 0 or failed(r["results"]):
+            errors.append(f"a tile on an unlisted ecoregion of its home's kind failed: {[x for x in r['results'] if x['status'] == 'fail']}")
         old = copy.deepcopy(good)   # game 0054: an already-published version keeps its retired biome
         old["home"] = old["habitat"] = "boreal_lake"
         old["requires"]["homes"] = ["boreal_lake"]
