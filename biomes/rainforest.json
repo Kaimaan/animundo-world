@@ -1,74 +1,125 @@
 {
   "id": "rainforest",
-  "name": "Rainforest home",
+  "name": "Flooded rainforest",
   "country": "",
   "center": {
     "lat": 0,
     "lon": 0
   },
-  "description": "Flat muddy rainforest with huge green leafy trees beside a slow brown river.",
-  "about": "Home template made by tools/adapt_home.py from boreal_forest.",
+  "description": "Flat Amazon floodplain forest (várzea): tall kapok and sandbox trees, açaí and buriti palms, and slow brown channels and lagoons with floating meadows and giant water lilies, running on from tile to tile.",
+  "about": "Biome for Amazon floodplain cells, made from the Mamirauá place research (game decision 0060, Muse inbox #239). Várzea is forest that the Solimões and Japurá flood each year, so the land is flat and wet: ponds cover at least a tenth of a tile and run on into the next, with flooded-forest shores. Its trees are written out (shape and colour) until stage C makes the species; then they go in plants by id. No named lakes, bogs or streams, so tiles do not repeat. Tropics: no seasons yet (the flood season can come later).",
   "author": "Animundo team",
-  "based_on": "boreal_forest",
+  "based_on": "boreal_taiga",
   "ecoregions": [
-    483
+    496
   ],
   "habitat": "rainforest",
   "land": "tropical_moist",
   "terrain": {
     "size": 2048,
+    "base_height": 4,
+    "relief": 2,
+    "frequency": 0.015,
     "lakes": 0.3,
-    "edge": "none",
+    "edge": "open",
+    "water_cover": true,
+    "pond_depth": 8,
+    "pond_frequency": 0.006,
+    "bog_cover": 0.6,
     "seed": 1811587497
   },
   "trees": {
-    "density": 0.03,
+    "density": 0.035,
     "mix": [
       {
         "shape": "round",
-        "weight": 55,
-        "leaves": "#2e8b3d",
-        "trunk": "#8d857a",
-        "food": "browse"
+        "weight": 15,
+        "leaves": "#3f8f3a",
+        "trunk": "#9a9284"
       },
       {
         "shape": "round",
-        "weight": 45,
-        "leaves": "#1f6f2f",
-        "trunk": "#5f4632"
+        "weight": 25,
+        "leaves": "#2b7a33",
+        "trunk": "#7d6f60"
+      },
+      {
+        "shape": "round",
+        "weight": 20,
+        "leaves": "#5f9e4a",
+        "trunk": "#b9b3a6",
+        "food": "browse"
+      },
+      {
+        "shape": "coconut_palm",
+        "weight": 25,
+        "leaves": "#3a7d2e",
+        "trunk": "#6e6152",
+        "food": "berries"
+      },
+      {
+        "shape": "coconut_palm",
+        "weight": 15,
+        "leaves": "#4f8a36",
+        "trunk": "#5c4a3a",
+        "food": "berries"
       }
     ]
   },
   "ground_cover": {
-    "grass": 0.15,
-    "flowers": 0.0,
-    "flower_colors": [],
-    "flower_names": [],
-    "stones": 0.04,
+    "grass": 0.06,
+    "flowers": 0.02,
+    "flower_colors": [
+      "#d8402a",
+      "#f2b632",
+      "#8a5cc4"
+    ],
+    "flower_names": [
+      "heliconia",
+      "lobster claw",
+      "passion flower"
+    ],
+    "stones": 0.0,
     "plants": []
   },
   "small_life": {
+    "grass": [
+      "canarana grass",
+      "floating meadow grass",
+      "river cane shoots"
+    ],
+    "carrion": [
+      "peccary remains",
+      "fish remains"
+    ],
+    "insects": [
+      "leafcutter ants",
+      "termites",
+      "katydids",
+      "beetle grubs"
+    ],
+    "water_bugs": [
+      "dragonfly nymphs",
+      "water striders",
+      "mosquito larvae"
+    ],
     "water_plants": [
-      "water lettuce"
+      "water hyacinth",
+      "water lettuce",
+      "giant water lily leaves"
+    ],
+    "bottom_bugs": [
+      "freshwater shrimp",
+      "apple snails",
+      "river crabs"
     ]
   },
-  "lakes": [
-    {
-      "name": "Slow river",
-      "x": 0.5,
-      "z": 0.3,
-      "length": 1.4,
-      "width": 0.05,
-      "angle": 8,
-      "depth": 4,
-      "islands": 1
-    }
-  ],
+  "lakes": [],
   "places": [],
   "lake_life": {
-    "reeds": 0.15,
-    "lilies": 0.35,
-    "pondweed": 0.15
+    "reeds": 0.4,
+    "lilies": 0.4,
+    "pondweed": 0.2
   },
   "fish": [],
   "migrants": [],
@@ -78,66 +129,10 @@
     "prey": []
   },
   "sources": [
-    "https://a-z-animals.com/animals/green-anaconda/",
-    "https://en.wikipedia.org/wiki/Green_anaconda",
-    "https://www.seaworld.org/animals/facts/reptiles/green-anaconda"
+    "http://world-heritage-datasheets.unep-wcmc.org/datasheet/output/site/central-amazon-conservation-complex/",
+    "https://www.oneearth.org/ecoregions/purus-varzea",
+    "https://www.mamiraua.org.br/"
   ],
-  "bogs": [
-    {
-      "x": 0.3,
-      "z": 0.62,
-      "radius": 55,
-      "name": "Pool"
-    },
-    {
-      "x": 0.66,
-      "z": 0.4,
-      "radius": 45,
-      "name": "Pool"
-    }
-  ],
-  "streams": [
-    {
-      "width": 4,
-      "points": [
-        [
-          0.18,
-          0.7
-        ],
-        [
-          0.27,
-          0.6
-        ],
-        [
-          0.33,
-          0.55
-        ],
-        [
-          0.42,
-          0.5
-        ]
-      ]
-    },
-    {
-      "width": 4,
-      "points": [
-        [
-          0.62,
-          0.22
-        ],
-        [
-          0.58,
-          0.32
-        ],
-        [
-          0.62,
-          0.42
-        ],
-        [
-          0.72,
-          0.48
-        ]
-      ]
-    }
-  ]
+  "bogs": [],
+  "streams": []
 }
