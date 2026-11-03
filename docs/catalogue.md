@@ -17,35 +17,35 @@ How to add each kind of thing: [CONTRIBUTING.md](../CONTRIBUTING.md). How it sho
 
 | Animal | Lives in | Model | Year | Baby start | Field guide |
 |---|---|---|---|---|---|
-| **Bumblebee** (*Bombus lucorum*) | fi_nuuksio | built from a spec [preview](../models/previews/bee.png) | yes | no | yes |
+| **Bumblebee** (*Bombus lucorum*) | fi_nuuksio, boreal_lakeland (biome), boreal_taiga (biome) | built from a spec [preview](../models/previews/bee.png) | yes | no | yes |
 | **Blue tang** (*Paracanthurus hepatus*) | au_great_barrier_reef | built from a spec [preview](../models/previews/blue_tang.png) | yes | no | yes |
 | **Bottlenose dolphin** (*Tursiops truncatus*) | au_great_barrier_reef | built from a spec [preview](../models/previews/bottlenose_dolphin.png) | yes | no | yes |
-| **Bream** (*Abramis brama*) | fi_nuuksio | built from a spec [preview](../models/previews/bream.png) | yes | no | yes |
+| **Bream** (*Abramis brama*) | fi_nuuksio, boreal_lakeland (biome), boreal_taiga (biome) | built from a spec [preview](../models/previews/bream.png) | yes | no | yes |
 | **Butterflyfish** (*Chaetodon auriga*) | au_great_barrier_reef | built from a spec [preview](../models/previews/butterflyfish.png) | yes | no | yes |
-| **Chaffinch** (*Fringilla coelebs*) | fi_nuuksio | built from a spec [preview](../models/previews/chaffinch.png) | yes | no | yes |
+| **Chaffinch** (*Fringilla coelebs*) | fi_nuuksio, boreal_lakeland (biome), boreal_taiga (biome) | built from a spec [preview](../models/previews/chaffinch.png) | yes | no | yes |
 | **Clownfish** (*Amphiprion percula*) | au_great_barrier_reef | built from a spec [preview](../models/previews/clownfish.png) | yes | no | yes |
-| **Common Tern** (*Sterna hirundo*) | nowhere yet | built from a spec [preview](../models/previews/common_tern.png) | yes | no | yes |
-| **Siberian flying squirrel** (*Pteromys volans*) | fi_nuuksio | built from a spec [preview](../models/previews/flying_squirrel.png) | yes | no | yes |
-| **Fox** (*Vulpes vulpes*) | fi_nuuksio, fi_saimaa | built from a spec [preview](../models/previews/fox.png) | yes | yes | yes |
-| **Common frog** (*Rana temporaria*) | fi_nuuksio, fi_saimaa | built from a spec [preview](../models/previews/frog.png) | yes | no | yes |
-| **Great tit** (*Parus major*) | fi_nuuksio, fi_saimaa | built from a spec [preview](../models/previews/great_tit.png) | yes | no | yes |
+| **Common Tern** (*Sterna hirundo*) | boreal_lakeland (biome), boreal_taiga (biome) | built from a spec [preview](../models/previews/common_tern.png) | yes | no | yes |
+| **Siberian flying squirrel** (*Pteromys volans*) | fi_nuuksio, boreal_lakeland (biome), boreal_taiga (biome) | built from a spec [preview](../models/previews/flying_squirrel.png) | yes | no | yes |
+| **Fox** (*Vulpes vulpes*) | fi_nuuksio, fi_saimaa, boreal_lakeland (biome), boreal_taiga (biome) | built from a spec [preview](../models/previews/fox.png) | yes | yes | yes |
+| **Common frog** (*Rana temporaria*) | fi_nuuksio, fi_saimaa, boreal_lakeland (biome), boreal_taiga (biome) | built from a spec [preview](../models/previews/frog.png) | yes | no | yes |
+| **Great tit** (*Parus major*) | fi_nuuksio, fi_saimaa, boreal_lakeland (biome), boreal_taiga (biome) | built from a spec [preview](../models/previews/great_tit.png) | yes | no | yes |
 | **Green sea turtle** (*Chelonia mydas*) | au_great_barrier_reef | built from a spec [preview](../models/previews/green_sea_turtle.png) | yes | no | yes |
 | **Scalloped hammerhead** (*Sphyrna lewini*) | nowhere yet | built from a spec [preview](../models/previews/hammerhead.png) | yes | no | yes |
-| **Herring Gull** (*Larus argentatus*) | nowhere yet | built from a spec [preview](../models/previews/herring_gull.png) | yes | no | yes |
+| **Herring Gull** (*Larus argentatus*) | boreal_lakeland (biome), boreal_taiga (biome) | built from a spec [preview](../models/previews/herring_gull.png) | yes | no | yes |
 | **Humpback whale** (*Megaptera novaeangliae*) | nowhere yet | built from a spec [preview](../models/previews/humpback_whale.png) | yes | no | yes |
-| **Kestrel** (*Falco tinnunculus*) | fi_nuuksio | built from a spec [preview](../models/previews/kestrel.png) | yes | no | yes |
+| **Kestrel** (*Falco tinnunculus*) | fi_nuuksio, boreal_lakeland (biome), boreal_taiga (biome) | built from a spec [preview](../models/previews/kestrel.png) | yes | no | yes |
 | **Lionfish** (*Pterois volitans*) | au_great_barrier_reef | built from a spec [preview](../models/previews/lionfish.png) | yes | no | yes |
-| **Common lizard** (*Zootoca vivipara*) | fi_nuuksio | built from a spec [preview](../models/previews/lizard.png) | yes | no | yes |
-| **Mallard** (*Anas platyrhynchos*) | fi_nuuksio, fi_saimaa | built from a spec [preview](../models/previews/mallard.png) | yes | no | yes |
-| **Moose** (*Alces alces*) | fi_nuuksio, fi_saimaa | built from a spec [preview](../models/previews/moose.png) | yes | no | yes |
-| **Mountain hare** (*Lepus timidus*) | fi_nuuksio, fi_saimaa | built from a spec [preview](../models/previews/mountain_hare.png) | yes | no | yes |
-| **Perch** (*Perca fluviatilis*) | fi_nuuksio, fi_saimaa | built from a spec [preview](../models/previews/perch.png) | yes | no | yes |
-| **Pike** (*Esox lucius*) | fi_nuuksio, fi_saimaa | built from a spec [preview](../models/previews/pike.png) | yes | no | yes |
+| **Common lizard** (*Zootoca vivipara*) | fi_nuuksio, boreal_lakeland (biome), boreal_taiga (biome) | built from a spec [preview](../models/previews/lizard.png) | yes | no | yes |
+| **Mallard** (*Anas platyrhynchos*) | fi_nuuksio, fi_saimaa, boreal_lakeland (biome), boreal_taiga (biome) | built from a spec [preview](../models/previews/mallard.png) | yes | no | yes |
+| **Moose** (*Alces alces*) | fi_nuuksio, fi_saimaa, boreal_lakeland (biome), boreal_taiga (biome) | built from a spec [preview](../models/previews/moose.png) | yes | no | yes |
+| **Mountain hare** (*Lepus timidus*) | fi_nuuksio, fi_saimaa, boreal_lakeland (biome), boreal_taiga (biome) | built from a spec [preview](../models/previews/mountain_hare.png) | yes | no | yes |
+| **Perch** (*Perca fluviatilis*) | fi_nuuksio, fi_saimaa, boreal_lakeland (biome), boreal_taiga (biome) | built from a spec [preview](../models/previews/perch.png) | yes | no | yes |
+| **Pike** (*Esox lucius*) | fi_nuuksio, fi_saimaa, boreal_lakeland (biome), boreal_taiga (biome) | built from a spec [preview](../models/previews/pike.png) | yes | no | yes |
 | **Reef shark** (*Carcharhinus melanopterus*) | au_great_barrier_reef | built from a spec [preview](../models/previews/reef_shark.png) | yes | no | yes |
-| **Roach** (*Rutilus rutilus*) | fi_nuuksio, fi_saimaa | built from a spec [preview](../models/previews/roach.png) | yes | no | yes |
+| **Roach** (*Rutilus rutilus*) | fi_nuuksio, fi_saimaa, boreal_lakeland (biome), boreal_taiga (biome) | built from a spec [preview](../models/previews/roach.png) | yes | no | yes |
 | **Saimaa ringed seal** (*Pusa hispida saimensis*) | fi_saimaa | built from a spec [preview](../models/previews/saimaa_seal.png) | yes | no | yes |
-| **Red squirrel** (*Sciurus vulgaris*) | fi_nuuksio, fi_saimaa | built from a spec [preview](../models/previews/squirrel.png) | yes | no | yes |
-| **Bank vole** (*Myodes glareolus*) | fi_nuuksio, fi_saimaa | built from a spec [preview](../models/previews/vole.png) | yes | no | yes |
+| **Red squirrel** (*Sciurus vulgaris*) | fi_nuuksio, fi_saimaa, boreal_lakeland (biome), boreal_taiga (biome) | built from a spec [preview](../models/previews/squirrel.png) | yes | no | yes |
+| **Bank vole** (*Myodes glareolus*) | fi_nuuksio, fi_saimaa, boreal_lakeland (biome), boreal_taiga (biome) | built from a spec [preview](../models/previews/vole.png) | yes | no | yes |
 | **Young perch** (*Perca fluviatilis*) | fi_nuuksio, fi_saimaa | downloaded: rebuild from a spec | yes | no | yes |
 | **Young roach** (*Rutilus rutilus*) | fi_nuuksio, fi_saimaa | downloaded: rebuild from a spec | yes | no | yes |
 
@@ -176,7 +176,7 @@ What the animals on the game's published tiles can't find there: a food kind (a 
 
 | Missing | Animals (tiles) | Tiles | Animal-tiles | Where |
 |---|---|---|---|---|
-| `clover` | Mountain hare (4), Bank vole (2) | 4 | 6 | z10_0581_0297, z10_0582_0291, z10_0582_0293, z10_0583_0296 |
+| `clover` | Mountain hare (9), Bank vole (9) | 9 | 18 | z10_0581_0294, z10_0581_0297, z10_0582_0291, z10_0582_0293, z10_0582_0294, z10_0583_0296, z10_0592_0284, z10_0593_0283, z10_0593_0285 |
 | `mushrooms` | Red squirrel (1) | 1 | 1 | z10_0581_0297 |
 
 ### Eats nothing

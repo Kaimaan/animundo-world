@@ -232,9 +232,9 @@
   ],
   "migrants": [],
   "animals": {
-    "playable": [],
-    "predators": [],
-    "prey": []
+    "playable": ["fox", "moose", "mountain_hare", "squirrel", "flying_squirrel", "great_tit", "chaffinch", "bee", "frog", "kestrel", "mallard", "herring_gull", "common_tern", "perch", "pike"],
+    "predators": ["fox", "kestrel", "perch", "pike"],
+    "prey": ["mountain_hare", "squirrel", "flying_squirrel", "vole", "great_tit", "chaffinch", "mallard", "common_tern", "kestrel", "frog", "lizard", "perch", "roach", "bream"]
   },
   "sources": [
     "https://www.metsa.fi/suojelu-ja-hoito/lajien-suojelu/saimaannorppa/",

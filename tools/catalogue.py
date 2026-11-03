@@ -86,6 +86,9 @@ class Catalogue:
             lists = [a.get(k, []) for k in ("playable", "predators", "prey")] + [[f.get("kind") for f in r.get("fish", [])]]
             if any(animal_id in lst for lst in lists):
                 out.append(rid)
+        for bid in ids("biomes"):   # a biome's residents live on every tile of it (game decision 0064)
+            if any(animal_id in a for a in layers.residents(bid).values()):
+                out.append(f"{bid} (biome)")
         return out
 
     def plant_places(self, plant_id):

@@ -141,6 +141,37 @@ def biome(bid):
         return json.load(f)
 
 
+ROLES = ("playable", "prey", "predators")
+
+
+def residents(bid):
+    """The biome's `animals` (game decision 0064): the animals common across
+    its listed ecoregions, which every tile of it has. {role: [ids]}."""
+    a = (biome(bid) or {}).get("animals") or {}
+    return {k: list(a.get(k, []) or []) for k in ROLES}
+
+
+def left_out(species):
+    """{id: why} of a tile's `species.left_out` (0064): the residents code left
+    off this tile, each with a reason."""
+    left = (species or {}).get("left_out") or []
+    return {e["id"]: e.get("why", "") for e in left if isinstance(e, dict) and isinstance(e.get("id"), str)}
+
+
+def tile_species(species, biome_animals):
+    """A tile's animals as the game reads them (Tile.from_json, 0064): its own
+    lists, then its biome's residents (`biome_animals`, the biome's `animals`
+    or residents()) it doesn't name, less its `left_out`. Only adds: the
+    tile's own animals always stay. {role: [ids]}."""
+    species = species if isinstance(species, dict) else {}
+    biome_animals = biome_animals if isinstance(biome_animals, dict) else {}
+    gone = left_out(species)
+    out = {k: list(species.get(k, []) or []) for k in ROLES}
+    for k in ROLES:
+        out[k] += [a for a in biome_animals.get(k, []) or [] if a not in out[k] and a not in gone]
+    return out
+
+
 def resolve(region):
     """A full region from a layered one (a copy): the land style under the
     region's own fields, its plants over its own, and its food worked out

@@ -403,7 +403,8 @@
       "kind": "carrion",
       "names": [
         "roe deer remains",
-        "white-tailed deer remains"
+        "white-tailed deer remains",
+        "moose remains"
       ],
       "weight": 4
     }
@@ -466,9 +467,45 @@
     }
   ],
   "animals": {
-    "playable": [],
-    "predators": [],
-    "prey": []
+    "playable": [
+      "fox",
+      "moose",
+      "mountain_hare",
+      "squirrel",
+      "flying_squirrel",
+      "great_tit",
+      "chaffinch",
+      "bee",
+      "frog",
+      "kestrel",
+      "mallard",
+      "herring_gull",
+      "common_tern",
+      "perch",
+      "pike"
+    ],
+    "predators": [
+      "fox",
+      "kestrel",
+      "perch",
+      "pike"
+    ],
+    "prey": [
+      "mountain_hare",
+      "squirrel",
+      "flying_squirrel",
+      "vole",
+      "great_tit",
+      "chaffinch",
+      "mallard",
+      "common_tern",
+      "kestrel",
+      "frog",
+      "lizard",
+      "perch",
+      "roach",
+      "bream"
+    ]
   },
   "sources": [
     "https://uuvi.fi/en/area/kattilajarvi-recreation-area/",

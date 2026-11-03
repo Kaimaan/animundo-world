@@ -20,7 +20,7 @@ place children get:
            density, ground plants, palette and sky colours
   plants   the tile's own trees, cover and water plants, each part replacing
            the biome's (layers.use_plants)
-  animals  the tile's species lists
+  animals  the tile's species lists, then its biome's residents (0064)
   open sea an open-sea tile (biome open_sea, game proposal 0047): its own land
            style (`land`), skerries (`skerries`, how many) from its
            `land_share`, and its fish as shoals in the open water
@@ -158,8 +158,7 @@ def place(tile, biome=None, blend=None, biomes=None):
         layers.use_plants(d, tile["plants"])
     if mask:
         _reef_plants(d, biome_of(tile) == OPEN_SEA)
-    species = tile.get("species", {})
-    d["animals"] = {k: list(species.get(k, [])) for k in ("playable", "prey", "predators")}
+    d["animals"] = layers.tile_species(tile.get("species", {}), d.get("animals"))   # its own, then the biome's residents (0064)
     if biome_of(tile) == OPEN_SEA:
         _open_sea(d, tile)
     d["food"] = food.worked_out(d)   # from the plants, water and animals (0043)

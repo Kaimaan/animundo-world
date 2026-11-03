@@ -17,9 +17,9 @@ bucket and Firestore. It replaces tiles/published/ with:
     <grid>/<group>.json      each published group file
     overlays/<pack>.json     each live pack's additions/tiles.json
 
-tiles() gives every published tile with the places (places/, game decision
-0057) and the live overlays laid over it, as the game does (Places.lay,
-ContentPacks.add_to_tile).
+tiles() gives every published tile with its biome's residents (game decision
+0064), the places (places/, game decision 0057) and the live overlays laid
+over it, as the game does (Tile.from_json, Places.lay, ContentPacks.add_to_tile).
 """
 import copy
 import json
@@ -28,6 +28,8 @@ import shutil
 import subprocess
 import sys
 import tempfile
+
+import layers  # noqa: E402  (tools/, beside this file)
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, ".."))
@@ -146,6 +148,12 @@ def tiles():
     for group in sorted(ix.get("groups", {})):
         out.update(load(os.path.join(OUT, group + ".json")).get("tiles", {}))
     out = {tid: copy.deepcopy(t) for tid, t in sorted(out.items()) if isinstance(t, dict)}
+    for t in out.values():   # the biome's residents after the tile's own (game decision 0064)
+        if t.get("kind", "code") == "code":
+            left = (t.get("species") or {}).get("left_out")
+            t["species"] = layers.tile_species(t.get("species"), layers.residents(t.get("biome") or t.get("home")))
+            if left is not None:
+                t["species"]["left_out"] = left
     places = os.path.join(ROOT, "places")
     for f in sorted(os.listdir(places)) if os.path.isdir(places) else []:
         p = load(os.path.join(places, f)) if f.endswith(".json") else {}

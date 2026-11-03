@@ -19,7 +19,10 @@ regions/<place>.json itself. Then:
   animals  the home lists the tile's ecoregion (not for the open sea) and has its habitat; an
            open-sea tile's animals all live at sea (`open_sea`); a blend's home exists, every
            animal is in animals/, the playable ones are playable, and requires
-           lists every home and animal
+           lists every home and the tile's own animals. The tile's animals are
+           its own lists and then its biome's residents (the biome's `animals`,
+           game decision 0064); a resident is left off only in
+           `species.left_out`, {"id", "why"}, by code with a reason
   region   validate_region.py and the region schema on the made region
            (needs the models built, like check_draft.py)
   food     every animal has a diet or hunts (decision 0011). What an animal
@@ -259,17 +262,43 @@ def animal_problems(t, content, published=False):
     for h in used:
         if h not in req["homes"]:
             out.append(f'"requires.homes" must list "{h}"')
+    out += left_out_problems(t)
+    own = t["species"]
+    merged = layers.tile_species(own, layers.residents(t["home"]))   # the tile's own, then its biome's residents (game 0064)
     for role in ("playable", "prey", "predators"):
-        for a in t["species"][role]:
+        for a in merged[role]:
             if not content.exists(a):
-                out.append(f'"species.{role}": there is no animals/{a}.json')
+                out.append(f'"species.{role}": there is no animals/{a}.json' if a in own[role]
+                           else f'biomes/{t["home"]}.json "animals.{role}": there is no animals/{a}.json')
                 continue
-            if a not in req["animals"]:
+            if a in own[role] and a not in req["animals"]:
                 out.append(f'"requires.animals" must list "{a}"')
             if role == "playable" and not content.get_def(a).get("playable"):
                 out.append(f'"species.playable": {a} isn\'t a playable animal')
             if open_sea(t) and not content.get_def(a).get("open_sea"):
                 out.append(f'"species.{role}": {a} doesn\'t live at sea (no "open_sea": true), so it isn\'t in an open-sea tile')
+    return out
+
+
+def left_out_problems(t):
+    """A tile leaves a biome resident out only by code, with a reason (game
+    decision 0064): `species.left_out` is [{"id", "why"}], each a resident of
+    its biome that the tile's own lists don't name."""
+    left = t["species"].get("left_out")
+    if left is None:
+        return []
+    if not (isinstance(left, list) and all(isinstance(e, dict) and set(e) == {"id", "why"} for e in left)):
+        return ['"species.left_out" must be a list of {"id", "why"}']
+    out = []
+    res = {a for ids in layers.residents(t["home"]).values() for a in ids}
+    own = {a for k in ("playable", "prey", "predators") for a in t["species"][k]}
+    for e in left:
+        if not (isinstance(e["why"], str) and e["why"].strip()):
+            out.append(f'"species.left_out": {e["id"]} needs a reason ("why")')
+        if e["id"] not in res:
+            out.append(f'"species.left_out": {e["id"]} isn\'t one of the biome {t["home"]}\'s animals')
+        if e["id"] in own:
+            out.append(f'"species.left_out": {e["id"]} is on the tile')
     return out
 
 

@@ -14,7 +14,9 @@ validate_region.py and the region schema; a wrong grid section fails.
 A tile made under game decision 0062 (it writes `plants.left_out`) passes
 with all its biome's plants, or with one left out for a reason, and fails a
 biome plant dropped without one, an empty reason, a leave-out the biome
-hasn't got and a density under 0.001.
+hasn't got and a density under 0.001. Game decision 0064: a tile's animals
+are its own and then its biome's residents; a resident is left out only in
+`species.left_out` with a reason, and the region the game builds has them.
 
 Usage: python3 tools/test_check_tile.py
 """
@@ -31,6 +33,7 @@ GOOD = os.path.join(ROOT, "tests", "tiles", "n_412_301.json")
 SEA = os.path.join(ROOT, "tests", "tile_region", "n_415_480_open_sea.tile.json")   # an open-sea tile (0047)
 sys.path.insert(0, HERE)
 import homes  # noqa: E402
+import tile_region  # noqa: E402
 
 
 def report(doc, tmp, name):
@@ -45,12 +48,32 @@ def failed(results):
     return sorted(r["check"] for r in results if r["status"] == "fail")
 
 
+def residents(t):
+    """Every resident of the tile's biome (its `animals`, game decision 0064)."""
+    with open(os.path.join(ROOT, "biomes", t.get("biome", t.get("home")) + ".json"), encoding="utf-8") as f:
+        a = json.load(f).get("animals", {})
+    return [x for k in ("playable", "prey", "predators") for x in a.get(k, [])]
+
+
 def broken(good):
     """(name, the check (or checks) it must fail, the broken tile)"""
     cases = []
-    t = copy.deepcopy(good)   # the fox alone: it hunts, and nothing there is its prey
-    t["species"] = {"playable": ["fox"], "prey": [], "predators": []}
+    t = copy.deepcopy(good)   # the fox alone: it hunts, and nothing there is its prey (the biome's other residents left out, 0064)
+    t["species"] = {"playable": ["fox"], "prey": [], "predators": [],
+                    "left_out": [{"id": a, "why": "test: the fox alone"} for a in residents(good) if a != "fox"]}
     cases.append(("animal without its food", "gaps", t))
+    t = copy.deepcopy(good)   # game 0064: a resident is left out only with a reason
+    t["species"]["left_out"] = [{"id": "herring_gull", "why": " "}]
+    cases.append(("a resident left out with no reason", "animals", t))
+    t = copy.deepcopy(good)
+    t["species"]["left_out"] = [{"id": "lion", "why": "test"}]
+    cases.append(("a leave-out the biome hasn't got", "animals", t))
+    t = copy.deepcopy(good)
+    t["species"]["left_out"] = [{"id": t["species"]["playable"][0], "why": "test"}]
+    cases.append(("a leave-out the tile lists", "animals", t))
+    t = copy.deepcopy(good)
+    t["species"]["left_out"] = ["herring_gull"]
+    cases.append(("a leave-out with no reason field", "animals", t))
     t = copy.deepcopy(good)
     t["edges"]["n"][20] = 40
     cases.append(("edge over the world's height", "edges", t))
@@ -287,6 +310,16 @@ def main():
         code, r = report(t, tmp, "left_out")
         if code != 0 or failed(r["results"]):
             errors.append(f"a biome plant left out with a reason failed: {[x for x in r['results'] if x['status'] == 'fail']}")
+        t = copy.deepcopy(good)   # game 0064: a tile with only the moose still gets the biome's residents
+        t["species"] = {"playable": ["moose"], "prey": [], "predators": []}
+        t["requires"]["animals"] = ["moose"]
+        t["species"]["left_out"] = [{"id": "pike", "why": "test: no water here"}]
+        made = tile_region.place(t)
+        if "herring_gull" not in made["animals"]["playable"] or "vole" not in made["animals"]["prey"] or "pike" in made["animals"]["playable"]:
+            errors.append(f"a moose-only tile doesn't get its biome's residents less its left_out: {made['animals']}")
+        code, r = report(t, tmp, "residents")
+        if code != 0 or failed(r["results"]):
+            errors.append(f"a tile with only its biome's residents failed: {[x for x in r['results'] if x['status'] == 'fail']}")
         east = neighbour(good)
         group = {"format": 1, "grid": "ease2_n25", "group": [51, 37], "version": 1,
                  "tiles": {"n_412_301": good, "n_413_301": east}, "blocked": {"n_414_301": {"reason": "no_home", "habitat": "tundra"}}}
