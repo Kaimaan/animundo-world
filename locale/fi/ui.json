@@ -419,5 +419,21 @@
   "sticker.fish": "Pelasit kalana.",
   "sticker.mammal": "Pelasit nisäkkäänä.",
   "sticker.days": "Elit {n} päivää.",
-  "sticker.four_seasons": "Elit kaikkien neljän vuodenajan läpi."
+  "sticker.four_seasons": "Elit kaikkien neljän vuodenajan läpi.",
+  "ui.number.decimal_point": ",",
+  "ui.leap.height": "Hyppäsit {m} metrin korkeuteen!",
+  "ui.leap.spins_one": "Pyörähdit kerran ympäri!",
+  "ui.leap.spins_many": "Pyörähdit {n} kertaa ympäri!",
+  "ui.leap.flips_one": "Teit voltin!",
+  "ui.leap.flips_many": "Teit {n} volttia!",
+  "ui.leap.streak": "{n} hyppyä putkeen!",
+  "ui.leap.best_height": "Korkein hyppysi ikinä!",
+  "ui.leap.best_tricks": "Eniten temppuja yhdessä hypyssä!",
+  "ui.leap.best_streak": "Eniten hyppyjä putkeen!",
+  "ui.leap.best_here": "Paras kaikista täällä!",
+  "ui.leap.friend_height": "Kaveri hyppäsi {m} metrin korkeuteen! Hyppäätkö korkeammalle?",
+  "ui.leap.friend_tricks_one": "Kaveri teki tempun ilmassa! Teetkö enemmän?",
+  "ui.leap.friend_tricks_many": "Kaveri teki {n} temppua yhdessä hypyssä! Teetkö enemmän?",
+  "ui.leap.friend_streak": "Kaveri hyppäsi {n} kertaa putkeen! Hyppäätkö useammin?",
+  "ui.leap.how": "Sukella syvälle ja ui sitten lujaa ylös, niin hyppäät ilmaan. Ilmassa Ylös pyöräyttää ja Alas tekee voltin."
 }

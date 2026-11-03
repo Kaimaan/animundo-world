@@ -419,5 +419,21 @@
   "sticker.fish": "Played as a fish.",
   "sticker.mammal": "Played as a mammal.",
   "sticker.days": "Lived {n} days.",
-  "sticker.four_seasons": "Lived through all four seasons."
+  "sticker.four_seasons": "Lived through all four seasons.",
+  "ui.number.decimal_point": ".",
+  "ui.leap.height": "You leapt {m} metres high!",
+  "ui.leap.spins_one": "You spun round once!",
+  "ui.leap.spins_many": "You spun round {n} times!",
+  "ui.leap.flips_one": "You did a somersault!",
+  "ui.leap.flips_many": "You did {n} somersaults!",
+  "ui.leap.streak": "{n} leaps in a row!",
+  "ui.leap.best_height": "Your highest leap ever!",
+  "ui.leap.best_tricks": "Your most tricks in one leap!",
+  "ui.leap.best_streak": "Your most leaps in a row!",
+  "ui.leap.best_here": "The best of everyone here!",
+  "ui.leap.friend_height": "A friend leapt {m} metres high! Can you leap higher?",
+  "ui.leap.friend_tricks_one": "A friend did a trick in the air! Can you do more?",
+  "ui.leap.friend_tricks_many": "A friend did {n} tricks in one leap! Can you do more?",
+  "ui.leap.friend_streak": "A friend made {n} leaps in a row! Can you make more?",
+  "ui.leap.how": "Dive deep, then swim fast up to leap out. In the air, press Up to spin and Down to somersault."
 }
