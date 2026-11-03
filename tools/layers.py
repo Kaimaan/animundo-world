@@ -158,17 +158,23 @@ def left_out(species):
     return {e["id"]: e.get("why", "") for e in left if isinstance(e, dict) and isinstance(e.get("id"), str)}
 
 
-def tile_species(species, biome_animals):
-    """A tile's animals as the game reads them (Tile.from_json, 0064): its own
-    lists, then its biome's residents (`biome_animals`, the biome's `animals`
-    or residents()) it doesn't name, less its `left_out`. Only adds: the
-    tile's own animals always stay. {role: [ids]}."""
+def tile_species(species, home, ecoregion=None):
+    """A tile's animals as the game reads them (TileLayers.tile_animals, 0064):
+    its own lists, then the residents of its biome `home` (the biome's region
+    data: `animals`, `ecoregions`) it doesn't name, less its `left_out`. The
+    residents come only when the biome lists the tile's `ecoregion` (or the
+    tile has none, as open sea): they describe those ecoregions, not every one
+    the biome is used for. Only adds: the tile's own animals always stay.
+    {role: [ids]}."""
     species = species if isinstance(species, dict) else {}
-    biome_animals = biome_animals if isinstance(biome_animals, dict) else {}
-    gone = left_out(species)
+    home = home if isinstance(home, dict) else {}
     out = {k: list(species.get(k, []) or []) for k in ROLES}
+    if ecoregion is not None and ecoregion not in (home.get("ecoregions") or []):
+        return out
+    gone = left_out(species)
+    animals = home.get("animals") or {}
     for k in ROLES:
-        out[k] += [a for a in biome_animals.get(k, []) or [] if a not in out[k] and a not in gone]
+        out[k] += [a for a in animals.get(k, []) or [] if a not in out[k] and a not in gone]
     return out
 
 

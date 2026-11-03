@@ -158,7 +158,7 @@ def place(tile, biome=None, blend=None, biomes=None):
         layers.use_plants(d, tile["plants"])
     if mask:
         _reef_plants(d, biome_of(tile) == OPEN_SEA)
-    d["animals"] = layers.tile_species(tile.get("species", {}), d.get("animals"))   # its own, then the biome's residents (0064)
+    d["animals"] = layers.tile_species(tile.get("species", {}), d, tile.get("ecoregion"))   # its own, then the biome's residents (0064)
     if biome_of(tile) == OPEN_SEA:
         _open_sea(d, tile)
     d["food"] = food.worked_out(d)   # from the plants, water and animals (0043)

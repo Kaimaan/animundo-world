@@ -151,7 +151,7 @@ def tiles():
     for t in out.values():   # the biome's residents after the tile's own (game decision 0064)
         if t.get("kind", "code") == "code":
             left = (t.get("species") or {}).get("left_out")
-            t["species"] = layers.tile_species(t.get("species"), layers.residents(t.get("biome") or t.get("home")))
+            t["species"] = layers.tile_species(t.get("species"), layers.biome(t.get("biome") or t.get("home")), t.get("ecoregion"))
             if left is not None:
                 t["species"]["left_out"] = left
     places = os.path.join(ROOT, "places")

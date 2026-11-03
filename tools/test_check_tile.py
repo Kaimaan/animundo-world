@@ -16,7 +16,8 @@ with all its biome's plants, or with one left out for a reason, and fails a
 biome plant dropped without one, an empty reason, a leave-out the biome
 hasn't got and a density under 0.001. Game decision 0064: a tile's animals
 are its own and then its biome's residents; a resident is left out only in
-`species.left_out` with a reason, and the region the game builds has them.
+`species.left_out` with a reason, and the region the game builds has them,
+but only on a tile of an ecoregion the biome lists.
 
 Usage: python3 tools/test_check_tile.py
 """
@@ -317,6 +318,10 @@ def main():
         made = tile_region.place(t)
         if "herring_gull" not in made["animals"]["playable"] or "vole" not in made["animals"]["prey"] or "pike" in made["animals"]["playable"]:
             errors.append(f"a moose-only tile doesn't get its biome's residents less its left_out: {made['animals']}")
+        far = copy.deepcopy(t)   # residents describe the biome's own ecoregions only
+        far["ecoregion"] = 999
+        if tile_region.place(far)["animals"]["playable"] != ["moose"]:
+            errors.append(f"a tile of an ecoregion its biome doesn't list got the residents: {tile_region.place(far)['animals']}")
         code, r = report(t, tmp, "residents")
         if code != 0 or failed(r["results"]):
             errors.append(f"a tile with only its biome's residents failed: {[x for x in r['results'] if x['status'] == 'fail']}")

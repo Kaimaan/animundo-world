@@ -264,7 +264,7 @@ def animal_problems(t, content, published=False):
             out.append(f'"requires.homes" must list "{h}"')
     out += left_out_problems(t)
     own = t["species"]
-    merged = layers.tile_species(own, layers.residents(t["home"]))   # the tile's own, then its biome's residents (game 0064)
+    merged = layers.tile_species(own, layers.biome(t["home"]), t.get("ecoregion"))   # the tile's own, then its biome's residents (game 0064)
     for role in ("playable", "prey", "predators"):
         for a in merged[role]:
             if not content.exists(a):
