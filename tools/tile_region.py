@@ -154,7 +154,7 @@ def place(tile, biome=None, blend=None, biomes=None):
     if isinstance(tile.get("plants"), dict):   # the tile's own plants over the biome's (0043)
         layers.use_plants(d, tile["plants"])
     if mask:
-        _reef_plants(d)
+        _reef_plants(d, biome_of(tile) == OPEN_SEA)
     species = tile.get("species", {})
     d["animals"] = {k: list(species.get(k, [])) for k in ("playable", "prey", "predators")}
     if biome_of(tile) == OPEN_SEA:
@@ -183,23 +183,30 @@ def cover_lakes(water):
     return COVER[-1][0]
 
 
-def _reef_plants(d):
-    """A tile with reef in its reef_mask and no plants of its own on reef rock
-    (Tile._reef_plants): the coral_reef biome's reef-rock corals grow on its
-    patches of reef rock, and only there, with that biome's reef-rock colour."""
+def _reef_plants(d, open_sea):
+    """A tile with reef in its reef_mask (Tile._reef_plants): the coral_reef
+    biome's reef-rock colour, and when it has no plants of its own on reef rock,
+    that biome's corals on its patches of reef rock. On an open-sea tile a reef
+    plant grows on the reef rock only, not on the open floor too (builder #261a)."""
     if float(d["terrain"].get("reef", 0.0)) <= 0.0:
         return
-    cover = d.setdefault("ground_cover", {})
-    plants = cover.setdefault("plants", [])
-    if any("reef" in p.get("on", []) for p in plants):
-        return
     biome = layers.resolve(read_biome(REEF_BIOME))
-    for p in biome.get("ground_cover", {}).get("plants", []):
-        if "reef" in p.get("on", []):
-            plants.append(dict(copy.deepcopy(p), on=["reef"]))   # not its sandy seabed: that's all of an open sea
     palette = d.setdefault("palette", {})
     if "reef_rock" not in palette and "reef_rock" in biome.get("palette", {}):
         palette["reef_rock"] = biome["palette"]["reef_rock"]
+    cover = d.setdefault("ground_cover", {})
+    plants = cover.setdefault("plants", [])
+    own = False
+    for p in plants:
+        if "reef" in p.get("on", []):
+            own = True
+            if open_sea:
+                p["on"] = ["reef"]
+    if own:
+        return
+    for p in biome.get("ground_cover", {}).get("plants", []):
+        if "reef" in p.get("on", []):
+            plants.append(dict(copy.deepcopy(p), on=["reef"]))   # not its sandy seabed: that's all of an open sea
 
 
 def _open_sea(d, tile):
