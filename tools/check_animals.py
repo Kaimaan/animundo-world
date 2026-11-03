@@ -181,6 +181,7 @@ class Checker:
         self.errors = []
         self.warnings = []
         self.eats_nothing = []   # (region, animal): finds none of its food there (decision 0061)
+        self.gaps = []           # (region, animal, {"diet", "hunts"}): what it can't find there (0061)
         self._cache = {}
 
     def run(self, strict, finnish_later=False):
@@ -366,6 +367,8 @@ class Checker:
             prey_tags = {t for b in living if b != a and self.c.exists(b) for t in self.c.get_def(b).get("tags", [])}
             gaps = food_rule.food_gaps(diet, hunts, kinds, prey_tags)
             missing = [f'"{k}"' for k in gaps["diet"]] + [f'prey "{t}"' for t in gaps["hunts"]]
+            if missing:
+                self.gaps.append((rid, a, gaps))
             if not food_rule.eats_here(diet, hunts, kinds, prey_tags):
                 self.eats_nothing.append((rid, a))
                 warn(f"{a} in {rid} finds none of its food yet: {', '.join(missing)} (a gap to build, decision 0061)")

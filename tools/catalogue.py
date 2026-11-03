@@ -8,7 +8,9 @@ Usage:
     python3 tools/catalogue.py --check   # fail if docs/catalogue.md is out of date
 
 "What we have" is read from the data itself (regions/, animals/, models/,
-models/), so it is always true. "What we're missing" comes from wanted.json,
+models/), so it is always true. "Food gaps" runs the food check (tools/check_tile.py,
+game decision 0061) on the published tiles in tiles/published/
+(tools/published_tiles.py): what animals living there can't find, the content to-do list. "What we're missing" comes from wanted.json,
 kept by hand. A wanted row whose id now exists shows as done, and this script
 asks for it to be removed from wanted.json.
 """
@@ -21,6 +23,11 @@ try:
     import layers   # a layered place (game proposal 0043)
 except ImportError:   # the game repo's copy of this tool has no layers.py
     layers = type("layers", (), {"resolve": staticmethod(lambda r: r)})
+try:
+    import check_tile   # the food check on a tile (game decision 0061)
+    import published_tiles
+except ImportError:   # nor check_tile.py: the game's copy keeps the food gaps it was given
+    check_tile = None
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 OUT = os.path.join(ROOT, "docs", "catalogue.md")
@@ -108,6 +115,44 @@ class Catalogue:
         elif w.get("latin"):
             bits.append(f"(*{w['latin']}*)")
         return " ".join(bits)
+
+    # --- food gaps (game decision 0061) -----------------------------------------------
+
+    def food_gaps(self):
+        """({("diet" or "hunts", kind or tag): {animal: [tiles]}}, [(tile, animal)]) on the published tiles."""
+        gaps, hungry = {}, []
+        for tid, t in published_tiles.tiles().items():
+            food = check_tile.tile_food(t)
+            for a, g in (food or {}).get("gaps", {}).items():
+                for side in ("diet", "hunts"):
+                    for k in g[side]:
+                        gaps.setdefault((side, k), {}).setdefault(a, []).append(tid)
+            hungry += [(tid, a) for a in (food or {}).get("eats_nothing", [])]
+        return gaps, hungry
+
+    def gaps_section(self):
+        title = lambda a: self.animals.get(a, {}).get("text", {}).get("title", a)
+        gaps, hungry = self.food_gaps()
+        rows = []   # most animal-tiles first
+        for (side, k), who in gaps.items():
+            tiles = sorted({tid for ts in who.values() for tid in ts})
+            many = sum(len(ts) for ts in who.values())
+            rows.append((-many, side, k, [
+                f"`{k}`" if side == "diet" else f"prey `{k}`",
+                ", ".join(f"{title(a)} ({len(ts)})" for a, ts in sorted(who.items(), key=lambda e: (-len(e[1]), e[0]))),
+                len(tiles), many, ", ".join(tiles)]))
+        s = ["## Food gaps", "",
+             "What the animals on the game's published tiles can't find there: a food kind (a plant to build or "
+             "add to the tile) or a prey animal. Where an animal lives follows reality, and it eats anything on its "
+             "menu, so a gap never takes it off a tile: it's content to make (game decision 0061). "
+             f"Read from the {len(published_tiles.tiles())} published tiles in "
+             "[`tiles/published/`](../tiles/published/), with places and live overlays laid over them; "
+             "`python3 tools/published_tiles.py fetch` refreshes them.", "",
+             table(["Missing", "Animals (tiles)", "Tiles", "Animal-tiles", "Where"], [r[3] for r in sorted(rows)]),
+             "### Eats nothing", "",
+             "An animal that finds none of its food on a tile. A player can't start as it there, so this list should be empty.", "",
+             table(["Tile", "Animal"], [[tid, title(a)] for tid, a in sorted(hungry)]) if hungry else "_None._\n"]
+        return s
 
     # --- the page ------------------------------------------------------------------
 
@@ -200,6 +245,9 @@ class Catalogue:
               "### Wanted", "", table(["Food", "Feeds", "Needs", "Status"],
                                       self.wanted_rows("foods", {}, [self.named, lambda w: w.get("feeds"), lambda w: w.get("needs")]))]
 
+        if check_tile:
+            s += self.gaps_section()
+
         # core team
         s += ["## Core team work", "", "Code changes that more content depends on. These are for the core team; "
               "the data and models they unlock can be made before they're done.", "",
@@ -225,4 +273,5 @@ def main():
     print(f"wrote docs/catalogue.md: {len(cat.animals)} animals, {len(cat.plants)} plants")
 
 
-main()
+if __name__ == "__main__":
+    main()

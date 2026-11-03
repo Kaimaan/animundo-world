@@ -169,6 +169,21 @@ What animals find to eat. A food name marked "grows there" has a plant you can s
 |---|---|---|---|
 | **Ducklings** (ankanpoikaset) | Pike (early summer), fox | New model and a duck family on the lake. Tag `small_bird`. | Later |
 
+## Food gaps
+
+What the animals on the game's published tiles can't find there: a food kind (a plant to build or add to the tile) or a prey animal. Where an animal lives follows reality, and it eats anything on its menu, so a gap never takes it off a tile: it's content to make (game decision 0061). Read from the 36 published tiles in [`tiles/published/`](../tiles/published/), with places and live overlays laid over them; `python3 tools/published_tiles.py fetch` refreshes them.
+
+| Missing | Animals (tiles) | Tiles | Animal-tiles | Where |
+|---|---|---|---|---|
+| `clover` | Mountain hare (4), Bank vole (2) | 4 | 6 | z10_0581_0297, z10_0582_0291, z10_0582_0293, z10_0583_0296 |
+| `mushrooms` | Red squirrel (1) | 1 | 1 | z10_0581_0297 |
+
+### Eats nothing
+
+An animal that finds none of its food on a tile. A player can't start as it there, so this list should be empty.
+
+_None._
+
 ## Core team work
 
 Code changes that more content depends on. These are for the core team; the data and models they unlock can be made before they're done.

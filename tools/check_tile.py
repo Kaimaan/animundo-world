@@ -270,14 +270,33 @@ def animal_problems(t, content, published=False):
     return out
 
 
-def food_problems(rid, region, content):
-    """(problems, gaps): an animal that eats nothing fails; what animals can't
-    find here is a gap (decision 0061)."""
+def food_checker(rid, region, content):
+    """check_animals' food web, run on this one region."""
     checker = check_animals.Checker(ROOT, built_models=False)
     checker.c = content
     content.region = lambda _rid: region
     checker.check_food_web(rid)
+    return checker
+
+
+def food_problems(rid, region, content):
+    """(problems, gaps): an animal that eats nothing fails; what animals can't
+    find here is a gap (decision 0061)."""
+    checker = food_checker(rid, region, content)
     return checker.errors, checker.warnings, [a for _rid, a in checker.eats_nothing]
+
+
+def tile_food(t):
+    """The food check alone, for a published tile (tools/catalogue.py's food gaps):
+    {"gaps": {animal: {"diet": [...], "hunts": [...]}}, "eats_nothing": [animal ids]},
+    or None when the tile has no region."""
+    t, _named = as_home(t)
+    region, _why = region_of(t)
+    if region is None:
+        return None
+    checker = food_checker(region["id"], region, check_animals.Content(ROOT))
+    return {"gaps": {a: g for _rid, a, g in checker.gaps},
+            "eats_nothing": [a for _rid, a in checker.eats_nothing]}
 
 
 def edge_problems(t):

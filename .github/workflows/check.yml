@@ -98,5 +98,7 @@ jobs:
         run: python3 tools/test_tile_region.py
       - name: The checks catch broken content
         run: python3 tools/test_broken.py
+      - name: The catalogue lists the food gaps on published tiles (game decision 0061)
+        run: python3 tools/test_catalogue.py
       - name: Catalogue is up to date
         run: if [ -f tools/catalogue.py ]; then python3 tools/catalogue.py --check; fi
