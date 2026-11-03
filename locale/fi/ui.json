@@ -435,5 +435,10 @@
   "ui.leap.friend_tricks_one": "Kaveri teki tempun ilmassa! Teetkö enemmän?",
   "ui.leap.friend_tricks_many": "Kaveri teki {n} temppua yhdessä hypyssä! Teetkö enemmän?",
   "ui.leap.friend_streak": "Kaveri hyppäsi {n} kertaa putkeen! Hyppäätkö useammin?",
-  "ui.leap.how": "Sukella syvälle ja ui sitten lujaa ylös, niin hyppäät ilmaan. Ilmassa Ylös pyöräyttää ja Alas tekee voltin."
+  "ui.leap.how": "Sukella syvälle ja ui sitten lujaa ylös, niin hyppäät ilmaan. Ilmassa Ylös pyöräyttää ja Alas tekee voltin.",
+  "sticker.leap_high": "Hyppäsit {n} metrin korkeuteen.",
+  "sticker.leap_high_1": "Hyppäsit metrin korkeuteen.",
+  "sticker.leap_tricks": "Teit {n} temppua yhdessä hypyssä.",
+  "sticker.leap_tricks_1": "Teit tempun ilmassa.",
+  "sticker.leap_streak": "Hyppäsit {n} kertaa putkeen."
 }

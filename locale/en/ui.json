@@ -435,5 +435,10 @@
   "ui.leap.friend_tricks_one": "A friend did a trick in the air! Can you do more?",
   "ui.leap.friend_tricks_many": "A friend did {n} tricks in one leap! Can you do more?",
   "ui.leap.friend_streak": "A friend made {n} leaps in a row! Can you make more?",
-  "ui.leap.how": "Dive deep, then swim fast up to leap out. In the air, press Up to spin and Down to somersault."
+  "ui.leap.how": "Dive deep, then swim fast up to leap out. In the air, press Up to spin and Down to somersault.",
+  "sticker.leap_high": "Leapt {n} metres high.",
+  "sticker.leap_high_1": "Leapt a metre high.",
+  "sticker.leap_tricks": "Did {n} tricks in one leap.",
+  "sticker.leap_tricks_1": "Did a trick in the air.",
+  "sticker.leap_streak": "Leapt {n} times in a row."
 }
