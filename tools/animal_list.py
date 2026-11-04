@@ -75,7 +75,7 @@ TABLE = [
     ("stoat", "Stoat", "Mustela erminea", "fox", ["boreal_forest", "tundra", "grassland"], None),
     ("raccoon_dog", "Raccoon dog", "Nyctereutes procyonoides", "fox", ["boreal_forest", "wetland"], None),
     ("beaver", "Eurasian beaver", "Castor fiber", "vole", ["boreal_lake", "river"], None),
-    ("platypus", "Platypus", "Ornithorhynchus anatinus", "vole", ["river"], None),
+    ("platypus", "Platypus", "Ornithorhynchus anatinus", "vole", ["river", "rainforest"], None),
     ("reindeer", "Reindeer (caribou)", "Rangifer tarandus", "moose", ["tundra", "boreal_forest"], None),
     ("red_deer", "Red deer", "Cervus elaphus", "moose", ["boreal_forest", "grassland", "mountain"], None),
     ("roe_deer", "Roe deer", "Capreolus capreolus", "moose", ["boreal_forest", "grassland"], None),

@@ -431,7 +431,8 @@
    "start_from": "vole",
    "file_from": "vole",
    "habitats": [
-    "river"
+    "river",
+    "rainforest"
    ],
    "can_make": true,
    "shape": "new"
