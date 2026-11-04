@@ -75,6 +75,7 @@ TABLE = [
     ("stoat", "Stoat", "Mustela erminea", "fox", ["boreal_forest", "tundra", "grassland"], None),
     ("raccoon_dog", "Raccoon dog", "Nyctereutes procyonoides", "fox", ["boreal_forest", "wetland"], None),
     ("beaver", "Eurasian beaver", "Castor fiber", "vole", ["boreal_lake", "river"], None),
+    ("platypus", "Platypus", "Ornithorhynchus anatinus", "vole", ["river"], None),
     ("reindeer", "Reindeer (caribou)", "Rangifer tarandus", "moose", ["tundra", "boreal_forest"], None),
     ("red_deer", "Red deer", "Cervus elaphus", "moose", ["boreal_forest", "grassland", "mountain"], None),
     ("roe_deer", "Roe deer", "Capreolus capreolus", "moose", ["boreal_forest", "grassland"], None),
@@ -277,7 +278,6 @@ TABLE = [
     ("fruit_bat", "Indian flying fox", "Pteropus medius", None, ["forest", "rainforest"], "bats"),
     ("dragonfly", "Emperor dragonfly", "Anax imperator", None, ["lake", "wetland"], "dragonflies"),
     ("tortoise", "Galápagos giant tortoise", "Chelonoidis niger", None, ["grassland"], "body_plan"),
-    ("platypus", "Platypus", "Ornithorhynchus anatinus", None, ["river"], "body_plan"),
     ("ladybird", "Seven-spot ladybird", "Coccinella septempunctata", None, ["grassland", "forest"], "body_plan"),
     ("ant", "Red wood ant", "Formica rufa", None, ["forest"], "body_plan"),
     ("spider", "European garden spider", "Araneus diadematus", None, ["forest", "grassland"], "body_plan"),
@@ -303,6 +303,7 @@ NEW_SHAPE = {
     "giant_anteater",                # a long tube snout, a huge tail
     "meerkat",                       # stands upright
     "beaver",                        # a flat paddle tail
+    "platypus",                      # a flat duck-like bill, a paddle tail, webbed feet
     "tapir",                         # a short trunk
     "walrus", "narwhal",             # tusks
     "grey_heron", "flamingo",        # a dagger bill, a bent bill

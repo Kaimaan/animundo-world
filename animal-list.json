@@ -424,6 +424,19 @@
    "shape": "new"
   },
   {
+   "id": "platypus",
+   "name": "Platypus",
+   "latin": "Ornithorhynchus anatinus",
+   "gbif_key": 2433376,
+   "start_from": "vole",
+   "file_from": "vole",
+   "habitats": [
+    "river"
+   ],
+   "can_make": true,
+   "shape": "new"
+  },
+  {
    "id": "reindeer",
    "name": "Reindeer (caribou)",
    "latin": "Rangifer tarandus",
@@ -2904,19 +2917,6 @@
    "file_from": null,
    "habitats": [
     "grassland"
-   ],
-   "can_make": false,
-   "not_yet": "body_plan"
-  },
-  {
-   "id": "platypus",
-   "name": "Platypus",
-   "latin": "Ornithorhynchus anatinus",
-   "gbif_key": 2433376,
-   "start_from": null,
-   "file_from": null,
-   "habitats": [
-    "river"
    ],
    "can_make": false,
    "not_yet": "body_plan"

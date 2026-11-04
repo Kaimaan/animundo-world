@@ -52,6 +52,7 @@ Don't start a new animal from nothing. Copy the existing model closest to it in 
 | Hares and rabbits | `mountain_hare` | Ears, coat |
 | Squirrels | `squirrel`; gliders: `flying_squirrel` | Size, tail, colours |
 | Mice, voles, shrews, lemmings; hedgehogs | `vole` | Size, tail, snout; hedgehogs: the `spines` mark (colour `spine`). Example: [hedgehog](examples/edits/hedgehog.json) |
+| Platypus | `vole`, a new shape | *Looks like:* a low dark-brown body about 45 cm long, a flat grey-black duck-like bill, a broad flat paddle tail, short legs splayed out with webbed front feet, small eyes, no ears showing. Swims at the surface like the seal |
 | Seals | `saimaa_seal` | Size, head, coat pattern |
 | Birds of prey, owls | `kestrel` | Size, wing length, beak; owls: big round head, short tail (night animals come later) |
 | Songbirds, woodpeckers | `great_tit`, `chaffinch` | Size, beak, colours; woodpecker: stiff tail, chisel beak |
