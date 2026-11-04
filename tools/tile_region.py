@@ -75,6 +75,7 @@ WATER_LEVEL = 8      # every biome on the grid shares one water level (spec 02 P
 BIOME_NOTES = ("id", "name", "country", "about", "based_on", "author", "retired")
 OPEN_SEA = "open_sea"   # the biome of every open-ocean cell (game proposal 0047)
 REEF_CELLS = 16   # a terrain.reef_mask's cells a side (builder #255, TileSides.REEF_CELLS)
+REEF_SEA = ["water_deep", "water_shallow", "sand"]   # an open-sea tile on the reef map takes these colours from the reef (Tile.REEF_SEA)
 REEF_FISH = 0.1   # an open-sea tile with this much reef has all the reef's fish, fewer with less (Tile.REEF_FISH)
 REEF_BIOME = "coral_reef"   # whose corals grow on another tile's reef_mask patches (Tile.REEF_BIOME)
 MAX_SKERRIES = 12
@@ -153,6 +154,8 @@ def place(tile, biome=None, blend=None, biomes=None):
         for v in mask:   # added one by one as the game does: Python 3.12's sum() rounds differently
             total += v
         terrain["reef"] = total / len(mask)
+        if biome_of(tile) == OPEN_SEA:
+            _reef_sea(d)
     if blend:
         _blend(d, blend, min(max(float(tile.get("blend", {}).get("share", 0.0)), 0.0), 0.5))
     if isinstance(tile.get("plants"), dict):   # the tile's own plants over the biome's (0043)
@@ -184,6 +187,18 @@ def cover_lakes(water):
         if w <= w1:
             return l0 + (l1 - l0) * (w - w0) / (w1 - w0)
     return COVER[-1][0]
+
+
+def _reef_sea(d):
+    """An open-sea tile on the reef map (it has a reef_mask, even one with no
+    reef; Tile._reef_sea): the reef's warm sea, its water's colours and a sandy
+    floor, not its coast's land style's river water."""
+    theirs = layers.resolve(read_biome(REEF_BIOME)).get("palette", {})
+    palette = d.setdefault("palette", {})
+    for k in REEF_SEA:
+        if k in theirs:
+            palette[k] = theirs[k]
+    d["terrain"]["seabed"] = "sand"
 
 
 def _reef_plants(d, open_sea):
