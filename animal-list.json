@@ -1418,7 +1418,7 @@
    "name": "Snow leopard",
    "latin": "Panthera uncia",
    "gbif_key": 2435238,
-   "start_from": "fox",
+   "start_from": "big_cat",
    "file_from": "fox",
    "habitats": [
     "mountain"
@@ -1995,7 +1995,7 @@
    "name": "Lion",
    "latin": "Panthera leo",
    "gbif_key": 5219404,
-   "start_from": "fox",
+   "start_from": "big_cat",
    "file_from": "fox",
    "habitats": [
     "savanna",
@@ -2008,7 +2008,7 @@
    "name": "Cheetah",
    "latin": "Acinonyx jubatus",
    "gbif_key": 2435270,
-   "start_from": "fox",
+   "start_from": "big_cat",
    "file_from": "fox",
    "habitats": [
     "savanna",
@@ -2021,7 +2021,7 @@
    "name": "Leopard",
    "latin": "Panthera pardus",
    "gbif_key": 5219436,
-   "start_from": "fox",
+   "start_from": "big_cat",
    "file_from": "fox",
    "habitats": [
     "savanna",
@@ -2398,7 +2398,7 @@
    "name": "Jaguar",
    "latin": "Panthera onca",
    "gbif_key": 5219426,
-   "start_from": "fox",
+   "start_from": "big_cat",
    "file_from": "fox",
    "habitats": [
     "rainforest"
@@ -2410,7 +2410,7 @@
    "name": "Tiger",
    "latin": "Panthera tigris",
    "gbif_key": 5219416,
-   "start_from": "fox",
+   "start_from": "big_cat",
    "file_from": "fox",
    "habitats": [
     "forest",

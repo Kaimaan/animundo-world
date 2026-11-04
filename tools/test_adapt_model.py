@@ -86,6 +86,55 @@ def main():
     if h["skin"]["triangles"] > 1000:
         errors.append(f"hedgehog: skin.triangles {h['skin']['triangles']} is over a playable animal's 1000")
 
+    # a jaguar from the fox: open rings (a dark patch with the coat's colour on it), a thin tail
+    edits = load("models", "examples", "edits", "jaguar.json")
+    edits.pop("reference")
+    j = adapt_model.adapt(load("models", "fox.json"), edits)
+    rings = [p for p in j["parts"] if p["name"].startswith("rosette_") and not p["name"].startswith("rosette_in")]
+    centres = [p for p in j["parts"] if p["name"].startswith("rosette_in")]
+    if not 12 <= len(rings) <= 30 or len(centres) != len(rings):
+        errors.append(f"jaguar: {len(rings)} rosettes and {len(centres)} centres, should be 12-30 of each")
+    if any(p["color"] != "dark" for p in rings) or any(p["color"] in ("dark", "spot") for p in centres):
+        errors.append("jaguar: rings should be dark round a centre in the coat's own colour")
+    if any(p["name"].startswith("spot_") for p in j["parts"]):
+        errors.append("jaguar: rosettes must not add whole-coat spots")
+    fox_tail = max(max(p["size"][0], p["size"][1]) for p in adapt_model.tail_parts(load("models", "fox.json")))
+    cat_tail = max(max(p["size"][0], p["size"][1]) for p in adapt_model.tail_parts(j))
+    scale = adapt_model.body_length(j) / adapt_model.body_length(load("models", "fox.json"))
+    if cat_tail > fox_tail * scale * 0.45:
+        errors.append(f"jaguar: tail {cat_tail:.3f} wide, should be under half the fox's brush")
+
+    # an anaconda from the grass snake: many blotches along the whole body, each smaller than it is thick
+    snake = load("models", "examples", "grass_snake.json")
+    a = adapt_model.adapt(snake, {"id": "anaconda", "name": "Green anaconda", "length_m": 4.6, "marks": ["blotches"]})
+    blotches = [p for p in a["parts"] if p["name"].startswith("blotch_")]
+    segs = [p for p in a["parts"] if p["name"].startswith("seg_")]
+    if not 20 <= len(blotches) <= 64:
+        errors.append(f"anaconda: {len(blotches)} blotches, should be 20-64")
+    bones = {p["bone"] for p in blotches}
+    if len([b for b in bones if b.startswith("spine_")]) < 5:
+        errors.append(f"anaconda: blotches on {sorted(bones)}, should run down the body's segments")
+    thick = max(sorted(p["size"])[1] for p in segs)
+    if any(max(p["size"]) > thick * 1.6 for p in blotches):
+        errors.append("anaconda: a blotch is much bigger than the body is thick")
+
+    # an iguana from the lizard: one row of small spikes along the top of the back
+    li = load("models", "lizard.json")
+    g = adapt_model.adapt(li, {"id": "green_iguana", "name": "Green iguana", "length_m": 0.5, "marks": ["crest"]})
+    crest = [p for p in g["parts"] if p["name"].startswith("crest_")]
+    if len(crest) < 8:
+        errors.append(f"iguana: {len(crest)} crest spikes, should be at least 8")
+    if any(abs(p["at"][0]) > 1e-6 for p in crest):
+        errors.append("iguana: crest spikes should stand on the middle line of the back")
+    back = max(p["at"][1] + p["size"][1] / 2 for p in g["parts"] if p["name"] in ("trunk", "hips"))
+    if any(p["size"][1] > back for p in crest):
+        errors.append("iguana: crest spikes taller than the animal: a hedgehog's coat, not a crest")
+
+    # the big cat is a reference elsewhere, made from the fox with the jaguar's body and no marks
+    cat = load("models", "examples", "big_cat.json")
+    if any(p["name"].startswith(("rosette", "spot")) for p in cat["parts"]):
+        errors.append("big_cat: a reference should carry no coat marks")
+
     # a clownfish from the perch has three wide white bands, evenly spaced, nose to tail
     edits = load("models", "examples", "edits", "clownfish.json")
     edits.pop("reference")

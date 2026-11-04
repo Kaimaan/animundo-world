@@ -154,7 +154,7 @@ TABLE = [
     ("chamois", "Chamois", "Rupicapra rupicapra", "horse", ["mountain"], None),
     ("mountain_goat", "Mountain goat", "Oreamnos americanus", "horse", ["mountain"], None),
     ("bighorn_sheep", "Bighorn sheep", "Ovis canadensis", "horse", ["mountain"], None),
-    ("snow_leopard", "Snow leopard", "Panthera uncia", "fox", ["mountain"], None),
+    ("snow_leopard", "Snow leopard", "Panthera uncia", "big_cat", ["mountain"], None),
     ("marmot", "Alpine marmot", "Marmota marmota", "squirrel", ["mountain"], None),
     ("pika", "American pika", "Ochotona princeps", "mountain_hare", ["mountain"], None),
     ("walrus", "Walrus", "Odobenus rosmarus", "saimaa_seal", ["ice", "sea"], None),
@@ -202,9 +202,9 @@ TABLE = [
     ("lionfish", "Red lionfish", "Pterois volitans", "perch", ["reef"], None),
     ("reef_shark", "Blacktip reef shark", "Carcharhinus melanopterus", "reef_shark", ["reef"], None),
     # grasslands and savannas
-    ("lion", "Lion", "Panthera leo", "fox", ["savanna", "grassland"], None),
-    ("cheetah", "Cheetah", "Acinonyx jubatus", "fox", ["savanna", "grassland"], None),
-    ("leopard", "Leopard", "Panthera pardus", "fox", ["savanna", "forest", "rainforest"], None),
+    ("lion", "Lion", "Panthera leo", "big_cat", ["savanna", "grassland"], None),
+    ("cheetah", "Cheetah", "Acinonyx jubatus", "big_cat", ["savanna", "grassland"], None),
+    ("leopard", "Leopard", "Panthera pardus", "big_cat", ["savanna", "forest", "rainforest"], None),
     ("hyena", "Spotted hyena", "Crocuta crocuta", "fox", ["savanna"], None),
     ("african_wild_dog", "African wild dog", "Lycaon pictus", "fox", ["savanna"], None),
     ("zebra", "Plains zebra", "Equus quagga", "horse", ["savanna", "grassland"], None),
@@ -236,8 +236,8 @@ TABLE = [
     ("gila_monster", "Gila monster", "Heloderma suspectum", "lizard", ["desert"], None),
     ("thorny_devil", "Thorny devil", "Moloch horridus", "lizard", ["desert"], None),
     # rainforests and mangroves
-    ("jaguar", "Jaguar", "Panthera onca", "fox", ["rainforest"], None),
-    ("tiger", "Tiger", "Panthera tigris", "fox", ["forest", "rainforest", "mangrove"], None),
+    ("jaguar", "Jaguar", "Panthera onca", "big_cat", ["rainforest"], None),
+    ("tiger", "Tiger", "Panthera tigris", "big_cat", ["forest", "rainforest", "mangrove"], None),
     ("tapir", "Lowland tapir", "Tapirus terrestris", "moose", ["rainforest"], None),
     ("capybara", "Capybara", "Hydrochoerus hydrochaeris", "vole", ["rainforest", "wetland", "river"], None),
     ("giant_anteater", "Giant anteater", "Myrmecophaga tridactyla", "fox", ["grassland", "rainforest"], None),
@@ -284,13 +284,14 @@ TABLE = [
     ("snail", "Roman snail", "Helix pomatia", None, ["forest", "grassland"], "body_plan"),
 ]
 
-REFERENCES_ELSEWHERE = {"grass_snake", "harbour_porpoise", "peacock_butterfly"}  # models/examples/
+REFERENCES_ELSEWHERE = {"grass_snake", "harbour_porpoise", "peacock_butterfly", "big_cat"}  # models/examples/
 # The game animal whose file the maker shows as its example, when the model's
 # reference is a model only (no animals/<start>.json): the closest way of life.
 FILE_FROM = {
     "horse": "moose", "brown_bear": "fox", "common_crane": "mallard",
     "emperor_penguin": "mallard", "reef_shark": "pike", "grass_snake": "lizard",
     "harbour_porpoise": "saimaa_seal", "peacock_butterfly": "bee",
+    "big_cat": "fox",
 }
 
 

@@ -26,7 +26,7 @@ The edits file (every key but `id` and `name` is optional):
       "leg_thickness": 1.3,    # legs' width, not length
       "paws": 1.5,             # the lowest part of each leg
       "body_girth": 1.1,       # the body's width and depth
-      "tail_width": 0.7,
+      "tail_width": 0.7,       # 0.2-2.5, thinner than the other factors allow: a jaguar's tail from the fox's brush
       "neck": 2.0,             # the neck's length; the head moves with it
       "mane": 1.3,             # the mane's height (parts named mane_*)
       "bill": 1.5,             # a bird's bill (parts bill*): its length, from where it meets the head
@@ -43,7 +43,11 @@ Marks: ear_tufts, ruff, tail_tip, horns (a pair on the skull, colour `horn` or
 around the body, evenly spaced from behind the head to the tail: a clownfish's three white bars;
 `"bands": 1-5` and `"band_color"`, the name of a colour, default `band` or `dark`), spots (patches on the body
 and neck, colour `spot` or `dark`), hammer (a hammerhead shark's head, the eyes at its ends),
-spines (a hedgehog's coat of spikes over the back and sides, colour `spine` or `dark`).
+spines (a hedgehog's coat of spikes over the back and sides, colour `spine` or `dark`),
+rosettes (a jaguar's open rings: a dark ring round a patch of the coat's own colour, colour `spot` or
+`dark`), blotches (a snake's or a big lizard's patches, sized to the body's girth, not its length, so
+a long thin body gets many small ones along it), crest (one row of small spikes along the middle of the
+back, an iguana's, colour `spine` or `dark`).
 
 Factors are clamped to 0.4-2.5 (bill_depth to 4), so an edit can't break the body plan. Prints the
 new spec, or writes it with --out. Then build it: tools/build_model.sh.
@@ -54,7 +58,8 @@ import json
 import math
 import sys
 
-MARKS = ("ear_tufts", "ruff", "tail_tip", "horns", "stripes", "bands", "hammer", "spots", "spines")
+MARKS = ("ear_tufts", "ruff", "tail_tip", "horns", "stripes", "bands", "hammer", "spots", "spines",
+         "rosettes", "blotches", "crest")
 FACTORS = ("head", "muzzle", "ears", "leg_thickness", "paws", "body_girth", "tail_width", "neck", "mane",
            "bill", "bill_depth")
 
@@ -461,6 +466,12 @@ def add_marks(spec, marks, edits=None):
             add_hammer(spec)
         elif mark == "spines":
             add_spines(spec)
+        elif mark == "rosettes":
+            add_spots(spec, "rosettes")
+        elif mark == "blotches":
+            add_spots(spec, "blotches")
+        elif mark == "crest":
+            add_crest(spec)
 
 
 def melt_limit(spec):
@@ -561,19 +572,28 @@ def inside(p, point):
     return q < 1.0
 
 
-def add_spots(spec):
+def add_spots(spec, style="spots"):
     """Patches on the body and neck (a giraffe): small flat diamonds lying on the skin, kept as their
     own pieces (the skin is too coarse to carry patches). Rows along each part, offset like a net;
-    patches that would sit inside a neighbouring part are left out."""
+    patches that would sit inside a neighbouring part are left out.
+
+    style "rosettes": each patch is an open ring, a dark patch with a smaller one of the coat's own
+    colour lying on it (a jaguar). style "blotches": patches spaced by the body's girth, not its
+    length, so a snake's long thin body gets many along it instead of a few too big to see."""
     color = "spot" if "spot" in spec["colors"] else "dark"
     _, role = roles(spec)
     trunk = [p for p in spec["parts"] if not p.get("separate") and p["shape"] == "ball"
-             and role[p["name"]] in ("body", "neck") and not p["name"].startswith(("mane", "belly"))]
+             and role[p["name"]] in ("body", "neck", "spine") and not p["name"].startswith(("mane", "belly"))]
+    if not trunk:
+        raise ValueError(f"{style}: the reference has no body parts")
     line = {}
     for b in spec["bones"]:
         d = [b["tail"][i] - b["head"][i] for i in range(3)]
         n = math.sqrt(sum(c * c for c in d)) or 1.0
         line[b["name"]] = [c / n for c in d]
+    # round the body: six patches a row; a snake's blotches three, down each side and along the back
+    ANGLES = (-25, 90, 205) if style == "blotches" else (-40, 10, 60, 120, 170, 220)
+    SIZE = {"blotches": 0.6, "rosettes": 0.7}.get(style, 0.85)
     def place(period):
         spots = []
         for p in trunk:
@@ -584,7 +604,7 @@ def add_spots(spec):
             for r in range(rows):
                 t = (r + 0.5) / rows * 1.6 * half - 0.8 * half
                 s = math.sqrt(max(0.0, 1 - (t / half) ** 2))
-                for ang in (-40, 10, 60, 120, 170, 220):
+                for ang in ANGLES:
                     a = math.radians(ang + (25 if r % 2 else 0))
                     if math.sin(a) < -0.5:   # not under the belly
                         continue
@@ -602,16 +622,32 @@ def add_spots(spec):
                     at = [p["at"][i] + w[i] for i in range(3)]
                     if any(inside(q, at) for q in trunk if q is not p):
                         continue
-                    spots.append({"name": f"spot_{len(spots) + 1}", "shape": "ball",
-                                  "size": [period * 0.85, period * 0.05, period * 0.7],
+                    spots.append({"name": f"spot_{len(spots) + 1}", "shape": "ball", "_coat": p["color"],
+                                  "size": [period * SIZE, period * 0.05, period * SIZE * 0.82],
                                   "at": [at[i] + nw[i] * period * 0.01 for i in range(3)], "rot": facing(nw),
                                   "color": color, "bone": p["bone"], "separate": True, "detail": 0.3})
         return spots
-    period = body_length(spec) / 11
+    girth = sorted(sorted(p["size"])[1] for p in trunk)[len(trunk) // 2]   # a typical cross-section
+    period = girth * 1.5 if style == "blotches" else body_length(spec) / 11
+    limit = {"rosettes": 30, "blotches": 64}.get(style, 48)   # 8 triangles a piece: a large animal's budget
     spots = place(period)
-    while len(spots) > 48:   # 8 triangles each: keep them within a large animal's budget
+    while len(spots) > limit:
         period *= 1.15
         spots = place(period)
+    if style == "rosettes":
+        for sp in spots:
+            sp["detail"] = 0.6   # round rings, not diamonds
+        for i, sp in enumerate(list(spots)):
+            n = rotate(sp["rot"], [0, 1, 0])
+            spots.append(dict(sp, name=f"rosette_in_{i + 1}", color=sp["_coat"],   # the coat under the ring
+                              size=[sp["size"][0] * 0.55, sp["size"][1], sp["size"][2] * 0.55],
+                              at=[sp["at"][j] + n[j] * period * 0.03 for j in range(3)]))
+            sp["name"] = f"rosette_{i + 1}"
+    elif style == "blotches":
+        for i, sp in enumerate(spots):
+            sp["name"] = f"blotch_{i + 1}"
+    for sp in spots:
+        sp.pop("_coat", None)
     spec["parts"] += spots
     skin = spec.setdefault("skin", {})
     if isinstance(skin, dict):
@@ -664,6 +700,43 @@ def add_spines(spec):
     skin_opts = spec.setdefault("skin", {})
     if isinstance(skin_opts, dict):   # a few triangles each, on top of the body's own: a playable animal's budget
         skin_opts["triangles"] = min(1000, max(skin_opts.get("triangles", 1000), 500 + 6 * len(spines)))
+
+
+def add_crest(spec):
+    """An iguana's crest: one row of small spikes along the middle of the back, from behind the head
+    to the tail's base, tallest over the shoulders. Each stands on the outermost skin above the
+    body's centre line, as add_spines finds it, so none floats or hides inside."""
+    color = "spine" if "spine" in spec["colors"] else "dark"
+    _, role = roles(spec)
+    trunk = [p for p in spec["parts"] if not p.get("separate") and p["shape"] == "ball"
+             and role[p["name"]] in ("body", "neck", "spine") and not p["name"].startswith("belly")]
+    if not trunk:
+        raise ValueError("crest: the reference has no body parts")
+    z0 = min(p["at"][2] - p["size"][2] / 2 for p in trunk)
+    z1 = max(p["at"][2] + p["size"][2] / 2 for p in trunk)
+    top = max(p["at"][1] + p["size"][1] / 2 for p in trunk)
+    height = sorted(p["size"][1] for p in trunk)[len(trunk) // 2]
+    spikes, count = [], 13
+    for i in range(count):
+        z = z1 - (z1 - z0) * (0.08 + 0.84 * i / (count - 1))   # head end first
+        last = None
+        for k in range(201):   # down from above the back to the first skin
+            pt = [0.0, top + height * 0.1 - height * 2.0 * k / 200, z]
+            if any(inside(q, pt) for q in trunk):
+                last = pt
+                break
+        if last is None:
+            continue
+        length = height * (0.42 - 0.22 * i / (count - 1))   # tall at the shoulders, smaller to the tail
+        lean = [0.0, 1.0, -0.35]
+        n = math.sqrt(sum(c * c for c in lean))
+        lean = [c / n for c in lean]
+        owner = next(q for q in trunk if inside(q, last))
+        spikes.append({"name": f"crest_{len(spikes) + 1}", "shape": "cone",
+                       "size": [round(length * 0.18, 4), round(length, 4), round(length * 0.45, 4)],
+                       "at": [last[j] + lean[j] * length * 0.35 for j in range(3)], "rot": facing(lean),
+                       "color": color, "bone": owner["bone"], "separate": True, "detail": 0.4})
+    spec["parts"] += spikes
 
 
 def add_stripes(spec, bands=None, color="dark"):
@@ -805,7 +878,7 @@ def adapt(ref, edits):
     if "tail_m" in edits:
         tail_length(spec, float(edits["tail_m"]))
     if "tail_width" in edits:
-        tail_width(spec, clamp(edits["tail_width"]))
+        tail_width(spec, max(0.2, min(2.5, float(edits["tail_width"]))))   # a cat's thin tail from a fox's brush
     if "colors" in edits:
         spec["colors"].update(edits["colors"])
     for mark in edits.get("marks", []):

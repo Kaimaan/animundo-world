@@ -1,0 +1,24 @@
+{
+ "reference": "fox",
+ "id": "jaguar_example",
+ "name": "Jaguar (Panthera onca)",
+ "author": "Animundo team",
+ "length_m": 1.6,
+ "shoulder_m": 0.7,
+ "tail_m": 0.65,
+ "colors": {"fur": "#d4a04c", "belly": "#f3e6c8", "dark": "#2a1f14"},
+ "head": 1.25,
+ "muzzle": 0.5,
+ "ears": 0.55,
+ "leg_thickness": 1.6,
+ "paws": 1.5,
+ "body_girth": 1.05,
+ "tail_width": 0.3,
+ "marks": ["rosettes"],
+ "repaint": [
+  {"part": "fore_l", "color": "fur"}, {"part": "shin_l", "color": "fur"},
+  {"part": "wrist_l", "color": "fur"}, {"part": "hock_l", "color": "fur"},
+  {"part": "hand_l", "color": "fur"}, {"part": "foot_l", "color": "fur"},
+  {"part": "ear_l", "color": "fur"}, {"part": "ear_in_l", "color": "belly"}
+ ]
+}
