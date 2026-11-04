@@ -1796,6 +1796,31 @@
    "can_make": true
   },
   {
+   "id": "yellowfin_tuna",
+   "name": "Yellowfin tuna",
+   "latin": "Thunnus albacares",
+   "gbif_key": 2374013,
+   "start_from": "perch",
+   "file_from": "perch",
+   "habitats": [
+    "sea"
+   ],
+   "can_make": true
+  },
+  {
+   "id": "flying_fish",
+   "name": "Flying fish",
+   "latin": "Exocoetus volitans",
+   "gbif_key": 2368648,
+   "start_from": "roach",
+   "file_from": "roach",
+   "habitats": [
+    "sea"
+   ],
+   "can_make": true,
+   "shape": "new"
+  },
+  {
    "id": "swordfish",
    "name": "Swordfish",
    "latin": "Xiphias gladius",

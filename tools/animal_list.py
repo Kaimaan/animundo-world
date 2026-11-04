@@ -185,6 +185,8 @@ TABLE = [
     ("herring", "Atlantic herring", "Clupea harengus", "roach", ["sea"], None),
     ("mackerel", "Atlantic mackerel", "Scomber scombrus", "pike", ["sea"], None),
     ("tuna", "Atlantic bluefin tuna", "Thunnus thynnus", "perch", ["sea"], None),
+    ("yellowfin_tuna", "Yellowfin tuna", "Thunnus albacares", "perch", ["sea"], None),
+    ("flying_fish", "Flying fish", "Exocoetus volitans", "roach", ["sea"], None),
     ("swordfish", "Swordfish", "Xiphias gladius", "pike", ["sea"], None),
     ("moray_eel", "Green moray", "Gymnothorax funebris", "grass_snake", ["reef"], None),
     ("octopus", "Common octopus", "Octopus vulgaris", None, ["sea", "reef"], "body_plan"),
@@ -311,6 +313,7 @@ NEW_SHAPE = {
     "toucan", "hummingbird", "peacock", "roadrunner",
     "green_sea_turtle",              # a shell and four flippers
     "manta_ray",                     # a flat diamond with wing-like fins
+    "flying_fish",                   # pectoral fins as long as its body, spread like wings
     "humpback_whale",                # flippers a third of its length, a knobbly head
 }
 
