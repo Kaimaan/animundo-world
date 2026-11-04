@@ -4,7 +4,11 @@ Every place, animal and translation in [Animundo](https://animundo.app), a game 
 
 This repository is the game's **content**: small data files that anyone can write with the help of an AI assistant. The game's code is kept separately.
 
-Places can also be built by [Animundo Builder](https://github.com/Kaimaan/animundo-builder): a family picks a real place in the game, agents research it and build its animals, the family plays it and submits it, and the [builder bot](docs/builder-bot.md) opens a pull request here for a person to review.
+## Animundo Builder
+
+[Animundo Builder](https://github.com/Kaimaan/animundo-builder) grows the game's world from this repository. It reads a checkout of it at run time. Code makes plain land for each tile of the game's real-Earth grid from the homes and animals here. Where children reach the edge of the known world, agents on Meta's models research and build the new animals, plants and homes that are missing.
+
+The builder was written with Muse Code during the Meta Global AI Developer Hackathon (from Oct 26, 2026), and it is the hackathon entry. This repository is not: it existed before the event (first commit Oct 14, 2026). We changed it a lot during the event week too (new homes, reference models and checkers). That is ordinary product work by our team, written with Claude Code, and it isn't part of the entry. The history shows those changes.
 
 ## What's here
 
@@ -14,9 +18,9 @@ Places can also be built by [Animundo Builder](https://github.com/Kaimaan/animun
 | [`animals/`](animals/) | Animals: how they live, what they eat, how they spend the year, and what the game tells the player |
 | [`models/`](models/README.md) | What animals look like, as specs that Blender turns into 3D models |
 | [`locale/`](locale/) | All text in every language |
-| [`homes/`](homes/README.md) | Home templates: the land of one habitat, copied when a family asks for an animal |
-| [`animal-list.json`](tools/animal_list.py) | The animals a family can ask for in Animundo Builder, with GBIF IDs, starting models and habitats |
-| [`places.json`](tools/places.py) | The game's built places for Animundo Builder: names in English and Finnish, centre, Wikidata id and animals, from `regions/` |
+| [`homes/`](homes/README.md) | Home templates: the land of one habitat, which Animundo Builder uses to make tiles |
+| [`animal-list.json`](tools/animal_list.py) | The game's animals, with GBIF IDs, starting models and habitats; Animundo Builder picks each tile's animals from it |
+| [`places.json`](tools/places.py) | The game's built places: names in English and Finnish, centre, Wikidata id and animals, from `regions/` |
 | [`docs/animals-wanted.md`](docs/animals-wanted.md) | Animals and foods the game needs next |
 
 ## How to add something
