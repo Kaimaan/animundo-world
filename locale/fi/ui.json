@@ -83,6 +83,7 @@
   "ui.dig_tip": "Katso alas kaivaessasi, niin kaivat syvemmälle. Katso ylös, niin kaivat ylöspäin.",
   "ui.map_edge": "Tässä on kartan reuna toistaiseksi. Lisää maailmaa on tulossa!",
   "ui.border.unexplored": "Kukaan ei ole vielä tutkinut tätä pidemmälle. Tutkimusmatkailijat ovat tulossa tekemään sen!",
+  "ui.border.making": "Tämän takana tehdään uutta maata. Odota hetki tai seuraa valkoista nuolta takaisin!",
   "ui.border.open_sea": "Tästä eteenpäin on vain avomerta. Siellä ei ole maata tutkittavaksi.",
   "ui.border.sea_animals": "Avomeri: tänne pääsevät vain meren eläimet, kuten lokit ja hylkeet.",
   "ui.border.safe": "Tutkijat pelitavoissa Selviytyminen ja Villi pääsevät pidemmälle. Valitse jompikumpi, niin autat tekemään tätä maata!",
