@@ -1,0 +1,86 @@
+{
+  "archetype": "land_mammal",
+  "latin": "Ornithorhynchus anatinus",
+  "taxon": {
+    "gbif_key": 2433376,
+    "rank": "SPECIES",
+    "name": "Ornithorhynchus anatinus"
+  },
+  "playable": true,
+  "color": "#4A3226",
+  "tags": [
+    "mammal"
+  ],
+  "diet": [
+    "water_bugs",
+    "bottom_bugs"
+  ],
+  "hunts": [],
+  "digs": true,
+  "territorial": false,
+  "dark_vision": 0.5,
+  "rain_chill": 0.2,
+  "breath": 75,
+  "walk": 1.2,
+  "sprint": 3.0,
+  "box": [
+    0.5,
+    0.18,
+    0.22
+  ],
+  "food_value": 25,
+  "model": {
+    "file": "res://assets/animals/platypus.glb",
+    "length": 0.43,
+    "yaw": 0.0,
+    "anims": {
+      "idle": "idle",
+      "walk": "walk",
+      "run": "run",
+      "eat": "eat",
+      "sleep": "sleep"
+    }
+  },
+  "year": {
+    "winter": "active",
+    "shelter": "It rests in a burrow in the river bank. The burrow stays cool and calm.",
+    "young": "It lays two tiny eggs in a burrow in the river bank. The babies hatch, drink milk and stay inside until they can swim.",
+    "food": {
+      "spring": "It finds small water animals on the river bottom through the year.",
+      "summer": "It finds small water animals on the river bottom through the year.",
+      "autumn": "It finds small water animals on the river bottom through the year.",
+      "winter": "It finds small water animals on the river bottom through the year."
+    }
+  },
+  "sources": [
+    "https://australian.museum/learn/animals/mammals/platypus/",
+    "https://en.wikipedia.org/wiki/Platypus"
+  ],
+  "text": {
+    "title": "Platypus",
+    "menu_sub": "a shy river swimmer with a duck bill",
+    "menu_wild": "Swim and dive in the river. Scoop food from the mud!",
+    "night_hint": "It is dark and quiet. You can still swim and rest in your burrow.",
+    "too_exposed": "You are out in the open. Find the river or your burrow to feel safe.",
+    "sheltered": "You are safe in your cool burrow. The water hums nearby.",
+    "hungry": "You are hungry. Slip into the water and sift for small river food.",
+    "no_food": "No food here. Try the soft mud on the river bottom.",
+    "rain_start": "Rain patters on the river. The water is cool and fresh.",
+    "rain_stop": "The rain has stopped. The river is calm again.",
+    "intro_safe": "You are a platypus. You glide in the river and rest in your bank burrow.",
+    "intro_survival": "You are a platypus. Find food on the river bottom and keep your burrow safe.",
+    "intro_wild": "You are a wild platypus. Dive, sift the mud and swim home to your burrow.",
+    "dig": "Digging... Your burrow keeps you cool and calm.",
+    "about_looks": "Dark brown fur with a pale belly, a wide flat bill like a duck, a broad flat furry tail and webbed front feet for swimming.",
+    "about_food": "It sifts the river bottom for tiny water animals like shrimp, caddisfly babies and worms.",
+    "about_home": "It lives by rivers and rainforest streams. It rests in a cool burrow dug into the river bank.",
+    "about_winter": "It stays awake all year. It swims and finds food even in cold months.",
+    "about_young": "It lays two tiny eggs in a burrow in the bank. The babies hatch, drink milk and stay inside until they can swim.",
+    "about_fact": "It is a mammal that lays eggs. Its bill feels the tiny wiggles of small animals hiding in the mud."
+  },
+  "shelter": "shore",
+  "diving_mammal": true,
+  "swim_speed": 2.4,
+  "swim_sprint_speed": 3.6,
+  "water_chill": 0
+}

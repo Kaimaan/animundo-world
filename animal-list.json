@@ -435,7 +435,8 @@
     "rainforest"
    ],
    "can_make": true,
-   "shape": "new"
+   "shape": "new",
+   "in_library": "platypus"
   },
   {
    "id": "reindeer",
