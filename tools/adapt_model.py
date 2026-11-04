@@ -646,6 +646,7 @@ def add_spots(spec, style="spots"):
     elif style == "blotches":
         for i, sp in enumerate(spots):
             sp["name"] = f"blotch_{i + 1}"
+            sp["detail"] = 0.6   # round patches lying on the skin; at 0.3 they stood up like dark spikes
     for sp in spots:
         sp.pop("_coat", None)
     spec["parts"] += spots
