@@ -75,6 +75,7 @@ WATER_LEVEL = 8      # every biome on the grid shares one water level (spec 02 P
 BIOME_NOTES = ("id", "name", "country", "about", "based_on", "author", "retired")
 OPEN_SEA = "open_sea"   # the biome of every open-ocean cell (game proposal 0047)
 REEF_CELLS = 16   # a terrain.reef_mask's cells a side (builder #255, TileSides.REEF_CELLS)
+REEF_FISH = 0.1   # an open-sea tile with this much reef has all the reef's fish, fewer with less (Tile.REEF_FISH)
 REEF_BIOME = "coral_reef"   # whose corals grow on another tile's reef_mask patches (Tile.REEF_BIOME)
 MAX_SKERRIES = 12
 SHOAL = 8            # fish of a schooling kind in an open-sea tile; others come in twos
@@ -213,7 +214,8 @@ def _reef_plants(d, open_sea):
 
 def _open_sea(d, tile):
     """An open-sea tile (0047, Tile._open_sea): skerries from the real cell's land
-    share, and the tile's fish as shoals in the open water."""
+    share, the tile's fish as shoals in the open water, and where its reef_mask
+    has reef, the reef's own fish."""
     per = float(d["terrain"].get("skerries", 0.0))
     d["skerries"] = min(int(math.floor(float(tile.get("land_share", 0.0)) * 100.0 * per + 0.5)), MAX_SKERRIES)   # roundi
     fish = []
@@ -221,6 +223,12 @@ def _open_sea(d, tile):
         own = _animal(kind)
         if own.get("archetype") == "fish" and kind not in [f["kind"] for f in fish]:
             fish.append({"kind": kind, "count": SHOAL if own.get("school") else 2})
+    reef = float(d.get("terrain", {}).get("reef", 0.0))
+    if reef > 0.0:   # where its reef_mask has reef, the reef's own fish swim
+        for e in layers.resolve(read_biome(REEF_BIOME)).get("fish", []):
+            if isinstance(e, dict) and str(e.get("kind", "")) not in [f["kind"] for f in fish]:
+                n = float(e.get("count", 1)) * min(1.0, reef / REEF_FISH)
+                fish.append({"kind": str(e["kind"]), "count": max(1, int(math.floor(n + 0.5)))})   # roundi
     d["fish"] = fish
 
 

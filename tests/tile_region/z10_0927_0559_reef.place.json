@@ -84,7 +84,28 @@
   "lilies": 0,
   "pondweed": 0
  },
- "fish": [],
+ "fish": [
+  {
+   "kind": "clownfish",
+   "count": 4
+  },
+  {
+   "kind": "blue_tang",
+   "count": 3
+  },
+  {
+   "kind": "butterflyfish",
+   "count": 3
+  },
+  {
+   "kind": "lionfish",
+   "count": 1
+  },
+  {
+   "kind": "reef_shark",
+   "count": 1
+  }
+ ],
  "migrants": [],
  "animals": {
   "playable": [
