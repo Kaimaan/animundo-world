@@ -756,5 +756,7 @@
   "animal.platypus.about_home": "Se elää jokien ja sademetsän purojen luona. Se lepää viileässä kolossa, jonka se kaivaa joen törmään.",
   "animal.platypus.about_winter": "Se on hereillä koko vuoden. Se ui ja löytää ruokaa kylminäkin kuukausina.",
   "animal.platypus.about_young": "Se munii kaksi pientä munaa koloon törmässä. Poikaset kuoriutuvat, juovat maitoa ja pysyvät sisällä, kunnes osaavat uida.",
-  "animal.platypus.about_fact": "Se on nisäkäs, joka munii. Sen nokka tuntee mudassa piiloutuvien pikkueläinten pienet liikkeet."
+  "animal.platypus.about_fact": "Se on nisäkäs, joka munii. Sen nokka tuntee mudassa piiloutuvien pikkueläinten pienet liikkeet.",
+  "animal.yellowfin_tuna.map_name": "Keltaevätonnikala",
+  "animal.flying_fish.map_name": "Lentokala"
 }
