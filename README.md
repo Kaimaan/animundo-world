@@ -42,4 +42,5 @@ Everything should follow the [art guide](ART.md), so the game looks like one wor
 ## Licence
 
 - © Kai Lemmetty (Animundo). The repository is open source under the [Apache License 2.0](LICENSE). Third-party data in it stays under its own licence (below).
+- The 3D models made by Animundo, the specs in `models/` and the `.glb` files built from them in `assets/`, are also free under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) (see [LICENSE-models.md](LICENSE-models.md)). Credit them as "<Animal> by Animundo (animundo.app), CC BY 4.0". Each animal's model can be downloaded from its page at [animundo.app/animals/](https://animundo.app/animals/).
 - Facts come from the sources cited in each file; map data from OpenStreetMap is © OpenStreetMap contributors, under the [ODbL](https://opendatacommons.org/licenses/odbl/); habitats come from RESOLVE Ecoregions 2017 (Dinerstein et al. 2017), under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
